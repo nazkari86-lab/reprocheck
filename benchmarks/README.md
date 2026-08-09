@@ -20,7 +20,7 @@ integrity, tamper detection, and invalid-input rejection.
 
 The checked-in per-release baseline is a deterministic smoke benchmark, not
 evidence of real-world accuracy. CI compares the complete deterministic summary
-with `baseline-v0.8.3.json` rather than accepting a console success message.
+with `baseline-v0.8.4.json` rather than accepting a console success message.
 
 ## Frozen public artifacts
 

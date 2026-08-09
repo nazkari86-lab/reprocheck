@@ -147,7 +147,7 @@ summarized in [`docs/RELEASE_0.6.md`](docs/RELEASE_0.6.md); the narrow post-hold
 [`docs/RELEASE_0.8.md`](docs/RELEASE_0.8.md). Publication metadata changes are
 listed in [`docs/RELEASE_0.8.1.md`](docs/RELEASE_0.8.1.md) and
 [`docs/RELEASE_0.8.2.md`](docs/RELEASE_0.8.2.md) through
-[`docs/RELEASE_0.8.3.md`](docs/RELEASE_0.8.3.md), and all immutable
+[`docs/RELEASE_0.8.4.md`](docs/RELEASE_0.8.4.md), and all immutable
 commands are indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
 
 ## Frozen real-artifact evidence

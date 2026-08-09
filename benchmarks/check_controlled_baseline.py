@@ -8,7 +8,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parent
 DEFAULT_RESULT = ROOT.parent / "outputs" / "benchmark.json"
-DEFAULT_BASELINE = ROOT / "baseline-v0.8.3.json"
+DEFAULT_BASELINE = ROOT / "baseline-v0.8.4.json"
 
 
 def _load(path: Path) -> dict[str, Any]:
