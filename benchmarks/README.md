@@ -22,6 +22,22 @@ The checked-in per-release baseline is a deterministic smoke benchmark, not
 evidence of real-world accuracy. CI compares the complete deterministic summary
 with `baseline-v0.15.0.json` rather than accepting a console success message.
 
+## Expanded integrity and robustness experiments
+
+Run `make expanded-experiments` for four separately scoped studies:
+
+- nine certificate/graph/signature mutation families at three attacker levels;
+- eight corruptions derived from Iris, Diabetes, and YOLO artifacts plus three
+  clean controls;
+- thirteen declared numerical representation cases;
+- five end-to-end repeats at 10, 100, and 1,000 report claims.
+
+The protocol and runner files were committed before the first recorded results
+and are protected by `experiment-design-v1.lock.json`. Exact deterministic
+results and the timing-free scalability projection are protected by
+`expanded-results-v1.lock.json`. See `docs/EXPANDED_EXPERIMENTS.md` for results
+and the important unsigned full-rehash boundary.
+
 ## Controlled lexical near-duplicates
 
 Run `make near-duplicate-benchmark` to evaluate the legacy token Jaccard method

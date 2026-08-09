@@ -124,6 +124,12 @@ reprocheck verify \
 reprocheck ablation --output outputs/rknp-ablation.json
 ```
 
+Расширенный набор integrity/corruption/representation/scalability заранее
+проверяется командой `make expanded-experiments`. На основной защите показывать
+только один результат из него: три семантические подмены проходят после полного
+пересчета unsigned hashes, а доверенная Ed25519 signature обнаруживает 9/9.
+Это демонстрирует понимание границы криптографической модели.
+
 Если live demo нестабилен, использовать заранее сохраненный HTML/скриншот, но
 не выдавать его за запуск в реальном времени.
 

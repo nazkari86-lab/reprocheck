@@ -72,6 +72,7 @@ reprocheck graph --certificate outputs/demo-audit.json --output outputs/demo-gra
 reprocheck check examples/reprocheck.json --output-dir outputs/project --html
 reprocheck benchmark
 reprocheck ablation
+make expanded-experiments
 reprocheck study --corpus benchmarks/real_artifacts
 reprocheck review-prepare --corpus benchmarks/holdout_v07_artifacts
 reprocheck serve
@@ -319,6 +320,9 @@ story and defense materials are in
 [`docs/RKNP_DEFENSE_RU.md`](docs/RKNP_DEFENSE_RU.md); authorship and AI assistance
 must be recorded honestly using
 [`docs/AUTHORSHIP_AND_AI_RU.md`](docs/AUTHORSHIP_AND_AI_RU.md).
+The additional integrity, real-corruption, representation, and scalability
+studies are reported in
+[`docs/EXPANDED_EXPERIMENTS.md`](docs/EXPANDED_EXPERIMENTS.md).
 
 ## Evidence-layer ablation
 

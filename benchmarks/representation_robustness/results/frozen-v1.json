@@ -1,0 +1,236 @@
+{
+  "cases": [
+    {
+      "actual": [
+        [
+          "accuracy",
+          0.94
+        ]
+      ],
+      "expected": [
+        [
+          "accuracy",
+          0.94
+        ]
+      ],
+      "id": "decimal",
+      "out_of_scope_reason": null,
+      "passed": true
+    },
+    {
+      "actual": [
+        [
+          "accuracy",
+          0.94
+        ]
+      ],
+      "expected": [
+        [
+          "accuracy",
+          0.94
+        ]
+      ],
+      "id": "percent",
+      "out_of_scope_reason": null,
+      "passed": true
+    },
+    {
+      "actual": [
+        [
+          "f1",
+          0.91
+        ]
+      ],
+      "expected": [
+        [
+          "f1",
+          0.91
+        ]
+      ],
+      "id": "decimal_comma",
+      "out_of_scope_reason": null,
+      "passed": true
+    },
+    {
+      "actual": [
+        [
+          "rmse",
+          0.0012
+        ]
+      ],
+      "expected": [
+        [
+          "rmse",
+          0.0012
+        ]
+      ],
+      "id": "scientific",
+      "out_of_scope_reason": null,
+      "passed": true
+    },
+    {
+      "actual": [
+        [
+          "r2",
+          -0.25
+        ]
+      ],
+      "expected": [
+        [
+          "r2",
+          -0.25
+        ]
+      ],
+      "id": "negative",
+      "out_of_scope_reason": null,
+      "passed": true
+    },
+    {
+      "actual": [
+        [
+          "accuracy",
+          0.94
+        ]
+      ],
+      "expected": [
+        [
+          "accuracy",
+          0.94
+        ]
+      ],
+      "id": "russian",
+      "out_of_scope_reason": null,
+      "passed": true
+    },
+    {
+      "actual": [
+        [
+          "accuracy",
+          0.94
+        ],
+        [
+          "f1",
+          0.91
+        ]
+      ],
+      "expected": [
+        [
+          "accuracy",
+          0.94
+        ],
+        [
+          "f1",
+          0.91
+        ]
+      ],
+      "id": "markdown_table",
+      "out_of_scope_reason": null,
+      "passed": true
+    },
+    {
+      "actual": [
+        [
+          "accuracy",
+          0.94
+        ]
+      ],
+      "expected": [
+        [
+          "accuracy",
+          0.94
+        ]
+      ],
+      "id": "html_table",
+      "out_of_scope_reason": null,
+      "passed": true
+    },
+    {
+      "actual": [
+        [
+          "top1_accuracy",
+          0.7140000000000001
+        ],
+        [
+          "top5_accuracy",
+          0.9009999999999999
+        ]
+      ],
+      "expected": [
+        [
+          "top1_accuracy",
+          0.714
+        ],
+        [
+          "top5_accuracy",
+          0.901
+        ]
+      ],
+      "id": "topk_table",
+      "out_of_scope_reason": null,
+      "passed": true
+    },
+    {
+      "actual": [
+        [
+          "map50_95",
+          0.41
+        ],
+        [
+          "map50",
+          0.62
+        ],
+        [
+          "map75",
+          0.38
+        ]
+      ],
+      "expected": [
+        [
+          "map50_95",
+          0.41
+        ],
+        [
+          "map50",
+          0.62
+        ],
+        [
+          "map75",
+          0.38
+        ]
+      ],
+      "id": "detection_prose",
+      "out_of_scope_reason": null,
+      "passed": true
+    },
+    {
+      "actual": [],
+      "expected": [],
+      "id": "parameter_negative_control",
+      "out_of_scope_reason": null,
+      "passed": true
+    },
+    {
+      "actual": [],
+      "expected": [],
+      "id": "non_numeric_negative_control",
+      "out_of_scope_reason": null,
+      "passed": true
+    },
+    {
+      "actual": [],
+      "expected": [],
+      "id": "spelled_number_out_of_scope",
+      "out_of_scope_reason": "word-to-number semantic parsing is not implemented",
+      "passed": true
+    }
+  ],
+  "schema": "reprocheck.representation-result.v1",
+  "scientific_boundary": "Author-designed representation capability matrix, not a natural-language population sample.",
+  "summary": {
+    "all_declared_expectations_accuracy": 1.0,
+    "in_scope_cases": 12,
+    "in_scope_exact_case_accuracy": 1.0,
+    "total_cases": 13
+  },
+  "tool_version": "0.15.0"
+}

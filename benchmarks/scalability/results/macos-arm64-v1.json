@@ -1,0 +1,62 @@
+{
+  "cases": [
+    {
+      "certificate_bytes": 22478,
+      "declared_claims": 10,
+      "exact_claim_count_all_repeats": true,
+      "graph_edges": 51,
+      "graph_nodes": 32,
+      "max_wall_ms": 10.369792,
+      "median_wall_ms": 6.958417,
+      "min_wall_ms": 6.837959,
+      "repeats": 5,
+      "structural_result_stable": true,
+      "valid_certificate_all_repeats": true
+    },
+    {
+      "certificate_bytes": 207418,
+      "declared_claims": 100,
+      "exact_claim_count_all_repeats": true,
+      "graph_edges": 501,
+      "graph_nodes": 302,
+      "max_wall_ms": 65.441209,
+      "median_wall_ms": 62.827291,
+      "min_wall_ms": 60.94525,
+      "repeats": 5,
+      "structural_result_stable": true,
+      "valid_certificate_all_repeats": true
+    },
+    {
+      "certificate_bytes": 2069265,
+      "declared_claims": 1000,
+      "exact_claim_count_all_repeats": true,
+      "graph_edges": 5001,
+      "graph_nodes": 3002,
+      "max_wall_ms": 667.129708,
+      "median_wall_ms": 664.153083,
+      "min_wall_ms": 644.770959,
+      "repeats": 5,
+      "structural_result_stable": true,
+      "valid_certificate_all_repeats": true
+    }
+  ],
+  "environment": {
+    "platform": "macOS-26.2-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python": "3.14.5"
+  },
+  "schema": "reprocheck.scalability-result.v1",
+  "scientific_boundary": "Synthetic scaling curve; deterministic structural outcomes are gated, while wall times are descriptive and environment-dependent.",
+  "summary": {
+    "all_certificates_valid": true,
+    "all_claim_counts_exact": true,
+    "all_structural_results_stable": true,
+    "repeats_per_size": 5,
+    "sizes": [
+      10,
+      100,
+      1000
+    ]
+  },
+  "tool_version": "0.15.0"
+}

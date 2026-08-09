@@ -1,0 +1,11 @@
+{
+  "schema": "reprocheck.expanded-results-lock.v1",
+  "design_commit": "f244e88205ee1ec9d1d0aeb523060d73c91b953c",
+  "first_frozen_run": {
+    "benchmarks/integrity_stress/results/frozen-v1.json": "1aacf121657589453896307cee3ff64d8b79133de628cff9714c6887ff6e5c13",
+    "benchmarks/real_corruptions/results/frozen-v1.json": "2f07fb58f453d2a655c12d6d28f45c607f3dd6f11e003591cd7d43eadbe561fc",
+    "benchmarks/representation_robustness/results/frozen-v1.json": "2310154dc169ddbb497bfe7ff2797b3cbe54144f2feb5f1532981b7f9def785b",
+    "benchmarks/scalability/results/macos-arm64-v1.json": "3895037dd4cca4dc06ef158c51a1b1de460b8f6a25120206391f5074cf9c7ef5"
+  },
+  "timing_boundary": "The macOS scalability timing is archival and environment-specific; regression gates compare deterministic structure, not exact milliseconds."
+}

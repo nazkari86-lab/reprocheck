@@ -1,0 +1,141 @@
+{
+  "cases": [
+    {
+      "actual_codes": [],
+      "domain": "iris",
+      "expected_code": null,
+      "id": "iris_clean",
+      "passed": true,
+      "unexpected_codes": []
+    },
+    {
+      "actual_codes": [],
+      "domain": "diabetes",
+      "expected_code": null,
+      "id": "diabetes_clean",
+      "passed": true,
+      "unexpected_codes": []
+    },
+    {
+      "actual_codes": [],
+      "domain": "yolo",
+      "expected_code": null,
+      "id": "yolo_clean",
+      "passed": true,
+      "unexpected_codes": []
+    },
+    {
+      "actual_codes": [
+        "claim_metric_mismatch"
+      ],
+      "domain": "iris",
+      "expected_code": "claim_metric_mismatch",
+      "id": "iris_report_claim",
+      "passed": true,
+      "unexpected_codes": []
+    },
+    {
+      "actual_codes": [
+        "metric_evidence_conflict",
+        "metric_evidence_conflict",
+        "metric_evidence_conflict",
+        "metric_evidence_conflict",
+        "claim_metric_mismatch",
+        "claim_metric_mismatch",
+        "claim_metric_mismatch",
+        "claim_metric_mismatch"
+      ],
+      "domain": "iris",
+      "expected_code": "metric_evidence_conflict",
+      "id": "iris_predictions",
+      "passed": true,
+      "unexpected_codes": [
+        "claim_metric_mismatch"
+      ]
+    },
+    {
+      "actual_codes": [
+        "exact_split_overlap"
+      ],
+      "domain": "iris",
+      "expected_code": "exact_split_overlap",
+      "id": "iris_split_overlap",
+      "passed": true,
+      "unexpected_codes": []
+    },
+    {
+      "actual_codes": [
+        "metric_evidence_conflict"
+      ],
+      "domain": "iris",
+      "expected_code": "metric_evidence_conflict",
+      "id": "iris_supplied_metric",
+      "passed": true,
+      "unexpected_codes": []
+    },
+    {
+      "actual_codes": [
+        "claim_metric_mismatch"
+      ],
+      "domain": "diabetes",
+      "expected_code": "claim_metric_mismatch",
+      "id": "diabetes_report_claim",
+      "passed": true,
+      "unexpected_codes": []
+    },
+    {
+      "actual_codes": [
+        "metric_evidence_conflict",
+        "metric_evidence_conflict",
+        "metric_evidence_conflict",
+        "claim_metric_mismatch",
+        "claim_metric_mismatch",
+        "claim_metric_mismatch"
+      ],
+      "domain": "diabetes",
+      "expected_code": "metric_evidence_conflict",
+      "id": "diabetes_predictions",
+      "passed": true,
+      "unexpected_codes": [
+        "claim_metric_mismatch"
+      ]
+    },
+    {
+      "actual_codes": [
+        "claim_metric_mismatch"
+      ],
+      "domain": "yolo",
+      "expected_code": "claim_metric_mismatch",
+      "id": "yolo_report_claim",
+      "passed": true,
+      "unexpected_codes": []
+    },
+    {
+      "actual_codes": [
+        "metric_evidence_conflict",
+        "metric_evidence_conflict",
+        "metric_evidence_conflict",
+        "claim_metric_mismatch",
+        "claim_metric_mismatch",
+        "claim_metric_mismatch"
+      ],
+      "domain": "yolo",
+      "expected_code": "metric_evidence_conflict",
+      "id": "yolo_detections",
+      "passed": true,
+      "unexpected_codes": [
+        "claim_metric_mismatch"
+      ]
+    }
+  ],
+  "schema": "reprocheck.real-corruptions-result.v1",
+  "scientific_boundary": "Real source-derived artifacts with controlled mutations; mutation selection and labels are author-designed development evidence, not a natural corruption sample.",
+  "summary": {
+    "corruption_detection_sensitivity": 1.0,
+    "corruptions": 8,
+    "negative_control_specificity": 1.0,
+    "negative_controls": 3,
+    "unexpected_finding_count": 3
+  },
+  "tool_version": "0.15.0"
+}

@@ -3,7 +3,7 @@ UV_VERSION ?= 0.12.1
 LOCKED_DEV_REQUIREMENTS ?= /tmp/reprocheck-dev-lock.txt
 LOCKED_RUNTIME_REQUIREMENTS ?= /tmp/reprocheck-runtime-lock.txt
 
-.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo rknp-demo serve
+.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo rknp-demo serve
 
 install:
 	python3 -m pip install --quiet uv==$(UV_VERSION)
@@ -42,6 +42,14 @@ benchmark:
 evidence-ablation:
 	python3 -m reprocheck.cli ablation --output outputs/evidence-ablation.json
 	python3 benchmarks/evidence_ablation/check_baseline.py --result outputs/evidence-ablation.json
+
+expanded-experiments:
+	python3 benchmarks/check_experiment_design_lock.py
+	python3 benchmarks/integrity_stress/run_benchmark.py --output outputs/integrity-stress.json
+	python3 benchmarks/representation_robustness/run_benchmark.py --output outputs/representation-robustness.json
+	python3 benchmarks/real_corruptions/run_benchmark.py --output outputs/real-corruptions.json
+	python3 benchmarks/scalability/run_benchmark.py --output outputs/scalability.json
+	python3 benchmarks/check_expanded_results.py
 
 near-duplicate-benchmark:
 	python3 benchmarks/near_duplicate/run_benchmark.py --output outputs/near-duplicate-benchmark.json
@@ -109,7 +117,7 @@ external-regenerate:
 build:
 	SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) python3 -m build
 
-gate: lock-check lint type coverage benchmark evidence-ablation near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
+gate: lock-check lint type coverage benchmark evidence-ablation expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
 
 demo:
 	python3 -m reprocheck.cli demo

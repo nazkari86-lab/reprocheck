@@ -131,6 +131,19 @@ claims. Слабый inline-regex baseline нашел 8/40, но format-aware ba
 нашел 40/40. Следовательно, parser на этом корпусе не превосходит сильный
 форматно-специализированный baseline и не является главным научным вкладом.
 
+### 4. Дополнительная проверка границ метода
+
+После фиксации protocol/runner файлов отдельным commit проведены четыре
+controlled studies. Девять mutation families показали различие checksum,
+внутренних graph digests и Ed25519: при полном пересчете незашифрованных hashes
+три семантические подмены проходят unsigned verification, но исходная подпись
+обнаруживает 9/9 изменений. На source-derived Iris, Diabetes и YOLO artifacts
+обнаружены 8/8 контролируемых corruptions при сохранении 3/3 clean controls.
+Representation matrix прошла 12/12 in-scope cases. В scalability study все 15
+запусков для 10, 100 и 1000 claims сохранили точное число claims и валидный
+certificate. Эти результаты расширяют capability coverage, но остаются
+author-designed evidence и не заменяют внешнюю проверку.
+
 ## Что результат доказывает и не доказывает
 
 **Поддерживается текущими данными:** добавление первичных артефактов расширило

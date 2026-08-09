@@ -1,0 +1,265 @@
+{
+  "cases": [
+    {
+      "fully_rehashed": {
+        "errors": [],
+        "signature_detected": true,
+        "unsigned_detected": false
+      },
+      "mutation": "node_label",
+      "outer_resealed": {
+        "errors": [
+          "evidence graph node digest mismatch at index 7",
+          "evidence graph digest does not match its payload"
+        ],
+        "graph_detected": true,
+        "signature_detected": true
+      },
+      "raw": {
+        "certificate_detected": true,
+        "errors": [
+          "certificate checksum does not match its payload",
+          "evidence graph node digest mismatch at index 7",
+          "evidence graph digest does not match its payload"
+        ],
+        "signature_detected": true
+      },
+      "semantic_only": true
+    },
+    {
+      "fully_rehashed": {
+        "errors": [],
+        "signature_detected": true,
+        "unsigned_detected": false
+      },
+      "mutation": "node_attribute",
+      "outer_resealed": {
+        "errors": [
+          "evidence graph node digest mismatch at index 7",
+          "evidence graph digest does not match its payload"
+        ],
+        "graph_detected": true,
+        "signature_detected": true
+      },
+      "raw": {
+        "certificate_detected": true,
+        "errors": [
+          "certificate checksum does not match its payload",
+          "evidence graph node digest mismatch at index 7",
+          "evidence graph digest does not match its payload"
+        ],
+        "signature_detected": true
+      },
+      "semantic_only": true
+    },
+    {
+      "fully_rehashed": {
+        "errors": [],
+        "signature_detected": true,
+        "unsigned_detected": false
+      },
+      "mutation": "edge_relation",
+      "outer_resealed": {
+        "errors": [
+          "evidence graph edge digest mismatch at index 7",
+          "evidence graph digest does not match its payload"
+        ],
+        "graph_detected": true,
+        "signature_detected": true
+      },
+      "raw": {
+        "certificate_detected": true,
+        "errors": [
+          "certificate checksum does not match its payload",
+          "evidence graph edge digest mismatch at index 7",
+          "evidence graph digest does not match its payload"
+        ],
+        "signature_detected": true
+      },
+      "semantic_only": true
+    },
+    {
+      "fully_rehashed": {
+        "errors": [
+          "duplicate evidence graph node id: experiment:0"
+        ],
+        "signature_detected": true,
+        "unsigned_detected": true
+      },
+      "mutation": "duplicate_node",
+      "outer_resealed": {
+        "errors": [
+          "duplicate evidence graph node id: experiment:0",
+          "evidence graph digest does not match its payload"
+        ],
+        "graph_detected": true,
+        "signature_detected": true
+      },
+      "raw": {
+        "certificate_detected": true,
+        "errors": [
+          "certificate checksum does not match its payload",
+          "duplicate evidence graph node id: experiment:0",
+          "evidence graph digest does not match its payload"
+        ],
+        "signature_detected": true
+      },
+      "semantic_only": false
+    },
+    {
+      "fully_rehashed": {
+        "errors": [
+          "duplicate evidence graph edge at index 8"
+        ],
+        "signature_detected": true,
+        "unsigned_detected": true
+      },
+      "mutation": "duplicate_edge",
+      "outer_resealed": {
+        "errors": [
+          "duplicate evidence graph edge at index 8",
+          "evidence graph digest does not match its payload"
+        ],
+        "graph_detected": true,
+        "signature_detected": true
+      },
+      "raw": {
+        "certificate_detected": true,
+        "errors": [
+          "certificate checksum does not match its payload",
+          "duplicate evidence graph edge at index 8",
+          "evidence graph digest does not match its payload"
+        ],
+        "signature_detected": true
+      },
+      "semantic_only": false
+    },
+    {
+      "fully_rehashed": {
+        "errors": [
+          "evidence graph edge references an unknown node at index 0"
+        ],
+        "signature_detected": true,
+        "unsigned_detected": true
+      },
+      "mutation": "unknown_endpoint",
+      "outer_resealed": {
+        "errors": [
+          "evidence graph edge digest mismatch at index 0",
+          "evidence graph edge references an unknown node at index 0",
+          "evidence graph digest does not match its payload"
+        ],
+        "graph_detected": true,
+        "signature_detected": true
+      },
+      "raw": {
+        "certificate_detected": true,
+        "errors": [
+          "certificate checksum does not match its payload",
+          "evidence graph edge digest mismatch at index 0",
+          "evidence graph edge references an unknown node at index 0",
+          "evidence graph digest does not match its payload"
+        ],
+        "signature_detected": true
+      },
+      "semantic_only": false
+    },
+    {
+      "fully_rehashed": {
+        "errors": [
+          "evidence graph root must be an experiment node"
+        ],
+        "signature_detected": true,
+        "unsigned_detected": true
+      },
+      "mutation": "invalid_root_kind",
+      "outer_resealed": {
+        "errors": [
+          "evidence graph root must be an experiment node",
+          "evidence graph digest does not match its payload"
+        ],
+        "graph_detected": true,
+        "signature_detected": true
+      },
+      "raw": {
+        "certificate_detected": true,
+        "errors": [
+          "certificate checksum does not match its payload",
+          "evidence graph root must be an experiment node",
+          "evidence graph digest does not match its payload"
+        ],
+        "signature_detected": true
+      },
+      "semantic_only": false
+    },
+    {
+      "fully_rehashed": {
+        "errors": [
+          "evidence graph contains nodes disconnected from its root"
+        ],
+        "signature_detected": true,
+        "unsigned_detected": true
+      },
+      "mutation": "disconnected_node",
+      "outer_resealed": {
+        "errors": [
+          "evidence graph contains nodes disconnected from its root",
+          "evidence graph digest does not match its payload"
+        ],
+        "graph_detected": true,
+        "signature_detected": true
+      },
+      "raw": {
+        "certificate_detected": true,
+        "errors": [
+          "certificate checksum does not match its payload",
+          "evidence graph contains nodes disconnected from its root",
+          "evidence graph digest does not match its payload"
+        ],
+        "signature_detected": true
+      },
+      "semantic_only": false
+    },
+    {
+      "fully_rehashed": {
+        "errors": [
+          "evidence graph contains a directed cycle"
+        ],
+        "signature_detected": true,
+        "unsigned_detected": true
+      },
+      "mutation": "directed_cycle",
+      "outer_resealed": {
+        "errors": [
+          "evidence graph edge digest mismatch at index 8",
+          "evidence graph contains a directed cycle",
+          "evidence graph digest does not match its payload"
+        ],
+        "graph_detected": true,
+        "signature_detected": true
+      },
+      "raw": {
+        "certificate_detected": true,
+        "errors": [
+          "certificate checksum does not match its payload",
+          "evidence graph edge digest mismatch at index 8",
+          "evidence graph contains a directed cycle",
+          "evidence graph digest does not match its payload"
+        ],
+        "signature_detected": true
+      },
+      "semantic_only": false
+    }
+  ],
+  "schema": "reprocheck.integrity-stress-result.v1",
+  "scientific_boundary": "Controlled mechanism test. Unkeyed hashes preserve integrity only relative to a previously trusted digest; Ed25519 authenticates frozen certificate bytes relative to a trusted public key.",
+  "summary": {
+    "families": 9,
+    "fully_rehashed_semantic_unsigned_acceptance_rate": 1.0,
+    "fully_rehashed_unsigned_detection_rate": 0.6666666666666666,
+    "outer_resealed_graph_detection_rate": 1.0,
+    "raw_certificate_detection_rate": 1.0,
+    "signature_detection_rate": 1.0
+  },
+  "tool_version": "0.15.0"
+}
