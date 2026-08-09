@@ -1,0 +1,16 @@
+{
+  "schema": "reprocheck.preregistered-holdout-annotation-lock.v1",
+  "preregistration_sha256": "478cf7370e097be4c95577710513154514917f1190cee1d7cfb033043648f67a",
+  "source_manifest_sha256": "dcf58f8015401ce9d66bd3cc988a0c1e949df1df6e3b751eace9214755448ada",
+  "annotations_sha256": "be84838acfb26ccb62558d6fa1a4470320b2c0aac5c469e159d3390eaaa95828",
+  "evaluator_sha256": "c9cbc753f0027d2815dcc9105603580495c2ee9797364c84e6d3f3f38b84e1f6",
+  "artifacts": 25,
+  "claim_bearing_artifacts": 15,
+  "annotated_claims": 313,
+  "metric_counts": {
+    "ap": 229,
+    "ap50": 67,
+    "ap75": 17
+  },
+  "locked_before_evaluator_run": true
+}

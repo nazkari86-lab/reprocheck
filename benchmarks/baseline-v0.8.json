@@ -1,0 +1,13 @@
+{
+  "behavioral_cases": 12,
+  "case_pass_rate": 1.0,
+  "certificate_integrity_rate": 1.0,
+  "certificate_tamper_detection_rate": 1.0,
+  "expected_finding_precision": 1.0,
+  "expected_finding_recall": 1.0,
+  "invalid_input_rejection_rate": 1.0,
+  "rejection_cases": 3,
+  "scope": "controlled synthetic defects; public-artifact extraction and 130 real-file mutations are reported separately in real_artifacts/baseline-v5.json",
+  "tool_version": "0.8.0",
+  "unexpected_findings": 0
+}

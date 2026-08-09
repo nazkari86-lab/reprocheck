@@ -1,0 +1,35 @@
+{
+  "scope": "COCO8 validation smoke benchmark; not COCO val2017",
+  "model": "yolo26n.pt",
+  "model_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "parameters": {
+    "imgsz": 640,
+    "batch": 4,
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "device": "cpu",
+    "seed": 0,
+    "deterministic": true
+  },
+  "versions": {
+    "python": "3.14.5",
+    "ultralytics": "8.4.116",
+    "torch": "2.12.0"
+  },
+  "results_dict": {
+    "metrics/precision(B)": 0.849132691625095,
+    "metrics/recall(B)": 0.6544622233809151,
+    "metrics/mAP50(B)": 0.9064941894674905,
+    "metrics/mAP50-95(B)": 0.6647706555170674,
+    "fitness": 0.6647706555170674
+  },
+  "map75": 0.8136868686868687,
+  "speed": {
+    "preprocess": 1.0038020000138204,
+    "inference": 28.42233325009147,
+    "loss": 0.00017700040189083666,
+    "postprocess": 0.05496875019161962
+  },
+  "save_dir": "/private/tmp/reprocheck-yolo/runs/official-val"
+}

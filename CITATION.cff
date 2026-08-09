@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use ReproCheck, please cite this software and the exact version evaluated."
+title: "ReproCheck: traceable audits of scientific metric claims"
+type: software
+authors:
+  - family-names: "Nurlanuly"
+    given-names: "Dulat"
+version: 0.8.1
+date-released: 2026-08-09
+url: "https://github.com/nazkari86-lab/reprocheck"
+repository-code: "https://github.com/nazkari86-lab/reprocheck"
+license: MIT
+keywords:
+  - reproducibility
+  - scientific auditing
+  - metric verification
+  - data leakage

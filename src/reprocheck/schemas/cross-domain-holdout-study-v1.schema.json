@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reprocheck.local/schemas/cross-domain-holdout-study-v1.schema.json",
+  "title": "ReproCheck preregistered cross-domain holdout study v1",
+  "type": "object",
+  "required": ["schema", "phase", "zero_shot", "evaluator", "protocol", "corpus", "summary", "by_repository", "by_metric", "cases"],
+  "properties": {
+    "schema": { "const": "reprocheck.cross-domain-holdout-study.v1" },
+    "phase": { "const": "preregistered_v0.7_zero_shot" },
+    "zero_shot": { "const": true },
+    "evaluator": {
+      "type": "object",
+      "required": ["version", "filename", "sha256", "installed_archive_hash"],
+      "properties": {
+        "version": { "const": "0.7.0" },
+        "filename": { "const": "reprocheck-0.7.0-py3-none-any.whl" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "installed_archive_hash": { "type": "string", "pattern": "^sha256=[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "protocol": {
+      "type": "object",
+      "required": ["prediction_scope", "metric_scope", "matching", "absolute_tolerance", "output_overwrite_forbidden"],
+      "properties": {
+        "prediction_scope": { "const": "Markdown and HTML table claims only" },
+        "metric_scope": { "type": "array", "minItems": 18, "maxItems": 18, "uniqueItems": true, "items": { "type": "string" } },
+        "matching": { "const": "multiset metric and value matching" },
+        "absolute_tolerance": { "const": 1e-9 },
+        "output_overwrite_forbidden": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "corpus": {
+      "type": "object",
+      "required": ["artifacts", "claim_bearing_artifacts", "annotated_claims", "repositories", "repository_commits", "preregistration_sha256", "source_manifest_sha256", "annotations_sha256", "annotation_lock_sha256"],
+      "properties": {
+        "artifacts": { "const": 39 },
+        "claim_bearing_artifacts": { "const": 16 },
+        "annotated_claims": { "const": 295 },
+        "repositories": { "const": 4 },
+        "repository_commits": {
+          "type": "object",
+          "minProperties": 4,
+          "maxProperties": 4,
+          "additionalProperties": { "type": "string", "pattern": "^[0-9a-f]{40}$" }
+        },
+        "preregistration_sha256": { "$ref": "#/$defs/sha256" },
+        "source_manifest_sha256": { "$ref": "#/$defs/sha256" },
+        "annotations_sha256": { "$ref": "#/$defs/sha256" },
+        "annotation_lock_sha256": { "$ref": "#/$defs/sha256" }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": ["tp", "fp", "fn", "precision", "precision_wilson_95", "recall", "recall_wilson_95", "artifact_exact_rate", "claim_artifact_exact_rate"],
+      "properties": {
+        "tp": { "const": 259 },
+        "fp": { "const": 0 },
+        "fn": { "const": 36 },
+        "precision": { "const": 1.0 },
+        "precision_wilson_95": { "$ref": "#/$defs/interval" },
+        "recall": { "const": 0.8779661016949153 },
+        "recall_wilson_95": { "$ref": "#/$defs/interval" },
+        "artifact_exact_rate": { "const": 0.9230769230769231 },
+        "claim_artifact_exact_rate": { "const": 0.8125 }
+      },
+      "additionalProperties": false
+    },
+    "by_repository": { "$ref": "#/$defs/groups" },
+    "by_metric": { "$ref": "#/$defs/groups" },
+    "cases": { "type": "array", "minItems": 39, "maxItems": 39, "items": { "$ref": "#/$defs/case" } }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "rate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "interval": { "type": "array", "prefixItems": [{ "$ref": "#/$defs/rate" }, { "$ref": "#/$defs/rate" }], "minItems": 2, "maxItems": 2 },
+    "aggregate": {
+      "type": "object",
+      "required": ["tp", "fp", "fn", "precision", "precision_wilson_95", "recall", "recall_wilson_95", "artifact_exact_rate"],
+      "properties": {
+        "tp": { "type": "integer", "minimum": 0 },
+        "fp": { "type": "integer", "minimum": 0 },
+        "fn": { "type": "integer", "minimum": 0 },
+        "precision": { "$ref": "#/$defs/rate" },
+        "precision_wilson_95": { "$ref": "#/$defs/interval" },
+        "recall": { "$ref": "#/$defs/rate" },
+        "recall_wilson_95": { "$ref": "#/$defs/interval" },
+        "artifact_exact_rate": { "$ref": "#/$defs/rate" }
+      },
+      "additionalProperties": false
+    },
+    "groups": { "type": "object", "minProperties": 1, "additionalProperties": { "$ref": "#/$defs/aggregate" } },
+    "case": {
+      "type": "object",
+      "required": ["repository", "local_path", "expected_claims", "extracted_scoped_claims", "tp", "fp", "fn", "exact"],
+      "properties": {
+        "repository": { "type": "string", "minLength": 1 },
+        "local_path": { "type": "string", "minLength": 1 },
+        "expected_claims": { "type": "integer", "minimum": 0 },
+        "extracted_scoped_claims": { "type": "integer", "minimum": 0 },
+        "tp": { "type": "integer", "minimum": 0 },
+        "fp": { "type": "integer", "minimum": 0 },
+        "fn": { "type": "integer", "minimum": 0 },
+        "exact": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

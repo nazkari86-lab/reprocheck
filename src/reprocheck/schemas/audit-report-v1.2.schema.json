@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reprocheck.local/schemas/audit-report-v1.2.schema.json",
+  "title": "ReproCheck audit report",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "tool_version",
+    "created_at",
+    "status",
+    "artifacts",
+    "claims",
+    "observed_metrics",
+    "metric_evidence",
+    "leakage",
+    "notebook",
+    "findings",
+    "parameters",
+    "certificate_sha256"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.2" },
+    "tool_version": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "status": { "enum": ["passed", "needs_review"] },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/artifact" }
+    },
+    "claims": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/claimCheck" }
+    },
+    "observed_metrics": {
+      "type": "object",
+      "additionalProperties": { "type": "number" }
+    },
+    "metric_evidence": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/metricEvidence" }
+    },
+    "leakage": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/leakage" }
+      ]
+    },
+    "notebook": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/notebook" }
+      ]
+    },
+    "findings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/finding" }
+    },
+    "parameters": { "type": "object" },
+    "certificate_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "$defs": {
+    "finding": {
+      "type": "object",
+      "required": ["severity", "code", "message"],
+      "properties": {
+        "severity": { "enum": ["high", "medium", "low", "info"] },
+        "code": { "type": "string", "minLength": 1 },
+        "message": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "artifact": {
+      "type": "object",
+      "required": ["role", "filename", "sha256", "size_bytes"],
+      "properties": {
+        "role": {
+          "type": "string",
+          "pattern": "^(?!\\.{1,2}$)[A-Za-z0-9_.-]+$"
+        },
+        "filename": {
+          "type": "string",
+          "pattern": "^(?!\\.{1,2}$)[^/\\\\]+$"
+        },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "size_bytes": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "claimCheck": {
+      "type": "object",
+      "required": [
+        "claim",
+        "status",
+        "observed",
+        "difference",
+        "tolerance",
+        "evidence_level"
+      ],
+      "properties": {
+        "claim": {
+          "type": "object",
+          "required": ["metric", "value", "raw_text", "line"],
+          "properties": {
+            "metric": { "type": "string" },
+            "value": { "type": "number" },
+            "raw_text": { "type": "string" },
+            "line": { "type": "integer", "minimum": 1 }
+          },
+          "additionalProperties": false
+        },
+        "status": {
+          "enum": ["verified", "supported", "mismatch", "no_evidence"]
+        },
+        "observed": { "type": ["number", "null"] },
+        "difference": { "type": ["number", "null"], "minimum": 0 },
+        "tolerance": { "type": "number", "minimum": 0 },
+        "evidence_level": {
+          "enum": ["reported", "recomputed", null]
+        }
+      },
+      "additionalProperties": false
+    },
+    "metricEvidence": {
+      "type": "object",
+      "required": [
+        "value",
+        "source",
+        "method",
+        "sample_count",
+        "ci_low",
+        "ci_high",
+        "evidence_level"
+      ],
+      "properties": {
+        "value": { "type": "number" },
+        "source": { "type": "string" },
+        "method": { "type": "string" },
+        "sample_count": { "type": ["integer", "null"], "minimum": 1 },
+        "ci_low": { "type": ["number", "null"] },
+        "ci_high": { "type": ["number", "null"] },
+        "evidence_level": { "enum": ["reported", "recomputed"] }
+      },
+      "additionalProperties": false
+    },
+    "leakage": {
+      "type": "object",
+      "required": [
+        "train_rows",
+        "test_rows",
+        "identity_columns",
+        "exact_overlap_test_rows",
+        "normalized_overlap_test_rows",
+        "exact_overlap_rate",
+        "normalized_overlap_rate",
+        "near_overlap_test_rows",
+        "near_overlap_rate",
+        "train_duplicate_rows",
+        "test_duplicate_rows",
+        "group_column",
+        "overlapping_groups",
+        "exact_overlap_examples",
+        "normalized_overlap_examples",
+        "near_overlap_examples"
+      ],
+      "properties": {
+        "train_rows": { "type": "integer", "minimum": 1 },
+        "test_rows": { "type": "integer", "minimum": 1 },
+        "identity_columns": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "exact_overlap_test_rows": { "type": "integer", "minimum": 0 },
+        "normalized_overlap_test_rows": { "type": "integer", "minimum": 0 },
+        "exact_overlap_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "normalized_overlap_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "near_overlap_test_rows": { "type": "integer", "minimum": 0 },
+        "near_overlap_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "train_duplicate_rows": { "type": "integer", "minimum": 0 },
+        "test_duplicate_rows": { "type": "integer", "minimum": 0 },
+        "group_column": { "type": ["string", "null"] },
+        "overlapping_groups": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "exact_overlap_examples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          }
+        },
+        "normalized_overlap_examples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          }
+        },
+        "near_overlap_examples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["test_value", "train_value", "similarity"],
+            "properties": {
+              "test_value": { "type": "string" },
+              "train_value": { "type": "string" },
+              "similarity": { "type": "number", "minimum": 0, "maximum": 1 }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "notebook": {
+      "type": "object",
+      "required": [
+        "filename",
+        "total_cells",
+        "code_cells",
+        "executed_code_cells",
+        "has_random_seed",
+        "execution_order_monotonic",
+        "duplicate_execution_counts",
+        "findings"
+      ],
+      "properties": {
+        "filename": { "type": "string", "minLength": 1 },
+        "total_cells": { "type": "integer", "minimum": 0 },
+        "code_cells": { "type": "integer", "minimum": 0 },
+        "executed_code_cells": { "type": "integer", "minimum": 0 },
+        "has_random_seed": { "type": "boolean" },
+        "execution_order_monotonic": { "type": "boolean" },
+        "duplicate_execution_counts": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 0 }
+        },
+        "findings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/finding" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

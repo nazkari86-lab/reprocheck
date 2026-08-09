@@ -1,0 +1,41 @@
+{
+  "schema": "reprocheck.cross-domain-holdout-posthoc-review.v1",
+  "created_after_evaluator_output_inspection": true,
+  "primary_result_modified": false,
+  "reviewers": {
+    "internal_human": 1,
+    "independent_external": 0,
+    "adjudication": false
+  },
+  "strict_primary_result": {
+    "tp": 259,
+    "fp": 0,
+    "fn": 36,
+    "precision": 1.0,
+    "recall": 0.8779661016949153
+  },
+  "error_groups": [
+    {
+      "repository": "timm",
+      "local_path": "timm/README.md",
+      "headers": ["top1", "top5"],
+      "false_negatives": 24,
+      "classification": "evaluator_header_coverage_gap",
+      "interpretation": "The headers unambiguously denote Top-1 and Top-5 accuracy, but v0.7 requires an adjacent accuracy token."
+    },
+    {
+      "repository": "paddleclas",
+      "local_paths": [
+        "paddleclas/docs/en/models/RedNet_en.md",
+        "paddleclas/docs/en/models/TNT_en.md"
+      ],
+      "headers": ["Top-1 (%)", "Top-5 (%)"],
+      "false_negatives": 12,
+      "classification": "evaluator_header_coverage_gap",
+      "interpretation": "The percent-labelled Top-1 and Top-5 columns are unambiguous, but v0.7 requires an adjacent accuracy token."
+    }
+  ],
+  "annotation_errors_identified": 0,
+  "recommended_change": "Recognize standalone Top-1/Top-5 table headers as accuracy metrics in v0.8 or later.",
+  "scientific_boundary": "Any correction is development evidence on this corpus and requires a new unseen holdout for generalization."
+}

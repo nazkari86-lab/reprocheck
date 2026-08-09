@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Verify tag matches package version
+        shell: bash
+        run: |
+          package_version=$(python -c 'from reprocheck.version import __version__; print(__version__)')
+          test "$GITHUB_REF_NAME" = "v$package_version"
+      - run: make gate
+      - name: Write checksums
+        run: sha256sum dist/* > dist/SHA256SUMS
+      - name: Publish immutable GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create "$GITHUB_REF_NAME"
+          dist/reprocheck-*.whl
+          dist/reprocheck-*.tar.gz
+          dist/SHA256SUMS
+          --verify-tag
+          --generate-notes
+          --title "ReproCheck $GITHUB_REF_NAME"

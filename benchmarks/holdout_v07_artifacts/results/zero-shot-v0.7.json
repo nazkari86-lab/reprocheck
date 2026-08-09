@@ -1,0 +1,594 @@
+{
+  "by_metric": {
+    "accuracy": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.5100999795960008,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.5100999795960008,
+        1.0
+      ],
+      "tp": 4
+    },
+    "miou": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.9848062976978471,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.9848062976978471,
+        1.0
+      ],
+      "tp": 249
+    },
+    "top1_accuracy": {
+      "artifact_exact_rate": 0.0,
+      "fn": 18,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.43849391955098227,
+        1.0
+      ],
+      "recall": 0.14285714285714285,
+      "recall_wilson_95": [
+        0.04980921798213492,
+        0.346364941492295
+      ],
+      "tp": 3
+    },
+    "top5_accuracy": {
+      "artifact_exact_rate": 0.0,
+      "fn": 18,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.43849391955098227,
+        1.0
+      ],
+      "recall": 0.14285714285714285,
+      "recall_wilson_95": [
+        0.04980921798213492,
+        0.346364941492295
+      ],
+      "tp": 3
+    }
+  },
+  "by_repository": {
+    "fairseq": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.5100999795960008,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.5100999795960008,
+        1.0
+      ],
+      "tp": 4
+    },
+    "mmsegmentation": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.9848062976978471,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.9848062976978471,
+        1.0
+      ],
+      "tp": 249
+    },
+    "paddleclas": {
+      "artifact_exact_rate": 0.8461538461538461,
+      "fn": 12,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        1.0,
+        1.0
+      ],
+      "recall": 0.0,
+      "recall_wilson_95": [
+        0.0,
+        0.2425007574992425
+      ],
+      "tp": 0
+    },
+    "timm": {
+      "artifact_exact_rate": 0.0,
+      "fn": 24,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.6096569663469354,
+        0.9999999999999999
+      ],
+      "recall": 0.2,
+      "recall_wilson_95": [
+        0.09504978102401235,
+        0.37306047381027446
+      ],
+      "tp": 6
+    }
+  },
+  "cases": [
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/README.md",
+      "repository": "fairseq",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/examples/MMPT/README.md",
+      "repository": "fairseq",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/examples/conv_seq2seq/README.md",
+      "repository": "fairseq",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/examples/hubert/README.md",
+      "repository": "fairseq",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/examples/linformer/README.md",
+      "repository": "fairseq",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/examples/m2m_100/README.md",
+      "repository": "fairseq",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/examples/mms/lid_rerank/README.md",
+      "repository": "fairseq",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/examples/pay_less_attention_paper/README.md",
+      "repository": "fairseq",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 4,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/examples/roberta/README.md",
+      "repository": "fairseq",
+      "tp": 4
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/examples/speech_recognition/README.md",
+      "repository": "fairseq",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/examples/textless_nlp/dgslm/vocoder_hifigan/README.md",
+      "repository": "fairseq",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/examples/textless_nlp/gslm/metrics/README.md",
+      "repository": "fairseq",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "fairseq/examples/translation/README.md",
+      "repository": "fairseq",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 22,
+      "extracted_scoped_claims": 22,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmsegmentation/configs/bisenetv1/README.md",
+      "repository": "mmsegmentation",
+      "tp": 22
+    },
+    {
+      "exact": true,
+      "expected_claims": 8,
+      "extracted_scoped_claims": 8,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmsegmentation/configs/bisenetv2/README.md",
+      "repository": "mmsegmentation",
+      "tp": 8
+    },
+    {
+      "exact": true,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 4,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmsegmentation/configs/cgnet/README.md",
+      "repository": "mmsegmentation",
+      "tp": 4
+    },
+    {
+      "exact": true,
+      "expected_claims": 84,
+      "extracted_scoped_claims": 84,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmsegmentation/configs/deeplabv3plus/README.md",
+      "repository": "mmsegmentation",
+      "tp": 84
+    },
+    {
+      "exact": true,
+      "expected_claims": 20,
+      "extracted_scoped_claims": 20,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmsegmentation/configs/dnlnet/README.md",
+      "repository": "mmsegmentation",
+      "tp": 20
+    },
+    {
+      "exact": true,
+      "expected_claims": 2,
+      "extracted_scoped_claims": 2,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmsegmentation/configs/dpt/README.md",
+      "repository": "mmsegmentation",
+      "tp": 2
+    },
+    {
+      "exact": true,
+      "expected_claims": 24,
+      "extracted_scoped_claims": 24,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmsegmentation/configs/fastfcn/README.md",
+      "repository": "mmsegmentation",
+      "tp": 24
+    },
+    {
+      "exact": true,
+      "expected_claims": 32,
+      "extracted_scoped_claims": 32,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmsegmentation/configs/gcnet/README.md",
+      "repository": "mmsegmentation",
+      "tp": 32
+    },
+    {
+      "exact": true,
+      "expected_claims": 9,
+      "extracted_scoped_claims": 9,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmsegmentation/configs/mobilenet_v2/README.md",
+      "repository": "mmsegmentation",
+      "tp": 9
+    },
+    {
+      "exact": true,
+      "expected_claims": 28,
+      "extracted_scoped_claims": 28,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmsegmentation/configs/nonlocal_net/README.md",
+      "repository": "mmsegmentation",
+      "tp": 28
+    },
+    {
+      "exact": true,
+      "expected_claims": 8,
+      "extracted_scoped_claims": 8,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmsegmentation/configs/point_rend/README.md",
+      "repository": "mmsegmentation",
+      "tp": 8
+    },
+    {
+      "exact": true,
+      "expected_claims": 8,
+      "extracted_scoped_claims": 8,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmsegmentation/configs/sem_fpn/README.md",
+      "repository": "mmsegmentation",
+      "tp": 8
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "paddleclas/README.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "paddleclas/docs/en/models/DPN_DenseNet_en.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "paddleclas/docs/en/models/ESNet_en.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "paddleclas/docs/en/models/EfficientNet_and_ResNeXt101_wsl_en.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "paddleclas/docs/en/models/HRNet_en.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "paddleclas/docs/en/models/LeViT_en.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "paddleclas/docs/en/models/PP-HGNet_en.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 10,
+      "extracted_scoped_claims": 0,
+      "fn": 10,
+      "fp": 0,
+      "local_path": "paddleclas/docs/en/models/RedNet_en.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "paddleclas/docs/en/models/ResNet_and_vd_en.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "paddleclas/docs/en/models/SEResNext_and_Res2Net_en.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 2,
+      "extracted_scoped_claims": 0,
+      "fn": 2,
+      "fp": 0,
+      "local_path": "paddleclas/docs/en/models/TNT_en.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "paddleclas/docs/en/models/Twins_en.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "paddleclas/docs/en/models/ViT_and_DeiT_en.md",
+      "repository": "paddleclas",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 30,
+      "extracted_scoped_claims": 6,
+      "fn": 24,
+      "fp": 0,
+      "local_path": "timm/README.md",
+      "repository": "timm",
+      "tp": 6
+    }
+  ],
+  "corpus": {
+    "annotated_claims": 295,
+    "annotation_lock_sha256": "81fbb64974a757f56a70230a7c93abccdc326a3f8572970b1d02c2a9de94fc6e",
+    "annotations_sha256": "8d9b583536a768f2fb6c69b5a5b5e170ec580e4716ff987eb69e61b4e1407109",
+    "artifacts": 39,
+    "claim_bearing_artifacts": 16,
+    "preregistration_sha256": "ce3938ea9019b2555564b68e0100f11fbcc1ed83048ec506270c94aaf6317cbf",
+    "repositories": 4,
+    "repository_commits": {
+      "fairseq": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+      "mmsegmentation": "b040e147adfa027bbc071b624bedf0ae84dfc922",
+      "paddleclas": "f1233c18455b8acde4fc42ab0bea575fa06daa8e",
+      "timm": "aa4b5850c1543fa488abf260f18390eda46cf85d"
+    },
+    "source_manifest_sha256": "906a865805d535adc65068e32f9c008727835436e98da9b2c7ee82c9ce2ac3da"
+  },
+  "evaluator": {
+    "filename": "reprocheck-0.7.0-py3-none-any.whl",
+    "installed_archive_hash": "sha256=8c182c3e2cdd41d47e296653950429d1d12cfc0837b63db565f19f2eb65a09ee",
+    "sha256": "8c182c3e2cdd41d47e296653950429d1d12cfc0837b63db565f19f2eb65a09ee",
+    "version": "0.7.0"
+  },
+  "phase": "preregistered_v0.7_zero_shot",
+  "protocol": {
+    "absolute_tolerance": 1e-09,
+    "matching": "multiset metric and value matching",
+    "metric_scope": [
+      "accuracy",
+      "ap",
+      "ap50",
+      "ap75",
+      "bleu",
+      "cer",
+      "dice",
+      "f1",
+      "iou",
+      "mae",
+      "miou",
+      "precision",
+      "r2",
+      "recall",
+      "rmse",
+      "top1_accuracy",
+      "top5_accuracy",
+      "wer"
+    ],
+    "output_overwrite_forbidden": true,
+    "prediction_scope": "Markdown and HTML table claims only"
+  },
+  "schema": "reprocheck.cross-domain-holdout-study.v1",
+  "summary": {
+    "artifact_exact_rate": 0.9230769230769231,
+    "claim_artifact_exact_rate": 0.8125,
+    "fn": 36,
+    "fp": 0,
+    "precision": 1.0,
+    "precision_wilson_95": [
+      0.985384353161752,
+      0.9999999999999999
+    ],
+    "recall": 0.8779661016949153,
+    "recall_wilson_95": [
+      0.8356786283618388,
+      0.9105360887324346
+    ],
+    "tp": 259
+  },
+  "zero_shot": true
+}

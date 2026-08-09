@@ -1,0 +1,662 @@
+{
+  "entries": [
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "license",
+      "local_path": "monai_model_zoo/LICENSE",
+      "repository": "monai_model_zoo",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size_bytes": 11357,
+      "source_path": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/LICENSE"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/brain_image_synthesis_latent_diffusion_model/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "06927acae05412e2d8d4cea5702f0b2a4a473877339a65c6928bb1cbc85b787f",
+      "size_bytes": 3114,
+      "source_path": "models/brain_image_synthesis_latent_diffusion_model/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/brain_image_synthesis_latent_diffusion_model/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/brats_mri_axial_slices_generative_diffusion/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "56055dc9240ccf402302a90ef11b12160c3fde0a64db96d1d7904029a18750ba",
+      "size_bytes": 4231,
+      "source_path": "models/brats_mri_axial_slices_generative_diffusion/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/brats_mri_axial_slices_generative_diffusion/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/brats_mri_generative_diffusion/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "dc68cb61c18af097a8904e5b5d1405db9e5aaff86798a3d22357306fbb68f518",
+      "size_bytes": 4518,
+      "source_path": "models/brats_mri_generative_diffusion/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/brats_mri_generative_diffusion/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/brats_mri_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "65322a60a2a3cd49ae773a20f6b3a1bfc25baa906e5bfe784f5fb4557503dc96",
+      "size_bytes": 4625,
+      "source_path": "models/brats_mri_segmentation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/brats_mri_segmentation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/breast_density_classification/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "12809f32ea93fe4c5e1f2f594c766971567f930a51154139f1e1fd280cc12dde",
+      "size_bytes": 3332,
+      "source_path": "models/breast_density_classification/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/breast_density_classification/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/classification_template/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "65072869caaf9af0709b1a8c80963634be2466b16d477a46691d346a93c40b32",
+      "size_bytes": 2403,
+      "source_path": "models/classification_template/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/classification_template/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/cxr_image_synthesis_latent_diffusion_model/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "57e9b040d30f49c451e89fcbecc7da5d312f668899f28f86113c3e18f7732137",
+      "size_bytes": 3127,
+      "source_path": "models/cxr_image_synthesis_latent_diffusion_model/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/cxr_image_synthesis_latent_diffusion_model/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/endoscopic_inbody_classification/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "7f90e68ae6bb94209a87b93629771ef81757a8edcb19f1180c08f78333277e10",
+      "size_bytes": 4397,
+      "source_path": "models/endoscopic_inbody_classification/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/endoscopic_inbody_classification/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/endoscopic_tool_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "26c04a0221542743d7b497620410074b76e0008d3737109a0e3a883151e995c3",
+      "size_bytes": 4766,
+      "source_path": "models/endoscopic_tool_segmentation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/endoscopic_tool_segmentation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/lung_nodule_ct_detection/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "bf621efe2b921a77f753ba58c2e562eb6d9afd3852ae2e4240b7a0e2bb278820",
+      "size_bytes": 4455,
+      "source_path": "models/lung_nodule_ct_detection/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/lung_nodule_ct_detection/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/maisi_ct_generative/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "ad2e0d84c53a76085fea936e9784e458ee1e08002192d73930b52b4b45b1539b",
+      "size_bytes": 9738,
+      "source_path": "models/maisi_ct_generative/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/maisi_ct_generative/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/mednist_ddpm/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "6ed053b404b74832d3af7bf7c732c69bad1f6d0b5d23097c5c056a572fad294a",
+      "size_bytes": 2441,
+      "source_path": "models/mednist_ddpm/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/mednist_ddpm/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/mednist_gan/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "e50eee137829c0cfbc2c8c5af84324459238020ecdf96829d82438421b715384",
+      "size_bytes": 2586,
+      "source_path": "models/mednist_gan/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/mednist_gan/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/mednist_reg/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "af678c6baed1aa43d115dd000426f4b4e708c8ba76e5a1904ece456feb19c9bf",
+      "size_bytes": 2505,
+      "source_path": "models/mednist_reg/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/mednist_reg/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/multi_organ_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "d9518d7d8be1eaafa4d4524f16433ce96b1a94b45734f8d5c7d4d5336b76b14e",
+      "size_bytes": 4360,
+      "source_path": "models/multi_organ_segmentation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/multi_organ_segmentation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/pancreas_ct_dints_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "eb8eec1389265cd303fd0543cc9c0b3b6d3653a0237d1633fed1e691fd001f56",
+      "size_bytes": 4670,
+      "source_path": "models/pancreas_ct_dints_segmentation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/pancreas_ct_dints_segmentation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/pathology_nuclei_classification/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "36a12fd9cd0b0470ad6899adaa3a92b68eec00019d82b20fd28ecc97598d007c",
+      "size_bytes": 4384,
+      "source_path": "models/pathology_nuclei_classification/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/pathology_nuclei_classification/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/pathology_nuclei_segmentation_classification/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "80078f6fdad0aeb8f809c03ba3441f19b4eac483bcefa3e5b64aa182c14873b4",
+      "size_bytes": 5329,
+      "source_path": "models/pathology_nuclei_segmentation_classification/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/pathology_nuclei_segmentation_classification/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/pathology_nuclick_annotation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "da365575e295c5fcf39d9379f6c1705039ae2f715fcb5f46a7b7987572801e99",
+      "size_bytes": 4451,
+      "source_path": "models/pathology_nuclick_annotation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/pathology_nuclick_annotation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/pathology_tumor_detection/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "3d219355d0464b866fd89c23f828ddebfe24986c8053c5e314fbd041bf2da0b1",
+      "size_bytes": 4249,
+      "source_path": "models/pathology_tumor_detection/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/pathology_tumor_detection/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/pediatric_abdominal_ct_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "13570ab2b83b4d02144cfce6ddeab820a042250d2ac485d76d1e32ce27290eb3",
+      "size_bytes": 3249,
+      "source_path": "models/pediatric_abdominal_ct_segmentation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/pediatric_abdominal_ct_segmentation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/prostate_mri_anatomy/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "e43c53b4ee349113d9c2f61b9d88fa3e1b147cdbdc5f518fd8ffcef4805dcf28",
+      "size_bytes": 3373,
+      "source_path": "models/prostate_mri_anatomy/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/prostate_mri_anatomy/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/renalStructures_CECT_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "4a9b8c102c8247644f0590bb9831e613fcbe8823819cf8497a5d134ec7523805",
+      "size_bytes": 3398,
+      "source_path": "models/renalStructures_CECT_segmentation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/renalStructures_CECT_segmentation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/renalStructures_UNEST_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "1f31c4cf047e3e8ec5d2dc9a9b638728514b5bf2a7ba95cbb6a1140ab34dddb7",
+      "size_bytes": 3631,
+      "source_path": "models/renalStructures_UNEST_segmentation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/renalStructures_UNEST_segmentation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/retinalOCT_RPD_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "93609b30d3131b40bc99eb63d3d0b242a7bf7ae2d52fbfb51380209619285430",
+      "size_bytes": 5682,
+      "source_path": "models/retinalOCT_RPD_segmentation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/retinalOCT_RPD_segmentation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/segmentation_template/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "1f52bfce809007c97fde6b3422585df41ce9abd1e08ac74d7cc3e5a687dccae1",
+      "size_bytes": 2446,
+      "source_path": "models/segmentation_template/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/segmentation_template/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/spleen_ct_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "e1e210e597bc8396fd39a10f6ad2bc4fe2f642c17de4a722a23f1b3e51fe9896",
+      "size_bytes": 5060,
+      "source_path": "models/spleen_ct_segmentation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/spleen_ct_segmentation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/spleen_deepedit_annotation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "a4eb939891024be14f75d05e4a9de8efec1962e5b69907912f108fb137a46e1e",
+      "size_bytes": 4781,
+      "source_path": "models/spleen_deepedit_annotation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/spleen_deepedit_annotation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/swin_unetr_btcv_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "1ef5a9de2e36f4ea1c0ab75594555346c9ed2aa03b54016447bdb7fce4785c87",
+      "size_bytes": 5609,
+      "source_path": "models/swin_unetr_btcv_segmentation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/swin_unetr_btcv_segmentation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/valve_landmarks/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "c4fc7083dd818f876ac3e8a37ed3e2cc1fdc8636db93afe56cd6055624991fc2",
+      "size_bytes": 3352,
+      "source_path": "models/valve_landmarks/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/valve_landmarks/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/ventricular_short_axis_3label/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "bb6c37d112779bcf5cb3e558457cdec8e2e72d08023d475136a609de89a5bcbd",
+      "size_bytes": 2584,
+      "source_path": "models/ventricular_short_axis_3label/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/ventricular_short_axis_3label/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/vista2d/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "4232ebf446e258c628f1dc518c06f86f614cd7ff498dd036408b0312e9458099",
+      "size_bytes": 3486,
+      "source_path": "models/vista2d/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/vista2d/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/vista3d/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "9e1bd53176bf5a53b2ea9cc5dd019667d9b0529f9a36ff18d05e806313b179da",
+      "size_bytes": 9555,
+      "source_path": "models/vista3d/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/vista3d/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/wholeBody_ct_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "612116ec79130c10ad8493f340fdff2dc84d88369571f437c6abcfc7bbb028b6",
+      "size_bytes": 8837,
+      "source_path": "models/wholeBody_ct_segmentation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/wholeBody_ct_segmentation/configs/metadata.json"
+    },
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "kind": "artifact",
+      "local_path": "monai_model_zoo/models/wholeBrainSeg_Large_UNEST_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "sha256": "4ae56b7b24ee54f980e4699f39c5bc2a256fbd60dfec3445873ded69136c4f3d",
+      "size_bytes": 10945,
+      "source_path": "models/wholeBrainSeg_Large_UNEST_segmentation/configs/metadata.json",
+      "source_url": "https://raw.githubusercontent.com/Project-MONAI/model-zoo/b9e4d04bb2a073110bde9e5c05c9690241e938b6/models/wholeBrainSeg_Large_UNEST_segmentation/configs/metadata.json"
+    },
+    {
+      "commit": "35e0922e059d7bc6d515a83e03a7494f0640c314",
+      "kind": "license",
+      "local_path": "tensorflow_docs/LICENSE",
+      "repository": "tensorflow_docs",
+      "sha256": "0cc546c0590cfaaa9b6e4a978a4906c5ba78a1e1e71b5b5e11281f591078d395",
+      "size_bytes": 12555,
+      "source_path": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/tensorflow/docs/35e0922e059d7bc6d515a83e03a7494f0640c314/LICENSE"
+    },
+    {
+      "commit": "35e0922e059d7bc6d515a83e03a7494f0640c314",
+      "kind": "artifact",
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/classification.ipynb",
+      "repository": "tensorflow_docs",
+      "sha256": "a920bf50382ac731eb31a1aef5b02216eaf87c357c5f434c9a34a8437295673c",
+      "size_bytes": 30858,
+      "source_path": "site/en/tutorials/keras/classification.ipynb",
+      "source_url": "https://raw.githubusercontent.com/tensorflow/docs/35e0922e059d7bc6d515a83e03a7494f0640c314/site/en/tutorials/keras/classification.ipynb"
+    },
+    {
+      "commit": "35e0922e059d7bc6d515a83e03a7494f0640c314",
+      "kind": "artifact",
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/keras_tuner.ipynb",
+      "repository": "tensorflow_docs",
+      "sha256": "158d73a1f04e8bf6eb5c522a774931ef92d686ebe442486dbf0a79aeb3ec1eea",
+      "size_bytes": 15238,
+      "source_path": "site/en/tutorials/keras/keras_tuner.ipynb",
+      "source_url": "https://raw.githubusercontent.com/tensorflow/docs/35e0922e059d7bc6d515a83e03a7494f0640c314/site/en/tutorials/keras/keras_tuner.ipynb"
+    },
+    {
+      "commit": "35e0922e059d7bc6d515a83e03a7494f0640c314",
+      "kind": "artifact",
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/overfit_and_underfit.ipynb",
+      "repository": "tensorflow_docs",
+      "sha256": "da5244bac69c8bd272005526133979edbdeb5ddf9085e44e5223f3166b75ce69",
+      "size_bytes": 43453,
+      "source_path": "site/en/tutorials/keras/overfit_and_underfit.ipynb",
+      "source_url": "https://raw.githubusercontent.com/tensorflow/docs/35e0922e059d7bc6d515a83e03a7494f0640c314/site/en/tutorials/keras/overfit_and_underfit.ipynb"
+    },
+    {
+      "commit": "35e0922e059d7bc6d515a83e03a7494f0640c314",
+      "kind": "artifact",
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/regression.ipynb",
+      "repository": "tensorflow_docs",
+      "sha256": "94cbe704da47d8115ef8d03f35897e4ee5d81c573d3f550490266a6c7e723736",
+      "size_bytes": 40150,
+      "source_path": "site/en/tutorials/keras/regression.ipynb",
+      "source_url": "https://raw.githubusercontent.com/tensorflow/docs/35e0922e059d7bc6d515a83e03a7494f0640c314/site/en/tutorials/keras/regression.ipynb"
+    },
+    {
+      "commit": "35e0922e059d7bc6d515a83e03a7494f0640c314",
+      "kind": "artifact",
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/save_and_load.ipynb",
+      "repository": "tensorflow_docs",
+      "sha256": "cf7e92a22d9728a45f9818361ff2edfe2f733966abd332bfbf0b637a3219e9d3",
+      "size_bytes": 30726,
+      "source_path": "site/en/tutorials/keras/save_and_load.ipynb",
+      "source_url": "https://raw.githubusercontent.com/tensorflow/docs/35e0922e059d7bc6d515a83e03a7494f0640c314/site/en/tutorials/keras/save_and_load.ipynb"
+    },
+    {
+      "commit": "35e0922e059d7bc6d515a83e03a7494f0640c314",
+      "kind": "artifact",
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/text_classification.ipynb",
+      "repository": "tensorflow_docs",
+      "sha256": "664a9ece83bd3c83c3d5054cfd8fea9605f017c5bb56a11b5058f5011185691b",
+      "size_bytes": 37290,
+      "source_path": "site/en/tutorials/keras/text_classification.ipynb",
+      "source_url": "https://raw.githubusercontent.com/tensorflow/docs/35e0922e059d7bc6d515a83e03a7494f0640c314/site/en/tutorials/keras/text_classification.ipynb"
+    },
+    {
+      "commit": "35e0922e059d7bc6d515a83e03a7494f0640c314",
+      "kind": "artifact",
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/text_classification_with_hub.ipynb",
+      "repository": "tensorflow_docs",
+      "sha256": "7a1c382a86e21c2118e5c5d7f88a81c14f280e883d6159cd74d88321ed0302e7",
+      "size_bytes": 17892,
+      "source_path": "site/en/tutorials/keras/text_classification_with_hub.ipynb",
+      "source_url": "https://raw.githubusercontent.com/tensorflow/docs/35e0922e059d7bc6d515a83e03a7494f0640c314/site/en/tutorials/keras/text_classification_with_hub.ipynb"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "license",
+      "local_path": "transformers/LICENSE",
+      "repository": "transformers",
+      "sha256": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049",
+      "size_bytes": 11418,
+      "source_path": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/LICENSE"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/README.md",
+      "repository": "transformers",
+      "sha256": "37d58cf1c18f7ac5fb91ecf1056f2b36ff31361bdaa7482953b12f2d98c0a117",
+      "size_bytes": 16868,
+      "source_path": "examples/pytorch/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/audio-classification/README.md",
+      "repository": "transformers",
+      "sha256": "1c793f7160584865d00578a1221786f1897b6a9596c89d2f2295be56ece10e49",
+      "size_bytes": 6026,
+      "source_path": "examples/pytorch/audio-classification/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/audio-classification/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/contrastive-image-text/README.md",
+      "repository": "transformers",
+      "sha256": "98f31e89548bbf2d5593c2eebac15755f9c37f4043e9c52f6163601b3c3dd5a6",
+      "size_bytes": 3987,
+      "source_path": "examples/pytorch/contrastive-image-text/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/contrastive-image-text/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/image-classification/README.md",
+      "repository": "transformers",
+      "sha256": "cfa35231df5dd757f5765d0ca646428033eaf59f57c6c5d534c83e5f0d0bf66e",
+      "size_bytes": 9029,
+      "source_path": "examples/pytorch/image-classification/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/image-classification/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/image-pretraining/README.md",
+      "repository": "transformers",
+      "sha256": "6de5a12a648ce395760f7986499a09604c1061a25813324bd6929a4c3843f8c4",
+      "size_bytes": 10360,
+      "source_path": "examples/pytorch/image-pretraining/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/image-pretraining/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/instance-segmentation/README.md",
+      "repository": "transformers",
+      "sha256": "d2f94baa5b9a440fb01c1ea3fb6faf8590cb8a1d32ae47aabdf6a0be6344e7fd",
+      "size_bytes": 10146,
+      "source_path": "examples/pytorch/instance-segmentation/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/instance-segmentation/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/language-modeling/README.md",
+      "repository": "transformers",
+      "sha256": "fb0eed74c308181c2657e4614794de2b48632fb042a1286b80c0fd810af95a2e",
+      "size_bytes": 9976,
+      "source_path": "examples/pytorch/language-modeling/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/language-modeling/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/multiple-choice/README.md",
+      "repository": "transformers",
+      "sha256": "6ce99d3ab0027160ff752040a1e81d6b4aa9680faf87a3275c3caa6b00d36b5a",
+      "size_bytes": 3715,
+      "source_path": "examples/pytorch/multiple-choice/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/multiple-choice/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/object-detection/README.md",
+      "repository": "transformers",
+      "sha256": "784790f5b623e1d4001bfa614cbf22811bafefe84f636d346e804b28be6a5419",
+      "size_bytes": 9823,
+      "source_path": "examples/pytorch/object-detection/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/object-detection/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/question-answering/README.md",
+      "repository": "transformers",
+      "sha256": "fd370f0986c54fa5373b3e0e13a855d31a07866e60bad74066057644c2ba1839",
+      "size_bytes": 7233,
+      "source_path": "examples/pytorch/question-answering/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/question-answering/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/semantic-segmentation/README.md",
+      "repository": "transformers",
+      "sha256": "9660176dfabbdadd5819f5739596c14c25097bd70291150f2ac67f4a9e353741",
+      "size_bytes": 10611,
+      "source_path": "examples/pytorch/semantic-segmentation/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/semantic-segmentation/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/speech-pretraining/README.md",
+      "repository": "transformers",
+      "sha256": "4f98a058d8bcbb96864aa329943a356a70e63ae1746787c6752ad43874f15c54",
+      "size_bytes": 6872,
+      "source_path": "examples/pytorch/speech-pretraining/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/speech-pretraining/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/speech-recognition/README.md",
+      "repository": "transformers",
+      "sha256": "a39274459be38576ad0382b7ba50cc5c0276f49494be94e462ad5393f7b1b9be",
+      "size_bytes": 37580,
+      "source_path": "examples/pytorch/speech-recognition/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/speech-recognition/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/summarization/README.md",
+      "repository": "transformers",
+      "sha256": "cb19027ea744c6ef31092678411e014b5aa8b37e180cbb96e42b8d6f8546b01e",
+      "size_bytes": 8492,
+      "source_path": "examples/pytorch/summarization/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/summarization/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/text-classification/README.md",
+      "repository": "transformers",
+      "sha256": "2051c2261276139e0c70f191e47057e8cb92070f2394b2c55f14b2756aee7c22",
+      "size_bytes": 10719,
+      "source_path": "examples/pytorch/text-classification/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/text-classification/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/text-generation/README.md",
+      "repository": "transformers",
+      "sha256": "4381ee40d0f3303bd6ec6b5d45c9e0c882474b797e1bbd2b7a94cf116c975353",
+      "size_bytes": 1217,
+      "source_path": "examples/pytorch/text-generation/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/text-generation/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/token-classification/README.md",
+      "repository": "transformers",
+      "sha256": "ea8dcabb17e0e748f9505ad99bee8e1fdc247909d2b84f5a5bd01ca3730942be",
+      "size_bytes": 5561,
+      "source_path": "examples/pytorch/token-classification/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/token-classification/README.md"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "kind": "artifact",
+      "local_path": "transformers/examples/pytorch/translation/README.md",
+      "repository": "transformers",
+      "sha256": "93121c00ba2dd0b350b9e8c85c47995520c059fee52f167dd393c59664ba30bc",
+      "size_bytes": 7823,
+      "source_path": "examples/pytorch/translation/README.md",
+      "source_url": "https://raw.githubusercontent.com/huggingface/transformers/e8ea728a3eeeb903e77c7d1bd29267c80a1be71f/examples/pytorch/translation/README.md"
+    }
+  ],
+  "repositories": [
+    {
+      "commit": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "expected_artifacts": 35,
+      "github": "Project-MONAI/model-zoo",
+      "id": "monai_model_zoo",
+      "license_path": "LICENSE",
+      "selection": "all models/*/configs/metadata.json files"
+    },
+    {
+      "commit": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f",
+      "expected_artifacts": 18,
+      "github": "huggingface/transformers",
+      "id": "transformers",
+      "license_path": "LICENSE",
+      "selection": "all examples/pytorch/**/README.md files"
+    },
+    {
+      "commit": "35e0922e059d7bc6d515a83e03a7494f0640c314",
+      "expected_artifacts": 7,
+      "github": "tensorflow/docs",
+      "id": "tensorflow_docs",
+      "license_path": "LICENSE",
+      "selection": "all site/en/tutorials/keras/*.ipynb files"
+    }
+  ],
+  "schema": "reprocheck.real-artifact-sources.v1",
+  "selection_is_exhaustive_within_declared_patterns": true
+}

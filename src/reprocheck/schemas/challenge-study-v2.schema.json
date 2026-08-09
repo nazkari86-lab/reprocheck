@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reprocheck.local/schemas/challenge-study-v2.schema.json",
+  "title": "ReproCheck scoped challenge study v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "phase",
+    "evaluator",
+    "evaluation_protocol",
+    "corpus",
+    "summary",
+    "by_repository",
+    "by_metric",
+    "posthoc_label_review",
+    "cases"
+  ],
+  "properties": {
+    "schema": { "const": "reprocheck.challenge-study.v2" },
+    "phase": {
+      "enum": ["frozen_evaluator_replay", "development_after_challenge_inspection"]
+    },
+    "evaluator": { "$ref": "#/$defs/evaluator" },
+    "evaluation_protocol": { "$ref": "#/$defs/evaluationProtocol" },
+    "corpus": { "$ref": "#/$defs/corpus" },
+    "summary": { "$ref": "#/$defs/summary" },
+    "by_repository": { "$ref": "#/$defs/groupedAggregates" },
+    "by_metric": { "$ref": "#/$defs/groupedAggregates" },
+    "posthoc_label_review": { "$ref": "#/$defs/posthocReview" },
+    "cases": { "$ref": "#/$defs/cases" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "rate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "interval": {
+      "type": "array",
+      "prefixItems": [{ "$ref": "#/$defs/rate" }, { "$ref": "#/$defs/rate" }],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "evaluator": {
+      "type": "object",
+      "required": ["version", "filename", "sha256", "installed_archive_hash"],
+      "properties": {
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "filename": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "installed_archive_hash": { "type": "string", "pattern": "^sha256=[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "evaluationProtocol": {
+      "type": "object",
+      "required": [
+        "prediction_scope",
+        "extractor",
+        "metric_scope",
+        "matching",
+        "absolute_tolerance",
+        "posthoc_review_excluded_from_primary_metrics"
+      ],
+      "properties": {
+        "prediction_scope": { "const": "Markdown and HTML table claims only" },
+        "extractor": { "type": "string", "minLength": 1 },
+        "metric_scope": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "matching": { "const": "multiset metric and value matching" },
+        "absolute_tolerance": { "type": "number", "exclusiveMinimum": 0 },
+        "posthoc_review_excluded_from_primary_metrics": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "corpus": {
+      "type": "object",
+      "required": [
+        "artifacts",
+        "claim_bearing_artifacts",
+        "annotated_claims",
+        "repositories",
+        "repository_commits",
+        "source_manifest_sha256",
+        "annotations_sha256",
+        "posthoc_label_review_sha256",
+        "annotation_scope",
+        "annotation_reviewers",
+        "limitations"
+      ],
+      "properties": {
+        "artifacts": { "type": "integer", "minimum": 1 },
+        "claim_bearing_artifacts": { "type": "integer", "minimum": 1 },
+        "annotated_claims": { "type": "integer", "minimum": 1 },
+        "repositories": { "type": "integer", "minimum": 1 },
+        "repository_commits": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "$ref": "#/$defs/commit" }
+        },
+        "source_manifest_sha256": { "$ref": "#/$defs/sha256" },
+        "annotations_sha256": { "$ref": "#/$defs/sha256" },
+        "posthoc_label_review_sha256": { "$ref": "#/$defs/sha256" },
+        "annotation_scope": { "type": "string", "minLength": 1 },
+        "annotation_reviewers": { "type": "object" },
+        "limitations": { "$ref": "#/$defs/nonEmptyStrings" }
+      },
+      "additionalProperties": false
+    },
+    "aggregate": {
+      "type": "object",
+      "required": [
+        "tp",
+        "fp",
+        "fn",
+        "precision",
+        "precision_wilson_95",
+        "recall",
+        "recall_wilson_95",
+        "artifact_exact_rate"
+      ],
+      "properties": {
+        "tp": { "type": "integer", "minimum": 0 },
+        "fp": { "type": "integer", "minimum": 0 },
+        "fn": { "type": "integer", "minimum": 0 },
+        "precision": { "$ref": "#/$defs/rate" },
+        "precision_wilson_95": { "$ref": "#/$defs/interval" },
+        "recall": { "$ref": "#/$defs/rate" },
+        "recall_wilson_95": { "$ref": "#/$defs/interval" },
+        "artifact_exact_rate": { "$ref": "#/$defs/rate" }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "tp",
+        "fp",
+        "fn",
+        "precision",
+        "precision_wilson_95",
+        "recall",
+        "recall_wilson_95",
+        "artifact_exact_rate",
+        "claim_artifact_exact_rate"
+      ],
+      "properties": {
+        "tp": { "type": "integer", "minimum": 0 },
+        "fp": { "type": "integer", "minimum": 0 },
+        "fn": { "type": "integer", "minimum": 0 },
+        "precision": { "$ref": "#/$defs/rate" },
+        "precision_wilson_95": { "$ref": "#/$defs/interval" },
+        "recall": { "$ref": "#/$defs/rate" },
+        "recall_wilson_95": { "$ref": "#/$defs/interval" },
+        "artifact_exact_rate": { "$ref": "#/$defs/rate" },
+        "claim_artifact_exact_rate": { "$ref": "#/$defs/rate" }
+      },
+      "additionalProperties": false
+    },
+    "groupedAggregates": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/aggregate" }
+    },
+    "posthocReview": {
+      "type": "object",
+      "required": [
+        "cases",
+        "created_after_evaluator_output_inspection",
+        "interpretation",
+        "primary_metrics_modified"
+      ],
+      "properties": {
+        "cases": { "type": "integer", "minimum": 0 },
+        "created_after_evaluator_output_inspection": { "const": true },
+        "interpretation": { "type": "string", "minLength": 1 },
+        "primary_metrics_modified": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "case": {
+      "type": "object",
+      "required": [
+        "repository",
+        "local_path",
+        "expected_claims",
+        "extracted_scoped_claims",
+        "tp",
+        "fp",
+        "fn",
+        "exact"
+      ],
+      "properties": {
+        "repository": { "type": "string", "minLength": 1 },
+        "local_path": { "type": "string", "minLength": 1 },
+        "expected_claims": { "type": "integer", "minimum": 0 },
+        "extracted_scoped_claims": { "type": "integer", "minimum": 0 },
+        "tp": { "type": "integer", "minimum": 0 },
+        "fp": { "type": "integer", "minimum": 0 },
+        "fn": { "type": "integer", "minimum": 0 },
+        "exact": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/case" }
+    }
+  }
+}

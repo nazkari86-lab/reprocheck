@@ -1,0 +1,2403 @@
+{
+  "annotation_created_without_reprocheck_imports_or_outputs": true,
+  "annotations_created_before_evaluator_run": true,
+  "artifacts": [
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=0;row=1;column=5;header=box AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "0",
+          "value": 0.42
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=2;column=5;header=box AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "1",
+          "value": 0.433
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=3;column=5;header=box AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "2",
+          "value": 0.435
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=4;column=5;header=box AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "3",
+          "value": 0.449
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=3;header=box AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "0",
+          "value": 0.38799999999999996
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=4;header=segm AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "0",
+          "value": 0.311
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=3;header=box AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "1",
+          "value": 0.402
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=4;header=segm AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "1",
+          "value": 0.319
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=3;header=box AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "2",
+          "value": 0.401
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=4;header=segm AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "2",
+          "value": 0.33
+        }
+      ],
+      "local_path": "detr/README.md",
+      "repository": "detr",
+      "source_sha256": "eeeeb3e185400fd1b4c3d681dc5246f66ebada212cc3442f01f55f636f455d10"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=0;row=1;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26n",
+          "value": 0.409
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=1;column=3;header=mAP val 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26n",
+          "value": 0.401
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=2;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26s",
+          "value": 0.486
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=2;column=3;header=mAP val 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26s",
+          "value": 0.478
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=3;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26m",
+          "value": 0.531
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=3;column=3;header=mAP val 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26m",
+          "value": 0.525
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=4;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26l",
+          "value": 0.55
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=4;column=3;header=mAP val 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26l",
+          "value": 0.544
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=5;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26x",
+          "value": 0.575
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=5;column=3;header=mAP val 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26x",
+          "value": 0.569
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=2;header=mAP box 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26n-seg",
+          "value": 0.396
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=3;header=mAP mask 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26n-seg",
+          "value": 0.33899999999999997
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=2;header=mAP box 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26s-seg",
+          "value": 0.473
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=3;header=mAP mask 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26s-seg",
+          "value": 0.4
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=2;header=mAP box 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26m-seg",
+          "value": 0.525
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=3;header=mAP mask 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26m-seg",
+          "value": 0.441
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=2;header=mAP box 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26l-seg",
+          "value": 0.544
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=3;header=mAP mask 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26l-seg",
+          "value": 0.455
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=5;column=2;header=mAP box 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26x-seg",
+          "value": 0.565
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=5;column=3;header=mAP mask 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26x-seg",
+          "value": 0.47
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=1;column=2;header=mAP pose 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26n-pose",
+          "value": 0.5720000000000001
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=1;column=3;header=mAP pose 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26n-pose",
+          "value": 0.833
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=2;column=2;header=mAP pose 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26s-pose",
+          "value": 0.63
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=2;column=3;header=mAP pose 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26s-pose",
+          "value": 0.866
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=3;column=2;header=mAP pose 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26m-pose",
+          "value": 0.688
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=3;column=3;header=mAP pose 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26m-pose",
+          "value": 0.8959999999999999
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=4;column=2;header=mAP pose 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26l-pose",
+          "value": 0.7040000000000001
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=4;column=3;header=mAP pose 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26l-pose",
+          "value": 0.905
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=5;column=2;header=mAP pose 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26x-pose",
+          "value": 0.716
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=5;column=3;header=mAP pose 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26x-pose",
+          "value": 0.9159999999999999
+        },
+        {
+          "metric": "ap",
+          "origin": "table=6;row=1;column=2;header=mAP test 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26n-obb",
+          "value": 0.524
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=6;row=1;column=3;header=mAP test 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26n-obb",
+          "value": 0.789
+        },
+        {
+          "metric": "ap",
+          "origin": "table=6;row=2;column=2;header=mAP test 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26s-obb",
+          "value": 0.5479999999999999
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=6;row=2;column=3;header=mAP test 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26s-obb",
+          "value": 0.809
+        },
+        {
+          "metric": "ap",
+          "origin": "table=6;row=3;column=2;header=mAP test 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26m-obb",
+          "value": 0.5529999999999999
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=6;row=3;column=3;header=mAP test 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26m-obb",
+          "value": 0.81
+        },
+        {
+          "metric": "ap",
+          "origin": "table=6;row=4;column=2;header=mAP test 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26l-obb",
+          "value": 0.562
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=6;row=4;column=3;header=mAP test 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26l-obb",
+          "value": 0.816
+        },
+        {
+          "metric": "ap",
+          "origin": "table=6;row=5;column=2;header=mAP test 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26x-obb",
+          "value": 0.5670000000000001
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=6;row=5;column=3;header=mAP test 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO26x-obb",
+          "value": 0.8170000000000001
+        }
+      ],
+      "local_path": "ultralytics/README.md",
+      "repository": "ultralytics",
+      "source_sha256": "a4dec3e72fe6f16bd12818ef9d31ed74b760abbf2642383fa028d745c90a0105"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [],
+      "local_path": "ultralytics/docs/en/models/fast-sam.md",
+      "repository": "ultralytics",
+      "source_sha256": "18dc2280b8a15260aa1d773e1615b8675dd0219e58413be4c4070246bc932415"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [],
+      "local_path": "ultralytics/docs/en/models/index.md",
+      "repository": "ultralytics",
+      "source_sha256": "9af40433123e36639791c676774873481c15d8270504ed9810cce3b9acafb925"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [],
+      "local_path": "ultralytics/docs/en/models/mobile-sam.md",
+      "repository": "ultralytics",
+      "source_sha256": "f74395dd221dc522a2ae14a8b2736d2d4912ab6ae53b692c4aa755b44543e17b"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [],
+      "local_path": "ultralytics/docs/en/models/rtdetr.md",
+      "repository": "ultralytics",
+      "source_sha256": "f908f7557fdce95f8664ce8a803b6a921e1ce50a2e526bc79baf7a34faabf74a"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [],
+      "local_path": "ultralytics/docs/en/models/sam-2.md",
+      "repository": "ultralytics",
+      "source_sha256": "5fcfe6312243530807a53202df9d8a06337326a1f0f71bf641b0376d94146545"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=5;row=1;column=1;header=0-shot AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "ODinW13",
+          "value": 0.599
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=1;column=2;header=10-shot AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "ODinW13",
+          "value": 0.716
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=2;column=1;header=0-shot AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RF100-VL",
+          "value": 0.14300000000000002
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=2;column=2;header=10-shot AP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RF100-VL",
+          "value": 0.35700000000000004
+        }
+      ],
+      "local_path": "ultralytics/docs/en/models/sam-3.md",
+      "repository": "ultralytics",
+      "source_sha256": "0a17ed66a29d7afbd2d064ecaf88e119d30f8891108361db343cfd21d58d8219"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [],
+      "local_path": "ultralytics/docs/en/models/sam.md",
+      "repository": "ultralytics",
+      "source_sha256": "24d0c98b0f2cd7db0316a8437263e3d0b8fb7d0001e9990b80db20e857a673f5"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=0;row=1;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO-NAS S",
+          "value": 0.475
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=2;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO-NAS M",
+          "value": 0.5155
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=3;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO-NAS L",
+          "value": 0.5222
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=4;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO-NAS S INT-8",
+          "value": 0.4703
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=5;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO-NAS M INT-8",
+          "value": 0.51
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=6;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO-NAS L INT-8",
+          "value": 0.521
+        }
+      ],
+      "local_path": "ultralytics/docs/en/models/yolo-nas.md",
+      "repository": "ultralytics",
+      "source_sha256": "7b2a19ccd649e52835e2f1d26275b8ab90754cf2d57d4650dca4918c699e25ee"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8s-world",
+          "value": 0.374
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=2;header=mAP50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8s-world",
+          "value": 0.52
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=3;header=mAP75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8s-world",
+          "value": 0.406
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8s-worldv2",
+          "value": 0.377
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=2;header=mAP50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8s-worldv2",
+          "value": 0.522
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=3;header=mAP75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8s-worldv2",
+          "value": 0.41
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8m-world",
+          "value": 0.42
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=2;header=mAP50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8m-world",
+          "value": 0.57
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=3;header=mAP75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8m-world",
+          "value": 0.456
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8m-worldv2",
+          "value": 0.43
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=2;header=mAP50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8m-worldv2",
+          "value": 0.584
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=3;header=mAP75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8m-worldv2",
+          "value": 0.46799999999999997
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=5;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8l-world",
+          "value": 0.457
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=5;column=2;header=mAP50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8l-world",
+          "value": 0.613
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=5;column=3;header=mAP75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8l-world",
+          "value": 0.498
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=6;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8l-worldv2",
+          "value": 0.45799999999999996
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=6;column=2;header=mAP50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8l-worldv2",
+          "value": 0.613
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=6;column=3;header=mAP75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8l-worldv2",
+          "value": 0.498
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=7;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8x-world",
+          "value": 0.47
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=7;column=2;header=mAP50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8x-world",
+          "value": 0.63
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=7;column=3;header=mAP75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8x-world",
+          "value": 0.512
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=8;column=1;header=mAP",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8x-worldv2",
+          "value": 0.47100000000000003
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=8;column=2;header=mAP50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8x-worldv2",
+          "value": 0.628
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=8;column=3;header=mAP75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov8x-worldv2",
+          "value": 0.514
+        }
+      ],
+      "local_path": "ultralytics/docs/en/models/yolo-world.md",
+      "repository": "ultralytics",
+      "source_sha256": "49bf2b17f0bb4002706ddb4b91aadf97a8581a8a451c70295a01ade259c2122c"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11n",
+          "value": 0.395
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11s",
+          "value": 0.47
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11m",
+          "value": 0.515
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11l",
+          "value": 0.534
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=5;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11x",
+          "value": 0.547
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=1;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11n-seg",
+          "value": 0.389
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=1;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11n-seg",
+          "value": 0.32
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=2;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11s-seg",
+          "value": 0.466
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=2;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11s-seg",
+          "value": 0.37799999999999995
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=3;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11m-seg",
+          "value": 0.515
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=3;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11m-seg",
+          "value": 0.415
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=4;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11l-seg",
+          "value": 0.534
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=4;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11l-seg",
+          "value": 0.429
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=5;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11x-seg",
+          "value": 0.547
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=5;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11x-seg",
+          "value": 0.43799999999999994
+        },
+        {
+          "metric": "ap",
+          "origin": "table=4;row=1;column=2;header=mAP pose 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11n-pose",
+          "value": 0.5
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=4;row=1;column=3;header=mAP pose 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11n-pose",
+          "value": 0.81
+        },
+        {
+          "metric": "ap",
+          "origin": "table=4;row=2;column=2;header=mAP pose 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11s-pose",
+          "value": 0.589
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=4;row=2;column=3;header=mAP pose 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11s-pose",
+          "value": 0.863
+        },
+        {
+          "metric": "ap",
+          "origin": "table=4;row=3;column=2;header=mAP pose 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11m-pose",
+          "value": 0.649
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=4;row=3;column=3;header=mAP pose 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11m-pose",
+          "value": 0.894
+        },
+        {
+          "metric": "ap",
+          "origin": "table=4;row=4;column=2;header=mAP pose 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11l-pose",
+          "value": 0.6609999999999999
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=4;row=4;column=3;header=mAP pose 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11l-pose",
+          "value": 0.899
+        },
+        {
+          "metric": "ap",
+          "origin": "table=4;row=5;column=2;header=mAP pose 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11x-pose",
+          "value": 0.695
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=4;row=5;column=3;header=mAP pose 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11x-pose",
+          "value": 0.9109999999999999
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=1;column=2;header=mAP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11n-obb",
+          "value": 0.784
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=2;column=2;header=mAP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11s-obb",
+          "value": 0.795
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=3;column=2;header=mAP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11m-obb",
+          "value": 0.809
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=4;column=2;header=mAP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11l-obb",
+          "value": 0.81
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=5;column=2;header=mAP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11x-obb",
+          "value": 0.813
+        }
+      ],
+      "local_path": "ultralytics/docs/en/models/yolo11.md",
+      "repository": "ultralytics",
+      "source_sha256": "5babe2eea47b02500e841793441aeafafba72dae379ef7fce125dbaf4cbcd36a"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO12n",
+          "value": 0.406
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO12s",
+          "value": 0.48
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO12m",
+          "value": 0.525
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO12l",
+          "value": 0.537
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=5;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO12x",
+          "value": 0.552
+        }
+      ],
+      "local_path": "ultralytics/docs/en/models/yolo12.md",
+      "repository": "ultralytics",
+      "source_sha256": "462a929f5d2f78d6c124085239c62b004f37115441a6ed63753d9d5428232c84"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [],
+      "local_path": "ultralytics/docs/en/models/yolo26.md",
+      "repository": "ultralytics",
+      "source_sha256": "4d6e9bde3fe8c63a10d9f0f28a29d657fa81230cfccb1921bcdddfc9a51ddf20"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=3;row=1;column=2;header=mAP minival 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE-26n-seg-pf",
+          "value": 0.166
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=3;row=1;column=3;header=mAP minival 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE-26n-seg-pf",
+          "value": 0.22699999999999998
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=2;column=2;header=mAP minival 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE-26s-seg-pf",
+          "value": 0.214
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=3;row=2;column=3;header=mAP minival 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE-26s-seg-pf",
+          "value": 0.28600000000000003
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=3;column=2;header=mAP minival 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE-26m-seg-pf",
+          "value": 0.257
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=3;row=3;column=3;header=mAP minival 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE-26m-seg-pf",
+          "value": 0.336
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=4;column=2;header=mAP minival 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE-26l-seg-pf",
+          "value": 0.272
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=3;row=4;column=3;header=mAP minival 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE-26l-seg-pf",
+          "value": 0.354
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=5;column=2;header=mAP minival 50-95(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE-26x-seg-pf",
+          "value": 0.299
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=3;row=5;column=3;header=mAP minival 50(e2e)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE-26x-seg-pf",
+          "value": 0.387
+        },
+        {
+          "metric": "ap",
+          "origin": "table=6;row=1;column=1;header=COCO mAP 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8-L (closed-set)",
+          "value": 0.529
+        },
+        {
+          "metric": "ap",
+          "origin": "table=6;row=2;column=1;header=COCO mAP 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLO11-L (closed-set)",
+          "value": 0.535
+        },
+        {
+          "metric": "ap",
+          "origin": "table=6;row=3;column=1;header=COCO mAP 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE-L (open-vocab)",
+          "value": 0.526
+        },
+        {
+          "metric": "ap",
+          "origin": "table=6;row=3;column=2;header=LVIS mAP 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE-L (open-vocab)",
+          "value": 0.35200000000000004
+        },
+        {
+          "metric": "ap",
+          "origin": "table=6;row=4;column=2;header=LVIS mAP 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOE26-L (open-vocab)",
+          "value": 0.368
+        }
+      ],
+      "local_path": "ultralytics/docs/en/models/yoloe.md",
+      "repository": "ultralytics",
+      "source_sha256": "b1b9853d84188dbf539cc85e46af0806ffd7d6a97bc84d2df765e0a857e697b5"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=0;row=1;column=2;header=AP val",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv10n][1]",
+          "value": 0.385
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=2;column=2;header=AP val",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv10s][2]",
+          "value": 0.46299999999999997
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=3;column=2;header=AP val",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv10m][3]",
+          "value": 0.511
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=4;column=2;header=AP val",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv10b][4]",
+          "value": 0.525
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=5;column=2;header=AP val",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv10l][5]",
+          "value": 0.532
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=6;column=2;header=AP val",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv10x][6]",
+          "value": 0.544
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv6-3.0-N",
+          "value": 0.37
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "Gold-YOLO-N",
+          "value": 0.396
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8n",
+          "value": 0.373
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv10n][1]",
+          "value": 0.395
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=6;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv6-3.0-S",
+          "value": 0.44299999999999995
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=7;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "Gold-YOLO-S",
+          "value": 0.45399999999999996
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=8;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8s",
+          "value": 0.449
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=9;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv10s][2]",
+          "value": 0.46799999999999997
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=11;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RT-DETR-R18",
+          "value": 0.465
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=12;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv6-3.0-M",
+          "value": 0.491
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=13;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "Gold-YOLO-M",
+          "value": 0.498
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=14;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8m",
+          "value": 0.506
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=15;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv10m][3]",
+          "value": 0.513
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=17;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv6-3.0-L",
+          "value": 0.518
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=18;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "Gold-YOLO-L",
+          "value": 0.518
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=19;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8l",
+          "value": 0.529
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=20;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RT-DETR-R50",
+          "value": 0.531
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=21;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv10l][5]",
+          "value": 0.534
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=23;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8x",
+          "value": 0.539
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=24;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RT-DETR-R101",
+          "value": 0.5429999999999999
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=25;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv10x][6]",
+          "value": 0.544
+        }
+      ],
+      "local_path": "ultralytics/docs/en/models/yolov10.md",
+      "repository": "ultralytics",
+      "source_sha256": "7b056718bedfb30d92272c9d9daa8dbc45d7bb825c458bd9c790de9786cba7d2"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [],
+      "local_path": "ultralytics/docs/en/models/yolov3.md",
+      "repository": "ultralytics",
+      "source_sha256": "727a895aea5e2a8be38fb17078876656323a945d376de1381d47404ca7e731e8"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [],
+      "local_path": "ultralytics/docs/en/models/yolov4.md",
+      "repository": "ultralytics",
+      "source_sha256": "e968c8135692c03768c8b98a94d77d7d3a19d6284f9befa7ce8711fc545f92a6"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov5nu.pt",
+          "value": 0.34299999999999997
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov5su.pt",
+          "value": 0.43
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov5mu.pt",
+          "value": 0.49
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov5lu.pt",
+          "value": 0.522
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=5;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov5xu.pt",
+          "value": 0.532
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=7;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov5n6u.pt",
+          "value": 0.42100000000000004
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=8;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov5s6u.pt",
+          "value": 0.486
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=9;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov5m6u.pt",
+          "value": 0.536
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=10;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov5l6u.pt",
+          "value": 0.557
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=11;column=3;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "yolov5x6u.pt",
+          "value": 0.568
+        }
+      ],
+      "local_path": "ultralytics/docs/en/models/yolov5.md",
+      "repository": "ultralytics",
+      "source_sha256": "5d4005ce3fedb31235741ac5d512515b2e153dfbac8e0cd04725f2aa34178a27"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [],
+      "local_path": "ultralytics/docs/en/models/yolov6.md",
+      "repository": "ultralytics",
+      "source_sha256": "34a75c8048d74f64892bd53e4c6a136ddc950a602e903100d2cc438e9474f9f2"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=6;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[PPYOLOE-S][2]",
+          "value": 0.605
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=6;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[PPYOLOE-S][2]",
+          "value": 0.466
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=7;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[PPYOLOE-M][2]",
+          "value": 0.665
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=7;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[PPYOLOE-M][2]",
+          "value": 0.53
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=8;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[PPYOLOE-L][2]",
+          "value": 0.6890000000000001
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=8;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[PPYOLOE-L][2]",
+          "value": 0.556
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=9;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[PPYOLOE-X][2]",
+          "value": 0.6990000000000001
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=9;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[PPYOLOE-X][2]",
+          "value": 0.565
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=11;column=5;header=AP test / val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv5-N (r6.1)][3]",
+          "value": 0.28
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=12;column=5;header=AP test / val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv5-S (r6.1)][3]",
+          "value": 0.374
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=13;column=5;header=AP test / val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv5-M (r6.1)][3]",
+          "value": 0.45399999999999996
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=14;column=5;header=AP test / val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv5-L (r6.1)][3]",
+          "value": 0.49
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=15;column=5;header=AP test / val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv5-X (r6.1)][3]",
+          "value": 0.507
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=17;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOR-CSP][4]",
+          "value": 0.696
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=17;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOR-CSP][4]",
+          "value": 0.557
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=18;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOR-CSP-X][4]",
+          "value": 0.7140000000000001
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=18;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOR-CSP-X][4]",
+          "value": 0.579
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=19;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7-tiny-SiLU][5]",
+          "value": 0.5670000000000001
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=19;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7-tiny-SiLU][5]",
+          "value": 0.41700000000000004
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=20;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7][5]",
+          "value": 0.6970000000000001
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=20;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7][5]",
+          "value": 0.5589999999999999
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=21;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7-X][5]",
+          "value": 0.7120000000000001
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=21;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7-X][5]",
+          "value": 0.578
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=23;column=5;header=AP test / val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv5-N6 (r6.1)][3]",
+          "value": 0.36
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=24;column=5;header=AP test / val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv5-S6 (r6.1)][3]",
+          "value": 0.44799999999999995
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=25;column=5;header=AP test / val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv5-M6 (r6.1)][3]",
+          "value": 0.513
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=26;column=5;header=AP test / val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv5-L6 (r6.1)][3]",
+          "value": 0.537
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=27;column=5;header=AP test / val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv5-X6 (r6.1)][3]",
+          "value": 0.55
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=29;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOR-P6][4]",
+          "value": 0.7140000000000001
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=29;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOR-P6][4]",
+          "value": 0.589
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=30;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOR-W6][4]",
+          "value": 0.727
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=30;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOR-W6][4]",
+          "value": 0.605
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=31;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOR-E6][4]",
+          "value": 0.7340000000000001
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=31;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOR-E6][4]",
+          "value": 0.611
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=32;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOR-D6][4]",
+          "value": 0.741
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=32;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOR-D6][4]",
+          "value": 0.619
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=34;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7-W6][5]",
+          "value": 0.726
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=34;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7-W6][5]",
+          "value": 0.601
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=35;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7-E6][5]",
+          "value": 0.735
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=35;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7-E6][5]",
+          "value": 0.612
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=36;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7-D6][5]",
+          "value": 0.74
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=36;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7-D6][5]",
+          "value": 0.618
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=37;column=6;header=AP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7-E6E][5]",
+          "value": 0.7440000000000001
+        },
+        {
+          "metric": "ap75",
+          "origin": "table=0;row=37;column=7;header=AP test 75",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "[YOLOv7-E6E][5]",
+          "value": 0.621
+        }
+      ],
+      "local_path": "ultralytics/docs/en/models/yolov7.md",
+      "repository": "ultralytics",
+      "source_sha256": "478e74f2f63e22f6cd90f9d22f442d659eb91fcaef437740d3017ce2662a65b2"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8n",
+          "value": 0.373
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8s",
+          "value": 0.449
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8m",
+          "value": 0.502
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8l",
+          "value": 0.529
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=5;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8x",
+          "value": 0.539
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=1;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8n",
+          "value": 0.184
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=2;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8s",
+          "value": 0.27699999999999997
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=3;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8m",
+          "value": 0.336
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=4;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8l",
+          "value": 0.349
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=5;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8x",
+          "value": 0.363
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=1;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8n-seg",
+          "value": 0.36700000000000005
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=1;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8n-seg",
+          "value": 0.305
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=2;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8s-seg",
+          "value": 0.446
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=2;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8s-seg",
+          "value": 0.368
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=3;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8m-seg",
+          "value": 0.499
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=3;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8m-seg",
+          "value": 0.408
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=4;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8l-seg",
+          "value": 0.523
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=4;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8l-seg",
+          "value": 0.426
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=5;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8x-seg",
+          "value": 0.534
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=5;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8x-seg",
+          "value": 0.434
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=1;column=2;header=mAP pose 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8n-pose",
+          "value": 0.504
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=1;column=3;header=mAP pose 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8n-pose",
+          "value": 0.8009999999999999
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=2;column=2;header=mAP pose 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8s-pose",
+          "value": 0.6
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=2;column=3;header=mAP pose 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8s-pose",
+          "value": 0.862
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=3;column=2;header=mAP pose 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8m-pose",
+          "value": 0.65
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=3;column=3;header=mAP pose 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8m-pose",
+          "value": 0.888
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=4;column=2;header=mAP pose 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8l-pose",
+          "value": 0.6759999999999999
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=4;column=3;header=mAP pose 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8l-pose",
+          "value": 0.9
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=5;column=2;header=mAP pose 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8x-pose",
+          "value": 0.6920000000000001
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=5;column=3;header=mAP pose 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8x-pose",
+          "value": 0.902
+        },
+        {
+          "metric": "ap",
+          "origin": "table=5;row=6;column=2;header=mAP pose 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8x-pose-p6",
+          "value": 0.716
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=5;row=6;column=3;header=mAP pose 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8x-pose-p6",
+          "value": 0.912
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=6;row=1;column=2;header=mAP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8n-obb",
+          "value": 0.78
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=6;row=2;column=2;header=mAP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8s-obb",
+          "value": 0.795
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=6;row=3;column=2;header=mAP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8m-obb",
+          "value": 0.805
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=6;row=4;column=2;header=mAP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8l-obb",
+          "value": 0.807
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=6;row=5;column=2;header=mAP test 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv8x-obb",
+          "value": 0.8136
+        }
+      ],
+      "local_path": "ultralytics/docs/en/models/yolov8.md",
+      "repository": "ultralytics",
+      "source_sha256": "a03ea29595f0b0689e24fdcf7494966848ebb4cb8776346d94694103d71451a1"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=0;row=1;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9t",
+          "value": 0.38299999999999995
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=1;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9t",
+          "value": 0.531
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=2;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9s",
+          "value": 0.46799999999999997
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=2;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9s",
+          "value": 0.634
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=3;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9m",
+          "value": 0.514
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=3;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9m",
+          "value": 0.6809999999999999
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=4;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9c",
+          "value": 0.53
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=4;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9c",
+          "value": 0.7020000000000001
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=5;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9e",
+          "value": 0.556
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=5;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9e",
+          "value": 0.728
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9c-seg",
+          "value": 0.524
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9c-seg",
+          "value": 0.42200000000000004
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9e-seg",
+          "value": 0.551
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv9e-seg",
+          "value": 0.44299999999999995
+        }
+      ],
+      "local_path": "ultralytics/docs/en/models/yolov9.md",
+      "repository": "ultralytics",
+      "source_sha256": "2a3e6346b4eb810252f9f199e81d840713aa1316ba5fb823c204a9449f52f99f"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=0;row=1;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5n",
+          "value": 0.28
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=1;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5n",
+          "value": 0.457
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=2;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5s",
+          "value": 0.374
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=2;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5s",
+          "value": 0.568
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=3;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5m",
+          "value": 0.45399999999999996
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=3;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5m",
+          "value": 0.6409999999999999
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=4;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5l",
+          "value": 0.49
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=4;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5l",
+          "value": 0.6729999999999999
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=5;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5x",
+          "value": 0.507
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=5;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5x",
+          "value": 0.6890000000000001
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=7;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5n6",
+          "value": 0.36
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=7;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5n6",
+          "value": 0.544
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=8;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5s6",
+          "value": 0.44799999999999995
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=8;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5s6",
+          "value": 0.637
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=9;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5m6",
+          "value": 0.513
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=9;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5m6",
+          "value": 0.693
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=10;column=2;header=mAP val 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5l6",
+          "value": 0.537
+        },
+        {
+          "metric": "ap50",
+          "origin": "table=0;row=10;column=3;header=mAP val 50",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5l6",
+          "value": 0.713
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5n-seg",
+          "value": 0.276
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5n-seg",
+          "value": 0.23399999999999999
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5s-seg",
+          "value": 0.376
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5s-seg",
+          "value": 0.317
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5m-seg",
+          "value": 0.45
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5m-seg",
+          "value": 0.371
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5l-seg",
+          "value": 0.49
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5l-seg",
+          "value": 0.39899999999999997
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=5;column=2;header=mAP box 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5x-seg",
+          "value": 0.507
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=5;column=3;header=mAP mask 50-95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOv5x-seg",
+          "value": 0.414
+        }
+      ],
+      "local_path": "yolov5/README.md",
+      "repository": "yolov5",
+      "source_sha256": "d6f7815cb0331faa8bf2bd630fe79dacf49ffa380098e7fc12fe1c74139236bd"
+    },
+    {
+      "annotation_method": "preregistered_independent_ap_table_rule",
+      "expected_claims": [
+        {
+          "metric": "ap",
+          "origin": "table=0;row=1;column=2;header=mAP val 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-s",
+          "value": 0.405
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=1;column=3;header=mAP test 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-s",
+          "value": 0.405
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=2;column=2;header=mAP val 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-m",
+          "value": 0.469
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=2;column=3;header=mAP test 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-m",
+          "value": 0.47200000000000003
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=3;column=2;header=mAP val 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-l",
+          "value": 0.49700000000000005
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=3;column=3;header=mAP test 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-l",
+          "value": 0.501
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=4;column=2;header=mAP val 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-x",
+          "value": 0.511
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=4;column=3;header=mAP test 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-x",
+          "value": 0.515
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=5;column=2;header=mAP val 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-Darknet53",
+          "value": 0.47700000000000004
+        },
+        {
+          "metric": "ap",
+          "origin": "table=0;row=5;column=3;header=mAP test 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-Darknet53",
+          "value": 0.48
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=1;column=2;header=mAP test 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-s",
+          "value": 0.396
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=2;column=2;header=mAP test 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-m",
+          "value": 0.46399999999999997
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=3;column=2;header=mAP test 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-l",
+          "value": 0.5
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=4;column=2;header=mAP test 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-x",
+          "value": 0.512
+        },
+        {
+          "metric": "ap",
+          "origin": "table=1;row=5;column=2;header=mAP test 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-Darknet53",
+          "value": 0.474
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=1;column=2;header=mAP val 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-Nano",
+          "value": 0.258
+        },
+        {
+          "metric": "ap",
+          "origin": "table=2;row=2;column=2;header=mAP val 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-Tiny",
+          "value": 0.32799999999999996
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=1;column=2;header=mAP val 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-Nano",
+          "value": 0.253
+        },
+        {
+          "metric": "ap",
+          "origin": "table=3;row=2;column=2;header=mAP val 0.5:0.95",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "YOLOX-Tiny",
+          "value": 0.32799999999999996
+        }
+      ],
+      "local_path": "yolox/README.md",
+      "repository": "yolox",
+      "source_sha256": "023dbf0a5f2c48c944cc6220f9c4750febe2ceafc535445278455186bec7ec6b"
+    }
+  ],
+  "evaluator_sha256": "c9cbc753f0027d2815dcc9105603580495c2ee9797364c84e6d3f3f38b84e1f6",
+  "limitations": [
+    "Only the preregistered AP-family table-cell scope is labelled.",
+    "Narrative claims, size-specific AP variants, and multi-number cells are excluded.",
+    "Labels are generated by an internal rule, not independent expert review."
+  ],
+  "pre_output_review": "All unique metric headers and per-artifact claim samples were inspected before any evaluator output was generated.",
+  "preregistration_sha256": "478cf7370e097be4c95577710513154514917f1190cee1d7cfb033043648f67a",
+  "reviewers": {
+    "adjudication": false,
+    "independent_external": 0,
+    "internal_human": 1,
+    "rule_derived": true
+  },
+  "schema": "reprocheck.preregistered-holdout-annotations.v1",
+  "scope": "unambiguous numeric cells under AP, mAP, AP50, or AP75 Markdown or HTML table headers"
+}

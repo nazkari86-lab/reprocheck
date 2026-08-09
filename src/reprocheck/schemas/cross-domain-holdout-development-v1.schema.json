@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reprocheck.local/schemas/cross-domain-holdout-development-v1.schema.json",
+  "title": "ReproCheck cross-domain post-holdout development study v1",
+  "type": "object",
+  "required": ["schema", "phase", "zero_shot", "evaluator", "protocol", "corpus", "summary", "by_repository", "by_metric", "cases"],
+  "properties": {
+    "schema": { "const": "reprocheck.cross-domain-holdout-development-study.v1" },
+    "phase": { "const": "development_after_v0.7_holdout_inspection" },
+    "zero_shot": { "const": false },
+    "evaluator": {
+      "type": "object",
+      "required": ["version", "filename", "sha256", "installed_archive_hash"],
+      "properties": {
+        "version": { "const": "0.8.0" },
+        "filename": { "const": "reprocheck-0.8.0-py3-none-any.whl" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "installed_archive_hash": { "type": "string", "pattern": "^sha256=[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "protocol": {
+      "type": "object",
+      "required": ["prediction_scope", "metric_scope", "matching", "absolute_tolerance", "output_overwrite_forbidden", "post_holdout_development"],
+      "properties": {
+        "prediction_scope": { "const": "Markdown and HTML table claims only" },
+        "metric_scope": { "type": "array", "minItems": 18, "maxItems": 18, "uniqueItems": true },
+        "matching": { "const": "multiset metric and value matching" },
+        "absolute_tolerance": { "const": 1e-9 },
+        "output_overwrite_forbidden": { "const": true },
+        "post_holdout_development": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "corpus": {
+      "type": "object",
+      "required": ["artifacts", "claim_bearing_artifacts", "annotated_claims", "repositories", "repository_commits", "preregistration_sha256", "source_manifest_sha256", "annotations_sha256", "annotation_lock_sha256", "primary_v0.7_result_sha256"],
+      "properties": {
+        "artifacts": { "const": 39 },
+        "claim_bearing_artifacts": { "const": 16 },
+        "annotated_claims": { "const": 295 },
+        "repositories": { "const": 4 },
+        "repository_commits": { "type": "object", "minProperties": 4, "maxProperties": 4 },
+        "preregistration_sha256": { "$ref": "#/$defs/sha256" },
+        "source_manifest_sha256": { "$ref": "#/$defs/sha256" },
+        "annotations_sha256": { "$ref": "#/$defs/sha256" },
+        "annotation_lock_sha256": { "$ref": "#/$defs/sha256" },
+        "primary_v0.7_result_sha256": { "$ref": "#/$defs/sha256" }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": ["tp", "fp", "fn", "precision", "precision_wilson_95", "recall", "recall_wilson_95", "artifact_exact_rate", "claim_artifact_exact_rate"],
+      "properties": {
+        "tp": { "const": 295 },
+        "fp": { "const": 0 },
+        "fn": { "const": 0 },
+        "precision": { "const": 1.0 },
+        "precision_wilson_95": { "$ref": "#/$defs/interval" },
+        "recall": { "const": 1.0 },
+        "recall_wilson_95": { "$ref": "#/$defs/interval" },
+        "artifact_exact_rate": { "const": 1.0 },
+        "claim_artifact_exact_rate": { "const": 1.0 }
+      },
+      "additionalProperties": false
+    },
+    "by_repository": { "type": "object", "minProperties": 4 },
+    "by_metric": { "type": "object", "minProperties": 4 },
+    "cases": {
+      "type": "array",
+      "minItems": 39,
+      "maxItems": 39,
+      "items": {
+        "type": "object",
+        "required": ["repository", "local_path", "expected_claims", "extracted_scoped_claims", "tp", "fp", "fn", "exact"],
+        "properties": {
+          "repository": { "type": "string" },
+          "local_path": { "type": "string" },
+          "expected_claims": { "type": "integer", "minimum": 0 },
+          "extracted_scoped_claims": { "type": "integer", "minimum": 0 },
+          "tp": { "type": "integer", "minimum": 0 },
+          "fp": { "const": 0 },
+          "fn": { "const": 0 },
+          "exact": { "const": true }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "rate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "interval": { "type": "array", "prefixItems": [{ "$ref": "#/$defs/rate" }, { "$ref": "#/$defs/rate" }], "minItems": 2, "maxItems": 2 }
+  }
+}

@@ -1,0 +1,778 @@
+{
+  "artifacts": [
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/brain_image_synthesis_latent_diffusion_model/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "06927acae05412e2d8d4cea5702f0b2a4a473877339a65c6928bb1cbc85b787f"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/brats_mri_axial_slices_generative_diffusion/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "56055dc9240ccf402302a90ef11b12160c3fde0a64db96d1d7904029a18750ba"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/brats_mri_generative_diffusion/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "dc68cb61c18af097a8904e5b5d1405db9e5aaff86798a3d22357306fbb68f518"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "val_mean_dice",
+          "origin": "eval_metrics.val_mean_dice",
+          "review": "rule_derived",
+          "value": 0.8518
+        },
+        {
+          "metric": "val_mean_dice_et",
+          "origin": "eval_metrics.val_mean_dice_et",
+          "review": "rule_derived",
+          "value": 0.7905
+        },
+        {
+          "metric": "val_mean_dice_tc",
+          "origin": "eval_metrics.val_mean_dice_tc",
+          "review": "rule_derived",
+          "value": 0.8559
+        },
+        {
+          "metric": "val_mean_dice_wt",
+          "origin": "eval_metrics.val_mean_dice_wt",
+          "review": "rule_derived",
+          "value": 0.9026
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/brats_mri_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "65322a60a2a3cd49ae773a20f6b3a1bfc25baa906e5bfe784f5fb4557503dc96"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "accuracy",
+          "origin": "eval_metrics.accuracy",
+          "review": "rule_derived",
+          "value": 0.96
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/breast_density_classification/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "12809f32ea93fe4c5e1f2f594c766971567f930a51154139f1e1fd280cc12dde"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/classification_template/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "65072869caaf9af0709b1a8c80963634be2466b16d477a46691d346a93c40b32"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/cxr_image_synthesis_latent_diffusion_model/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "57e9b040d30f49c451e89fcbecc7da5d312f668899f28f86113c3e18f7732137"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "accuracy",
+          "origin": "eval_metrics.accuracy",
+          "review": "rule_derived",
+          "value": 0.99
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/endoscopic_inbody_classification/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "7f90e68ae6bb94209a87b93629771ef81757a8edcb19f1180c08f78333277e10"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "eval_metrics.mean_iou",
+          "review": "rule_derived",
+          "value": 0.86
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/endoscopic_tool_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "26c04a0221542743d7b497620410074b76e0008d3737109a0e3a883151e995c3"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "ap_iou_0_10_maxdet_100",
+          "origin": "eval_metrics.AP_IoU_0.10_MaxDet_100",
+          "review": "rule_derived",
+          "value": 0.858
+        },
+        {
+          "metric": "ar_iou_0_10_maxdet_100",
+          "origin": "eval_metrics.AR_IoU_0.10_MaxDet_100",
+          "review": "rule_derived",
+          "value": 1.0
+        },
+        {
+          "metric": "map_iou_0_10_0_50_0_05_maxdet_100",
+          "origin": "eval_metrics.mAP_IoU_0.10_0.50_0.05_MaxDet_100",
+          "review": "rule_derived",
+          "value": 0.852
+        },
+        {
+          "metric": "mar_iou_0_10_0_50_0_05_maxdet_100",
+          "origin": "eval_metrics.mAR_IoU_0.10_0.50_0.05_MaxDet_100",
+          "review": "rule_derived",
+          "value": 0.998
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/lung_nodule_ct_detection/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "bf621efe2b921a77f753ba58c2e562eb6d9afd3852ae2e4240b7a0e2bb278820"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/maisi_ct_generative/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "ad2e0d84c53a76085fea936e9784e458ee1e08002192d73930b52b4b45b1539b"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/mednist_ddpm/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "6ed053b404b74832d3af7bf7c732c69bad1f6d0b5d23097c5c056a572fad294a"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/mednist_gan/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "e50eee137829c0cfbc2c8c5af84324459238020ecdf96829d82438421b715384"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/mednist_reg/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "af678c6baed1aa43d115dd000426f4b4e708c8ba76e5a1904ece456feb19c9bf"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "dice",
+          "origin": "description",
+          "review": "manual",
+          "value": 0.88
+        },
+        {
+          "metric": "mean_dice",
+          "origin": "eval_metrics.mean_dice",
+          "review": "rule_derived",
+          "value": 0.88
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/multi_organ_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "d9518d7d8be1eaafa4d4524f16433ce96b1a94b45734f8d5c7d4d5336b76b14e"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "dice",
+          "origin": "description",
+          "review": "manual",
+          "value": 0.62
+        },
+        {
+          "metric": "mean_dice",
+          "origin": "eval_metrics.mean_dice",
+          "review": "rule_derived",
+          "value": 0.62
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/pancreas_ct_dints_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "eb8eec1389265cd303fd0543cc9c0b3b6d3653a0237d1633fed1e691fd001f56"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "f1",
+          "origin": "eval_metrics.f1_score",
+          "review": "rule_derived",
+          "value": 0.852
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/pathology_nuclei_classification/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "36a12fd9cd0b0470ad6899adaa3a92b68eec00019d82b20fd28ecc97598d007c"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "binary_dice",
+          "origin": "eval_metrics.Binary Dice",
+          "review": "rule_derived",
+          "value": 0.8291
+        },
+        {
+          "metric": "dice",
+          "origin": "description",
+          "review": "manual",
+          "value": 0.83
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/pathology_nuclei_segmentation_classification/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "80078f6fdad0aeb8f809c03ba3441f19b4eac483bcefa3e5b64aa182c14873b4"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "mean_dice",
+          "origin": "eval_metrics.mean_dice",
+          "review": "rule_derived",
+          "value": 0.85
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/pathology_nuclick_annotation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "da365575e295c5fcf39d9379f6c1705039ae2f715fcb5f46a7b7987572801e99"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "accuracy",
+          "origin": "eval_metrics.accuracy",
+          "review": "rule_derived",
+          "value": 0.9
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/pathology_tumor_detection/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "3d219355d0464b866fd89c23f828ddebfe24986c8053c5e314fbd041bf2da0b1"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "cchmc_mean_dice",
+          "origin": "eval_metrics.CCHMC_mean_dice",
+          "review": "rule_derived",
+          "value": 0.89
+        },
+        {
+          "metric": "tcia_mean_dice",
+          "origin": "eval_metrics.TCIA_mean_dice",
+          "review": "rule_derived",
+          "value": 0.87
+        },
+        {
+          "metric": "ts_mean_dice",
+          "origin": "eval_metrics.TS_mean_dice",
+          "review": "rule_derived",
+          "value": 0.9
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/pediatric_abdominal_ct_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "13570ab2b83b4d02144cfce6ddeab820a042250d2ac485d76d1e32ce27290eb3"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "mean_dice_central_gland",
+          "origin": "eval_metrics.mean_dice.central gland",
+          "review": "rule_derived",
+          "value": 0.88
+        },
+        {
+          "metric": "mean_dice_peripheral_zone",
+          "origin": "eval_metrics.mean_dice.peripheral zone",
+          "review": "rule_derived",
+          "value": 0.75
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/prostate_mri_anatomy/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "e43c53b4ee349113d9c2f61b9d88fa3e1b147cdbdc5f518fd8ffcef4805dcf28"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "mean_dice",
+          "origin": "eval_metrics.mean_dice",
+          "review": "rule_derived",
+          "value": 0.79
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/renalStructures_CECT_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "4a9b8c102c8247644f0590bb9831e613fcbe8823819cf8497a5d134ec7523805"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "mean_dice",
+          "origin": "eval_metrics.mean_dice",
+          "review": "rule_derived",
+          "value": 0.85
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/renalStructures_UNEST_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "1f31c4cf047e3e8ec5d2dc9a9b638728514b5bf2a7ba95cbb6a1140ab34dddb7"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/retinalOCT_RPD_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "93609b30d3131b40bc99eb63d3d0b242a7bf7ae2d52fbfb51380209619285430"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/segmentation_template/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "1f52bfce809007c97fde6b3422585df41ce9abd1e08ac74d7cc3e5a687dccae1"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "mean_dice",
+          "origin": "eval_metrics.mean_dice",
+          "review": "rule_derived",
+          "value": 0.961
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/spleen_ct_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "e1e210e597bc8396fd39a10f6ad2bc4fe2f642c17de4a722a23f1b3e51fe9896"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "mean_dice",
+          "origin": "eval_metrics.mean_dice",
+          "review": "rule_derived",
+          "value": 0.97
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/spleen_deepedit_annotation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "a4eb939891024be14f75d05e4a9de8efec1962e5b69907912f108fb137a46e1e"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "mean_dice",
+          "origin": "eval_metrics.mean_dice",
+          "review": "rule_derived",
+          "value": 0.82
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/swin_unetr_btcv_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "1ef5a9de2e36f4ea1c0ab75594555346c9ed2aa03b54016447bdb7fce4785c87"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/valve_landmarks/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "c4fc7083dd818f876ac3e8a37ed3e2cc1fdc8636db93afe56cd6055624991fc2"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/ventricular_short_axis_3label/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "bb6c37d112779bcf5cb3e558457cdec8e2e72d08023d475136a609de89a5bcbd"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "mean_dice",
+          "origin": "eval_metrics.mean_dice",
+          "review": "rule_derived",
+          "value": 0.0
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/vista2d/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "4232ebf446e258c628f1dc518c06f86f614cd7ff498dd036408b0312e9458099"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/vista3d/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "9e1bd53176bf5a53b2ea9cc5dd019667d9b0529f9a36ff18d05e806313b179da"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "mean_dice",
+          "origin": "eval_metrics.mean_dice",
+          "review": "rule_derived",
+          "value": 0.8
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/wholeBody_ct_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "612116ec79130c10ad8493f340fdff2dc84d88369571f437c6abcfc7bbb028b6"
+    },
+    {
+      "annotation_method": "eval_metrics_rule_plus_full_file_manual_narrative_review",
+      "expected_claims": [
+        {
+          "metric": "mean_dice",
+          "origin": "eval_metrics.mean_dice",
+          "review": "rule_derived",
+          "value": 0.71
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "monai_model_zoo/models/wholeBrainSeg_Large_UNEST_segmentation/configs/metadata.json",
+      "repository": "monai_model_zoo",
+      "source_sha256": "4ae56b7b24ee54f980e4699f39c5bc2a256fbd60dfec3445873ded69136c4f3d"
+    },
+    {
+      "annotation_method": "single_internal_static_risk_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": [
+        "random_seed_not_detected"
+      ],
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/classification.ipynb",
+      "repository": "tensorflow_docs",
+      "source_sha256": "a920bf50382ac731eb31a1aef5b02216eaf87c357c5f434c9a34a8437295673c"
+    },
+    {
+      "annotation_method": "single_internal_static_risk_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": [
+        "random_seed_not_detected",
+        "unparsed_notebook_cells"
+      ],
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/keras_tuner.ipynb",
+      "repository": "tensorflow_docs",
+      "source_sha256": "158d73a1f04e8bf6eb5c522a774931ef92d686ebe442486dbf0a79aeb3ec1eea"
+    },
+    {
+      "annotation_method": "single_internal_static_risk_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": [
+        "random_seed_not_detected",
+        "unparsed_notebook_cells"
+      ],
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/overfit_and_underfit.ipynb",
+      "repository": "tensorflow_docs",
+      "source_sha256": "da5244bac69c8bd272005526133979edbdeb5ddf9085e44e5223f3166b75ce69"
+    },
+    {
+      "annotation_method": "single_internal_static_risk_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": [
+        "unparsed_notebook_cells"
+      ],
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/regression.ipynb",
+      "repository": "tensorflow_docs",
+      "source_sha256": "94cbe704da47d8115ef8d03f35897e4ee5d81c573d3f550490266a6c7e723736"
+    },
+    {
+      "annotation_method": "single_internal_static_risk_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": [
+        "random_seed_not_detected",
+        "unparsed_notebook_cells"
+      ],
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/save_and_load.ipynb",
+      "repository": "tensorflow_docs",
+      "source_sha256": "cf7e92a22d9728a45f9818361ff2edfe2f733966abd332bfbf0b637a3219e9d3"
+    },
+    {
+      "annotation_method": "single_internal_static_risk_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": [
+        "random_seed_not_detected"
+      ],
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/text_classification.ipynb",
+      "repository": "tensorflow_docs",
+      "source_sha256": "664a9ece83bd3c83c3d5054cfd8fea9605f017c5bb56a11b5058f5011185691b"
+    },
+    {
+      "annotation_method": "single_internal_static_risk_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": [
+        "random_seed_not_detected",
+        "unparsed_notebook_cells"
+      ],
+      "local_path": "tensorflow_docs/site/en/tutorials/keras/text_classification_with_hub.ipynb",
+      "repository": "tensorflow_docs",
+      "source_sha256": "7a1c382a86e21c2118e5c5d7f88a81c14f280e883d6159cd74d88321ed0302e7"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/README.md",
+      "repository": "transformers",
+      "source_sha256": "37d58cf1c18f7ac5fb91ecf1056f2b36ff31361bdaa7482953b12f2d98c0a117"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [
+        {
+          "metric": "accuracy",
+          "origin": "line 146",
+          "review": "manual",
+          "value": 0.7945
+        },
+        {
+          "metric": "accuracy",
+          "origin": "line 142",
+          "review": "manual",
+          "value": 0.9706
+        },
+        {
+          "metric": "accuracy",
+          "origin": "line 145",
+          "review": "manual",
+          "value": 0.9757
+        },
+        {
+          "metric": "accuracy",
+          "origin": "line 144",
+          "review": "manual",
+          "value": 0.9819
+        },
+        {
+          "metric": "accuracy",
+          "origin": "line 143",
+          "review": "manual",
+          "value": 0.9826
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/audio-classification/README.md",
+      "repository": "transformers",
+      "source_sha256": "1c793f7160584865d00578a1221786f1897b6a9596c89d2f2295be56ece10e49"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/contrastive-image-text/README.md",
+      "repository": "transformers",
+      "source_sha256": "98f31e89548bbf2d5593c2eebac15755f9c37f4043e9c52f6163601b3c3dd5a6"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/image-classification/README.md",
+      "repository": "transformers",
+      "source_sha256": "cfa35231df5dd757f5765d0ca646428033eaf59f57c6c5d534c83e5f0d0bf66e"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/image-pretraining/README.md",
+      "repository": "transformers",
+      "source_sha256": "6de5a12a648ce395760f7986499a09604c1061a25813324bd6929a4c3843f8c4"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/instance-segmentation/README.md",
+      "repository": "transformers",
+      "source_sha256": "d2f94baa5b9a440fb01c1ea3fb6faf8590cb8a1d32ae47aabdf6a0be6344e7fd"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/language-modeling/README.md",
+      "repository": "transformers",
+      "source_sha256": "fb0eed74c308181c2657e4614794de2b48632fb042a1286b80c0fd810af95a2e"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/multiple-choice/README.md",
+      "repository": "transformers",
+      "source_sha256": "6ce99d3ab0027160ff752040a1e81d6b4aa9680faf87a3275c3caa6b00d36b5a"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/object-detection/README.md",
+      "repository": "transformers",
+      "source_sha256": "784790f5b623e1d4001bfa614cbf22811bafefe84f636d346e804b28be6a5419"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [
+        {
+          "metric": "f1",
+          "origin": "line 58",
+          "review": "manual",
+          "value": 0.8852
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/question-answering/README.md",
+      "repository": "transformers",
+      "source_sha256": "fd370f0986c54fa5373b3e0e13a855d31a07866e60bad74066057644c2ba1839"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/semantic-segmentation/README.md",
+      "repository": "transformers",
+      "source_sha256": "9660176dfabbdadd5819f5739596c14c25097bd70291150f2ac67f4a9e353741"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/speech-pretraining/README.md",
+      "repository": "transformers",
+      "source_sha256": "4f98a058d8bcbb96864aa329943a356a70e63ae1746787c6752ad43874f15c54"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/speech-recognition/README.md",
+      "repository": "transformers",
+      "source_sha256": "a39274459be38576ad0382b7ba50cc5c0276f49494be94e462ad5393f7b1b9be"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/summarization/README.md",
+      "repository": "transformers",
+      "source_sha256": "cb19027ea744c6ef31092678411e014b5aa8b37e180cbb96e42b8d6f8546b01e"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [
+        {
+          "metric": "accuracy",
+          "origin": "line 250",
+          "review": "manual",
+          "value": 0.7093812375249501
+        }
+      ],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/text-classification/README.md",
+      "repository": "transformers",
+      "source_sha256": "2051c2261276139e0c70f191e47057e8cb92070f2394b2c55f14b2756aee7c22"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/text-generation/README.md",
+      "repository": "transformers",
+      "source_sha256": "4381ee40d0f3303bd6ec6b5d45c9e0c882474b797e1bbd2b7a94cf116c975353"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/token-classification/README.md",
+      "repository": "transformers",
+      "source_sha256": "ea8dcabb17e0e748f9505ad99bee8e1fdc247909d2b84f5a5bd01ca3730942be"
+    },
+    {
+      "annotation_method": "full_file_manual_supported_metric_review",
+      "expected_claims": [],
+      "expected_notebook_finding_codes": null,
+      "local_path": "transformers/examples/pytorch/translation/README.md",
+      "repository": "transformers",
+      "source_sha256": "93121c00ba2dd0b350b9e8c85c47995520c059fee52f167dd393c59664ba30bc"
+    }
+  ],
+  "limitations": [
+    "MONAI eval_metrics labels are rule-derived from explicit JSON fields.",
+    "Narrative and Transformers labels have one internal reviewer only.",
+    "TensorFlow labels are static risk indicators, not proven methodological defects."
+  ],
+  "reviewers": {
+    "adjudication": false,
+    "independent_external_reviewers": 0,
+    "internal_reviewers": 1
+  },
+  "schema": "reprocheck.real-artifact-annotations.v1",
+  "scope": "all supported numerical claims in complete frozen files"
+}

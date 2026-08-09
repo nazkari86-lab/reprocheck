@@ -1,0 +1,11 @@
+{
+  "schema": "reprocheck.cross-domain-holdout-preregistration-lock.v1",
+  "preregistration_filename": "preregistration.json",
+  "preregistration_sha256": "ce3938ea9019b2555564b68e0100f11fbcc1ed83048ec506270c94aaf6317cbf",
+  "evaluator_filename": "reprocheck-0.7.0-py3-none-any.whl",
+  "evaluator_sha256": "8c182c3e2cdd41d47e296653950429d1d12cfc0837b63db565f19f2eb65a09ee",
+  "locked_before_tree_resolution": true,
+  "locked_before_source_content_download": true,
+  "locked_before_annotation": true,
+  "locked_before_evaluator_run": true
+}

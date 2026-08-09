@@ -1,0 +1,2371 @@
+{
+  "annotation_code_imports_reprocheck": false,
+  "artifacts": [
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "fairseq/README.md",
+      "repository": "fairseq",
+      "source_sha256": "198e3311a3a538cac678243de53b379a8bf160800d1ab8e7cdaefb971d83bc9e"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "fairseq/examples/MMPT/README.md",
+      "repository": "fairseq",
+      "source_sha256": "a6c130bb30154814f73c6971e7de515fb465b2a2ecb4223be3eb900ab41214f5"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "fairseq/examples/conv_seq2seq/README.md",
+      "repository": "fairseq",
+      "source_sha256": "528057ed91dcda5fbffeed0cf714bb21e92b9165afe5ed079f4d736125be2f30"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "fairseq/examples/hubert/README.md",
+      "repository": "fairseq",
+      "source_sha256": "18ba01438a631d993b9ae992be35d854f8f12337fe9e5044f8292e36e2b2661e"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "fairseq/examples/linformer/README.md",
+      "repository": "fairseq",
+      "source_sha256": "bf964a5c3f96e311e7885b75ecff51f9d384ba8c02a8af9910164fc5de810bb2"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "fairseq/examples/m2m_100/README.md",
+      "repository": "fairseq",
+      "source_sha256": "95d8bb4bebde54aa5e4c88c6bda48a6ba870127712d9aff72ed258cbe3e1ee3d"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "fairseq/examples/mms/lid_rerank/README.md",
+      "repository": "fairseq",
+      "source_sha256": "0166cdd93e22a4f18d463d8e482b038764da24545b18b553c57be86469e011b2"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "fairseq/examples/pay_less_attention_paper/README.md",
+      "repository": "fairseq",
+      "source_sha256": "b64d62f4f0b26251f1be585cc3e07cf9d062a47ccfff87f01d919c6e03c28447"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "accuracy",
+          "origin": "markdown_table=5;row=1;column=1;header=Accuracy",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "roberta.large",
+          "value": 0.8320000000000001
+        },
+        {
+          "metric": "accuracy",
+          "origin": "markdown_table=7;row=1;column=1;header=Accuracy",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "roberta.large (single model)",
+          "value": 0.721
+        },
+        {
+          "metric": "accuracy",
+          "origin": "markdown_table=7;row=2;column=1;header=Accuracy",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "roberta.large (ensemble)",
+          "value": 0.725
+        },
+        {
+          "metric": "accuracy",
+          "origin": "markdown_table=8;row=1;column=1;header=Accuracy",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "roberta.large",
+          "value": 0.7809999999999999
+        }
+      ],
+      "local_path": "fairseq/examples/roberta/README.md",
+      "repository": "fairseq",
+      "source_sha256": "ff7e37a0b149d54a52124248e0f821053c7b1d7822a9df82e560ff029b961d5c"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "fairseq/examples/speech_recognition/README.md",
+      "repository": "fairseq",
+      "source_sha256": "da151ac2d51662d9d6eaea3c510f58eb5b3b8f3b649d7f662a59b4304d057efa"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "fairseq/examples/textless_nlp/dgslm/vocoder_hifigan/README.md",
+      "repository": "fairseq",
+      "source_sha256": "fad71382bd87e4eeb390b57567e56999c638a446bedffb826f66813e0cb4bf6a"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "fairseq/examples/textless_nlp/gslm/metrics/README.md",
+      "repository": "fairseq",
+      "source_sha256": "4da11e7df6096745823e0ea7450575cd2d3b4fa104a8f4b4461a5d8e8249b241"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "fairseq/examples/translation/README.md",
+      "repository": "fairseq",
+      "source_sha256": "e2623913ba66152909660f1d08b60e31b6994cd4dd293399f6e463672ff9ddef"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.7444
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.7705
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.7437
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.7691
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.7515999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.7724
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.7692
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.7887000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=5;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.7768
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=5;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.7957
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.2545
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.2615
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.28550000000000003
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.2926
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.2982
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.30329999999999996
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.3488
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.35369999999999996
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=5;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.3114
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=5;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.3176
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=6;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.3738
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=6;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV1",
+          "value": 0.3799
+        }
+      ],
+      "local_path": "mmsegmentation/configs/bisenetv1/README.md",
+      "repository": "mmsegmentation",
+      "source_sha256": "fb0a2721edabfcb747192247f08817d15e3c301d43f004485567ad2bd6db89ba"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV2",
+          "value": 0.7321
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV2",
+          "value": 0.7574
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV2",
+          "value": 0.7356999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV2",
+          "value": 0.758
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV2",
+          "value": 0.7576
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV2",
+          "value": 0.7779
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV2",
+          "value": 0.7306999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "BiSeNetV2",
+          "value": 0.7513
+        }
+      ],
+      "local_path": "mmsegmentation/configs/bisenetv2/README.md",
+      "repository": "mmsegmentation",
+      "source_sha256": "ac7a5c99daac1a20fb0fed61cba5d2fd4876b1b2f54757ecc5dcc6a412d9e697"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "CGNet",
+          "value": 0.6563
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "CGNet",
+          "value": 0.6804000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "CGNet",
+          "value": 0.6827
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "CGNet",
+          "value": 0.7033
+        }
+      ],
+      "local_path": "mmsegmentation/configs/cgnet/README.md",
+      "repository": "mmsegmentation",
+      "source_sha256": "847979ee8b4f458bc3bf54d3cb51f190dfe5362158a4221d2b5bee04396dab09"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7961
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8101
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8020999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8181999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7897
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8046
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7946
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.805
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=5;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7689
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=5;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7876000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=6;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8009000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=6;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8112999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=7;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8097
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=7;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8203
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=8;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+ (FP16)",
+          "value": 0.8046
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=9;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7626000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=9;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7791
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=10;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7983
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=10;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8148000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=11;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8065000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=11;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8147
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=12;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7909
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=12;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8036
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=13;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.799
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=13;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8133
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=14;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7587
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=14;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7752
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=15;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8028
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=15;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8144
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=16;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8016
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=16;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8140999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=17;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7636
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=17;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7824
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=18;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7940999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=18;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8056
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=19;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7988
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=19;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.8146
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.42719999999999997
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.4375
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.446
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.4606
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.4395
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.4493
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.4547
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.4635
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7593000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.775
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7722
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7859
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7681
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7757
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7862
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7953
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=4;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.473
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=4;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.48469999999999996
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=4;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.47229999999999994
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=4;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.4826
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=5;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.5286
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=5;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.5454
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=5;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.532
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=5;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.5467
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=6;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.5028
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=6;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.5047
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=6;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.5099
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=6;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.5065
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=6;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.5146999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=6;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.5132
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=7;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7709
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=7;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7844
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=7;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7833
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=7;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7927
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=7;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.787
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=7;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7947
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=8;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.725
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=8;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7413
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=8;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7397
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=8;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7505
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=8;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7306
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=8;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.7414000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=9;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.6135
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=9;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.6261
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=9;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.6706
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=9;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.6801999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=10;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.47350000000000003
+        }
+      ],
+      "local_path": "mmsegmentation/configs/deeplabv3plus/README.md",
+      "repository": "mmsegmentation",
+      "source_sha256": "8cd13c2bc2bf279fe16df3c070620e52749da1d4cf3ba44badaf5a9b1a90634f"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.7861
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.7831
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.7844
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.8027
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.7639
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.7777
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=5;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.7933
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=6;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.8040999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=7;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.7936
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=7;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.807
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=8;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.7940999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=8;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.8068000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.41759999999999997
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.4299
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.4376
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.44909999999999994
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.41869999999999996
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.4301
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.4425
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DNLNet",
+          "value": 0.4578
+        }
+      ],
+      "local_path": "mmsegmentation/configs/dnlnet/README.md",
+      "repository": "mmsegmentation",
+      "source_sha256": "17bd371cbf01cd3748f5a3a50f44d7bd0a2a901599eca3e2279f1df23e4dfbd8"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DPT",
+          "value": 0.4697
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DPT",
+          "value": 0.48340000000000005
+        }
+      ],
+      "local_path": "mmsegmentation/configs/dpt/README.md",
+      "repository": "mmsegmentation",
+      "source_sha256": "9f1b4e2cb3914ba6183231cf1658287119a813869305d79156d25b7db934f9b3"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + DeepLabV3",
+          "value": 0.7912
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + DeepLabV3",
+          "value": 0.8058
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + DeepLabV3",
+          "value": 0.7951999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + DeepLabV3",
+          "value": 0.8090999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + PSPNet",
+          "value": 0.7926000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + PSPNet",
+          "value": 0.8086
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + PSPNet",
+          "value": 0.7876000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + PSPNet",
+          "value": 0.8003
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=5;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + EncNet",
+          "value": 0.7797
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=5;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + EncNet",
+          "value": 0.7992
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=6;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + EncNet",
+          "value": 0.7859999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=6;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + EncNet",
+          "value": 0.8025
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + DeepLabV3",
+          "value": 0.4188
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + DeepLabV3",
+          "value": 0.4291
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + DeepLabV3",
+          "value": 0.43579999999999997
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + DeepLabV3",
+          "value": 0.44920000000000004
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + PSPNet",
+          "value": 0.414
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + PSPNet",
+          "value": 0.42119999999999996
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + PSPNet",
+          "value": 0.4263
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + PSPNet",
+          "value": 0.4371
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=5;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + EncNet",
+          "value": 0.40880000000000005
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=5;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + EncNet",
+          "value": 0.4236
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=6;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + EncNet",
+          "value": 0.425
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=6;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FastFCN + EncNet",
+          "value": 0.4421
+        }
+      ],
+      "local_path": "mmsegmentation/configs/fastfcn/README.md",
+      "repository": "mmsegmentation",
+      "source_sha256": "3b4eb75b7efa8bd066c8d7508ebf77aeb4f687dd0602f86b34270af3db4eb075"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7768999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7856000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7828
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7934
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7812
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.8009000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7895
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.8070999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=5;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7848
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=5;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.8001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=6;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7903
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=6;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7984
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=7;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7868
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=7;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.8066
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=8;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7918000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=8;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.8070999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.4147
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.4285
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.4282
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.4454
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.42369999999999997
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.43520000000000003
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.43689999999999996
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.4521
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7642
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7751
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7741
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7856000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7624
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7763
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7784
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "GCNet",
+          "value": 0.7859
+        }
+      ],
+      "local_path": "mmsegmentation/configs/gcnet/README.md",
+      "repository": "mmsegmentation",
+      "source_sha256": "38bad8395fddc3969236042d6a2041ccac62101d2213771201606cd96b7c69af"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FCN",
+          "value": 0.7119
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FCN",
+          "value": 0.7334
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "PSPNet",
+          "value": 0.7023
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3",
+          "value": 0.7384000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.752
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FCN",
+          "value": 0.1971
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "PSPNet",
+          "value": 0.2968
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3",
+          "value": 0.3408
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "DeepLabV3+",
+          "value": 0.34020000000000006
+        }
+      ],
+      "local_path": "mmsegmentation/configs/mobilenet_v2/README.md",
+      "repository": "mmsegmentation",
+      "source_sha256": "d9b88b30e3e39407bcd8fe1cf1728c2b137efea0c1e09cb88e9ff7bd2080ed9c"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7824
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7866
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7833
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7992
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7857
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.8029000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=5;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7801
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=6;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7893000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=7;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7905
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=7;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.8068000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=8;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.794
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=8;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.8085
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.4075
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.4205
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.429
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.44270000000000004
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.4203
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.4304
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.44630000000000003
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.4579
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.762
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7712
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7815000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7886
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=3;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7665000000000001
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=3;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7746999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=4;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7827
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=3;row=4;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "NonLocalNet",
+          "value": 0.7912
+        }
+      ],
+      "local_path": "mmsegmentation/configs/nonlocal_net/README.md",
+      "repository": "mmsegmentation",
+      "source_sha256": "9453485f373da9fb5da7963e91d9e2d2035fa3fd28f583d3324e4bd6f81043c9"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "PointRend",
+          "value": 0.7646999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "PointRend",
+          "value": 0.7813
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "PointRend",
+          "value": 0.7829999999999999
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "PointRend",
+          "value": 0.7997
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "PointRend",
+          "value": 0.3764
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "PointRend",
+          "value": 0.3917
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "PointRend",
+          "value": 0.40020000000000006
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "PointRend",
+          "value": 0.41600000000000004
+        }
+      ],
+      "local_path": "mmsegmentation/configs/point_rend/README.md",
+      "repository": "mmsegmentation",
+      "source_sha256": "3325c508e53914ea60cbc718980f098c2f2f84251f8170c6d76f03c40169dce0"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FPN",
+          "value": 0.7452
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FPN",
+          "value": 0.7608
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FPN",
+          "value": 0.758
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=1;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FPN",
+          "value": 0.774
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FPN",
+          "value": 0.3749
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=1;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FPN",
+          "value": 0.3909
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=7;header=mIoU",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FPN",
+          "value": 0.3935
+        },
+        {
+          "metric": "miou",
+          "origin": "markdown_table=2;row=2;column=8;header=mIoU(ms+flip)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "FPN",
+          "value": 0.4072
+        }
+      ],
+      "local_path": "mmsegmentation/configs/sem_fpn/README.md",
+      "repository": "mmsegmentation",
+      "source_sha256": "bdb66dff47502a242b3e5448b9637e4e95bd56c2a485eb5282550ee5c417635a"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "paddleclas/README.md",
+      "repository": "paddleclas",
+      "source_sha256": "31090b1438fb6bc637995378d5c91c456ea2368a8b8e5fa203e9e21cd1cd2100"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "paddleclas/docs/en/models/DPN_DenseNet_en.md",
+      "repository": "paddleclas",
+      "source_sha256": "4fa90d0c5c5d834619b34881f41353c3eaae2a73048b85aa8292ff14bab28354"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "paddleclas/docs/en/models/ESNet_en.md",
+      "repository": "paddleclas",
+      "source_sha256": "923dc1ca6a5099acc8dd021e4cbc438e52407923a79bec1c51ddee6d7005347c"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "paddleclas/docs/en/models/EfficientNet_and_ResNeXt101_wsl_en.md",
+      "repository": "paddleclas",
+      "source_sha256": "71c6a2200d5b7dc28f6dcf3cc308df8de25815a38c843f729886a8591fbea9b9"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "paddleclas/docs/en/models/HRNet_en.md",
+      "repository": "paddleclas",
+      "source_sha256": "1bd8956423f3991e48dc854853fe9c97dc888a97f4557f1823f52bd9afc1d95b"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "paddleclas/docs/en/models/LeViT_en.md",
+      "repository": "paddleclas",
+      "source_sha256": "bfdfdfc462d5ad7c443c917a08c63e478ce6f11357c2bd005cb35e4ae6ade276"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "paddleclas/docs/en/models/PP-HGNet_en.md",
+      "repository": "paddleclas",
+      "source_sha256": "b29c8a4dad92060bd2989085a61d6454101ca123f7579422b7009bcc2ce37b3d"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=1;column=3;header=Top-1 (%)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RedNet26",
+          "value": 0.7595000000000001
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=1;column=4;header=Top-5 (%)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RedNet26",
+          "value": 0.9319
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=2;column=3;header=Top-1 (%)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RedNet38",
+          "value": 0.7746999999999999
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=2;column=4;header=Top-5 (%)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RedNet38",
+          "value": 0.9356
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=3;column=3;header=Top-1 (%)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RedNet50",
+          "value": 0.7833
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=3;column=4;header=Top-5 (%)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RedNet50",
+          "value": 0.9417
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=4;column=3;header=Top-1 (%)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RedNet101",
+          "value": 0.7894
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=4;column=4;header=Top-5 (%)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RedNet101",
+          "value": 0.9436
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=5;column=3;header=Top-1 (%)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RedNet152",
+          "value": 0.7917000000000001
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=5;column=4;header=Top-5 (%)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "RedNet152",
+          "value": 0.9440000000000001
+        }
+      ],
+      "local_path": "paddleclas/docs/en/models/RedNet_en.md",
+      "repository": "paddleclas",
+      "source_sha256": "94c76153d9ba8be14f11c243926aa48e14e476925ea7aa7dc8dd73c91a422ad1"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "paddleclas/docs/en/models/ResNet_and_vd_en.md",
+      "repository": "paddleclas",
+      "source_sha256": "9ca80cb0490d6562480fb45a461b1b8be23bb7599cafd847d6c49b8f00866fce"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "paddleclas/docs/en/models/SEResNext_and_Res2Net_en.md",
+      "repository": "paddleclas",
+      "source_sha256": "50854b8e3549b710ba4a2c5c1451e8cce510064c41a65f664e81dade64b5da67"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=1;column=3;header=Top-1 (%)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "TNTsmall",
+          "value": 0.8112
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=1;column=4;header=Top-5 (%)",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "TNTsmall",
+          "value": 0.9556
+        }
+      ],
+      "local_path": "paddleclas/docs/en/models/TNT_en.md",
+      "repository": "paddleclas",
+      "source_sha256": "6b10b694c766f3a88f638b37bf6ea194b46511264f9dd23bac4825ab71a600a0"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "paddleclas/docs/en/models/Twins_en.md",
+      "repository": "paddleclas",
+      "source_sha256": "126bed74ea0ac6ee1893744eee5450b79388ab3fd30a2a0f5d81cce90acc46ba"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [],
+      "local_path": "paddleclas/docs/en/models/ViT_and_DeiT_en.md",
+      "repository": "paddleclas",
+      "source_sha256": "a6d502a322853081b0e432a65c2a5f0d2f6447199f94db3896cc732cad43e9a4"
+    },
+    {
+      "annotation_method": "preregistered_independent_cross_domain_table_rule",
+      "expected_claims": [
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=1;column=2;header=top1",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitlargepatch16ropemixedape224.naverin1k",
+          "value": 0.8484
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=1;column=3;header=top5",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitlargepatch16ropemixedape224.naverin1k",
+          "value": 0.97122
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=2;column=2;header=top1",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitlargepatch16ropemixed224.naverin1k",
+          "value": 0.84828
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=2;column=3;header=top5",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitlargepatch16ropemixed224.naverin1k",
+          "value": 0.97116
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=3;column=2;header=top1",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitlargepatch16ropeape224.naverin1k",
+          "value": 0.8465
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=3;column=3;header=top5",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitlargepatch16ropeape224.naverin1k",
+          "value": 0.97154
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=4;column=2;header=top1",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitlargepatch16rope224.naverin1k",
+          "value": 0.84648
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=4;column=3;header=top5",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitlargepatch16rope224.naverin1k",
+          "value": 0.97122
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=5;column=2;header=top1",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitbasepatch16ropemixedape224.naverin1k",
+          "value": 0.83894
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=5;column=3;header=top5",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitbasepatch16ropemixedape224.naverin1k",
+          "value": 0.9675400000000001
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=6;column=2;header=top1",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitbasepatch16ropemixed224.naverin1k",
+          "value": 0.83804
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=6;column=3;header=top5",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitbasepatch16ropemixed224.naverin1k",
+          "value": 0.96712
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=7;column=2;header=top1",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitbasepatch16ropeape224.naverin1k",
+          "value": 0.83782
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=7;column=3;header=top5",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitbasepatch16ropeape224.naverin1k",
+          "value": 0.9661
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=8;column=2;header=top1",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitbasepatch16rope224.naverin1k",
+          "value": 0.83718
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=8;column=3;header=top5",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitbasepatch16rope224.naverin1k",
+          "value": 0.96672
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=9;column=2;header=top1",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitsmallpatch16rope224.naverin1k",
+          "value": 0.8123
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=9;column=3;header=top5",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitsmallpatch16rope224.naverin1k",
+          "value": 0.9502200000000001
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=10;column=2;header=top1",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitsmallpatch16ropemixed224.naverin1k",
+          "value": 0.81216
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=10;column=3;header=top5",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitsmallpatch16ropemixed224.naverin1k",
+          "value": 0.9502200000000001
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=11;column=2;header=top1",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitsmallpatch16ropeape224.naverin1k",
+          "value": 0.8100400000000001
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=11;column=3;header=top5",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitsmallpatch16ropeape224.naverin1k",
+          "value": 0.95016
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=1;row=12;column=2;header=top1",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitsmallpatch16ropemixedape224.naverin1k",
+          "value": 0.80986
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=1;row=12;column=3;header=top5",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "vitsmallpatch16ropemixedape224.naverin1k",
+          "value": 0.9497599999999999
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=2;row=1;column=1;header=Top-1 Acc",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "naflexvitbasepatch16pargap.e300s576in1k",
+          "value": 0.8367
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=2;row=1;column=2;header=Top-5 Acc",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "naflexvitbasepatch16pargap.e300s576in1k",
+          "value": 0.9645
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=2;row=2;column=1;header=Top-1 Acc",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "naflexvitbasepatch16parfacgap.e300s576in1k",
+          "value": 0.8362999999999999
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=2;row=2;column=2;header=Top-5 Acc",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "naflexvitbasepatch16parfacgap.e300s576in1k",
+          "value": 0.9641
+        },
+        {
+          "metric": "top1_accuracy",
+          "origin": "markdown_table=2;row=3;column=1;header=Top-1 Acc",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "naflexvitbasepatch16gap.e300s576in1k",
+          "value": 0.835
+        },
+        {
+          "metric": "top5_accuracy",
+          "origin": "markdown_table=2;row=3;column=2;header=Top-5 Acc",
+          "review": "preregistered_independent_table_rule",
+          "row_label": "naflexvitbasepatch16gap.e300s576in1k",
+          "value": 0.9645999999999999
+        }
+      ],
+      "local_path": "timm/README.md",
+      "repository": "timm",
+      "source_sha256": "5433684a4a6b35bb8dc5fadca494689d7c7dba22736cb57e6407ef92458cbf09"
+    }
+  ],
+  "evaluator_sha256": "8c182c3e2cdd41d47e296653950429d1d12cfc0837b63db565f19f2eb65a09ee",
+  "phase": "created_before_frozen_v0.7_evaluator_run",
+  "pre_output_review": "All 18 unique table-header layouts were inventoried before evaluator execution; accepted metric headers and ambiguous exclusions were reviewed.",
+  "preregistration_sha256": "ce3938ea9019b2555564b68e0100f11fbcc1ed83048ec506270c94aaf6317cbf",
+  "reviewers": {
+    "adjudication": false,
+    "independent_external": 0,
+    "internal_human": 1,
+    "rule_derived": true
+  },
+  "schema": "reprocheck.cross-domain-holdout-annotations.v1",
+  "source_manifest_sha256": "906a865805d535adc65068e32f9c008727835436e98da9b2c7ee82c9ce2ac3da"
+}

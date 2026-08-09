@@ -1,0 +1,44 @@
+{
+  "schema": "reprocheck.external-benchmark.v1",
+  "case": "Ultralytics YOLO26n on COCO8 val",
+  "scope": "4-image smoke benchmark; not COCO val2017",
+  "model_source": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n.pt",
+  "model_sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "files": [
+    {
+      "file": "README.md",
+      "size_bytes": 1384,
+      "sha256": "808b357d7171b45e47744323957bef6b28227d137d91dfe714ed64d4595967da"
+    },
+    {
+      "file": "coco8_detections.json",
+      "size_bytes": 110169,
+      "sha256": "0c272bffa2eba3c6bde6b7c00f6688823a470bb8653b46b4356ab242c0a5342f"
+    },
+    {
+      "file": "official_metrics.json",
+      "size_bytes": 954,
+      "sha256": "919152d476a07a3e40f6748e6d95e2e2c44bf8193178172fb32575c9763cc074"
+    },
+    {
+      "file": "official_metrics_flat.json",
+      "size_bytes": 165,
+      "sha256": "fadece9064432220a5dd09b707fcbf1abe8aecdb8c1540aa6a8798caeff30d24"
+    },
+    {
+      "file": "raw_predictions.json",
+      "size_bytes": 69121,
+      "sha256": "f02c82db30ec4f24c17c5c0ba23e20bbf41a8cfbffa1d9a45def5b86873ea18d"
+    },
+    {
+      "file": "repeat_metrics.json",
+      "size_bytes": 99,
+      "sha256": "7e6b021c520c08322c9347c5cd98f4b002534d9cdb58269fdcfdd0e1657a289a"
+    },
+    {
+      "file": "report.md",
+      "size_bytes": 466,
+      "sha256": "6b20d7e9d301c12b3f5fe6c690f53df38c0c39d2899e91154019ab506177bba2"
+    }
+  ]
+}

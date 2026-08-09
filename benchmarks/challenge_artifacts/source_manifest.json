@@ -1,0 +1,1185 @@
+{
+  "entries": [
+    {
+      "commit": "b4a4a3bd136852dae5fb1de37978dee412653e31",
+      "kind": "license",
+      "local_path": "detectron2/LICENSE",
+      "repository": "detectron2",
+      "sha256": "ceb78ee847e76f67a6a521a5732dc3373aed07eee003d738a572dc96705f08ff",
+      "size_bytes": 10256,
+      "source_path": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/facebookresearch/detectron2/b4a4a3bd136852dae5fb1de37978dee412653e31/LICENSE"
+    },
+    {
+      "commit": "b4a4a3bd136852dae5fb1de37978dee412653e31",
+      "kind": "artifact",
+      "local_path": "detectron2/MODEL_ZOO.md",
+      "repository": "detectron2",
+      "sha256": "be14e51d7309c862c0a66fd73be8de1121050009aba8d4ed08886c981491d1f1",
+      "size_bytes": 57938,
+      "source_path": "MODEL_ZOO.md",
+      "source_url": "https://raw.githubusercontent.com/facebookresearch/detectron2/b4a4a3bd136852dae5fb1de37978dee412653e31/MODEL_ZOO.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "license",
+      "local_path": "mmdetection/LICENSE",
+      "repository": "mmdetection",
+      "sha256": "874b8b2e6f12306a1ff7812c068a0dbf880418b8ac1f7190382bd6c6da9f23a1",
+      "size_bytes": 11398,
+      "source_path": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/LICENSE"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/albu_example/README.md",
+      "repository": "mmdetection",
+      "sha256": "12349ebaae6e11c74b10a77b5f406211f65017f2ee06274eb2b3117033af5320",
+      "size_bytes": 3029,
+      "source_path": "configs/albu_example/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/albu_example/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/atss/README.md",
+      "repository": "mmdetection",
+      "sha256": "dea035a4402cc81f9982e8639a50715c26a4dbf477a0c7fea065f71573d0df73",
+      "size_bytes": 3479,
+      "source_path": "configs/atss/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/atss/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/autoassign/README.md",
+      "repository": "mmdetection",
+      "sha256": "08f78511ec0d62ef82e64d2b207976a6372b8a9d31775b9fded8976563cf3e70",
+      "size_bytes": 3310,
+      "source_path": "configs/autoassign/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/autoassign/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/boxinst/README.md",
+      "repository": "mmdetection",
+      "sha256": "ce2e4362b8fa4f89449a2971707bee077f146afa6a1ac7e9b4edad9b1fdf856f",
+      "size_bytes": 3719,
+      "source_path": "configs/boxinst/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/boxinst/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/bytetrack/README.md",
+      "repository": "mmdetection",
+      "sha256": "fbc47a76720692127d86879310292a1af1bc5488cf0af63a814c9c7a2d52a13c",
+      "size_bytes": 10417,
+      "source_path": "configs/bytetrack/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/bytetrack/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/carafe/README.md",
+      "repository": "mmdetection",
+      "sha256": "57957607807051510c141289f8e9e8ecc7a8dae4632c07095a3eb4afe733ef2b",
+      "size_bytes": 5495,
+      "source_path": "configs/carafe/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/carafe/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/cascade_rcnn/README.md",
+      "repository": "mmdetection",
+      "sha256": "2c7816f1fc4cc8a932b90228b299646c72989ede23f3cf7b4f6d110ce8252f0b",
+      "size_bytes": 19791,
+      "source_path": "configs/cascade_rcnn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/cascade_rcnn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/cascade_rpn/README.md",
+      "repository": "mmdetection",
+      "sha256": "c44251e855c53f11af4beb98cea8c3e31d216025cb89171cc5978597b922021b",
+      "size_bytes": 4268,
+      "source_path": "configs/cascade_rpn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/cascade_rpn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/centernet/README.md",
+      "repository": "mmdetection",
+      "sha256": "72e995ea240dc96d491142f1bfae5e4d413a6c531aed724718d380c92a12eeeb",
+      "size_bytes": 6433,
+      "source_path": "configs/centernet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/centernet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/centripetalnet/README.md",
+      "repository": "mmdetection",
+      "sha256": "54b669e45c00cf67f7a9b303d0422e8ae4999baf3935981de6ce20b7bbdeee12",
+      "size_bytes": 4012,
+      "source_path": "configs/centripetalnet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/centripetalnet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/cityscapes/README.md",
+      "repository": "mmdetection",
+      "sha256": "85a6d55f8c78d51ca0705ee98f1a8724aa9ddde1ce0c01b73cddc8fdb04c0fe3",
+      "size_bytes": 5397,
+      "source_path": "configs/cityscapes/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/cityscapes/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/condinst/README.md",
+      "repository": "mmdetection",
+      "sha256": "2b3df85d68d91d11eda9cd1698913a55ccb31b41ce0bda11b88f2a615a4c6ec2",
+      "size_bytes": 3203,
+      "source_path": "configs/condinst/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/condinst/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/conditional_detr/README.md",
+      "repository": "mmdetection",
+      "sha256": "036b73f39c2626c058b2829109a1959cb8f2185bd3b5a9fc7c8b09b9e79ff794",
+      "size_bytes": 3740,
+      "source_path": "configs/conditional_detr/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/conditional_detr/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/convnext/README.md",
+      "repository": "mmdetection",
+      "sha256": "477c571b8567d65fa4faae063d11c0721fe01419e6da1e8c8b7bf4001592c1c2",
+      "size_bytes": 5798,
+      "source_path": "configs/convnext/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/convnext/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/cornernet/README.md",
+      "repository": "mmdetection",
+      "sha256": "e7117e8a06402c919fa636d830ab319966ec708c91eed826e29b184fd95b073c",
+      "size_bytes": 4818,
+      "source_path": "configs/cornernet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/cornernet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/crowddet/README.md",
+      "repository": "mmdetection",
+      "sha256": "f2313111c06d17514baa770beee2aed5c1f266b6d2a614584ea9969f82929abb",
+      "size_bytes": 3783,
+      "source_path": "configs/crowddet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/crowddet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/dab_detr/README.md",
+      "repository": "mmdetection",
+      "sha256": "d083796b9d3420bb4efdeeaef36aee888252d5508d923a0f0b268747a3ee8f54",
+      "size_bytes": 3324,
+      "source_path": "configs/dab_detr/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/dab_detr/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/dcn/README.md",
+      "repository": "mmdetection",
+      "sha256": "a79f488ba5b1966c49a8b9a12cb6db1bd9922e9eae4ebe83cc3dd748157fa9b3",
+      "size_bytes": 9898,
+      "source_path": "configs/dcn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/dcn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/dcnv2/README.md",
+      "repository": "mmdetection",
+      "sha256": "5d43276483342aac45a2bb5a9198a0cedae6496c2405267cf49972635133c06e",
+      "size_bytes": 6102,
+      "source_path": "configs/dcnv2/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/dcnv2/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/ddod/README.md",
+      "repository": "mmdetection",
+      "sha256": "fc93353fbb77f3be6c1c4f65089d2ff5c76af82429de9815b0b5c0dccd3b8ebf",
+      "size_bytes": 3240,
+      "source_path": "configs/ddod/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/ddod/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/ddq/README.md",
+      "repository": "mmdetection",
+      "sha256": "518683b6151a38bef4192db33151f2f845f8e0f3ab4b068bd44fad36adb5e199",
+      "size_bytes": 4406,
+      "source_path": "configs/ddq/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/ddq/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/deepfashion/README.md",
+      "repository": "mmdetection",
+      "sha256": "ec0ce49f452ed90cd81c874ae570d0862f573179d829b49b359d9406c3954bb5",
+      "size_bytes": 4813,
+      "source_path": "configs/deepfashion/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/deepfashion/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/deepsort/README.md",
+      "repository": "mmdetection",
+      "sha256": "b53108f3a3f7c771ea4e3157f843e98cc721226341b5081dd34a9361d17b5a62",
+      "size_bytes": 6068,
+      "source_path": "configs/deepsort/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/deepsort/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/deformable_detr/README.md",
+      "repository": "mmdetection",
+      "sha256": "4f6f2a43b25e8de4661c470c35fc73a5cc96da1c0e0a95f824899bc6f228b8b2",
+      "size_bytes": 4497,
+      "source_path": "configs/deformable_detr/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/deformable_detr/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/detectors/README.md",
+      "repository": "mmdetection",
+      "sha256": "973d77f4268d84ff8da964dab52bc3042280f8874b1c41935a0cf0bb4747ba51",
+      "size_bytes": 6680,
+      "source_path": "configs/detectors/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/detectors/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/detr/README.md",
+      "repository": "mmdetection",
+      "sha256": "383ceb9456a6df28305a1910bdacfcfc2554929373ce95ed4670149e07078598",
+      "size_bytes": 3119,
+      "source_path": "configs/detr/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/detr/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/dino/README.md",
+      "repository": "mmdetection",
+      "sha256": "0fa5c197e7b3c5952ba5801b161fb009e142aabaa3b6cad9c50371acb6aecf76",
+      "size_bytes": 4620,
+      "source_path": "configs/dino/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/dino/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/double_heads/README.md",
+      "repository": "mmdetection",
+      "sha256": "d08056bf50517ce6774b88687cde340686cd46e7631d005a2e6a02e14efcad8f",
+      "size_bytes": 3175,
+      "source_path": "configs/double_heads/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/double_heads/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/dsdl/README.md",
+      "repository": "mmdetection",
+      "sha256": "f1475e179e0f1024a86fcfe7044c61957c7427eb1e02ff19e06415cede360e12",
+      "size_bytes": 3728,
+      "source_path": "configs/dsdl/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/dsdl/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/dyhead/README.md",
+      "repository": "mmdetection",
+      "sha256": "a5be32dcb7a0414837bd6f3007917f8af3389d60125f0132dd3d48101d26468d",
+      "size_bytes": 6640,
+      "source_path": "configs/dyhead/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/dyhead/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/dynamic_rcnn/README.md",
+      "repository": "mmdetection",
+      "sha256": "7c6f4c3cb9ff3e942d53dc4b7195f5de20b0139addfc08a83d040fae0af5b629",
+      "size_bytes": 2815,
+      "source_path": "configs/dynamic_rcnn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/dynamic_rcnn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/efficientnet/README.md",
+      "repository": "mmdetection",
+      "sha256": "67ae5b1a7182cda7cbb381a418731cdf36536bac9ed28bec0ca3f7fa9d9f505f",
+      "size_bytes": 3125,
+      "source_path": "configs/efficientnet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/efficientnet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/empirical_attention/README.md",
+      "repository": "mmdetection",
+      "sha256": "96053801063ceec3f2f3202d79183558f6170d00f235b908bd2369e4ea359b61",
+      "size_bytes": 4973,
+      "source_path": "configs/empirical_attention/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/empirical_attention/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/fast_rcnn/README.md",
+      "repository": "mmdetection",
+      "sha256": "878480b553f5b77cf0ed3e8576439420e179d88f540300d62df90eb9131a7233",
+      "size_bytes": 4515,
+      "source_path": "configs/fast_rcnn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/fast_rcnn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/faster_rcnn/README.md",
+      "repository": "mmdetection",
+      "sha256": "76ffb477c5723280a2d696a0cae2ec133da6fb139cae7ac43dfd5cc424b507b4",
+      "size_bytes": 23161,
+      "source_path": "configs/faster_rcnn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/faster_rcnn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/fcos/README.md",
+      "repository": "mmdetection",
+      "sha256": "2d964239fd76f414d2a7f6cd6fb339dbc486c73fa817b5ca45ad51b0e1cc3dc0",
+      "size_bytes": 7693,
+      "source_path": "configs/fcos/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/fcos/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/foveabox/README.md",
+      "repository": "mmdetection",
+      "sha256": "316c41f45f8b716c154b8b37fe8b58bb99607d1a4ea38aefe3bf2c56f5b56a93",
+      "size_bytes": 8760,
+      "source_path": "configs/foveabox/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/foveabox/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/fpg/README.md",
+      "repository": "mmdetection",
+      "sha256": "55e7288c7bb02b581b514dfdc6e6963d4f461960f685c701af26ed2582b39575",
+      "size_bytes": 6849,
+      "source_path": "configs/fpg/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/fpg/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/free_anchor/README.md",
+      "repository": "mmdetection",
+      "sha256": "6ff1b156bdea31c247346acf61b041a6c21a9fce452218fb49da4833ffe9021c",
+      "size_bytes": 4121,
+      "source_path": "configs/free_anchor/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/free_anchor/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/fsaf/README.md",
+      "repository": "mmdetection",
+      "sha256": "f57b80846e68611723195b73f0ff1e975b7333061369d676b67bf36f8e9a9203",
+      "size_bytes": 6263,
+      "source_path": "configs/fsaf/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/fsaf/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/gcnet/README.md",
+      "repository": "mmdetection",
+      "sha256": "67650990b0caf112602285e981fc95dd24eaf1ca2262667cd53b7652164864eb",
+      "size_bytes": 18060,
+      "source_path": "configs/gcnet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/gcnet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/gfl/README.md",
+      "repository": "mmdetection",
+      "sha256": "47810b8371255a456e523835d6008a562d7a652c1b37b8cc5be37968278ad3bb",
+      "size_bytes": 7280,
+      "source_path": "configs/gfl/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/gfl/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/ghm/README.md",
+      "repository": "mmdetection",
+      "sha256": "a5408c32ab81d9f24efbc0b0946d6fd956c7e16990517fc63867b4d498294013",
+      "size_bytes": 4428,
+      "source_path": "configs/ghm/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/ghm/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/glip/README.md",
+      "repository": "mmdetection",
+      "sha256": "d656a788e89ce853781c6d0880ee152e3ae9516a109d2a05325b04e576271795",
+      "size_bytes": 25032,
+      "source_path": "configs/glip/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/glip/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/gn+ws/README.md",
+      "repository": "mmdetection",
+      "sha256": "7adde8f2e516e14f7cfa532ef3e61d66d73a4599f02b7cdf041827c7ad3543fe",
+      "size_bytes": 10878,
+      "source_path": "configs/gn+ws/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/gn+ws/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/gn/README.md",
+      "repository": "mmdetection",
+      "sha256": "0f5b24cecce8a05f6255dc6739eecc3fe8cbccb134fb34b192e8d20766d42430",
+      "size_bytes": 5987,
+      "source_path": "configs/gn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/gn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/grid_rcnn/README.md",
+      "repository": "mmdetection",
+      "sha256": "a04ff4eb6a4ffb34e6a204ea022a71193cf6e579eb2eb0a070ff0a88b41ffd8c",
+      "size_bytes": 5464,
+      "source_path": "configs/grid_rcnn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/grid_rcnn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/groie/README.md",
+      "repository": "mmdetection",
+      "sha256": "95bc16f966e8e920a9fbe1a594954b8644e6307bd0b6cc4e1a219c32c6d43e78",
+      "size_bytes": 9886,
+      "source_path": "configs/groie/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/groie/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/grounding_dino/README.md",
+      "repository": "mmdetection",
+      "sha256": "e9808d847c48bb508fc86af02559a041b58193bd2461eb8f92db628b58bdea19",
+      "size_bytes": 31433,
+      "source_path": "configs/grounding_dino/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/grounding_dino/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/guided_anchoring/README.md",
+      "repository": "mmdetection",
+      "sha256": "0e8a2cdbc43fce2ab2883a8b32225e428e4409217d317509013bf95675155e34",
+      "size_bytes": 10832,
+      "source_path": "configs/guided_anchoring/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/guided_anchoring/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/hrnet/README.md",
+      "repository": "mmdetection",
+      "sha256": "3ab0f8557f439398f146b2f88eac603969aa0f43aaea1f4208888aef1a0338ad",
+      "size_bytes": 22636,
+      "source_path": "configs/hrnet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/hrnet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/htc/README.md",
+      "repository": "mmdetection",
+      "sha256": "d5ab84db12943661df7b2e32c7a8e449788b91ee1337b34f41a5d615dcbace04",
+      "size_bytes": 8004,
+      "source_path": "configs/htc/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/htc/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/instaboost/README.md",
+      "repository": "mmdetection",
+      "sha256": "bb94be4c4604e58ae5654d711c90cc85242357262fe3e5aac8caec9f9f5fd6b7",
+      "size_bytes": 6607,
+      "source_path": "configs/instaboost/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/instaboost/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/lad/README.md",
+      "repository": "mmdetection",
+      "sha256": "181ff02e8d20a96f4b48c5f41ab24b6d4b1203be53419e0bfe7e74071ff04c12",
+      "size_bytes": 4711,
+      "source_path": "configs/lad/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/lad/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/ld/README.md",
+      "repository": "mmdetection",
+      "sha256": "da591f06f2b22f886bda0613e59f2f11abbc4d1eab5fcd74d66b8babbd52018b",
+      "size_bytes": 6444,
+      "source_path": "configs/ld/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/ld/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/legacy_1.x/README.md",
+      "repository": "mmdetection",
+      "sha256": "6aebac2168f707d5c041ab6a3fa1bb9ab095485ebabd6543e797621e10df0410",
+      "size_bytes": 4832,
+      "source_path": "configs/legacy_1.x/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/legacy_1.x/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/libra_rcnn/README.md",
+      "repository": "mmdetection",
+      "sha256": "ee08e7e6733c37267dcec03759f72a08091b06c5c9348e37e279928c79226803",
+      "size_bytes": 6912,
+      "source_path": "configs/libra_rcnn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/libra_rcnn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/lvis/README.md",
+      "repository": "mmdetection",
+      "sha256": "5f74768c496d9e29a2a84b0fe777081c732811a7bf789d5904588ecb6adc3bbe",
+      "size_bytes": 8424,
+      "source_path": "configs/lvis/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/lvis/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/mask2former/README.md",
+      "repository": "mmdetection",
+      "sha256": "cf70fb6c7d4872cb509a1f090eddc2cb90e8ac96f8a7fb71e210f24a105817ae",
+      "size_bytes": 12313,
+      "source_path": "configs/mask2former/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/mask2former/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/mask2former_vis/README.md",
+      "repository": "mmdetection",
+      "sha256": "a5a493d367d65b6350e32274886b768f01e462da37a2dd4cd7839198c815533b",
+      "size_bytes": 6546,
+      "source_path": "configs/mask2former_vis/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/mask2former_vis/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/mask_rcnn/README.md",
+      "repository": "mmdetection",
+      "sha256": "4e93abce4797b935da07d3f5bd0d0425661175d64bda02add2a8bc8bc667d12c",
+      "size_bytes": 15198,
+      "source_path": "configs/mask_rcnn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/mask_rcnn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/maskformer/README.md",
+      "repository": "mmdetection",
+      "sha256": "64334adf9c0f840c865443ad205fc3a3560cbdda272a5cbac07f3ec4d8b50c68",
+      "size_bytes": 5019,
+      "source_path": "configs/maskformer/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/maskformer/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/masktrack_rcnn/README.md",
+      "repository": "mmdetection",
+      "sha256": "7d01c049f5caf94d2161a9c188f50046a93cf8461b71bbfd9e24a944b78354ab",
+      "size_bytes": 9762,
+      "source_path": "configs/masktrack_rcnn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/masktrack_rcnn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/mm_grounding_dino/README.md",
+      "repository": "mmdetection",
+      "sha256": "b5e9099bd44edabe85d59c19ae15450b45622125f0eb51ab4b18099338039072",
+      "size_bytes": 44152,
+      "source_path": "configs/mm_grounding_dino/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/mm_grounding_dino/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/ms_rcnn/README.md",
+      "repository": "mmdetection",
+      "sha256": "0bee0b5178335f452e410a0c55c6557f788766e3e42650019c3e1084672f27e9",
+      "size_bytes": 6011,
+      "source_path": "configs/ms_rcnn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/ms_rcnn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/nas_fcos/README.md",
+      "repository": "mmdetection",
+      "sha256": "865de887ce92fab05e5922c32857fc3d7af28807c9c69c4b766d7e900b918ee9",
+      "size_bytes": 4233,
+      "source_path": "configs/nas_fcos/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/nas_fcos/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/nas_fpn/README.md",
+      "repository": "mmdetection",
+      "sha256": "00fc40eeaaac6ac8670b8006c3ffefc7645f875d7ed3268c771d964ce8ee1e4f",
+      "size_bytes": 3576,
+      "source_path": "configs/nas_fpn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/nas_fpn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/objects365/README.md",
+      "repository": "mmdetection",
+      "sha256": "073c11690c9ffa0c0d0eaebaa4c3b05d50b62c4f1be361ade588d890dfd1aac2",
+      "size_bytes": 9263,
+      "source_path": "configs/objects365/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/objects365/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/ocsort/README.md",
+      "repository": "mmdetection",
+      "sha256": "e1c8821f9f5c147f5e2a3e22e36d21c2dece3bbc5c07fdb620466dcba34dec7d",
+      "size_bytes": 4293,
+      "source_path": "configs/ocsort/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/ocsort/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/openimages/README.md",
+      "repository": "mmdetection",
+      "sha256": "f270843236baaa347e2406a17b6ba4732bd6029dcf799c72a39a58b43f92a133",
+      "size_bytes": 11359,
+      "source_path": "configs/openimages/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/openimages/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/paa/README.md",
+      "repository": "mmdetection",
+      "sha256": "e90d1c75a5831216eb0119d0b20946e828522e0df5588e2e95e590ab0c908cd1",
+      "size_bytes": 7098,
+      "source_path": "configs/paa/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/paa/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/pafpn/README.md",
+      "repository": "mmdetection",
+      "sha256": "b1ddee058753b841796a333debceacf519bf6fce1469d4c0c25aa8e4a83fa06b",
+      "size_bytes": 3035,
+      "source_path": "configs/pafpn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/pafpn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/panoptic_fpn/README.md",
+      "repository": "mmdetection",
+      "sha256": "b792164f832684aa6264c873344716507cc8e9928f7ed295155dadcfd51a5cc3",
+      "size_bytes": 5748,
+      "source_path": "configs/panoptic_fpn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/panoptic_fpn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/pascal_voc/README.md",
+      "repository": "mmdetection",
+      "sha256": "57d4afd661adcb8b4b375a8898c3172e4fc129c0b32c9ec0b919c580c90587db",
+      "size_bytes": 6110,
+      "source_path": "configs/pascal_voc/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/pascal_voc/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/pisa/README.md",
+      "repository": "mmdetection",
+      "sha256": "6174b93ec2a81fff1369482cb09fac7385ce34ab1c5d00f2b6df0f0d04575ae9",
+      "size_bytes": 10154,
+      "source_path": "configs/pisa/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/pisa/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/point_rend/README.md",
+      "repository": "mmdetection",
+      "sha256": "246998359f08ba05b82f310b53c4c9d165e5d6798513921dacd56b43c10c83c9",
+      "size_bytes": 3766,
+      "source_path": "configs/point_rend/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/point_rend/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/pvt/README.md",
+      "repository": "mmdetection",
+      "sha256": "2582bfdbc307ff18382fbbfc886888fabe9e7ea9dbaaeed059b9e7260b2e9f66",
+      "size_bytes": 8283,
+      "source_path": "configs/pvt/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/pvt/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/qdtrack/README.md",
+      "repository": "mmdetection",
+      "sha256": "b5dec5d9e65da62bac802af9e4183886d6669e28526fe9395401f59567ffd49e",
+      "size_bytes": 5650,
+      "source_path": "configs/qdtrack/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/qdtrack/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/queryinst/README.md",
+      "repository": "mmdetection",
+      "sha256": "f81b9ffe90684fb2eb4293c8a21951f348acf68ce2be748ea57e8bd7494984e4",
+      "size_bytes": 6140,
+      "source_path": "configs/queryinst/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/queryinst/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/regnet/README.md",
+      "repository": "mmdetection",
+      "sha256": "2e74d8dbe054e171a1198489568620e814b0f55cb5f2d429dfb5e0e609b5f6db",
+      "size_bytes": 27103,
+      "source_path": "configs/regnet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/regnet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/reid/README.md",
+      "repository": "mmdetection",
+      "sha256": "d309da997552b6ae8860dc5e6d1e007864f7bee7c3998457518ad8445c3e7cb5",
+      "size_bytes": 4321,
+      "source_path": "configs/reid/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/reid/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/reppoints/README.md",
+      "repository": "mmdetection",
+      "sha256": "35a97c84dfcc38841285e37da8297f86e88ce1ff0aec72ae40ea59f05bc97d5b",
+      "size_bytes": 10317,
+      "source_path": "configs/reppoints/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/reppoints/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/res2net/README.md",
+      "repository": "mmdetection",
+      "sha256": "2f1f8d400feb740b6f494c5f8aeb979077cd9adb74d22a6a8cf7fe2f22325445",
+      "size_bytes": 9438,
+      "source_path": "configs/res2net/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/res2net/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/resnest/README.md",
+      "repository": "mmdetection",
+      "sha256": "99e999aa34c18f4ac9e20b66d82472c55576866a10be90ea88b948b19ff06dbf",
+      "size_bytes": 10971,
+      "source_path": "configs/resnest/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/resnest/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/resnet_strikes_back/README.md",
+      "repository": "mmdetection",
+      "sha256": "6442f9389e34ccf1240eafcc8f14f2ca9b945a9f63d3f24b40444ae5ecc923ba",
+      "size_bytes": 5120,
+      "source_path": "configs/resnet_strikes_back/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/resnet_strikes_back/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/retinanet/README.md",
+      "repository": "mmdetection",
+      "sha256": "d569ab2df545cf589f0be5c6affcd20a91f75bd0221965491edd3b993b81235c",
+      "size_bytes": 11616,
+      "source_path": "configs/retinanet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/retinanet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/rpn/README.md",
+      "repository": "mmdetection",
+      "sha256": "48b8f111994855b103ad1670161ea60b93c33a2f2ea3285f5ea3bbdb2885f53d",
+      "size_bytes": 6766,
+      "source_path": "configs/rpn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/rpn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/rtmdet/README.md",
+      "repository": "mmdetection",
+      "sha256": "61c996da6aa98a4dfda3779108b7bf8cf9723a1d92fc1e19dd6f157071d0cb07",
+      "size_bytes": 39490,
+      "source_path": "configs/rtmdet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/rtmdet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/sabl/README.md",
+      "repository": "mmdetection",
+      "sha256": "7c0033f3a094928a37d0661a8adf3167758183a7b072b59a81252a1bfd74ce1b",
+      "size_bytes": 8213,
+      "source_path": "configs/sabl/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/sabl/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/scnet/README.md",
+      "repository": "mmdetection",
+      "sha256": "ac91840c3a257a264e26d523d0774a372cbd605de34ea2268a91d66e805445e3",
+      "size_bytes": 5403,
+      "source_path": "configs/scnet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/scnet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/scratch/README.md",
+      "repository": "mmdetection",
+      "sha256": "2e56b731e06ca6ff0c56945a1c40bd45a10b8e320cabf3d9a7e00df50484de61",
+      "size_bytes": 3833,
+      "source_path": "configs/scratch/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/scratch/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/seesaw_loss/README.md",
+      "repository": "mmdetection",
+      "sha256": "2c453602bdeca7faea25136ab468343e14ddc347c1db1c4e71df48afa513fa79",
+      "size_bytes": 9773,
+      "source_path": "configs/seesaw_loss/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/seesaw_loss/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/selfsup_pretrain/README.md",
+      "repository": "mmdetection",
+      "sha256": "4bcda39e24a1235794ace43a6ca47f03782654f93029563f2f11b72be1fed7ce",
+      "size_bytes": 9560,
+      "source_path": "configs/selfsup_pretrain/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/selfsup_pretrain/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/simple_copy_paste/README.md",
+      "repository": "mmdetection",
+      "sha256": "8e5b3128c2f80d7528edd0f0c3f6d6c4663e9ec2a8a2de36df055a15543dff9f",
+      "size_bytes": 5975,
+      "source_path": "configs/simple_copy_paste/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/simple_copy_paste/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/soft_teacher/README.md",
+      "repository": "mmdetection",
+      "sha256": "de2a73e745f4fc710800a57a1b038f96583a129404a1d12abe1cd2577eb74bac",
+      "size_bytes": 5572,
+      "source_path": "configs/soft_teacher/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/soft_teacher/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/solo/README.md",
+      "repository": "mmdetection",
+      "sha256": "90307d414b41c771b17eae993540b6620baf04ee51587fdbd9170cad8ce7d480",
+      "size_bytes": 6475,
+      "source_path": "configs/solo/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/solo/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/solov2/README.md",
+      "repository": "mmdetection",
+      "sha256": "c6e2c04244d5189e3533dd243fdd9442e29a10758812ab5f83d0f3a2f3a0289b",
+      "size_bytes": 6823,
+      "source_path": "configs/solov2/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/solov2/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/sort/README.md",
+      "repository": "mmdetection",
+      "sha256": "0824fc4bcc3505568f9bbd768aa45b15562381640d10c8413a03e6ec61acc118",
+      "size_bytes": 5374,
+      "source_path": "configs/sort/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/sort/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/sparse_rcnn/README.md",
+      "repository": "mmdetection",
+      "sha256": "49dac385e2adad25112298d91f45bc33a23fe5915e114b36b1d9ba8912e6944d",
+      "size_bytes": 6427,
+      "source_path": "configs/sparse_rcnn/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/sparse_rcnn/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/ssd/README.md",
+      "repository": "mmdetection",
+      "sha256": "6202d4a6fc925b98bc61e8380d0d519bbc94f6895cff213446864e71e6acbc7d",
+      "size_bytes": 6218,
+      "source_path": "configs/ssd/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/ssd/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/strong_baselines/README.md",
+      "repository": "mmdetection",
+      "sha256": "d68edb125acdf3ed4518178ed2d6ca4caec4aeb07f92dc41d6ccc543971fb76c",
+      "size_bytes": 1690,
+      "source_path": "configs/strong_baselines/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/strong_baselines/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/strongsort/README.md",
+      "repository": "mmdetection",
+      "sha256": "882addd53261639929f2b0f2998be7b13ea520b147038fefde062e0cac1aebf7",
+      "size_bytes": 8801,
+      "source_path": "configs/strongsort/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/strongsort/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/swin/README.md",
+      "repository": "mmdetection",
+      "sha256": "f2daf1685729e86ceb51f77c80dc68794cffdb62c1c323f8229c14e3130513f5",
+      "size_bytes": 5726,
+      "source_path": "configs/swin/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/swin/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/timm_example/README.md",
+      "repository": "mmdetection",
+      "sha256": "c888c0b1baba6367c4dd8f160856bca054dd7f6df880c49ddaf5948867820c13",
+      "size_bytes": 2672,
+      "source_path": "configs/timm_example/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/timm_example/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/tood/README.md",
+      "repository": "mmdetection",
+      "sha256": "ae5d7a0f08e30c2f668bcb34cec4465c793a5038f146cd2f25128b1d1e6408d8",
+      "size_bytes": 6775,
+      "source_path": "configs/tood/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/tood/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/tridentnet/README.md",
+      "repository": "mmdetection",
+      "sha256": "3adca12fdb1fb37f8c4244ec885c49e9082592b8b9b57442ed9ef5c0fd5bde78",
+      "size_bytes": 3931,
+      "source_path": "configs/tridentnet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/tridentnet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/v3det/README.md",
+      "repository": "mmdetection",
+      "sha256": "f82532aff8ef14a722417d28344608753f978f69012f7762d4cc1562ee88a1b2",
+      "size_bytes": 6765,
+      "source_path": "configs/v3det/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/v3det/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/vfnet/README.md",
+      "repository": "mmdetection",
+      "sha256": "628a713f109d6718772fca1d132ee8dd48b8c5fc9bd6294c200082ecf6e1d9c2",
+      "size_bytes": 8136,
+      "source_path": "configs/vfnet/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/vfnet/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/wider_face/README.md",
+      "repository": "mmdetection",
+      "sha256": "24cac192ab3ef6bec38c412f638bf1b7ec0a725298a873507b87959956494d0d",
+      "size_bytes": 2801,
+      "source_path": "configs/wider_face/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/wider_face/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/yolact/README.md",
+      "repository": "mmdetection",
+      "sha256": "944872ef5773597ebb1bf28ebe1d0ee1a5fbb3c05f70ab386a757b8be762f55d",
+      "size_bytes": 4653,
+      "source_path": "configs/yolact/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/yolact/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/yolo/README.md",
+      "repository": "mmdetection",
+      "sha256": "26c26831a7d073dbd5b2c9b7728858503e13208faef4c4b3bec35863fe644843",
+      "size_bytes": 6882,
+      "source_path": "configs/yolo/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/yolo/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/yolof/README.md",
+      "repository": "mmdetection",
+      "sha256": "533778a5172a1be15fd1243ed2ebc79ee315056a68a8a88460ac8ea9e150c0f0",
+      "size_bytes": 3275,
+      "source_path": "configs/yolof/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/yolof/README.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "kind": "artifact",
+      "local_path": "mmdetection/configs/yolox/README.md",
+      "repository": "mmdetection",
+      "sha256": "ebc0bb340cd3b69390b36ee07bda22a945b12831029078db6e5a0e088f24ea76",
+      "size_bytes": 4861,
+      "source_path": "configs/yolox/README.md",
+      "source_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/cfd5d3a985b0249de009b67d04f37263e11cdf3d/configs/yolox/README.md"
+    }
+  ],
+  "repositories": [
+    {
+      "commit": "b4a4a3bd136852dae5fb1de37978dee412653e31",
+      "expected_artifacts": 1,
+      "github": "facebookresearch/detectron2",
+      "id": "detectron2",
+      "license_path": "LICENSE",
+      "selection": "MODEL_ZOO.md"
+    },
+    {
+      "commit": "cfd5d3a985b0249de009b67d04f37263e11cdf3d",
+      "expected_artifacts": 113,
+      "github": "open-mmlab/mmdetection",
+      "id": "mmdetection",
+      "license_path": "LICENSE",
+      "selection": "all configs/*/README.md files"
+    }
+  ],
+  "schema": "reprocheck.challenge-artifact-sources.v1",
+  "selection_frozen_before_zero_shot_evaluation": true,
+  "selection_is_exhaustive_within_declared_patterns": true
+}

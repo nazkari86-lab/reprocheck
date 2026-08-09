@@ -1,0 +1,13 @@
+{
+  "tool_version": "0.4.0",
+  "behavioral_cases": 12,
+  "rejection_cases": 3,
+  "case_pass_rate": 1.0,
+  "expected_finding_recall": 1.0,
+  "expected_finding_precision": 1.0,
+  "unexpected_findings": 0,
+  "certificate_integrity_rate": 1.0,
+  "certificate_tamper_detection_rate": 1.0,
+  "invalid_input_rejection_rate": 1.0,
+  "scope": "controlled synthetic defects; real public artifacts are reported separately in real_artifacts/baseline-v1.json"
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "reprocheck.cross-domain-development-evaluator.v1",
+  "version": "0.8.0",
+  "filename": "reprocheck-0.8.0-py3-none-any.whl",
+  "sha256": "c08925b2c955452c59dfe2c8f0838afb2e90b300207e990ce00041f5502733a3",
+  "scientific_phase": "development_after_v0.7_holdout_inspection",
+  "zero_shot": false,
+  "change": "recognize standalone Top-1 and Top-5 accuracy headers while excluding Top-K error headers",
+  "runner": {
+    "filename": "run_development_v08.py",
+    "sha256": "5312ec6124fa6fe3d3e4321f3f19a3b24f9669c7f949665e9f6e3c101ea57cdc"
+  },
+  "primary_result": {
+    "filename": "zero-shot-v0.7.json",
+    "sha256": "74c7547eee265a19c8ee2d0269f384583dddb96228d4c53eef5022e1654a1b57"
+  },
+  "development_result": {
+    "filename": "development-v0.8.json",
+    "sha256": "1b0baaa36a4f42a1780f12bb7d12aa07196b1030ee9c53d70dad3828d76f596f"
+  }
+}

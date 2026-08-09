@@ -1,0 +1,363 @@
+{
+  "by_repository": {
+    "monai_model_zoo": {
+      "artifacts": 35,
+      "format_aware_baseline": {
+        "artifact_exact_rate": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "precision_wilson_95": [
+          0.8957265699643882,
+          1.0
+        ],
+        "recall": 1.0,
+        "recall_wilson_95": [
+          0.8957265699643882,
+          1.0
+        ],
+        "tp": 33
+      },
+      "naive_inline_baseline": {
+        "artifact_exact_rate": 0.5142857142857142,
+        "fn": 26,
+        "fp": 0,
+        "precision": 1.0,
+        "precision_wilson_95": [
+          0.6456611570247934,
+          1.0
+        ],
+        "recall": 0.21212121212121213,
+        "recall_wilson_95": [
+          0.1067588656643618,
+          0.3775197758712936
+        ],
+        "tp": 7
+      },
+      "reprocheck": {
+        "artifact_exact_rate": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "precision_wilson_95": [
+          0.8957265699643882,
+          1.0
+        ],
+        "recall": 1.0,
+        "recall_wilson_95": [
+          0.8957265699643882,
+          1.0
+        ],
+        "tp": 33
+      }
+    },
+    "tensorflow_docs": {
+      "artifacts": 7,
+      "format_aware_baseline": {
+        "artifact_exact_rate": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "precision_wilson_95": [
+          1.0,
+          1.0
+        ],
+        "recall": 1.0,
+        "recall_wilson_95": [
+          1.0,
+          1.0
+        ],
+        "tp": 0
+      },
+      "naive_inline_baseline": {
+        "artifact_exact_rate": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "precision_wilson_95": [
+          1.0,
+          1.0
+        ],
+        "recall": 1.0,
+        "recall_wilson_95": [
+          1.0,
+          1.0
+        ],
+        "tp": 0
+      },
+      "reprocheck": {
+        "artifact_exact_rate": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "precision_wilson_95": [
+          1.0,
+          1.0
+        ],
+        "recall": 1.0,
+        "recall_wilson_95": [
+          1.0,
+          1.0
+        ],
+        "tp": 0
+      }
+    },
+    "transformers": {
+      "artifacts": 18,
+      "format_aware_baseline": {
+        "artifact_exact_rate": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "precision_wilson_95": [
+          0.6456611570247934,
+          1.0
+        ],
+        "recall": 1.0,
+        "recall_wilson_95": [
+          0.6456611570247934,
+          1.0
+        ],
+        "tp": 7
+      },
+      "naive_inline_baseline": {
+        "artifact_exact_rate": 0.8888888888888888,
+        "fn": 6,
+        "fp": 0,
+        "precision": 1.0,
+        "precision_wilson_95": [
+          0.20654329147389294,
+          1.0
+        ],
+        "recall": 0.14285714285714285,
+        "recall_wilson_95": [
+          0.02567895594897479,
+          0.51313450331903
+        ],
+        "tp": 1
+      },
+      "reprocheck": {
+        "artifact_exact_rate": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "precision_wilson_95": [
+          0.6456611570247934,
+          1.0
+        ],
+        "recall": 1.0,
+        "recall_wilson_95": [
+          0.6456611570247934,
+          1.0
+        ],
+        "tp": 7
+      }
+    }
+  },
+  "corpus": {
+    "annotated_claims": 40,
+    "annotations_sha256": "ae580055d196a8d1177ff9b2d48b556efd3f9b3c4b7545257d2b5d100d6f8474",
+    "artifacts": 60,
+    "claim_bearing_artifacts": 24,
+    "limitations": [
+      "MONAI eval_metrics labels are rule-derived from explicit JSON fields.",
+      "Narrative and Transformers labels have one internal reviewer only.",
+      "TensorFlow labels are static risk indicators, not proven methodological defects."
+    ],
+    "notebooks": 7,
+    "repositories": 3,
+    "repository_commits": {
+      "monai_model_zoo": "b9e4d04bb2a073110bde9e5c05c9690241e938b6",
+      "tensorflow_docs": "35e0922e059d7bc6d515a83e03a7494f0640c314",
+      "transformers": "e8ea728a3eeeb903e77c7d1bd29267c80a1be71f"
+    },
+    "reviewers": {
+      "adjudication": false,
+      "independent_external_reviewers": 0,
+      "internal_reviewers": 1
+    },
+    "source_manifest_sha256": "8e3f5e2c92421fd651cd2ad015f9f1e3650b6458b751b667907a3e4e44c366be"
+  },
+  "excluded_as_environment_dependent": [
+    "latency_ms"
+  ],
+  "excluded_as_verbose": [
+    "cases"
+  ],
+  "format_aware_baseline": {
+    "artifact_exact_rate": 1.0,
+    "fn": 0,
+    "fp": 0,
+    "precision": 1.0,
+    "precision_wilson_95": [
+      0.9123754607496077,
+      1.0
+    ],
+    "recall": 1.0,
+    "recall_wilson_95": [
+      0.9123754607496077,
+      1.0
+    ],
+    "tp": 40
+  },
+  "mutation_detection": {
+    "by_mutation": {
+      "equivalent_numeric_string": {
+        "cases": 21,
+        "expected_detection": false,
+        "format_aware_correct": 21,
+        "format_aware_correct_rate": 1.0,
+        "naive_inline_correct": 4,
+        "naive_inline_correct_rate": 0.19047619047619047,
+        "reprocheck_correct": 21,
+        "reprocheck_correct_rate": 1.0
+      },
+      "equivalent_percentage_scale": {
+        "cases": 21,
+        "expected_detection": false,
+        "format_aware_correct": 21,
+        "format_aware_correct_rate": 1.0,
+        "naive_inline_correct": 4,
+        "naive_inline_correct_rate": 0.19047619047619047,
+        "reprocheck_correct": 21,
+        "reprocheck_correct_rate": 1.0
+      },
+      "large_value_shift": {
+        "cases": 21,
+        "expected_detection": true,
+        "format_aware_correct": 21,
+        "format_aware_correct_rate": 1.0,
+        "naive_inline_correct": 4,
+        "naive_inline_correct_rate": 0.19047619047619047,
+        "reprocheck_correct": 21,
+        "reprocheck_correct_rate": 1.0
+      },
+      "outside_tolerance": {
+        "cases": 21,
+        "expected_detection": true,
+        "format_aware_correct": 21,
+        "format_aware_correct_rate": 1.0,
+        "naive_inline_correct": 4,
+        "naive_inline_correct_rate": 0.19047619047619047,
+        "reprocheck_correct": 21,
+        "reprocheck_correct_rate": 1.0
+      },
+      "swapped_metric_values": {
+        "cases": 4,
+        "expected_detection": true,
+        "format_aware_correct": 4,
+        "format_aware_correct_rate": 1.0,
+        "naive_inline_correct": 0,
+        "naive_inline_correct_rate": 0.0,
+        "reprocheck_correct": 4,
+        "reprocheck_correct_rate": 1.0
+      },
+      "unsupported_metric_insertion": {
+        "cases": 21,
+        "expected_detection": true,
+        "format_aware_correct": 21,
+        "format_aware_correct_rate": 1.0,
+        "naive_inline_correct": 0,
+        "naive_inline_correct_rate": 0.0,
+        "reprocheck_correct": 21,
+        "reprocheck_correct_rate": 1.0
+      },
+      "within_tolerance": {
+        "cases": 21,
+        "expected_detection": false,
+        "format_aware_correct": 21,
+        "format_aware_correct_rate": 1.0,
+        "naive_inline_correct": 4,
+        "naive_inline_correct_rate": 0.19047619047619047,
+        "reprocheck_correct": 21,
+        "reprocheck_correct_rate": 1.0
+      }
+    },
+    "cases": 130,
+    "defect_cases": 67,
+    "format_aware_baseline": {
+      "control_cases": 63,
+      "controls_correct": 63,
+      "defect_cases": 67,
+      "defect_detection_rate": 1.0,
+      "defects_detected": 67,
+      "negative_control_correct_rate": 1.0,
+      "negative_control_false_alarms_or_omissions": 0
+    },
+    "naive_inline_baseline": {
+      "control_cases": 63,
+      "controls_correct": 12,
+      "defect_cases": 67,
+      "defect_detection_rate": 0.11940298507462686,
+      "defects_detected": 8,
+      "negative_control_correct_rate": 0.19047619047619047,
+      "negative_control_false_alarms_or_omissions": 51
+    },
+    "negative_control_cases": 63,
+    "reprocheck": {
+      "control_cases": 63,
+      "controls_correct": 63,
+      "defect_cases": 67,
+      "defect_detection_rate": 1.0,
+      "defects_detected": 67,
+      "negative_control_correct_rate": 1.0,
+      "negative_control_false_alarms_or_omissions": 0
+    },
+    "tolerance": 0.005
+  },
+  "naive_inline_baseline": {
+    "artifact_exact_rate": 0.6833333333333333,
+    "fn": 32,
+    "fp": 0,
+    "precision": 1.0,
+    "precision_wilson_95": [
+      0.6755843804891231,
+      1.0
+    ],
+    "recall": 0.2,
+    "recall_wilson_95": [
+      0.10499864973166874,
+      0.34757607381856676
+    ],
+    "tp": 8
+  },
+  "paired_claim_recall_delta": {
+    "bootstrap_samples": 5000,
+    "mean_artifact_recall_delta": 0.7291666666666666,
+    "paired_bootstrap_95": [
+      0.5625,
+      0.875
+    ],
+    "seed": 2026
+  },
+  "paired_claim_recall_delta_vs_format_aware": {
+    "bootstrap_samples": 5000,
+    "mean_artifact_recall_delta": 0.0,
+    "paired_bootstrap_95": [
+      0.0,
+      0.0
+    ],
+    "seed": 2026
+  },
+  "reprocheck": {
+    "artifact_exact_rate": 1.0,
+    "claim_artifact_exact_rate": 1.0,
+    "fn": 0,
+    "fp": 0,
+    "notebook_annotation_agreement": 1.0,
+    "precision": 1.0,
+    "precision_wilson_95": [
+      0.9123754607496077,
+      1.0
+    ],
+    "recall": 1.0,
+    "recall_wilson_95": [
+      0.9123754607496077,
+      1.0
+    ],
+    "tp": 40
+  },
+  "schema": "reprocheck.real-artifact-baseline.v5",
+  "study_schema_version": "2.0",
+  "tool_version": "0.8.0"
+}

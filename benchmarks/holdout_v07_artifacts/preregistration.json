@@ -1,0 +1,114 @@
+{
+  "schema": "reprocheck.cross-domain-holdout-preregistration.v1",
+  "registered_at_utc": "2026-08-09T02:58:49Z",
+  "scientific_phase": "preregistered_before_source_content_download_and_evaluator_run",
+  "evaluator": {
+    "version": "0.7.0",
+    "filename": "reprocheck-0.7.0-py3-none-any.whl",
+    "sha256": "8c182c3e2cdd41d47e296653950429d1d12cfc0837b63db565f19f2eb65a09ee"
+  },
+  "research_question": "How accurately does frozen ReproCheck v0.7 extract unseen metric table cells across classification, segmentation, speech, and translation repositories?",
+  "repositories": [
+    {
+      "id": "timm",
+      "url": "https://github.com/huggingface/pytorch-image-models",
+      "commit": "aa4b5850c1543fa488abf260f18390eda46cf85d",
+      "license_spdx": "Apache-2.0",
+      "include_patterns": ["README.md", "docs/models/**/*.md"],
+      "always_include": ["README.md"],
+      "sample_limit_excluding_always_include": 12
+    },
+    {
+      "id": "mmsegmentation",
+      "url": "https://github.com/open-mmlab/mmsegmentation",
+      "commit": "b040e147adfa027bbc071b624bedf0ae84dfc922",
+      "license_spdx": "Apache-2.0",
+      "include_patterns": ["configs/*/README.md"],
+      "always_include": [],
+      "sample_limit_excluding_always_include": 12
+    },
+    {
+      "id": "fairseq",
+      "url": "https://github.com/facebookresearch/fairseq",
+      "commit": "3d262bb25690e4eb2e7d3c1309b1e9c406ca4b99",
+      "license_spdx": "MIT",
+      "include_patterns": ["README.md", "examples/**/README.md"],
+      "always_include": ["README.md"],
+      "sample_limit_excluding_always_include": 12
+    },
+    {
+      "id": "paddleclas",
+      "url": "https://github.com/PaddlePaddle/PaddleClas",
+      "commit": "f1233c18455b8acde4fc42ab0bea575fa06daa8e",
+      "license_spdx": "Apache-2.0",
+      "include_patterns": ["README.md", "docs/en/models/**/*.md"],
+      "always_include": ["README.md"],
+      "sample_limit_excluding_always_include": 12
+    }
+  ],
+  "selection": {
+    "tree_metadata_only_before_selection": true,
+    "ranking": "ascending SHA-256 of repository_id + NUL + repository-relative path",
+    "sampling": "include declared always_include files, then first N matching files by registered hash ranking",
+    "content_dependent_selection_forbidden": true,
+    "missing_always_include_policy": "fail closed",
+    "empty_pattern_policy": "fail closed",
+    "maximum_artifact_bytes": 2097152,
+    "symlinks_forbidden": true
+  },
+  "annotation_scope": {
+    "formats": ["Markdown pipe tables", "HTML tables"],
+    "metrics": [
+      "accuracy",
+      "top1_accuracy",
+      "top5_accuracy",
+      "precision",
+      "recall",
+      "f1",
+      "dice",
+      "iou",
+      "miou",
+      "ap",
+      "ap50",
+      "ap75",
+      "bleu",
+      "wer",
+      "cer",
+      "rmse",
+      "mae",
+      "r2"
+    ],
+    "include": "cells with exactly one finite numeric value under an unambiguous registered metric header",
+    "exclude": [
+      "narrative claims",
+      "cells containing zero or multiple numeric values",
+      "AP-small, AP-medium, and AP-large",
+      "training parameters, speed, memory, FLOPs, and model size",
+      "derived interpretation not explicit in the table"
+    ],
+    "normalization": "explicit percentages and unit-interval metric values above 1 are divided by 100; BLEU, WER, CER, RMSE, MAE, and R2 preserve their reported numeric scale unless explicitly percent",
+    "annotation_independence": "annotation code must not import reprocheck or inspect evaluator output",
+    "review": "all unique accepted headers and all ambiguous rejected headers reviewed internally before evaluator run"
+  },
+  "evaluation": {
+    "matching": "multiset equality by canonical metric and numeric value",
+    "absolute_tolerance": 1e-9,
+    "primary_metrics": ["tp", "fp", "fn", "precision", "recall", "artifact_exact_rate"],
+    "uncertainty": "Wilson 95% intervals for precision and recall",
+    "empty_files": "included in artifact exact rate",
+    "one_shot_output": true,
+    "output_overwrite_forbidden": true
+  },
+  "decision_policy": {
+    "parser_changes_before_primary_output": "forbidden after this registration",
+    "parser_changes_after_primary_output": "require version 0.8 or later and a new unseen holdout",
+    "annotation_corrections_after_primary_output": "record separately and never replace primary metrics",
+    "failure_result_retention": "mandatory"
+  },
+  "known_limitations": [
+    "Repositories and metric families were selected by the project author, not an external evaluator.",
+    "Annotations will have one internal reviewer and no blinded adjudication unless external reviewers are added.",
+    "The corpus remains public-documentation data and does not test OCR or private reports.",
+    "The fairseq repository is archived, but its pinned artifacts remain valid public evidence."
+  ]
+}

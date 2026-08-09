@@ -1,0 +1,6 @@
+sample_id,source_id,text,label
+1,block-a,North school,building
+2,block-b,Central park,park
+3,block-c,River bridge,bridge
+4,block-d,Old library,building
+

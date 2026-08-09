@@ -1,0 +1,29 @@
+{
+  "schema": "reprocheck.cross-domain-holdout-annotation-lock.v1",
+  "preregistration_sha256": "ce3938ea9019b2555564b68e0100f11fbcc1ed83048ec506270c94aaf6317cbf",
+  "source_manifest_sha256": "906a865805d535adc65068e32f9c008727835436e98da9b2c7ee82c9ce2ac3da",
+  "annotation_code_sha256": "8bcc7d5fed3653b593423358215cbf3fc0112a34ba9074d361d4fcbf3561d8f4",
+  "annotations_sha256": "8d9b583536a768f2fb6c69b5a5b5e170ec580e4716ff987eb69e61b4e1407109",
+  "evaluator_sha256": "8c182c3e2cdd41d47e296653950429d1d12cfc0837b63db565f19f2eb65a09ee",
+  "artifacts": 39,
+  "claim_bearing_artifacts": 16,
+  "annotated_claims": 295,
+  "metric_counts": {
+    "accuracy": 4,
+    "miou": 249,
+    "top1_accuracy": 21,
+    "top5_accuracy": 21
+  },
+  "repository_claim_counts": {
+    "fairseq": 4,
+    "mmsegmentation": 249,
+    "paddleclas": 12,
+    "timm": 30
+  },
+  "accepted_header_variants_reviewed": 9,
+  "unique_table_layouts_inventoried": 18,
+  "internal_reviewers": 1,
+  "external_reviewers": 0,
+  "adjudication": false,
+  "locked_before_evaluator_run": true
+}

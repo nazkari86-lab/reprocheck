@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reprocheck.local/schemas/challenge-study-v1.schema.json",
+  "title": "ReproCheck frozen challenge study v1",
+  "type": "object",
+  "required": ["schema", "evaluator", "corpus", "summary", "by_repository", "by_metric", "cases"],
+  "properties": {
+    "schema": { "const": "reprocheck.challenge-study.v1" },
+    "evaluator": { "$ref": "#/$defs/evaluator" },
+    "corpus": {
+      "type": "object",
+      "required": [
+        "artifacts",
+        "claim_bearing_artifacts",
+        "annotated_claims",
+        "repositories",
+        "source_manifest_sha256",
+        "annotations_sha256",
+        "annotation_scope",
+        "limitations"
+      ],
+      "properties": {
+        "artifacts": { "type": "integer", "minimum": 1 },
+        "claim_bearing_artifacts": { "type": "integer", "minimum": 1 },
+        "annotated_claims": { "type": "integer", "minimum": 1 },
+        "repositories": { "type": "integer", "minimum": 1 },
+        "source_manifest_sha256": { "$ref": "#/$defs/sha256" },
+        "annotations_sha256": { "$ref": "#/$defs/sha256" },
+        "annotation_scope": { "type": "string", "minLength": 1 },
+        "limitations": { "$ref": "#/$defs/nonEmptyStrings" }
+      },
+      "additionalProperties": false
+    },
+    "summary": { "$ref": "#/$defs/summary" },
+    "by_repository": { "$ref": "#/$defs/groupedAggregates" },
+    "by_metric": { "$ref": "#/$defs/groupedAggregates" },
+    "cases": { "$ref": "#/$defs/cases" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "rate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "interval": {
+      "type": "array",
+      "prefixItems": [{ "$ref": "#/$defs/rate" }, { "$ref": "#/$defs/rate" }],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "evaluator": {
+      "type": "object",
+      "required": ["version", "filename", "sha256", "installed_archive_hash"],
+      "properties": {
+        "version": { "type": "string", "pattern": "^0\\.5\\.0$" },
+        "filename": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "installed_archive_hash": { "type": "string", "pattern": "^sha256=[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "aggregate": {
+      "type": "object",
+      "required": [
+        "tp",
+        "fp",
+        "fn",
+        "precision",
+        "precision_wilson_95",
+        "recall",
+        "recall_wilson_95",
+        "artifact_exact_rate"
+      ],
+      "properties": {
+        "tp": { "type": "integer", "minimum": 0 },
+        "fp": { "type": "integer", "minimum": 0 },
+        "fn": { "type": "integer", "minimum": 0 },
+        "precision": { "$ref": "#/$defs/rate" },
+        "precision_wilson_95": { "$ref": "#/$defs/interval" },
+        "recall": { "$ref": "#/$defs/rate" },
+        "recall_wilson_95": { "$ref": "#/$defs/interval" },
+        "artifact_exact_rate": { "$ref": "#/$defs/rate" }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "tp",
+        "fp",
+        "fn",
+        "precision",
+        "precision_wilson_95",
+        "recall",
+        "recall_wilson_95",
+        "artifact_exact_rate",
+        "claim_artifact_exact_rate"
+      ],
+      "properties": {
+        "tp": { "type": "integer", "minimum": 0 },
+        "fp": { "type": "integer", "minimum": 0 },
+        "fn": { "type": "integer", "minimum": 0 },
+        "precision": { "$ref": "#/$defs/rate" },
+        "precision_wilson_95": { "$ref": "#/$defs/interval" },
+        "recall": { "$ref": "#/$defs/rate" },
+        "recall_wilson_95": { "$ref": "#/$defs/interval" },
+        "artifact_exact_rate": { "$ref": "#/$defs/rate" },
+        "claim_artifact_exact_rate": { "$ref": "#/$defs/rate" }
+      },
+      "additionalProperties": false
+    },
+    "groupedAggregates": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/aggregate" }
+    },
+    "case": {
+      "type": "object",
+      "required": [
+        "repository",
+        "local_path",
+        "expected_claims",
+        "extracted_scoped_claims",
+        "tp",
+        "fp",
+        "fn",
+        "exact"
+      ],
+      "properties": {
+        "repository": { "type": "string", "minLength": 1 },
+        "local_path": { "type": "string", "minLength": 1 },
+        "expected_claims": { "type": "integer", "minimum": 0 },
+        "extracted_scoped_claims": { "type": "integer", "minimum": 0 },
+        "tp": { "type": "integer", "minimum": 0 },
+        "fp": { "type": "integer", "minimum": 0 },
+        "fn": { "type": "integer", "minimum": 0 },
+        "exact": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/case" }
+    }
+  }
+}

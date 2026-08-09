@@ -1,0 +1,12 @@
+{
+  "schema": "reprocheck.cross-domain-holdout-evaluation-lock.v1",
+  "preregistration_sha256": "ce3938ea9019b2555564b68e0100f11fbcc1ed83048ec506270c94aaf6317cbf",
+  "source_manifest_sha256": "906a865805d535adc65068e32f9c008727835436e98da9b2c7ee82c9ce2ac3da",
+  "annotations_sha256": "8d9b583536a768f2fb6c69b5a5b5e170ec580e4716ff987eb69e61b4e1407109",
+  "annotation_lock_sha256": "81fbb64974a757f56a70230a7c93abccdc326a3f8572970b1d02c2a9de94fc6e",
+  "runner_sha256": "bbcc19e39f9308cca694f3ba3d79e36c611261d7fb2f6d8fbed880e0aaa25e04",
+  "evaluator_sha256": "8c182c3e2cdd41d47e296653950429d1d12cfc0837b63db565f19f2eb65a09ee",
+  "result_path": "results/zero-shot-v0.7.json",
+  "result_overwrite_forbidden": true,
+  "locked_before_evaluator_run": true
+}

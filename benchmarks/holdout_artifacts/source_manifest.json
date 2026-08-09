@@ -1,0 +1,337 @@
+{
+  "entries": [
+    {
+      "commit": "29901c51d7fe8712168b8d0d64351170bc0f83e0",
+      "kind": "license",
+      "local_path": "detr/LICENSE",
+      "repository": "detr",
+      "sha256": "b208c52b00a2df2c8f4c3298c34407bf2bfe409968213372251c91fcc737a1a5",
+      "size_bytes": 11354,
+      "source_path": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/facebookresearch/detr/29901c51d7fe8712168b8d0d64351170bc0f83e0/LICENSE"
+    },
+    {
+      "commit": "29901c51d7fe8712168b8d0d64351170bc0f83e0",
+      "kind": "artifact",
+      "local_path": "detr/README.md",
+      "repository": "detr",
+      "sha256": "eeeeb3e185400fd1b4c3d681dc5246f66ebada212cc3442f01f55f636f455d10",
+      "size_bytes": 11892,
+      "source_path": "README.md",
+      "source_url": "https://raw.githubusercontent.com/facebookresearch/detr/29901c51d7fe8712168b8d0d64351170bc0f83e0/README.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "license",
+      "local_path": "ultralytics/LICENSE",
+      "repository": "ultralytics",
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+      "size_bytes": 34523,
+      "source_path": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/LICENSE"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/README.md",
+      "repository": "ultralytics",
+      "sha256": "a4dec3e72fe6f16bd12818ef9d31ed74b760abbf2642383fa028d745c90a0105",
+      "size_bytes": 37959,
+      "source_path": "README.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/README.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/fast-sam.md",
+      "repository": "ultralytics",
+      "sha256": "18dc2280b8a15260aa1d773e1615b8675dd0219e58413be4c4070246bc932415",
+      "size_bytes": 18877,
+      "source_path": "docs/en/models/fast-sam.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/fast-sam.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/index.md",
+      "repository": "ultralytics",
+      "sha256": "9af40433123e36639791c676774873481c15d8270504ed9810cce3b9acafb925",
+      "size_bytes": 15358,
+      "source_path": "docs/en/models/index.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/index.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/mobile-sam.md",
+      "repository": "ultralytics",
+      "sha256": "f74395dd221dc522a2ae14a8b2736d2d4912ab6ae53b692c4aa755b44543e17b",
+      "size_bytes": 13816,
+      "source_path": "docs/en/models/mobile-sam.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/mobile-sam.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/rtdetr.md",
+      "repository": "ultralytics",
+      "sha256": "f908f7557fdce95f8664ce8a803b6a921e1ce50a2e526bc79baf7a34faabf74a",
+      "size_bytes": 16539,
+      "source_path": "docs/en/models/rtdetr.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/rtdetr.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/sam-2.md",
+      "repository": "ultralytics",
+      "sha256": "5fcfe6312243530807a53202df9d8a06337326a1f0f71bf641b0376d94146545",
+      "size_bytes": 28863,
+      "source_path": "docs/en/models/sam-2.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/sam-2.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/sam-3.md",
+      "repository": "ultralytics",
+      "sha256": "0a17ed66a29d7afbd2d064ecaf88e119d30f8891108361db343cfd21d58d8219",
+      "size_bytes": 38286,
+      "source_path": "docs/en/models/sam-3.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/sam-3.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/sam.md",
+      "repository": "ultralytics",
+      "sha256": "24d0c98b0f2cd7db0316a8437263e3d0b8fb7d0001e9990b80db20e857a673f5",
+      "size_bytes": 18389,
+      "source_path": "docs/en/models/sam.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/sam.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolo-nas.md",
+      "repository": "ultralytics",
+      "sha256": "7b2a19ccd649e52835e2f1d26275b8ab90754cf2d57d4650dca4918c699e25ee",
+      "size_bytes": 11644,
+      "source_path": "docs/en/models/yolo-nas.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolo-nas.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolo-world.md",
+      "repository": "ultralytics",
+      "sha256": "49bf2b17f0bb4002706ddb4b91aadf97a8581a8a451c70295a01ade259c2122c",
+      "size_bytes": 26677,
+      "source_path": "docs/en/models/yolo-world.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolo-world.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolo11.md",
+      "repository": "ultralytics",
+      "sha256": "5babe2eea47b02500e841793441aeafafba72dae379ef7fce125dbaf4cbcd36a",
+      "size_bytes": 24584,
+      "source_path": "docs/en/models/yolo11.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolo11.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolo12.md",
+      "repository": "ultralytics",
+      "sha256": "462a929f5d2f78d6c124085239c62b004f37115441a6ed63753d9d5428232c84",
+      "size_bytes": 18686,
+      "source_path": "docs/en/models/yolo12.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolo12.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolo26.md",
+      "repository": "ultralytics",
+      "sha256": "4d6e9bde3fe8c63a10d9f0f28a29d657fa81230cfccb1921bcdddfc9a51ddf20",
+      "size_bytes": 18151,
+      "source_path": "docs/en/models/yolo26.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolo26.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yoloe.md",
+      "repository": "ultralytics",
+      "sha256": "b1b9853d84188dbf539cc85e46af0806ffd7d6a97bc84d2df765e0a857e697b5",
+      "size_bytes": 63209,
+      "source_path": "docs/en/models/yoloe.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yoloe.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolov10.md",
+      "repository": "ultralytics",
+      "sha256": "7b056718bedfb30d92272c9d9daa8dbc45d7bb825c458bd9c790de9786cba7d2",
+      "size_bytes": 22852,
+      "source_path": "docs/en/models/yolov10.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolov10.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolov3.md",
+      "repository": "ultralytics",
+      "sha256": "727a895aea5e2a8be38fb17078876656323a945d376de1381d47404ca7e731e8",
+      "size_bytes": 9969,
+      "source_path": "docs/en/models/yolov3.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolov3.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolov4.md",
+      "repository": "ultralytics",
+      "sha256": "e968c8135692c03768c8b98a94d77d7d3a19d6284f9befa7ce8711fc545f92a6",
+      "size_bytes": 11948,
+      "source_path": "docs/en/models/yolov4.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolov4.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolov5.md",
+      "repository": "ultralytics",
+      "sha256": "5d4005ce3fedb31235741ac5d512515b2e153dfbac8e0cd04725f2aa34178a27",
+      "size_bytes": 15463,
+      "source_path": "docs/en/models/yolov5.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolov5.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolov6.md",
+      "repository": "ultralytics",
+      "sha256": "34a75c8048d74f64892bd53e4c6a136ddc950a602e903100d2cc438e9474f9f2",
+      "size_bytes": 10310,
+      "source_path": "docs/en/models/yolov6.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolov6.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolov7.md",
+      "repository": "ultralytics",
+      "sha256": "478e74f2f63e22f6cd90f9d22f442d659eb91fcaef437740d3017ce2662a65b2",
+      "size_bytes": 27127,
+      "source_path": "docs/en/models/yolov7.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolov7.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolov8.md",
+      "repository": "ultralytics",
+      "sha256": "a03ea29595f0b0689e24fdcf7494966848ebb4cb8776346d94694103d71451a1",
+      "size_bytes": 24571,
+      "source_path": "docs/en/models/yolov8.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolov8.md"
+    },
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "kind": "artifact",
+      "local_path": "ultralytics/docs/en/models/yolov9.md",
+      "repository": "ultralytics",
+      "sha256": "2a3e6346b4eb810252f9f199e81d840713aa1316ba5fb823c204a9449f52f99f",
+      "size_bytes": 19124,
+      "source_path": "docs/en/models/yolov9.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/80b1f58432dff7f9ef9d89b9551e990704e1f820/docs/en/models/yolov9.md"
+    },
+    {
+      "commit": "20d1d78a08277e365d57bfa3a2cce752772d9e59",
+      "kind": "license",
+      "local_path": "yolov5/LICENSE",
+      "repository": "yolov5",
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+      "size_bytes": 34523,
+      "source_path": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/yolov5/20d1d78a08277e365d57bfa3a2cce752772d9e59/LICENSE"
+    },
+    {
+      "commit": "20d1d78a08277e365d57bfa3a2cce752772d9e59",
+      "kind": "artifact",
+      "local_path": "yolov5/README.md",
+      "repository": "yolov5",
+      "sha256": "d6f7815cb0331faa8bf2bd630fe79dacf49ffa380098e7fc12fe1c74139236bd",
+      "size_bytes": 46089,
+      "source_path": "README.md",
+      "source_url": "https://raw.githubusercontent.com/ultralytics/yolov5/20d1d78a08277e365d57bfa3a2cce752772d9e59/README.md"
+    },
+    {
+      "commit": "6ddff4824372906469a7fae2dc3206c7aa4bbaee",
+      "kind": "license",
+      "local_path": "yolox/LICENSE",
+      "repository": "yolox",
+      "sha256": "0ec3668d3274bcf29e8a29e9576d5a2cd96fc78d3c5bec4387355a796e5d9088",
+      "size_bytes": 11371,
+      "source_path": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/Megvii-BaseDetection/YOLOX/6ddff4824372906469a7fae2dc3206c7aa4bbaee/LICENSE"
+    },
+    {
+      "commit": "6ddff4824372906469a7fae2dc3206c7aa4bbaee",
+      "kind": "artifact",
+      "local_path": "yolox/README.md",
+      "repository": "yolox",
+      "sha256": "023dbf0a5f2c48c944cc6220f9c4750febe2ceafc535445278455186bec7ec6b",
+      "size_bytes": 13314,
+      "source_path": "README.md",
+      "source_url": "https://raw.githubusercontent.com/Megvii-BaseDetection/YOLOX/6ddff4824372906469a7fae2dc3206c7aa4bbaee/README.md"
+    }
+  ],
+  "evaluator_sha256": "c9cbc753f0027d2815dcc9105603580495c2ee9797364c84e6d3f3f38b84e1f6",
+  "preregistration_sha256": "478cf7370e097be4c95577710513154514917f1190cee1d7cfb033043648f67a",
+  "repositories": [
+    {
+      "commit": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "default_branch": "main",
+      "expected_artifacts": 22,
+      "github": "ultralytics/ultralytics",
+      "id": "ultralytics",
+      "license_path": "LICENSE",
+      "selection": "README.md and all top-level docs/en/models/*.md files"
+    },
+    {
+      "commit": "20d1d78a08277e365d57bfa3a2cce752772d9e59",
+      "default_branch": "master",
+      "expected_artifacts": 1,
+      "github": "ultralytics/yolov5",
+      "id": "yolov5",
+      "license_path": "LICENSE",
+      "selection": "README.md"
+    },
+    {
+      "commit": "29901c51d7fe8712168b8d0d64351170bc0f83e0",
+      "default_branch": "main",
+      "expected_artifacts": 1,
+      "github": "facebookresearch/detr",
+      "id": "detr",
+      "license_path": "LICENSE",
+      "selection": "README.md"
+    },
+    {
+      "commit": "6ddff4824372906469a7fae2dc3206c7aa4bbaee",
+      "default_branch": "main",
+      "expected_artifacts": 1,
+      "github": "Megvii-BaseDetection/YOLOX",
+      "id": "yolox",
+      "license_path": "LICENSE",
+      "selection": "README.md"
+    }
+  ],
+  "schema": "reprocheck.preregistered-holdout-sources.v1",
+  "selection_is_exhaustive_within_declared_patterns": true,
+  "selection_locked_before_source_download": true
+}

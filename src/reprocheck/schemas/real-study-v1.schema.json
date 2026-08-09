@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reprocheck.local/schemas/real-study-v1.schema.json",
+  "title": "ReproCheck frozen real-artifact study",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "corpus",
+    "reprocheck",
+    "naive_inline_baseline",
+    "paired_claim_recall_delta",
+    "mutation_detection",
+    "latency_ms",
+    "by_repository",
+    "cases"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "corpus": {
+      "type": "object",
+      "required": [
+        "artifacts",
+        "repositories",
+        "repository_commits",
+        "source_manifest_sha256",
+        "annotations_sha256",
+        "annotated_claims",
+        "claim_bearing_artifacts",
+        "notebooks",
+        "reviewers",
+        "limitations"
+      ],
+      "properties": {
+        "artifacts": { "type": "integer", "minimum": 1 },
+        "repositories": { "type": "integer", "minimum": 1 },
+        "repository_commits": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          }
+        },
+        "source_manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "annotations_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "annotated_claims": { "type": "integer", "minimum": 1 },
+        "claim_bearing_artifacts": { "type": "integer", "minimum": 1 },
+        "notebooks": { "type": "integer", "minimum": 0 },
+        "reviewers": { "type": "object" },
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": false
+    },
+    "reprocheck": { "$ref": "#/$defs/reproSummary" },
+    "naive_inline_baseline": { "$ref": "#/$defs/metricSummary" },
+    "paired_claim_recall_delta": {
+      "type": "object",
+      "required": [
+        "mean_artifact_recall_delta",
+        "paired_bootstrap_95",
+        "bootstrap_samples",
+        "seed"
+      ],
+      "properties": {
+        "mean_artifact_recall_delta": { "type": "number", "minimum": -1, "maximum": 1 },
+        "paired_bootstrap_95": { "$ref": "#/$defs/interval" },
+        "bootstrap_samples": { "type": "integer", "minimum": 1 },
+        "seed": { "type": "integer" }
+      },
+      "additionalProperties": false
+    },
+    "mutation_detection": {
+      "type": "object",
+      "required": [
+        "cases",
+        "reprocheck_detected",
+        "reprocheck_detection_rate",
+        "naive_inline_detected",
+        "naive_inline_detection_rate",
+        "mutation"
+      ],
+      "properties": {
+        "cases": { "type": "integer", "minimum": 1 },
+        "reprocheck_detected": { "type": "integer", "minimum": 0 },
+        "reprocheck_detection_rate": { "$ref": "#/$defs/rate" },
+        "naive_inline_detected": { "type": "integer", "minimum": 0 },
+        "naive_inline_detection_rate": { "$ref": "#/$defs/rate" },
+        "mutation": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "latency_ms": {
+      "type": "object",
+      "required": ["median", "p95", "max", "repeats_per_artifact"],
+      "properties": {
+        "median": { "type": "number", "minimum": 0 },
+        "p95": { "type": "number", "minimum": 0 },
+        "max": { "type": "number", "minimum": 0 },
+        "repeats_per_artifact": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "by_repository": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["artifacts", "reprocheck", "naive_inline_baseline"],
+        "properties": {
+          "artifacts": { "type": "integer", "minimum": 1 },
+          "reprocheck": { "$ref": "#/$defs/metricSummary" },
+          "naive_inline_baseline": { "$ref": "#/$defs/metricSummary" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/case" }
+    }
+  },
+  "$defs": {
+    "rate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "interval": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "type": "number", "minimum": -1, "maximum": 1 }
+    },
+    "metricSummary": {
+      "type": "object",
+      "required": [
+        "tp",
+        "fp",
+        "fn",
+        "precision",
+        "precision_wilson_95",
+        "recall",
+        "recall_wilson_95",
+        "artifact_exact_rate"
+      ],
+      "properties": {
+        "tp": { "type": "integer", "minimum": 0 },
+        "fp": { "type": "integer", "minimum": 0 },
+        "fn": { "type": "integer", "minimum": 0 },
+        "precision": { "$ref": "#/$defs/rate" },
+        "precision_wilson_95": { "$ref": "#/$defs/interval" },
+        "recall": { "$ref": "#/$defs/rate" },
+        "recall_wilson_95": { "$ref": "#/$defs/interval" },
+        "artifact_exact_rate": { "$ref": "#/$defs/rate" }
+      },
+      "additionalProperties": false
+    },
+    "reproSummary": {
+      "type": "object",
+      "required": [
+        "tp",
+        "fp",
+        "fn",
+        "precision",
+        "precision_wilson_95",
+        "recall",
+        "recall_wilson_95",
+        "artifact_exact_rate",
+        "claim_artifact_exact_rate",
+        "notebook_annotation_agreement"
+      ],
+      "properties": {
+        "tp": { "type": "integer", "minimum": 0 },
+        "fp": { "type": "integer", "minimum": 0 },
+        "fn": { "type": "integer", "minimum": 0 },
+        "precision": { "$ref": "#/$defs/rate" },
+        "precision_wilson_95": { "$ref": "#/$defs/interval" },
+        "recall": { "$ref": "#/$defs/rate" },
+        "recall_wilson_95": { "$ref": "#/$defs/interval" },
+        "artifact_exact_rate": { "$ref": "#/$defs/rate" },
+        "claim_artifact_exact_rate": { "$ref": "#/$defs/rate" },
+        "notebook_annotation_agreement": { "$ref": "#/$defs/rate" }
+      },
+      "additionalProperties": false
+    },
+    "claimCounts": {
+      "type": "object",
+      "required": ["tp", "fp", "fn", "exact"],
+      "properties": {
+        "tp": { "type": "integer", "minimum": 0 },
+        "fp": { "type": "integer", "minimum": 0 },
+        "fn": { "type": "integer", "minimum": 0 },
+        "exact": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "case": {
+      "type": "object",
+      "required": [
+        "repository",
+        "local_path",
+        "annotation_method",
+        "expected_claims",
+        "reprocheck",
+        "baseline",
+        "expected_notebook_finding_codes",
+        "actual_notebook_finding_codes",
+        "notebook_exact",
+        "latency_ms",
+        "exact"
+      ],
+      "properties": {
+        "repository": { "type": "string", "minLength": 1 },
+        "local_path": { "type": "string", "minLength": 1 },
+        "annotation_method": { "type": "string", "minLength": 1 },
+        "expected_claims": { "type": "integer", "minimum": 0 },
+        "reprocheck": { "$ref": "#/$defs/claimCounts" },
+        "baseline": { "$ref": "#/$defs/claimCounts" },
+        "expected_notebook_finding_codes": {
+          "type": ["array", "null"],
+          "items": { "type": "string" }
+        },
+        "actual_notebook_finding_codes": {
+          "type": ["array", "null"],
+          "items": { "type": "string" }
+        },
+        "notebook_exact": { "type": "boolean" },
+        "latency_ms": { "type": "number", "minimum": 0 },
+        "exact": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

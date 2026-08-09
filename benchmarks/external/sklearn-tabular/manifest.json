@@ -1,0 +1,99 @@
+{
+  "datasets": {
+    "diabetes": {
+      "data_sha256": "56a16e8f6091ddfd92619d68ff2b443ea377682985dde8e9d526e0d8c07d36e1",
+      "features": 10,
+      "model": "StandardScaler + Ridge(alpha=1.0)",
+      "samples": 442,
+      "source": "sklearn.datasets.load_diabetes",
+      "split": {
+        "random_state": 2026,
+        "stratified": false,
+        "test_samples": 111,
+        "test_size": 0.25,
+        "train_samples": 331
+      },
+      "target_sha256": "36d2c045c01ec77afbe6a6a150ac6c776fc9ae66c98f7dcfae99d9c7bb073635"
+    },
+    "iris": {
+      "data_sha256": "d88c5d9a92842376c4d766aca0aad26d5990c781a168200443aecbcee2cb4228",
+      "features": 4,
+      "metric_average": "macro",
+      "model": "StandardScaler + LogisticRegression(max_iter=2000)",
+      "samples": 150,
+      "source": "sklearn.datasets.load_iris",
+      "split": {
+        "random_state": 2026,
+        "stratified": true,
+        "test_samples": 45,
+        "test_size": 0.3,
+        "train_samples": 105
+      },
+      "target_sha256": "76bbcf80f5bd04bba239fb42dd5b607981b67533a20aac705d2b945eee06df3b"
+    }
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "77fa333db88ea8495dcfb0b32c11e8ff5a4e19834f32f4ad50d8a10ee4d4abad",
+      "size_bytes": 2834
+    },
+    {
+      "file": "diabetes_predictions.csv",
+      "sha256": "c10c8d78b9f8216e267914d16b0c51cd4e402cda98078829a5ef17d17f1dcaf9",
+      "size_bytes": 2516
+    },
+    {
+      "file": "diabetes_report.md",
+      "sha256": "d12be7b547fa5efee95b89134ad7337ad6b137be0188d77d765ba95a0a078dc1",
+      "size_bytes": 92
+    },
+    {
+      "file": "diabetes_test.csv",
+      "sha256": "5a44d9a9e60abf451c7d17a94b72f6e006e3049eb308aeb4570758e43c569dd2",
+      "size_bytes": 836
+    },
+    {
+      "file": "diabetes_train.csv",
+      "sha256": "ea36ee561ef086f7a42f3d0ff7e75518fa5476990118e7a97b0acbf090dff141",
+      "size_bytes": 2477
+    },
+    {
+      "file": "generate.py",
+      "sha256": "66968e7a5cfdab012d66277b10585c2868d683b2fd72d30c302b395b109444ab",
+      "size_bytes": 7311
+    },
+    {
+      "file": "iris_predictions.csv",
+      "sha256": "0cbbe65bba95088cce9a1cc342d6a52f0b531744e68765fdf5e98159bfc96eee",
+      "size_bytes": 194
+    },
+    {
+      "file": "iris_report.md",
+      "sha256": "a27f23872ea21b08989dda83649cad75717143e592b0174775b1bfc386da7a90",
+      "size_bytes": 123
+    },
+    {
+      "file": "iris_test.csv",
+      "sha256": "f0f3db142221b35771971d78cf9823a7cfa03e2ab107387a8777d27c3afe98f0",
+      "size_bytes": 252
+    },
+    {
+      "file": "iris_train.csv",
+      "sha256": "5d80ca44efc368fa5780d59aa69a7b69f9fd8050f39025e473fe9c5e4dec108d",
+      "size_bytes": 572
+    },
+    {
+      "file": "official_metrics.json",
+      "sha256": "54cf8ad3003c08c9399a15526a1ad0d5f8c072e8b71f356dca62b513ace38b3c",
+      "size_bytes": 269
+    }
+  ],
+  "runtime": {
+    "numpy": "2.4.6",
+    "python": "3.14.5",
+    "scikit_learn": "1.8.0"
+  },
+  "schema": "reprocheck.external-benchmark.v1",
+  "scope": "deterministic tabular classification and regression smoke benchmark"
+}

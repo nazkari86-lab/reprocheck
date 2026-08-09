@@ -1,0 +1,43 @@
+{
+  "schema": "reprocheck.preregistered-holdout-posthoc-review.v1",
+  "created_after_evaluator_output_inspection": true,
+  "primary_result_modified": false,
+  "reviewers": {
+    "external_human": 0,
+    "internal_human": 1,
+    "adjudication": false
+  },
+  "strict_primary_result": {
+    "tp": 297,
+    "fp": 67,
+    "fn": 16,
+    "precision": 0.8159340659340659,
+    "recall": 0.9488817891373802
+  },
+  "error_groups": [
+    {
+      "local_path": "ultralytics/docs/en/models/yolo-world.md",
+      "strict_fp": 16,
+      "strict_fn": 16,
+      "classification": "frozen_annotation_metric_misclassification",
+      "evidence": "The frozen rule labelled values under mAP50 and mAP75 as generic AP; the evaluator emitted AP50 and AP75 for the same 16 values.",
+      "interpretation": "These are strict scoring errors caused by frozen labels, not missed or invented numeric values. They remain errors in the primary result."
+    },
+    {
+      "local_path": "ultralytics/docs/en/models/yolov7.md",
+      "strict_fp": 51,
+      "strict_fn": 0,
+      "classification": "evaluator_scope_overextraction",
+      "evidence": "The evaluator extracted AP-small, AP-medium, and AP-large columns that the preregistered scope excluded.",
+      "interpretation": "These are genuine false positives under the registered evaluation scope."
+    }
+  ],
+  "diagnostic_only_after_reclassifying_annotation_errors": {
+    "tp": 313,
+    "fp": 51,
+    "fn": 0,
+    "precision": 0.8598901098901099,
+    "recall": 1.0,
+    "warning": "Post-hoc diagnostic only; it must never replace the strict primary result."
+  }
+}

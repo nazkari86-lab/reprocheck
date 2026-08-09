@@ -1,0 +1,23 @@
+{
+  "schema": "reprocheck.frozen-evaluator.v1",
+  "version": "0.6.0",
+  "filename": "reprocheck-0.6.0-py3-none-any.whl",
+  "sha256": "c9cbc753f0027d2815dcc9105603580495c2ee9797364c84e6d3f3f38b84e1f6",
+  "development_after_challenge_inspection": true,
+  "source_gate": {
+    "tests_passed": 143,
+    "coverage_percent": 98.38,
+    "lint": "passed",
+    "type_check": "passed",
+    "controlled_benchmark": "passed",
+    "real_artifact_study": "passed",
+    "external_audits": "passed"
+  },
+  "challenge_result": {
+    "filename": "development-v0.6.json",
+    "sha256": "ad466cb489d7b0790ee76e01cd252e831d7148e6f42823db5463b96073466c70",
+    "tp": 1006,
+    "fp": 2,
+    "fn": 0
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "reprocheck.frozen-evaluator.v1",
+  "version": "0.5.0",
+  "filename": "reprocheck-0.5.0-py3-none-any.whl",
+  "sha256": "bcfaba70ef9bac2d463ce90f965189dba47a45d27c2772530ca23c29521fe8a0",
+  "frozen_before_challenge_evaluation": true,
+  "source_gate": {
+    "tests_passed": 127,
+    "coverage_percent": 98.32,
+    "lint": "passed",
+    "type_check": "passed"
+  }
+}

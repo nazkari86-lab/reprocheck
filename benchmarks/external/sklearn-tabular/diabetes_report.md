@@ -1,0 +1,5 @@
+# Diabetes regression result
+
+MAE: 42.858521361465
+RMSE: 54.244807679520
+R2: 0.519324744937

@@ -1,0 +1,34 @@
+{
+  "schema": "reprocheck.challenge-posthoc-label-review.v1",
+  "frozen_annotations_sha256": "565e5c033bd0e1bcf149974398c5ded5496f1f986c7a1b89236e266818627332",
+  "created_after_evaluator_output_inspection": true,
+  "primary_frozen_annotations_modified": false,
+  "reviewers": {
+    "internal": 1,
+    "independent_external": 0,
+    "adjudication": false
+  },
+  "interpretation": "Post-hoc error analysis only; these cases are not added to primary metrics.",
+  "cases": [
+    {
+      "assessment": "valid_unlabelled_claim",
+      "header": "bbox detection Average Precision",
+      "line": 58,
+      "local_path": "mmdetection/configs/deepfashion/README.md",
+      "metric": "box_ap",
+      "reason": "The frozen independent rule recognizes AP abbreviations but not the equivalent spelled-out phrase.",
+      "source_sha256": "ec0ce49f452ed90cd81c874ae570d0862f573179d829b49b359d9406c3954bb5",
+      "value": 0.599
+    },
+    {
+      "assessment": "valid_unlabelled_claim",
+      "header": "segmentation Average Precision",
+      "line": 58,
+      "local_path": "mmdetection/configs/deepfashion/README.md",
+      "metric": "mask_ap",
+      "reason": "The frozen independent rule recognizes AP abbreviations but not the equivalent spelled-out phrase.",
+      "source_sha256": "ec0ce49f452ed90cd81c874ae570d0862f573179d829b49b359d9406c3954bb5",
+      "value": 0.584
+    }
+  ]
+}

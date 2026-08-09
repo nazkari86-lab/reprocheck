@@ -1,0 +1,422 @@
+{
+  "by_metric": {
+    "ap": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.982283842214778,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.982283842214778,
+        1.0
+      ],
+      "tp": 213
+    },
+    "ap50": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.9512744540953,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.9512744540953,
+        1.0
+      ],
+      "tp": 75
+    },
+    "ap75": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.8668035060468213,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.8668035060468213,
+        1.0
+      ],
+      "tp": 25
+    }
+  },
+  "by_repository": {
+    "detr": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.7224598312333834,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.7224598312333834,
+        1.0
+      ],
+      "tp": 10
+    },
+    "ultralytics": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.9852156082782743,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.9852156082782743,
+        1.0
+      ],
+      "tp": 256
+    },
+    "yolov5": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.8793527963418923,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.8793527963418923,
+        1.0
+      ],
+      "tp": 28
+    },
+    "yolox": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.8318156346315496,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.8318156346315496,
+        1.0
+      ],
+      "tp": 19
+    }
+  },
+  "cases": [
+    {
+      "exact": true,
+      "expected_claims": 10,
+      "extracted_scoped_claims": 10,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "detr/README.md",
+      "repository": "detr",
+      "tp": 10
+    },
+    {
+      "exact": true,
+      "expected_claims": 40,
+      "extracted_scoped_claims": 40,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/README.md",
+      "repository": "ultralytics",
+      "tp": 40
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/fast-sam.md",
+      "repository": "ultralytics",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/index.md",
+      "repository": "ultralytics",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/mobile-sam.md",
+      "repository": "ultralytics",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/rtdetr.md",
+      "repository": "ultralytics",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/sam-2.md",
+      "repository": "ultralytics",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 4,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/sam-3.md",
+      "repository": "ultralytics",
+      "tp": 4
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/sam.md",
+      "repository": "ultralytics",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 6,
+      "extracted_scoped_claims": 6,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolo-nas.md",
+      "repository": "ultralytics",
+      "tp": 6
+    },
+    {
+      "exact": true,
+      "expected_claims": 24,
+      "extracted_scoped_claims": 24,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolo-world.md",
+      "repository": "ultralytics",
+      "tp": 24
+    },
+    {
+      "exact": true,
+      "expected_claims": 30,
+      "extracted_scoped_claims": 30,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolo11.md",
+      "repository": "ultralytics",
+      "tp": 30
+    },
+    {
+      "exact": true,
+      "expected_claims": 5,
+      "extracted_scoped_claims": 5,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolo12.md",
+      "repository": "ultralytics",
+      "tp": 5
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolo26.md",
+      "repository": "ultralytics",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 15,
+      "extracted_scoped_claims": 15,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yoloe.md",
+      "repository": "ultralytics",
+      "tp": 15
+    },
+    {
+      "exact": true,
+      "expected_claims": 27,
+      "extracted_scoped_claims": 27,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolov10.md",
+      "repository": "ultralytics",
+      "tp": 27
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolov3.md",
+      "repository": "ultralytics",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolov4.md",
+      "repository": "ultralytics",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 10,
+      "extracted_scoped_claims": 10,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolov5.md",
+      "repository": "ultralytics",
+      "tp": 10
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolov6.md",
+      "repository": "ultralytics",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 44,
+      "extracted_scoped_claims": 44,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolov7.md",
+      "repository": "ultralytics",
+      "tp": 44
+    },
+    {
+      "exact": true,
+      "expected_claims": 37,
+      "extracted_scoped_claims": 37,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolov8.md",
+      "repository": "ultralytics",
+      "tp": 37
+    },
+    {
+      "exact": true,
+      "expected_claims": 14,
+      "extracted_scoped_claims": 14,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "ultralytics/docs/en/models/yolov9.md",
+      "repository": "ultralytics",
+      "tp": 14
+    },
+    {
+      "exact": true,
+      "expected_claims": 28,
+      "extracted_scoped_claims": 28,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "yolov5/README.md",
+      "repository": "yolov5",
+      "tp": 28
+    },
+    {
+      "exact": true,
+      "expected_claims": 19,
+      "extracted_scoped_claims": 19,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "yolox/README.md",
+      "repository": "yolox",
+      "tp": 19
+    }
+  ],
+  "corpus": {
+    "annotated_claims": 313,
+    "artifacts": 25,
+    "claim_bearing_artifacts": 15,
+    "posthoc_annotations_sha256": "81b6519c34d6b34b73328e780566bc663c15ca7c100536c807648c2063faf306",
+    "primary_v0.6_result_sha256": "f87ac0c5c10f00c289bd4046ea0f67d07f26d4a5aba3dab74fa8f54fe935d83f",
+    "repositories": 4,
+    "repository_commits": {
+      "detr": "29901c51d7fe8712168b8d0d64351170bc0f83e0",
+      "ultralytics": "80b1f58432dff7f9ef9d89b9551e990704e1f820",
+      "yolov5": "20d1d78a08277e365d57bfa3a2cce752772d9e59",
+      "yolox": "6ddff4824372906469a7fae2dc3206c7aa4bbaee"
+    },
+    "source_manifest_sha256": "dcf58f8015401ce9d66bd3cc988a0c1e949df1df6e3b751eace9214755448ada"
+  },
+  "evaluator": {
+    "filename": "reprocheck-0.7.0-py3-none-any.whl",
+    "installed_archive_hash": "sha256=8c182c3e2cdd41d47e296653950429d1d12cfc0837b63db565f19f2eb65a09ee",
+    "sha256": "8c182c3e2cdd41d47e296653950429d1d12cfc0837b63db565f19f2eb65a09ee",
+    "version": "0.7.0"
+  },
+  "phase": "development_after_v0.6_holdout_inspection",
+  "protocol": {
+    "absolute_tolerance": 1e-09,
+    "matching": "multiset metric and value matching",
+    "metric_scope": [
+      "ap",
+      "ap50",
+      "ap75"
+    ],
+    "posthoc_annotations": true,
+    "prediction_scope": "Markdown and HTML table claims only"
+  },
+  "schema": "reprocheck.holdout-development-study.v1",
+  "summary": {
+    "artifact_exact_rate": 1.0,
+    "claim_artifact_exact_rate": 1.0,
+    "fn": 0,
+    "fp": 0,
+    "precision": 1.0,
+    "precision_wilson_95": [
+      0.9878753295021867,
+      1.0
+    ],
+    "recall": 1.0,
+    "recall_wilson_95": [
+      0.9878753295021867,
+      1.0
+    ],
+    "tp": 313
+  },
+  "zero_shot": false
+}

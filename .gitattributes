@@ -1,0 +1,11 @@
+# Frozen upstream sources must remain byte-identical to their manifests.
+benchmarks/**/sources/** -whitespace
+
+# Test fixtures intentionally preserve exact trailing records.
+examples/** -whitespace
+src/reprocheck/demo_data/** -whitespace
+
+# Immutable evaluator and document fixtures are binary.
+*.whl binary
+*.pdf binary
+*.docx binary

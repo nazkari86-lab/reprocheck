@@ -1,0 +1,71 @@
+{
+    "schema": "https://github.com/Project-MONAI/MONAI-extra-test-data/releases/download/0.8.1/meta_schema_20240725.json",
+    "version": "0.0.7",
+    "changelog": {
+        "0.0.7": "enhance metadata with improved descriptions",
+        "0.0.6": "update to huggingface hosting",
+        "0.0.5": "update large files",
+        "0.0.4": "add name tag",
+        "0.0.3": "update to use monai 1.1.0",
+        "0.0.2": "update to use rc1",
+        "0.0.1": "Initial version"
+    },
+    "monai_version": "1.1.0",
+    "pytorch_version": "1.13.0",
+    "numpy_version": "1.22.2",
+    "required_packages_version": {
+        "pytorch-ignite": "0.4.8",
+        "pyyaml": "6.0.2"
+    },
+    "supported_apps": {},
+    "name": "MedNIST Hand X-ray Registration",
+    "task": "Spatial Transformer for Hand X-ray Image Registration",
+    "description": "A ResNet-based spatial transformer model for precise registration of hand X-ray images from the MedNIST dataset. The model processes 64x64 pixel input pairs (moving and fixed images) and outputs registered images, demonstrating the application of deep learning in medical image registration.",
+    "authors": "MONAI team",
+    "copyright": "Copyright (c) MONAI Consortium",
+    "intended_use": "This is an example of image registration using MONAI, suitable for demonstration purposes only.",
+    "data_type": "jpeg",
+    "network_data_format": {
+        "inputs": {
+            "image": {
+                "type": "image",
+                "format": "magnitude",
+                "num_channels": 2,
+                "spatial_shape": [
+                    64,
+                    64
+                ],
+                "dtype": "float32",
+                "value_range": [
+                    0,
+                    1
+                ],
+                "is_patch_data": false,
+                "channel_def": {
+                    "0": "moving image",
+                    "1": "fixed image"
+                }
+            }
+        },
+        "outputs": {
+            "pred": {
+                "type": "image",
+                "format": "magnitude",
+                "num_channels": 1,
+                "spatial_shape": [
+                    64,
+                    64
+                ],
+                "dtype": "float32",
+                "value_range": [
+                    0,
+                    1
+                ],
+                "is_patch_data": false,
+                "channel_def": {
+                    "0": "image"
+                }
+            }
+        }
+    }
+}

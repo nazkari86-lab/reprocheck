@@ -1,0 +1,95 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "reprocheck"
+version = "0.8.1"
+description = "Trace scientific claims to reproducible metrics and dataset evidence."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Dulat Nurlanuly" }]
+keywords = ["reproducibility", "research", "metrics", "data-leakage", "scientific-audit"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+  "fastapi>=0.115",
+  "jinja2>=3.1",
+  "jsonschema>=4.23",
+  "pypdf>=5.4",
+  "python-docx>=1.1",
+  "python-multipart>=0.0.20",
+  "uvicorn>=0.34",
+]
+
+[project.optional-dependencies]
+benchmark = [
+  "scikit-learn==1.8.0",
+]
+dev = [
+  "build>=1.2",
+  "httpx>=0.28",
+  "pyright>=1.1.400",
+  "pytest>=8.3",
+  "pytest-cov>=6.0",
+  "ruff>=0.9",
+]
+
+[project.scripts]
+reprocheck = "reprocheck.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/nazkari86-lab/reprocheck"
+Repository = "https://github.com/nazkari86-lab/reprocheck"
+Issues = "https://github.com/nazkari86-lab/reprocheck/issues"
+Changelog = "https://github.com/nazkari86-lab/reprocheck/releases"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/reprocheck"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/.github",
+  "/benchmarks",
+  "/docs",
+  "/examples",
+  "/src",
+  "/tests",
+  "/LICENSE",
+  "/Makefile",
+  "/README.md",
+  "/SECURITY.md",
+  "/CITATION.cff",
+  "/CONTRIBUTING.md",
+  "/pyproject.toml",
+]
+exclude = ["/outputs"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pyright]
+pythonVersion = "3.11"
+include = ["src", "tests"]
+
+[tool.coverage.run]
+source = ["src/reprocheck"]
+
+[tool.coverage.report]
+fail_under = 97
+show_missing = true

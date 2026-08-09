@@ -1,0 +1,1378 @@
+{
+  "by_metric": {
+    "ap": {
+      "artifact_exact_rate": 0.0,
+      "fn": 73,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        1.0,
+        1.0
+      ],
+      "recall": 0.0,
+      "recall_wilson_95": [
+        0.0,
+        0.04999375338358389
+      ],
+      "tp": 0
+    },
+    "ap50": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.7008472464490407,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.7008472464490407,
+        1.0
+      ],
+      "tp": 9
+    },
+    "ap75": {
+      "artifact_exact_rate": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.7008472464490407,
+        1.0
+      ],
+      "recall": 1.0,
+      "recall_wilson_95": [
+        0.7008472464490407,
+        1.0
+      ],
+      "tp": 9
+    },
+    "ar": {
+      "artifact_exact_rate": 0.0,
+      "fn": 15,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        1.0,
+        1.0
+      ],
+      "recall": 0.0,
+      "recall_wilson_95": [
+        0.0,
+        0.20388926630434784
+      ],
+      "tp": 0
+    },
+    "box_ap": {
+      "artifact_exact_rate": 0.0,
+      "fn": 602,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        1.0,
+        1.0
+      ],
+      "recall": 0.0,
+      "recall_wilson_95": [
+        0.0,
+        0.006340931358955872
+      ],
+      "tp": 0
+    },
+    "box_ap50": {
+      "artifact_exact_rate": 0.0,
+      "fn": 7,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        1.0,
+        1.0
+      ],
+      "recall": 0.0,
+      "recall_wilson_95": [
+        0.0,
+        0.35433884297520657
+      ],
+      "tp": 0
+    },
+    "keypoint_ap": {
+      "artifact_exact_rate": 0.0,
+      "fn": 4,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        1.0,
+        1.0
+      ],
+      "recall": 0.0,
+      "recall_wilson_95": [
+        0.0,
+        0.48990002040399916
+      ],
+      "tp": 0
+    },
+    "mask_ap": {
+      "artifact_exact_rate": 0.0,
+      "fn": 272,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        1.0,
+        1.0
+      ],
+      "recall": 0.0,
+      "recall_wilson_95": [
+        0.0,
+        0.013926833371036128
+      ],
+      "tp": 0
+    },
+    "pq": {
+      "artifact_exact_rate": 0.0,
+      "fn": 13,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        1.0,
+        1.0
+      ],
+      "recall": 0.0,
+      "recall_wilson_95": [
+        0.0,
+        0.22810184305529166
+      ],
+      "tp": 0
+    },
+    "proposal_ar": {
+      "artifact_exact_rate": 0.0,
+      "fn": 2,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        1.0,
+        1.0
+      ],
+      "recall": 0.0,
+      "recall_wilson_95": [
+        0.0,
+        0.6576280471103807
+      ],
+      "tp": 0
+    }
+  },
+  "by_repository": {
+    "detectron2": {
+      "artifact_exact_rate": 0.0,
+      "fn": 117,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        1.0,
+        1.0
+      ],
+      "recall": 0.0,
+      "recall_wilson_95": [
+        0.0,
+        0.03179037682387522
+      ],
+      "tp": 0
+    },
+    "mmdetection": {
+      "artifact_exact_rate": 0.23008849557522124,
+      "fn": 871,
+      "fp": 0,
+      "precision": 1.0,
+      "precision_wilson_95": [
+        0.8241154494176252,
+        1.0
+      ],
+      "recall": 0.020247469066366704,
+      "recall_wilson_95": [
+        0.012845155017161412,
+        0.031778213786442716
+      ],
+      "tp": 18
+    }
+  },
+  "cases": [
+    {
+      "exact": false,
+      "expected_claims": 117,
+      "extracted_scoped_claims": 0,
+      "fn": 117,
+      "fp": 0,
+      "local_path": "detectron2/MODEL_ZOO.md",
+      "repository": "detectron2",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 2,
+      "extracted_scoped_claims": 0,
+      "fn": 2,
+      "fp": 0,
+      "local_path": "mmdetection/configs/albu_example/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 2,
+      "extracted_scoped_claims": 0,
+      "fn": 2,
+      "fp": 0,
+      "local_path": "mmdetection/configs/atss/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/autoassign/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 0,
+      "fn": 4,
+      "fp": 0,
+      "local_path": "mmdetection/configs/boxinst/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/bytetrack/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 0,
+      "fn": 4,
+      "fp": 0,
+      "local_path": "mmdetection/configs/carafe/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 44,
+      "extracted_scoped_claims": 0,
+      "fn": 44,
+      "fp": 0,
+      "local_path": "mmdetection/configs/cascade_rcnn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 3,
+      "extracted_scoped_claims": 0,
+      "fn": 3,
+      "fp": 0,
+      "local_path": "mmdetection/configs/cascade_rpn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/centernet/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/centripetalnet/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 3,
+      "extracted_scoped_claims": 0,
+      "fn": 3,
+      "fp": 0,
+      "local_path": "mmdetection/configs/cityscapes/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 2,
+      "extracted_scoped_claims": 0,
+      "fn": 2,
+      "fp": 0,
+      "local_path": "mmdetection/configs/condinst/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/conditional_detr/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/convnext/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 3,
+      "extracted_scoped_claims": 0,
+      "fn": 3,
+      "fp": 0,
+      "local_path": "mmdetection/configs/cornernet/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 2,
+      "extracted_scoped_claims": 0,
+      "fn": 2,
+      "fp": 0,
+      "local_path": "mmdetection/configs/crowddet/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/dab_detr/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 18,
+      "extracted_scoped_claims": 0,
+      "fn": 18,
+      "fp": 0,
+      "local_path": "mmdetection/configs/dcn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 7,
+      "extracted_scoped_claims": 0,
+      "fn": 7,
+      "fp": 0,
+      "local_path": "mmdetection/configs/dcnv2/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/ddod/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 3,
+      "extracted_scoped_claims": 0,
+      "fn": 3,
+      "fp": 0,
+      "local_path": "mmdetection/configs/ddq/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/deepfashion/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/deepsort/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 3,
+      "extracted_scoped_claims": 0,
+      "fn": 3,
+      "fp": 0,
+      "local_path": "mmdetection/configs/deformable_detr/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 11,
+      "extracted_scoped_claims": 0,
+      "fn": 11,
+      "fp": 0,
+      "local_path": "mmdetection/configs/detectors/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/detr/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 0,
+      "fn": 4,
+      "fp": 0,
+      "local_path": "mmdetection/configs/dino/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/double_heads/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 6,
+      "extracted_scoped_claims": 0,
+      "fn": 6,
+      "fp": 0,
+      "local_path": "mmdetection/configs/dsdl/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 3,
+      "extracted_scoped_claims": 0,
+      "fn": 3,
+      "fp": 0,
+      "local_path": "mmdetection/configs/dyhead/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/dynamic_rcnn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/efficientnet/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/empirical_attention/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/fast_rcnn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 31,
+      "extracted_scoped_claims": 0,
+      "fn": 31,
+      "fp": 0,
+      "local_path": "mmdetection/configs/faster_rcnn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/fcos/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 8,
+      "extracted_scoped_claims": 0,
+      "fn": 8,
+      "fp": 0,
+      "local_path": "mmdetection/configs/foveabox/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 11,
+      "extracted_scoped_claims": 0,
+      "fn": 11,
+      "fp": 0,
+      "local_path": "mmdetection/configs/fpg/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 3,
+      "extracted_scoped_claims": 0,
+      "fn": 3,
+      "fp": 0,
+      "local_path": "mmdetection/configs/free_anchor/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/fsaf/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 38,
+      "extracted_scoped_claims": 0,
+      "fn": 38,
+      "fp": 0,
+      "local_path": "mmdetection/configs/gcnet/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 6,
+      "extracted_scoped_claims": 0,
+      "fn": 6,
+      "fp": 0,
+      "local_path": "mmdetection/configs/gfl/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 0,
+      "fn": 4,
+      "fp": 0,
+      "local_path": "mmdetection/configs/ghm/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 31,
+      "extracted_scoped_claims": 0,
+      "fn": 31,
+      "fp": 0,
+      "local_path": "mmdetection/configs/glip/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 20,
+      "extracted_scoped_claims": 0,
+      "fn": 20,
+      "fp": 0,
+      "local_path": "mmdetection/configs/gn+ws/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 12,
+      "extracted_scoped_claims": 0,
+      "fn": 12,
+      "fp": 0,
+      "local_path": "mmdetection/configs/gn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 0,
+      "fn": 4,
+      "fp": 0,
+      "local_path": "mmdetection/configs/grid_rcnn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 15,
+      "extracted_scoped_claims": 0,
+      "fn": 15,
+      "fp": 0,
+      "local_path": "mmdetection/configs/groie/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 11,
+      "extracted_scoped_claims": 0,
+      "fn": 11,
+      "fp": 0,
+      "local_path": "mmdetection/configs/grounding_dino/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 12,
+      "extracted_scoped_claims": 0,
+      "fn": 12,
+      "fp": 0,
+      "local_path": "mmdetection/configs/guided_anchoring/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 33,
+      "extracted_scoped_claims": 0,
+      "fn": 33,
+      "fp": 0,
+      "local_path": "mmdetection/configs/hrnet/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 12,
+      "extracted_scoped_claims": 0,
+      "fn": 12,
+      "fp": 0,
+      "local_path": "mmdetection/configs/htc/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 8,
+      "extracted_scoped_claims": 0,
+      "fn": 8,
+      "fp": 0,
+      "local_path": "mmdetection/configs/instaboost/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 0,
+      "fn": 4,
+      "fp": 0,
+      "local_path": "mmdetection/configs/lad/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 8,
+      "extracted_scoped_claims": 0,
+      "fn": 8,
+      "fp": 0,
+      "local_path": "mmdetection/configs/ld/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 14,
+      "extracted_scoped_claims": 0,
+      "fn": 14,
+      "fp": 0,
+      "local_path": "mmdetection/configs/legacy_1.x/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 0,
+      "fn": 4,
+      "fp": 0,
+      "local_path": "mmdetection/configs/libra_rcnn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 16,
+      "extracted_scoped_claims": 0,
+      "fn": 16,
+      "fp": 0,
+      "local_path": "mmdetection/configs/lvis/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 29,
+      "extracted_scoped_claims": 0,
+      "fn": 29,
+      "fp": 0,
+      "local_path": "mmdetection/configs/mask2former/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/mask2former_vis/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 42,
+      "extracted_scoped_claims": 0,
+      "fn": 42,
+      "fp": 0,
+      "local_path": "mmdetection/configs/mask_rcnn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 2,
+      "extracted_scoped_claims": 0,
+      "fn": 2,
+      "fp": 0,
+      "local_path": "mmdetection/configs/maskformer/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/masktrack_rcnn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 75,
+      "extracted_scoped_claims": 0,
+      "fn": 75,
+      "fp": 0,
+      "local_path": "mmdetection/configs/mm_grounding_dino/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 14,
+      "extracted_scoped_claims": 0,
+      "fn": 14,
+      "fp": 0,
+      "local_path": "mmdetection/configs/ms_rcnn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 2,
+      "extracted_scoped_claims": 0,
+      "fn": 2,
+      "fp": 0,
+      "local_path": "mmdetection/configs/nas_fcos/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 2,
+      "extracted_scoped_claims": 0,
+      "fn": 2,
+      "fp": 0,
+      "local_path": "mmdetection/configs/nas_fpn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 6,
+      "extracted_scoped_claims": 0,
+      "fn": 6,
+      "fp": 0,
+      "local_path": "mmdetection/configs/objects365/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/ocsort/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 10,
+      "extracted_scoped_claims": 0,
+      "fn": 10,
+      "fp": 0,
+      "local_path": "mmdetection/configs/openimages/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 10,
+      "extracted_scoped_claims": 0,
+      "fn": 10,
+      "fp": 0,
+      "local_path": "mmdetection/configs/paa/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/pafpn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/panoptic_fpn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 5,
+      "extracted_scoped_claims": 0,
+      "fn": 5,
+      "fp": 0,
+      "local_path": "mmdetection/configs/pascal_voc/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/pisa/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 0,
+      "fn": 4,
+      "fp": 0,
+      "local_path": "mmdetection/configs/point_rend/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 9,
+      "extracted_scoped_claims": 0,
+      "fn": 9,
+      "fp": 0,
+      "local_path": "mmdetection/configs/pvt/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/qdtrack/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 10,
+      "extracted_scoped_claims": 0,
+      "fn": 10,
+      "fp": 0,
+      "local_path": "mmdetection/configs/queryinst/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 50,
+      "extracted_scoped_claims": 0,
+      "fn": 50,
+      "fp": 0,
+      "local_path": "mmdetection/configs/regnet/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/reid/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/reppoints/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 8,
+      "extracted_scoped_claims": 0,
+      "fn": 8,
+      "fp": 0,
+      "local_path": "mmdetection/configs/res2net/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 12,
+      "extracted_scoped_claims": 0,
+      "fn": 12,
+      "fp": 0,
+      "local_path": "mmdetection/configs/resnest/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/resnet_strikes_back/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 17,
+      "extracted_scoped_claims": 0,
+      "fn": 17,
+      "fp": 0,
+      "local_path": "mmdetection/configs/retinanet/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 10,
+      "extracted_scoped_claims": 0,
+      "fn": 10,
+      "fp": 0,
+      "local_path": "mmdetection/configs/rpn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 18,
+      "extracted_scoped_claims": 18,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/rtmdet/README.md",
+      "repository": "mmdetection",
+      "tp": 18
+    },
+    {
+      "exact": false,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 0,
+      "fn": 4,
+      "fp": 0,
+      "local_path": "mmdetection/configs/sabl/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 16,
+      "extracted_scoped_claims": 0,
+      "fn": 16,
+      "fp": 0,
+      "local_path": "mmdetection/configs/scnet/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 3,
+      "extracted_scoped_claims": 0,
+      "fn": 3,
+      "fp": 0,
+      "local_path": "mmdetection/configs/scratch/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 24,
+      "extracted_scoped_claims": 0,
+      "fn": 24,
+      "fp": 0,
+      "local_path": "mmdetection/configs/seesaw_loss/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 8,
+      "extracted_scoped_claims": 0,
+      "fn": 8,
+      "fp": 0,
+      "local_path": "mmdetection/configs/selfsup_pretrain/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 8,
+      "extracted_scoped_claims": 0,
+      "fn": 8,
+      "fp": 0,
+      "local_path": "mmdetection/configs/simple_copy_paste/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 4,
+      "extracted_scoped_claims": 0,
+      "fn": 4,
+      "fp": 0,
+      "local_path": "mmdetection/configs/soft_teacher/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 5,
+      "extracted_scoped_claims": 0,
+      "fn": 5,
+      "fp": 0,
+      "local_path": "mmdetection/configs/solo/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 8,
+      "extracted_scoped_claims": 0,
+      "fn": 8,
+      "fp": 0,
+      "local_path": "mmdetection/configs/solov2/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/sort/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 5,
+      "extracted_scoped_claims": 0,
+      "fn": 5,
+      "fp": 0,
+      "local_path": "mmdetection/configs/sparse_rcnn/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/ssd/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 2,
+      "extracted_scoped_claims": 0,
+      "fn": 2,
+      "fp": 0,
+      "local_path": "mmdetection/configs/strong_baselines/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/strongsort/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/swin/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/timm_example/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 6,
+      "extracted_scoped_claims": 0,
+      "fn": 6,
+      "fp": 0,
+      "local_path": "mmdetection/configs/tood/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 3,
+      "extracted_scoped_claims": 0,
+      "fn": 3,
+      "fp": 0,
+      "local_path": "mmdetection/configs/tridentnet/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 10,
+      "extracted_scoped_claims": 0,
+      "fn": 10,
+      "fp": 0,
+      "local_path": "mmdetection/configs/v3det/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/vfnet/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/wider_face/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/yolact/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 6,
+      "extracted_scoped_claims": 0,
+      "fn": 6,
+      "fp": 0,
+      "local_path": "mmdetection/configs/yolo/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": false,
+      "expected_claims": 1,
+      "extracted_scoped_claims": 0,
+      "fn": 1,
+      "fp": 0,
+      "local_path": "mmdetection/configs/yolof/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    },
+    {
+      "exact": true,
+      "expected_claims": 0,
+      "extracted_scoped_claims": 0,
+      "fn": 0,
+      "fp": 0,
+      "local_path": "mmdetection/configs/yolox/README.md",
+      "repository": "mmdetection",
+      "tp": 0
+    }
+  ],
+  "corpus": {
+    "annotated_claims": 1006,
+    "annotation_scope": "numeric cells under AP, AP50, AP75, AR, or PQ table headers only",
+    "annotations_sha256": "565e5c033bd0e1bcf149974398c5ded5496f1f986c7a1b89236e266818627332",
+    "artifacts": 114,
+    "claim_bearing_artifacts": 89,
+    "limitations": [
+      "Only declared AP, AR, and PQ table cells are labelled.",
+      "Narrative claims and other metric families are outside annotation scope.",
+      "Labels are generated by an internal rule, not independent expert review."
+    ],
+    "repositories": 2,
+    "source_manifest_sha256": "187165a89e78c3db0d3318bb51aa58419f2676a2398ca2937b1a4c036a7f2da1"
+  },
+  "evaluator": {
+    "filename": "reprocheck-0.5.0-py3-none-any.whl",
+    "installed_archive_hash": "sha256=bcfaba70ef9bac2d463ce90f965189dba47a45d27c2772530ca23c29521fe8a0",
+    "sha256": "bcfaba70ef9bac2d463ce90f965189dba47a45d27c2772530ca23c29521fe8a0",
+    "version": "0.5.0"
+  },
+  "schema": "reprocheck.challenge-study.v1",
+  "summary": {
+    "artifact_exact_rate": 0.22807017543859648,
+    "claim_artifact_exact_rate": 0.011235955056179775,
+    "fn": 988,
+    "fp": 0,
+    "precision": 1.0,
+    "precision_wilson_95": [
+      0.8241154494176252,
+      1.0
+    ],
+    "recall": 0.017892644135188866,
+    "recall_wilson_95": [
+      0.011347385114434337,
+      0.028105931128429885
+    ],
+    "tp": 18
+  }
+}

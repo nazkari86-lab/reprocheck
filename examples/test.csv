@@ -1,0 +1,5 @@
+sample_id,source_id,text,label
+1,block-a,North school,building
+5,block-e,New stadium,stadium
+6,block-b,Central Park,park
+

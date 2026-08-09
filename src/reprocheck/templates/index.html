@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ReproCheck — проверка научных результатов</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <div class="grain"></div>
+    <header class="masthead">
+      <a class="brand" href="/">REPRO<span>CHECK</span></a>
+      <p>Паспорт вычислительных доказательств <b>v{{ version }}</b></p>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Числа должны иметь происхождение</p>
+          <h1>Проверьте, можно ли <em>доверять</em> результату.</h1>
+          <p class="lead">Загрузите отчёт, предсказания и разделение данных. ReproCheck свяжет заявленные метрики с вычислениями и найдёт прямую утечку train/test.</p>
+        </div>
+        <aside class="manifesto">
+          <span>01</span><p>Не оцениваем красоту текста.</p>
+          <span>02</span><p>Не придумываем доказательства.</p>
+          <span>03</span><p>Показываем проверяемые факты.</p>
+        </aside>
+      </section>
+
+      <section class="workspace">
+        <form id="audit-form">
+          <div class="form-title"><span>АУДИТ / 001</span><h2>Материалы эксперимента</h2></div>
+          <label class="drop primary"><span>Отчёт *</span><strong>MD, TXT, DOCX, PDF, IPYNB или JSON</strong><input name="report" type="file" accept=".md,.txt,.rst,.docx,.pdf,.ipynb,.json" required></label>
+          <div class="file-grid">
+            <label class="drop"><span>Notebook</span><strong>Статический аудит IPYNB</strong><input name="notebook" type="file" accept=".ipynb"></label>
+            <label class="drop"><span>Предсказания</span><strong>CSV: y_true, y_pred</strong><input name="predictions" type="file" accept=".csv"></label>
+            <label class="drop"><span>Готовые метрики</span><strong>JSON или CSV</strong><input name="metrics" type="file" accept=".json,.csv"></label>
+            <label class="drop"><span>Detection evidence</span><strong>JSON: GT + prediction boxes</strong><input name="detections" type="file" accept=".json"></label>
+            <label class="drop"><span>Train split</span><strong>CSV</strong><input name="train" type="file" accept=".csv"></label>
+            <label class="drop"><span>Test split</span><strong>CSV</strong><input name="test" type="file" accept=".csv"></label>
+          </div>
+          <div class="options">
+            <label>JSON-секция отчёта<input name="report_selector" placeholder="claims.0.claim"></label>
+            <label>Строка метрик<input name="metrics_selector" placeholder="experiment=baseline_a"></label>
+            <label>Столбец ответа<input name="label_column" placeholder="label"></label>
+            <label>Группа объекта<input name="group_column" placeholder="patient_id / source_id"></label>
+            <label>Идентичность строки<input name="identity_columns" placeholder="text,image_path"></label>
+            <label>Текст для near-match<input name="text_column" placeholder="text"></label>
+            <label>Порог сходства<input name="near_threshold" type="number" value="0.9" min="0" max="1" step="0.01"></label>
+            <label>Positive label<input name="positive_label" placeholder="1 / disease"></label>
+            <label>Задача predictions<select name="prediction_task"><option value="classification">classification</option><option value="regression">regression</option></select></label>
+            <label>Усреднение<select name="average"><option value="auto">auto</option><option value="binary">binary</option><option value="macro">macro</option><option value="weighted">weighted</option></select></label>
+            <label>Допуск метрики<input name="tolerance" type="number" value="0.005" min="0" max="1" step="0.001"></label>
+          </div>
+          <button type="submit"><span>Запустить проверку</span><b>→</b></button>
+          <button id="download" class="secondary" type="button" hidden><span>Скачать JSON-сертификат</span><b>↓</b></button>
+          <p class="boundary">Файлы обрабатываются локально. Эта версия не запускает загруженный Python-код.</p>
+        </form>
+
+        <section id="result" class="result idle" aria-live="polite">
+          <div class="result-empty"><span class="seal">RC</span><p>Здесь появится цепочка<br>«утверждение → доказательство».</p></div>
+        </section>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

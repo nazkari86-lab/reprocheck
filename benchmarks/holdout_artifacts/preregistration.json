@@ -1,0 +1,72 @@
+{
+  "schema": "reprocheck.holdout-preregistration.v1",
+  "registered_at_utc": "2026-08-09T02:30:34Z",
+  "status": "locked_before_source_download_or_evaluator_run",
+  "evaluator": {
+    "filename": "reprocheck-0.6.0-py3-none-any.whl",
+    "sha256": "c9cbc753f0027d2815dcc9105603580495c2ee9797364c84e6d3f3f38b84e1f6",
+    "version": "0.6.0"
+  },
+  "selection": [
+    {
+      "repository": "ultralytics/ultralytics",
+      "ref_policy": "default_branch_head_resolved_after_registration",
+      "path_patterns": ["README.md", "docs/en/models/*.md"]
+    },
+    {
+      "repository": "ultralytics/yolov5",
+      "ref_policy": "default_branch_head_resolved_after_registration",
+      "path_patterns": ["README.md"]
+    },
+    {
+      "repository": "facebookresearch/detr",
+      "ref_policy": "default_branch_head_resolved_after_registration",
+      "path_patterns": ["README.md"]
+    },
+    {
+      "repository": "Megvii-BaseDetection/YOLOX",
+      "ref_policy": "default_branch_head_resolved_after_registration",
+      "path_patterns": ["README.md"]
+    }
+  ],
+  "selection_rules": {
+    "exhaustive_within_patterns": true,
+    "maximum_artifact_bytes": 2097152,
+    "exclude_by_evaluator_outcome": false,
+    "include_repository_license": true,
+    "source_content_may_be_viewed_for_annotation_only_after_commit_and_paths_are_locked": true
+  },
+  "annotation_protocol": {
+    "created_before_evaluator_output": true,
+    "implementation_independent_from_reprocheck_claim_parser": true,
+    "scope": "unambiguous numeric cells under AP, mAP, AP50, or AP75 Markdown or HTML table headers",
+    "metric_normalization": {
+      "AP_or_mAP_or_AP50_95": "ap",
+      "AP50": "ap50",
+      "AP75": "ap75"
+    },
+    "numeric_rule": "exactly one finite value in [0,100], normalized to [0,1] when greater than 1",
+    "narrative_claims": "excluded",
+    "multi_number_cells": "excluded"
+  },
+  "primary_evaluation": {
+    "unit": "claim multiset within each artifact",
+    "match": "same canonical metric and absolute value difference <= 1e-9",
+    "metrics": ["tp", "fp", "fn", "precision", "recall", "artifact_exact_rate"],
+    "confidence_interval": "Wilson 95% for aggregate precision and recall",
+    "empty_label_artifacts_in_artifact_exact_rate": true
+  },
+  "decision_policy": {
+    "run_frozen_evaluator_once_after_manifest_and_annotations_are_locked": true,
+    "preserve_zero_shot_result_regardless_of_outcome": true,
+    "do_not_modify_v0_6_parser_after_result": true,
+    "future_fixes_require_new_version_and_development_label": true,
+    "posthoc_label_review_cannot_change_primary_metrics": true
+  },
+  "limitations_declared_before_result": [
+    "Repository popularity is represented by project selection, not statistically sampled.",
+    "Labels are rule-derived and have no independent external annotators.",
+    "The repositories are all computer-vision projects and do not represent every scientific domain.",
+    "A successful result would establish only this declared table-claim scope."
+  ]
+}
