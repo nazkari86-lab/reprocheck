@@ -49,7 +49,7 @@ def build_parser() -> argparse.ArgumentParser:
     audit.add_argument("--near-threshold", type=float, default=0.8)
     audit.add_argument(
         "--near-method",
-        choices=["hybrid_lexical_v1", "token_jaccard"],
+        choices=["hybrid_lexical_v1", "ordered_tokens_v1", "token_jaccard"],
         default="hybrid_lexical_v1",
     )
     audit.add_argument("--positive-label")

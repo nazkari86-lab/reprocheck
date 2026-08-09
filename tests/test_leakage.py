@@ -10,6 +10,7 @@ from reprocheck.leakage import (
     _text_similarity,
     _tokens,
     audit_csv_splits,
+    find_text_matches,
     text_similarity,
 )
 
@@ -223,6 +224,46 @@ def test_public_text_similarity_api_and_validation():
     )
     with pytest.raises(ValueError, match="unsupported near-duplicate method"):
         text_similarity("a", "b", method="unknown")
+
+
+def test_ordered_similarity_and_public_index_statistics():
+    assert text_similarity(
+        "alpha beta gamma delta",
+        "alpha beta delta gamma",
+        "ordered_tokens_v1",
+    ) > text_similarity(
+        "alpha beta gamma delta",
+        "delta gamma beta alpha",
+        "ordered_tokens_v1",
+    )
+
+    result = find_text_matches(
+        ["alpha beta", "river sensor"],
+        ["alpha beta", "unrelated words"],
+        threshold=0.8,
+        method="ordered_tokens_v1",
+    )
+    assert [(match.test_index, match.train_index) for match in result.matches] == [(0, 0)]
+    assert result.exhaustive_pairs == 4
+    assert result.candidate_pairs == 1
+    assert result.scored_pairs == 1
+
+
+def test_public_text_match_search_validates_contract():
+    with pytest.raises(ValueError, match="near threshold"):
+        find_text_matches([], [], threshold=-0.1)
+    with pytest.raises(ValueError, match="unsupported near-duplicate method"):
+        find_text_matches([], [], method="unknown")
+    with pytest.raises(ValueError, match="out of range"):
+        find_text_matches(["a"], ["b"], excluded_test_indexes={1})
+
+
+def test_text_match_search_is_available_from_public_package_api():
+    import reprocheck
+
+    assert reprocheck.find_text_matches is find_text_matches
+    assert reprocheck.TextMatch.__name__ == "TextMatch"
+    assert reprocheck.TextMatchSearch.__name__ == "TextMatchSearch"
 
 
 def test_similarity_size_upper_bound_is_safe_for_random_feature_sets():

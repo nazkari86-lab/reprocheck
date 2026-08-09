@@ -1,0 +1,83 @@
+{
+  "schema": "reprocheck.paws-leakage-preregistration.v1",
+  "registered_at_utc": "2026-08-09T14:15:01Z",
+  "scientific_phase": "registered_after_validation_development_before_test_content_download",
+  "research_question": "How well do deterministic lexical overlap methods distinguish human-labelled paraphrases from adversarial high-overlap non-paraphrases in unseen PAWS-Wiki test pairs?",
+  "dataset": {
+    "name": "PAWS-Wiki Labeled (Final)",
+    "upstream_repository_commit": "02b29f3af1143620d1b7f352247e65c0bdd2ec18",
+    "mirror_revision": "161ece9501cf0a11f3e48bd356eaa82de46d6a09",
+    "development_split": "validation",
+    "development_rows": 8000,
+    "development_sha256": "7760d829453764ba342a6f562809a8ed21c2c3eec3fd9ffa544089f145d42f6d",
+    "test_split": "test",
+    "test_rows": 8000,
+    "test_sha256": "ae342ff12bb84b84b95f468abf5db6cb7c7bd578271299fe9c99be75b8132f4d",
+    "test_content_downloaded_before_registration": false,
+    "labels": "independent PAWS human paraphrase judgements"
+  },
+  "evaluator": {
+    "tool_version_at_development": "0.12.0",
+    "filename": "evaluate.py",
+    "sha256": "b7dc7194ecbedd848543406d33dad804848a4b1747e9c2d7854d48b3633b4208",
+    "source_manifest_sha256": "498c16c0d581f1bffddd919c66470108fb408142ee746b741af5f379908911d4",
+    "development_result_sha256": "2bac6617ae494b07030e128b3de44bae82458d20cb929f238bce62f930812100"
+  },
+  "frozen_thresholds": {
+    "normalized_exact": 1.0,
+    "token_jaccard": 0.823,
+    "character_trigram_dice": 0.91,
+    "hybrid_lexical_v1": 0.91,
+    "ordered_tokens_v1": 0.816,
+    "sequence_char_v1": 0.883,
+    "tfidf_word_1_2": 0.795,
+    "tfidf_char_wb_3_5": 0.929,
+    "logistic_lexical_features_v1": 0.553
+  },
+  "threshold_policy": {
+    "selection_data": "validation labels only",
+    "objective": "maximum balanced accuracy on thresholds 0.001 through 1.000",
+    "ties": "higher F1, then higher threshold",
+    "test_threshold_tuning": "forbidden"
+  },
+  "primary_evaluation": {
+    "method": "ordered_tokens_v1",
+    "baseline": "hybrid_lexical_v1",
+    "metric": "balanced_accuracy",
+    "paired_test": "exact two-sided McNemar test",
+    "hypothesis": "ordered_tokens_v1 has higher balanced accuracy than hybrid_lexical_v1 on the unseen test split"
+  },
+  "secondary_evaluation": {
+    "metrics": [
+      "accuracy",
+      "precision",
+      "recall",
+      "specificity",
+      "f1",
+      "Wilson 95% intervals"
+    ],
+    "comparators": [
+      "normalized exact matching",
+      "token-set Jaccard",
+      "character-trigram Dice",
+      "character SequenceMatcher",
+      "word unigram-bigram TF-IDF",
+      "character 3-5-gram TF-IDF",
+      "five-fold out-of-fold logistic lexical feature baseline"
+    ]
+  },
+  "decision_policy": {
+    "test_output_runs": 1,
+    "output_overwrite": "forbidden",
+    "evaluator_or_threshold_changes_before_test": "forbidden after registration commit",
+    "unfavourable_result_retention": "mandatory",
+    "post_test_improvements": "development evidence only and require a new external holdout for primary claims"
+  },
+  "known_limitations": [
+    "PAWS paraphrase labels are a stricter semantic task than lexical contamination screening.",
+    "The test is English-only and does not establish Russian or Kazakh performance.",
+    "The project author selected PAWS, methods, and metrics, but did not create PAWS labels.",
+    "The logistic comparator is trained on PAWS validation and is not a general-purpose ReproCheck method.",
+    "No embedding or cross-encoder baseline is included in the primary locked comparison."
+  ]
+}

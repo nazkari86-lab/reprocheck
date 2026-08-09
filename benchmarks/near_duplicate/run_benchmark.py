@@ -11,7 +11,7 @@ from reprocheck.version import __version__
 
 
 ROOT = Path(__file__).resolve().parent
-METHODS = ("token_jaccard", "hybrid_lexical_v1")
+METHODS = ("token_jaccard", "hybrid_lexical_v1", "ordered_tokens_v1")
 
 
 def run_benchmark(cases_path: Path) -> dict[str, Any]:
@@ -109,8 +109,10 @@ def main() -> int:
     )
     hybrid = result["methods"]["hybrid_lexical_v1"]
     legacy = result["methods"]["token_jaccard"]
+    ordered = result["methods"]["ordered_tokens_v1"]
     print(
         f"hybrid_precision={hybrid['precision']:.1%} hybrid_recall={hybrid['recall']:.1%} "
+        f"ordered_precision={ordered['precision']:.1%} ordered_recall={ordered['recall']:.1%} "
         f"legacy_precision={legacy['precision']:.1%} legacy_recall={legacy['recall']:.1%}"
     )
     return 0

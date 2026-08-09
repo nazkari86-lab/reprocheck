@@ -1,29 +1,138 @@
 from __future__ import annotations
 
 import csv
+import difflib
 import hashlib
 import json
 import re
 import unicodedata
 from collections import Counter
+from dataclasses import dataclass
 from pathlib import Path
 
 from .models import LeakageAudit
 
 
-NEAR_METHODS = {"token_jaccard", "hybrid_lexical_v1"}
+NEAR_METHODS = {"token_jaccard", "hybrid_lexical_v1", "ordered_tokens_v1"}
+
+
+@dataclass(frozen=True)
+class TextMatch:
+    test_index: int
+    train_index: int
+    similarity: float
+
+
+@dataclass(frozen=True)
+class TextMatchSearch:
+    matches: tuple[TextMatch, ...]
+    exhaustive_pairs: int
+    candidate_pairs: int
+    scored_pairs: int
 
 
 def text_similarity(left: str, right: str, method: str = "hybrid_lexical_v1") -> float:
     if method not in NEAR_METHODS:
         raise ValueError(f"unsupported near-duplicate method: {method}")
+    left_ordered = _ordered_tokens(left)
+    right_ordered = _ordered_tokens(right)
     return _text_similarity(
-        _tokens(left),
-        _tokens(right),
+        set(left_ordered),
+        set(right_ordered),
         _character_ngrams(left) if method == "hybrid_lexical_v1" else set(),
         _character_ngrams(right) if method == "hybrid_lexical_v1" else set(),
         method,
+        left_ordered=left_ordered,
+        right_ordered=right_ordered,
     )
+
+
+def find_text_matches(
+    train_texts: list[str],
+    test_texts: list[str],
+    *,
+    threshold: float = 0.8,
+    method: str = "hybrid_lexical_v1",
+    excluded_test_indexes: set[int] | None = None,
+) -> TextMatchSearch:
+    if not 0 <= threshold <= 1:
+        raise ValueError("near threshold must be between 0 and 1")
+    if method not in NEAR_METHODS:
+        raise ValueError(f"unsupported near-duplicate method: {method}")
+
+    excluded = excluded_test_indexes or set()
+    if any(index < 0 or index >= len(test_texts) for index in excluded):
+        raise ValueError("excluded test index is out of range")
+
+    train_ordered = [_ordered_tokens(text) for text in train_texts]
+    train_tokens = [set(tokens) for tokens in train_ordered]
+    train_ngrams = (
+        [_character_ngrams(text) for text in train_texts]
+        if method == "hybrid_lexical_v1"
+        else [set() for _ in train_texts]
+    )
+    token_index: dict[str, set[int]] = {}
+    ngram_index: dict[str, set[int]] = {}
+    for train_index, tokens in enumerate(train_tokens):
+        for token in tokens:
+            token_index.setdefault(token, set()).add(train_index)
+        for ngram in train_ngrams[train_index]:
+            ngram_index.setdefault(ngram, set()).add(train_index)
+
+    matches: list[TextMatch] = []
+    exhaustive_pairs = 0
+    candidate_pairs = 0
+    scored_pairs = 0
+    for test_index, text in enumerate(test_texts):
+        if test_index in excluded:
+            continue
+        ordered = _ordered_tokens(text)
+        tokens = set(ordered)
+        ngrams = _character_ngrams(text) if method == "hybrid_lexical_v1" else set()
+        if threshold > 0 and not tokens and not ngrams:
+            continue
+        exhaustive_pairs += len(train_texts)
+        candidates: set[int] = set(range(len(train_texts))) if threshold == 0 else set()
+        if threshold > 0:
+            for token in tokens:
+                candidates.update(token_index.get(token, ()))
+            for ngram in ngrams:
+                candidates.update(ngram_index.get(ngram, ()))
+        candidate_pairs += len(candidates)
+
+        best_index = -1
+        best_score = 0.0
+        for train_index in sorted(candidates):
+            if (
+                _similarity_upper_bound(
+                    tokens,
+                    train_tokens[train_index],
+                    ngrams,
+                    train_ngrams[train_index],
+                    method,
+                    left_ordered_size=len(ordered),
+                    right_ordered_size=len(train_ordered[train_index]),
+                )
+                < threshold
+            ):
+                continue
+            scored_pairs += 1
+            score = _text_similarity(
+                tokens,
+                train_tokens[train_index],
+                ngrams,
+                train_ngrams[train_index],
+                method,
+                left_ordered=ordered,
+                right_ordered=train_ordered[train_index],
+            )
+            if best_index == -1 or score > best_score:
+                best_score = score
+                best_index = train_index
+        if best_score >= threshold:
+            matches.append(TextMatch(test_index, best_index, best_score))
+
+    return TextMatchSearch(tuple(matches), exhaustive_pairs, candidate_pairs, scored_pairs)
 
 
 def audit_csv_splits(
@@ -158,74 +267,30 @@ def _find_near_text_overlap(
     excluded_test_indexes: set[int],
     example_limit: int,
 ) -> tuple[int, list[dict[str, object]]]:
-    train_tokens = [_tokens(row[text_column]) for row in train_rows]
-    train_ngrams = (
-        [_character_ngrams(row[text_column]) for row in train_rows]
-        if method == "hybrid_lexical_v1"
-        else [set() for _ in train_rows]
+    search = find_text_matches(
+        [row[text_column] for row in train_rows],
+        [row[text_column] for row in test_rows],
+        threshold=threshold,
+        method=method,
+        excluded_test_indexes=excluded_test_indexes,
     )
-    token_index: dict[str, set[int]] = {}
-    ngram_index: dict[str, set[int]] = {}
-    for row_index, tokens in enumerate(train_tokens):
-        for token in tokens:
-            token_index.setdefault(token, set()).add(row_index)
-        for ngram in train_ngrams[row_index]:
-            ngram_index.setdefault(ngram, set()).add(row_index)
-
-    matches: list[dict[str, object]] = []
-    match_count = 0
-    for test_index, row in enumerate(test_rows):
-        if test_index in excluded_test_indexes:
-            continue
-        tokens = _tokens(row[text_column])
-        ngrams = _character_ngrams(row[text_column]) if method == "hybrid_lexical_v1" else set()
-        if threshold > 0 and not tokens and not ngrams:
-            continue
-        candidates: set[int] = set(range(len(train_rows))) if threshold == 0 else set()
-        if threshold > 0:
-            for token in tokens:
-                candidates.update(token_index.get(token, ()))
-            for ngram in ngrams:
-                candidates.update(ngram_index.get(ngram, ()))
-        best_index = -1
-        best_score = 0.0
-        for train_index in sorted(candidates):
-            if (
-                _similarity_upper_bound(
-                    tokens,
-                    train_tokens[train_index],
-                    ngrams,
-                    train_ngrams[train_index],
-                    method,
-                )
-                < threshold
-            ):
-                continue
-            score = _text_similarity(
-                tokens,
-                train_tokens[train_index],
-                ngrams,
-                train_ngrams[train_index],
-                method,
-            )
-            if best_index == -1 or score > best_score:
-                best_score = score
-                best_index = train_index
-        if best_score >= threshold:
-            match_count += 1
-            if len(matches) < example_limit:
-                matches.append(
-                    {
-                        "test_value": row[text_column],
-                        "train_value": train_rows[best_index][text_column],
-                        "similarity": round(best_score, 6),
-                    }
-                )
-    return match_count, matches
+    examples = [
+        {
+            "test_value": test_rows[match.test_index][text_column],
+            "train_value": train_rows[match.train_index][text_column],
+            "similarity": round(match.similarity, 6),
+        }
+        for match in search.matches[:example_limit]
+    ]
+    return len(search.matches), examples
 
 
 def _tokens(value: str) -> set[str]:
-    return set(re.findall(r"\w+", _normalize(value), flags=re.UNICODE))
+    return set(_ordered_tokens(value))
+
+
+def _ordered_tokens(value: str) -> tuple[str, ...]:
+    return tuple(re.findall(r"\w+", _normalize(value), flags=re.UNICODE))
 
 
 def _character_ngrams(value: str, size: int = 3) -> set[str]:
@@ -242,11 +307,16 @@ def _text_similarity(
     left_ngrams: set[str],
     right_ngrams: set[str],
     method: str,
+    *,
+    left_ordered: tuple[str, ...] = (),
+    right_ordered: tuple[str, ...] = (),
 ) -> float:
     token_union = left_tokens | right_tokens
     token_jaccard = len(left_tokens & right_tokens) / len(token_union) if token_union else 0.0
     if method == "token_jaccard":
         return token_jaccard
+    if method == "ordered_tokens_v1":
+        return difflib.SequenceMatcher(None, left_ordered, right_ordered, autojunk=False).ratio()
     ngram_total = len(left_ngrams) + len(right_ngrams)
     ngram_dice = 2 * len(left_ngrams & right_ngrams) / ngram_total if ngram_total else 0.0
     return max(token_jaccard, ngram_dice)
@@ -258,10 +328,15 @@ def _similarity_upper_bound(
     left_ngrams: set[str],
     right_ngrams: set[str],
     method: str,
+    *,
+    left_ordered_size: int = 0,
+    right_ordered_size: int = 0,
 ) -> float:
     token_maximum = _jaccard_size_upper_bound(len(left_tokens), len(right_tokens))
     if method == "token_jaccard":
         return token_maximum
+    if method == "ordered_tokens_v1":
+        return _dice_size_upper_bound(left_ordered_size, right_ordered_size)
     ngram_maximum = _dice_size_upper_bound(len(left_ngrams), len(right_ngrams))
     return max(token_maximum, ngram_maximum)
 

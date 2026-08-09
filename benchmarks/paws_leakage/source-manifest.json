@@ -1,0 +1,33 @@
+{
+  "schema": "reprocheck.paws-source-manifest.v1",
+  "dataset": "PAWS-Wiki Labeled (Final)",
+  "task": "human-labelled paraphrase identification under adversarial lexical overlap",
+  "upstream_repository": "https://github.com/google-research-datasets/paws",
+  "upstream_commit": "02b29f3af1143620d1b7f352247e65c0bdd2ec18",
+  "mirror_repository": "https://huggingface.co/datasets/google-research-datasets/paws",
+  "mirror_revision": "161ece9501cf0a11f3e48bd356eaa82de46d6a09",
+  "license": {
+    "identifier": "other",
+    "source": "https://github.com/google-research-datasets/paws/blob/02b29f3af1143620d1b7f352247e65c0bdd2ec18/LICENSE",
+    "summary": "The dataset may be freely used for any purpose; acknowledgement of Google LLC is appreciated."
+  },
+  "files": {
+    "validation": {
+      "path": "labeled_final/validation-00000-of-00001.parquet",
+      "sha256": "7760d829453764ba342a6f562809a8ed21c2c3eec3fd9ffa544089f145d42f6d",
+      "bytes": 1230379,
+      "rows": 8000
+    },
+    "test": {
+      "path": "labeled_final/test-00000-of-00001.parquet",
+      "sha256": "ae342ff12bb84b84b95f468abf5db6cb7c7bd578271299fe9c99be75b8132f4d",
+      "bytes": 1235128,
+      "rows": 8000
+    }
+  },
+  "limitations": [
+    "PAWS tests semantic paraphrase labels, not every operational definition of train-test contamination.",
+    "PAWS-Wiki is English-only and does not establish Russian or Kazakh performance.",
+    "The project author selected the public dataset; labels were produced independently by PAWS annotators."
+  ]
+}

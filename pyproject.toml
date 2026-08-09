@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "reprocheck"
-version = "0.11.0"
+version = "0.12.0"
 description = "Trace scientific claims to reproducible metrics and dataset evidence."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -35,6 +35,7 @@ dependencies = [
 
 [project.optional-dependencies]
 benchmark = [
+  "pyarrow==25.0.0",
   "scikit-learn==1.9.0",
 ]
 dev = [
