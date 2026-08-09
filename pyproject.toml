@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "reprocheck"
-version = "0.8.1"
+version = "0.8.2"
 description = "Trace scientific claims to reproducible metrics and dataset evidence."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -82,6 +82,7 @@ addopts = "-q"
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+extend-exclude = ["benchmarks/**/sources/**"]
 
 [tool.pyright]
 pythonVersion = "3.11"
