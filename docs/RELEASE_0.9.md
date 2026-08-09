@@ -1,6 +1,6 @@
-# ReproCheck 0.9.0
+# ReproCheck 0.9.1
 
-Version 0.9.0 adds a manifest-driven project audit without changing claim
+Version 0.9.1 adds a manifest-driven project audit without changing claim
 extraction, metric computation, or the frozen scientific results from 0.8.0.
 
 - Adds `reprocheck check reprocheck.json` for one-command multi-experiment
@@ -15,8 +15,10 @@ extraction, metric computation, or the frozen scientific results from 0.8.0.
   each child certificate, and the aggregate status/digest linkage.
 - Adds tamper, malformed-input, duplicate-ID, partial-output, and nested-path
   regression tests.
-- Adds a reusable `nazkari86-lab/reprocheck@v0.9.0` composite GitHub Action and
+- Adds a reusable `nazkari86-lab/reprocheck@v0.9.1` composite GitHub Action and
   exercises it end to end in CI before the full scientific gate.
+- Avoids workspace-dependent setup caching so both tagged and local `uses: ./`
+  invocation follow the same action path.
 
 The batch checksum is an integrity certificate, not an author identity
 signature. Independent dual annotation of a new unseen corpus remains the

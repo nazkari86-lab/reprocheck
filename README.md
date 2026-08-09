@@ -96,7 +96,7 @@ Use the same gate in GitHub Actions:
 
 ```yaml
 - uses: actions/checkout@v7
-- uses: nazkari86-lab/reprocheck@v0.9.0
+- uses: nazkari86-lab/reprocheck@v0.9.1
   with:
     manifest: reprocheck.json
     output-dir: outputs/reprocheck

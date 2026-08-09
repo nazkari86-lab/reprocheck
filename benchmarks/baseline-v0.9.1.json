@@ -8,6 +8,6 @@
   "invalid_input_rejection_rate": 1.0,
   "rejection_cases": 3,
   "scope": "controlled synthetic defects; public-artifact extraction and 130 real-file mutations are reported separately in real_artifacts/baseline-v6.json",
-  "tool_version": "0.9.0",
+  "tool_version": "0.9.1",
   "unexpected_findings": 0
 }
