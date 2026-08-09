@@ -7,15 +7,18 @@ on:
 
 permissions:
   contents: write
+  id-token: write
+  attestations: write
+  artifact-metadata: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
           cache: pip
@@ -27,6 +30,7 @@ jobs:
           test "$GITHUB_REF_NAME" = "v$package_version"
           echo "PACKAGE_VERSION=$package_version" >> "$GITHUB_ENV"
       - run: make gate
+      - run: python -m pip_audit -r requirements-ci.txt --progress-spinner off
       - name: Write checksums
         shell: bash
         run: |
@@ -35,6 +39,13 @@ jobs:
             "reprocheck-${PACKAGE_VERSION}-py3-none-any.whl" \
             "reprocheck-${PACKAGE_VERSION}.tar.gz" > SHA256SUMS
           sha256sum -c SHA256SUMS
+      - name: Attest release provenance
+        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4.1.0
+        with:
+          subject-path: |
+            dist/reprocheck-${{ env.PACKAGE_VERSION }}-py3-none-any.whl
+            dist/reprocheck-${{ env.PACKAGE_VERSION }}.tar.gz
+            dist/SHA256SUMS
       - name: Publish immutable GitHub release
         env:
           GH_TOKEN: ${{ github.token }}

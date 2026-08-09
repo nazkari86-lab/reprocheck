@@ -71,3 +71,28 @@ shasum -a 256 dist/*
 
 Build hashes are release-specific. Frozen evaluator hashes are stored beside
 their manifests and are verified by replay targets.
+
+## Verify a published release
+
+Release assets have both a checksum manifest and a keyless Sigstore/SLSA build
+provenance attestation bound to this public repository and its release
+workflow. Verify both before installation:
+
+```bash
+gh release download v0.10.1 --repo nazkari86-lab/reprocheck --dir reprocheck-release
+cd reprocheck-release
+shasum -a 256 -c SHA256SUMS
+gh attestation verify reprocheck-0.10.1-py3-none-any.whl \
+  --repo nazkari86-lab/reprocheck \
+  --signer-workflow nazkari86-lab/reprocheck/.github/workflows/release.yml \
+  --source-ref refs/tags/v0.10.1
+gh attestation verify reprocheck-0.10.1.tar.gz \
+  --repo nazkari86-lab/reprocheck \
+  --signer-workflow nazkari86-lab/reprocheck/.github/workflows/release.yml \
+  --source-ref refs/tags/v0.10.1
+python3 -m pip install ./reprocheck-0.10.1-py3-none-any.whl
+```
+
+The attestation establishes where and how GitHub built the bytes. It does not
+claim that the software is defect-free or replace the scientific validation
+reported elsewhere in this repository.

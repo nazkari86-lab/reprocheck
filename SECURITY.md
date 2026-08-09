@@ -20,3 +20,8 @@ private key; author identity is established only when the public key or its
 fingerprint is authenticated through an independent trusted channel. ReproCheck
 does not provide trusted timestamping. Never commit a private signing key or
 its password.
+
+Official release assets also carry GitHub-hosted Sigstore/SLSA provenance.
+Verify it with `gh attestation verify` as documented in
+`docs/REPRODUCIBILITY.md`; SHA-256 alone detects changed bytes but does not
+establish which workflow produced them.
