@@ -1,0 +1,28 @@
+{
+  "schema": "reprocheck.integrity-stress-protocol.v1",
+  "phase": "design_locked_before_result",
+  "primary_question": "Which integrity layer detects each declared certificate mutation threat?",
+  "mutation_families": [
+    "node_label",
+    "node_attribute",
+    "edge_relation",
+    "duplicate_node",
+    "duplicate_edge",
+    "unknown_endpoint",
+    "invalid_root_kind",
+    "disconnected_node",
+    "directed_cycle"
+  ],
+  "threat_levels": [
+    "raw_mutation",
+    "outer_certificate_resealed",
+    "all_unkeyed_hashes_recomputed"
+  ],
+  "expected_boundary": {
+    "certificate_checksum": "detects raw byte-level payload changes",
+    "graph_digests": "detect outer-resealed mutations when graph-local digests are stale",
+    "unsigned_full_rehash": "cannot authenticate semantic content against an attacker who can recompute every unkeyed hash",
+    "ed25519_signature": "detects every post-signing certificate byte change relative to a trusted public key"
+  },
+  "inference_boundary": "Mechanism and attack-family coverage only; repeated generated attacks do not estimate real-world attack prevalence."
+}

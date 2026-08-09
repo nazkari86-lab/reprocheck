@@ -1,0 +1,16 @@
+{
+  "schema": "reprocheck.experiment-design-lock.v1",
+  "phase": "design_locked_before_result",
+  "files": {
+    "benchmarks/integrity_stress/protocol.json": "a2593782e0a1444c26ddc046f3cfe93e253a23ef6cecc45b30f54ef2fedf1c66",
+    "benchmarks/integrity_stress/run_benchmark.py": "ada86cdcdac06fd8efd0b395ff9e217d059143a271b9edf15d1c3cbb3dd4a3f9",
+    "benchmarks/real_corruptions/protocol.json": "666a1d40af823494d0b8ef33ceb3f6b38889246e88d8ffc21c8816b34801f5ec",
+    "benchmarks/real_corruptions/run_benchmark.py": "9b311edb734f3de630be6b3fc1801337b36a8d95278b695d8c21bca0bc805881",
+    "benchmarks/representation_robustness/cases-v1.json": "7c0fd74b704a924b7743bcb9f3798f3cf4377761a40afff46cedfeca6b5dd9cc",
+    "benchmarks/representation_robustness/run_benchmark.py": "bb6ff5cbd83a3eaa6134d8560b346ad9e10208f390b0437fcc81baa447e3e895",
+    "benchmarks/scalability/protocol.json": "71d98751ad59bdeb03a6433f4908792a25ad533fd0cd1e346728b990a3492a04",
+    "benchmarks/scalability/run_benchmark.py": "52ce700c14daca42bba29a6d0267ef66adf7b0835f9246c911b6e85ffaf42d5e"
+  },
+  "result_files_present_at_lock": false,
+  "scientific_boundary": "Git history proves design files were committed before first recorded result; it does not make author-designed cases independent."
+}

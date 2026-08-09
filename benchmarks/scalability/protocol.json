@@ -1,0 +1,16 @@
+{
+  "schema": "reprocheck.scalability-protocol.v1",
+  "phase": "design_locked_before_result",
+  "sizes": [10, 100, 1000],
+  "repeats": 5,
+  "workload": "Markdown claim table -> run_audit -> evidence graph -> certificate verification",
+  "primary_deterministic_outcomes": [
+    "exact extracted claim count",
+    "valid certificate count",
+    "graph node and edge counts",
+    "certificate byte size"
+  ],
+  "secondary_environment_dependent_outcome": "median wall-clock milliseconds",
+  "acceptance": "Every repeat must extract the declared number of claims and verify without certificate errors.",
+  "inference_boundary": "Synthetic scaling curve. Timings are descriptive for the recorded machine and are not a cross-system performance claim."
+}

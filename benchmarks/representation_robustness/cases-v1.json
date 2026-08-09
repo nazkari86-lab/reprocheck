@@ -1,0 +1,21 @@
+{
+  "schema": "reprocheck.representation-cases.v1",
+  "phase": "design_locked_before_result",
+  "cases": [
+    {"id": "decimal", "text": "Accuracy: 0.94", "expected": [["accuracy", 0.94]]},
+    {"id": "percent", "text": "Accuracy: 94%", "expected": [["accuracy", 0.94]]},
+    {"id": "decimal_comma", "text": "F1 = 0,91", "expected": [["f1", 0.91]]},
+    {"id": "scientific", "text": "RMSE = 1.2e-3", "expected": [["rmse", 0.0012]]},
+    {"id": "negative", "text": "R2: -0.25", "expected": [["r2", -0.25]]},
+    {"id": "russian", "text": "Точность составила 94%", "expected": [["accuracy", 0.94]]},
+    {"id": "markdown_table", "text": "| Model | Accuracy | F1 |\n| --- | ---: | ---: |\n| proposed | 94% | 0.91 |", "expected": [["accuracy", 0.94], ["f1", 0.91]]},
+    {"id": "html_table", "text": "<table><tr><th>Model</th><th>Accuracy</th></tr><tr><td>proposed</td><td>94%</td></tr></table>", "expected": [["accuracy", 0.94]]},
+    {"id": "topk_table", "text": "| Model | Top-1 (%) | Top-5 (%) |\n| --- | ---: | ---: |\n| net | 71.4 | 90.1 |", "expected": [["top1_accuracy", 0.714], ["top5_accuracy", 0.901]]},
+    {"id": "detection_prose", "text": "mAP50-95: 0.41, mAP50: 62%, mAP75: 0.38", "expected": [["map50_95", 0.41], ["map50", 0.62], ["map75", 0.38]]},
+    {"id": "parameter_negative_control", "text": "NMS IoU=0.7 and confidence threshold: 0.25", "expected": []},
+    {"id": "non_numeric_negative_control", "text": "Accuracy improved substantially.", "expected": []},
+    {"id": "spelled_number_out_of_scope", "text": "Accuracy was ninety-four percent.", "expected": [], "out_of_scope_reason": "word-to-number semantic parsing is not implemented"}
+  ],
+  "primary_outcome": "exact metric-value multiset match per case",
+  "inference_boundary": "Author-designed representation capability matrix, not a natural-language population sample."
+}

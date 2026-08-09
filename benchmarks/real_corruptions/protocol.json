@@ -1,0 +1,25 @@
+{
+  "schema": "reprocheck.real-corruptions-protocol.v1",
+  "phase": "design_locked_before_result",
+  "source_benchmarks": [
+    "benchmarks/external/sklearn-tabular",
+    "benchmarks/external/yolo26n-coco8"
+  ],
+  "negative_controls": ["iris_clean", "diabetes_clean", "yolo_clean"],
+  "corruptions": [
+    {"id": "iris_report_claim", "expected_code": "claim_metric_mismatch"},
+    {"id": "iris_predictions", "expected_code": "metric_evidence_conflict"},
+    {"id": "iris_split_overlap", "expected_code": "exact_split_overlap"},
+    {"id": "iris_supplied_metric", "expected_code": "metric_evidence_conflict"},
+    {"id": "diabetes_report_claim", "expected_code": "claim_metric_mismatch"},
+    {"id": "diabetes_predictions", "expected_code": "metric_evidence_conflict"},
+    {"id": "yolo_report_claim", "expected_code": "claim_metric_mismatch"},
+    {"id": "yolo_detections", "expected_code": "metric_evidence_conflict"}
+  ],
+  "primary_outcomes": [
+    "corruption detection sensitivity",
+    "negative-control specificity",
+    "unexpected finding count"
+  ],
+  "inference_boundary": "Corrupted variants derive from three real deterministic benchmark experiments, but mutation choice remains author-designed development evidence."
+}
