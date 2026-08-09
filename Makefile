@@ -3,7 +3,7 @@ UV_VERSION ?= 0.12.1
 LOCKED_DEV_REQUIREMENTS ?= /tmp/reprocheck-dev-lock.txt
 LOCKED_RUNTIME_REQUIREMENTS ?= /tmp/reprocheck-runtime-lock.txt
 
-.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo serve
+.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo rknp-demo serve
 
 install:
 	python3 -m pip install --quiet uv==$(UV_VERSION)
@@ -113,6 +113,13 @@ gate: lock-check lint type coverage benchmark evidence-ablation near-duplicate-b
 
 demo:
 	python3 -m reprocheck.cli demo
+
+rknp-demo:
+	python3 -m reprocheck.cli audit --report benchmarks/external/sklearn-tabular/iris_report.md --metrics benchmarks/external/sklearn-tabular/official_metrics.json --metrics-selector iris --predictions benchmarks/external/sklearn-tabular/iris_predictions.csv --average macro --train benchmarks/external/sklearn-tabular/iris_train.csv --test benchmarks/external/sklearn-tabular/iris_test.csv --label-column target --identity-columns sample_id --tolerance 1e-9 --output outputs/rknp-clean.json
+	python3 -m reprocheck.cli verify --certificate outputs/rknp-clean.json --artifact-dir benchmarks/external/sklearn-tabular
+	python3 -m reprocheck.cli demo --output-dir outputs/rknp-corrupted
+	python3 -m reprocheck.cli ablation --output outputs/rknp-ablation.json
+	python3 benchmarks/evidence_ablation/check_baseline.py --result outputs/rknp-ablation.json
 
 serve:
 	python3 -m reprocheck.cli serve

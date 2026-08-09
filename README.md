@@ -75,6 +75,7 @@ reprocheck ablation
 reprocheck study --corpus benchmarks/real_artifacts
 reprocheck review-prepare --corpus benchmarks/holdout_v07_artifacts
 reprocheck serve
+make rknp-demo
 make gate
 ```
 
@@ -312,7 +313,12 @@ are indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md). The direct
 information ablation is reported in
 [`docs/EVIDENCE_ABLATION.md`](docs/EVIDENCE_ABLATION.md), and the novelty boundary
 against established reproducibility systems is summarized in
-[`docs/RELATED_WORK.md`](docs/RELATED_WORK.md).
+[`docs/RELATED_WORK.md`](docs/RELATED_WORK.md). The concise Russian RKNP research
+story and defense materials are in
+[`docs/RKNP_PROJECT_RU.md`](docs/RKNP_PROJECT_RU.md) and
+[`docs/RKNP_DEFENSE_RU.md`](docs/RKNP_DEFENSE_RU.md); authorship and AI assistance
+must be recorded honestly using
+[`docs/AUTHORSHIP_AND_AI_RU.md`](docs/AUTHORSHIP_AND_AI_RU.md).
 
 ## Evidence-layer ablation
 
