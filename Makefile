@@ -3,7 +3,7 @@ UV_VERSION ?= 0.12.1
 LOCKED_DEV_REQUIREMENTS ?= /tmp/reprocheck-dev-lock.txt
 LOCKED_RUNTIME_REQUIREMENTS ?= /tmp/reprocheck-runtime-lock.txt
 
-.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo serve
+.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo serve
 
 install:
 	python3 -m pip install --quiet uv==$(UV_VERSION)
@@ -38,6 +38,10 @@ coverage:
 benchmark:
 	python3 -m reprocheck.cli benchmark --output outputs/benchmark.json
 	python3 benchmarks/check_controlled_baseline.py --result outputs/benchmark.json
+
+evidence-ablation:
+	python3 -m reprocheck.cli ablation --output outputs/evidence-ablation.json
+	python3 benchmarks/evidence_ablation/check_baseline.py --result outputs/evidence-ablation.json
 
 near-duplicate-benchmark:
 	python3 benchmarks/near_duplicate/run_benchmark.py --output outputs/near-duplicate-benchmark.json
@@ -105,7 +109,7 @@ external-regenerate:
 build:
 	SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) python3 -m build
 
-gate: lock-check lint type coverage benchmark near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
+gate: lock-check lint type coverage benchmark evidence-ablation near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
 
 demo:
 	python3 -m reprocheck.cli demo

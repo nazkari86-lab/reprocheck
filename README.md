@@ -40,6 +40,10 @@ not execute uploaded Python or notebook code.
   independently recomputed from raw predictions (`verified`).
 - Emits a hashed evidence graph linking artifacts and experiment context to
   metrics, report claims, and audit findings.
+- Runs a four-level information ablation that separates report-only, supplied
+  evidence, artifact-aware, and graph-certified capabilities.
+- Generates a label-hidden two-reviewer packet and scores frozen independent
+  annotations without silently treating missing external review as complete.
 - Rejects conflicting evidence instead of silently choosing one source.
 - Generates a standalone HTML report and provides a local web interface.
 
@@ -51,7 +55,7 @@ Install the published wheel directly from the immutable GitHub release:
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install \
-  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.14.1/reprocheck-0.14.1-py3-none-any.whl
+  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.15.0/reprocheck-0.15.0-py3-none-any.whl
 reprocheck demo
 ```
 
@@ -67,7 +71,9 @@ reprocheck demo
 reprocheck graph --certificate outputs/demo-audit.json --output outputs/demo-graph.mmd
 reprocheck check examples/reprocheck.json --output-dir outputs/project --html
 reprocheck benchmark
+reprocheck ablation
 reprocheck study --corpus benchmarks/real_artifacts
+reprocheck review-prepare --corpus benchmarks/holdout_v07_artifacts
 reprocheck serve
 make gate
 ```
@@ -119,7 +125,7 @@ Use the same gate in GitHub Actions:
 
 ```yaml
 - uses: actions/checkout@v7
-- uses: nazkari86-lab/reprocheck@v0.14.1
+- uses: nazkari86-lab/reprocheck@v0.15.0
   with:
     manifest: reprocheck.json
     output-dir: outputs/reprocheck
@@ -302,7 +308,30 @@ evidence, AST data flow, and supply-chain changes are documented in
 its integrity construction are documented in
 [`docs/EVIDENCE_GRAPH.md`](docs/EVIDENCE_GRAPH.md) and
 [`docs/RELEASE_0.14.md`](docs/RELEASE_0.14.md), and all reproduction commands
-are indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
+are indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md). The direct
+information ablation is reported in
+[`docs/EVIDENCE_ABLATION.md`](docs/EVIDENCE_ABLATION.md), and the novelty boundary
+against established reproducibility systems is summarized in
+[`docs/RELATED_WORK.md`](docs/RELATED_WORK.md).
+
+## Evidence-layer ablation
+
+The 19-case controlled information ablation compares the same known outcomes
+under four evidence levels. Report text alone detects 1/12 injected defects,
+claim plus supplied metrics detects 3/12, artifact-aware auditing detects 9/12,
+and graph-certified auditing detects 12/12. All four preserve 7/7 negative
+controls in the declared matrix.
+
+The paired improvement from supplied metrics to artifact-aware auditing is
+significant in this matrix by exact two-sided McNemar (`p = 0.03125`). The final
+three-case graph increment has `p = 0.25`, so it demonstrates implemented
+integrity coverage but is not presented as statistically conclusive. Run
+`make evidence-ablation` for the frozen case matrix and full Wilson intervals.
+
+This controlled result is not an independent blind accuracy estimate. A ready
+but deliberately unfilled two-reviewer protocol is under
+[`benchmarks/external_review`](benchmarks/external_review); the repository still
+records zero completed external reviews until real reviewers freeze responses.
 
 ## Frozen real-artifact evidence
 

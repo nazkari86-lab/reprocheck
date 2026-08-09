@@ -5,17 +5,21 @@ import json
 import sys
 from pathlib import Path
 
+from .ablation import ablation_passed, run_evidence_ablation
 from .audit import run_audit
 from .batch import run_project_check
 from .benchmark import run_controlled_benchmark
 from .certificate import verify_certificate_file
 from .evidence_graph import render_mermaid
+from .external_review import prepare_external_review, score_external_review
 from .render import render_html
 from .study import run_real_artifact_study, study_passed
+from .version import __version__
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="reprocheck")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     audit = subparsers.add_parser("audit", help="audit a report and its evidence")
@@ -106,6 +110,31 @@ def build_parser() -> argparse.ArgumentParser:
 
     benchmark = subparsers.add_parser("benchmark", help="run controlled defect benchmark")
     benchmark.add_argument("--output", type=Path, default=Path("outputs/benchmark.json"))
+
+    ablation = subparsers.add_parser(
+        "ablation", help="compare report, evidence, artifact, and graph audit layers"
+    )
+    ablation.add_argument("--output", type=Path, default=Path("outputs/evidence-ablation.json"))
+
+    review_prepare = subparsers.add_parser(
+        "review-prepare", help="prepare a label-hidden external annotation packet"
+    )
+    review_prepare.add_argument(
+        "--corpus", type=Path, default=Path("benchmarks/holdout_v07_artifacts")
+    )
+    review_prepare.add_argument(
+        "--output-dir", type=Path, default=Path("outputs/external-review-kit")
+    )
+    review_prepare.add_argument("--sample-artifacts", type=int, default=16)
+
+    review_score = subparsers.add_parser(
+        "review-score", help="score two frozen independent external reviews"
+    )
+    review_score.add_argument("--gold", type=Path, required=True)
+    review_score.add_argument("--reviewer", type=Path, action="append", required=True)
+    review_score.add_argument(
+        "--output", type=Path, default=Path("outputs/external-review-result.json")
+    )
 
     study = subparsers.add_parser("study", help="run the frozen real-artifact study")
     study.add_argument("--corpus", type=Path, default=Path("benchmarks/real_artifacts"))
@@ -225,6 +254,56 @@ def main(argv: list[str] | None = None) -> int:
             and result["unexpected_findings"] == 0
         )
         return 0 if passed else 1
+    if args.command == "ablation":
+        result = run_evidence_ablation(args.output)
+        summaries = result["systems"]
+        print(
+            f"cases={result['case_counts']['total']} "
+            f"defects={result['case_counts']['defects']} "
+            f"controls={result['case_counts']['negative_controls']}"
+        )
+        for system in result["design"]["systems_in_order"]:
+            summary = summaries[system]
+            print(
+                f"{system}: sensitivity={summary['sensitivity']:.1%} "
+                f"specificity={summary['specificity']:.1%} "
+                f"balanced_accuracy={summary['balanced_accuracy']:.1%} "
+                f"family_coverage={summary['family_coverage_rate']:.1%}"
+            )
+        print(f"output={args.output.resolve()}")
+        return 0 if ablation_passed(result) else 1
+    if args.command == "review-prepare":
+        try:
+            manifest = prepare_external_review(
+                args.corpus,
+                args.output_dir,
+                sample_artifacts=args.sample_artifacts,
+            )
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(
+            f"sample_artifacts={args.sample_artifacts} "
+            f"external_reviews_completed={manifest['external_reviews_completed']} "
+            f"output={args.output_dir.resolve()}"
+        )
+        print(
+            "Send only public/; private/PRIVATE-gold.json must remain hidden until responses freeze"
+        )
+        return 0
+    if args.command == "review-score":
+        try:
+            result = score_external_review(args.gold, args.reviewer, args.output)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(
+            f"reviewers={result['reviewer_count']} "
+            f"exact_agreement={result['inter_reviewer']['exact_artifact_agreement']:.1%} "
+            f"adjudication_required={str(result['adjudication_required']).lower()} "
+            f"output={args.output.resolve()}"
+        )
+        return 1 if result["adjudication_required"] else 0
     if args.command == "study":
         try:
             result = run_real_artifact_study(

@@ -2,18 +2,21 @@
 
 ## Research questions
 
-1. On a frozen corpus of complete public ML artifacts, how accurately does a
+1. Under controlled paired cases, which inconsistency families become
+   observable when the auditor receives report text, supplied metrics, primary
+   artifacts, and finally a verified evidence graph?
+2. On a frozen corpus of complete public ML artifacts, how accurately does a
    deterministic parser recover supported numerical claims relative to declared
    annotations, a fixed naive inline-regex baseline, and a stronger
    format-aware baseline?
-2. When a numerical value in a real report is deliberately changed, does the
+3. When a numerical value in a real report is deliberately changed, does the
    evidence-tracing audit detect disagreement with the original metric record?
-3. Under explicitly declared input contracts, which claim, metric, split, and
+4. Under explicitly declared input contracts, which claim, metric, split, and
    certificate properties are deterministic and independently recheckable?
-4. How much detection-table format coverage does a frozen evaluator retain on
+5. How much detection-table format coverage does a frozen evaluator retain on
    repositories selected before zero-shot evaluation, and what changes after
    the resulting failures become development data?
-5. Can a typed, content-addressed graph preserve an independently checkable
+6. Can a typed, content-addressed graph preserve an independently checkable
    path from supplied artifact bytes to a numerical claim without executing the
    submitted model?
 
@@ -302,6 +305,18 @@ expected matrices; `make challenge-replay` installs each hashed wheel in a
 temporary environment and requires byte-identical deterministic output.
 
 ## Controlled benchmark acceptance criteria
+
+The separate evidence-layer ablation fixes 19 paired cases and four executable
+systems with increasing information. Its primary endpoint is case-level defect
+detection correctness; secondary endpoints are sensitivity, specificity,
+balanced accuracy, complete defect-family coverage, Wilson intervals, and exact
+two-sided McNemar tests between adjacent layers. The complete design and results
+are in `docs/EVIDENCE_ABLATION.md`.
+
+This ablation is author-designed development evidence. It must not be described
+as an independent blind benchmark. The external-review protocol requires two
+real reviewers, frozen independent responses, and adjudication of disagreements;
+until those files exist, the external reviewer count remains zero.
 
 - Zero false negatives for exact row overlap under declared identity columns.
 - Zero false negatives for exact shared group identifiers.

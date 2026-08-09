@@ -15,7 +15,7 @@ make gate
 hashes. `make install` exports that graph and makes `pip` verify every artifact
 hash before installing the project. The gate first rejects a stale lock, then
 checks formatting, static types, 97% minimum coverage, controlled
-defects, frozen public artifacts, mutation controls, every source/annotation
+defects, the evidence-layer ablation, frozen public artifacts, mutation controls, every source/annotation
 hash, external audit certificates, wheel replays, and package construction.
 
 For a user project, keep `reprocheck.json` beside the paths it references and
@@ -62,6 +62,8 @@ independently supplied identity-to-key binding is correct.
 | v0.8 cross-domain result | development after v0.7 inspection | `make holdout-v08-development` |
 | v0.12 PAWS validation | development threshold selection | `make paws-study` |
 | v0.12 PAWS test | preregistered locked test | `make paws-study` |
+| v0.15 evidence-layer matrix | controlled information ablation | `make evidence-ablation` |
+| external dual review | ready, not executed | `reprocheck review-prepare` |
 
 Do not compare a development score with a zero-shot score as if both estimated
 generalization. The repository intentionally preserves failures and label
@@ -84,22 +86,22 @@ provenance attestation bound to this public repository and its release
 workflow. Verify both before installation:
 
 ```bash
-gh release download v0.14.1 --repo nazkari86-lab/reprocheck --dir reprocheck-release
+gh release download v0.15.0 --repo nazkari86-lab/reprocheck --dir reprocheck-release
 cd reprocheck-release
 shasum -a 256 -c SHA256SUMS
-gh attestation verify reprocheck-0.14.1-py3-none-any.whl \
+gh attestation verify reprocheck-0.15.0-py3-none-any.whl \
   --repo nazkari86-lab/reprocheck \
   --signer-workflow nazkari86-lab/reprocheck/.github/workflows/release.yml \
-  --source-ref refs/tags/v0.14.1
-gh attestation verify reprocheck-0.14.1.tar.gz \
+  --source-ref refs/tags/v0.15.0
+gh attestation verify reprocheck-0.15.0.tar.gz \
   --repo nazkari86-lab/reprocheck \
   --signer-workflow nazkari86-lab/reprocheck/.github/workflows/release.yml \
-  --source-ref refs/tags/v0.14.1
+  --source-ref refs/tags/v0.15.0
 gh attestation verify reprocheck-sbom.cdx.json \
   --repo nazkari86-lab/reprocheck \
   --signer-workflow nazkari86-lab/reprocheck/.github/workflows/release.yml \
-  --source-ref refs/tags/v0.14.1
-python3 -m pip install ./reprocheck-0.14.1-py3-none-any.whl
+  --source-ref refs/tags/v0.15.0
+python3 -m pip install ./reprocheck-0.15.0-py3-none-any.whl
 ```
 
 The CycloneDX SBOM is included in `SHA256SUMS` and in the same provenance

@@ -2,10 +2,19 @@ import json
 from pathlib import Path
 
 import uvicorn
+import pytest
 
 from reprocheck.audit import run_audit
 from reprocheck.certificate import digest_payload
 from reprocheck.cli import main
+
+
+def test_cli_prints_version(capsys):
+    with pytest.raises(SystemExit) as exit_info:
+        main(["--version"])
+
+    assert exit_info.value.code == 0
+    assert capsys.readouterr().out == "reprocheck 0.15.0\n"
 
 
 def test_cli_audit_writes_json_and_html(tmp_path: Path):

@@ -1,6 +1,6 @@
 {
   "schema": "reprocheck.near-duplicate-benchmark.v1",
-  "tool_version": "0.14.1",
+  "tool_version": "0.15.0",
   "dataset": {
     "filename": "cases-v1.json",
     "sha256": "966934c253638ae757631ef309337286d15d172932c360743ef3ac48fb3dd96a",

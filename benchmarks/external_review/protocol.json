@@ -1,0 +1,20 @@
+{
+  "schema": "reprocheck.external-review-protocol.v1",
+  "status": "ready_not_executed",
+  "source_corpus": "benchmarks/holdout_v07_artifacts",
+  "source_manifest_sha256": "906a865805d535adc65068e32f9c008727835436e98da9b2c7ee82c9ce2ac3da",
+  "annotations_sha256": "8d9b583536a768f2fb6c69b5a5b5e170ec580e4716ff987eb69e61b4e1407109",
+  "selection": {
+    "method": "sha256-ranked balanced artifact sample",
+    "sample_artifacts": 16,
+    "claim_bearing_artifacts": 8,
+    "zero_claim_artifacts": 8
+  },
+  "required_reviewers": 2,
+  "independent_before_freeze": true,
+  "adjudicator_required_on_disagreement": true,
+  "completed_external_reviews": 0,
+  "completed_adjudication": false,
+  "claim_allowed_now": "Protocol and executable tooling are ready.",
+  "claim_forbidden_now": "External validation is complete."
+}

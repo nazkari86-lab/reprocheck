@@ -1,0 +1,437 @@
+{
+  "case_counts": {
+    "defects": 12,
+    "families": 13,
+    "negative_controls": 7,
+    "total": 19
+  },
+  "case_matrix": [
+    {
+      "defect_present": true,
+      "detected": {
+        "artifact_aware_audit": true,
+        "claim_plus_supplied_metrics": true,
+        "graph_certified_audit": true,
+        "report_text_only": true
+      },
+      "family": "claim_validity",
+      "id": "D01"
+    },
+    {
+      "defect_present": true,
+      "detected": {
+        "artifact_aware_audit": true,
+        "claim_plus_supplied_metrics": true,
+        "graph_certified_audit": true,
+        "report_text_only": false
+      },
+      "family": "claim_evidence",
+      "id": "D02"
+    },
+    {
+      "defect_present": true,
+      "detected": {
+        "artifact_aware_audit": true,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": true,
+        "report_text_only": false
+      },
+      "family": "recomputation",
+      "id": "D03"
+    },
+    {
+      "defect_present": true,
+      "detected": {
+        "artifact_aware_audit": true,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": true,
+        "report_text_only": false
+      },
+      "family": "split_integrity",
+      "id": "D04"
+    },
+    {
+      "defect_present": true,
+      "detected": {
+        "artifact_aware_audit": true,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": true,
+        "report_text_only": false
+      },
+      "family": "split_integrity",
+      "id": "D05"
+    },
+    {
+      "defect_present": true,
+      "detected": {
+        "artifact_aware_audit": true,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": true,
+        "report_text_only": false
+      },
+      "family": "split_integrity",
+      "id": "D06"
+    },
+    {
+      "defect_present": true,
+      "detected": {
+        "artifact_aware_audit": true,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": true,
+        "report_text_only": false
+      },
+      "family": "notebook_dataflow",
+      "id": "D07"
+    },
+    {
+      "defect_present": true,
+      "detected": {
+        "artifact_aware_audit": true,
+        "claim_plus_supplied_metrics": true,
+        "graph_certified_audit": true,
+        "report_text_only": false
+      },
+      "family": "claim_evidence",
+      "id": "D08"
+    },
+    {
+      "defect_present": true,
+      "detected": {
+        "artifact_aware_audit": false,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": true,
+        "report_text_only": false
+      },
+      "family": "graph_integrity",
+      "id": "D09"
+    },
+    {
+      "defect_present": true,
+      "detected": {
+        "artifact_aware_audit": false,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": true,
+        "report_text_only": false
+      },
+      "family": "graph_integrity",
+      "id": "D10"
+    },
+    {
+      "defect_present": true,
+      "detected": {
+        "artifact_aware_audit": false,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": true,
+        "report_text_only": false
+      },
+      "family": "graph_integrity",
+      "id": "D11"
+    },
+    {
+      "defect_present": true,
+      "detected": {
+        "artifact_aware_audit": true,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": true,
+        "report_text_only": false
+      },
+      "family": "notebook_dataflow",
+      "id": "D12"
+    },
+    {
+      "defect_present": false,
+      "detected": {
+        "artifact_aware_audit": false,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": false,
+        "report_text_only": false
+      },
+      "family": "clean_reported",
+      "id": "C01"
+    },
+    {
+      "defect_present": false,
+      "detected": {
+        "artifact_aware_audit": false,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": false,
+        "report_text_only": false
+      },
+      "family": "clean_recomputed",
+      "id": "C02"
+    },
+    {
+      "defect_present": false,
+      "detected": {
+        "artifact_aware_audit": false,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": false,
+        "report_text_only": false
+      },
+      "family": "clean_tolerance",
+      "id": "C03"
+    },
+    {
+      "defect_present": false,
+      "detected": {
+        "artifact_aware_audit": false,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": false,
+        "report_text_only": false
+      },
+      "family": "clean_representation",
+      "id": "C04"
+    },
+    {
+      "defect_present": false,
+      "detected": {
+        "artifact_aware_audit": false,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": false,
+        "report_text_only": false
+      },
+      "family": "clean_split",
+      "id": "C05"
+    },
+    {
+      "defect_present": false,
+      "detected": {
+        "artifact_aware_audit": false,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": false,
+        "report_text_only": false
+      },
+      "family": "clean_notebook",
+      "id": "C06"
+    },
+    {
+      "defect_present": false,
+      "detected": {
+        "artifact_aware_audit": false,
+        "claim_plus_supplied_metrics": false,
+        "graph_certified_audit": false,
+        "report_text_only": false
+      },
+      "family": "clean_graph",
+      "id": "C07"
+    }
+  ],
+  "design": {
+    "paired_test": "exact two-sided McNemar on correctness",
+    "primary_outcome": "case-level defect detection correctness",
+    "scientific_boundary": "Deterministic controlled cases isolate information-layer capability; they are not an independent blind estimate of real-world prevalence or accuracy.",
+    "systems_in_order": [
+      "report_text_only",
+      "claim_plus_supplied_metrics",
+      "artifact_aware_audit",
+      "graph_certified_audit"
+    ],
+    "type": "controlled_information_ablation"
+  },
+  "pairwise_mcnemar": [
+    {
+      "discordant": 2,
+      "exact_two_sided_p": 0.5,
+      "first": "report_text_only",
+      "first_only_correct": 0,
+      "second": "claim_plus_supplied_metrics",
+      "second_only_correct": 2
+    },
+    {
+      "discordant": 6,
+      "exact_two_sided_p": 0.03125,
+      "first": "claim_plus_supplied_metrics",
+      "first_only_correct": 0,
+      "second": "artifact_aware_audit",
+      "second_only_correct": 6
+    },
+    {
+      "discordant": 3,
+      "exact_two_sided_p": 0.25,
+      "first": "artifact_aware_audit",
+      "first_only_correct": 0,
+      "second": "graph_certified_audit",
+      "second_only_correct": 3
+    }
+  ],
+  "schema_version": "1.0",
+  "systems": {
+    "artifact_aware_audit": {
+      "balanced_accuracy": 0.875,
+      "by_defect_family": {
+        "claim_evidence": {
+          "cases": 2,
+          "detected": 2
+        },
+        "claim_validity": {
+          "cases": 1,
+          "detected": 1
+        },
+        "graph_integrity": {
+          "cases": 3,
+          "detected": 0
+        },
+        "notebook_dataflow": {
+          "cases": 2,
+          "detected": 2
+        },
+        "recomputation": {
+          "cases": 1,
+          "detected": 1
+        },
+        "split_integrity": {
+          "cases": 3,
+          "detected": 3
+        }
+      },
+      "false_negatives": 3,
+      "false_positives": 0,
+      "family_coverage_rate": 0.8333333333333334,
+      "sensitivity": 0.75,
+      "sensitivity_wilson_95": [
+        0.46768966087934005,
+        0.9110599603710386
+      ],
+      "specificity": 1.0,
+      "specificity_wilson_95": [
+        0.6456611570247934,
+        1.0
+      ],
+      "true_negatives": 7,
+      "true_positives": 9
+    },
+    "claim_plus_supplied_metrics": {
+      "balanced_accuracy": 0.625,
+      "by_defect_family": {
+        "claim_evidence": {
+          "cases": 2,
+          "detected": 2
+        },
+        "claim_validity": {
+          "cases": 1,
+          "detected": 1
+        },
+        "graph_integrity": {
+          "cases": 3,
+          "detected": 0
+        },
+        "notebook_dataflow": {
+          "cases": 2,
+          "detected": 0
+        },
+        "recomputation": {
+          "cases": 1,
+          "detected": 0
+        },
+        "split_integrity": {
+          "cases": 3,
+          "detected": 0
+        }
+      },
+      "false_negatives": 9,
+      "false_positives": 0,
+      "family_coverage_rate": 0.3333333333333333,
+      "sensitivity": 0.25,
+      "sensitivity_wilson_95": [
+        0.08894003962896138,
+        0.53231033912066
+      ],
+      "specificity": 1.0,
+      "specificity_wilson_95": [
+        0.6456611570247934,
+        1.0
+      ],
+      "true_negatives": 7,
+      "true_positives": 3
+    },
+    "graph_certified_audit": {
+      "balanced_accuracy": 1.0,
+      "by_defect_family": {
+        "claim_evidence": {
+          "cases": 2,
+          "detected": 2
+        },
+        "claim_validity": {
+          "cases": 1,
+          "detected": 1
+        },
+        "graph_integrity": {
+          "cases": 3,
+          "detected": 3
+        },
+        "notebook_dataflow": {
+          "cases": 2,
+          "detected": 2
+        },
+        "recomputation": {
+          "cases": 1,
+          "detected": 1
+        },
+        "split_integrity": {
+          "cases": 3,
+          "detected": 3
+        }
+      },
+      "false_negatives": 0,
+      "false_positives": 0,
+      "family_coverage_rate": 1.0,
+      "sensitivity": 1.0,
+      "sensitivity_wilson_95": [
+        0.7574992425007574,
+        1.0
+      ],
+      "specificity": 1.0,
+      "specificity_wilson_95": [
+        0.6456611570247934,
+        1.0
+      ],
+      "true_negatives": 7,
+      "true_positives": 12
+    },
+    "report_text_only": {
+      "balanced_accuracy": 0.5416666666666666,
+      "by_defect_family": {
+        "claim_evidence": {
+          "cases": 2,
+          "detected": 0
+        },
+        "claim_validity": {
+          "cases": 1,
+          "detected": 1
+        },
+        "graph_integrity": {
+          "cases": 3,
+          "detected": 0
+        },
+        "notebook_dataflow": {
+          "cases": 2,
+          "detected": 0
+        },
+        "recomputation": {
+          "cases": 1,
+          "detected": 0
+        },
+        "split_integrity": {
+          "cases": 3,
+          "detected": 0
+        }
+      },
+      "false_negatives": 11,
+      "false_positives": 0,
+      "family_coverage_rate": 0.16666666666666666,
+      "sensitivity": 0.08333333333333333,
+      "sensitivity_wilson_95": [
+        0.014864709450773478,
+        0.35388592179859524
+      ],
+      "specificity": 1.0,
+      "specificity_wilson_95": [
+        0.6456611570247934,
+        1.0
+      ],
+      "true_negatives": 7,
+      "true_positives": 1
+    }
+  },
+  "tool_version": "0.15.0"
+}
