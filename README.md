@@ -51,7 +51,7 @@ Install the published wheel directly from the immutable GitHub release:
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install \
-  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.14.0/reprocheck-0.14.0-py3-none-any.whl
+  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.14.1/reprocheck-0.14.1-py3-none-any.whl
 reprocheck demo
 ```
 
@@ -119,7 +119,7 @@ Use the same gate in GitHub Actions:
 
 ```yaml
 - uses: actions/checkout@v7
-- uses: nazkari86-lab/reprocheck@v0.14.0
+- uses: nazkari86-lab/reprocheck@v0.14.1
   with:
     manifest: reprocheck.json
     output-dir: outputs/reprocheck

@@ -79,11 +79,12 @@ def build_evidence_graph(
         )
         add_edge(node_id, "experiment:0", "input_to")
 
+    raw_observations = list(metric_observations or metric_evidence.items())
     contexts = sorted(
         {(key, value) for check in claims for key, value in check.claim.context.items()}
         | {
             (key, value)
-            for observation in metric_evidence.values()
+            for _, observation in raw_observations
             for key, value in observation.context.items()
         }
     )
@@ -94,7 +95,6 @@ def build_evidence_graph(
         add_node(node_id, "context", f"{key}={value}", {"key": key, "value": value})
         add_edge(node_id, "experiment:0", "scopes")
 
-    raw_observations = list(metric_observations or metric_evidence.items())
     ordered_observations = sorted(
         raw_observations,
         key=lambda item: (

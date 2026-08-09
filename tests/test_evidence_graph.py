@@ -79,6 +79,41 @@ def test_evidence_graph_preserves_all_conflicting_metric_sources(tmp_path: Path)
     assert ("metric:1", "flags", "finding:0") in relations
 
 
+def test_evidence_graph_preserves_contexts_from_every_metric_source(tmp_path: Path):
+    report = tmp_path / "report.md"
+    metrics = tmp_path / "metrics.csv"
+    predictions = tmp_path / "predictions.csv"
+    report.write_text(
+        "| Model | Accuracy |\n| --- | ---: |\n| proposed | 100% |\n",
+        encoding="utf-8",
+    )
+    metrics.write_text(
+        "model,accuracy\nbaseline,0.5\nproposed,1.0\n",
+        encoding="utf-8",
+    )
+    predictions.write_text(
+        "model,y_true,y_pred\nbaseline,0,1\nproposed,1,1\n",
+        encoding="utf-8",
+    )
+
+    audit = run_audit(
+        report_path=report,
+        metrics_path=metrics,
+        metrics_selector="model=baseline",
+        predictions_path=predictions,
+    )
+
+    assert audit.evidence_graph is not None
+    contexts = {
+        (node["attributes"]["key"], node["attributes"]["value"])
+        for node in audit.evidence_graph.nodes
+        if node["kind"] == "context"
+    }
+    assert ("model", "baseline") in contexts
+    assert ("model", "proposed") in contexts
+    assert verify_evidence_graph(audit.evidence_graph.__dict__) == []
+
+
 def test_mermaid_export_uses_safe_generated_identifiers(tmp_path: Path):
     audit = _audit(tmp_path)
     assert audit.evidence_graph is not None
