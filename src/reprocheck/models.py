@@ -10,6 +10,7 @@ class Claim:
     value: float
     raw_text: str
     line: int
+    context: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -20,6 +21,7 @@ class ClaimCheck:
     difference: float | None
     tolerance: float
     evidence_level: Literal["reported", "recomputed"] | None = None
+    display_kind: Literal["percentage", "scalar"] = "scalar"
 
 
 @dataclass(frozen=True)
@@ -39,6 +41,7 @@ class MetricObservation:
     ci_low: float | None = None
     ci_high: float | None = None
     evidence_level: Literal["reported", "recomputed"] = "reported"
+    context: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass
@@ -54,6 +57,9 @@ class LeakageAudit:
     near_overlap_rate: float
     train_duplicate_rows: int
     test_duplicate_rows: int
+    normalized_only_overlap_test_rows: int = 0
+    normalized_only_overlap_rate: float = 0.0
+    overlapping_group_count: int = 0
     group_column: str | None = None
     overlapping_groups: list[str] = field(default_factory=list)
     exact_overlap_examples: list[dict[str, str]] = field(default_factory=list)

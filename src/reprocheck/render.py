@@ -31,7 +31,7 @@ def render_html(report: AuditReport, output: Path) -> None:
             f"Exact overlap: <b>{report.leakage.exact_overlap_rate:.1%}</b>; "
             f"normalized overlap: <b>{report.leakage.normalized_overlap_rate:.1%}</b>; "
             f"near overlap: <b>{report.leakage.near_overlap_rate:.1%}</b>; "
-            f"group overlap: <b>{len(report.leakage.overlapping_groups)}</b>."
+            f"group overlap: <b>{report.leakage.overlapping_group_count}</b>."
         )
     notebook = "Notebook audit не выполнялся."
     if report.notebook:

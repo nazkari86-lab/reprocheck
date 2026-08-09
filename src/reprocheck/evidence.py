@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import json
 import math
+import re
 from collections import Counter
 from collections.abc import Iterable, Mapping, Sequence
 from pathlib import Path
@@ -23,6 +24,7 @@ PREDICTION_TASKS = {"classification", "regression"}
 
 
 def load_metric_evidence(path: Path, selector: str | None = None) -> dict[str, MetricObservation]:
+    context: dict[str, str] = {}
     if path.suffix.lower() == ".json":
         payload = json.loads(path.read_text(encoding="utf-8"))
         selected = _select_json(payload, selector) if selector else payload
@@ -49,11 +51,12 @@ def load_metric_evidence(path: Path, selector: str | None = None) -> dict[str, M
             else:
                 selected_row = _select_csv_row(rows, list(reader.fieldnames), selector)
                 values = _clean_metrics(selected_row)
+                context = _csv_selector_context(selector)
     if not values:
         raise ValueError("selected evidence contains no numeric metrics")
     method = "provided" if selector is None else f"provided; selector={selector}"
     return {
-        name: MetricObservation(value=value, source=path.name, method=method)
+        name: MetricObservation(value=value, source=path.name, method=method, context=context)
         for name, value in values.items()
     }
 
@@ -95,11 +98,13 @@ def metric_evidence_from_predictions(
     labels = sorted({value for pair in pairs for value in pair})
     if positive_label is not None and positive_label not in labels:
         raise ValueError(f"positive label is absent from predictions: {positive_label}")
-    resolved_average = "binary" if average == "auto" and len(labels) == 2 else average
+    resolved_average = average
     if resolved_average == "auto":
-        resolved_average = "macro"
+        resolved_average = "binary" if len(labels) == 2 and positive_label is not None else "macro"
     if resolved_average == "binary" and len(labels) != 2:
         raise ValueError("binary averaging requires exactly two labels")
+    if resolved_average == "binary" and positive_label is None:
+        raise ValueError("binary averaging requires an explicit positive label")
 
     sample_count = len(pairs)
     accuracy = sum(actual == predicted for actual, predicted in pairs) / sample_count
@@ -119,7 +124,8 @@ def metric_evidence_from_predictions(
     per_label = {label: _per_label_metrics(pairs, label) for label in labels}
     selected: str | None = None
     if resolved_average == "binary":
-        selected = positive_label or labels[-1]
+        assert positive_label is not None
+        selected = positive_label
         values = per_label[selected]
         method = f"binary; positive_label={selected}"
     else:
@@ -158,6 +164,13 @@ def metric_evidence_from_predictions(
             sample_count=sample_count,
             evidence_level="recomputed",
         )
+    if "y_score" in (reader.fieldnames or []):
+        if positive_label is None:
+            raise ValueError("probability metrics require an explicit positive label")
+        if len(labels) > 2:
+            raise ValueError("probability metrics currently require binary labels")
+        scores = _probability_scores(rows)
+        observations.update(_probability_evidence(path, pairs, scores, positive_label))
     return observations
 
 
@@ -225,6 +238,85 @@ def _regression_evidence(path: Path, pairs: list[tuple[str, str]]) -> dict[str, 
             source=path.name,
             method="exact regression metric from numeric y_true/y_pred",
             sample_count=sample_count,
+            evidence_level="recomputed",
+        )
+        for name, value in values.items()
+    }
+
+
+def _probability_scores(rows: list[dict[str, str]]) -> list[float]:
+    try:
+        scores = [float(row["y_score"]) for row in rows]
+    except (KeyError, TypeError, ValueError) as error:
+        raise ValueError("y_score values must be finite probabilities") from error
+    if not all(math.isfinite(score) and 0 <= score <= 1 for score in scores):
+        raise ValueError("y_score values must be finite probabilities between 0 and 1")
+    return scores
+
+
+def _probability_evidence(
+    path: Path,
+    pairs: list[tuple[str, str]],
+    scores: list[float],
+    positive_label: str,
+) -> dict[str, MetricObservation]:
+    labels = [int(actual == positive_label) for actual, _ in pairs]
+    positive_count = sum(labels)
+    negative_count = len(labels) - positive_count
+    if not positive_count or not negative_count:
+        raise ValueError("probability metrics require both positive and negative y_true labels")
+
+    positive_scores = [score for label, score in zip(labels, scores) if label]
+    negative_scores = [score for label, score in zip(labels, scores) if not label]
+    favourable_pairs = sum(
+        positive > negative for positive in positive_scores for negative in negative_scores
+    )
+    tied_pairs = sum(
+        positive == negative for positive in positive_scores for negative in negative_scores
+    )
+    auroc = (favourable_pairs + 0.5 * tied_pairs) / (positive_count * negative_count)
+
+    ordered = sorted(zip(scores, labels), key=lambda item: item[0], reverse=True)
+    true_positives = 0
+    false_positives = 0
+    previous_recall = 0.0
+    auprc = 0.0
+    index = 0
+    while index < len(ordered):
+        score = ordered[index][0]
+        group_labels: list[int] = []
+        while index < len(ordered) and ordered[index][0] == score:
+            group_labels.append(ordered[index][1])
+            index += 1
+        true_positives += sum(group_labels)
+        false_positives += len(group_labels) - sum(group_labels)
+        recall = true_positives / positive_count
+        precision = true_positives / (true_positives + false_positives)
+        auprc += (recall - previous_recall) * precision
+        previous_recall = recall
+
+    epsilon = math.ulp(1.0)
+    clipped = [min(1 - epsilon, max(epsilon, score)) for score in scores]
+    log_loss = -sum(
+        label * math.log(score) + (1 - label) * math.log(1 - score)
+        for label, score in zip(labels, clipped)
+    ) / len(labels)
+    brier = sum((score - label) ** 2 for label, score in zip(labels, scores)) / len(labels)
+    values = {
+        "auroc": auroc,
+        "auprc": auprc,
+        "log_loss": log_loss,
+        "brier_score": brier,
+    }
+    return {
+        name: MetricObservation(
+            value=value,
+            source=path.name,
+            method=(
+                "exact binary probability metric from y_true/y_score; "
+                f"positive_label={positive_label}; log_loss_clip=machine_epsilon"
+            ),
+            sample_count=len(labels),
             evidence_level="recomputed",
         )
         for name, value in values.items()
@@ -317,3 +409,12 @@ def _select_csv_row(
     if len(matches) != 1:
         raise ValueError(f"metrics selector must match exactly one row; matched {len(matches)}")
     return matches[0]
+
+
+def _csv_selector_context(selector: str | None) -> dict[str, str]:
+    if selector is None or "=" not in selector:
+        return {}
+    column, value = (part.strip() for part in selector.split("=", 1))
+    key = re.sub(r"[^\w]+", "_", column.casefold(), flags=re.UNICODE).strip("_")
+    aliases = {"architecture": "model", "model_name": "model", "average": "averaging"}
+    return {aliases.get(key, key): value}

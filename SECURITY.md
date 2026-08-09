@@ -1,6 +1,6 @@
 # Security policy
 
-ReproCheck v0.6 treats all uploads as untrusted data. The web application limits
+ReproCheck treats all uploads as untrusted data. The web application limits
 each upload to 20 MB, stores it in a temporary directory, and never executes
 uploaded scripts or notebooks.
 
@@ -8,6 +8,10 @@ DOCX expanded content is capped at 100 MB and PDF reports at 1000 pages.
 Certificate verification rejects path traversal, malformed digests, malformed
 sizes, and duplicate artifact descriptors. CPU-heavy audits run outside the
 FastAPI event loop.
+
+The web interface is designed for local use. It has no authentication or rate
+limiting and must not be exposed directly to the public Internet. Put it behind
+an authenticated, rate-limited reverse proxy if remote access is required.
 
 Do not add notebook execution directly to the web process. A future execution
 worker must use an isolated container with no network access, a read-only base

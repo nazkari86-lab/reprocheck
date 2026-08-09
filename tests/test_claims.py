@@ -66,6 +66,23 @@ def test_extracts_negative_and_scientific_regression_values():
     ]
 
 
+def test_extracts_probability_metric_claims_with_correct_display_units():
+    claims = extract_claims("AUROC: 91%\nAUPRC: 0.87\nlog loss: 0.23\nBrier score: 0.08")
+    assert [(claim.metric, claim.value) for claim in claims] == [
+        ("auroc", 0.91),
+        ("auprc", 0.87),
+        ("log_loss", 0.23),
+        ("brier_score", 0.08),
+    ]
+    checks = check_claims(claims, {}, tolerance=0.01)
+    assert [check.display_kind for check in checks] == [
+        "percentage",
+        "percentage",
+        "scalar",
+        "percentage",
+    ]
+
+
 def test_extracts_metrics_from_markdown_tables_and_html_headers():
     text = """| Model | mAP<sup>val<br>50-95</sup> | rmse<sup>NYU</sup> | acc<br><sup>top1</sup> | acc<br><sup>top5</sup> |
 | --- | ---: | ---: | ---: | ---: |
@@ -83,6 +100,29 @@ def test_extracts_metrics_from_markdown_tables_and_html_headers():
         ("top1_accuracy", 0.76, 4),
         ("top5_accuracy", 0.929, 4),
     ]
+    assert claims[0].context == {"model": "YOLO26n"}
+    assert claims[-1].context == {"model": "YOLO26s"}
+
+
+def test_structured_claim_context_scopes_selected_evidence():
+    claims = extract_table_claims(
+        """| Model | Accuracy |
+| --- | ---: |
+| baseline | 81% |
+| proposed | 92% |
+"""
+    )
+
+    checks = check_claims(
+        claims,
+        {"accuracy": 0.92},
+        tolerance=0.001,
+        evidence_contexts={"accuracy": {"model": "proposed"}},
+    )
+
+    assert claims[0].context == {"model": "baseline"}
+    assert claims[1].context == {"model": "proposed"}
+    assert [check.status for check in checks] == ["no_evidence", "supported"]
 
 
 def test_extracts_standalone_topk_table_headers_but_not_topk_error():

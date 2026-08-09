@@ -30,6 +30,28 @@ def test_audit_endpoint():
     assert len(response.json()["certificate_sha256"]) == 64
 
 
+def test_regression_metrics_are_marked_scalar_and_web_uses_metadata():
+    response = client.post(
+        "/api/audit",
+        data={"prediction_task": "regression"},
+        files={
+            "report": ("report.md", b"MAE: 2.5", "text/markdown"),
+            "predictions": (
+                "predictions.csv",
+                b"y_true,y_pred\n0,2\n0,3\n",
+                "text/csv",
+            ),
+        },
+    )
+    assert response.status_code == 200
+    assert response.json()["claims"][0]["display_kind"] == "scalar"
+
+    script = client.get("/static/app.js")
+    assert script.status_code == 200
+    assert "formatMetric(claim.value, display_kind)" in script.text
+    assert "percent(claim.value)" not in script.text
+
+
 def test_audit_endpoint_rejects_malformed_detection():
     response = client.post(
         "/api/audit",

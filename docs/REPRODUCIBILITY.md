@@ -7,11 +7,14 @@ Use Python 3.11 or newer from a clean checkout:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -c requirements-ci.txt -e '.[dev]'
+make install
 make gate
 ```
 
-The gate checks formatting, static types, 97% minimum coverage, controlled
+`uv.lock` pins the transitive cross-platform dependency graph with artifact
+hashes. `make install` exports that graph and makes `pip` verify every artifact
+hash before installing the project. The gate first rejects a stale lock, then
+checks formatting, static types, 97% minimum coverage, controlled
 defects, frozen public artifacts, mutation controls, every source/annotation
 hash, external audit certificates, wheel replays, and package construction.
 
@@ -81,20 +84,26 @@ provenance attestation bound to this public repository and its release
 workflow. Verify both before installation:
 
 ```bash
-gh release download v0.12.0 --repo nazkari86-lab/reprocheck --dir reprocheck-release
+gh release download v0.13.0 --repo nazkari86-lab/reprocheck --dir reprocheck-release
 cd reprocheck-release
 shasum -a 256 -c SHA256SUMS
-gh attestation verify reprocheck-0.12.0-py3-none-any.whl \
+gh attestation verify reprocheck-0.13.0-py3-none-any.whl \
   --repo nazkari86-lab/reprocheck \
   --signer-workflow nazkari86-lab/reprocheck/.github/workflows/release.yml \
-  --source-ref refs/tags/v0.12.0
-gh attestation verify reprocheck-0.12.0.tar.gz \
+  --source-ref refs/tags/v0.13.0
+gh attestation verify reprocheck-0.13.0.tar.gz \
   --repo nazkari86-lab/reprocheck \
   --signer-workflow nazkari86-lab/reprocheck/.github/workflows/release.yml \
-  --source-ref refs/tags/v0.12.0
-python3 -m pip install ./reprocheck-0.12.0-py3-none-any.whl
+  --source-ref refs/tags/v0.13.0
+gh attestation verify reprocheck-sbom.cdx.json \
+  --repo nazkari86-lab/reprocheck \
+  --signer-workflow nazkari86-lab/reprocheck/.github/workflows/release.yml \
+  --source-ref refs/tags/v0.13.0
+python3 -m pip install ./reprocheck-0.13.0-py3-none-any.whl
 ```
 
-The attestation establishes where and how GitHub built the bytes. It does not
+The CycloneDX SBOM is included in `SHA256SUMS` and in the same provenance
+attestation as the packages. The attestation establishes where and how GitHub
+built the bytes. It does not
 claim that the software is defect-free or replace the scientific validation
 reported elsewhere in this repository.

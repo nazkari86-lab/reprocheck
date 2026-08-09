@@ -181,6 +181,7 @@ def audit_csv_splits(
     normalized_indexes = [
         index for index, value in enumerate(test_normalized) if value in train_normalized_set
     ]
+    normalized_only_indexes = sorted(set(normalized_indexes) - set(exact_indexes))
     train_duplicates = sum(count - 1 for count in Counter(train_exact).values() if count > 1)
     test_duplicates = sum(count - 1 for count in Counter(test_exact).values() if count > 1)
 
@@ -217,6 +218,11 @@ def audit_csv_splits(
         near_overlap_rate=near_count / test_count if test_count else 0.0,
         train_duplicate_rows=train_duplicates,
         test_duplicate_rows=test_duplicates,
+        normalized_only_overlap_test_rows=len(normalized_only_indexes),
+        normalized_only_overlap_rate=(
+            len(normalized_only_indexes) / test_count if test_count else 0.0
+        ),
+        overlapping_group_count=len(overlapping_groups),
         group_column=group_column,
         overlapping_groups=overlapping_groups[:100],
         exact_overlap_examples=[
@@ -225,7 +231,7 @@ def audit_csv_splits(
         ],
         normalized_overlap_examples=[
             {field: test_rows[index][field] for field in selected}
-            for index in normalized_indexes[:example_limit]
+            for index in normalized_only_indexes[:example_limit]
         ],
         near_overlap_examples=near_examples,
     )

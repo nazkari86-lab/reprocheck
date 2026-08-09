@@ -1,6 +1,6 @@
 {
   "schema": "reprocheck.text-index-scalability.v1",
-  "tool_version": "0.12.0",
+  "tool_version": "0.13.0",
   "method": "ordered_tokens_v1",
   "threshold": 0.8,
   "correctness": {

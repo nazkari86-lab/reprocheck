@@ -13,13 +13,25 @@ from reprocheck.evidence import (
 def test_binary_metrics_are_recomputed(tmp_path: Path):
     path = tmp_path / "predictions.csv"
     path.write_text("y_true,y_pred\n0,0\n0,1\n1,1\n1,1\n", encoding="utf-8")
-    metrics = metrics_from_predictions(path)
+    metrics = metrics_from_predictions(path, positive_label="1")
     assert metrics["accuracy"] == 0.75
     assert metrics["precision"] == 2 / 3
     assert metrics["recall"] == 1.0
     assert metrics["f1"] == 0.8
     assert metrics["hard_dice"] == 0.8
     assert metrics["hard_iou"] == 2 / 3
+
+
+def test_auto_average_does_not_guess_binary_positive_label(tmp_path: Path):
+    path = tmp_path / "predictions.csv"
+    path.write_text("y_true,y_pred\ncat,cat\ncat,dog\ndog,dog\n", encoding="utf-8")
+
+    evidence = metric_evidence_from_predictions(path)
+
+    assert evidence["f1"].method == "macro; labels=2"
+    assert "hard_dice" not in evidence
+    with pytest.raises(ValueError, match="explicit positive label"):
+        metric_evidence_from_predictions(path, average="binary")
 
 
 def test_multiclass_macro_metrics_and_accuracy_interval(tmp_path: Path):
@@ -93,6 +105,37 @@ def test_regression_metrics_are_recomputed(tmp_path: Path):
     assert evidence["rmse"].value == pytest.approx((2 / 3) ** 0.5)
     assert evidence["r2"].value == 0.0
     assert all(item.evidence_level == "recomputed" for item in evidence.values())
+
+
+def test_binary_probability_metrics_are_recomputed(tmp_path: Path):
+    path = tmp_path / "predictions.csv"
+    path.write_text(
+        "y_true,y_pred,y_score\n1,1,0.9\n0,1,0.8\n1,1,0.7\n0,0,0.1\n",
+        encoding="utf-8",
+    )
+
+    evidence = metric_evidence_from_predictions(path, positive_label="1")
+
+    assert evidence["auroc"].value == 0.75
+    assert evidence["auprc"].value == pytest.approx(5 / 6)
+    assert evidence["brier_score"].value == pytest.approx(0.1875)
+    assert evidence["log_loss"].value == pytest.approx(0.5442084719221214)
+    assert "positive_label=1" in evidence["auroc"].method
+
+
+def test_probability_metrics_fail_closed_on_ambiguous_or_invalid_scores(tmp_path: Path):
+    path = tmp_path / "predictions.csv"
+    path.write_text("y_true,y_pred,y_score\n0,0,0.1\n1,1,0.9\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="explicit positive label"):
+        metric_evidence_from_predictions(path)
+
+    path.write_text("y_true,y_pred,y_score\n0,0,0.1\n1,1,1.2\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="between 0 and 1"):
+        metric_evidence_from_predictions(path, positive_label="1")
+
+    path.write_text("y_true,y_pred,y_score\n1,1,0.8\n1,1,0.9\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="both positive and negative"):
+        metric_evidence_from_predictions(path, positive_label="1")
 
 
 def test_r2_can_be_negative_but_error_metrics_cannot(tmp_path: Path):

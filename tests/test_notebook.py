@@ -94,3 +94,61 @@ def test_model_validation_data_is_not_mislabeled_as_fit_on_test(tmp_path: Path):
     )
     result = audit_notebook(path)
     assert "fit_on_test_data" not in {item["code"] for item in result.findings}
+
+
+def test_dataflow_detects_renamed_test_data_and_function_wrapper(tmp_path: Path):
+    path = tmp_path / "dataflow.ipynb"
+    path.write_text(
+        json.dumps(
+            {
+                "cells": [
+                    {
+                        "cell_type": "code",
+                        "execution_count": 1,
+                        "source": (
+                            "def train_model(features):\n"
+                            "    model.fit(features)\n"
+                            "    return model\n"
+                            "X_train, X_test = train_test_split(X, random_state=7)\n"
+                            "leaked_dataset = X_test\n"
+                            "train_model(leaked_dataset)\n"
+                        ),
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    result = audit_notebook(path)
+
+    assert "fit_on_test_data" not in {item["code"] for item in result.findings}
+    finding = next(item for item in result.findings if item["code"] == "fit_on_test_dataflow")
+    assert "train_model" in finding["message"]
+
+
+def test_dataflow_does_not_flag_training_partition(tmp_path: Path):
+    path = tmp_path / "safe-dataflow.ipynb"
+    path.write_text(
+        json.dumps(
+            {
+                "cells": [
+                    {
+                        "cell_type": "code",
+                        "execution_count": 1,
+                        "source": (
+                            "random.seed(7)\n"
+                            "X_train, X_test = train_test_split(X, random_state=7)\n"
+                            "features = X_train\n"
+                            "model.fit(features)\n"
+                        ),
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    result = audit_notebook(path)
+
+    assert "fit_on_test_dataflow" not in {item["code"] for item in result.findings}

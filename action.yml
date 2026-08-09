@@ -35,7 +35,10 @@ runs:
         "$GITHUB_ACTION_PATH"
     - name: Audit project
       shell: bash
+      env:
+        REPROCHECK_MANIFEST: ${{ inputs.manifest }}
+        REPROCHECK_OUTPUT_DIR: ${{ inputs.output-dir }}
       run: >-
         reprocheck check
-        "${{ inputs.manifest }}"
-        --output-dir "${{ inputs.output-dir }}"
+        "$REPROCHECK_MANIFEST"
+        --output-dir "$REPROCHECK_OUTPUT_DIR"

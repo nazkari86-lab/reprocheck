@@ -15,6 +15,12 @@ are `reported`; values derived from raw labels/predictions are `recomputed`.
 When two sources differ beyond the declared tolerance, the orchestrator emits
 `metric_evidence_conflict` and keeps the higher-grade recomputed value visible.
 
+Table claims can also carry bounded structured context such as model, dataset,
+split, experiment, task, and variant. A selected wide-CSV evidence row carries
+the selector context. Shared context dimensions must agree before a claim can
+match that observation; an incompatible row becomes `no_evidence`, not a false
+metric mismatch. Context-free evidence preserves the legacy metric-name path.
+
 The claim layer exposes `extract_claims` for complete documents and
 `extract_table_claims` for explicitly table-scoped evaluation. Markdown and
 HTML tables share metric normalization, preserve duplicate values from distinct
@@ -23,6 +29,9 @@ columns, and skip cells with multiple candidate numbers rather than guessing.
 The core package is independent of FastAPI. `audit.run_audit` orchestrates pure
 modules and returns dataclasses; CLI and web layers only map inputs and render
 the same result. Uploaded notebooks are parsed but never imported or executed.
+Saved textual notebook outputs can be claim evidence. The notebook risk layer
+uses a bounded AST graph for assignments, train/test split outputs, aliases,
+and simple function wrappers; it is not a complete interprocedural proof.
 
 The JSON certificate excludes `created_at` from its canonical digest so the
 same evidence and parameters produce the same checksum across repeated runs.

@@ -119,6 +119,7 @@ def run_audit(
         observed,
         tolerance,
         evidence_levels={name: item.evidence_level for name, item in metric_evidence.items()},
+        evidence_contexts={name: item.context for name, item in metric_evidence.items()},
     )
     findings: list[dict[str, object]] = []
     findings.extend(evidence_conflicts)
@@ -175,24 +176,24 @@ def run_audit(
                     ),
                 }
             )
-        elif leakage.normalized_overlap_test_rows:
+        if leakage.normalized_only_overlap_test_rows:
             findings.append(
                 {
                     "severity": "high",
                     "code": "normalized_split_overlap",
                     "message": (
-                        f"{leakage.normalized_overlap_test_rows}/{leakage.test_rows} normalized "
-                        "test rows also occur in train."
+                        f"{leakage.normalized_only_overlap_test_rows}/{leakage.test_rows} "
+                        "additional test rows occur in train only after normalization."
                     ),
                 }
             )
-        if leakage.overlapping_groups:
+        if leakage.overlapping_group_count:
             findings.append(
                 {
                     "severity": "high",
                     "code": "group_split_overlap",
                     "message": (
-                        f"{len(leakage.overlapping_groups)} values of {group_column} occur in both splits."
+                        f"{leakage.overlapping_group_count} values of {group_column} occur in both splits."
                     ),
                 }
             )

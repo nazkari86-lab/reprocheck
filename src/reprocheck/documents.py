@@ -42,11 +42,7 @@ def extract_document_text(path: Path, selector: str | None = None) -> str:
         return "\n".join(page.extract_text() or "" for page in reader.pages)
     if suffix == ".ipynb":
         payload = json.loads(path.read_text(encoding="utf-8"))
-        return "\n".join(
-            _source_text(cell.get("source", ""))
-            for cell in payload.get("cells", [])
-            if cell.get("cell_type") == "markdown"
-        )
+        return _notebook_report_text(payload)
     if suffix == ".json":
         payload = json.loads(path.read_text(encoding="utf-8"))
         selected = _select(payload, selector) if selector else payload
@@ -56,6 +52,34 @@ def extract_document_text(path: Path, selector: str | None = None) -> str:
 
 def _source_text(source: str | list[str]) -> str:
     return "".join(source) if isinstance(source, list) else source
+
+
+def _notebook_report_text(payload: object) -> str:
+    if not isinstance(payload, dict) or not isinstance(payload.get("cells"), list):
+        raise ValueError("report notebook must contain a cells array")
+    sections: list[str] = []
+    for cell in payload["cells"]:
+        if not isinstance(cell, dict):
+            continue
+        if cell.get("cell_type") == "markdown":
+            sections.append(_source_text(cell.get("source", "")))
+            continue
+        if cell.get("cell_type") != "code" or not isinstance(cell.get("outputs", []), list):
+            continue
+        for output in cell.get("outputs", []):
+            if not isinstance(output, dict):
+                continue
+            if output.get("output_type") == "stream":
+                sections.append(_source_text(output.get("text", "")))
+                continue
+            data = output.get("data")
+            if not isinstance(data, dict):
+                continue
+            for mime_type in ("text/markdown", "text/plain"):
+                if mime_type in data:
+                    sections.append(_source_text(data[mime_type]))
+                    break
+    return "\n".join(section for section in sections if section)
 
 
 def _select(payload: object, selector: str) -> object:

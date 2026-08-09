@@ -1,9 +1,26 @@
 SOURCE_DATE_EPOCH ?= 1704067200
+UV_VERSION ?= 0.12.1
+LOCKED_DEV_REQUIREMENTS ?= /tmp/reprocheck-dev-lock.txt
+LOCKED_RUNTIME_REQUIREMENTS ?= /tmp/reprocheck-runtime-lock.txt
 
-.PHONY: install test lint type coverage benchmark near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo serve
+.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo serve
 
 install:
-	python3 -m pip install -c requirements-ci.txt -e '.[dev]'
+	python3 -m pip install --quiet uv==$(UV_VERSION)
+	uv export --quiet --locked --extra dev --no-emit-project --format requirements-txt --output-file $(LOCKED_DEV_REQUIREMENTS)
+	python3 -m pip install --require-hashes -r $(LOCKED_DEV_REQUIREMENTS)
+	python3 -m pip install --no-deps -e .
+
+lock-check:
+	uv lock --check
+
+dependency-audit: lock-check
+	uv export --quiet --locked --extra dev --no-emit-project --format requirements-txt --output-file $(LOCKED_DEV_REQUIREMENTS)
+	uv run --locked --extra dev python -m pip_audit -r $(LOCKED_DEV_REQUIREMENTS) --progress-spinner off
+
+runtime-sbom: lock-check
+	uv export --quiet --locked --no-dev --no-emit-project --format requirements-txt --output-file $(LOCKED_RUNTIME_REQUIREMENTS)
+	uv run --locked --extra dev python -m pip_audit -r $(LOCKED_RUNTIME_REQUIREMENTS) --format cyclonedx-json --output dist/reprocheck-sbom.cdx.json --progress-spinner off
 
 test:
 	python3 -m pytest
@@ -88,7 +105,7 @@ external-regenerate:
 build:
 	SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) python3 -m build
 
-gate: lint type coverage benchmark near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
+gate: lock-check lint type coverage benchmark near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
 
 demo:
 	python3 -m reprocheck.cli demo

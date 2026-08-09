@@ -74,6 +74,8 @@ def audit_notebook(path: Path) -> NotebookAudit:
             }
         )
 
+    findings.extend(_dataflow_findings(sources))
+
     if has_training and not has_seed:
         findings.append(
             {
@@ -122,6 +124,118 @@ def _collect_calls(sources: list[str]) -> list[tuple[int, str, list[str]]]:
                 )
                 calls.append((cell_index * 1_000_000 + node.lineno, name, arguments))
     return calls
+
+
+def _dataflow_findings(sources: list[str]) -> list[dict[str, object]]:
+    trees = []
+    for source in sources:
+        try:
+            trees.append(ast.parse(source))
+        except SyntaxError:
+            continue
+    function_sinks = _function_fit_parameters(trees)
+    taint: dict[str, set[str]] = {}
+    risky_calls: list[str] = []
+    for tree in trees:
+        for statement in tree.body:
+            if isinstance(statement, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+                continue
+            if isinstance(statement, ast.Assign):
+                _propagate_assignment(statement.targets, statement.value, taint)
+            elif isinstance(statement, ast.AnnAssign) and statement.value is not None:
+                _propagate_assignment([statement.target], statement.value, taint)
+            for node in ast.walk(statement):
+                if not isinstance(node, ast.Call):
+                    continue
+                name = _call_name(node.func)
+                argument_taint = [_expression_taint(argument, taint) for argument in node.args]
+                if name.endswith((".fit", ".fit_transform")):
+                    direct_test_name = any(
+                        "test" in ast.unparse(argument).casefold() for argument in node.args
+                    )
+                    if not direct_test_name and any("test" in tags for tags in argument_taint):
+                        risky_calls.append(name)
+                elif name in function_sinks and any(
+                    index < len(argument_taint) and "test" in argument_taint[index]
+                    for index in function_sinks[name]
+                ):
+                    risky_calls.append(name)
+    if not risky_calls:
+        return []
+    return [
+        {
+            "severity": "high",
+            "code": "fit_on_test_dataflow",
+            "message": (
+                "Static data-flow links test-derived data to a training fit call: "
+                + ", ".join(sorted(set(risky_calls)))
+                + "."
+            ),
+        }
+    ]
+
+
+def _function_fit_parameters(trees: list[ast.Module]) -> dict[str, set[int]]:
+    sinks: dict[str, set[int]] = {}
+    for tree in trees:
+        for function in (node for node in tree.body if isinstance(node, ast.FunctionDef)):
+            parameters = [argument.arg for argument in function.args.args]
+            aliases: dict[str, set[int]] = {name: {index} for index, name in enumerate(parameters)}
+            used: set[int] = set()
+            for statement in function.body:
+                if isinstance(statement, ast.Assign):
+                    indexes = _parameter_indexes(statement.value, aliases)
+                    for target in statement.targets:
+                        for name in _target_names(target):
+                            aliases[name] = indexes
+                for node in ast.walk(statement):
+                    if isinstance(node, ast.Call) and _call_name(node.func).endswith(
+                        (".fit", ".fit_transform")
+                    ):
+                        for argument in node.args:
+                            used.update(_parameter_indexes(argument, aliases))
+            if used:
+                sinks[function.name] = used
+    return sinks
+
+
+def _propagate_assignment(
+    targets: list[ast.expr], value: ast.expr, taint: dict[str, set[str]]
+) -> None:
+    if isinstance(value, ast.Call) and _call_name(value.func).endswith("train_test_split"):
+        flat_targets = [name for target in targets for name in _target_names(target)]
+        for index, name in enumerate(flat_targets):
+            taint[name] = {"test" if index % 2 else "train"}
+        return
+    tags = _expression_taint(value, taint)
+    for target in targets:
+        for name in _target_names(target):
+            inferred = {"test"} if "test" in name.casefold() else set()
+            taint[name] = tags | inferred
+
+
+def _target_names(node: ast.expr) -> list[str]:
+    if isinstance(node, ast.Name):
+        return [node.id]
+    if isinstance(node, (ast.Tuple, ast.List)):
+        return [name for element in node.elts for name in _target_names(element)]
+    return []
+
+
+def _expression_taint(node: ast.AST, taint: dict[str, set[str]]) -> set[str]:
+    tags: set[str] = set()
+    for child in ast.walk(node):
+        if isinstance(child, ast.Name):
+            tags.update(taint.get(child.id, set()))
+    return tags
+
+
+def _parameter_indexes(node: ast.AST, aliases: dict[str, set[int]]) -> set[int]:
+    indexes: set[int] = set()
+    for child in ast.walk(node):
+        if isinstance(child, ast.Name):
+            indexes.update(aliases.get(child.id, set()))
+    return indexes
 
 
 def _call_name(node: ast.expr) -> str:

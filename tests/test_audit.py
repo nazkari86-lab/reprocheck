@@ -30,6 +30,60 @@ def test_end_to_end_audit_reports_mismatch_and_leakage(tmp_path: Path):
     assert len(result.artifacts) == 4
 
 
+def test_exact_and_additional_normalized_overlap_are_reported_independently(tmp_path: Path):
+    report = tmp_path / "report.md"
+    train = tmp_path / "train.csv"
+    test = tmp_path / "test.csv"
+    report.write_text("No metric claim.", encoding="utf-8")
+    train.write_text("text,label\nNorth School,A\nCentral Park,B\n", encoding="utf-8")
+    test.write_text("text,label\nNorth School,A\n  CENTRAL  PARK ,B\n", encoding="utf-8")
+
+    result = run_audit(
+        report_path=report,
+        train_path=train,
+        test_path=test,
+        label_column="label",
+        identity_columns=["text"],
+    )
+
+    assert result.leakage is not None
+    assert result.leakage.normalized_only_overlap_test_rows == 1
+    assert {finding["code"] for finding in result.findings} == {
+        "exact_split_overlap",
+        "normalized_split_overlap",
+    }
+
+
+def test_group_finding_uses_full_count_not_bounded_examples(tmp_path: Path):
+    report = tmp_path / "report.md"
+    train = tmp_path / "train.csv"
+    test = tmp_path / "test.csv"
+    report.write_text("No metric claim.", encoding="utf-8")
+    train.write_text(
+        "id,patient,label\n"
+        + "".join(f"train-{index},patient-{index},A\n" for index in range(125)),
+        encoding="utf-8",
+    )
+    test.write_text(
+        "id,patient,label\n" + "".join(f"test-{index},patient-{index},B\n" for index in range(125)),
+        encoding="utf-8",
+    )
+
+    result = run_audit(
+        report_path=report,
+        train_path=train,
+        test_path=test,
+        label_column="label",
+        group_column="patient",
+        identity_columns=["id"],
+    )
+
+    finding = next(item for item in result.findings if item["code"] == "group_split_overlap")
+    assert "125 values" in finding["message"]
+    assert result.leakage is not None
+    assert len(result.leakage.overlapping_groups) == 100
+
+
 def test_json_claim_matches_selected_wide_csv_row(tmp_path: Path):
     report = tmp_path / "claims.json"
     metrics = tmp_path / "metrics.csv"
@@ -50,6 +104,26 @@ def test_json_claim_matches_selected_wide_csv_row(tmp_path: Path):
     )
     assert result.status == "passed"
     assert [check.status for check in result.claims] == ["supported", "supported"]
+
+
+def test_selected_evidence_row_only_checks_matching_table_context(tmp_path: Path):
+    report = tmp_path / "report.md"
+    metrics = tmp_path / "metrics.csv"
+    report.write_text(
+        "| Model | Accuracy |\n| --- | ---: |\n| baseline | 81% |\n| proposed | 92% |\n",
+        encoding="utf-8",
+    )
+    metrics.write_text("model,accuracy\nbaseline,0.81\nproposed,0.92\n", encoding="utf-8")
+
+    result = run_audit(
+        report_path=report,
+        metrics_path=metrics,
+        metrics_selector="model=proposed",
+    )
+
+    assert [check.status for check in result.claims] == ["no_evidence", "supported"]
+    assert result.metric_evidence["accuracy"].context == {"model": "proposed"}
+    assert not any(item["code"] == "claim_metric_mismatch" for item in result.findings)
 
 
 def test_conflicting_reported_and_recomputed_metrics_need_review(tmp_path: Path):

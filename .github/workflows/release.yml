@@ -22,7 +22,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-      - run: python -m pip install -c requirements-ci.txt -e '.[dev]'
+      - run: make install
       - name: Verify tag matches package version
         shell: bash
         run: |
@@ -30,14 +30,17 @@ jobs:
           test "$GITHUB_REF_NAME" = "v$package_version"
           echo "PACKAGE_VERSION=$package_version" >> "$GITHUB_ENV"
       - run: make gate
-      - run: python -m pip_audit -r requirements-ci.txt --progress-spinner off
+      - run: make dependency-audit
+      - name: Generate CycloneDX SBOM
+        run: make runtime-sbom
       - name: Write checksums
         shell: bash
         run: |
           cd dist
           sha256sum \
             "reprocheck-${PACKAGE_VERSION}-py3-none-any.whl" \
-            "reprocheck-${PACKAGE_VERSION}.tar.gz" > SHA256SUMS
+            "reprocheck-${PACKAGE_VERSION}.tar.gz" \
+            reprocheck-sbom.cdx.json > SHA256SUMS
           sha256sum -c SHA256SUMS
       - name: Attest release provenance
         uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
@@ -45,6 +48,7 @@ jobs:
           subject-path: |
             dist/reprocheck-${{ env.PACKAGE_VERSION }}-py3-none-any.whl
             dist/reprocheck-${{ env.PACKAGE_VERSION }}.tar.gz
+            dist/reprocheck-sbom.cdx.json
             dist/SHA256SUMS
       - name: Publish immutable GitHub release
         env:
@@ -53,6 +57,7 @@ jobs:
           gh release create "$GITHUB_REF_NAME"
           "dist/reprocheck-${PACKAGE_VERSION}-py3-none-any.whl"
           "dist/reprocheck-${PACKAGE_VERSION}.tar.gz"
+          dist/reprocheck-sbom.cdx.json
           dist/SHA256SUMS
           --verify-tag
           --generate-notes

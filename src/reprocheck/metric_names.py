@@ -66,6 +66,16 @@ METRIC_ALIASES = {
     "top5_accuracy": "top5_accuracy",
     "r²": "r2",
     "r2": "r2",
+    "auroc": "auroc",
+    "roc auc": "auroc",
+    "roc_auc": "auroc",
+    "auprc": "auprc",
+    "pr auc": "auprc",
+    "pr_auc": "auprc",
+    "log loss": "log_loss",
+    "log_loss": "log_loss",
+    "brier score": "brier_score",
+    "brier_score": "brier_score",
 }
 
 UNIT_INTERVAL_METRICS = {
@@ -89,9 +99,12 @@ UNIT_INTERVAL_METRICS = {
     "pq",
     "top1_accuracy",
     "top5_accuracy",
+    "auroc",
+    "auprc",
+    "brier_score",
 }
 
-NONNEGATIVE_METRICS = {"hausdorff95", "assd", "rmse", "mae", "mse"}
+NONNEGATIVE_METRICS = {"hausdorff95", "assd", "rmse", "mae", "mse", "log_loss"}
 
 _CANONICAL_METRICS = set(METRIC_ALIASES.values())
 

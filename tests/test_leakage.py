@@ -33,7 +33,10 @@ def test_detects_exact_normalized_and_group_overlap(tmp_path: Path):
     )
     assert result.exact_overlap_test_rows == 1
     assert result.normalized_overlap_test_rows == 2
+    assert result.normalized_only_overlap_test_rows == 1
+    assert result.normalized_only_overlap_rate == 0.5
     assert result.overlapping_groups == ["p1"]
+    assert result.overlapping_group_count == 1
 
 
 def test_detects_heuristic_near_text_overlap(tmp_path: Path):
@@ -67,6 +70,28 @@ def test_group_overlap_is_normalized(tmp_path: Path):
         identity_columns=["id"],
     )
     assert result.overlapping_groups == ["patient-a"]
+
+
+def test_group_overlap_preserves_total_while_bounding_examples(tmp_path: Path):
+    train = tmp_path / "train.csv"
+    test = tmp_path / "test.csv"
+    rows = "".join(f"{index},patient-{index},A\n" for index in range(150))
+    train.write_text(f"id,patient,label\n{rows}", encoding="utf-8")
+    test.write_text(
+        "id,patient,label\n" + "".join(f"test-{index},patient-{index},B\n" for index in range(150)),
+        encoding="utf-8",
+    )
+
+    result = audit_csv_splits(
+        train,
+        test,
+        label_column="label",
+        group_column="patient",
+        identity_columns=["id"],
+    )
+
+    assert result.overlapping_group_count == 150
+    assert len(result.overlapping_groups) == 100
 
 
 def test_rejects_empty_and_malformed_splits(tmp_path: Path):

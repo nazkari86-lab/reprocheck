@@ -39,6 +39,39 @@ def test_extracts_markdown_cells_from_notebook(tmp_path: Path):
     assert extract_document_text(path) == "Accuracy: 95%"
 
 
+def test_extracts_textual_notebook_outputs_without_executing_code(tmp_path: Path):
+    path = tmp_path / "outputs.ipynb"
+    path.write_text(
+        json.dumps(
+            {
+                "cells": [
+                    {
+                        "cell_type": "code",
+                        "source": "raise RuntimeError('must not execute')",
+                        "outputs": [
+                            {"output_type": "stream", "text": ["Accuracy: 91%\n"]},
+                            {
+                                "output_type": "execute_result",
+                                "data": {"text/plain": ["F1: 0.88"]},
+                            },
+                        ],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert extract_document_text(path) == "Accuracy: 91%\n\nF1: 0.88"
+
+
+def test_rejects_malformed_notebook_report_contract(tmp_path: Path):
+    path = tmp_path / "bad.ipynb"
+    path.write_text('{"cells": "not-an-array"}', encoding="utf-8")
+    with pytest.raises(ValueError, match="cells array"):
+        extract_document_text(path)
+
+
 def test_extracts_selected_json_claim(tmp_path: Path):
     path = tmp_path / "claims.json"
     path.write_text(

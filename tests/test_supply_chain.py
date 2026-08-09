@@ -38,4 +38,5 @@ def test_release_attests_every_published_asset_with_minimal_required_permissions
         "dist/SHA256SUMS",
     ):
         assert subject in workflow
-    assert "python -m pip_audit -r requirements-ci.txt --progress-spinner off" in workflow
+    assert "make dependency-audit" in workflow
+    assert "make runtime-sbom" in workflow

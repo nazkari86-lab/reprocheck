@@ -29,6 +29,21 @@ _STRUCTURED_KEY_RE = re.compile(
     flags=re.IGNORECASE,
 )
 _PARAMETER_TOKENS = {"threshold", "thresh", "cutoff", "nms", "weight", "loss"}
+_CONTEXT_HEADERS = {
+    "architecture": "model",
+    "average": "averaging",
+    "averaging": "averaging",
+    "dataset": "dataset",
+    "experiment": "experiment",
+    "model": "model",
+    "model name": "model",
+    "name": "model",
+    "run": "run",
+    "split": "split",
+    "task": "task",
+    "threshold": "threshold",
+    "variant": "variant",
+}
 
 
 def extract_claims(text: str) -> list[Claim]:
@@ -141,6 +156,7 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
             cells = _split_table_row(lines[row_index])
             if not cells:
                 break
+            context = _table_context(headers, metrics, cells)
             for column, metric in enumerate(metrics):
                 if metric is None or column >= len(cells):
                     continue
@@ -152,6 +168,7 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
                             value=value,
                             raw_text=lines[row_index].strip(),
                             line=row_index + 1,
+                            context=context,
                         )
                     )
             row_index += 1
@@ -313,6 +330,7 @@ def _extract_html_table_claims(text: str) -> list[Claim]:
         headers = table[0][0]
         metrics = [_metric_from_header(header) for header in headers]
         for cells, line in table[1:]:
+            context = _table_context(headers, metrics, cells)
             for column, metric in enumerate(metrics):
                 if metric is None or column >= len(cells):
                     continue
@@ -324,6 +342,7 @@ def _extract_html_table_claims(text: str) -> list[Claim]:
                             value=value,
                             raw_text=" | ".join(cells),
                             line=line,
+                            context=context,
                         )
                     )
     return claims
@@ -336,6 +355,23 @@ def _table_value(metric: str, cell: str) -> float | None:
     match = matches[0]
     value = float(match.group("value").replace(",", "."))
     return _normalize_value(metric, value, percent=bool(match.group("percent")))
+
+
+def _table_context(
+    headers: list[str], metrics: list[str | None], cells: list[str]
+) -> dict[str, str]:
+    context: dict[str, str] = {}
+    for index, header in enumerate(headers):
+        if metrics[index] is not None or index >= len(cells):
+            continue
+        normalized_header = re.sub(
+            r"[^\w]+", " ", _plain_cell(header).casefold(), flags=re.UNICODE
+        ).strip()
+        key = _CONTEXT_HEADERS.get(normalized_header)
+        value = _plain_cell(cells[index])
+        if key and value and len(value) <= 200:
+            context[key] = value
+    return context
 
 
 def _normalize_value(metric: str, value: float, *, percent: bool) -> float:
@@ -354,10 +390,15 @@ def check_claims(
     observed_metrics: dict[str, float],
     tolerance: float,
     evidence_levels: dict[str, Literal["reported", "recomputed"]] | None = None,
+    evidence_contexts: dict[str, dict[str, str]] | None = None,
 ) -> list[ClaimCheck]:
     checks: list[ClaimCheck] = []
     for claim in claims:
         observed = observed_metrics.get(claim.metric)
+        if observed is not None and not _contexts_compatible(
+            claim.context, (evidence_contexts or {}).get(claim.metric, {})
+        ):
+            observed = None
         if observed is None:
             checks.append(
                 ClaimCheck(
@@ -367,6 +408,9 @@ def check_claims(
                     difference=None,
                     tolerance=tolerance,
                     evidence_level=None,
+                    display_kind=(
+                        "percentage" if is_unit_interval_metric(claim.metric) else "scalar"
+                    ),
                 )
             )
             continue
@@ -383,6 +427,14 @@ def check_claims(
                 difference=difference,
                 tolerance=tolerance,
                 evidence_level=evidence_level,
+                display_kind=("percentage" if is_unit_interval_metric(claim.metric) else "scalar"),
             )
         )
     return checks
+
+
+def _contexts_compatible(claim: dict[str, str], evidence: dict[str, str]) -> bool:
+    shared = set(claim) & set(evidence)
+    return not shared or all(
+        claim[key].strip().casefold() == evidence[key].strip().casefold() for key in shared
+    )

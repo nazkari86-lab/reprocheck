@@ -109,6 +109,10 @@
             "value": { "type": "number" },
             "raw_text": { "type": "string" },
             "line": { "type": "integer", "minimum": 1 }
+            ,"context": {
+              "type": "object",
+              "additionalProperties": { "type": "string", "maxLength": 200 }
+            }
           },
           "additionalProperties": false
         },
@@ -120,7 +124,8 @@
         "tolerance": { "type": "number", "minimum": 0 },
         "evidence_level": {
           "enum": ["reported", "recomputed", null]
-        }
+        },
+        "display_kind": { "enum": ["percentage", "scalar"] }
       },
       "additionalProperties": false
     },
@@ -143,6 +148,10 @@
         "ci_low": { "type": ["number", "null"] },
         "ci_high": { "type": ["number", "null"] },
         "evidence_level": { "enum": ["reported", "recomputed"] }
+        ,"context": {
+          "type": "object",
+          "additionalProperties": { "type": "string", "maxLength": 200 }
+        }
       },
       "additionalProperties": false
     },
@@ -183,6 +192,9 @@
         "near_overlap_rate": { "type": "number", "minimum": 0, "maximum": 1 },
         "train_duplicate_rows": { "type": "integer", "minimum": 0 },
         "test_duplicate_rows": { "type": "integer", "minimum": 0 },
+        "normalized_only_overlap_test_rows": { "type": "integer", "minimum": 0 },
+        "normalized_only_overlap_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "overlapping_group_count": { "type": "integer", "minimum": 0 },
         "group_column": { "type": ["string", "null"] },
         "overlapping_groups": {
           "type": "array",

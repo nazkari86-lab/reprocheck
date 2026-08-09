@@ -1,4 +1,4 @@
-# ReproCheck scientific protocol v0.6
+# ReproCheck scientific protocol
 
 ## Research questions
 
@@ -37,6 +37,18 @@ Constant-target R2 follows the finite convention: 1 for exact predictions and
 0 otherwise. Binary classification mode also emits hard Dice and hard IoU for
 the declared positive label.
 
+Binary precision/recall/F1/Dice/IoU require an explicit positive label. Without
+one, `auto` uses macro averaging even for two labels rather than guessing from
+lexicographic order. An optional `y_score` column adds exact AUROC, threshold-
+grouped AUPRC, Brier score, and log-loss clipped at machine epsilon; it requires an
+explicit positive label and both outcome classes.
+
+Markdown and HTML table claims retain recognized model/dataset/split/experiment
+context. A wide-CSV selector such as `model=proposed` scopes its observations;
+claims with a conflicting shared context are marked `no_evidence`. This is a
+bounded deterministic ClaimKey, not general document understanding or support
+for multiple evidence contexts inside one audit invocation.
+
 A reproduced number can still support a bad hypothesis. These statuses do not
 establish that a metric is appropriate, a hypothesis is true, or an experiment
 generalizes to deployment data.
@@ -67,6 +79,11 @@ are syntactic risk indicators. A test-named variable passed to `fit`, for
 example, is suspicious but is not proof of leakage. `validation_data` and
 `validation_split` arguments are not classified as fitting directly on test
 data. Every finding must be reviewed with its source cell.
+
+The v0.13 AST layer propagates train/test tags through assignments, containers,
+and simple same-notebook function wrappers to identify renamed test data flowing
+to `fit`/`fit_transform`. Dynamic dispatch, imports, closures, arbitrary helper
+modules, and runtime-dependent aliases remain outside its guarantee.
 
 ## Frozen corpus
 
@@ -337,6 +354,9 @@ universal leakage-detector accuracy claim.
   no trusted timestamp is provided.
 - A `supported` claim has not been independently recomputed.
 - Static notebook findings are risk indicators, not proven defects.
+- Detection mAP uses ReproCheck's declared matching/interpolation conventions;
+  it does not implement COCO `iscrowd`, ignore regions, area ranges, or maxDets
+  and is not claimed to be byte-equivalent to official COCOeval.
 
 The strongest next scientific step is dual independent annotation of a new,
 broader preregistered holdout, followed by blinded adjudication and comparison
