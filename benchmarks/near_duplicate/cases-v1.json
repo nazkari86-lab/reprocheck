@@ -1,0 +1,31 @@
+{
+  "schema": "reprocheck.near-duplicate-cases.v1",
+  "scope": "controlled English, Russian, and Kazakh lexical mutations; not a semantic-paraphrase corpus",
+  "threshold": 0.8,
+  "cases": [
+    {"id":"near-en-typo-split","label":"near","transformation":"typo and word split","left":"classification accuracy on validation dataset","right":"clasification accuracy on the validation data set"},
+    {"id":"near-en-inflection-flood","label":"near","transformation":"inflection","left":"satellite image shows flooded farmland near river","right":"satellite image shows flood farmland near river"},
+    {"id":"near-en-spelling-variant","label":"near","transformation":"typo and spelling variant","left":"patient identifier was anonymized before training","right":"patient identifer was anonymised before training"},
+    {"id":"near-en-punctuation-typo","label":"near","transformation":"punctuation and typo","left":"temperature sensor calibration completed successfully","right":"temperature-sensor calibration completed succesfully"},
+    {"id":"near-en-hyphen","label":"near","transformation":"hyphenation","left":"model evaluated on cross validation folds","right":"model evaluated on cross-validation folds"},
+    {"id":"near-en-plural","label":"near","transformation":"pluralization","left":"the glacier boundary moved twelve meters north","right":"the glacier boundaries moved twelve meters north"},
+    {"id":"near-ru-typo","label":"near","transformation":"Cyrillic typo","left":"обнаружено загрязнение воздуха возле школы","right":"обнаружено загрезнение воздуха возле школы"},
+    {"id":"near-kk-typo","label":"near","transformation":"Kazakh Cyrillic typo","left":"мұздық ауданы екі пайызға азайды","right":"мұздық ауданы екі паиызға азайды"},
+    {"id":"near-en-compound","label":"near","transformation":"compound substitution","left":"training data checksum verified","right":"training dataset checksum verified"},
+    {"id":"near-en-insertion","label":"near","transformation":"function-word insertion","left":"crop disease detected in northern field","right":"crop disease was detected in the northern field"},
+    {"id":"near-en-content-insertion","label":"near","transformation":"single content-word insertion","left":"red brick school in almaty","right":"red brick school located in almaty"},
+    {"id":"near-en-reorder","label":"near","transformation":"word reordering","left":"snow cover detected in northern mountain region","right":"in northern mountain region snow cover detected"},
+    {"id":"unrelated-en-01","label":"unrelated","transformation":"different topic","left":"classification accuracy on validation dataset","right":"river temperature sensor calibration"},
+    {"id":"unrelated-en-02","label":"unrelated","transformation":"different topic","left":"satellite image shows flooded farmland near river","right":"hospital patient blood pressure record"},
+    {"id":"unrelated-en-03","label":"unrelated","transformation":"shared generic identifier token","left":"patient identifier was anonymized before training","right":"satellite identifier assigned after launch"},
+    {"id":"unrelated-en-04","label":"unrelated","transformation":"different topic","left":"temperature sensor calibration completed successfully","right":"traffic congestion forecast failed yesterday"},
+    {"id":"unrelated-en-05","label":"unrelated","transformation":"different topic","left":"model evaluated on cross validation folds","right":"glacier area decreased by two percent"},
+    {"id":"unrelated-en-06","label":"unrelated","transformation":"shared number word","left":"the glacier boundary moved twelve meters north","right":"the hospital admitted twelve patients today"},
+    {"id":"unrelated-ru-01","label":"unrelated","transformation":"different Russian topic","left":"обнаружено загрязнение воздуха возле школы","right":"модель обучена на снимках ледника"},
+    {"id":"unrelated-kk-01","label":"unrelated","transformation":"different Kazakh topic","left":"мұздық ауданы екі пайызға азайды","right":"ауа сапасы мектеп жанында өлшенді"},
+    {"id":"unrelated-en-07","label":"unrelated","transformation":"different topic","left":"training data checksum verified","right":"urban road network optimization"},
+    {"id":"unrelated-en-08","label":"unrelated","transformation":"different topic","left":"crop disease detected in northern field","right":"speech recognition evaluated on kazakh audio"},
+    {"id":"unrelated-en-09","label":"unrelated","transformation":"one generic shared token","left":"red brick school in almaty","right":"blue whale observed in pacific ocean"},
+    {"id":"unrelated-en-10","label":"unrelated","transformation":"different topic","left":"snow cover detected in northern mountain region","right":"loan repayment risk estimated from income"}
+  ]
+}

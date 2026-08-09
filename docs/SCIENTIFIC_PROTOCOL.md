@@ -51,8 +51,14 @@ collapse.
 
 If a group column is declared, every non-empty group value shared by train and
 test is reported. The system makes no claim that undeclared identities, visual
-near-duplicates, or causal leakage are absent. Text near-duplicate results use
-token Jaccard similarity and are heuristic, not a certificate of absence.
+near-duplicates, or causal leakage are absent. The default
+`hybrid_lexical_v1` text score is the maximum of token-set Jaccard and Unicode
+character-trigram Dice similarity. Candidate generation indexes every token
+and trigram; size-only upper bounds remove a comparison only when neither score
+can reach the declared threshold. Therefore indexed results equal exhaustive
+pairwise evaluation for this score, but the score remains a lexical heuristic,
+not a semantic certificate of absence. `token_jaccard` preserves the previous
+method explicitly.
 
 ## Notebook boundary
 
@@ -292,7 +298,8 @@ contains 12 behavioral cases plus 3 malformed-input rejection cases.
   state-of-the-art extraction on unseen repositories.
 - A parser can miss uncommon phrasing outside the declared corpus.
 - A correct metric can originate from an invalid experimental design.
-- Normalization does not detect semantic near-duplicates.
+- Hybrid lexical matching catches controlled typos and word-boundary changes,
+  but does not establish semantic-paraphrase or visual-duplicate detection.
 - Uploaded evidence can be fabricated. Hashes preserve what was audited but do
   not prove how the files were produced.
 - The certificate checksum alone is not a digital signature. An optional

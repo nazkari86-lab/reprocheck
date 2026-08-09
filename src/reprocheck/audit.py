@@ -31,7 +31,8 @@ def run_audit(
     group_column: str | None = None,
     identity_columns: list[str] | None = None,
     text_column: str | None = None,
-    near_threshold: float = 0.9,
+    near_threshold: float = 0.8,
+    near_method: str = "hybrid_lexical_v1",
     positive_label: str | None = None,
     average: str = "auto",
     prediction_task: str = "classification",
@@ -106,6 +107,7 @@ def run_audit(
             identity_columns=identity_columns,
             text_column=text_column,
             near_threshold=near_threshold,
+            near_method=near_method,
         )
 
     artifact_identities = [(item.role, item.filename) for item in artifacts]
@@ -227,6 +229,7 @@ def run_audit(
             "identity_columns": identity_columns,
             "text_column": text_column,
             "near_threshold": near_threshold,
+            "near_method": near_method,
             "positive_label": positive_label,
             "average": average,
             "prediction_task": prediction_task,

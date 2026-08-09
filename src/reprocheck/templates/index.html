@@ -46,7 +46,8 @@
             <label>Группа объекта<input name="group_column" placeholder="patient_id / source_id"></label>
             <label>Идентичность строки<input name="identity_columns" placeholder="text,image_path"></label>
             <label>Текст для near-match<input name="text_column" placeholder="text"></label>
-            <label>Порог сходства<input name="near_threshold" type="number" value="0.9" min="0" max="1" step="0.01"></label>
+            <label>Метод near-match<select name="near_method"><option value="hybrid_lexical_v1">Hybrid lexical</option><option value="token_jaccard">Legacy token Jaccard</option></select></label>
+            <label>Порог сходства<input name="near_threshold" type="number" value="0.8" min="0" max="1" step="0.01"></label>
             <label>Positive label<input name="positive_label" placeholder="1 / disease"></label>
             <label>Задача predictions<select name="prediction_task"><option value="classification">classification</option><option value="regression">regression</option></select></label>
             <label>Усреднение<select name="average"><option value="auto">auto</option><option value="binary">binary</option><option value="macro">macro</option><option value="weighted">weighted</option></select></label>

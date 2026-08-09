@@ -273,3 +273,39 @@ def test_project_check_is_available_from_public_package_api():
     from reprocheck.batch import run_project_check
 
     assert reprocheck.run_project_check is run_project_check
+
+
+def test_project_manifest_forwards_near_duplicate_configuration(tmp_path: Path):
+    (tmp_path / "report.md").write_text("No metric claim.", encoding="utf-8")
+    (tmp_path / "train.csv").write_text(
+        "id,text\n1,classification accuracy on validation dataset\n", encoding="utf-8"
+    )
+    (tmp_path / "test.csv").write_text(
+        "id,text\n2,clasification accuracy on the validation data set\n", encoding="utf-8"
+    )
+    manifest = tmp_path / "reprocheck.json"
+    manifest.write_text(
+        json.dumps(
+            {
+                "schema_version": "reprocheck.project.v1",
+                "experiments": [
+                    {
+                        "id": "near",
+                        "report": "report.md",
+                        "train": "train.csv",
+                        "test": "test.csv",
+                        "identity_columns": ["id"],
+                        "text_column": "text",
+                        "near_method": "hybrid_lexical_v1",
+                        "near_threshold": 0.8,
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    output = tmp_path / "output"
+    assert main(["check", str(manifest), "--output-dir", str(output)]) == 1
+    child = json.loads((output / "near.audit.json").read_text(encoding="utf-8"))
+    assert child["parameters"]["near_method"] == "hybrid_lexical_v1"
+    assert child["leakage"]["near_overlap_test_rows"] == 1

@@ -43,6 +43,7 @@
         },
         "text_column": { "type": "string", "minLength": 1 },
         "near_threshold": { "type": "number", "minimum": 0, "maximum": 1 },
+        "near_method": { "enum": ["hybrid_lexical_v1", "token_jaccard"] },
         "positive_label": { "type": "string" },
         "prediction_task": { "enum": ["classification", "regression"] },
         "average": { "enum": ["auto", "binary", "macro", "weighted"] },

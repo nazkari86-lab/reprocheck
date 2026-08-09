@@ -46,7 +46,12 @@ def build_parser() -> argparse.ArgumentParser:
     audit.add_argument("--group-column")
     audit.add_argument("--identity-columns", help="comma-separated CSV columns")
     audit.add_argument("--text-column", help="column used for heuristic near-duplicate search")
-    audit.add_argument("--near-threshold", type=float, default=0.9)
+    audit.add_argument("--near-threshold", type=float, default=0.8)
+    audit.add_argument(
+        "--near-method",
+        choices=["hybrid_lexical_v1", "token_jaccard"],
+        default="hybrid_lexical_v1",
+    )
     audit.add_argument("--positive-label")
     audit.add_argument(
         "--prediction-task",
@@ -269,6 +274,7 @@ def main(argv: list[str] | None = None) -> int:
             identity_columns=identity_columns,
             text_column=args.text_column,
             near_threshold=args.near_threshold,
+            near_method=args.near_method,
             positive_label=args.positive_label,
             average=args.average,
             prediction_task=args.prediction_task,

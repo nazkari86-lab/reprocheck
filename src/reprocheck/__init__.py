@@ -8,6 +8,7 @@ from .version import __version__
 if TYPE_CHECKING:
     from .audit import run_audit
     from .batch import run_project_check
+    from .leakage import text_similarity
     from .signing import generate_keypair, sign_certificate, verify_certificate_signature
 
 __all__ = [
@@ -18,6 +19,7 @@ __all__ = [
     "run_audit",
     "run_project_check",
     "sign_certificate",
+    "text_similarity",
     "verify_certificate_signature",
 ]
 
@@ -35,4 +37,8 @@ def __getattr__(name: str) -> object:
         from . import signing
 
         return getattr(signing, name)
+    if name == "text_similarity":
+        from .leakage import text_similarity
+
+        return text_similarity
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

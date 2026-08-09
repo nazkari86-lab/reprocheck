@@ -20,7 +20,20 @@ integrity, tamper detection, and invalid-input rejection.
 
 The checked-in per-release baseline is a deterministic smoke benchmark, not
 evidence of real-world accuracy. CI compares the complete deterministic summary
-with `baseline-v0.10.1.json` rather than accepting a console success message.
+with `baseline-v0.11.0.json` rather than accepting a console success message.
+
+## Controlled lexical near-duplicates
+
+Run `make near-duplicate-benchmark` to evaluate the legacy token Jaccard method
+and `hybrid_lexical_v1` on 12 controlled English, Russian, and Kazakh lexical
+mutations plus 12 unrelated controls. At threshold 0.8, the frozen v1 result is
+100% precision and 100% recall for the hybrid method versus 100% precision and
+25% recall for token Jaccard. The cases and their SHA-256-bound baseline are in
+`near_duplicate/`.
+
+This small synthetic benchmark isolates typo, punctuation, word-boundary,
+inflection, insertion, and reordering behavior. It is not evidence of semantic
+paraphrase accuracy or natural-corpus prevalence.
 
 ## Frozen public artifacts
 
@@ -32,7 +45,7 @@ make study
 
 This verifies the source manifest and annotations, writes the raw schema-checked
 study input/output path, and compares all deterministic results with
-`real_artifacts/baseline-v3.json`. It measures 40 annotated numerical claims,
+`real_artifacts/baseline-v6.json`. It measures 40 annotated numerical claims,
 7 internally labelled notebooks, 67 defective real-file mutations, and 63
 semantically equivalent negative controls. Results are reported overall and by
 source repository against both a naive inline regex and a stronger format-aware

@@ -54,3 +54,31 @@ def test_upload_limit_is_enforced(monkeypatch):
         files={"report": ("report.md", b"Accuracy: 100%", "text/markdown")},
     )
     assert response.status_code == 413
+
+
+def test_web_forwards_hybrid_near_duplicate_configuration():
+    response = client.post(
+        "/api/audit",
+        data={
+            "identity_columns": "id",
+            "text_column": "text",
+            "near_method": "hybrid_lexical_v1",
+            "near_threshold": "0.8",
+        },
+        files={
+            "report": ("report.md", b"No metric claim.", "text/markdown"),
+            "train": (
+                "train.csv",
+                b"id,text\n1,classification accuracy on validation dataset\n",
+                "text/csv",
+            ),
+            "test": (
+                "test.csv",
+                b"id,text\n2,clasification accuracy on the validation data set\n",
+                "text/csv",
+            ),
+        },
+    )
+    assert response.status_code == 200
+    assert response.json()["parameters"]["near_method"] == "hybrid_lexical_v1"
+    assert response.json()["leakage"]["near_overlap_test_rows"] == 1

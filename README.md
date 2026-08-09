@@ -25,8 +25,9 @@ not execute uploaded Python or notebook code.
   positive label.
 - Accepts precomputed evidence from `metrics.json`, long-form CSV, or a
   selected experiment row in a wide CSV table.
-- Detects exact, normalized, group, and heuristic text overlap between train and
-  test CSV files.
+- Detects exact, normalized, group, and deterministic lexical near-overlap
+  between train and test CSV files, including many typos and word-boundary
+  changes missed by token-only matching.
 - Statically flags suspicious notebook execution order, preprocessing before a
   split, fitting on test-named data, and missing common seed declarations.
 - Records artifact hashes, metric methods, confidence intervals, parameters,
@@ -44,7 +45,7 @@ Install the published wheel directly from the immutable GitHub release:
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install \
-  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.10.1/reprocheck-0.10.1-py3-none-any.whl
+  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.11.0/reprocheck-0.11.0-py3-none-any.whl
 reprocheck demo
 ```
 
@@ -82,7 +83,10 @@ of maintaining long shell commands:
       "train": "data/train.csv",
       "test": "data/test.csv",
       "label_column": "label",
-      "identity_columns": ["sample_id"]
+      "identity_columns": ["sample_id"],
+      "text_column": "text",
+      "near_method": "hybrid_lexical_v1",
+      "near_threshold": 0.8
     }
   ]
 }
@@ -108,7 +112,7 @@ Use the same gate in GitHub Actions:
 
 ```yaml
 - uses: actions/checkout@v7
-- uses: nazkari86-lab/reprocheck@v0.10.1
+- uses: nazkari86-lab/reprocheck@v0.11.0
   with:
     manifest: reprocheck.json
     output-dir: outputs/reprocheck
@@ -128,6 +132,9 @@ reprocheck audit \
   --label-column label \
   --group-column source_id \
   --identity-columns text \
+  --text-column text \
+  --near-method hybrid_lexical_v1 \
+  --near-threshold 0.8 \
   --artifact model=models/model.bin \
   --artifact environment=requirements.lock \
   --output outputs/audit.json \
@@ -233,7 +240,8 @@ one patient, user, source, or event does not occur in both splits.
 ## Current scientific boundary
 
 An audit can prove exact overlap relative to the uploaded files and declared
-columns. It cannot prove that all semantic near-duplicates or every possible
+columns. Hybrid matching expands deterministic lexical coverage but cannot
+prove that semantic paraphrases, visual duplicates, or every possible
 methodological error have been found. A reproduced number can still support a
 bad hypothesis; ReproCheck reports computational evidence, not scientific
 truth.
@@ -252,9 +260,10 @@ listed in [`docs/RELEASE_0.8.1.md`](docs/RELEASE_0.8.1.md) and
 check is documented in [`docs/RELEASE_0.9.md`](docs/RELEASE_0.9.md). The
 authenticated-signature layer is documented in
 [`docs/RELEASE_0.10.md`](docs/RELEASE_0.10.md). Release provenance hardening is
-documented in [`docs/RELEASE_0.10.1.md`](docs/RELEASE_0.10.1.md), and all
-immutable commands are indexed in
-[`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
+documented in [`docs/RELEASE_0.10.1.md`](docs/RELEASE_0.10.1.md). The hybrid
+near-duplicate algorithm is documented in
+[`docs/RELEASE_0.11.md`](docs/RELEASE_0.11.md), and all immutable commands are
+indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
 
 ## Frozen real-artifact evidence
 

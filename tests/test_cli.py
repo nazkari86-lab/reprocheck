@@ -58,6 +58,45 @@ def test_cli_exit_codes_for_review_and_bad_input(tmp_path: Path, capsys):
     assert "ERROR:" in capsys.readouterr().err
 
 
+def test_cli_selects_hybrid_near_duplicate_method(tmp_path: Path):
+    report = tmp_path / "report.md"
+    train = tmp_path / "train.csv"
+    test = tmp_path / "test.csv"
+    output = tmp_path / "near.json"
+    report.write_text("No numerical metric is claimed.", encoding="utf-8")
+    train.write_text("id,text\n1,classification accuracy on validation dataset\n", encoding="utf-8")
+    test.write_text(
+        "id,text\n2,clasification accuracy on the validation data set\n", encoding="utf-8"
+    )
+    assert (
+        main(
+            [
+                "audit",
+                "--report",
+                str(report),
+                "--train",
+                str(train),
+                "--test",
+                str(test),
+                "--identity-columns",
+                "id",
+                "--text-column",
+                "text",
+                "--near-method",
+                "hybrid_lexical_v1",
+                "--near-threshold",
+                "0.8",
+                "--output",
+                str(output),
+            ]
+        )
+        == 1
+    )
+    payload = json.loads(output.read_text(encoding="utf-8"))
+    assert payload["leakage"]["near_overlap_test_rows"] == 1
+    assert payload["parameters"]["near_method"] == "hybrid_lexical_v1"
+
+
 def test_cli_verify_detects_artifact_tampering(tmp_path: Path):
     report = tmp_path / "report.md"
     predictions = tmp_path / "predictions.csv"

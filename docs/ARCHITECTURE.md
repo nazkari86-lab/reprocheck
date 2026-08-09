@@ -41,6 +41,13 @@ requires the embedded signer key to equal a separately supplied trusted public
 key. This separates payload integrity, key possession, identity trust, and
 timestamp trust rather than conflating them.
 
+The leakage layer performs exact and normalized SHA-256 joins, group joins, and
+an optional complete indexed lexical-similarity join. `hybrid_lexical_v1`
+indexes token and Unicode character-trigram features, rejects only candidates
+whose feature-set sizes mathematically cannot reach the threshold, then scores
+the survivors exactly. This is equivalent to exhaustive evaluation of the
+defined lexical score, not to semantic similarity.
+
 `batch.run_project_check` validates a declarative project manifest, resolves
 all inputs beneath the manifest directory, and completes every audit before it
 writes output. Child certificates retain the stable audit schema. A separate

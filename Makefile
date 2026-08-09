@@ -1,6 +1,6 @@
 SOURCE_DATE_EPOCH ?= 1704067200
 
-.PHONY: install test lint type coverage benchmark study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo serve
+.PHONY: install test lint type coverage benchmark near-duplicate-benchmark study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo serve
 
 install:
 	python3 -m pip install -c requirements-ci.txt -e '.[dev]'
@@ -21,6 +21,10 @@ coverage:
 benchmark:
 	python3 -m reprocheck.cli benchmark --output outputs/benchmark.json
 	python3 benchmarks/check_controlled_baseline.py --result outputs/benchmark.json
+
+near-duplicate-benchmark:
+	python3 benchmarks/near_duplicate/run_benchmark.py --output outputs/near-duplicate-benchmark.json
+	python3 benchmarks/near_duplicate/check_baseline.py --result outputs/near-duplicate-benchmark.json
 
 study:
 	python3 benchmarks/real_artifacts/fetch_sources.py
@@ -76,7 +80,7 @@ external-regenerate:
 build:
 	SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) python3 -m build
 
-gate: lint type coverage benchmark study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
+gate: lint type coverage benchmark near-duplicate-benchmark study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
 
 demo:
 	python3 -m reprocheck.cli demo
