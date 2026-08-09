@@ -8,6 +8,7 @@ train/test ──> overlap and group audit ────────────�
 notebook ──> static pipeline-risk analysis ──────────┘
 files ──> SHA-256 provenance ──> canonical report checksum
 project manifest ──> N isolated audits ──> linked batch certificate
+typed audit state ──> content-addressed evidence DAG ──> graph verification
 ```
 
 Every metric observation carries an evidence level. Tables and report exports
@@ -20,6 +21,12 @@ split, experiment, task, and variant. A selected wide-CSV evidence row carries
 the selector context. Shared context dimensions must agree before a claim can
 match that observation; an incompatible row becomes `no_evidence`, not a false
 metric mismatch. Context-free evidence preserves the legacy metric-name path.
+
+`evidence_graph.py` converts this typed audit state into a content-addressed
+DAG. It is downstream of parsing and metric computation: the graph records
+those deterministic relations but does not invent missing experiment
+semantics. The certificate verifier independently checks every graph digest,
+root, and edge endpoint.
 
 The claim layer exposes `extract_claims` for complete documents and
 `extract_table_claims` for explicitly table-scoped evaluation. Markdown and

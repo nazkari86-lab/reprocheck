@@ -8,6 +8,7 @@ from .certificate import seal_report
 from .claims import check_claims, extract_claims
 from .documents import extract_document_text
 from .detection import detection_evidence
+from .evidence_graph import build_evidence_graph
 from .evidence import load_metric_evidence, metric_evidence_from_predictions
 from .leakage import audit_csv_splits
 from .models import AuditReport, MetricObservation
@@ -52,6 +53,7 @@ def run_audit(
     text = extract_document_text(report_path, selector=report_selector)
     claims = extract_claims(text)
     metric_evidence = {}
+    metric_observations: list[tuple[str, MetricObservation]] = []
     evidence_conflicts: list[dict[str, object]] = []
 
     if metrics_path:
@@ -61,6 +63,7 @@ def run_audit(
             load_metric_evidence(metrics_path, selector=metrics_selector),
             tolerance=tolerance,
             conflicts=evidence_conflicts,
+            observations=metric_observations,
         )
     if detections_path:
         artifacts.append(describe_artifact(detections_path, "detections"))
@@ -69,6 +72,7 @@ def run_audit(
             detection_evidence(detections_path),
             tolerance=tolerance,
             conflicts=evidence_conflicts,
+            observations=metric_observations,
         )
     if predictions_path:
         artifacts.append(describe_artifact(predictions_path, "predictions"))
@@ -82,6 +86,7 @@ def run_audit(
             ),
             tolerance=tolerance,
             conflicts=evidence_conflicts,
+            observations=metric_observations,
         )
     observed = {name: evidence.value for name, evidence in metric_evidence.items()}
 
@@ -209,11 +214,39 @@ def run_audit(
                 }
             )
 
+    parameters = {
+        "tolerance": tolerance,
+        "report_selector": report_selector,
+        "metrics_selector": metrics_selector,
+        "label_column": label_column,
+        "group_column": group_column,
+        "identity_columns": identity_columns,
+        "text_column": text_column,
+        "near_threshold": near_threshold,
+        "near_method": near_method,
+        "positive_label": positive_label,
+        "average": average,
+        "prediction_task": prediction_task,
+        "extra_artifacts": [
+            {"role": role, "filename": path.name} for role, path in extra_artifacts or []
+        ],
+    }
+    status = "needs_review" if findings else "passed"
+    evidence_graph = build_evidence_graph(
+        tool_version=__version__,
+        status=status,
+        artifacts=artifacts,
+        claims=checks,
+        metric_evidence=metric_evidence,
+        metric_observations=metric_observations,
+        findings=findings,
+        parameters=parameters,
+    )
     result = AuditReport(
         schema_version="1.2",
         tool_version=__version__,
         created_at=datetime.now(UTC).isoformat(),
-        status="needs_review" if findings else "passed",
+        status=status,
         artifacts=artifacts,
         claims=checks,
         observed_metrics=observed,
@@ -221,23 +254,8 @@ def run_audit(
         leakage=leakage,
         notebook=notebook,
         findings=findings,
-        parameters={
-            "tolerance": tolerance,
-            "report_selector": report_selector,
-            "metrics_selector": metrics_selector,
-            "label_column": label_column,
-            "group_column": group_column,
-            "identity_columns": identity_columns,
-            "text_column": text_column,
-            "near_threshold": near_threshold,
-            "near_method": near_method,
-            "positive_label": positive_label,
-            "average": average,
-            "prediction_task": prediction_task,
-            "extra_artifacts": [
-                {"role": role, "filename": path.name} for role, path in extra_artifacts or []
-            ],
-        },
+        parameters=parameters,
+        evidence_graph=evidence_graph,
     )
     return seal_report(result)
 
@@ -248,9 +266,11 @@ def _merge_metric_evidence(
     *,
     tolerance: float,
     conflicts: list[dict[str, object]],
+    observations: list[tuple[str, MetricObservation]],
 ) -> None:
     priority = {"reported": 0, "recomputed": 1}
     for metric, observation in incoming.items():
+        observations.append((metric, observation))
         previous = existing.get(metric)
         if previous is not None and abs(previous.value - observation.value) > tolerance:
             conflicts.append(

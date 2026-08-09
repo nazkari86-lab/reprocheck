@@ -3,6 +3,8 @@ from pathlib import Path
 
 import uvicorn
 
+from reprocheck.audit import run_audit
+from reprocheck.certificate import digest_payload
 from reprocheck.cli import main
 
 
@@ -142,6 +144,79 @@ def test_cli_verify_detects_artifact_tampering(tmp_path: Path):
         )
         == 1
     )
+
+
+def test_cli_exports_verified_evidence_graph(tmp_path: Path):
+    report = tmp_path / "report.md"
+    metrics = tmp_path / "metrics.json"
+    certificate = tmp_path / "audit.json"
+    graph = tmp_path / "audit.mmd"
+    report.write_text("Accuracy: 90%", encoding="utf-8")
+    metrics.write_text('{"accuracy": 0.9}', encoding="utf-8")
+    assert (
+        main(
+            [
+                "audit",
+                "--report",
+                str(report),
+                "--metrics",
+                str(metrics),
+                "--output",
+                str(certificate),
+            ]
+        )
+        == 0
+    )
+    assert (
+        main(
+            [
+                "graph",
+                "--certificate",
+                str(certificate),
+                "--output",
+                str(graph),
+            ]
+        )
+        == 0
+    )
+    assert "flowchart LR" in graph.read_text(encoding="utf-8")
+    assert "supports" in graph.read_text(encoding="utf-8")
+
+    graph_json = tmp_path / "graph.json"
+    assert (
+        main(
+            [
+                "graph",
+                "--certificate",
+                str(certificate),
+                "--format",
+                "json",
+                "--output",
+                str(graph_json),
+            ]
+        )
+        == 0
+    )
+    assert json.loads(graph_json.read_text())["schema_version"] == "1.0"
+
+
+def test_cli_graph_rejects_invalid_or_legacy_certificate(tmp_path: Path):
+    invalid = tmp_path / "invalid.json"
+    invalid.write_text("{}", encoding="utf-8")
+    assert main(["graph", "--certificate", str(invalid)]) == 1
+
+    report = tmp_path / "report.md"
+    metrics = tmp_path / "metrics.json"
+    legacy = tmp_path / "legacy.json"
+    report.write_text("Accuracy: 90%", encoding="utf-8")
+    metrics.write_text('{"accuracy": 0.9}', encoding="utf-8")
+    audit = run_audit(report_path=report, metrics_path=metrics)
+    payload = audit.to_dict()
+    payload["evidence_graph"] = None
+    payload["certificate_sha256"] = digest_payload(payload)
+    legacy.write_text(json.dumps(payload), encoding="utf-8")
+
+    assert main(["graph", "--certificate", str(legacy)]) == 2
 
 
 def test_cli_demo_benchmark_and_serve_dispatch(tmp_path: Path, monkeypatch):

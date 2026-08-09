@@ -38,6 +38,8 @@ not execute uploaded Python or notebook code.
   and an integrity checksum in a machine-readable report.
 - Distinguishes a metric copied from supplied evidence (`supported`) from one
   independently recomputed from raw predictions (`verified`).
+- Emits a hashed evidence graph linking artifacts and experiment context to
+  metrics, report claims, and audit findings.
 - Rejects conflicting evidence instead of silently choosing one source.
 - Generates a standalone HTML report and provides a local web interface.
 
@@ -49,7 +51,7 @@ Install the published wheel directly from the immutable GitHub release:
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install \
-  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.13.0/reprocheck-0.13.0-py3-none-any.whl
+  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.14.0/reprocheck-0.14.0-py3-none-any.whl
 reprocheck demo
 ```
 
@@ -62,6 +64,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 make install
 reprocheck demo
+reprocheck graph --certificate outputs/demo-audit.json --output outputs/demo-graph.mmd
 reprocheck check examples/reprocheck.json --output-dir outputs/project --html
 reprocheck benchmark
 reprocheck study --corpus benchmarks/real_artifacts
@@ -116,7 +119,7 @@ Use the same gate in GitHub Actions:
 
 ```yaml
 - uses: actions/checkout@v7
-- uses: nazkari86-lab/reprocheck@v0.13.0
+- uses: nazkari86-lab/reprocheck@v0.14.0
   with:
     manifest: reprocheck.json
     output-dir: outputs/reprocheck
@@ -295,7 +298,10 @@ near-duplicate algorithm is documented in
 indexed-search API are documented in
 [`docs/RELEASE_0.12.md`](docs/RELEASE_0.12.md). Structured claims, probability
 evidence, AST data flow, and supply-chain changes are documented in
-[`docs/RELEASE_0.13.md`](docs/RELEASE_0.13.md), and all reproduction commands
+[`docs/RELEASE_0.13.md`](docs/RELEASE_0.13.md). The explicit evidence graph and
+its integrity construction are documented in
+[`docs/EVIDENCE_GRAPH.md`](docs/EVIDENCE_GRAPH.md) and
+[`docs/RELEASE_0.14.md`](docs/RELEASE_0.14.md), and all reproduction commands
 are indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
 
 ## Frozen real-artifact evidence

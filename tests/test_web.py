@@ -28,6 +28,8 @@ def test_audit_endpoint():
     assert response.status_code == 200
     assert response.json()["status"] == "passed"
     assert len(response.json()["certificate_sha256"]) == 64
+    assert len(response.json()["evidence_graph"]["graph_sha256"]) == 64
+    assert response.json()["evidence_graph"]["nodes"]
 
 
 def test_regression_metrics_are_marked_scalar_and_web_uses_metadata():

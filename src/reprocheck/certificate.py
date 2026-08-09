@@ -9,6 +9,7 @@ from typing import Any, TypeGuard
 
 from jsonschema import Draft202012Validator, FormatChecker
 
+from .evidence_graph import verify_evidence_graph
 from .models import AuditReport
 
 
@@ -80,6 +81,9 @@ def verify_certificate_file(path: Path, artifact_dir: Path | None = None) -> lis
     for error in schema_errors:
         location = ".".join(str(part) for part in error.absolute_path) or "$"
         errors.append(f"certificate schema violation at {location}: {error.message}")
+
+    if not schema_errors and payload.get("evidence_graph") is not None:
+        errors.extend(verify_evidence_graph(payload["evidence_graph"]))
 
     if artifact_dir:
         artifacts = payload.get("artifacts")

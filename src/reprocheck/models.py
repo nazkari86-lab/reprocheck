@@ -44,6 +44,38 @@ class MetricObservation:
     context: dict[str, str] = field(default_factory=dict)
 
 
+@dataclass(frozen=True)
+class EvidenceNode:
+    id: str
+    kind: str
+    label: str
+    attributes: dict[str, Any]
+    digest_sha256: str
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class EvidenceEdge:
+    source: str
+    target: str
+    relation: str
+    digest_sha256: str
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class EvidenceGraph:
+    schema_version: str
+    root_id: str
+    nodes: list[dict[str, Any]]
+    edges: list[dict[str, Any]]
+    graph_sha256: str
+
+
 @dataclass
 class LeakageAudit:
     train_rows: int
@@ -93,6 +125,7 @@ class AuditReport:
     notebook: NotebookAudit | None
     findings: list[dict[str, Any]]
     parameters: dict[str, Any]
+    evidence_graph: EvidenceGraph | None = None
     certificate_sha256: str = ""
 
     def to_dict(self) -> dict[str, Any]:

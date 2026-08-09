@@ -13,6 +13,9 @@
 4. How much detection-table format coverage does a frozen evaluator retain on
    repositories selected before zero-shot evaluation, and what changes after
    the resulting failures become development data?
+5. Can a typed, content-addressed graph preserve an independently checkable
+   path from supplied artifact bytes to a numerical claim without executing the
+   submitted model?
 
 This version does not claim superiority to human review. No timed human-review
 experiment has been run.
@@ -52,6 +55,20 @@ for multiple evidence contexts inside one audit invocation.
 A reproduced number can still support a bad hypothesis. These statuses do not
 establish that a metric is appropriate, a hypothesis is true, or an experiment
 generalizes to deployment data.
+
+## Evidence graph contract
+
+Version 0.14 emits a deterministic directed graph with typed experiment,
+artifact, context, metric, claim, and finding nodes. Closed edge relations state
+whether an artifact reports or recomputes a metric, whether that metric supports
+or contradicts a claim, and which artifacts are implicated by a finding. Node,
+edge, and graph digests are SHA-256 values over canonical JSON and are checked by
+certificate verification. The certificate digest commits to the complete graph.
+
+This establishes structural traceability relative to the supplied bytes and
+declared parameters. It does not establish causal completeness, semantic truth,
+metric suitability, or absence of undeclared evidence. The formal construction
+and exact non-guarantees are specified in `docs/EVIDENCE_GRAPH.md`.
 
 ## Leakage guarantees
 

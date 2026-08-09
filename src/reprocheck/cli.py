@@ -9,6 +9,7 @@ from .audit import run_audit
 from .batch import run_project_check
 from .benchmark import run_controlled_benchmark
 from .certificate import verify_certificate_file
+from .evidence_graph import render_mermaid
 from .render import render_html
 from .study import run_real_artifact_study, study_passed
 
@@ -78,6 +79,11 @@ def build_parser() -> argparse.ArgumentParser:
     verify = subparsers.add_parser("verify", help="verify report and optional source checksums")
     verify.add_argument("--certificate", type=Path, required=True)
     verify.add_argument("--artifact-dir", type=Path)
+
+    graph = subparsers.add_parser("graph", help="export a certificate evidence graph")
+    graph.add_argument("--certificate", type=Path, required=True)
+    graph.add_argument("--output", type=Path, default=Path("outputs/evidence-graph.mmd"))
+    graph.add_argument("--format", choices=["mermaid", "json"], default="mermaid")
 
     keygen = subparsers.add_parser("keygen", help="generate an encrypted Ed25519 signing key")
     keygen.add_argument("--private-key", type=Path, required=True)
@@ -171,6 +177,32 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"FAIL: {error}")
             return 1
         print("PASS: certificate schema, checksum, and supplied artifacts match")
+        return 0
+    if args.command == "graph":
+        errors = verify_certificate_file(args.certificate)
+        if errors:
+            for error in errors:
+                print(f"FAIL: {error}")
+            return 1
+        try:
+            payload = json.loads(args.certificate.read_text(encoding="utf-8"))
+            graph_payload = payload.get("evidence_graph")
+            if not isinstance(graph_payload, dict):
+                raise ValueError("certificate does not contain an evidence graph")
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        content = (
+            render_mermaid(graph_payload)
+            if args.format == "mermaid"
+            else json.dumps(graph_payload, ensure_ascii=False, indent=2) + "\n"
+        )
+        args.output.write_text(content, encoding="utf-8")
+        print(
+            f"nodes={len(graph_payload['nodes'])} edges={len(graph_payload['edges'])} "
+            f"output={args.output.resolve()}"
+        )
         return 0
     if args.command == "benchmark":
         result = run_controlled_benchmark(args.output)

@@ -40,6 +40,24 @@ def render_html(report: AuditReport, output: Path) -> None:
             f"seed detected: <b>{'yes' if report.notebook.has_random_seed else 'no'}</b>; "
             f"execution order: <b>{'monotonic' if report.notebook.execution_order_monotonic else 'suspect'}</b>."
         )
+    graph = "Evidence graph отсутствует."
+    if report.evidence_graph:
+        labels = {node["id"]: node["label"] for node in report.evidence_graph.nodes}
+        rows = "".join(
+            "<tr>"
+            f"<td>{html.escape(str(labels.get(edge['source'], edge['source'])))}</td>"
+            f"<td><code>{html.escape(str(edge['relation']))}</code></td>"
+            f"<td>{html.escape(str(labels.get(edge['target'], edge['target'])))}</td>"
+            "</tr>"
+            for edge in report.evidence_graph.edges[:100]
+        )
+        graph = (
+            f"<p><b>{len(report.evidence_graph.nodes)}</b> вершин, "
+            f"<b>{len(report.evidence_graph.edges)}</b> рёбер; graph SHA-256: "
+            f"<code>{html.escape(report.evidence_graph.graph_sha256)}</code>.</p>"
+            "<table><tr><th>Источник</th><th>Связь</th><th>Цель</th></tr>"
+            f"{rows}</table>"
+        )
     output.write_text(
         f"""<!doctype html>
 <html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
@@ -56,6 +74,7 @@ table{{width:100%;border-collapse:collapse}}td,th{{padding:10px;border-bottom:1p
 <section class="card"><h2>Утверждения</h2><table><tr><th>Метрика</th><th>Заявлено</th><th>Получено</th><th>Статус</th></tr>{checks}</table></section>
 <section class="card"><h2>Разделение данных</h2><p>{leakage}</p></section>
 <section class="card"><h2>Notebook</h2><p>{notebook}</p></section>
+<section class="card"><h2>Граф доказательств</h2>{graph}</section>
 <section class="card"><h2>Замечания</h2><ul>{findings}</ul></section>
 <small>ReproCheck {html.escape(report.tool_version)} · schema {html.escape(report.schema_version)}<br>certificate: {html.escape(report.certificate_sha256)}</small>
 </html>""",
