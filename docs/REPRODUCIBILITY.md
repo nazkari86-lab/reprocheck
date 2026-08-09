@@ -15,6 +15,19 @@ The gate checks formatting, static types, 97% minimum coverage, controlled
 defects, frozen public artifacts, mutation controls, every source/annotation
 hash, external audit certificates, wheel replays, and package construction.
 
+For a user project, keep `reprocheck.json` beside the paths it references and
+run:
+
+```bash
+reprocheck check reprocheck.json --output-dir outputs/reprocheck
+reprocheck verify --certificate outputs/reprocheck/batch-certificate.json --artifact-dir .
+```
+
+The first command creates independently verifiable child certificates and a
+manifest-bound batch certificate. The second command rechecks certificate
+schemas and digests, manifest provenance, nested artifact paths, byte sizes,
+and source SHA-256 values without rerunning model code.
+
 ## Evidence phases
 
 | Artifact | Scientific phase | Immutable command |

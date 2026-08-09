@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "reprocheck"
-version = "0.8.4"
+version = "0.9.0"
 description = "Trace scientific claims to reproducible metrics and dataset evidence."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -60,6 +60,7 @@ packages = ["src/reprocheck"]
 [tool.hatch.build.targets.sdist]
 include = [
   "/.github",
+  "/action.yml",
   "/benchmarks",
   "/docs",
   "/examples",

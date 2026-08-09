@@ -45,6 +45,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install -c requirements-ci.txt -e '.[dev]'
 reprocheck demo
+reprocheck check examples/reprocheck.json --output-dir outputs/project --html
 reprocheck benchmark
 reprocheck study --corpus benchmarks/real_artifacts
 reprocheck serve
@@ -52,6 +53,57 @@ make gate
 ```
 
 Open <http://127.0.0.1:8000> after starting the server.
+
+## One-command project check
+
+Store all experiment inputs in a versioned `reprocheck.json` manifest instead
+of maintaining long shell commands:
+
+```json
+{
+  "schema_version": "reprocheck.project.v1",
+  "experiments": [
+    {
+      "id": "classifier",
+      "report": "results/report.md",
+      "predictions": "results/predictions.csv",
+      "train": "data/train.csv",
+      "test": "data/test.csv",
+      "label_column": "label",
+      "identity_columns": ["sample_id"]
+    }
+  ]
+}
+```
+
+Run and verify the whole project:
+
+```bash
+reprocheck check reprocheck.json --output-dir outputs/reprocheck --html
+reprocheck verify \
+  --certificate outputs/reprocheck/batch-certificate.json \
+  --artifact-dir .
+```
+
+Paths are resolved relative to the manifest and cannot escape that directory,
+including through symlinks. The command validates the manifest before reading
+evidence, audits every experiment, writes one normal certificate per experiment,
+and then seals a batch certificate that binds the manifest and every child
+certificate. Exit code `0` means all experiments passed, `1` means review is
+required, and `2` means the input contract is invalid.
+
+Use the same gate in GitHub Actions:
+
+```yaml
+- uses: actions/checkout@v7
+- uses: nazkari86-lab/reprocheck@v0.9.0
+  with:
+    manifest: reprocheck.json
+    output-dir: outputs/reprocheck
+```
+
+The action installs the tagged ReproCheck source, runs the project check, and
+fails the job when any experiment needs review or the manifest is invalid.
 
 ## CLI audit
 
@@ -95,10 +147,12 @@ dog,cat
 {"accuracy": 0.91, "f1": 0.89}
 ```
 
-The detection and audit certificate contracts are published as JSON Schema:
+The detection, project, and certificate contracts are published as JSON Schema:
 [`detections-v1.schema.json`](src/reprocheck/schemas/detections-v1.schema.json)
+[`project-manifest-v1.schema.json`](src/reprocheck/schemas/project-manifest-v1.schema.json),
+[`audit-report-v1.2.schema.json`](src/reprocheck/schemas/audit-report-v1.2.schema.json),
 and
-[`audit-report-v1.2.schema.json`](src/reprocheck/schemas/audit-report-v1.2.schema.json).
+[`batch-certificate-v1.schema.json`](src/reprocheck/schemas/batch-certificate-v1.schema.json).
 The frozen public-corpus result follows
 [`real-study-v2.schema.json`](src/reprocheck/schemas/real-study-v2.schema.json).
 The cross-repository challenge outputs follow
@@ -147,7 +201,8 @@ summarized in [`docs/RELEASE_0.6.md`](docs/RELEASE_0.6.md); the narrow post-hold
 [`docs/RELEASE_0.8.md`](docs/RELEASE_0.8.md). Publication metadata changes are
 listed in [`docs/RELEASE_0.8.1.md`](docs/RELEASE_0.8.1.md) and
 [`docs/RELEASE_0.8.2.md`](docs/RELEASE_0.8.2.md) through
-[`docs/RELEASE_0.8.4.md`](docs/RELEASE_0.8.4.md), and all immutable
+[`docs/RELEASE_0.8.4.md`](docs/RELEASE_0.8.4.md). The manifest-driven project
+check is documented in [`docs/RELEASE_0.9.md`](docs/RELEASE_0.9.md), and all immutable
 commands are indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
 
 ## Frozen real-artifact evidence

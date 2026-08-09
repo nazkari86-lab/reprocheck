@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reprocheck.local/schemas/project-manifest-v1.schema.json",
+  "title": "ReproCheck project manifest",
+  "type": "object",
+  "required": ["schema_version", "experiments"],
+  "properties": {
+    "schema_version": { "const": "reprocheck.project.v1" },
+    "experiments": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/experiment" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+    },
+    "experiment": {
+      "type": "object",
+      "required": ["id", "report"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$" },
+        "report": { "$ref": "#/$defs/relativePath" },
+        "report_selector": { "type": "string", "minLength": 1 },
+        "notebook": { "$ref": "#/$defs/relativePath" },
+        "metrics": { "$ref": "#/$defs/relativePath" },
+        "metrics_selector": { "type": "string", "minLength": 1 },
+        "detections": { "$ref": "#/$defs/relativePath" },
+        "predictions": { "$ref": "#/$defs/relativePath" },
+        "train": { "$ref": "#/$defs/relativePath" },
+        "test": { "$ref": "#/$defs/relativePath" },
+        "label_column": { "type": "string", "minLength": 1 },
+        "group_column": { "type": "string", "minLength": 1 },
+        "identity_columns": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "text_column": { "type": "string", "minLength": 1 },
+        "near_threshold": { "type": "number", "minimum": 0, "maximum": 1 },
+        "positive_label": { "type": "string" },
+        "prediction_task": { "enum": ["classification", "regression"] },
+        "average": { "enum": ["auto", "binary", "macro", "weighted"] },
+        "tolerance": { "type": "number", "minimum": 0 },
+        "artifacts": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^(?!(?:report|notebook|metrics|detections|predictions|train|test)$)(?!\\.{1,2}$)[A-Za-z0-9_.-]+$"
+          },
+          "additionalProperties": { "$ref": "#/$defs/relativePath" }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

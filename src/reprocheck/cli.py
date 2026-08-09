@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 from .audit import run_audit
+from .batch import run_project_check
 from .benchmark import run_controlled_benchmark
 from .certificate import verify_certificate_file
 from .render import render_html
@@ -56,6 +57,11 @@ def build_parser() -> argparse.ArgumentParser:
     audit.add_argument("--tolerance", type=float, default=0.005)
     audit.add_argument("--output", type=Path, default=Path("outputs/audit.json"))
     audit.add_argument("--html", type=Path)
+
+    check = subparsers.add_parser("check", help="audit all experiments in a project manifest")
+    check.add_argument("manifest", type=Path, nargs="?", default=Path("reprocheck.json"))
+    check.add_argument("--output-dir", type=Path, default=Path("outputs/reprocheck"))
+    check.add_argument("--html", action="store_true", help="also render one HTML report per audit")
 
     demo = subparsers.add_parser("demo", help="run the bundled reproducibility example")
     demo.add_argument("--output-dir", type=Path, default=Path("outputs"))
@@ -139,6 +145,22 @@ def main(argv: list[str] | None = None) -> int:
         )
         print(f"output={args.output.resolve()}")
         return 0 if study_passed(result) else 1
+    if args.command == "check":
+        try:
+            result = run_project_check(args.manifest, args.output_dir, html=args.html)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(
+            f"status={result['status']} experiments={len(result['experiments'])} "
+            f"output={(args.output_dir / 'batch-certificate.json').resolve()}"
+        )
+        for experiment in result["experiments"]:
+            print(
+                f"{experiment['id']}: status={experiment['status']} "
+                f"findings={experiment['findings']} certificate={experiment['certificate']}"
+            )
+        return 1 if result["status"] == "needs_review" else 0
     if args.command == "demo":
         root = Path(__file__).parent / "demo_data"
         args.output_dir.mkdir(parents=True, exist_ok=True)

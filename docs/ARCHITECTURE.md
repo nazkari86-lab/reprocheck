@@ -7,6 +7,7 @@ detection boxes ──> IoU matching + AP recomputation ─┤
 train/test ──> overlap and group audit ──────────────┼─> findings
 notebook ──> static pipeline-risk analysis ──────────┘
 files ──> SHA-256 provenance ──> canonical report checksum
+project manifest ──> N isolated audits ──> linked batch certificate
 ```
 
 Every metric observation carries an evidence level. Tables and report exports
@@ -32,3 +33,11 @@ rejects path traversal and malformed descriptors, and verifies both SHA-256 and
 byte length. It also validates the complete payload against the bundled audit
 JSON Schema before returning success. The checksum is intentionally not an
 identity signature.
+
+`batch.run_project_check` validates a declarative project manifest, resolves
+all inputs beneath the manifest directory, and completes every audit before it
+writes output. Child certificates retain the stable audit schema. A separate
+batch certificate binds the manifest checksum, experiment IDs, statuses,
+finding counts, and child certificate digests. During verification, the signed
+manifest restores the role-to-relative-path mapping needed to verify artifacts
+inside nested project directories.

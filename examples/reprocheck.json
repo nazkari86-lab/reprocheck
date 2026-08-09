@@ -1,0 +1,15 @@
+{
+  "schema_version": "reprocheck.project.v1",
+  "experiments": [
+    {
+      "id": "city-classifier",
+      "report": "report.md",
+      "predictions": "predictions.csv",
+      "train": "train.csv",
+      "test": "test.csv",
+      "label_column": "label",
+      "group_column": "source_id",
+      "identity_columns": ["text"]
+    }
+  ]
+}

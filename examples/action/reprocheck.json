@@ -1,0 +1,10 @@
+{
+  "schema_version": "reprocheck.project.v1",
+  "experiments": [
+    {
+      "id": "verified-classifier",
+      "report": "report.md",
+      "predictions": "predictions.csv"
+    }
+  ]
+}
