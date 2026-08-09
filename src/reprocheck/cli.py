@@ -74,6 +74,25 @@ def build_parser() -> argparse.ArgumentParser:
     verify.add_argument("--certificate", type=Path, required=True)
     verify.add_argument("--artifact-dir", type=Path)
 
+    keygen = subparsers.add_parser("keygen", help="generate an encrypted Ed25519 signing key")
+    keygen.add_argument("--private-key", type=Path, required=True)
+    keygen.add_argument("--public-key", type=Path, required=True)
+    keygen.add_argument("--password-env", default="REPROCHECK_KEY_PASSWORD")
+
+    sign = subparsers.add_parser("sign", help="create a detached Ed25519 certificate signature")
+    sign.add_argument("--certificate", type=Path, required=True)
+    sign.add_argument("--private-key", type=Path, required=True)
+    sign.add_argument("--output", type=Path)
+    sign.add_argument("--password-env", default="REPROCHECK_KEY_PASSWORD")
+
+    verify_signature = subparsers.add_parser(
+        "verify-signature", help="verify a signature against a trusted Ed25519 public key"
+    )
+    verify_signature.add_argument("--certificate", type=Path, required=True)
+    verify_signature.add_argument("--signature", type=Path, required=True)
+    verify_signature.add_argument("--public-key", type=Path, required=True)
+    verify_signature.add_argument("--artifact-dir", type=Path)
+
     benchmark = subparsers.add_parser("benchmark", help="run controlled defect benchmark")
     benchmark.add_argument("--output", type=Path, default=Path("outputs/benchmark.json"))
 
@@ -87,6 +106,54 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    if args.command == "keygen":
+        from .signing import generate_keypair, password_from_environment
+
+        try:
+            fingerprint = generate_keypair(
+                args.private_key,
+                args.public_key,
+                password_from_environment(args.password_env),
+            )
+        except (OSError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(f"private_key={args.private_key.resolve()}")
+        print(f"public_key={args.public_key.resolve()}")
+        print(f"public_key_fingerprint_sha256={fingerprint}")
+        return 0
+    if args.command == "sign":
+        from .signing import password_from_environment, sign_certificate
+
+        output = args.output or args.certificate.with_name(f"{args.certificate.name}.sig.json")
+        try:
+            payload = sign_certificate(
+                args.certificate,
+                args.private_key,
+                output,
+                password_from_environment(args.password_env),
+            )
+        except (OSError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(f"signature={output.resolve()}")
+        print(f"public_key_fingerprint_sha256={payload['public_key']['fingerprint_sha256']}")
+        return 0
+    if args.command == "verify-signature":
+        from .signing import verify_certificate_signature
+
+        errors = verify_certificate_signature(
+            args.certificate,
+            args.signature,
+            args.public_key,
+            args.artifact_dir,
+        )
+        if errors:
+            for error in errors:
+                print(f"FAIL: {error}")
+            return 1
+        print("PASS: Ed25519 signature is valid and matches the trusted public key")
+        return 0
     if args.command == "serve":
         import uvicorn
 

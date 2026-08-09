@@ -96,7 +96,7 @@ Use the same gate in GitHub Actions:
 
 ```yaml
 - uses: actions/checkout@v7
-- uses: nazkari86-lab/reprocheck@v0.9.1
+- uses: nazkari86-lab/reprocheck@v0.10.0
   with:
     manifest: reprocheck.json
     output-dir: outputs/reprocheck
@@ -131,6 +131,38 @@ reprocheck verify \
   --artifact-dir examples
 ```
 
+## Authenticated signatures
+
+Generate an encrypted Ed25519 key once. The password is read from an
+environment variable and is never accepted as a command-line argument:
+
+```bash
+export REPROCHECK_KEY_PASSWORD='use-a-long-secret-from-your-password-manager'
+reprocheck keygen \
+  --private-key reprocheck.private.pem \
+  --public-key reprocheck.public.pem
+reprocheck sign \
+  --certificate outputs/reprocheck/batch-certificate.json \
+  --private-key reprocheck.private.pem
+```
+
+Keep the private key out of Git. Publish the public key and its displayed
+SHA-256 fingerprint through a separate trusted channel. A reviewer verifies
+the certificate, all linked artifacts, the signature, and signer key together:
+
+```bash
+reprocheck verify-signature \
+  --certificate outputs/reprocheck/batch-certificate.json \
+  --signature outputs/reprocheck/batch-certificate.json.sig.json \
+  --public-key reprocheck.public.pem \
+  --artifact-dir .
+```
+
+This proves that the exact certificate bytes were signed by the private key
+corresponding to the trusted public key. It proves an author's identity only
+when that public key or fingerprint was authenticated independently, and it
+does not provide a trusted timestamp.
+
 ## Input contracts
 
 `predictions.csv`:
@@ -149,10 +181,13 @@ dog,cat
 
 The detection, project, and certificate contracts are published as JSON Schema:
 [`detections-v1.schema.json`](src/reprocheck/schemas/detections-v1.schema.json)
+and
 [`project-manifest-v1.schema.json`](src/reprocheck/schemas/project-manifest-v1.schema.json),
 [`audit-report-v1.2.schema.json`](src/reprocheck/schemas/audit-report-v1.2.schema.json),
 and
 [`batch-certificate-v1.schema.json`](src/reprocheck/schemas/batch-certificate-v1.schema.json).
+Detached signatures follow
+[`certificate-signature-v1.schema.json`](src/reprocheck/schemas/certificate-signature-v1.schema.json).
 The frozen public-corpus result follows
 [`real-study-v2.schema.json`](src/reprocheck/schemas/real-study-v2.schema.json).
 The cross-repository challenge outputs follow
@@ -202,8 +237,10 @@ summarized in [`docs/RELEASE_0.6.md`](docs/RELEASE_0.6.md); the narrow post-hold
 listed in [`docs/RELEASE_0.8.1.md`](docs/RELEASE_0.8.1.md) and
 [`docs/RELEASE_0.8.2.md`](docs/RELEASE_0.8.2.md) through
 [`docs/RELEASE_0.8.4.md`](docs/RELEASE_0.8.4.md). The manifest-driven project
-check is documented in [`docs/RELEASE_0.9.md`](docs/RELEASE_0.9.md), and all immutable
-commands are indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
+check is documented in [`docs/RELEASE_0.9.md`](docs/RELEASE_0.9.md). The
+authenticated-signature layer is documented in
+[`docs/RELEASE_0.10.md`](docs/RELEASE_0.10.md), and all immutable commands are
+indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
 
 ## Frozen real-artifact evidence
 

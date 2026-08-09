@@ -359,5 +359,5 @@
   },
   "schema": "reprocheck.real-artifact-baseline.v6",
   "study_schema_version": "2.0",
-  "tool_version": "0.9.1"
+  "tool_version": "0.10.0"
 }

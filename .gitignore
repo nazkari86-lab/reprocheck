@@ -9,3 +9,4 @@ dist/
 build/
 outputs/**
 !outputs/.gitkeep
+*.private.pem

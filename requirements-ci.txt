@@ -1,5 +1,6 @@
 # Direct runtime and verification dependencies used by GitHub Actions.
 build==1.5.0
+cryptography==50.0.0
 fastapi==0.141.1
 httpx==0.28.1
 jinja2==3.1.6

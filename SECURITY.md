@@ -13,6 +13,10 @@ Do not add notebook execution directly to the web process. A future execution
 worker must use an isolated container with no network access, a read-only base
 filesystem, a non-root user, CPU/memory/time limits, and disposable storage.
 
-The SHA-256 certificate is an integrity checksum, not an authenticated digital
-signature. It detects payload or artifact changes but does not prove author
-identity or trusted timestamping.
+The built-in SHA-256 certificate is an integrity checksum, not an authenticated
+digital signature. ReproCheck can add a detached Ed25519 signature using an
+encrypted private key. That signature proves possession of the corresponding
+private key; author identity is established only when the public key or its
+fingerprint is authenticated through an independent trusted channel. ReproCheck
+does not provide trusted timestamping. Never commit a private signing key or
+its password.

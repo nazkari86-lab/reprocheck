@@ -34,6 +34,13 @@ byte length. It also validates the complete payload against the bundled audit
 JSON Schema before returning success. The checksum is intentionally not an
 identity signature.
 
+The optional signing layer signs the exact certificate bytes with an encrypted
+Ed25519 private key and writes a strict detached JSON envelope. Verification
+first rechecks the certificate and artifacts, then verifies the signature and
+requires the embedded signer key to equal a separately supplied trusted public
+key. This separates payload integrity, key possession, identity trust, and
+timestamp trust rather than conflating them.
+
 `batch.run_project_check` validates a declarative project manifest, resolves
 all inputs beneath the manifest directory, and completes every audit before it
 writes output. Child certificates retain the stable audit schema. A separate

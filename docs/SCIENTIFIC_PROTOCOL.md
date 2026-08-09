@@ -295,8 +295,10 @@ contains 12 behavioral cases plus 3 malformed-input rejection cases.
 - Normalization does not detect semantic near-duplicates.
 - Uploaded evidence can be fabricated. Hashes preserve what was audited but do
   not prove how the files were produced.
-- The certificate checksum is not a digital signature and does not establish
-  author identity.
+- The certificate checksum alone is not a digital signature. An optional
+  detached Ed25519 signature establishes possession of a key, but author
+  identity still depends on independent authentication of that public key and
+  no trusted timestamp is provided.
 - A `supported` claim has not been independently recomputed.
 - Static notebook findings are risk indicators, not proven defects.
 

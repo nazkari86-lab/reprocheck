@@ -28,6 +28,25 @@ manifest-bound batch certificate. The second command rechecks certificate
 schemas and digests, manifest provenance, nested artifact paths, byte sizes,
 and source SHA-256 values without rerunning model code.
 
+To authenticate the exact batch certificate bytes, sign them with a private
+Ed25519 key and verify them against a public key obtained through a separate
+trusted channel:
+
+```bash
+export REPROCHECK_KEY_PASSWORD='use-a-long-secret-from-your-password-manager'
+reprocheck keygen --private-key reprocheck.private.pem --public-key reprocheck.public.pem
+reprocheck sign --certificate outputs/reprocheck/batch-certificate.json \
+  --private-key reprocheck.private.pem
+reprocheck verify-signature \
+  --certificate outputs/reprocheck/batch-certificate.json \
+  --signature outputs/reprocheck/batch-certificate.json.sig.json \
+  --public-key reprocheck.public.pem \
+  --artifact-dir .
+```
+
+This is an authenticity check, not a trusted timestamp or proof that the
+independently supplied identity-to-key binding is correct.
+
 ## Evidence phases
 
 | Artifact | Scientific phase | Immutable command |

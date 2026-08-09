@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reprocheck.local/schemas/certificate-signature-v1.schema.json",
+  "title": "ReproCheck detached certificate signature",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "algorithm",
+    "created_at",
+    "certificate",
+    "public_key",
+    "signature"
+  ],
+  "properties": {
+    "schema_version": { "const": "reprocheck.signature.v1" },
+    "algorithm": { "const": "Ed25519" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "certificate": { "$ref": "#/$defs/file" },
+    "public_key": {
+      "type": "object",
+      "required": ["encoding", "value", "fingerprint_sha256"],
+      "properties": {
+        "encoding": { "const": "raw-base64" },
+        "value": { "type": "string", "pattern": "^[A-Za-z0-9+/]{43}=$" },
+        "fingerprint_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "signature": {
+      "type": "object",
+      "required": ["encoding", "value"],
+      "properties": {
+        "encoding": { "const": "base64" },
+        "value": { "type": "string", "pattern": "^[A-Za-z0-9+/]{86}==$" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "file": {
+      "type": "object",
+      "required": ["filename", "sha256", "size_bytes"],
+      "properties": {
+        "filename": { "type": "string", "pattern": "^(?!\\.{1,2}$)[^/\\\\]+$" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "size_bytes": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    }
+  }
+}
