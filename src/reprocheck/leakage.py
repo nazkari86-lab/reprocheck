@@ -65,6 +65,7 @@ def find_text_matches(
         raise ValueError("excluded test index is out of range")
 
     train_ordered = [_ordered_tokens(text) for text in train_texts]
+    train_ordered_counts = [Counter(tokens) for tokens in train_ordered]
     train_tokens = [set(tokens) for tokens in train_ordered]
     train_ngrams = (
         [_character_ngrams(text) for text in train_texts]
@@ -87,6 +88,7 @@ def find_text_matches(
         if test_index in excluded:
             continue
         ordered = _ordered_tokens(text)
+        ordered_counts = Counter(ordered)
         tokens = set(ordered)
         ngrams = _character_ngrams(text) if method == "hybrid_lexical_v1" else set()
         if threshold > 0 and not tokens and not ngrams:
@@ -112,6 +114,8 @@ def find_text_matches(
                     method,
                     left_ordered_size=len(ordered),
                     right_ordered_size=len(train_ordered[train_index]),
+                    left_ordered_counts=ordered_counts,
+                    right_ordered_counts=train_ordered_counts[train_index],
                 )
                 < threshold
             ):
@@ -331,11 +335,17 @@ def _similarity_upper_bound(
     *,
     left_ordered_size: int = 0,
     right_ordered_size: int = 0,
+    left_ordered_counts: Counter[str] | None = None,
+    right_ordered_counts: Counter[str] | None = None,
 ) -> float:
     token_maximum = _jaccard_size_upper_bound(len(left_tokens), len(right_tokens))
     if method == "token_jaccard":
         return token_maximum
     if method == "ordered_tokens_v1":
+        if left_ordered_counts is not None and right_ordered_counts is not None:
+            shared = sum((left_ordered_counts & right_ordered_counts).values())
+            total = left_ordered_size + right_ordered_size
+            return 2 * shared / total if total else 0.0
         return _dice_size_upper_bound(left_ordered_size, right_ordered_size)
     ngram_maximum = _dice_size_upper_bound(len(left_ngrams), len(right_ngrams))
     return max(token_maximum, ngram_maximum)

@@ -1,6 +1,6 @@
 SOURCE_DATE_EPOCH ?= 1704067200
 
-.PHONY: install test lint type coverage benchmark near-duplicate-benchmark study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo serve
+.PHONY: install test lint type coverage benchmark near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo serve
 
 install:
 	python3 -m pip install -c requirements-ci.txt -e '.[dev]'
@@ -25,6 +25,14 @@ benchmark:
 near-duplicate-benchmark:
 	python3 benchmarks/near_duplicate/run_benchmark.py --output outputs/near-duplicate-benchmark.json
 	python3 benchmarks/near_duplicate/check_baseline.py --result outputs/near-duplicate-benchmark.json
+
+text-index-benchmark:
+	python3 benchmarks/text_index/run_benchmark.py --output outputs/text-index-benchmark.json
+	python3 benchmarks/text_index/check_baseline.py --result outputs/text-index-benchmark.json
+
+paws-study:
+	python3 benchmarks/paws_leakage/verify_registration.py
+	python3 benchmarks/paws_leakage/verify_locked_test.py
 
 study:
 	python3 benchmarks/real_artifacts/fetch_sources.py
@@ -80,7 +88,7 @@ external-regenerate:
 build:
 	SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) python3 -m build
 
-gate: lint type coverage benchmark near-duplicate-benchmark study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
+gate: lint type coverage benchmark near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
 
 demo:
 	python3 -m reprocheck.cli demo

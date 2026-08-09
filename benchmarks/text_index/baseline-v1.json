@@ -1,0 +1,43 @@
+{
+  "schema": "reprocheck.text-index-scalability.v1",
+  "tool_version": "0.12.0",
+  "method": "ordered_tokens_v1",
+  "threshold": 0.8,
+  "correctness": {
+    "indexed_equals_exhaustive": true,
+    "verified_pairs": 30000
+  },
+  "cases": [
+    {
+      "name": "sparse_vocabulary",
+      "train_rows": 10000,
+      "test_rows": 1000,
+      "expected_matches": 500,
+      "observed_matches": 500,
+      "exhaustive_pairs": 10000000,
+      "candidate_pairs": 51548,
+      "scored_pairs": 500,
+      "candidate_reduction": 0.9948452,
+      "expensive_score_reduction": 0.99995,
+      "common_token": false
+    },
+    {
+      "name": "shared_common_token",
+      "train_rows": 2000,
+      "test_rows": 200,
+      "expected_matches": 100,
+      "observed_matches": 100,
+      "exhaustive_pairs": 400000,
+      "candidate_pairs": 400000,
+      "scored_pairs": 100,
+      "candidate_reduction": 0.0,
+      "expensive_score_reduction": 0.99975,
+      "common_token": true
+    }
+  ],
+  "limitations": [
+    "Pair-count reduction is deterministic; wall-clock speed is environment-dependent.",
+    "The generated corpora test index mechanics, not natural-language accuracy.",
+    "A ubiquitous token can eliminate candidate-set reduction, although the multiset bound still avoids expensive sequence scoring."
+  ]
+}

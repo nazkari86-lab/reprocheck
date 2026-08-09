@@ -57,6 +57,8 @@ independently supplied identity-to-key binding is correct.
 | v0.7 AP holdout | development after v0.6 inspection | `make holdout-development` |
 | v0.7 cross-domain holdout | preregistered zero-shot | `make holdout-v07` |
 | v0.8 cross-domain result | development after v0.7 inspection | `make holdout-v08-development` |
+| v0.12 PAWS validation | development threshold selection | `make paws-study` |
+| v0.12 PAWS test | preregistered locked test | `make paws-study` |
 
 Do not compare a development score with a zero-shot score as if both estimated
 generalization. The repository intentionally preserves failures and label
@@ -79,18 +81,18 @@ provenance attestation bound to this public repository and its release
 workflow. Verify both before installation:
 
 ```bash
-gh release download v0.11.0 --repo nazkari86-lab/reprocheck --dir reprocheck-release
+gh release download v0.12.0 --repo nazkari86-lab/reprocheck --dir reprocheck-release
 cd reprocheck-release
 shasum -a 256 -c SHA256SUMS
-gh attestation verify reprocheck-0.11.0-py3-none-any.whl \
+gh attestation verify reprocheck-0.12.0-py3-none-any.whl \
   --repo nazkari86-lab/reprocheck \
   --signer-workflow nazkari86-lab/reprocheck/.github/workflows/release.yml \
-  --source-ref refs/tags/v0.11.0
-gh attestation verify reprocheck-0.11.0.tar.gz \
+  --source-ref refs/tags/v0.12.0
+gh attestation verify reprocheck-0.12.0.tar.gz \
   --repo nazkari86-lab/reprocheck \
   --signer-workflow nazkari86-lab/reprocheck/.github/workflows/release.yml \
-  --source-ref refs/tags/v0.11.0
-python3 -m pip install ./reprocheck-0.11.0-py3-none-any.whl
+  --source-ref refs/tags/v0.12.0
+python3 -m pip install ./reprocheck-0.12.0-py3-none-any.whl
 ```
 
 The attestation establishes where and how GitHub built the bytes. It does not

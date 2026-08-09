@@ -1,0 +1,11 @@
+{
+  "schema": "reprocheck.paws-locked-test-lock.v1",
+  "preregistration_commit": "2f2ec247ce55fd1efadee27d42c3814186c289d9",
+  "test_runs": 1,
+  "files": {
+    "preregistration.json": "38986a8fe4f0d3918059f558b1bbcaa5aff9fce61d3975778cfbe192c90b91b9",
+    "evaluate.py": "b7dc7194ecbedd848543406d33dad804848a4b1747e9c2d7854d48b3633b4208",
+    "source-manifest.json": "498c16c0d581f1bffddd919c66470108fb408142ee746b741af5f379908911d4",
+    "locked-test-v1.json": "afa32cfc7b338b52ad96792050de03a5e5b52df6944f3c92d0af3708f1302240"
+  }
+}

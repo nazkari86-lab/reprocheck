@@ -282,6 +282,33 @@ temporary environment and requires byte-identical deterministic output.
 The separate controlled suite injects one known defect at a time and currently
 contains 12 behavioral cases plus 3 malformed-input rejection cases.
 
+## Preregistered PAWS lexical holdout
+
+Version 0.12 separates threshold development on all 8000 PAWS-Wiki validation
+pairs from a one-shot evaluation on 8000 test pairs. Before test content was
+downloaded, commit `2f2ec247ce55fd1efadee27d42c3814186c289d9` fixed the exact
+dataset and mirror revisions, file hashes, evaluator hash, nine methods,
+thresholds, primary hypothesis, balanced-accuracy metric, and exact paired
+McNemar test. The evaluator refuses to overwrite the locked result.
+
+| Method | Validation balanced accuracy | Locked test balanced accuracy |
+| --- | ---: | ---: |
+| Hybrid lexical v1 | 56.19% | 54.94% |
+| Ordered tokens v1 | 72.95% | 70.53% |
+| Character SequenceMatcher | 71.66% | 69.43% |
+| Logistic lexical features | 73.35% OOF | 66.48% |
+
+The preregistered primary difference is +15.58 percentage points for ordered
+tokens versus hybrid lexical on test. Of 3101 discordant pairs, ordered alone
+is correct on 2247 and hybrid alone on 854; exact two-sided McNemar
+`p = 7.07e-143`. Ordered-token precision is 66.20% and recall is 68.92%.
+
+PAWS labels are independent of this project, but the project author selected
+the corpus, task, methods, and analysis. Semantic paraphrase discrimination is
+stricter and different from operational train-test contamination screening.
+The result validates sensitivity to adversarial English word order, not a
+universal leakage-detector accuracy claim.
+
 ## Threats to validity
 
 - The corpus has only three repositories and 40 annotated claims.
@@ -298,8 +325,10 @@ contains 12 behavioral cases plus 3 malformed-input rejection cases.
   state-of-the-art extraction on unseen repositories.
 - A parser can miss uncommon phrasing outside the declared corpus.
 - A correct metric can originate from an invalid experimental design.
-- Hybrid lexical matching catches controlled typos and word-boundary changes,
-  but does not establish semantic-paraphrase or visual-duplicate detection.
+- Hybrid lexical matching catches controlled typos and word-boundary changes.
+  Ordered matching improves substantially on the locked English PAWS test but
+  remains a lexical heuristic and does not establish multilingual semantic or
+  visual-duplicate detection.
 - Uploaded evidence can be fabricated. Hashes preserve what was audited but do
   not prove how the files were produced.
 - The certificate checksum alone is not a digital signature. An optional

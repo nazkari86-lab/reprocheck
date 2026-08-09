@@ -1,0 +1,265 @@
+{
+  "schema": "reprocheck.paws-leakage-study.v1",
+  "tool_version": "0.12.0",
+  "phase": "locked_test",
+  "dataset": {
+    "name": "PAWS-Wiki Labeled (Final)",
+    "split": "test",
+    "source_sha256": "ae342ff12bb84b84b95f468abf5db6cb7c7bd578271299fe9c99be75b8132f4d",
+    "rows": 8000,
+    "positive": 3536,
+    "negative": 4464,
+    "independent_human_labels": true
+  },
+  "threshold_selection": {
+    "source_split": "validation",
+    "objective": "maximum balanced accuracy on a fixed 0.001 grid",
+    "test_labels_used_for_thresholds": false
+  },
+  "methods": {
+    "normalized_exact": {
+      "threshold": 1.0,
+      "tp": 10,
+      "tn": 4460,
+      "fp": 4,
+      "fn": 3526,
+      "accuracy": 0.55875,
+      "balanced_accuracy": 0.5009659984754862,
+      "precision": 0.7142857142857143,
+      "recall": 0.002828054298642534,
+      "specificity": 0.9991039426523297,
+      "f1": 0.005633802816901409,
+      "precision_wilson_95": [
+        0.4535091567010681,
+        0.8827862135542308
+      ],
+      "recall_wilson_95": [
+        0.0015368944864353484,
+        0.005198282525881175
+      ],
+      "specificity_wilson_95": [
+        0.9976981368621608,
+        0.9996514873512686
+      ]
+    },
+    "token_jaccard": {
+      "threshold": 0.823,
+      "tp": 3167,
+      "tn": 619,
+      "fp": 3845,
+      "fn": 369,
+      "accuracy": 0.47325,
+      "balanced_accuracy": 0.5171548354660309,
+      "precision": 0.45165430690245295,
+      "recall": 0.8956447963800905,
+      "specificity": 0.13866487455197132,
+      "f1": 0.6004929844520289,
+      "precision_wilson_95": [
+        0.440035774562395,
+        0.4633257817128567
+      ],
+      "recall_wilson_95": [
+        0.8851350938475836,
+        0.9052957863343102
+      ],
+      "specificity_wilson_95": [
+        0.1288370787596599,
+        0.1491140236387863
+      ]
+    },
+    "character_trigram_dice": {
+      "threshold": 0.91,
+      "tp": 2376,
+      "tn": 1961,
+      "fp": 2503,
+      "fn": 1160,
+      "accuracy": 0.542125,
+      "balanced_accuracy": 0.5556189080264033,
+      "precision": 0.48698503791760606,
+      "recall": 0.6719457013574661,
+      "specificity": 0.4392921146953405,
+      "f1": 0.5647058823529413,
+      "precision_wilson_95": [
+        0.47297570626956115,
+        0.5010148479863878
+      ],
+      "recall_wilson_95": [
+        0.6562913333549851,
+        0.6872268761879681
+      ],
+      "specificity_wilson_95": [
+        0.4247914952860498,
+        0.4538971276215627
+      ]
+    },
+    "hybrid_lexical_v1": {
+      "threshold": 0.91,
+      "tp": 2444,
+      "tn": 1820,
+      "fp": 2644,
+      "fn": 1092,
+      "accuracy": 0.533,
+      "balanced_accuracy": 0.5494412818890997,
+      "precision": 0.4803459119496855,
+      "recall": 0.6911764705882353,
+      "specificity": 0.40770609318996415,
+      "f1": 0.5667903525046382,
+      "precision_wilson_95": [
+        0.46663786389800394,
+        0.49408361542976725
+      ],
+      "recall_wilson_95": [
+        0.6757478992043119,
+        0.7061901100901556
+      ],
+      "specificity_wilson_95": [
+        0.39337597680159075,
+        0.4221949185413477
+      ]
+    },
+    "ordered_tokens_v1": {
+      "threshold": 0.816,
+      "tp": 2437,
+      "tn": 3220,
+      "fp": 1244,
+      "fn": 1099,
+      "accuracy": 0.707125,
+      "balanced_accuracy": 0.7052614987268687,
+      "precision": 0.6620483564248846,
+      "recall": 0.6891968325791855,
+      "specificity": 0.7213261648745519,
+      "f1": 0.6753498683663572,
+      "precision_wilson_95": [
+        0.6466059618938053,
+        0.6771528791125622
+      ],
+      "recall_wilson_95": [
+        0.6737436191599051,
+        0.7042394107483771
+      ],
+      "specificity_wilson_95": [
+        0.7079878999376256,
+        0.7342838364729974
+      ]
+    },
+    "sequence_char_v1": {
+      "threshold": 0.883,
+      "tp": 1981,
+      "tn": 3698,
+      "fp": 766,
+      "fn": 1555,
+      "accuracy": 0.709875,
+      "balanced_accuracy": 0.6943212872411164,
+      "precision": 0.7211503458318165,
+      "recall": 0.560237556561086,
+      "specificity": 0.828405017921147,
+      "f1": 0.6305904822537005,
+      "precision_wilson_95": [
+        0.7040810151255146,
+        0.7376020182983307
+      ],
+      "recall_wilson_95": [
+        0.5438207904667023,
+        0.5765235822843653
+      ],
+      "specificity_wilson_95": [
+        0.8170636899145659,
+        0.839181619374881
+      ]
+    },
+    "tfidf_word_1_2": {
+      "threshold": 0.795,
+      "tp": 2966,
+      "tn": 973,
+      "fp": 3491,
+      "fn": 570,
+      "accuracy": 0.492375,
+      "balanced_accuracy": 0.5283834273990821,
+      "precision": 0.4593464457178256,
+      "recall": 0.8388009049773756,
+      "specificity": 0.21796594982078854,
+      "f1": 0.5936155308716101,
+      "precision_wilson_95": [
+        0.44721899902251994,
+        0.47152223563767415
+      ],
+      "recall_wilson_95": [
+        0.826314233238365,
+        0.8505522388544934
+      ],
+      "specificity_wilson_95": [
+        0.20609985587251184,
+        0.23031703062447756
+      ]
+    },
+    "tfidf_char_wb_3_5": {
+      "threshold": 0.929,
+      "tp": 2485,
+      "tn": 1301,
+      "fp": 3163,
+      "fn": 1051,
+      "accuracy": 0.47325,
+      "balanced_accuracy": 0.49710707277120936,
+      "precision": 0.43997875354107646,
+      "recall": 0.7027714932126696,
+      "specificity": 0.2914426523297491,
+      "f1": 0.5411585365853658,
+      "precision_wilson_95": [
+        0.4270783841386982,
+        0.4529607137482637
+      ],
+      "recall_wilson_95": [
+        0.6874938752291149,
+        0.7176090133272952
+      ],
+      "specificity_wilson_95": [
+        0.278295884871812,
+        0.30494805581817763
+      ]
+    },
+    "logistic_lexical_features_v1": {
+      "threshold": 0.553,
+      "tp": 2780,
+      "tn": 2426,
+      "fp": 2038,
+      "fn": 756,
+      "accuracy": 0.65075,
+      "balanced_accuracy": 0.6648289381923158,
+      "precision": 0.5770029057700291,
+      "recall": 0.7861990950226244,
+      "specificity": 0.5434587813620072,
+      "f1": 0.6655494373952597,
+      "precision_wilson_95": [
+        0.5629970406976917,
+        0.5908860776787211
+      ],
+      "recall_wilson_95": [
+        0.7723789243657895,
+        0.7993980954655733
+      ],
+      "specificity_wilson_95": [
+        0.5288156629025229,
+        0.5580271679311419
+      ]
+    }
+  },
+  "paired_comparisons": {
+    "ordered_tokens_v1_vs_hybrid_lexical_v1": {
+      "left_only_correct": 2247,
+      "right_only_correct": 854,
+      "discordant": 3101,
+      "exact_two_sided_p": 7.06675851373955e-143
+    },
+    "tfidf_char_wb_3_5_vs_hybrid_lexical_v1": {
+      "left_only_correct": 581,
+      "right_only_correct": 1059,
+      "discordant": 1640,
+      "exact_two_sided_p": 1.8264790708724005e-32
+    }
+  },
+  "interpretation_boundary": [
+    "PAWS tests semantic paraphrase labels, not every operational definition of train-test contamination.",
+    "PAWS-Wiki is English-only and does not establish Russian or Kazakh performance.",
+    "The project author selected the public dataset; labels were produced independently by PAWS annotators."
+  ]
+}

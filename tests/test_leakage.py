@@ -249,6 +249,20 @@ def test_ordered_similarity_and_public_index_statistics():
     assert result.scored_pairs == 1
 
 
+def test_ordered_index_prunes_common_token_without_losing_match():
+    result = find_text_matches(
+        ["shared alpha beta", "shared river sensor", "shared model card"],
+        ["shared alpha beta", "shared unrelated sample"],
+        threshold=0.8,
+        method="ordered_tokens_v1",
+    )
+
+    assert [(match.test_index, match.train_index) for match in result.matches] == [(0, 0)]
+    assert result.exhaustive_pairs == 6
+    assert result.candidate_pairs == 6
+    assert result.scored_pairs == 1
+
+
 def test_public_text_match_search_validates_contract():
     with pytest.raises(ValueError, match="near threshold"):
         find_text_matches([], [], threshold=-0.1)
@@ -328,3 +342,24 @@ def test_indexed_hybrid_join_matches_exhaustive_pairwise_evaluation():
     sample = train_rows[0]["text"]
     assert _tokens(sample)
     assert _character_ngrams(sample)
+
+
+def test_indexed_ordered_join_matches_exhaustive_pairwise_evaluation():
+    randomizer = random.Random(20260810)
+    vocabulary = ["glacier", "river", "school", "sensor", "north", "field", "model"]
+    train = [" ".join(randomizer.choices(vocabulary, k=5)) for _ in range(40)]
+    test = [" ".join(randomizer.choices(vocabulary, k=5)) for _ in range(30)]
+    threshold = 0.7
+
+    indexed = find_text_matches(train, test, threshold=threshold, method="ordered_tokens_v1")
+    exhaustive = []
+    for test_index, test_text in enumerate(test):
+        scores = [
+            text_similarity(test_text, train_text, "ordered_tokens_v1") for train_text in train
+        ]
+        best = max(range(len(scores)), key=lambda index: (scores[index], -index))
+        if scores[best] >= threshold:
+            exhaustive.append((test_index, best, scores[best]))
+    assert [
+        (match.test_index, match.train_index, match.similarity) for match in indexed.matches
+    ] == exhaustive

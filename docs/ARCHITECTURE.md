@@ -48,6 +48,13 @@ whose feature-set sizes mathematically cannot reach the threshold, then scores
 the survivors exactly. This is equivalent to exhaustive evaluation of the
 defined lexical score, not to semantic similarity.
 
+`ordered_tokens_v1` applies `SequenceMatcher` to normalized token sequences so
+word order affects the score. Its complete inverted index uses both a length
+bound and a token-multiset overlap bound before sequence scoring. The public
+`find_text_matches` API returns the best qualifying train row per test row plus
+exhaustive, candidate, and exactly scored pair counts. Common-token corpora can
+still make candidate construction approach a Cartesian product.
+
 `batch.run_project_check` validates a declarative project manifest, resolves
 all inputs beneath the manifest directory, and completes every audit before it
 writes output. Child certificates retain the stable audit schema. A separate

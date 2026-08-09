@@ -26,8 +26,8 @@ not execute uploaded Python or notebook code.
 - Accepts precomputed evidence from `metrics.json`, long-form CSV, or a
   selected experiment row in a wide CSV table.
 - Detects exact, normalized, group, and deterministic lexical near-overlap
-  between train and test CSV files, including many typos and word-boundary
-  changes missed by token-only matching.
+  between train and test CSV files. Hybrid mode targets typos and word-boundary
+  changes; ordered-token mode additionally penalizes meaning-changing reorderings.
 - Statically flags suspicious notebook execution order, preprocessing before a
   split, fitting on test-named data, and missing common seed declarations.
 - Records artifact hashes, metric methods, confidence intervals, parameters,
@@ -45,7 +45,7 @@ Install the published wheel directly from the immutable GitHub release:
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install \
-  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.11.0/reprocheck-0.11.0-py3-none-any.whl
+  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.12.0/reprocheck-0.12.0-py3-none-any.whl
 reprocheck demo
 ```
 
@@ -112,7 +112,7 @@ Use the same gate in GitHub Actions:
 
 ```yaml
 - uses: actions/checkout@v7
-- uses: nazkari86-lab/reprocheck@v0.11.0
+- uses: nazkari86-lab/reprocheck@v0.12.0
   with:
     manifest: reprocheck.json
     output-dir: outputs/reprocheck
@@ -223,6 +223,21 @@ all_claims = extract_claims(report_text)
 table_claims = extract_table_claims(report_text)
 ```
 
+Use the complete indexed text join directly without creating a certificate:
+
+```python
+from reprocheck import find_text_matches
+
+search = find_text_matches(
+    train_texts,
+    test_texts,
+    threshold=0.8,
+    method="ordered_tokens_v1",
+)
+print(search.matches)
+print(search.exhaustive_pairs, search.candidate_pairs, search.scored_pairs)
+```
+
 Select an exact claim and experiment from a research repository:
 
 ```bash
@@ -240,7 +255,7 @@ one patient, user, source, or event does not occur in both splits.
 ## Current scientific boundary
 
 An audit can prove exact overlap relative to the uploaded files and declared
-columns. Hybrid matching expands deterministic lexical coverage but cannot
+columns. Hybrid and ordered-token matching expand deterministic lexical coverage but cannot
 prove that semantic paraphrases, visual duplicates, or every possible
 methodological error have been found. A reproduced number can still support a
 bad hypothesis; ReproCheck reports computational evidence, not scientific
@@ -262,7 +277,9 @@ authenticated-signature layer is documented in
 [`docs/RELEASE_0.10.md`](docs/RELEASE_0.10.md). Release provenance hardening is
 documented in [`docs/RELEASE_0.10.1.md`](docs/RELEASE_0.10.1.md). The hybrid
 near-duplicate algorithm is documented in
-[`docs/RELEASE_0.11.md`](docs/RELEASE_0.11.md), and all immutable commands are
+[`docs/RELEASE_0.11.md`](docs/RELEASE_0.11.md). The preregistered PAWS study and
+indexed-search API are documented in
+[`docs/RELEASE_0.12.md`](docs/RELEASE_0.12.md), and all immutable commands are
 indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
 
 ## Frozen real-artifact evidence

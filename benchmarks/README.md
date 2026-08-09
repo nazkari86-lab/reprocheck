@@ -20,12 +20,13 @@ integrity, tamper detection, and invalid-input rejection.
 
 The checked-in per-release baseline is a deterministic smoke benchmark, not
 evidence of real-world accuracy. CI compares the complete deterministic summary
-with `baseline-v0.11.0.json` rather than accepting a console success message.
+with `baseline-v0.12.0.json` rather than accepting a console success message.
 
 ## Controlled lexical near-duplicates
 
 Run `make near-duplicate-benchmark` to evaluate the legacy token Jaccard method
-and `hybrid_lexical_v1` on 12 controlled English, Russian, and Kazakh lexical
+and both `hybrid_lexical_v1` and `ordered_tokens_v1` on 12 controlled English,
+Russian, and Kazakh lexical
 mutations plus 12 unrelated controls. At threshold 0.8, the frozen v1 result is
 100% precision and 100% recall for the hybrid method versus 100% precision and
 25% recall for token Jaccard. The cases and their SHA-256-bound baseline are in
@@ -34,6 +35,28 @@ mutations plus 12 unrelated controls. At threshold 0.8, the frozen v1 result is
 This small synthetic benchmark isolates typo, punctuation, word-boundary,
 inflection, insertion, and reordering behavior. It is not evidence of semantic
 paraphrase accuracy or natural-corpus prevalence.
+
+## Indexed-search scalability
+
+Run `make text-index-benchmark` to compare deterministic pair counts with a
+naive exhaustive join. On the 10,000-by-1,000 sparse corpus, the complete index
+reduces 10,000,000 possible pairs to 51,548 candidates and 500 expensive
+ordered-sequence scores. On a deliberately adverse corpus where every row
+shares one token, candidate reduction falls to zero, but the multiset upper
+bound still reduces 400,000 sequence scores to 100. Exact result equivalence is
+checked against exhaustive search on 30,000 pairs. These synthetic counts prove
+index mechanics, not natural-corpus latency.
+
+## Preregistered PAWS holdout
+
+The English PAWS-Wiki study under `paws_leakage/` separates an 8000-pair
+validation phase from an 8000-pair locked test. Methods, thresholds, evaluator,
+source hashes, primary hypothesis, and statistics were committed before the
+test content was downloaded. On the unseen test, `ordered_tokens_v1` reaches
+70.53% balanced accuracy versus 54.94% for `hybrid_lexical_v1` (+15.58
+percentage points; exact McNemar `p = 7.07e-143`). This validates sensitivity
+to meaning-changing word order, but does not establish multilingual or general
+semantic-duplication accuracy.
 
 ## Frozen public artifacts
 
