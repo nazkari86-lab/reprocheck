@@ -43,7 +43,7 @@ git clone https://github.com/nazkari86-lab/reprocheck.git
 cd reprocheck
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -e '.[dev]'
+python3 -m pip install -c requirements-ci.txt -e '.[dev]'
 reprocheck demo
 reprocheck benchmark
 reprocheck study --corpus benchmarks/real_artifacts
@@ -146,7 +146,8 @@ summarized in [`docs/RELEASE_0.6.md`](docs/RELEASE_0.6.md); the narrow post-hold
 [`docs/RELEASE_0.7.md`](docs/RELEASE_0.7.md) and
 [`docs/RELEASE_0.8.md`](docs/RELEASE_0.8.md). Publication metadata changes are
 listed in [`docs/RELEASE_0.8.1.md`](docs/RELEASE_0.8.1.md) and
-[`docs/RELEASE_0.8.2.md`](docs/RELEASE_0.8.2.md), and all immutable
+[`docs/RELEASE_0.8.2.md`](docs/RELEASE_0.8.2.md) through
+[`docs/RELEASE_0.8.3.md`](docs/RELEASE_0.8.3.md), and all immutable
 commands are indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
 
 ## Frozen real-artifact evidence

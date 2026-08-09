@@ -8,7 +8,7 @@ number that may be silently refreshed.
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -e '.[dev]'
+python3 -m pip install -c requirements-ci.txt -e '.[dev]'
 make lint
 make coverage
 ```

@@ -7,7 +7,7 @@ Use Python 3.11 or newer from a clean checkout:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -e '.[dev]'
+python3 -m pip install -c requirements-ci.txt -e '.[dev]'
 make gate
 ```
 

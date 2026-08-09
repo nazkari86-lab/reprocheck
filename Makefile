@@ -3,7 +3,7 @@ SOURCE_DATE_EPOCH ?= 1704067200
 .PHONY: install test lint type coverage benchmark study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo serve
 
 install:
-	python3 -m pip install -e '.[dev]'
+	python3 -m pip install -c requirements-ci.txt -e '.[dev]'
 
 test:
 	python3 -m pytest
