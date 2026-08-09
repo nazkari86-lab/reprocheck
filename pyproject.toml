@@ -35,7 +35,7 @@ dependencies = [
 
 [project.optional-dependencies]
 benchmark = [
-  "scikit-learn==1.8.0",
+  "scikit-learn==1.9.0",
 ]
 dev = [
   "build>=1.2",
@@ -44,7 +44,7 @@ dev = [
   "pyright>=1.1.400",
   "pytest>=8.3",
   "pytest-cov>=6.0",
-  "ruff==0.15.18",
+  "ruff==0.16.1",
 ]
 
 [project.scripts]
