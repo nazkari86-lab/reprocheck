@@ -189,37 +189,36 @@ function drawGraph() {
   const edges = graph.edges.filter((edge) => visibleIds.has(edge.source) && visibleIds.has(edge.target));
   const positions = layoutNodes(nodes);
   const maxY = Math.max(...[...positions.values()].map((position) => position.y), 500);
-  const width = 1380;
-  const height = Math.max(620, maxY + 130);
+  const width = 1264;
+  const height = Math.max(680, maxY + 130);
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   svg.setAttribute("width", String(width));
   svg.setAttribute("height", String(height));
   svg.append(makeDefinitions());
 
   const edgeLayer = createSvg("g", { class: "edge-layer" });
+  const routes = routeEdges(edges, positions);
   edges.forEach((edge, index) => {
-    const source = positions.get(edge.source);
-    const target = positions.get(edge.target);
-    const path = createSvg("path", {
-      class: `graph-edge relation-${edge.relation}`,
-      d: edgePath(source, target),
+    const route = routes[index];
+    const structural = ["input_to", "contains", "reports_finding", "scopes"].includes(edge.relation);
+    const group = createSvg("g", {
+      class: `edge-group relation-${edge.relation}${structural ? " is-structural" : " is-semantic"}`,
       "data-source": edge.source,
       "data-target": edge.target,
       "data-edge-index": String(index),
+    });
+    group.style.setProperty("--edge-delay", `${Math.min(index * 28, 900)}ms`);
+    const halo = createSvg("path", { class: "edge-halo", d: route.d });
+    const path = createSvg("path", {
+      class: "graph-edge",
+      d: route.d,
       "marker-end": "url(#arrow)",
       pathLength: "1",
     });
-    path.style.setProperty("--edge-delay", `${Math.min(index * 28, 900)}ms`);
-    edgeLayer.append(path);
-    if (nodes.length <= 34) {
-      const label = createSvg("text", {
-        class: "edge-label",
-        x: String((source.x + target.x) / 2),
-        y: String((source.y + target.y) / 2 - 8),
-      });
-      label.textContent = RELATION_LABELS[edge.relation] || edge.relation;
-      edgeLayer.append(label);
-    }
+    const startPort = createSvg("circle", { class: "edge-port edge-port-start", cx: String(route.startX), cy: String(route.startY), r: "3.2" });
+    const endPort = createSvg("circle", { class: "edge-port edge-port-end", cx: String(route.endX), cy: String(route.endY), r: "3.2" });
+    group.append(halo, path, startPort, endPort, makeEdgeTag(edge.relation, route.labelX, route.labelY));
+    edgeLayer.append(group);
   });
   svg.append(edgeLayer);
 
@@ -268,22 +267,25 @@ function chooseVisibleNodes(nodes) {
 }
 
 function layoutNodes(nodes) {
-  const layerByKind = { artifact: 0, context: 1, metric: 2, experiment: 2, claim: 3, finding: 4 };
+  const layerByKind = { artifact: 0, context: 1, metric: 1, claim: 2, finding: 3 };
   const groups = new Map();
   nodes.forEach((node) => {
+    if (node.kind === "experiment") return;
     const layer = layerByKind[node.kind] ?? 4;
     if (!groups.has(layer)) groups.set(layer, []);
     groups.get(layer).push(node);
   });
   const maxCount = Math.max(...[...groups.values()].map((items) => items.length), 1);
-  const height = Math.max(560, maxCount * 96);
+  const height = Math.max(620, maxCount * 108 + 180);
   const positions = new Map();
   groups.forEach((items, layer) => {
-    const gap = height / (items.length + 1);
+    const gap = (height - 180) / (items.length + 1);
     items.forEach((node, index) => {
-      positions.set(node.id, { x: 36 + layer * 274, y: gap * (index + 1) - 36 });
+      positions.set(node.id, { x: 40 + layer * 320, y: 150 + gap * (index + 1) - 36, layer });
     });
   });
+  const root = nodes.find((node) => node.kind === "experiment");
+  if (root) positions.set(root.id, { x: 520, y: 24, layer: 1 });
   return positions;
 }
 
@@ -296,10 +298,12 @@ function focusNode(nodeId) {
     element.classList.toggle("is-dimmed", !active.has(id));
     element.classList.toggle("is-selected", id === nodeId);
   });
-  svg.querySelectorAll(".graph-edge").forEach((element) => {
+  svg.querySelectorAll(".edge-group").forEach((element) => {
     const isActive = active.has(element.dataset.source) && active.has(element.dataset.target);
+    const isDirect = Boolean(nodeId) && (element.dataset.source === nodeId || element.dataset.target === nodeId);
     element.classList.toggle("is-dimmed", !isActive);
     element.classList.toggle("is-active", isActive && Boolean(nodeId));
+    element.classList.toggle("is-direct", isDirect);
   });
   document.querySelectorAll("[data-focus-node]").forEach((element) => element.classList.toggle("is-selected", element.dataset.focusNode === nodeId));
   if (nodeId) renderInspector(nodeId);
@@ -354,15 +358,17 @@ function renderInspector(nodeId) {
 
 function replayGraph() {
   if (!svg.childNodes.length) return;
+  if (graphState?.replayTimer) window.clearTimeout(graphState.replayTimer);
   svg.classList.remove("is-playing");
   void svg.getBoundingClientRect();
   svg.classList.add("is-playing");
+  graphState.replayTimer = window.setTimeout(() => svg.classList.remove("is-playing"), 1550);
 }
 
 function makeDefinitions() {
   const defs = createSvg("defs");
   const marker = createSvg("marker", { id: "arrow", viewBox: "0 0 10 10", refX: "9", refY: "5", markerWidth: "6", markerHeight: "6", orient: "auto-start-reverse" });
-  marker.append(createSvg("path", { d: "M 0 0 L 10 5 L 0 10 z" }));
+  marker.append(createSvg("path", { d: "M 1 1 L 9 5 L 1 9 z" }));
   defs.append(marker);
   return defs;
 }
@@ -373,17 +379,99 @@ function createSvg(tag, attributes = {}) {
   return element;
 }
 
-function edgePath(source, target) {
-  const startX = source.x + 224;
-  const startY = source.y + 36;
-  const endX = target.x;
-  const endY = target.y + 36;
-  if (endX >= startX) {
-    const control = Math.max(45, (endX - startX) * 0.46);
-    return `M ${startX} ${startY} C ${startX + control} ${startY}, ${endX - control} ${endY}, ${endX} ${endY}`;
-  }
-  const bendY = Math.max(startY, endY) + 54;
-  return `M ${startX} ${startY} C ${startX + 38} ${bendY}, ${endX - 38} ${bendY}, ${endX} ${endY}`;
+function routeEdges(edges, positions) {
+  const outgoing = new Map();
+  const incoming = new Map();
+  edges.forEach((edge, index) => {
+    if (!outgoing.has(edge.source)) outgoing.set(edge.source, []);
+    if (!incoming.has(edge.target)) incoming.set(edge.target, []);
+    outgoing.get(edge.source).push(index);
+    incoming.get(edge.target).push(index);
+  });
+  outgoing.forEach((indices) => indices.sort((left, right) => positions.get(edges[left].target).y - positions.get(edges[right].target).y));
+  incoming.forEach((indices) => indices.sort((left, right) => positions.get(edges[left].source).y - positions.get(edges[right].source).y));
+
+  const longEdgeSlots = new Map();
+  const slotByGroup = new Map();
+  edges.forEach((edge, index) => {
+    const source = positions.get(edge.source);
+    const target = positions.get(edge.target);
+    if (Math.abs(target.layer - source.layer) > 1 || edge.relation === "input_to" || edge.relation === "reports_finding") {
+      const groupKey = edge.relation === "input_to" || edge.relation === "flags"
+        ? `${edge.relation}:to:${edge.target}`
+        : `${edge.relation}:from:${edge.source}`;
+      if (!slotByGroup.has(groupKey)) slotByGroup.set(groupKey, slotByGroup.size);
+      longEdgeSlots.set(index, slotByGroup.get(groupKey));
+    }
+  });
+
+  return edges.map((edge, index) => {
+    const source = positions.get(edge.source);
+    const target = positions.get(edge.target);
+    const forward = target.x >= source.x;
+    const sourceIndices = outgoing.get(edge.source);
+    const targetIndices = incoming.get(edge.target);
+    const startX = forward ? source.x + 224 : source.x;
+    const endX = forward ? target.x : target.x + 224;
+    let startY = portY(source.y, sourceIndices.indexOf(index), sourceIndices.length);
+    let endY = portY(target.y, targetIndices.indexOf(index), targetIndices.length);
+    if (["contains", "reports_finding"].includes(edge.relation)) startY = source.y + 36;
+    if (["input_to", "flags"].includes(edge.relation)) endY = target.y + 36;
+    const longSlot = longEdgeSlots.get(index);
+    if (longSlot !== undefined) {
+      const laneY = 112 + longSlot * 9;
+      return {
+        d: overheadPath(startX, startY, endX, endY, laneY, forward),
+        startX, startY, endX, endY,
+        labelX: (startX + endX) / 2,
+        labelY: laneY,
+      };
+    }
+    const gap = endX - startX;
+    if (Math.abs(startY - endY) < 5) {
+      return { d: `M ${startX} ${startY} H ${endX}`, startX, startY, endX, endY, labelX: (startX + endX) / 2, labelY: startY };
+    }
+    const sourceOrder = sourceIndices.indexOf(index) - (sourceIndices.length - 1) / 2;
+    const laneX = startX + gap * 0.5 + sourceOrder * 5;
+    return {
+      d: roundedOrthogonalPath(startX, startY, laneX, endY, endX),
+      startX, startY, endX, endY,
+      labelX: laneX,
+      labelY: (startY + endY) / 2,
+    };
+  });
+}
+
+function portY(nodeY, index, total) {
+  return nodeY + 14 + ((index + 1) * 44) / (total + 1);
+}
+
+function roundedOrthogonalPath(startX, startY, laneX, endY, endX) {
+  const direction = endX >= startX ? 1 : -1;
+  const verticalDirection = endY >= startY ? 1 : -1;
+  const radius = Math.min(10, Math.abs(endY - startY) / 2, Math.abs(laneX - startX) / 2, Math.abs(endX - laneX) / 2);
+  return `M ${startX} ${startY} H ${laneX - direction * radius} Q ${laneX} ${startY} ${laneX} ${startY + verticalDirection * radius} V ${endY - verticalDirection * radius} Q ${laneX} ${endY} ${laneX + direction * radius} ${endY} H ${endX}`;
+}
+
+function overheadPath(startX, startY, endX, endY, laneY, forward) {
+  const direction = forward ? 1 : -1;
+  const startLaneX = startX + direction * 24;
+  const endLaneX = endX - direction * 24;
+  const startVertical = laneY >= startY ? 1 : -1;
+  const endVertical = endY >= laneY ? 1 : -1;
+  const radius = 9;
+  return `M ${startX} ${startY} H ${startLaneX - direction * radius} Q ${startLaneX} ${startY} ${startLaneX} ${startY + startVertical * radius} V ${laneY - startVertical * radius} Q ${startLaneX} ${laneY} ${startLaneX + direction * radius} ${laneY} H ${endLaneX - direction * radius} Q ${endLaneX} ${laneY} ${endLaneX} ${laneY + endVertical * radius} V ${endY - endVertical * radius} Q ${endLaneX} ${endY} ${endLaneX + direction * radius} ${endY} H ${endX}`;
+}
+
+function makeEdgeTag(relation, x, y) {
+  const label = RELATION_LABELS[relation] || relation;
+  const width = Math.max(68, label.length * 5.7 + 16);
+  const group = createSvg("g", { class: "edge-tag", transform: `translate(${x - width / 2},${y - 12})` });
+  group.append(createSvg("rect", { width: String(width), height: "24", rx: "12" }));
+  const text = createSvg("text", { x: String(width / 2), y: "15" });
+  text.textContent = label;
+  group.append(text);
+  return group;
 }
 
 function nodeHint(node) {

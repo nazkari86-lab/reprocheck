@@ -85,6 +85,9 @@ def test_web_exposes_interactive_evidence_explorer():
     assert 'id="demo"' in page.text
     assert "semanticNeighborhood" in script.text
     assert "MAX_VISIBLE_NODES" in script.text
+    assert "roundedOrthogonalPath" in script.text
+    assert "edge-group" in script.text
+    assert "is-structural" in script.text
     assert "prefers-reduced-motion" in styles.text
 
 
