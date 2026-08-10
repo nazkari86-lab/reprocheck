@@ -13,6 +13,25 @@ def test_health_endpoint():
     assert response.json()["status"] == "ok"
 
 
+def test_demo_endpoint_exposes_real_traceable_audit():
+    response = client.post("/api/demo")
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["status"] == "needs_review"
+    assert {artifact["filename"] for artifact in payload["artifacts"]} == {
+        "research_report.md",
+        "model_predictions.csv",
+        "train_split.csv",
+        "test_split.csv",
+    }
+    assert {claim["status"] for claim in payload["claims"]} == {"verified", "mismatch"}
+    assert payload["leakage"]["exact_overlap_test_rows"] == 1
+    assert any(item["code"] == "exact_split_overlap" for item in payload["findings"])
+    relations = {edge["relation"] for edge in payload["evidence_graph"]["edges"]}
+    assert {"contains", "recomputes", "supports", "contradicts", "flags"} <= relations
+
+
 def test_audit_endpoint():
     response = client.post(
         "/api/audit",
@@ -52,6 +71,21 @@ def test_regression_metrics_are_marked_scalar_and_web_uses_metadata():
     assert script.status_code == 200
     assert "formatMetric(claim.value, display_kind)" in script.text
     assert "percent(claim.value)" not in script.text
+
+
+def test_web_exposes_interactive_evidence_explorer():
+    page = client.get("/")
+    script = client.get("/static/app.js")
+    styles = client.get("/static/styles.css")
+
+    assert page.status_code == script.status_code == styles.status_code == 200
+    assert 'id="evidence-explorer"' in page.text
+    assert 'id="evidence-svg"' in page.text
+    assert 'id="node-inspector"' in page.text
+    assert 'id="demo"' in page.text
+    assert "semanticNeighborhood" in script.text
+    assert "MAX_VISIBLE_NODES" in script.text
+    assert "prefers-reduced-motion" in styles.text
 
 
 def test_audit_endpoint_rejects_malformed_detection():

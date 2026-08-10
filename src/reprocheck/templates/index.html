@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ReproCheck — проверка научных результатов</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2318201c'/%3E%3Cpath d='M8 8h9a6 6 0 010 12h-4v5H8V8zm5 4v4h4a2 2 0 000-4h-4z' fill='%23f2ecdf'/%3E%3Cpath d='M23 7h4v18h-4z' fill='%23e44b2a'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="/static/styles.css">
   </head>
   <body>
@@ -54,6 +55,7 @@
             <label>Допуск метрики<input name="tolerance" type="number" value="0.005" min="0" max="1" step="0.001"></label>
           </div>
           <button type="submit"><span>Запустить проверку</span><b>→</b></button>
+          <button id="demo" class="demo-button" type="button"><span>Показать живой пример</span><b>◎</b></button>
           <button id="download" class="secondary" type="button" hidden><span>Скачать JSON-сертификат</span><b>↓</b></button>
           <p class="boundary">Файлы обрабатываются локально. Эта версия не запускает загруженный Python-код.</p>
         </form>
@@ -61,6 +63,49 @@
         <section id="result" class="result idle" aria-live="polite">
           <div class="result-empty"><span class="seal">RC</span><p>Здесь появится цепочка<br>«утверждение → доказательство».</p></div>
         </section>
+      </section>
+
+      <section id="evidence-explorer" class="evidence-explorer" hidden aria-label="Интерактивный граф доказательств">
+        <header class="explorer-head">
+          <div>
+            <p class="eyebrow">ПРОСЛЕЖИВАЕМОСТЬ / EVIDENCE GRAPH</p>
+            <h2>От вывода до исходного файла.</h2>
+            <p>Нажмите на файл, метрику или утверждение. ReproCheck подсветит только тот путь, который объясняет выбранный результат.</p>
+          </div>
+          <div id="graph-stats" class="graph-stats"></div>
+        </header>
+
+        <div id="audit-pipeline" class="audit-pipeline" aria-label="Этапы аудита"></div>
+
+        <div class="evidence-toolbar">
+          <div>
+            <span class="toolbar-label">Фокус по файлу</span>
+            <div id="file-filters" class="file-filters"></div>
+          </div>
+          <div class="graph-actions">
+            <button id="replay-graph" class="compact-button" type="button">Повторить анимацию</button>
+            <button id="reset-graph" class="compact-button" type="button">Показать всё</button>
+          </div>
+        </div>
+
+        <div class="graph-shell">
+          <div id="graph-viewport" class="graph-viewport">
+            <svg id="evidence-svg" role="img" aria-label="Связи между файлами, метриками, утверждениями и замечаниями"></svg>
+          </div>
+          <aside id="node-inspector" class="node-inspector" aria-live="polite">
+            <p class="eyebrow">ВЫБРАННЫЙ УЗЕЛ</p>
+            <div class="inspector-placeholder">Выберите элемент графа, чтобы увидеть его источник, значение и криптографический отпечаток.</div>
+          </aside>
+        </div>
+
+        <div class="graph-legend" aria-label="Легенда графа">
+          <span class="legend-artifact">Файл</span>
+          <span class="legend-metric">Пересчитанная метрика</span>
+          <span class="legend-claim">Вывод в отчёте</span>
+          <span class="legend-finding">Замечание</span>
+          <span class="legend-context">Контекст</span>
+        </div>
+        <p id="graph-boundary" class="graph-boundary"></p>
       </section>
     </main>
     <script src="/static/app.js"></script>

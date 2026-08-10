@@ -82,6 +82,13 @@ make gate
 
 Open <http://127.0.0.1:8000> after starting the server.
 
+The web interface includes an interactive evidence explorer. Upload experiment
+artifacts or click **Show live example**, then select any file, recomputed
+metric, report claim, or finding to highlight its complete trace. The inspector
+shows source lines, methods, values, relations, and SHA-256 digests. The graph
+is rendered locally without executing uploaded Python code, uses no external
+JavaScript service, and respects reduced-motion accessibility settings.
+
 ## One-command project check
 
 Store all experiment inputs in a versioned `reprocheck.json` manifest instead
