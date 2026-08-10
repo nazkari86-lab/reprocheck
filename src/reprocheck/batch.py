@@ -39,7 +39,7 @@ def run_project_check(
     *,
     html: bool = False,
 ) -> dict[str, Any]:
-    manifest = _load_manifest(manifest_path)
+    manifest = load_project_manifest(manifest_path)
     root = manifest_path.resolve().parent
     completed: list[tuple[str, AuditReport]] = []
 
@@ -100,7 +100,7 @@ def run_project_check(
     return payload
 
 
-def _load_manifest(path: Path) -> dict[str, Any]:
+def load_project_manifest(path: Path) -> dict[str, Any]:
     try:
         payload = json.loads(path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as error:

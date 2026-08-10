@@ -14,11 +14,11 @@ const SVG_NS = "http://www.w3.org/2000/svg";
 const MAX_VISIBLE_NODES = 160;
 
 const PIPELINE_STAGES = [
-  ["01", "Файлы", "SHA-256 и роли"],
-  ["02", "Утверждения", "числа и строки"],
-  ["03", "Пересчёт", "метрики из evidence"],
-  ["04", "Сопоставление", "совпадения и утечки"],
-  ["05", "Сертификат", "граф и digest"],
+  ["files", "01", "Файлы", "SHA-256 и роли"],
+  ["claims", "02", "Утверждения", "числа и строки"],
+  ["evidence", "03", "Пересчёт", "метрики из evidence"],
+  ["matching", "04", "Сопоставление", "совпадения и утечки"],
+  ["certificate", "05", "Сертификат", "граф и digest"],
 ];
 
 const KIND_LABELS = {
@@ -51,14 +51,24 @@ document.querySelectorAll('input[type="file"]').forEach((input) => {
   input.addEventListener("change", () => {
     const drop = input.closest(".drop");
     drop.classList.toggle("has-file", input.files.length > 0);
-    if (input.files.length > 0) drop.dataset.filename = input.files[0].name;
+    if (input.files.length > 1) drop.dataset.filename = `${input.files.length} файлов · ${topFolder(input.files[0])}`;
+    else if (input.files.length > 0) drop.dataset.filename = input.files[0].name;
     else delete drop.dataset.filename;
   });
 });
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  await executeAudit("/api/audit", { method: "POST", body: new FormData(form) });
+  const projectInput = document.querySelector("#project-files");
+  const reportInput = form.querySelector('input[name="report"]');
+  if (!projectInput.files.length && !reportInput.files.length) {
+    result.innerHTML = '<div class="verdict needs_review"><p class="eyebrow">НУЖНЫ ФАЙЛЫ</p><h2>Выберите проект</h2><p>Загрузите папку проекта или отдельно укажите научный отчёт.</p></div>';
+    return;
+  }
+  const payload = new FormData(form);
+  payload.delete("project_files");
+  [...projectInput.files].forEach((file) => payload.append("project_files", file, file.webkitRelativePath || file.name));
+  await executeProjectAudit(payload);
 });
 
 demoButton.addEventListener("click", async () => {
@@ -102,6 +112,34 @@ async function executeAudit(url, options, isDemo = false) {
   }
 }
 
+async function executeProjectAudit(formData) {
+  const loading = startProjectLoading(formData);
+  setBusy(true);
+  try {
+    const response = await fetch("/api/audit/jobs", { method: "POST", body: formData });
+    const created = await response.json();
+    if (!response.ok) throw new Error(created.detail || "Не удалось создать аудит");
+    loading.update(created);
+    let snapshot = created;
+    while (!["completed", "failed"].includes(snapshot.status)) {
+      await delay(140);
+      const statusResponse = await fetch(`/api/audit/jobs/${created.job_id}`);
+      snapshot = await statusResponse.json();
+      if (!statusResponse.ok) throw new Error(snapshot.detail || "Audit job потерян");
+      loading.update(snapshot);
+    }
+    if (snapshot.status === "failed") throw new Error(snapshot.error || "Проверка завершилась ошибкой");
+    lastAudit = snapshot.result;
+    download.hidden = false;
+    render(snapshot.result, false, snapshot);
+  } catch (error) {
+    loading.stop();
+    result.innerHTML = `<div class="verdict needs_review"><p class="eyebrow">ОШИБКА</p><h2>Не удалось проверить</h2><p>${escapeHtml(error.message)}</p></div>`;
+  } finally {
+    setBusy(false);
+  }
+}
+
 function setBusy(busy) {
   submitButton.disabled = busy;
   demoButton.disabled = busy;
@@ -111,7 +149,7 @@ function setBusy(busy) {
 function startLoading(isDemo) {
   explorer.hidden = true;
   const title = isDemo ? "Запускаем контролируемый пример" : "Разбираем ваш эксперимент";
-  result.innerHTML = `<div class="loading-audit"><p class="eyebrow">LIVE AUDIT</p><h2>${title}</h2><div class="loading-stages">${PIPELINE_STAGES.map(([number, name], index) => `<div class="loading-stage${index === 0 ? " active" : ""}"><span>${number}</span><b>${name}</b><i></i></div>`).join("")}</div><p class="loading-note">ReproCheck не запускает загруженный код. Он проверяет предоставленные артефакты.</p></div>`;
+  result.innerHTML = `<div class="loading-audit"><p class="eyebrow">LIVE AUDIT</p><h2>${title}</h2><div class="loading-stages">${PIPELINE_STAGES.map(([, number, name], index) => `<div class="loading-stage${index === 0 ? " active" : ""}"><span>${number}</span><b>${name}</b><i></i></div>`).join("")}</div><p class="loading-note">ReproCheck не запускает загруженный код. Он проверяет предоставленные артефакты.</p></div>`;
   const elements = [...result.querySelectorAll(".loading-stage")];
   let current = 0;
   const timer = window.setInterval(() => {
@@ -132,7 +170,51 @@ function startLoading(isDemo) {
   };
 }
 
-function render(data, isDemo) {
+function startProjectLoading(formData) {
+  explorer.hidden = true;
+  const projectFiles = formData.getAll("project_files");
+  const manualFiles = [...formData.entries()].filter(([, value]) => value instanceof File && value.size > 0 && !projectFiles.includes(value));
+  const inputCount = projectFiles.length + manualFiles.length;
+  result.innerHTML = `
+    <div class="loading-audit real-pipeline">
+      <p class="eyebrow">BACKEND AUDIT / REAL TIME</p>
+      <h2>Проверяем ваш проект.</h2>
+      <p class="live-input-count">Передано файлов: <b>${inputCount}</b>. Прогресс меняется только после ответа backend.</p>
+      <div class="loading-stages">${PIPELINE_STAGES.map(([stage, number, name, detail]) => `
+        <div class="loading-stage" data-stage="${stage}">
+          <span>${number}</span><div><b>${name}</b><small>${detail}</small></div><i></i>
+        </div>`).join("")}</div>
+      <div class="detected-files" hidden></div>
+      <p class="loading-note">Загруженный Python-код не выполняется. Анализируются отчёты, evidence, splits, notebooks и их происхождение.</p>
+    </div>`;
+  const shell = result.querySelector(".real-pipeline");
+  return {
+    update(snapshot) {
+      const stageById = new Map((snapshot.stages || []).map((stage) => [stage.stage, stage]));
+      PIPELINE_STAGES.forEach(([stageId]) => {
+        const row = shell.querySelector(`[data-stage="${stageId}"]`);
+        const stage = stageById.get(stageId);
+        row.classList.toggle("active", stage?.state === "started");
+        row.classList.toggle("done", stage?.state === "completed");
+        if (stage?.message) {
+          const duration = stage.duration_ms === undefined ? "" : ` · ${formatDuration(stage.duration_ms)}`;
+          row.querySelector("small").textContent = `${stage.message}${duration}`;
+        }
+      });
+      const filesStage = stageById.get("files");
+      if (filesStage?.files) renderDetectedFiles(shell.querySelector(".detected-files"), filesStage);
+    },
+    stop() {},
+  };
+}
+
+function renderDetectedFiles(container, stage) {
+  container.hidden = false;
+  const experiment = stage.experiment_id ? ` · ${stage.experiment_id}${stage.experiment_count > 1 ? ` (1/${stage.experiment_count})` : ""}` : "";
+  container.innerHTML = `<div class="detected-title"><b>Backend распознал роли</b><span>${escapeHtml(stage.inference_source || "manual")}${escapeHtml(experiment)}</span></div><div class="detected-grid">${stage.files.slice(0, 18).map((file) => `<div><span>${escapeHtml(file.role)}</span><b>${escapeHtml(file.filename)}</b><small>${escapeHtml(file.source)}</small></div>`).join("")}</div>${stage.files.length > 18 ? `<p>Ещё файлов в сертификате: ${stage.files.length - 18}</p>` : ""}`;
+}
+
+function render(data, isDemo, trace = null) {
   const claimRows = data.claims.length ? data.claims.map(({ claim, status, observed, display_kind }, index) => `
     <button class="metric trace-link" type="button" data-focus-node="claim:${index}">
       <span><strong>${escapeHtml(claim.raw_text)}</strong><small>${escapeHtml(findReportName(data))}, строка ${claim.line} · заявлено ${formatMetric(claim.value, display_kind)}</small></span>
@@ -147,8 +229,10 @@ function render(data, isDemo) {
   const leakage = data.leakage ? `<div class="leak-box"><div><strong>${percent(data.leakage.exact_overlap_rate)}</strong><span>exact overlap</span></div><div><strong>${percent(data.leakage.normalized_overlap_rate)}</strong><span>normalized overlap</span></div><div><strong>${percent(data.leakage.near_overlap_rate)}</strong><span>near overlap</span></div><div><strong>${data.leakage.overlapping_group_count}</strong><span>общих групп</span></div></div>` : "<p>Train/test не загружены.</p>";
   const notebook = data.notebook ? `<div class="leak-box"><div><strong>${data.notebook.code_cells}</strong><span>code cells</span></div><div><strong>${data.notebook.has_random_seed ? "да" : "нет"}</strong><span>seed обнаружен</span></div></div>` : "<p>Notebook не загружен.</p>";
   const findings = data.findings.length ? data.findings.map((item, index) => `<button class="finding ${escapeHtml(item.severity)} trace-link" type="button" data-focus-node="finding:${index}"><b>${escapeHtml(item.code)}</b><span>${escapeHtml(item.message)}</span></button>`).join("") : '<div class="finding medium"><b>ЧИСТО</b><span>Проверяемых несоответствий не найдено.</span></div>';
+  const executionTrace = trace ? renderExecutionTrace(trace) : "";
   result.innerHTML = `
     <div class="verdict ${data.status}"><p class="eyebrow">${isDemo ? "КОНТРОЛИРУЕМЫЙ ПРИМЕР" : "ИТОГ АУДИТА"}</p><h2>${data.status === "passed" ? "ПРОЙДЕНО" : "ТРЕБУЕТ ПРОВЕРКИ"}</h2><p>${data.findings.length} замечаний · ${data.artifacts.length} файлов зафиксировано</p></div>
+    ${executionTrace}
     <h3>Зафиксированные файлы</h3>${artifacts}
     <h3>Утверждения</h3>${claimRows}
     <h3>Разделение данных</h3>${leakage}
@@ -157,10 +241,22 @@ function render(data, isDemo) {
     <button class="open-graph" type="button" data-open-graph><span>Открыть карту доказательств</span><b>↘</b></button>
     <p class="certificate">SHA-256 сертификата: ${escapeHtml(data.certificate_sha256)}</p>`;
   result.querySelector("[data-open-graph]").addEventListener("click", () => explorer.scrollIntoView({ behavior: "smooth", block: "start" }));
-  renderExplorer(data);
+  renderExplorer(data, trace);
 }
 
-function renderExplorer(data) {
+function renderExecutionTrace(trace) {
+  const stageById = new Map(trace.stages.map((stage) => [stage.stage, stage]));
+  const filesStage = stageById.get("files");
+  const cards = PIPELINE_STAGES.map(([id, number, name]) => {
+    const stage = stageById.get(id);
+    return `<div><span>${number}</span><b>${name}</b><strong>${stage?.duration_ms === undefined ? "—" : formatDuration(stage.duration_ms)}</strong><small>${escapeHtml(stage?.message || "Нет события")}</small></div>`;
+  }).join("");
+  const experiment = filesStage?.experiment_id ? `<span><b>experiment</b>${escapeHtml(filesStage.experiment_id)}${filesStage.experiment_count > 1 ? ` · 1/${filesStage.experiment_count}` : ""}</span>` : "";
+  const roles = experiment + (filesStage?.files || []).filter((file) => !file.role.startsWith("project_")).map((file) => `<span><b>${escapeHtml(file.role)}</b>${escapeHtml(file.filename)}</span>`).join("");
+  return `<section class="execution-proof"><div class="execution-heading"><div><p class="eyebrow">ФАКТИЧЕСКИЙ ХОД BACKEND</p><h3>Это не таймер: стадии измерены сервером.</h3></div><code>${escapeHtml(trace.job_id.slice(0, 12))}</code></div><div class="execution-cards">${cards}</div><div class="execution-roles">${roles}</div></section>`;
+}
+
+function renderExplorer(data, trace = null) {
   if (!data.evidence_graph) {
     explorer.hidden = true;
     return;
@@ -174,7 +270,12 @@ function renderExplorer(data) {
     selectedId: null,
   };
   graphStats.innerHTML = `<div><strong>${graph.nodes.length}</strong><span>вершин</span></div><div><strong>${graph.edges.length}</strong><span>связей</span></div><div><strong>${data.claims.length}</strong><span>выводов</span></div>`;
-  pipeline.innerHTML = PIPELINE_STAGES.map(([number, name, detail], index) => `<div class="pipeline-stage" style="--stage:${index}"><span>${number}</span><div><b>${name}</b><small>${detail}</small></div><i>✓</i></div>`).join("");
+  const stageById = new Map((trace?.stages || []).map((stage) => [stage.stage, stage]));
+  pipeline.innerHTML = PIPELINE_STAGES.map(([id, number, name, detail], index) => {
+    const measured = stageById.get(id);
+    const text = measured ? `${measured.message} · ${formatDuration(measured.duration_ms)}` : detail;
+    return `<div class="pipeline-stage" style="--stage:${index}"><span>${number}</span><div><b>${name}</b><small>${escapeHtml(text)}</small></div><i>✓</i></div>`;
+  }).join("");
   fileFilters.innerHTML = graph.nodes.filter((node) => node.kind === "artifact").map((node) => `<button type="button" data-focus-node="${escapeHtml(node.id)}"><span>${fileExtension(node.attributes.filename || node.label)}</span>${escapeHtml(node.attributes.filename || node.label)}</button>`).join("");
   graphBoundary.textContent = `Граф: ${graph.graph_sha256}. Связи показывают происхождение данных, но сами по себе не доказывают научную истинность вывода.`;
   drawGraph();
@@ -507,6 +608,13 @@ function formatBytes(value) {
   return `${(value / 1024 / 1024).toFixed(1)} MB`;
 }
 
+function topFolder(file) { return file.webkitRelativePath?.split("/")[0] || "папка проекта"; }
+function formatDuration(milliseconds) {
+  if (milliseconds < 1) return "<1 ms";
+  if (milliseconds < 10) return `${milliseconds.toFixed(1)} ms`;
+  if (milliseconds < 1000) return `${Math.round(milliseconds)} ms`;
+  return `${(milliseconds / 1000).toFixed(2)} s`;
+}
 function truncate(value, length) { return value.length > length ? `${value.slice(0, length - 1)}…` : value; }
 function delay(milliseconds) { return new Promise((resolve) => window.setTimeout(resolve, milliseconds)); }
 function percent(value) { return `${(value * 100).toFixed(1)}%`; }

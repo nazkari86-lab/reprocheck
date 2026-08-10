@@ -31,7 +31,9 @@
       <section class="workspace">
         <form id="audit-form">
           <div class="form-title"><span>АУДИТ / 001</span><h2>Материалы эксперимента</h2></div>
-          <label class="drop primary"><span>Отчёт *</span><strong>MD, TXT, DOCX, PDF, IPYNB или JSON</strong><input name="report" type="file" accept=".md,.txt,.rst,.docx,.pdf,.ipynb,.json" required></label>
+          <label class="drop primary project-drop"><span>Папка проекта</span><strong>Загрузить проект целиком</strong><small>ReproCheck найдёт manifest, отчёт, predictions, splits и другие артефакты</small><input id="project-files" name="project_files" type="file" webkitdirectory directory multiple></label>
+          <div class="input-choice"><span>или назначьте роли вручную</span></div>
+          <label class="drop primary"><span>Отчёт</span><strong>MD, TXT, DOCX, PDF, IPYNB или JSON</strong><input name="report" type="file" accept=".md,.txt,.rst,.docx,.pdf,.ipynb,.json"></label>
           <div class="file-grid">
             <label class="drop"><span>Notebook</span><strong>Статический аудит IPYNB</strong><input name="notebook" type="file" accept=".ipynb"></label>
             <label class="drop"><span>Предсказания</span><strong>CSV: y_true, y_pred</strong><input name="predictions" type="file" accept=".csv"></label>
@@ -47,12 +49,12 @@
             <label>Группа объекта<input name="group_column" placeholder="patient_id / source_id"></label>
             <label>Идентичность строки<input name="identity_columns" placeholder="text,image_path"></label>
             <label>Текст для near-match<input name="text_column" placeholder="text"></label>
-            <label>Метод near-match<select name="near_method"><option value="hybrid_lexical_v1">Hybrid lexical (опечатки)</option><option value="ordered_tokens_v1">Ordered tokens (порядок слов)</option><option value="token_jaccard">Legacy token Jaccard</option></select></label>
-            <label>Порог сходства<input name="near_threshold" type="number" value="0.8" min="0" max="1" step="0.01"></label>
+            <label>Метод near-match<select name="near_method"><option value="">Из manifest / hybrid</option><option value="hybrid_lexical_v1">Hybrid lexical (опечатки)</option><option value="ordered_tokens_v1">Ordered tokens (порядок слов)</option><option value="token_jaccard">Legacy token Jaccard</option></select></label>
+            <label>Порог сходства<input name="near_threshold" type="number" placeholder="manifest / 0.8" min="0" max="1" step="0.01"></label>
             <label>Positive label<input name="positive_label" placeholder="1 / disease"></label>
-            <label>Задача predictions<select name="prediction_task"><option value="classification">classification</option><option value="regression">regression</option></select></label>
-            <label>Усреднение<select name="average"><option value="auto">auto</option><option value="binary">binary</option><option value="macro">macro</option><option value="weighted">weighted</option></select></label>
-            <label>Допуск метрики<input name="tolerance" type="number" value="0.005" min="0" max="1" step="0.001"></label>
+            <label>Задача predictions<select name="prediction_task"><option value="">Из manifest / classification</option><option value="classification">classification</option><option value="regression">regression</option></select></label>
+            <label>Усреднение<select name="average"><option value="">Из manifest / auto</option><option value="auto">auto</option><option value="binary">binary</option><option value="macro">macro</option><option value="weighted">weighted</option></select></label>
+            <label>Допуск метрики<input name="tolerance" type="number" placeholder="manifest / 0.005" min="0" max="1" step="0.001"></label>
           </div>
           <button type="submit"><span>Запустить проверку</span><b>→</b></button>
           <button id="demo" class="demo-button" type="button"><span>Показать живой пример</span><b>◎</b></button>

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 from datetime import UTC, datetime
 from pathlib import Path
 import re
@@ -15,6 +16,9 @@ from .models import AuditReport, MetricObservation
 from .notebook import audit_notebook
 from .provenance import describe_artifact
 from .version import __version__
+
+
+ProgressCallback = Callable[[str, str, dict[str, object]], None]
 
 
 def run_audit(
@@ -39,6 +43,7 @@ def run_audit(
     prediction_task: str = "classification",
     tolerance: float = 0.005,
     extra_artifacts: list[tuple[str, Path]] | None = None,
+    progress_callback: ProgressCallback | None = None,
 ) -> AuditReport:
     if (train_path is None) != (test_path is None):
         raise ValueError("train and test files must be supplied together")
@@ -50,12 +55,33 @@ def run_audit(
         if role in {".", ".."} or not re.fullmatch(r"[A-Za-z0-9_.-]+", role):
             raise ValueError(f"invalid artifact role: {role}")
         artifacts.append(describe_artifact(path, role))
+    _emit_progress(
+        progress_callback,
+        "claims",
+        "started",
+        {"message": f"Читаем утверждения из {report_path.name}"},
+    )
     text = extract_document_text(report_path, selector=report_selector)
     claims = extract_claims(text)
+    _emit_progress(
+        progress_callback,
+        "claims",
+        "completed",
+        {
+            "message": f"Найдено числовых утверждений: {len(claims)}",
+            "claim_count": len(claims),
+        },
+    )
     metric_evidence = {}
     metric_observations: list[tuple[str, MetricObservation]] = []
     evidence_conflicts: list[dict[str, object]] = []
 
+    _emit_progress(
+        progress_callback,
+        "evidence",
+        "started",
+        {"message": "Пересчитываем метрики из предоставленных evidence"},
+    )
     if metrics_path:
         artifacts.append(describe_artifact(metrics_path, "metrics"))
         _merge_metric_evidence(
@@ -89,7 +115,23 @@ def run_audit(
             observations=metric_observations,
         )
     observed = {name: evidence.value for name, evidence in metric_evidence.items()}
+    _emit_progress(
+        progress_callback,
+        "evidence",
+        "completed",
+        {
+            "message": f"Получено метрик: {len(metric_observations)}",
+            "metric_count": len(metric_observations),
+            "metrics": sorted(observed),
+        },
+    )
 
+    _emit_progress(
+        progress_callback,
+        "matching",
+        "started",
+        {"message": "Сопоставляем claims, evidence и разделение данных"},
+    )
     resolved_notebook_path = notebook_path
     if resolved_notebook_path is None and report_path.suffix.lower() == ".ipynb":
         resolved_notebook_path = report_path
@@ -232,6 +274,23 @@ def run_audit(
         ],
     }
     status = "needs_review" if findings else "passed"
+    _emit_progress(
+        progress_callback,
+        "matching",
+        "completed",
+        {
+            "message": f"Сопоставлено выводов: {len(checks)}; замечаний: {len(findings)}",
+            "check_count": len(checks),
+            "finding_count": len(findings),
+            "status": status,
+        },
+    )
+    _emit_progress(
+        progress_callback,
+        "certificate",
+        "started",
+        {"message": "Строим evidence graph и криптографический сертификат"},
+    )
     evidence_graph = build_evidence_graph(
         tool_version=__version__,
         status=status,
@@ -257,7 +316,28 @@ def run_audit(
         parameters=parameters,
         evidence_graph=evidence_graph,
     )
-    return seal_report(result)
+    sealed = seal_report(result)
+    _emit_progress(
+        progress_callback,
+        "certificate",
+        "completed",
+        {
+            "message": f"Сертификат готов: {sealed.certificate_sha256[:12]}...",
+            "certificate_sha256": sealed.certificate_sha256,
+            "graph_sha256": sealed.evidence_graph.graph_sha256 if sealed.evidence_graph else None,
+        },
+    )
+    return sealed
+
+
+def _emit_progress(
+    callback: ProgressCallback | None,
+    stage: str,
+    state: str,
+    detail: dict[str, object],
+) -> None:
+    if callback is not None:
+        callback(stage, state, detail)
 
 
 def _merge_metric_evidence(

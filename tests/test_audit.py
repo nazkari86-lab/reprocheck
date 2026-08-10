@@ -209,6 +209,34 @@ def test_regression_claims_are_independently_verified(tmp_path: Path):
     ]
 
 
+def test_audit_progress_reports_real_stage_boundaries(tmp_path: Path):
+    report = tmp_path / "custom_report.md"
+    predictions = tmp_path / "custom_predictions.csv"
+    report.write_text("Accuracy: 100%", encoding="utf-8")
+    predictions.write_text("y_true,y_pred\n1,1\n", encoding="utf-8")
+    events: list[tuple[str, str, dict[str, object]]] = []
+
+    run_audit(
+        report_path=report,
+        predictions_path=predictions,
+        progress_callback=lambda stage, state, detail: events.append((stage, state, detail)),
+    )
+
+    assert [(stage, state) for stage, state, _ in events] == [
+        ("claims", "started"),
+        ("claims", "completed"),
+        ("evidence", "started"),
+        ("evidence", "completed"),
+        ("matching", "started"),
+        ("matching", "completed"),
+        ("certificate", "started"),
+        ("certificate", "completed"),
+    ]
+    assert events[1][2]["claim_count"] == 1
+    assert events[3][2]["metrics"] == ["accuracy", "f1", "precision", "recall"]
+    assert len(str(events[-1][2]["certificate_sha256"])) == 64
+
+
 def test_run_audit_remains_available_from_public_package_api():
     import reprocheck
 

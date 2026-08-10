@@ -89,6 +89,14 @@ shows source lines, methods, values, relations, and SHA-256 digests. The graph
 is rendered locally without executing uploaded Python code, uses no external
 JavaScript service, and respects reduced-motion accessibility settings.
 
+The **project folder** input accepts up to 300 files / 100 MB. A bundled
+`reprocheck.json` supplies exact artifact roles and audit parameters for its first
+experiment; otherwise conservative filename rules identify the report,
+predictions, metrics, detections, notebook, and train/test pair. The same JSON
+Schema validation is used by the CLI and web UI. Manual file and parameter inputs
+override the manifest. User audits run as server-side jobs, and the UI reports
+measured stage durations from the backend rather than animating a synthetic timer.
+
 ## One-command project check
 
 Store all experiment inputs in a versioned `reprocheck.json` manifest instead
