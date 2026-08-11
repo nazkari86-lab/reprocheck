@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from reprocheck.version import __version__
+
 
 ROOT = Path(__file__).resolve().parent.parent
 BENCHMARKS = ROOT / "benchmarks"
@@ -71,13 +73,18 @@ def _compare(
         return [f"current result missing: {current_path}"]
     current = json.loads(current_path.read_text(encoding="utf-8"))
     frozen = json.loads(frozen_path.read_text(encoding="utf-8"))
+    if current.get("tool_version") != __version__:
+        return [
+            f"current result version mismatch: {current_path.name} "
+            f"({current.get('tool_version')} != {__version__})"
+        ]
     if projection(current) != projection(frozen):
         return [f"result projection mismatch: {current_path.name}"]
     return []
 
 
 def _identity_projection(payload: dict[str, Any]) -> dict[str, Any]:
-    return payload
+    return {key: value for key, value in payload.items() if key != "tool_version"}
 
 
 def _scalability_projection(payload: dict[str, Any]) -> dict[str, Any]:
@@ -94,7 +101,6 @@ def _scalability_projection(payload: dict[str, Any]) -> dict[str, Any]:
             cases[-1]["invalid_timing"] = True
     return {
         "schema": payload["schema"],
-        "tool_version": payload["tool_version"],
         "cases": cases,
         "summary": payload["summary"],
         "scientific_boundary": payload["scientific_boundary"],

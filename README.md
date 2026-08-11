@@ -55,7 +55,7 @@ Install the published wheel directly from the immutable GitHub release:
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install \
-  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.15.0/reprocheck-0.15.0-py3-none-any.whl
+  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.16.0/reprocheck-0.16.0-py3-none-any.whl
 reprocheck demo
 ```
 
@@ -149,7 +149,7 @@ Use the same gate in GitHub Actions:
 
 ```yaml
 - uses: actions/checkout@v7
-- uses: nazkari86-lab/reprocheck@v0.15.0
+- uses: nazkari86-lab/reprocheck@v0.16.0
   with:
     manifest: reprocheck.json
     output-dir: outputs/reprocheck
@@ -345,6 +345,8 @@ must be recorded honestly using
 The additional integrity, real-corruption, representation, and scalability
 studies are reported in
 [`docs/EXPANDED_EXPERIMENTS.md`](docs/EXPANDED_EXPERIMENTS.md).
+The real-project web workflow and expanded experiment release are summarized in
+[`docs/RELEASE_0.16.md`](docs/RELEASE_0.16.md).
 
 ## Evidence-layer ablation
 
