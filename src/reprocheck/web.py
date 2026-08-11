@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import io
 import shutil
+import stat
 import tempfile
 import threading
 import time
+import zipfile
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -17,12 +20,15 @@ from starlette.concurrency import run_in_threadpool
 
 from .audit import run_audit
 from .batch import load_project_manifest
+from .guidance import build_audit_guide
+from .models import AuditReport
 from .version import __version__
 
 
 PACKAGE_ROOT = Path(__file__).parent
 MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 MAX_PROJECT_UPLOAD_BYTES = 100 * 1024 * 1024
+MAX_PROJECT_ARCHIVE_BYTES = 100 * 1024 * 1024
 MAX_PROJECT_FILES = 300
 JOB_TTL_SECONDS = 10 * 60
 MAX_ACTIVE_JOBS = 4
@@ -33,6 +39,7 @@ class AuditJob:
     status: str = "queued"
     stages: dict[str, dict[str, object]] = field(default_factory=dict)
     result: dict[str, object] | None = None
+    guide: dict[str, object] | None = None
     error: str | None = None
     created_at: float = field(default_factory=time.monotonic)
 
@@ -58,8 +65,11 @@ def health() -> dict[str, str]:
 
 
 @app.post("/api/demo")
-async def audit_demo():
-    return await run_in_threadpool(_run_demo_audit)
+async def audit_demo(envelope: bool = False):
+    report = await run_in_threadpool(_run_demo_audit)
+    if envelope:
+        return {"result": report.to_dict(), "guide": build_audit_guide(report)}
+    return report.to_dict()
 
 
 @app.post("/api/audit/jobs", status_code=202)
@@ -72,6 +82,7 @@ async def create_audit_job(
     train: UploadFile | None = File(None),
     test: UploadFile | None = File(None),
     project_files: list[UploadFile] = File(default=[]),
+    project_archive: UploadFile | None = File(None),
     report_selector: str = Form(""),
     metrics_selector: str = Form(""),
     label_column: str = Form(""),
@@ -92,6 +103,8 @@ async def create_audit_job(
             active_jobs = sum(job.status in {"queued", "running"} for job in _jobs.values())
         if active_jobs >= MAX_ACTIVE_JOBS:
             raise HTTPException(429, "Сервер уже выполняет максимальное число аудитов")
+        if project_files and project_archive is not None and project_archive.filename:
+            raise HTTPException(400, "Выберите либо папку проекта, либо ZIP, но не оба варианта")
         manual_paths = {
             "report": await _store(report, root, "report"),
             "notebook": await _store(notebook, root, "notebook"),
@@ -101,7 +114,12 @@ async def create_audit_job(
             "train": await _store(train, root, "train"),
             "test": await _store(test, root, "test"),
         }
-        stored_project = await _store_project_files(project_files, root)
+        if project_archive is not None and project_archive.filename:
+            stored_project = await _store_project_archive(project_archive, root)
+            upload_mode = "archive"
+        else:
+            stored_project = await _store_project_files(project_files, root)
+            upload_mode = "folder" if project_files else "manual"
         inferred, project_extras, inference_source, manifest_options = _infer_project_roles(
             stored_project
         )
@@ -147,6 +165,7 @@ async def create_audit_job(
                     "files": role_summary,
                     "input_file_count": input_file_count,
                     "project_file_count": len(stored_project),
+                    "upload_mode": upload_mode,
                     "inference_source": inference_source,
                     "experiment_id": manifest_options.get("experiment_id"),
                     "experiment_count": manifest_options.get("experiment_count"),
@@ -291,7 +310,7 @@ async def audit_upload(
         raise HTTPException(422, str(error)) from error
 
 
-def _run_demo_audit() -> dict[str, object]:
+def _run_demo_audit() -> AuditReport:
     with tempfile.TemporaryDirectory(prefix="reprocheck-demo-") as directory:
         root = Path(directory)
         report = root / "research_report.md"
@@ -321,7 +340,7 @@ def _run_demo_audit() -> dict[str, object]:
             test_path=test,
             label_column="label",
             identity_columns=["text"],
-        ).to_dict()
+        )
 
 
 async def _store(upload: UploadFile | None, root: Path, role: str) -> Path | None:
@@ -343,19 +362,13 @@ async def _store_project_files(uploads: list[UploadFile], root: Path) -> list[Pa
     if len(uploads) > MAX_PROJECT_FILES:
         raise HTTPException(413, f"В папке больше {MAX_PROJECT_FILES} файлов")
     stored: list[Path] = []
-    seen: set[Path] = set()
+    seen: set[str] = set()
     total_bytes = 0
     for upload in uploads:
-        raw_name = (upload.filename or "").replace("\\", "/")
-        relative = Path(raw_name)
-        if (
-            not raw_name
-            or relative.is_absolute()
-            or any(part in {"", ".", ".."} for part in relative.parts)
-        ):
-            raise HTTPException(400, "Папка содержит небезопасный путь файла")
+        relative = _project_relative(upload.filename or "")
         destination = root / "project" / relative
-        if destination in seen:
+        relative_key = relative.as_posix().casefold()
+        if relative_key in seen:
             raise HTTPException(400, f"Повторяющийся файл проекта: {relative}")
         content = await upload.read(MAX_UPLOAD_BYTES + 1)
         if len(content) > MAX_UPLOAD_BYTES:
@@ -365,9 +378,89 @@ async def _store_project_files(uploads: list[UploadFile], root: Path) -> list[Pa
             raise HTTPException(413, "Папка проекта превышает 100 MB")
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_bytes(content)
-        seen.add(destination)
+        seen.add(relative_key)
         stored.append(destination)
     return stored
+
+
+async def _store_project_archive(upload: UploadFile, root: Path) -> list[Path]:
+    filename = upload.filename or ""
+    if Path(filename).suffix.lower() != ".zip":
+        raise HTTPException(415, "Архив проекта должен иметь формат ZIP")
+    content = await upload.read(MAX_PROJECT_ARCHIVE_BYTES + 1)
+    if len(content) > MAX_PROJECT_ARCHIVE_BYTES:
+        raise HTTPException(413, "ZIP проекта превышает 100 MB")
+
+    try:
+        with zipfile.ZipFile(io.BytesIO(content)) as archive:
+            infos = archive.infolist()
+            if len(infos) > MAX_PROJECT_FILES * 2:
+                raise HTTPException(413, "ZIP содержит слишком много записей")
+            members = [
+                info
+                for info in infos
+                if not info.is_dir() and not _ignored_archive_member(info.filename)
+            ]
+            if len(members) > MAX_PROJECT_FILES:
+                raise HTTPException(413, f"В ZIP больше {MAX_PROJECT_FILES} файлов")
+            if sum(info.file_size for info in members) > MAX_PROJECT_UPLOAD_BYTES:
+                raise HTTPException(413, "Распакованный проект превышает 100 MB")
+
+            stored: list[Path] = []
+            seen: set[str] = set()
+            actual_total = 0
+            for info in members:
+                relative = _project_relative(info.filename)
+                relative_key = relative.as_posix().casefold()
+                if relative_key in seen:
+                    raise HTTPException(400, f"Повторяющийся файл в ZIP: {relative}")
+                if info.flag_bits & 0x1:
+                    raise HTTPException(
+                        400, f"Зашифрованный файл в ZIP не поддерживается: {relative}"
+                    )
+                unix_mode = info.external_attr >> 16
+                if stat.S_ISLNK(unix_mode):
+                    raise HTTPException(400, f"Символическая ссылка в ZIP запрещена: {relative}")
+                if info.file_size > MAX_UPLOAD_BYTES:
+                    raise HTTPException(413, f"Файл {relative} превышает 20 MB")
+
+                destination = root / "project" / relative
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                written = 0
+                with archive.open(info) as source, destination.open("wb") as target:
+                    while chunk := source.read(1024 * 1024):
+                        written += len(chunk)
+                        actual_total += len(chunk)
+                        if written > MAX_UPLOAD_BYTES:
+                            raise HTTPException(413, f"Файл {relative} превышает 20 MB")
+                        if actual_total > MAX_PROJECT_UPLOAD_BYTES:
+                            raise HTTPException(413, "Распакованный проект превышает 100 MB")
+                        target.write(chunk)
+                seen.add(relative_key)
+                stored.append(destination)
+            return stored
+    except zipfile.BadZipFile as error:
+        raise HTTPException(422, "ZIP проекта повреждён или имеет неверный формат") from error
+    except (NotImplementedError, RuntimeError) as error:
+        raise HTTPException(422, f"ZIP проекта не поддерживается: {error}") from error
+
+
+def _project_relative(raw_name: str) -> Path:
+    normalized = raw_name.replace("\\", "/")
+    relative = Path(normalized)
+    if (
+        not normalized
+        or "\x00" in normalized
+        or relative.is_absolute()
+        or any(part in {"", ".", ".."} for part in relative.parts)
+    ):
+        raise HTTPException(400, "Проект содержит небезопасный путь файла")
+    return relative
+
+
+def _ignored_archive_member(name: str) -> bool:
+    parts = Path(name.replace("\\", "/")).parts
+    return "__MACOSX" in parts or (bool(parts) and parts[-1] == ".DS_Store")
 
 
 def _infer_project_roles(
@@ -534,6 +627,7 @@ def _execute_audit_job(job_id: str, root: Path, kwargs: dict[str, Any]) -> None:
         with _jobs_lock:
             job = _jobs[job_id]
             job.result = report.to_dict()
+            job.guide = build_audit_guide(report)
             job.status = "completed"
     except Exception as error:
         with _jobs_lock:
@@ -557,6 +651,7 @@ def _job_snapshot(job_id: str, job: AuditJob) -> dict[str, object]:
         "status": job.status,
         "stages": stages,
         "result": job.result if job.status == "completed" else None,
+        "guide": job.guide if job.status == "completed" else None,
         "error": job.error,
     }
 

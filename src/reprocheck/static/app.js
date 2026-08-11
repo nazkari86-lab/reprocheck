@@ -3,6 +3,9 @@ const result = document.querySelector("#result");
 const download = document.querySelector("#download");
 const demoButton = document.querySelector("#demo");
 const submitButton = form.querySelector('button[type="submit"]');
+const projectInput = document.querySelector("#project-files");
+const archiveInput = document.querySelector("#project-archive");
+const projectPreview = document.querySelector("#project-preview");
 const explorer = document.querySelector("#evidence-explorer");
 const svg = document.querySelector("#evidence-svg");
 const inspector = document.querySelector("#node-inspector");
@@ -57,11 +60,20 @@ document.querySelectorAll('input[type="file"]').forEach((input) => {
   });
 });
 
+projectInput.addEventListener("change", async () => {
+  if (projectInput.files.length) clearFileInput(archiveInput);
+  await refreshProjectPreview();
+});
+
+archiveInput.addEventListener("change", async () => {
+  if (archiveInput.files.length) clearFileInput(projectInput);
+  await refreshProjectPreview();
+});
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const projectInput = document.querySelector("#project-files");
   const reportInput = form.querySelector('input[name="report"]');
-  if (!projectInput.files.length && !reportInput.files.length) {
+  if (!projectInput.files.length && !archiveInput.files.length && !reportInput.files.length) {
     result.innerHTML = '<div class="verdict needs_review"><p class="eyebrow">НУЖНЫ ФАЙЛЫ</p><h2>Выберите проект</h2><p>Загрузите папку проекта или отдельно укажите научный отчёт.</p></div>';
     return;
   }
@@ -72,7 +84,7 @@ form.addEventListener("submit", async (event) => {
 });
 
 demoButton.addEventListener("click", async () => {
-  await executeAudit("/api/demo", { method: "POST" }, true);
+  await executeAudit("/api/demo?envelope=true", { method: "POST" }, true);
 });
 
 download.addEventListener("click", () => {
@@ -101,9 +113,10 @@ async function executeAudit(url, options, isDemo = false) {
     const payload = await response.json();
     if (!response.ok) throw new Error(payload.detail || "Ошибка проверки");
     await loading.complete();
-    lastAudit = payload;
+    const audit = payload.result || payload;
+    lastAudit = audit;
     download.hidden = false;
-    render(payload, isDemo);
+    render(audit, isDemo, null, payload.guide || null);
   } catch (error) {
     loading.stop();
     result.innerHTML = `<div class="verdict needs_review"><p class="eyebrow">ОШИБКА</p><h2>Не удалось проверить</h2><p>${escapeHtml(error.message)}</p></div>`;
@@ -131,7 +144,7 @@ async function executeProjectAudit(formData) {
     if (snapshot.status === "failed") throw new Error(snapshot.error || "Проверка завершилась ошибкой");
     lastAudit = snapshot.result;
     download.hidden = false;
-    render(snapshot.result, false, snapshot);
+    render(snapshot.result, false, snapshot, snapshot.guide);
   } catch (error) {
     loading.stop();
     result.innerHTML = `<div class="verdict needs_review"><p class="eyebrow">ОШИБКА</p><h2>Не удалось проверить</h2><p>${escapeHtml(error.message)}</p></div>`;
@@ -211,10 +224,11 @@ function startProjectLoading(formData) {
 function renderDetectedFiles(container, stage) {
   container.hidden = false;
   const experiment = stage.experiment_id ? ` · ${stage.experiment_id}${stage.experiment_count > 1 ? ` (1/${stage.experiment_count})` : ""}` : "";
-  container.innerHTML = `<div class="detected-title"><b>Backend распознал роли</b><span>${escapeHtml(stage.inference_source || "manual")}${escapeHtml(experiment)}</span></div><div class="detected-grid">${stage.files.slice(0, 18).map((file) => `<div><span>${escapeHtml(file.role)}</span><b>${escapeHtml(file.filename)}</b><small>${escapeHtml(file.source)}</small></div>`).join("")}</div>${stage.files.length > 18 ? `<p>Ещё файлов в сертификате: ${stage.files.length - 18}</p>` : ""}`;
+  const mode = ({ archive: "ZIP", folder: "папка", manual: "ручной ввод" })[stage.upload_mode] || stage.upload_mode;
+  container.innerHTML = `<div class="detected-title"><b>Backend распознал роли</b><span>${escapeHtml(mode)} · ${escapeHtml(stage.inference_source || "manual")}${escapeHtml(experiment)}</span></div><div class="detected-grid">${stage.files.slice(0, 18).map((file) => `<div><span>${escapeHtml(file.role)}</span><b>${escapeHtml(file.filename)}</b><small>${escapeHtml(file.source)}</small></div>`).join("")}</div>${stage.files.length > 18 ? `<p>Ещё файлов в сертификате: ${stage.files.length - 18}</p>` : ""}`;
 }
 
-function render(data, isDemo, trace = null) {
+function render(data, isDemo, trace = null, guide = null) {
   const claimRows = data.claims.length ? data.claims.map(({ claim, status, observed, display_kind }, index) => `
     <button class="metric trace-link" type="button" data-focus-node="claim:${index}">
       <span><strong>${escapeHtml(claim.raw_text)}</strong><small>${escapeHtml(findReportName(data))}, строка ${claim.line} · заявлено ${formatMetric(claim.value, display_kind)}</small></span>
@@ -230,8 +244,10 @@ function render(data, isDemo, trace = null) {
   const notebook = data.notebook ? `<div class="leak-box"><div><strong>${data.notebook.code_cells}</strong><span>code cells</span></div><div><strong>${data.notebook.has_random_seed ? "да" : "нет"}</strong><span>seed обнаружен</span></div></div>` : "<p>Notebook не загружен.</p>";
   const findings = data.findings.length ? data.findings.map((item, index) => `<button class="finding ${escapeHtml(item.severity)} trace-link" type="button" data-focus-node="finding:${index}"><b>${escapeHtml(item.code)}</b><span>${escapeHtml(item.message)}</span></button>`).join("") : '<div class="finding medium"><b>ЧИСТО</b><span>Проверяемых несоответствий не найдено.</span></div>';
   const executionTrace = trace ? renderExecutionTrace(trace) : "";
+  const passport = guide ? renderEvidencePassport(guide, data.status) : "";
   result.innerHTML = `
     <div class="verdict ${data.status}"><p class="eyebrow">${isDemo ? "КОНТРОЛИРУЕМЫЙ ПРИМЕР" : "ИТОГ АУДИТА"}</p><h2>${data.status === "passed" ? "ПРОЙДЕНО" : "ТРЕБУЕТ ПРОВЕРКИ"}</h2><p>${data.findings.length} замечаний · ${data.artifacts.length} файлов зафиксировано</p></div>
+    ${passport}
     ${executionTrace}
     <h3>Зафиксированные файлы</h3>${artifacts}
     <h3>Утверждения</h3>${claimRows}
@@ -242,6 +258,22 @@ function render(data, isDemo, trace = null) {
     <p class="certificate">SHA-256 сертификата: ${escapeHtml(data.certificate_sha256)}</p>`;
   result.querySelector("[data-open-graph]").addEventListener("click", () => explorer.scrollIntoView({ behavior: "smooth", block: "start" }));
   renderExplorer(data, trace);
+}
+
+function renderEvidencePassport(guide, auditStatus) {
+  const coverage = guide.claim_coverage;
+  const layerLabels = { claims: "Выводы", metrics: "Метрики", splits: "Train / test", notebook: "Notebook", certificate: "Сертификат" };
+  const statusLabels = { checked: "проверено", partial: "частично", not_provided: "не предоставлено" };
+  const metrics = [
+    [coverage.with_evidence, coverage.total, "выводов имеют evidence"],
+    [coverage.independently_recomputed, coverage.total, "независимо пересчитано"],
+    [coverage.matched, coverage.total, "совпали с evidence"],
+    [coverage.mismatched, coverage.total, "противоречат evidence"],
+  ].map(([value, total, title]) => `<div><strong>${value}<i>/${total}</i></strong><span>${title}</span></div>`).join("");
+  const layers = guide.layers.map((layer) => `<div class="passport-layer ${escapeHtml(layer.status)}"><i></i><span><b>${escapeHtml(layerLabels[layer.id] || layer.id)}</b><small>${escapeHtml(layer.detail)}</small></span><em>${escapeHtml(statusLabels[layer.status] || layer.status)}</em></div>`).join("");
+  const actions = guide.actions.map((action, index) => `<div class="passport-action ${escapeHtml(action.priority)}"><span>${String(index + 1).padStart(2, "0")}</span><div><b>${escapeHtml(action.title)}</b><p>${escapeHtml(action.detail)}</p>${action.source_codes.length ? `<code>${escapeHtml(action.source_codes.join(" · "))}</code>` : '<code>расширение покрытия</code>'}</div></div>`).join("");
+  const headline = auditStatus === "passed" ? "Противоречий не найдено. Вот границы проверки." : "Вот что доказано и что исправлять первым.";
+  return `<section class="evidence-passport"><header><div><p class="eyebrow">EVIDENCE PASSPORT / БЕЗ AI SCORE</p><h3>${headline}</h3></div><code>${escapeHtml(guide.derived_from_certificate_sha256.slice(0, 12))}</code></header><div class="passport-metrics">${metrics}</div><div class="passport-body"><div><h4>Покрытие доказательств</h4><div class="passport-layers">${layers}</div></div><div><h4>Следующие действия</h4><div class="passport-actions">${actions}</div></div></div><p class="passport-boundary">${escapeHtml(guide.boundary)}</p></section>`;
 }
 
 function renderExecutionTrace(trace) {
@@ -597,6 +629,63 @@ function formatAttribute(value) {
   return String(value);
 }
 
+async function refreshProjectPreview() {
+  if (archiveInput.files.length) {
+    const archive = archiveInput.files[0];
+    projectPreview.hidden = false;
+    projectPreview.className = "project-preview ready";
+    projectPreview.innerHTML = `<span>ZIP ГОТОВ</span><div><b>${escapeHtml(archive.name)}</b><small>${formatBytes(archive.size)} · backend проверит пути, размер и manifest до аудита</small></div>`;
+    return;
+  }
+  if (!projectInput.files.length) {
+    projectPreview.hidden = true;
+    projectPreview.innerHTML = "";
+    return;
+  }
+
+  const files = [...projectInput.files];
+  const manifests = files.filter((file) => file.name.toLowerCase() === "reprocheck.json").sort((left, right) => {
+    const leftPath = left.webkitRelativePath || left.name;
+    const rightPath = right.webkitRelativePath || right.name;
+    return leftPath.split("/").length - rightPath.split("/").length || leftPath.localeCompare(rightPath);
+  });
+  projectPreview.hidden = false;
+  if (manifests.length) {
+    try {
+      const manifest = JSON.parse(await manifests[0].text());
+      const experiments = Array.isArray(manifest.experiments) ? manifest.experiments : [];
+      const first = experiments[0] || {};
+      const roles = ["report", "predictions", "metrics", "detections", "train", "test", "notebook"].filter((role) => first[role]);
+      projectPreview.className = "project-preview ready";
+      projectPreview.innerHTML = `<span>MANIFEST НАЙДЕН</span><div><b>${experiments.length} ${plural(experiments.length, "эксперимент", "эксперимента", "экспериментов")}</b><small>${roles.length ? `Первый: ${escapeHtml(first.id || "без id")} · роли: ${escapeHtml(roles.join(", "))}` : "Backend проверит JSON Schema перед запуском"}</small></div>`;
+      return;
+    } catch (error) {
+      projectPreview.className = "project-preview warning";
+      projectPreview.innerHTML = `<span>MANIFEST НУЖНО ИСПРАВИТЬ</span><div><b>${files.length} файлов выбрано</b><small>${escapeHtml(error.message)}</small></div>`;
+      return;
+    }
+  }
+
+  const names = files.map((file) => file.name.toLowerCase());
+  const hints = [
+    ["report", /report|paper|summary/],
+    ["predictions", /predictions?|preds/],
+    ["train", /^train(?:[_.-]|$)/],
+    ["test", /^test(?:[_.-]|$)/],
+    ["metrics", /metrics?|scores?/],
+    ["notebook", /\.ipynb$/],
+  ].filter(([, pattern]) => names.some((name) => pattern.test(name))).map(([role]) => role);
+  projectPreview.className = "project-preview neutral";
+  projectPreview.innerHTML = `<span>ZERO-CONFIG</span><div><b>${files.length} файлов выбрано</b><small>${hints.length ? `Предварительно найдены: ${escapeHtml(hints.join(", "))}` : "Backend попробует определить роли по безопасным правилам имён"}</small></div>`;
+}
+
+function clearFileInput(input) {
+  input.value = "";
+  const drop = input.closest(".drop");
+  drop.classList.remove("has-file");
+  delete drop.dataset.filename;
+}
+
 function fileExtension(filename) {
   const extension = String(filename).split(".").pop();
   return extension && extension !== filename ? extension.slice(0, 4).toUpperCase() : "FILE";
@@ -609,6 +698,7 @@ function formatBytes(value) {
 }
 
 function topFolder(file) { return file.webkitRelativePath?.split("/")[0] || "папка проекта"; }
+function plural(value, one, few, many) { const mod10 = value % 10; const mod100 = value % 100; return mod10 === 1 && mod100 !== 11 ? one : mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14) ? few : many; }
 function formatDuration(milliseconds) {
   if (milliseconds < 1) return "<1 ms";
   if (milliseconds < 10) return `${milliseconds.toFixed(1)} ms`;

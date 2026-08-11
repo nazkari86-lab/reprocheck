@@ -30,32 +30,46 @@
 
       <section class="workspace">
         <form id="audit-form">
-          <div class="form-title"><span>АУДИТ / 001</span><h2>Материалы эксперимента</h2></div>
-          <label class="drop primary project-drop"><span>Папка проекта</span><strong>Загрузить проект целиком</strong><small>ReproCheck найдёт manifest, отчёт, predictions, splits и другие артефакты</small><input id="project-files" name="project_files" type="file" webkitdirectory directory multiple></label>
-          <div class="input-choice"><span>или назначьте роли вручную</span></div>
-          <label class="drop primary"><span>Отчёт</span><strong>MD, TXT, DOCX, PDF, IPYNB или JSON</strong><input name="report" type="file" accept=".md,.txt,.rst,.docx,.pdf,.ipynb,.json"></label>
-          <div class="file-grid">
-            <label class="drop"><span>Notebook</span><strong>Статический аудит IPYNB</strong><input name="notebook" type="file" accept=".ipynb"></label>
-            <label class="drop"><span>Предсказания</span><strong>CSV: y_true, y_pred</strong><input name="predictions" type="file" accept=".csv"></label>
-            <label class="drop"><span>Готовые метрики</span><strong>JSON или CSV</strong><input name="metrics" type="file" accept=".json,.csv"></label>
-            <label class="drop"><span>Detection evidence</span><strong>JSON: GT + prediction boxes</strong><input name="detections" type="file" accept=".json"></label>
-            <label class="drop"><span>Train split</span><strong>CSV</strong><input name="train" type="file" accept=".csv"></label>
-            <label class="drop"><span>Test split</span><strong>CSV</strong><input name="test" type="file" accept=".csv"></label>
+          <div class="form-title"><span>АУДИТ / 001</span><h2>Проверьте проект за один шаг</h2></div>
+          <div class="quick-start-copy"><b>1</b><span>Выберите папку или ZIP</span><b>2</b><span>Нажмите «Проверить»</span></div>
+          <div class="project-source-grid">
+            <label class="drop primary project-drop"><span>Папка</span><strong>Выбрать проект</strong><small>До 300 файлов / 100 MB</small><input id="project-files" name="project_files" type="file" webkitdirectory directory multiple></label>
+            <label class="drop primary archive-drop"><span>ZIP</span><strong>Загрузить одним файлом</strong><small>Безопасная локальная распаковка</small><input id="project-archive" name="project_archive" type="file" accept=".zip,application/zip"></label>
           </div>
-          <div class="options">
-            <label>JSON-секция отчёта<input name="report_selector" placeholder="claims.0.claim"></label>
-            <label>Строка метрик<input name="metrics_selector" placeholder="experiment=baseline_a"></label>
-            <label>Столбец ответа<input name="label_column" placeholder="label"></label>
-            <label>Группа объекта<input name="group_column" placeholder="patient_id / source_id"></label>
-            <label>Идентичность строки<input name="identity_columns" placeholder="text,image_path"></label>
-            <label>Текст для near-match<input name="text_column" placeholder="text"></label>
-            <label>Метод near-match<select name="near_method"><option value="">Из manifest / hybrid</option><option value="hybrid_lexical_v1">Hybrid lexical (опечатки)</option><option value="ordered_tokens_v1">Ordered tokens (порядок слов)</option><option value="token_jaccard">Legacy token Jaccard</option></select></label>
-            <label>Порог сходства<input name="near_threshold" type="number" placeholder="manifest / 0.8" min="0" max="1" step="0.01"></label>
-            <label>Positive label<input name="positive_label" placeholder="1 / disease"></label>
-            <label>Задача predictions<select name="prediction_task"><option value="">Из manifest / classification</option><option value="classification">classification</option><option value="regression">regression</option></select></label>
-            <label>Усреднение<select name="average"><option value="">Из manifest / auto</option><option value="auto">auto</option><option value="binary">binary</option><option value="macro">macro</option><option value="weighted">weighted</option></select></label>
-            <label>Допуск метрики<input name="tolerance" type="number" placeholder="manifest / 0.005" min="0" max="1" step="0.001"></label>
-          </div>
+          <div id="project-preview" class="project-preview" hidden></div>
+
+          <details class="config-panel">
+            <summary><span><b>Назначить файлы вручную</b><small>Если в проекте нестандартные имена</small></span><i>+</i></summary>
+            <div class="config-body">
+              <label class="drop primary"><span>Отчёт</span><strong>MD, TXT, DOCX, PDF, IPYNB или JSON</strong><input name="report" type="file" accept=".md,.txt,.rst,.docx,.pdf,.ipynb,.json"></label>
+              <div class="file-grid">
+                <label class="drop"><span>Notebook</span><strong>Статический аудит IPYNB</strong><input name="notebook" type="file" accept=".ipynb"></label>
+                <label class="drop"><span>Предсказания</span><strong>CSV: y_true, y_pred</strong><input name="predictions" type="file" accept=".csv"></label>
+                <label class="drop"><span>Готовые метрики</span><strong>JSON или CSV</strong><input name="metrics" type="file" accept=".json,.csv"></label>
+                <label class="drop"><span>Detection evidence</span><strong>JSON: GT + prediction boxes</strong><input name="detections" type="file" accept=".json"></label>
+                <label class="drop"><span>Train split</span><strong>CSV</strong><input name="train" type="file" accept=".csv"></label>
+                <label class="drop"><span>Test split</span><strong>CSV</strong><input name="test" type="file" accept=".csv"></label>
+              </div>
+            </div>
+          </details>
+
+          <details class="config-panel">
+            <summary><span><b>Экспертные настройки</b><small>По умолчанию берутся из reprocheck.json</small></span><i>+</i></summary>
+            <div class="options config-body">
+              <label>JSON-секция отчёта<input name="report_selector" placeholder="claims.0.claim"></label>
+              <label>Строка метрик<input name="metrics_selector" placeholder="experiment=baseline_a"></label>
+              <label>Столбец ответа<input name="label_column" placeholder="label"></label>
+              <label>Группа объекта<input name="group_column" placeholder="patient_id / source_id"></label>
+              <label>Идентичность строки<input name="identity_columns" placeholder="text,image_path"></label>
+              <label>Текст для near-match<input name="text_column" placeholder="text"></label>
+              <label>Метод near-match<select name="near_method"><option value="">Из manifest / hybrid</option><option value="hybrid_lexical_v1">Hybrid lexical (опечатки)</option><option value="ordered_tokens_v1">Ordered tokens (порядок слов)</option><option value="token_jaccard">Legacy token Jaccard</option></select></label>
+              <label>Порог сходства<input name="near_threshold" type="number" placeholder="manifest / 0.8" min="0" max="1" step="0.01"></label>
+              <label>Positive label<input name="positive_label" placeholder="1 / disease"></label>
+              <label>Задача predictions<select name="prediction_task"><option value="">Из manifest / classification</option><option value="classification">classification</option><option value="regression">regression</option></select></label>
+              <label>Усреднение<select name="average"><option value="">Из manifest / auto</option><option value="auto">auto</option><option value="binary">binary</option><option value="macro">macro</option><option value="weighted">weighted</option></select></label>
+              <label>Допуск метрики<input name="tolerance" type="number" placeholder="manifest / 0.005" min="0" max="1" step="0.001"></label>
+            </div>
+          </details>
           <button type="submit"><span>Запустить проверку</span><b>→</b></button>
           <button id="demo" class="demo-button" type="button"><span>Показать живой пример</span><b>◎</b></button>
           <button id="download" class="secondary" type="button" hidden><span>Скачать JSON-сертификат</span><b>↓</b></button>

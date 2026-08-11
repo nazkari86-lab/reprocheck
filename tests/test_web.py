@@ -1,6 +1,9 @@
+import io
 import json
+import stat
 import time
 from typing import Any
+import zipfile
 
 from fastapi.testclient import TestClient
 
@@ -19,6 +22,14 @@ def _wait_for_job(job_id: str) -> dict[str, Any]:
             return payload
         time.sleep(0.02)
     raise AssertionError("audit job did not finish")
+
+
+def _zip_project(files: dict[str, bytes]) -> bytes:
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for filename, content in files.items():
+            archive.writestr(filename, content)
+    return buffer.getvalue()
 
 
 def test_health_endpoint():
@@ -44,6 +55,9 @@ def test_demo_endpoint_exposes_real_traceable_audit():
     assert any(item["code"] == "exact_split_overlap" for item in payload["findings"])
     relations = {edge["relation"] for edge in payload["evidence_graph"]["edges"]}
     assert {"contains", "recomputes", "supports", "contradicts", "flags"} <= relations
+
+    envelope = client.post("/api/demo?envelope=true").json()
+    assert envelope["guide"]["derived_from_certificate_sha256"] == payload["certificate_sha256"]
 
 
 def test_audit_endpoint():
@@ -133,10 +147,170 @@ def test_project_folder_job_uses_manifest_and_real_progress():
     assert files_stage["experiment_id"] == "web-folder"
     assert files_stage["experiment_count"] == 1
     assert files_stage["input_file_count"] == 4
+    assert files_stage["upload_mode"] == "folder"
     assert {item["source"] for item in files_stage["files"]} >= {
         "reprocheck.json",
         "project_artifact",
     }
+
+
+def test_project_zip_runs_the_same_real_audit_workflow():
+    manifest = {
+        "schema_version": "reprocheck.project.v1",
+        "experiments": [
+            {"id": "zip-project", "report": "report.md", "predictions": "predictions.csv"}
+        ],
+    }
+    archive = _zip_project(
+        {
+            "project/reprocheck.json": json.dumps(manifest).encode(),
+            "project/report.md": b"Accuracy: 100%",
+            "project/predictions.csv": b"y_true,y_pred\n1,1\n",
+            "__MACOSX/._report.md": b"ignored",
+            "project/.DS_Store": b"ignored",
+        }
+    )
+
+    response = client.post(
+        "/api/audit/jobs",
+        files={"project_archive": ("science.zip", archive, "application/zip")},
+    )
+
+    assert response.status_code == 202
+    completed = _wait_for_job(response.json()["job_id"])
+    assert completed["status"] == "completed"
+    assert completed["result"]["status"] == "passed"
+    files_stage = completed["stages"][0]
+    assert files_stage["upload_mode"] == "archive"
+    assert files_stage["input_file_count"] == 3
+    assert files_stage["experiment_id"] == "zip-project"
+    assert (
+        completed["guide"]["derived_from_certificate_sha256"]
+        == completed["result"]["certificate_sha256"]
+    )
+
+
+def test_project_zip_rejects_unsafe_or_ambiguous_archives():
+    traversal = _zip_project({"project/../report.md": b"Accuracy: 100%"})
+    response = client.post(
+        "/api/audit/jobs",
+        files={"project_archive": ("unsafe.zip", traversal, "application/zip")},
+    )
+    assert response.status_code == 400
+    assert "небезопасный путь" in response.json()["detail"]
+
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, "w") as archive:
+        link = zipfile.ZipInfo("project/report.md")
+        link.create_system = 3
+        link.external_attr = (stat.S_IFLNK | 0o777) << 16
+        archive.writestr(link, "target.md")
+    symlink = client.post(
+        "/api/audit/jobs",
+        files={"project_archive": ("symlink.zip", buffer.getvalue(), "application/zip")},
+    )
+    assert symlink.status_code == 400
+    assert "Символическая ссылка" in symlink.json()["detail"]
+
+    corrupt = client.post(
+        "/api/audit/jobs",
+        files={"project_archive": ("broken.zip", b"not a zip", "application/zip")},
+    )
+    assert corrupt.status_code == 422
+
+    ambiguous = client.post(
+        "/api/audit/jobs",
+        files=[
+            ("project_files", ("project/report.md", b"Accuracy: 100%", "text/markdown")),
+            (
+                "project_archive",
+                ("project.zip", _zip_project({"report.md": b"x"}), "application/zip"),
+            ),
+        ],
+    )
+    assert ambiguous.status_code == 400
+    assert "не оба варианта" in ambiguous.json()["detail"]
+
+
+def test_project_zip_enforces_type_and_compressed_size(monkeypatch):
+    archive = _zip_project({"report.md": b"Accuracy: 100%"})
+
+    wrong_type = client.post(
+        "/api/audit/jobs",
+        files={"project_archive": ("project.tar", archive, "application/x-tar")},
+    )
+    assert wrong_type.status_code == 415
+
+    monkeypatch.setattr(web, "MAX_PROJECT_ARCHIVE_BYTES", len(archive) - 1)
+    too_large = client.post(
+        "/api/audit/jobs",
+        files={"project_archive": ("project.zip", archive, "application/zip")},
+    )
+    assert too_large.status_code == 413
+    assert "ZIP проекта превышает" in too_large.json()["detail"]
+
+
+def test_project_zip_enforces_entry_and_unpacked_limits(monkeypatch):
+    three_files = _zip_project({"a.txt": b"a", "b.txt": b"b", "report.md": b"Accuracy: 1%"})
+    monkeypatch.setattr(web, "MAX_PROJECT_FILES", 1)
+    too_many_entries = client.post(
+        "/api/audit/jobs",
+        files={"project_archive": ("project.zip", three_files, "application/zip")},
+    )
+    assert too_many_entries.status_code == 413
+    assert "слишком много записей" in too_many_entries.json()["detail"]
+
+    two_files = _zip_project({"a.txt": b"a", "report.md": b"Accuracy: 1%"})
+    too_many_files = client.post(
+        "/api/audit/jobs",
+        files={"project_archive": ("project.zip", two_files, "application/zip")},
+    )
+    assert too_many_files.status_code == 413
+    assert "В ZIP больше" in too_many_files.json()["detail"]
+
+    monkeypatch.setattr(web, "MAX_PROJECT_FILES", 300)
+    monkeypatch.setattr(web, "MAX_PROJECT_UPLOAD_BYTES", 5)
+    unpacked_too_large = client.post(
+        "/api/audit/jobs",
+        files={
+            "project_archive": (
+                "project.zip",
+                _zip_project({"report.md": b"Accuracy: 100%"}),
+                "application/zip",
+            )
+        },
+    )
+    assert unpacked_too_large.status_code == 413
+    assert "Распакованный проект превышает" in unpacked_too_large.json()["detail"]
+
+
+def test_project_zip_rejects_casefold_duplicates_and_oversized_member(monkeypatch):
+    duplicate = client.post(
+        "/api/audit/jobs",
+        files={
+            "project_archive": (
+                "project.zip",
+                _zip_project({"project/report.md": b"one", "project/REPORT.md": b"two"}),
+                "application/zip",
+            )
+        },
+    )
+    assert duplicate.status_code == 400
+    assert "Повторяющийся файл в ZIP" in duplicate.json()["detail"]
+
+    monkeypatch.setattr(web, "MAX_UPLOAD_BYTES", 5)
+    oversized = client.post(
+        "/api/audit/jobs",
+        files={
+            "project_archive": (
+                "project.zip",
+                _zip_project({"report.md": b"Accuracy: 100%"}),
+                "application/zip",
+            )
+        },
+    )
+    assert oversized.status_code == 413
+    assert "Файл report.md превышает" in oversized.json()["detail"]
 
 
 def test_project_folder_job_requires_a_detectable_report():
@@ -216,6 +390,37 @@ def test_job_api_rejects_missing_jobs_partial_splits_and_unsafe_paths():
     assert web._split_columns("id, text, ") == ["id", "text"]
 
 
+def test_project_folder_enforces_file_count_and_byte_limits(monkeypatch):
+    monkeypatch.setattr(web, "MAX_PROJECT_FILES", 1)
+    too_many = client.post(
+        "/api/audit/jobs",
+        files=[
+            ("project_files", ("project/report.md", b"Accuracy: 100%", "text/markdown")),
+            ("project_files", ("project/data.txt", b"data", "text/plain")),
+        ],
+    )
+    assert too_many.status_code == 413
+    assert "В папке больше" in too_many.json()["detail"]
+
+    monkeypatch.setattr(web, "MAX_PROJECT_FILES", 300)
+    monkeypatch.setattr(web, "MAX_UPLOAD_BYTES", 5)
+    oversized_file = client.post(
+        "/api/audit/jobs",
+        files=[("project_files", ("project/report.md", b"Accuracy: 100%", "text/markdown"))],
+    )
+    assert oversized_file.status_code == 413
+    assert "Файл project/report.md превышает" in oversized_file.json()["detail"]
+
+    monkeypatch.setattr(web, "MAX_UPLOAD_BYTES", 100)
+    monkeypatch.setattr(web, "MAX_PROJECT_UPLOAD_BYTES", 5)
+    oversized_folder = client.post(
+        "/api/audit/jobs",
+        files=[("project_files", ("project/report.md", b"Accuracy: 100%", "text/markdown"))],
+    )
+    assert oversized_folder.status_code == 413
+    assert "Папка проекта превышает" in oversized_folder.json()["detail"]
+
+
 def test_project_folder_job_infers_roles_without_manifest():
     response = client.post(
         "/api/audit/jobs",
@@ -285,6 +490,8 @@ def test_web_exposes_interactive_evidence_explorer():
     assert 'id="evidence-svg"' in page.text
     assert 'id="node-inspector"' in page.text
     assert 'id="demo"' in page.text
+    assert 'id="project-archive"' in page.text
+    assert page.text.count('class="config-panel"') == 2
     assert "semanticNeighborhood" in script.text
     assert "MAX_VISIBLE_NODES" in script.text
     assert "roundedOrthogonalPath" in script.text
@@ -292,7 +499,10 @@ def test_web_exposes_interactive_evidence_explorer():
     assert "is-structural" in script.text
     assert "/api/audit/jobs" in script.text
     assert "startProjectLoading" in script.text
+    assert "renderEvidencePassport" in script.text
+    assert "refreshProjectPreview" in script.text
     assert "ФАКТИЧЕСКИЙ ХОД BACKEND" in script.text
+    assert "EVIDENCE PASSPORT / БЕЗ AI SCORE" in script.text
     assert "prefers-reduced-motion" in styles.text
 
 

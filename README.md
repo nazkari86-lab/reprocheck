@@ -89,13 +89,20 @@ shows source lines, methods, values, relations, and SHA-256 digests. The graph
 is rendered locally without executing uploaded Python code, uses no external
 JavaScript service, and respects reduced-motion accessibility settings.
 
-The **project folder** input accepts up to 300 files / 100 MB. A bundled
-`reprocheck.json` supplies exact artifact roles and audit parameters for its first
-experiment; otherwise conservative filename rules identify the report,
-predictions, metrics, detections, notebook, and train/test pair. The same JSON
-Schema validation is used by the CLI and web UI. Manual file and parameter inputs
-override the manifest. User audits run as server-side jobs, and the UI reports
-measured stage durations from the backend rather than animating a synthetic timer.
+The zero-config input accepts either a **project folder** or one **ZIP archive**
+with up to 300 files / 100 MB unpacked. ZIP extraction rejects traversal,
+symlinks, encrypted members, duplicates, oversized members, and archive bombs
+before the audit starts. A bundled `reprocheck.json` supplies exact artifact
+roles and audit parameters for its first experiment; otherwise conservative
+filename rules identify the report, predictions, metrics, detections, notebook,
+and train/test pair. Manual roles and expert parameters are progressively
+disclosed and override the manifest only when explicitly supplied.
+
+After every web job, the **Evidence Passport** reports exact claim coverage,
+independent recomputation coverage, inspected evidence layers, and a
+deterministic next-action list. It deliberately has no opaque AI score and is
+derived from, but not inserted into, the signed certificate. The UI also reports
+measured backend stage durations rather than animating a synthetic timer.
 
 ## One-command project check
 

@@ -100,4 +100,5 @@ source = ["src/reprocheck"]
 
 [tool.coverage.report]
 fail_under = 97
+precision = 2
 show_missing = true
