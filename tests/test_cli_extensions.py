@@ -292,6 +292,22 @@ def test_cli_human_study_paths(tmp_path):
     assert (
         main(["human-study-verify", "--master-dir", str(master), "--protocol", str(protocol)]) == 0
     )
+    private = master / "private"
+    private.rename(tmp_path / "private-hidden")
+    assert (
+        main(
+            [
+                "human-study-verify",
+                "--public-lock-only",
+                "--master-dir",
+                str(master),
+                "--protocol",
+                str(protocol),
+            ]
+        )
+        == 0
+    )
+    (tmp_path / "private-hidden").rename(private)
     assert (
         main(
             [

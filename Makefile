@@ -54,7 +54,11 @@ external-holdout-registration:
 	python3 -m reprocheck.cli holdout-verify-registration --registration benchmarks/external_holdout_v017/registration.json --protocol benchmarks/external_holdout_v017/protocol.json --evaluator benchmarks/external_holdout_v017/evaluator/reprocheck-0.17.0-py3-none-any.whl
 
 human-study-master:
-	python3 -m reprocheck.cli human-study-verify --master-dir benchmarks/human_study_v1/master --protocol benchmarks/human_study_v1/protocol.json
+	@if [ -f benchmarks/human_study_v1/master/private/PRIVATE-gold.json ]; then \
+		python3 -m reprocheck.cli human-study-verify --master-dir benchmarks/human_study_v1/master --protocol benchmarks/human_study_v1/protocol.json; \
+	else \
+		python3 -m reprocheck.cli human-study-verify --public-lock-only --master-dir benchmarks/human_study_v1/master --protocol benchmarks/human_study_v1/protocol.json; \
+	fi
 
 expanded-experiments:
 	python3 benchmarks/check_experiment_design_lock.py

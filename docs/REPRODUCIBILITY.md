@@ -70,6 +70,13 @@ independently supplied identity-to-key binding is correct.
 | source-unseen 0.17 holdout | protocol ready, not executed | `reprocheck holdout-verify-registration` |
 | randomized crossover human study | master ready, not executed | `reprocheck human-study-prepare` |
 
+The public repository contains the human-study manifest and protocol commitment,
+but intentionally excludes the private gold and randomized case kit. Public CI
+therefore verifies only the committed hashes, status, sample minimum and approval
+requirements. A local checkout containing the mode-restricted private tree runs
+the stronger full integrity check automatically. A public-lock PASS must not be
+reported as verification of the unavailable private contents.
+
 Do not compare a development score with a zero-shot score as if both estimated
 generalization. The repository intentionally preserves failures and label
 problems instead of rewriting historical results.

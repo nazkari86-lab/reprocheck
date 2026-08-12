@@ -22,6 +22,7 @@ from .human_study import (
     prepare_human_study_master,
     score_human_study,
     verify_human_study_master,
+    verify_human_study_public_lock,
 )
 from .render import render_html
 from .study import run_real_artifact_study, study_passed
@@ -170,6 +171,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     human_verify.add_argument("--master-dir", type=Path, required=True)
     human_verify.add_argument("--protocol", type=Path)
+    human_verify.add_argument(
+        "--public-lock-only",
+        action="store_true",
+        help="verify only the committed manifest and protocol when private gold is unavailable",
+    )
 
     human_issue = subparsers.add_parser(
         "human-study-issue", help="issue a counterbalanced packet after recorded approval"
@@ -430,12 +436,18 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 0
     if args.command == "human-study-verify":
-        errors = verify_human_study_master(args.master_dir, args.protocol)
+        verifier = (
+            verify_human_study_public_lock if args.public_lock_only else verify_human_study_master
+        )
+        errors = verifier(args.master_dir, args.protocol)
         if errors:
             for error in errors:
                 print(f"FAIL: {error}")
             return 1
-        print("PASS: human-study master is immutable, unexecuted, and internally consistent")
+        if args.public_lock_only:
+            print("PASS: public human-study commitment and protocol are immutable and unexecuted")
+        else:
+            print("PASS: human-study master is immutable, unexecuted, and internally consistent")
         return 0
     if args.command == "human-study-issue":
         try:

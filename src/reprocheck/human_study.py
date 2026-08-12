@@ -171,7 +171,7 @@ def issue_human_study_packet(
     return packet
 
 
-def verify_human_study_master(master_dir: Path, protocol: Path | None = None) -> list[str]:
+def verify_human_study_public_lock(master_dir: Path, protocol: Path | None = None) -> list[str]:
     try:
         manifest = _load_object(master_dir / "master.json", "human-study master")
     except ValueError as error:
@@ -185,6 +185,24 @@ def verify_human_study_master(master_dir: Path, protocol: Path | None = None) ->
         errors.append("unexecuted human-study master cannot claim completed participants")
     if manifest.get("master_sha256") != _digest(manifest, "master_sha256"):
         errors.append("human-study master checksum does not match its payload")
+    if protocol is not None:
+        try:
+            protocol_payload = _load_object(protocol, "human-study protocol")
+            _validate_protocol(protocol_payload)
+        except ValueError as error:
+            errors.append(str(error))
+        else:
+            if manifest.get("protocol") != _descriptor(protocol):
+                errors.append("human-study protocol checksum or size does not match")
+    return errors
+
+
+def verify_human_study_master(master_dir: Path, protocol: Path | None = None) -> list[str]:
+    errors = verify_human_study_public_lock(master_dir, protocol)
+    try:
+        manifest = _load_object(master_dir / "master.json", "human-study master")
+    except ValueError:
+        return errors
     gold_path = master_dir / "private" / "PRIVATE-gold.json"
     if not gold_path.is_file() or manifest.get("gold") != _descriptor(gold_path):
         errors.append("human-study private gold checksum or size does not match")
@@ -196,15 +214,6 @@ def verify_human_study_master(master_dir: Path, protocol: Path | None = None) ->
     ]
     if insecure_private_paths:
         errors.append("human-study private files must not be accessible by group or other users")
-    if protocol is not None:
-        try:
-            protocol_payload = _load_object(protocol, "human-study protocol")
-            _validate_protocol(protocol_payload)
-        except ValueError as error:
-            errors.append(str(error))
-        else:
-            if manifest.get("protocol") != _descriptor(protocol):
-                errors.append("human-study protocol checksum or size does not match")
     try:
         gold = _load_object(gold_path, "human-study gold")
     except ValueError as error:

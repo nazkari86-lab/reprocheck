@@ -8,6 +8,7 @@ from reprocheck.human_study import (
     prepare_human_study_master,
     score_human_study,
     verify_human_study_master,
+    verify_human_study_public_lock,
 )
 
 
@@ -72,6 +73,22 @@ def test_human_study_prepares_issues_and_scores_without_fake_completion(tmp_path
     assert result["participant_count"] == 1
     assert result["conditions"]["manual"]["accuracy"] == 1.0
     assert result["conditions"]["assisted"]["accuracy"] == 1.0
+
+
+def test_public_human_study_lock_verifies_without_private_gold(tmp_path):
+    protocol = tmp_path / "protocol.json"
+    master = tmp_path / "master"
+    _protocol(protocol)
+    prepare_human_study_master(protocol, master)
+    (master / "private").rename(tmp_path / "private-hidden")
+
+    assert verify_human_study_public_lock(master, protocol) == []
+    assert "private gold" in verify_human_study_master(master, protocol)[0]
+
+    protocol.write_text(protocol.read_text() + "\n", encoding="utf-8")
+    assert "human-study protocol checksum or size does not match" in (
+        verify_human_study_public_lock(master, protocol)
+    )
 
 
 def test_human_study_refuses_distribution_without_approval_and_unconsented_data(tmp_path):
