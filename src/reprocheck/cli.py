@@ -112,6 +112,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     witness.add_argument("--certificate", type=Path, required=True)
     witness.add_argument("--finding-index", type=int, required=True)
+    witness.add_argument("--artifact-dir", type=Path)
     witness.add_argument("--output", type=Path, default=Path("outputs/witness.json"))
 
     verify_witness = subparsers.add_parser(
@@ -329,7 +330,12 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     if args.command == "witness":
         try:
-            payload = build_witness_file(args.certificate, args.finding_index, args.output)
+            payload = build_witness_file(
+                args.certificate,
+                args.finding_index,
+                args.output,
+                args.artifact_dir,
+            )
         except (OSError, UnicodeDecodeError, ValueError) as error:
             print(f"ERROR: {error}", file=sys.stderr)
             return 2

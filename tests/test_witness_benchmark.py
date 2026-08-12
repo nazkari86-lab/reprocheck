@@ -8,6 +8,13 @@ def test_witness_benchmark_is_compact_valid_and_fail_closed(tmp_path):
     assert witness_benchmark_passed(result)
     assert result["summary"]["node_reduction"] > 0
     assert result["summary"]["serialized_byte_reduction"] > 0
-    assert result["summary"]["one_hop_valid_cases"] == 0
+    assert result["summary"]["case_count"] == 12
+    assert result["summary"]["one_hop_topology_complete_cases"] == 4
+    assert result["summary"]["artifact_semantic_recomputation_cases"] == 4
     assert result["summary"]["tamper_rejection_rate"] == 1.0
+    assert set(result["summary"]["by_rule"]) == {
+        "claim_metric_mismatch",
+        "metric_evidence_conflict",
+        "exact_split_overlap",
+    }
     assert output.is_file()

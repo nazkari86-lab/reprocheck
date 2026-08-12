@@ -3,6 +3,7 @@ from pathlib import Path
 
 from reprocheck.audit import run_audit
 from reprocheck.witness import (
+    _build_v1_mismatch_payload,
     _finite_number,
     _load_object,
     _object_list,
@@ -32,8 +33,8 @@ def test_builds_and_verifies_canonical_minimal_mismatch_witness(tmp_path: Path):
 
     witness = build_witness_file(certificate, 0, output)
 
-    assert witness["schema_version"] == "reprocheck.witness.v1"
-    assert witness["verifier_rule"] == "claim_metric_mismatch.source_grounded.v1"
+    assert witness["schema_version"] == "reprocheck.witness.v2"
+    assert witness["verifier_rule"] == "claim_metric_mismatch.source_grounded.v2"
     assert witness["minimality"]["minimum_node_count"] == 5
     assert witness["minimality"]["minimum_edge_count"] == 4
     assert {node["kind"] for node in witness["nodes"]} == {
@@ -77,6 +78,15 @@ def test_witness_rejects_payload_node_edge_and_source_tampering(tmp_path: Path):
     assert "witness references a different source certificate" in verify_witness_file(
         output, certificate
     )
+
+
+def test_verifier_accepts_canonical_legacy_v1_mismatch_witness(tmp_path: Path):
+    certificate, artifacts = _mismatch_certificate(tmp_path)
+    source = json.loads(certificate.read_text(encoding="utf-8"))
+    output = tmp_path / "legacy-witness.json"
+    output.write_text(json.dumps(_build_v1_mismatch_payload(source, 0)), encoding="utf-8")
+
+    assert verify_witness_file(output, certificate, artifacts) == []
 
 
 def test_witness_fails_closed_for_unsupported_or_missing_finding(tmp_path: Path):
@@ -163,7 +173,7 @@ def test_witness_shape_validation_rejects_malformed_and_semantically_invalid_pay
         lambda item: next(node for node in item["nodes"] if node["kind"] == "claim").update(
             attributes="bad"
         ),
-        "attributes must be objects",
+        "finite number",
     )
     semantic_error(
         lambda item: next(node for node in item["nodes"] if node["kind"] == "finding")[
@@ -171,18 +181,18 @@ def test_witness_shape_validation_rejects_malformed_and_semantically_invalid_pay
         ].update(code="other"),
         "finding code",
     )
-    semantic_error(lambda item: item["edges"].pop(), "metric-to-claim contradiction")
+    semantic_error(lambda item: item["edges"].pop(), "required contradiction relations")
     semantic_error(
         lambda item: item.update(
             edges=[edge for edge in item["edges"] if edge["relation"] != "raises"]
         ),
-        "claim-to-finding",
+        "required contradiction relations",
     )
     semantic_error(
         lambda item: item.update(
             edges=[edge for edge in item["edges"] if edge["relation"] != "reports"]
         ),
-        "source artifact",
+        "metric source artifact",
     )
     semantic_error(lambda item: item.update(rule_inputs=[]), "rule inputs")
     semantic_error(
@@ -230,7 +240,7 @@ def test_witness_build_and_io_helpers_fail_closed(tmp_path: Path):
             lambda item: next(
                 node for node in item["evidence_graph"]["nodes"] if node["id"] == "finding:0"
             )["attributes"].update(code="other"),
-            "only claim_metric_mismatch",
+            "unsupported minimal-witness finding code",
         ),
         (
             lambda item: item.update(claims=[]),

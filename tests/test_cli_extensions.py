@@ -120,6 +120,54 @@ def test_cli_witness_and_benchmark_paths(tmp_path):
     assert main(["witness-benchmark", "--repeats", "0"]) == 2
 
 
+def test_cli_exact_overlap_requires_artifact_dir(tmp_path):
+    report = tmp_path / "report.md"
+    train = tmp_path / "train.csv"
+    test = tmp_path / "test.csv"
+    certificate = tmp_path / "split-certificate.json"
+    witness = tmp_path / "split-witness.json"
+    report.write_text("No metric claim.\n", encoding="utf-8")
+    train.write_text("id,text\n1,train\n", encoding="utf-8")
+    test.write_text("id,text\n1,test\n", encoding="utf-8")
+    certificate.write_text(
+        json.dumps(
+            run_audit(
+                report_path=report,
+                train_path=train,
+                test_path=test,
+                identity_columns=["id"],
+            ).to_dict()
+        ),
+        encoding="utf-8",
+    )
+
+    base = [
+        "witness",
+        "--certificate",
+        str(certificate),
+        "--finding-index",
+        "0",
+        "--output",
+        str(witness),
+    ]
+    assert main(base) == 2
+    assert main([*base, "--artifact-dir", str(tmp_path)]) == 0
+    assert (
+        main(
+            [
+                "verify-witness",
+                "--certificate",
+                str(certificate),
+                "--witness",
+                str(witness),
+                "--artifact-dir",
+                str(tmp_path),
+            ]
+        )
+        == 0
+    )
+
+
 def test_cli_extension_argument_guards():
     assert _loopback_host("localhost")
     assert _loopback_host("::1")
