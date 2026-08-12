@@ -1,0 +1,18 @@
+{
+  "case_count": 8,
+  "gold": {
+    "filename": "PRIVATE-gold.json",
+    "sha256": "6d7040d0ce02af2575522af05ca9585412c277da0660dcfe68dff2c28fb15514",
+    "size_bytes": 1783
+  },
+  "master_sha256": "0fb51c786cef7f863f45c6dadf0bc595e51591eb6d175fb6dff532eb139aa8cd",
+  "pair_count": 4,
+  "participants_completed": 0,
+  "protocol": {
+    "filename": "protocol.json",
+    "sha256": "51b9366a307de8fac61e0aea13cd1a8ad70dc7c25b8d4278de9f6a39dab3a8d7",
+    "size_bytes": 1679
+  },
+  "schema_version": "reprocheck.human-study-master.v1",
+  "status": "prepared_not_approved_not_executed"
+}

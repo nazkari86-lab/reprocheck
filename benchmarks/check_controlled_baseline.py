@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from reprocheck.version import __version__
+
 
 ROOT = Path(__file__).resolve().parent
 DEFAULT_RESULT = ROOT.parent / "outputs" / "benchmark.json"
@@ -48,7 +50,14 @@ def main(argv: list[str] | None = None) -> int:
     except (KeyError, OSError, ValueError) as error:
         print(f"FAIL: {error}")
         return 1
-    if actual != expected:
+    if actual.get("tool_version") != __version__:
+        print(
+            f"FAIL: current benchmark version mismatch ({actual.get('tool_version')} != {__version__})"
+        )
+        return 1
+    comparable_actual = {key: value for key, value in actual.items() if key != "tool_version"}
+    comparable_expected = {key: value for key, value in expected.items() if key != "tool_version"}
+    if comparable_actual != comparable_expected:
         print("FAIL: controlled benchmark differs from the reviewed baseline")
         return 1
     print(f"PASS: controlled benchmark baseline={args.baseline.resolve()}")

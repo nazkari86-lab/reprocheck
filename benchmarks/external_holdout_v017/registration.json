@@ -1,0 +1,18 @@
+{
+  "evaluator": {
+    "filename": "reprocheck-0.17.0-py3-none-any.whl",
+    "sha256": "7023d85d1cf1b11ee21d1d751b463fdef7bbffa84f84b5c1dbe103927d6b3c68",
+    "size_bytes": 143190
+  },
+  "external_reviewers_completed": 0,
+  "protocol": {
+    "filename": "protocol.json",
+    "sha256": "144791db56e12dc972a6215c3fbc9a87ef3e779120487fcf9789448fa58dbcdb",
+    "size_bytes": 3228
+  },
+  "registration_sha256": "ebfbf3a26f0f5f57dca130362fa810ff24331e2439c0725b870a382a0ff25510",
+  "schema_version": "reprocheck.external-holdout-registration.v1",
+  "source_contents_inspected_after_registration": false,
+  "source_pool_count": 4,
+  "status": "registered_not_executed"
+}

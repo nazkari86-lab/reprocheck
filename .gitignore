@@ -11,3 +11,4 @@ outputs/**
 !outputs/.gitkeep
 *.private.pem
 benchmarks/paws_leakage/sources/
+benchmarks/human_study_v1/master/private/

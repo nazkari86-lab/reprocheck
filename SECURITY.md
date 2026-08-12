@@ -29,3 +29,17 @@ Official release assets also carry GitHub-hosted Sigstore/SLSA provenance.
 Verify it with `gh attestation verify` as documented in
 `docs/REPRODUCIBILITY.md`; SHA-256 alone detects changed bytes but does not
 establish which workflow produced them.
+# Network exposure
+
+`reprocheck serve` binds to `127.0.0.1` by default. Binding to a non-loopback
+address requires `--allow-network` and emits a warning. ReproCheck does not
+provide authentication, TLS, tenant isolation, or authorization; the override
+is appropriate only on a trusted isolated network and does not make the server
+safe for public exposure.
+
+# Human-study secrets
+
+Gold labels and the randomization salt live under
+`benchmarks/human_study_v1/master/private/`. Preparation restricts directory
+and file modes to the current user, verification fails closed on broader modes,
+and Git ignores the private tree. Treat it as study-secret material.

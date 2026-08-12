@@ -1,0 +1,25 @@
+{
+  "schema_version": "reprocheck.external-holdout-supersession.v1",
+  "superseded_before_execution": true,
+  "source_contents_inspected": false,
+  "external_reviewers_completed": 0,
+  "reason": "The final reproducible package build changed the evaluator wheel bytes before any external review or source-content inspection.",
+  "original_registration": {
+    "evaluator": {
+      "filename": "reprocheck-0.17.0-py3-none-any.whl",
+      "sha256": "e374544bf233b400b4ba03f9a53a39b526d2796508c86042ddfa61cbd6f79c8f",
+      "size_bytes": 142997
+    },
+    "external_reviewers_completed": 0,
+    "protocol": {
+      "filename": "protocol.json",
+      "sha256": "144791db56e12dc972a6215c3fbc9a87ef3e779120487fcf9789448fa58dbcdb",
+      "size_bytes": 3228
+    },
+    "registration_sha256": "a6202f89bd9d500a1d874a31a34ecff0340b98770517c5f8f044373f8df74857",
+    "schema_version": "reprocheck.external-holdout-registration.v1",
+    "source_contents_inspected_after_registration": false,
+    "source_pool_count": 4,
+    "status": "registered_not_executed"
+  }
+}

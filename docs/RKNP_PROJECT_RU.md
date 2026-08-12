@@ -144,6 +144,27 @@ Representation matrix прошла 12/12 in-scope cases. В scalability study в
 certificate. Эти результаты расширяют capability coverage, но остаются
 author-designed evidence и не заменяют внешнюю проверку.
 
+### 5. Минимальный сертификат противоречия
+
+Для `claim_metric_mismatch` версия 0.17 строит минимальный относительно явно
+заданного verifier-правила source-grounded witness. Он содержит finding, claim,
+противоречащую metric observation, report artifact, source artifact и четыре
+обязательные typed relations. Полный перебор допустимых groundings доказывает
+кардинальную минимальность, а отдельный verifier повторяет поиск из исходного
+audit certificate.
+
+Минимальные provenance explanations и minimal witness bases существовали в
+database research ранее. Поэтому новизна не формулируется как «первый
+минимальный provenance-граф». Защищаемая граница — audit-specific typed rule,
+численная проверка tolerance, привязка к исходным artifact digests и повторяемое
+доказательство кардинальной минимальности из sealed ReproCheck certificate.
+
+На четырех author-designed cases witness сократил представление относительно
+полного графа на 58.3% по узлам и 67.7% по serialized bytes. Все 16/16
+контролируемых подмен были отклонены. Одношаговый neighborhood был меньше, но
+0/4 раз содержал достаточную source grounding. Эти числа доказывают поведение
+реализации на объявленной матрице, а не экономию времени реального reviewer.
+
 ## Что результат доказывает и не доказывает
 
 **Поддерживается текущими данными:** добавление первичных артефактов расширило
@@ -185,6 +206,13 @@ human-study еще не проведен. Корректный следующи�
 Большая часть labels создана внутри проекта. Инфраструктура слепой проверки
 готова, но завершенных внешних reviews сейчас **ноль**. Нельзя заменять этот этап
 фиктивными ответами или AI-рецензентами.
+
+Для следующего source-unseen holdout зафиксирован отдельный протокол с четырьмя
+новыми repository pools и правилом hash-ranked selection. Его статус до
+заморозки evaluator wheel и реальной двойной разметки —
+`registered_not_executed`. Human-study также подготовлен как randomized
+crossover master, но не может выдаваться участникам до документированного
+решения о необходимых разрешениях и consent.
 
 Нужны два независимых человека, замороженные responses, hashes, inter-rater
 agreement и adjudication разногласий. До этого корректная формулировка:

@@ -62,3 +62,24 @@ ablation evaluates which inconsistency families become observable as those
 inputs are added. A literature review cannot prove worldwide priority, and the
 project must avoid wording such as "unique in the world" unless a formal
 prior-art search supports it.
+
+## Minimal witness boundary
+
+Version 0.17 does not claim to invent minimal provenance explanations. Database
+provenance literature already formalizes why/why-not explanations and minimal
+witness bases; for example, Green describes the minimal witness basis as an
+irredundant family of contributing source sets, while PUG computes the relevant
+part of a provenance graph for a why/why-not question:
+
+- [Green, *Containment of Conjunctive Queries on Annotated Relations*, ICDT
+  2009](https://openproceedings.org/2009/conf/icdt/Green09.pdf)
+- [Lee, Ludäscher, Glavic, *PUG: Why & Why-Not Provenance*,
+  2018](https://arxiv.org/abs/1808.05752)
+
+ReproCheck's narrower contribution is an executable verifier rule for one
+audit-specific contradiction: bind a numerical report claim and conflicting
+metric observation to their exact source artifacts, preserve their typed graph
+relations and digests, and independently repeat a cardinality-minimal grounding
+search against the original sealed audit certificate. The controlled benchmark
+supports that implementation boundary only. It does not establish a new general
+theory of provenance minimization.

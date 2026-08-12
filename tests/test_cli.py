@@ -14,7 +14,7 @@ def test_cli_prints_version(capsys):
         main(["--version"])
 
     assert exit_info.value.code == 0
-    assert capsys.readouterr().out == "reprocheck 0.16.0\n"
+    assert capsys.readouterr().out == "reprocheck 0.17.0\n"
 
 
 def test_cli_audit_writes_json_and_html(tmp_path: Path):
@@ -238,7 +238,21 @@ def test_cli_demo_benchmark_and_serve_dispatch(tmp_path: Path, monkeypatch):
         called.update(app=app, host=host, port=port, reload=reload)
 
     monkeypatch.setattr(uvicorn, "run", fake_run)
-    assert main(["serve", "--host", "0.0.0.0", "--port", "9000"]) == 0
+    assert main(["serve", "--host", "0.0.0.0", "--port", "9000"]) == 2
+    assert called == {}
+    assert (
+        main(
+            [
+                "serve",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "9000",
+                "--allow-network",
+            ]
+        )
+        == 0
+    )
     assert called == {
         "app": "reprocheck.web:app",
         "host": "0.0.0.0",

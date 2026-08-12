@@ -40,6 +40,9 @@ not execute uploaded Python or notebook code.
   independently recomputed from raw predictions (`verified`).
 - Emits a hashed evidence graph linking artifacts and experiment context to
   metrics, report claims, and audit findings.
+- Extracts a canonical source-grounded minimal contradiction witness for a
+  metric mismatch and independently re-verifies its typed grounding,
+  numerical contradiction, artifact binding, and cardinality minimality.
 - Runs a four-level information ablation that separates report-only, supplied
   evidence, artifact-aware, and graph-certified capabilities.
 - Generates a label-hidden two-reviewer packet and scores frozen independent
@@ -69,6 +72,9 @@ source .venv/bin/activate
 make install
 reprocheck demo
 reprocheck graph --certificate outputs/demo-audit.json --output outputs/demo-graph.mmd
+reprocheck witness --certificate outputs/demo-audit.json --finding-index 0
+reprocheck verify-witness --certificate outputs/demo-audit.json --witness outputs/witness.json
+reprocheck witness-benchmark
 reprocheck check examples/reprocheck.json --output-dir outputs/project --html
 reprocheck benchmark
 reprocheck ablation
@@ -81,6 +87,10 @@ make gate
 ```
 
 Open <http://127.0.0.1:8000> after starting the server.
+
+The server refuses a non-loopback bind unless `--allow-network` is supplied.
+That flag is an explicit acknowledgement, not a security layer: network mode
+still has no authentication, TLS, or multi-user isolation.
 
 The web interface includes an interactive evidence explorer. Upload experiment
 artifacts or click **Show live example**, then select any file, recomputed

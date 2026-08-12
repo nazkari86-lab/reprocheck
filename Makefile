@@ -3,7 +3,7 @@ UV_VERSION ?= 0.12.1
 LOCKED_DEV_REQUIREMENTS ?= /tmp/reprocheck-dev-lock.txt
 LOCKED_RUNTIME_REQUIREMENTS ?= /tmp/reprocheck-runtime-lock.txt
 
-.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo rknp-demo serve
+.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation witness-benchmark external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo rknp-demo serve
 
 install:
 	python3 -m pip install --quiet uv==$(UV_VERSION)
@@ -42,6 +42,15 @@ benchmark:
 evidence-ablation:
 	python3 -m reprocheck.cli ablation --output outputs/evidence-ablation.json
 	python3 benchmarks/evidence_ablation/check_baseline.py --result outputs/evidence-ablation.json
+
+witness-benchmark:
+	python3 -m reprocheck.cli witness-benchmark --output outputs/witness-benchmark.json
+
+external-holdout-registration:
+	python3 -m reprocheck.cli holdout-verify-registration --registration benchmarks/external_holdout_v017/registration.json --protocol benchmarks/external_holdout_v017/protocol.json --evaluator benchmarks/external_holdout_v017/evaluator/reprocheck-0.17.0-py3-none-any.whl
+
+human-study-master:
+	python3 -m reprocheck.cli human-study-verify --master-dir benchmarks/human_study_v1/master --protocol benchmarks/human_study_v1/protocol.json
 
 expanded-experiments:
 	python3 benchmarks/check_experiment_design_lock.py
@@ -117,7 +126,7 @@ external-regenerate:
 build:
 	SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) python3 -m build
 
-gate: lock-check lint type coverage benchmark evidence-ablation expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
+gate: lock-check lint type coverage benchmark evidence-ablation witness-benchmark external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
 
 demo:
 	python3 -m reprocheck.cli demo
@@ -126,6 +135,10 @@ rknp-demo:
 	python3 -m reprocheck.cli audit --report benchmarks/external/sklearn-tabular/iris_report.md --metrics benchmarks/external/sklearn-tabular/official_metrics.json --metrics-selector iris --predictions benchmarks/external/sklearn-tabular/iris_predictions.csv --average macro --train benchmarks/external/sklearn-tabular/iris_train.csv --test benchmarks/external/sklearn-tabular/iris_test.csv --label-column target --identity-columns sample_id --tolerance 1e-9 --output outputs/rknp-clean.json
 	python3 -m reprocheck.cli verify --certificate outputs/rknp-clean.json --artifact-dir benchmarks/external/sklearn-tabular
 	python3 -m reprocheck.cli demo --output-dir outputs/rknp-corrupted
+	-python3 -m reprocheck.cli audit --report benchmarks/rknp_witness_demo/report.md --metrics benchmarks/rknp_witness_demo/metrics.json --metrics-selector iris --tolerance 1e-9 --output outputs/rknp-witness-certificate.json
+	python3 -m reprocheck.cli witness --certificate outputs/rknp-witness-certificate.json --finding-index 0 --output outputs/rknp-witness.json
+	python3 -m reprocheck.cli verify-witness --witness outputs/rknp-witness.json --certificate outputs/rknp-witness-certificate.json --artifact-dir benchmarks/rknp_witness_demo
+	python3 -m reprocheck.cli witness-benchmark --output outputs/rknp-witness-benchmark.json
 	python3 -m reprocheck.cli ablation --output outputs/rknp-ablation.json
 	python3 benchmarks/evidence_ablation/check_baseline.py --result outputs/rknp-ablation.json
 

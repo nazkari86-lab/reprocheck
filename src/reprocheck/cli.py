@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import ipaddress
 import json
 import sys
 from pathlib import Path
@@ -12,9 +13,21 @@ from .benchmark import run_controlled_benchmark
 from .certificate import verify_certificate_file
 from .evidence_graph import render_mermaid
 from .external_review import prepare_external_review, score_external_review
+from .holdout_registration import (
+    register_external_holdout,
+    verify_external_holdout_registration,
+)
+from .human_study import (
+    issue_human_study_packet,
+    prepare_human_study_master,
+    score_human_study,
+    verify_human_study_master,
+)
 from .render import render_html
 from .study import run_real_artifact_study, study_passed
 from .version import __version__
+from .witness import build_witness_file, verify_witness_file
+from .witness_benchmark import run_witness_benchmark, witness_benchmark_passed
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -79,6 +92,11 @@ def build_parser() -> argparse.ArgumentParser:
     serve = subparsers.add_parser("serve", help="start the local web application")
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8000)
+    serve.add_argument(
+        "--allow-network",
+        action="store_true",
+        help="explicitly allow a non-loopback bind without authentication or TLS",
+    )
 
     verify = subparsers.add_parser("verify", help="verify report and optional source checksums")
     verify.add_argument("--certificate", type=Path, required=True)
@@ -88,6 +106,69 @@ def build_parser() -> argparse.ArgumentParser:
     graph.add_argument("--certificate", type=Path, required=True)
     graph.add_argument("--output", type=Path, default=Path("outputs/evidence-graph.mmd"))
     graph.add_argument("--format", choices=["mermaid", "json"], default="mermaid")
+
+    witness = subparsers.add_parser(
+        "witness", help="build a canonical minimal contradiction witness"
+    )
+    witness.add_argument("--certificate", type=Path, required=True)
+    witness.add_argument("--finding-index", type=int, required=True)
+    witness.add_argument("--output", type=Path, default=Path("outputs/witness.json"))
+
+    verify_witness = subparsers.add_parser(
+        "verify-witness", help="independently verify a minimal contradiction witness"
+    )
+    verify_witness.add_argument("--witness", type=Path, required=True)
+    verify_witness.add_argument("--certificate", type=Path, required=True)
+    verify_witness.add_argument("--artifact-dir", type=Path)
+
+    witness_benchmark = subparsers.add_parser(
+        "witness-benchmark", help="compare full, local, and exact witness representations"
+    )
+    witness_benchmark.add_argument(
+        "--output", type=Path, default=Path("outputs/witness-benchmark.json")
+    )
+    witness_benchmark.add_argument("--repeats", type=int, default=25)
+
+    holdout_register = subparsers.add_parser(
+        "holdout-register", help="immutably bind an external holdout protocol to an evaluator"
+    )
+    holdout_register.add_argument("--protocol", type=Path, required=True)
+    holdout_register.add_argument("--evaluator", type=Path, required=True)
+    holdout_register.add_argument("--output", type=Path, required=True)
+
+    holdout_verify = subparsers.add_parser(
+        "holdout-verify-registration", help="verify an unexecuted external holdout lock"
+    )
+    holdout_verify.add_argument("--registration", type=Path, required=True)
+    holdout_verify.add_argument("--protocol", type=Path, required=True)
+    holdout_verify.add_argument("--evaluator", type=Path, required=True)
+
+    human_prepare = subparsers.add_parser(
+        "human-study-prepare", help="prepare an immutable unexecuted crossover master kit"
+    )
+    human_prepare.add_argument("--protocol", type=Path, required=True)
+    human_prepare.add_argument("--output-dir", type=Path, required=True)
+
+    human_verify = subparsers.add_parser(
+        "human-study-verify", help="verify an immutable unexecuted human-study master"
+    )
+    human_verify.add_argument("--master-dir", type=Path, required=True)
+    human_verify.add_argument("--protocol", type=Path)
+
+    human_issue = subparsers.add_parser(
+        "human-study-issue", help="issue a counterbalanced packet after recorded approval"
+    )
+    human_issue.add_argument("--master-dir", type=Path, required=True)
+    human_issue.add_argument("--participant-code", required=True)
+    human_issue.add_argument("--approval-reference", required=True)
+    human_issue.add_argument("--output-dir", type=Path, required=True)
+
+    human_score = subparsers.add_parser(
+        "human-study-score", help="score frozen consented participant responses"
+    )
+    human_score.add_argument("--master-dir", type=Path, required=True)
+    human_score.add_argument("--response", type=Path, action="append", required=True)
+    human_score.add_argument("--output", type=Path, required=True)
 
     keygen = subparsers.add_parser("keygen", help="generate an encrypted Ed25519 signing key")
     keygen.add_argument("--private-key", type=Path, required=True)
@@ -197,6 +278,19 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "serve":
         import uvicorn
 
+        if not _loopback_host(args.host) and not args.allow_network:
+            print(
+                "ERROR: refusing a non-loopback bind without --allow-network; "
+                "ReproCheck has no authentication, TLS, or multi-user isolation",
+                file=sys.stderr,
+            )
+            return 2
+        if not _loopback_host(args.host):
+            print(
+                "WARNING: network mode exposes an unauthenticated local research tool; "
+                "use only on a trusted isolated network",
+                file=sys.stderr,
+            )
         uvicorn.run("reprocheck.web:app", host=args.host, port=args.port, reload=False)
         return 0
     if args.command == "verify":
@@ -230,6 +324,107 @@ def main(argv: list[str] | None = None) -> int:
         args.output.write_text(content, encoding="utf-8")
         print(
             f"nodes={len(graph_payload['nodes'])} edges={len(graph_payload['edges'])} "
+            f"output={args.output.resolve()}"
+        )
+        return 0
+    if args.command == "witness":
+        try:
+            payload = build_witness_file(args.certificate, args.finding_index, args.output)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(
+            f"nodes={len(payload['nodes'])} edges={len(payload['edges'])} "
+            f"candidates={payload['minimality']['candidate_groundings_checked']} "
+            f"output={args.output.resolve()}"
+        )
+        return 0
+    if args.command == "verify-witness":
+        errors = verify_witness_file(args.witness, args.certificate, args.artifact_dir)
+        if errors:
+            for error in errors:
+                print(f"FAIL: {error}")
+            return 1
+        print("PASS: witness is source-grounded, canonical, and minimal under its verifier rule")
+        return 0
+    if args.command == "witness-benchmark":
+        try:
+            result = run_witness_benchmark(args.output, repeats=args.repeats)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        summary = result["summary"]
+        print(
+            f"cases={summary['case_count']} node_reduction={summary['node_reduction']:.1%} "
+            f"byte_reduction={summary['serialized_byte_reduction']:.1%} "
+            f"tamper_rejection={summary['tamper_rejection_rate']:.1%} "
+            f"output={args.output.resolve()}"
+        )
+        return 0 if witness_benchmark_passed(result) else 1
+    if args.command == "holdout-register":
+        try:
+            registration = register_external_holdout(args.protocol, args.evaluator, args.output)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(
+            f"status={registration['status']} sources={registration['source_pool_count']} "
+            f"external_reviewers_completed=0 output={args.output.resolve()}"
+        )
+        return 0
+    if args.command == "holdout-verify-registration":
+        errors = verify_external_holdout_registration(
+            args.registration, args.protocol, args.evaluator
+        )
+        if errors:
+            for error in errors:
+                print(f"FAIL: {error}")
+            return 1
+        print("PASS: external holdout protocol and evaluator match the immutable registration")
+        return 0
+    if args.command == "human-study-prepare":
+        try:
+            manifest = prepare_human_study_master(args.protocol, args.output_dir)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(
+            f"status={manifest['status']} cases={manifest['case_count']} "
+            f"participants_completed=0 output={args.output_dir.resolve()}"
+        )
+        return 0
+    if args.command == "human-study-verify":
+        errors = verify_human_study_master(args.master_dir, args.protocol)
+        if errors:
+            for error in errors:
+                print(f"FAIL: {error}")
+            return 1
+        print("PASS: human-study master is immutable, unexecuted, and internally consistent")
+        return 0
+    if args.command == "human-study-issue":
+        try:
+            packet = issue_human_study_packet(
+                args.master_dir,
+                args.participant_code,
+                args.approval_reference,
+                args.output_dir,
+            )
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(
+            f"participant={packet['participant_code']} arm={packet['counterbalance_arm']} "
+            f"cases={len(packet['assignments'])} output={args.output_dir.resolve()}"
+        )
+        return 0
+    if args.command == "human-study-score":
+        try:
+            result = score_human_study(args.master_dir, args.response, args.output)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(
+            f"status={result['status']} participants={result['participant_count']} "
             f"output={args.output.resolve()}"
         )
         return 0
@@ -417,6 +612,15 @@ def _artifact_spec(value: str) -> tuple[str, Path]:
     if not role or not raw_path:
         raise argparse.ArgumentTypeError("artifact must use non-empty ROLE=PATH")
     return role, Path(raw_path)
+
+
+def _loopback_host(host: str) -> bool:
+    if host.strip().casefold() == "localhost":
+        return True
+    try:
+        return ipaddress.ip_address(host).is_loopback
+    except ValueError:
+        return False
 
 
 if __name__ == "__main__":

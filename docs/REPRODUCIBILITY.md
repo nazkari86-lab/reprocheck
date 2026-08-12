@@ -65,6 +65,9 @@ independently supplied identity-to-key binding is correct.
 | v0.15 evidence-layer matrix | controlled information ablation | `make evidence-ablation` |
 | v0.16 expanded suite | controlled integrity, corruption, representation, and scaling studies | `make expanded-experiments` |
 | external dual review | ready, not executed | `reprocheck review-prepare` |
+| minimal contradiction witness | controlled, exact verifier | `make witness-benchmark` |
+| source-unseen 0.17 holdout | protocol ready, not executed | `reprocheck holdout-verify-registration` |
+| randomized crossover human study | master ready, not executed | `reprocheck human-study-prepare` |
 
 Do not compare a development score with a zero-shot score as if both estimated
 generalization. The repository intentionally preserves failures and label

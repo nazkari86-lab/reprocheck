@@ -1,0 +1,29 @@
+{
+  "schema_version": "reprocheck.human-study-protocol.v1",
+  "title": "Randomized crossover evaluation of ReproCheck-assisted artifact review",
+  "design": "Within-participant randomized crossover with four matched case pairs; each participant reviews eight cases, one manual and one assisted case per pair, counterbalanced by a deterministic participant-code arm.",
+  "primary_endpoint": "Correct clean-versus-defect decisions per participant under assisted versus manual review",
+  "secondary_endpoints": [
+    "active review duration in seconds",
+    "false positive count",
+    "false negative count",
+    "confidence on a 1-5 ordinal scale"
+  ],
+  "minimum_participants": 12,
+  "approvals_required_before_distribution": true,
+  "consent_required": true,
+  "exclusion_rules": [
+    "missing consent",
+    "discussion with another participant before response freeze",
+    "missing case response",
+    "non-positive duration",
+    "duplicate participant code"
+  ],
+  "analysis_plan": {
+    "primary_comparison": "paired participant-level assisted-minus-manual accuracy",
+    "time_comparison": "paired participant-level median duration difference",
+    "below_minimum_sample": "descriptive only; no effectiveness claim",
+    "missing_data": "exclude the incomplete participant before unblinding; do not impute"
+  },
+  "scientific_boundary": "The prepared cases are controlled and author-designed. Even a completed study estimates assistance on this task and participant pool, not universal publication-review performance. No packet may be distributed before the responsible school or fair committee determines and records the required SRC/IRB approval and consent process."
+}

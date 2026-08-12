@@ -1,0 +1,64 @@
+{
+  "schema_version": "reprocheck.external-holdout-protocol.v1",
+  "title": "ReproCheck 0.17 cross-domain source-unseen holdout",
+  "research_question": "How accurately does the frozen ReproCheck 0.17 evaluator recover declared numerical model-evaluation claims in unseen repositories and formats?",
+  "evaluator_version": "0.17.0",
+  "source_pools": [
+    {
+      "name": "SpeechBrain",
+      "repository": "https://github.com/speechbrain/speechbrain",
+      "commit": "e5cb1f65b940634215650aa1171e0440d0808123",
+      "include_globs": ["recipes/**/README.md"],
+      "exclude_globs": ["**/tests/**", "**/templates/**"]
+    },
+    {
+      "name": "Nerfstudio",
+      "repository": "https://github.com/nerfstudio-project/nerfstudio",
+      "commit": "50e0e3c70c775e89333256213363badbf074f29d",
+      "include_globs": ["README.md", "docs/**/*.md"],
+      "exclude_globs": ["docs/**/installation*", "docs/**/developer*"]
+    },
+    {
+      "name": "OpenCLIP",
+      "repository": "https://github.com/mlfoundations/open_clip",
+      "commit": "602d4af74f86df6f2ff81ba0f0a847b0b70ad2e5",
+      "include_globs": ["README.md", "docs/**/*.md"],
+      "exclude_globs": ["**/tests/**"]
+    },
+    {
+      "name": "Segmentation Models PyTorch",
+      "repository": "https://github.com/qubvel-org/segmentation_models.pytorch",
+      "commit": "d25559682fa187854ffba0ba900d830f34ebb4f2",
+      "include_globs": ["README.md", "docs/**/*.md"],
+      "exclude_globs": ["**/tests/**"]
+    }
+  ],
+  "selection": {
+    "unit": "complete source file",
+    "eligible_extensions": [".md"],
+    "deterministic_order": "ascending SHA-256 of repository name, pinned commit, and relative path",
+    "claim_bearing_target_per_pool": 10,
+    "zero_claim_control_target_per_pool": 5,
+    "insufficient_pool_rule": "include every eligible file and report the shortfall without replacement from another pool"
+  },
+  "primary_endpoints": {
+    "claim_level_precision": "exact normalized metric, value, and declared context match",
+    "claim_level_recall": "exact normalized metric, value, and declared context match",
+    "artifact_level_exact_match": "all and only in-scope claims recovered for a complete file"
+  },
+  "annotation": {
+    "reviewers": 2,
+    "blind_to_reprocheck_output": true,
+    "independent_before_freeze": true,
+    "adjudicator_for_disagreement": 1,
+    "ai_reviewers_count_as_external": false
+  },
+  "stopping_rule": "One evaluator run after source fetch, dual annotation freeze, adjudication, and gold lock; no parser modification before the primary result is sealed.",
+  "analysis_plan": {
+    "intervals": "Wilson 95% intervals for precision and recall",
+    "agreement": "claim-presence Cohen's kappa plus exact artifact agreement",
+    "strata": ["repository", "metric family", "table versus narrative"],
+    "failure_analysis": "post-hoc and labeled separately from the immutable primary score"
+  },
+  "scientific_boundary": "This protocol tests extraction generalization and annotation reliability, not the scientific truth or reproducibility of the source projects. Repository commits were resolved before registration; source file contents must not be inspected until the evaluator and this protocol are hashed together."
+}

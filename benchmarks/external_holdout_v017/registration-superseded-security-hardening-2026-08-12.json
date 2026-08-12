@@ -1,0 +1,25 @@
+{
+  "schema_version": "reprocheck.external-holdout-supersession.v1",
+  "superseded_before_execution": true,
+  "source_contents_inspected": false,
+  "external_reviewers_completed": 0,
+  "reason": "A fail-closed private-file permission check was added to the human-study code before any external review or holdout source-content inspection, changing the final evaluator wheel bytes.",
+  "original_registration": {
+    "evaluator": {
+      "filename": "reprocheck-0.17.0-py3-none-any.whl",
+      "sha256": "0fb00ea55775063b31aa9dbe0af392aaa6f75346c1d06d80c403e51b2235b80b",
+      "size_bytes": 142997
+    },
+    "external_reviewers_completed": 0,
+    "protocol": {
+      "filename": "protocol.json",
+      "sha256": "144791db56e12dc972a6215c3fbc9a87ef3e779120487fcf9789448fa58dbcdb",
+      "size_bytes": 3228
+    },
+    "registration_sha256": "d99f52ce8e636583dfa74680e4ae3dd3b0466ef4eea2d2275bcd10be2fdadce5",
+    "schema_version": "reprocheck.external-holdout-registration.v1",
+    "source_contents_inspected_after_registration": false,
+    "source_pool_count": 4,
+    "status": "registered_not_executed"
+  }
+}

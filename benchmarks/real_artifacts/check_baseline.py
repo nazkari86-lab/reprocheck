@@ -57,7 +57,14 @@ def main(argv: list[str] | None = None) -> int:
         print(f"wrote baseline={args.baseline.resolve()}")
         return 0
     expected = _load(args.baseline)
-    if summary != expected:
+    if summary.get("tool_version") != __version__:
+        print(
+            f"FAIL: current real-study version mismatch ({summary.get('tool_version')} != {__version__})"
+        )
+        return 1
+    comparable_summary = {key: value for key, value in summary.items() if key != "tool_version"}
+    comparable_expected = {key: value for key, value in expected.items() if key != "tool_version"}
+    if comparable_summary != comparable_expected:
         print("FAIL: real-artifact study differs from the reviewed baseline")
         return 1
     print(f"PASS: deterministic real-artifact baseline={args.baseline.resolve()}")

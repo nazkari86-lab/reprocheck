@@ -216,6 +216,9 @@ scope tradeoff, а не полная замена reproduction environment.
 - precision, recall, specificity и balanced accuracy;
 - Wilson interval и почему observed 100% не означает универсальные 100%;
 - парный McNemar test и почему `p=0.25` недостаточно;
+- точное определение minimal witness и область, внутри которой доказана минимальность;
+- почему one-hop neighborhood может быть меньше witness, но не является source-grounded доказательством;
+- почему controlled benchmark 58.3%/67.7% не доказывает экономию времени человека;
 - zero-shot, development set, preregistration и post-hoc change;
 - SHA-256, canonical digest, Ed25519 и различие между ними;
 - AST/data flow, exact/group/lexical leakage;
