@@ -1,0 +1,12 @@
+{
+  "schema_version": "reprocheck.witness-source-baseline.v1",
+  "projection_sha256": "d29082289cf3bdcfc07599342a9397b335987c42a29c93e3d9c7c91ecc72e248",
+  "case_count": 30,
+  "controlled_mutation_cases": 27,
+  "negative_control_cases": 3,
+  "natural_cases": 0,
+  "expected_witness_construction_rate": 1.0,
+  "independent_verification_rate": 1.0,
+  "negative_control_specificity": 1.0,
+  "tamper_rejection_rate": 1.0
+}

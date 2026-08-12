@@ -168,6 +168,35 @@ def test_cli_exact_overlap_requires_artifact_dir(tmp_path):
     )
 
 
+def test_cli_source_witness_benchmark(tmp_path):
+    assert (
+        main(
+            [
+                "witness-source-benchmark",
+                "--protocol",
+                "benchmarks/witness_source/protocol.json",
+                "--output",
+                str(tmp_path / "source-result.json"),
+            ]
+        )
+        == 0
+    )
+    bad = tmp_path / "bad-protocol.json"
+    bad.write_text("{}", encoding="utf-8")
+    assert (
+        main(
+            [
+                "witness-source-benchmark",
+                "--protocol",
+                str(bad),
+                "--output",
+                str(tmp_path / "bad-result.json"),
+            ]
+        )
+        == 2
+    )
+
+
 def test_cli_extension_argument_guards():
     assert _loopback_host("localhost")
     assert _loopback_host("::1")

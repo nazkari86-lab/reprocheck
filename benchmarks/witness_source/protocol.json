@@ -1,0 +1,52 @@
+{
+  "schema_version": "reprocheck.witness-source-protocol.v1",
+  "phase": "design_locked_before_result",
+  "source_roots": {
+    "iris": "benchmarks/external/sklearn-tabular",
+    "diabetes": "benchmarks/external/sklearn-tabular",
+    "yolo": "benchmarks/external/yolo26n-coco8"
+  },
+  "cases": [
+    {"id": "N01", "domain": "iris", "evidence_stratum": "negative_control", "rule": null, "target": null, "variant": 0},
+    {"id": "N02", "domain": "diabetes", "evidence_stratum": "negative_control", "rule": null, "target": null, "variant": 0},
+    {"id": "N03", "domain": "yolo", "evidence_stratum": "negative_control", "rule": null, "target": null, "variant": 0},
+
+    {"id": "M01", "domain": "iris", "evidence_stratum": "controlled_mutation", "rule": "claim_metric_mismatch", "target": "accuracy", "variant": 1},
+    {"id": "M02", "domain": "iris", "evidence_stratum": "controlled_mutation", "rule": "claim_metric_mismatch", "target": "precision", "variant": 2},
+    {"id": "M03", "domain": "iris", "evidence_stratum": "controlled_mutation", "rule": "claim_metric_mismatch", "target": "recall", "variant": 3},
+    {"id": "M04", "domain": "diabetes", "evidence_stratum": "controlled_mutation", "rule": "claim_metric_mismatch", "target": "mae", "variant": 1},
+    {"id": "M05", "domain": "diabetes", "evidence_stratum": "controlled_mutation", "rule": "claim_metric_mismatch", "target": "rmse", "variant": 2},
+    {"id": "M06", "domain": "diabetes", "evidence_stratum": "controlled_mutation", "rule": "claim_metric_mismatch", "target": "r2", "variant": 3},
+    {"id": "M07", "domain": "yolo", "evidence_stratum": "controlled_mutation", "rule": "claim_metric_mismatch", "target": "map50_95", "variant": 1},
+    {"id": "M08", "domain": "yolo", "evidence_stratum": "controlled_mutation", "rule": "claim_metric_mismatch", "target": "map50", "variant": 2},
+    {"id": "M09", "domain": "yolo", "evidence_stratum": "controlled_mutation", "rule": "claim_metric_mismatch", "target": "map75", "variant": 3},
+
+    {"id": "C01", "domain": "iris", "evidence_stratum": "controlled_mutation", "rule": "metric_evidence_conflict", "target": "accuracy", "variant": 1},
+    {"id": "C02", "domain": "iris", "evidence_stratum": "controlled_mutation", "rule": "metric_evidence_conflict", "target": "precision", "variant": 2},
+    {"id": "C03", "domain": "iris", "evidence_stratum": "controlled_mutation", "rule": "metric_evidence_conflict", "target": "f1", "variant": 3},
+    {"id": "C04", "domain": "diabetes", "evidence_stratum": "controlled_mutation", "rule": "metric_evidence_conflict", "target": "mae", "variant": 1},
+    {"id": "C05", "domain": "diabetes", "evidence_stratum": "controlled_mutation", "rule": "metric_evidence_conflict", "target": "rmse", "variant": 2},
+    {"id": "C06", "domain": "diabetes", "evidence_stratum": "controlled_mutation", "rule": "metric_evidence_conflict", "target": "r2", "variant": 3},
+    {"id": "C07", "domain": "yolo", "evidence_stratum": "controlled_mutation", "rule": "metric_evidence_conflict", "target": "map50_95", "variant": 1},
+    {"id": "C08", "domain": "yolo", "evidence_stratum": "controlled_mutation", "rule": "metric_evidence_conflict", "target": "map50", "variant": 2},
+    {"id": "C09", "domain": "yolo", "evidence_stratum": "controlled_mutation", "rule": "metric_evidence_conflict", "target": "map75", "variant": 3},
+
+    {"id": "S01", "domain": "iris", "evidence_stratum": "controlled_mutation", "rule": "exact_split_overlap", "target": "row", "variant": 1},
+    {"id": "S02", "domain": "iris", "evidence_stratum": "controlled_mutation", "rule": "exact_split_overlap", "target": "row", "variant": 2},
+    {"id": "S03", "domain": "iris", "evidence_stratum": "controlled_mutation", "rule": "exact_split_overlap", "target": "row", "variant": 3},
+    {"id": "S04", "domain": "iris", "evidence_stratum": "controlled_mutation", "rule": "exact_split_overlap", "target": "row", "variant": 4},
+    {"id": "S05", "domain": "iris", "evidence_stratum": "controlled_mutation", "rule": "exact_split_overlap", "target": "row", "variant": 5},
+    {"id": "S06", "domain": "diabetes", "evidence_stratum": "controlled_mutation", "rule": "exact_split_overlap", "target": "row", "variant": 1},
+    {"id": "S07", "domain": "diabetes", "evidence_stratum": "controlled_mutation", "rule": "exact_split_overlap", "target": "row", "variant": 2},
+    {"id": "S08", "domain": "diabetes", "evidence_stratum": "controlled_mutation", "rule": "exact_split_overlap", "target": "row", "variant": 3},
+    {"id": "S09", "domain": "diabetes", "evidence_stratum": "controlled_mutation", "rule": "exact_split_overlap", "target": "row", "variant": 4}
+  ],
+  "primary_outcomes": [
+    "expected witness construction rate",
+    "independent witness verification rate",
+    "negative-control specificity",
+    "tamper rejection",
+    "per-rule compactness"
+  ],
+  "scientific_boundary": "The 27 defect cases are deterministic controlled mutations of three frozen real experiment artifacts. They are not 27 natural defects or 27 independent projects. Negative controls remain unchanged. Natural-case count is reported separately and may be zero."
+}

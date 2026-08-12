@@ -28,6 +28,10 @@ from .study import run_real_artifact_study, study_passed
 from .version import __version__
 from .witness import build_witness_file, verify_witness_file
 from .witness_benchmark import run_witness_benchmark, witness_benchmark_passed
+from .witness_source_benchmark import (
+    run_witness_source_benchmark,
+    witness_source_benchmark_passed,
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -129,6 +133,17 @@ def build_parser() -> argparse.ArgumentParser:
         "--output", type=Path, default=Path("outputs/witness-benchmark.json")
     )
     witness_benchmark.add_argument("--repeats", type=int, default=25)
+
+    witness_source = subparsers.add_parser(
+        "witness-source-benchmark",
+        help="run the stratified 30-case source-derived witness benchmark",
+    )
+    witness_source.add_argument("--protocol", type=Path, required=True)
+    witness_source.add_argument(
+        "--output",
+        type=Path,
+        default=Path("outputs/witness-source-benchmark.json"),
+    )
 
     holdout_register = subparsers.add_parser(
         "holdout-register", help="immutably bind an external holdout protocol to an evaluator"
@@ -367,6 +382,21 @@ def main(argv: list[str] | None = None) -> int:
             f"output={args.output.resolve()}"
         )
         return 0 if witness_benchmark_passed(result) else 1
+    if args.command == "witness-source-benchmark":
+        try:
+            result = run_witness_source_benchmark(args.protocol, args.output)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        summary = result["summary"]
+        print(
+            f"cases={summary['case_count']} mutations={summary['controlled_mutation_cases']} "
+            f"controls={summary['negative_control_cases']} natural={summary['natural_cases']} "
+            f"verification={summary['independent_verification_rate']:.1%} "
+            f"tamper_rejection={summary['tamper_rejection_rate']:.1%} "
+            f"output={args.output.resolve()}"
+        )
+        return 0 if witness_source_benchmark_passed(result) else 1
     if args.command == "holdout-register":
         try:
             registration = register_external_holdout(args.protocol, args.evaluator, args.output)
