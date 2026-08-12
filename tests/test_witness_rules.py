@@ -5,8 +5,17 @@ from pathlib import Path
 import pytest
 
 from reprocheck.audit import run_audit
-from reprocheck.witness import build_witness_file, verify_witness_file, witness_digest
-from reprocheck.witness_rules import recompute_exact_overlap
+from reprocheck.witness import (
+    _validate_witness_shape,
+    build_witness_file,
+    verify_witness_file,
+    witness_digest,
+)
+from reprocheck.witness_rules import (
+    exact_overlap_semantic_errors,
+    metric_conflict_semantic_errors,
+    recompute_exact_overlap,
+)
 
 
 def _write_csv(path: Path, rows: list[dict[str, str]]) -> None:
@@ -137,3 +146,133 @@ def test_recompute_exact_overlap_preserves_duplicate_test_row_count(tmp_path: Pa
 
     assert result["exact_overlap_test_rows"] == 2
     assert len(result["overlap_identity_sha256"]) == 1
+
+
+@pytest.mark.parametrize(
+    ("train_text", "test_text", "columns", "expected"),
+    [
+        ("id\n1\n", "id\n1\n", [], "requires declared identity columns"),
+        ("id\n1\n", "id\n1\n", ["missing"], "identity columns missing"),
+        ("id\n1\n", "id\n2\n", ["id"], "have no exact overlap"),
+        ("\n", "id\n1\n", ["id"], "invalid header"),
+        ("id,id\n1,1\n", "id\n1\n", ["id"], "duplicate headers"),
+        ("id,text\n1\n", "id,text\n1,x\n", ["id"], "malformed row"),
+        ("id\n", "id\n1\n", ["id"], "split is empty"),
+    ],
+)
+def test_recompute_exact_overlap_rejects_invalid_csv_contracts(
+    tmp_path: Path,
+    train_text: str,
+    test_text: str,
+    columns: list[str],
+    expected: str,
+):
+    train = tmp_path / "train.csv"
+    test = tmp_path / "test.csv"
+    train.write_text(train_text, encoding="utf-8")
+    test.write_text(test_text, encoding="utf-8")
+
+    with pytest.raises(ValueError, match=expected):
+        recompute_exact_overlap(train, test, columns)
+
+
+def test_metric_conflict_semantics_reject_every_critical_tamper(tmp_path: Path):
+    certificate = _metric_conflict_certificate(tmp_path)
+    base = build_witness_file(certificate, 0, tmp_path / "witness.json", tmp_path)
+
+    def rejected(mutate, expected):
+        payload = json.loads(json.dumps(base))
+        mutate(payload)
+        errors = metric_conflict_semantic_errors(payload)
+        assert any(expected in error for error in errors), errors
+
+    rejected(lambda item: item.update(nodes=[]), "one finding and two metrics")
+    rejected(
+        lambda item: item["nodes"].__setitem__(
+            slice(None), [node for node in item["nodes"] if node["kind"] != "artifact"]
+        ),
+        "two source artifacts",
+    )
+    rejected(
+        lambda item: next(node for node in item["nodes"] if node["kind"] == "finding")[
+            "attributes"
+        ].update(code="other"),
+        "finding code",
+    )
+    rejected(lambda item: item.update(rule_inputs=[]), "rule inputs")
+    rejected(
+        lambda item: item.update(
+            edges=[edge for edge in item["edges"] if edge["relation"] != "flags"]
+        ),
+        "flags relation",
+    )
+    rejected(
+        lambda item: item.update(
+            edges=[edge for edge in item["edges"] if edge["relation"] == "flags"]
+        ),
+        "bind exactly one source artifact",
+    )
+    rejected(
+        lambda item: next(node for node in item["nodes"] if node["kind"] == "metric")[
+            "attributes"
+        ].update(value="bad"),
+        "finite number",
+    )
+    rejected(lambda item: item["rule_inputs"].update(source_values=[{}]), "source")
+    rejected(
+        lambda item: item["rule_inputs"].update(
+            source_values=[
+                {"source": "a", "value": 0.5},
+                {"source": "b", "value": 0.5},
+            ]
+        ),
+        "do not exceed",
+    )
+    rejected(
+        lambda item: next(node for node in item["nodes"] if node["kind"] == "metric")[
+            "attributes"
+        ].update(name="f1"),
+        "metric names differ",
+    )
+
+
+def test_exact_overlap_semantics_reject_every_critical_tamper(tmp_path: Path):
+    certificate = _split_certificate(tmp_path)
+    base = build_witness_file(certificate, 0, tmp_path / "witness.json", tmp_path)
+
+    def rejected(mutate, expected):
+        payload = json.loads(json.dumps(base))
+        mutate(payload)
+        errors = exact_overlap_semantic_errors(payload)
+        assert any(expected in error for error in errors), errors
+
+    rejected(lambda item: item.update(nodes=[]), "one finding and two artifacts")
+    rejected(
+        lambda item: next(node for node in item["nodes"] if node["kind"] == "artifact")[
+            "attributes"
+        ].update(role="test"),
+        "one train and one test",
+    )
+    rejected(lambda item: item.update(edges=[]), "flags relations")
+    rejected(lambda item: item.update(rule_inputs=[]), "rule inputs")
+    rejected(lambda item: item["rule_inputs"].update(identity_columns=[]), "identity columns")
+    rejected(lambda item: item["rule_inputs"].update(overlap_identity_sha256=[]), "identity hashes")
+    rejected(lambda item: item["rule_inputs"].update(exact_overlap_test_rows=True), "row count")
+    rejected(lambda item: item["rule_inputs"].update(test_rows="bad"), "test row count")
+    rejected(
+        lambda item: item["rule_inputs"].update(exact_overlap_test_rows=5, test_rows=1),
+        "test row count",
+    )
+
+    malformed = json.loads(json.dumps(base))
+    malformed["nodes"] = {}
+    assert "witness nodes and edges must be arrays" in exact_overlap_semantic_errors(malformed)
+    assert any(
+        "minimality scope" in error
+        for error in _validate_witness_shape(
+            {
+                **base,
+                "minimality": {**base["minimality"], "scope": "wrong"},
+            }
+        )
+    )

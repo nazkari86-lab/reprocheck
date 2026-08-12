@@ -310,10 +310,10 @@ def _validate_protocol(payload: dict[str, Any]) -> None:
     if len(ids) != 30 or len(set(ids)) != 30:
         raise ValueError("witness source protocol case ids must be unique")
     strata = [case.get("evidence_stratum") for case in cases]
-    if strata.count("controlled_mutation") != 27 or strata.count("negative_control") != 3:
-        raise ValueError("witness source protocol must preserve 27 mutations and 3 controls")
     if "natural" in strata:
         raise ValueError("protocol cannot prelabel a case as natural without observed evidence")
+    if strata.count("controlled_mutation") != 27 or strata.count("negative_control") != 3:
+        raise ValueError("witness source protocol must preserve 27 mutations and 3 controls")
 
 
 def _verify_source_manifests(protocol: dict[str, Any]) -> None:

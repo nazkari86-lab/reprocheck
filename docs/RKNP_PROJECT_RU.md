@@ -144,14 +144,21 @@ Representation matrix прошла 12/12 in-scope cases. В scalability study в
 certificate. Эти результаты расширяют capability coverage, но остаются
 author-designed evidence и не заменяют внешнюю проверку.
 
-### 5. Минимальный сертификат противоречия
+### 5. Три минимальных сертификата дефекта
 
-Для `claim_metric_mismatch` версия 0.17 строит минимальный относительно явно
-заданного verifier-правила source-grounded witness. Он содержит finding, claim,
-противоречащую metric observation, report artifact, source artifact и четыре
-обязательные typed relations. Полный перебор допустимых groundings доказывает
-кардинальную минимальность, а отдельный verifier повторяет поиск из исходного
-audit certificate.
+Версия 0.18 строит канонический минимальный witness для трех явно заданных
+verifier-правил:
+
+1. `claim_metric_mismatch`: claim, противоречащая metric observation и оба
+   source artifacts;
+2. `metric_evidence_conflict`: две metric observations и два независимых
+   source artifacts;
+3. `exact_split_overlap`: train/test artifacts и заново вычисленные SHA-256
+   идентификаторов пересекающихся строк.
+
+Полный перебор допустимых typed groundings доказывает кардинальную минимальность
+в рамках каждого правила. Для split одного графа недостаточно: verifier заново
+читает криптографически связанные CSV и воспроизводит exact overlap.
 
 Минимальные provenance explanations и minimal witness bases существовали в
 database research ранее. Поэтому новизна не формулируется как «первый
@@ -159,11 +166,16 @@ database research ранее. Поэтому новизна не формули�
 численная проверка tolerance, привязка к исходным artifact digests и повторяемое
 доказательство кардинальной минимальности из sealed ReproCheck certificate.
 
-На четырех author-designed cases witness сократил представление относительно
-полного графа на 58.3% по узлам и 67.7% по serialized bytes. Все 16/16
-контролируемых подмен были отклонены. Одношаговый neighborhood был меньше, но
-0/4 раз содержал достаточную source grounding. Эти числа доказывают поведение
-реализации на объявленной матрице, а не экономию времени реального reviewer.
+На 12 author-designed cases трех правил witness сократил представление
+относительно полного графа на 68.9% по узлам и 77.8% по serialized bytes. Все
+48/48 контролируемых подмен были отклонены. Отдельный source-derived benchmark
+содержит 27 детерминированных мутаций трех замороженных реальных экспериментов и
+три неизмененных controls: construction, independent verification, tamper
+rejection и specificity составили 100% на объявленной матрице.
+
+Это не 27 естественных ошибок и не 27 независимых проектов. Число natural cases
+равно нулю. Результат доказывает поведение реализации на source-derived
+артефактах, но не распространенность дефектов и не экономию времени reviewer.
 
 ## Что результат доказывает и не доказывает
 

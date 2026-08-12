@@ -4,6 +4,7 @@ import argparse
 import difflib
 import hashlib
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -41,10 +42,13 @@ def replay(
     with tempfile.TemporaryDirectory(prefix="reprocheck-wheel-replay-") as directory:
         directory_path = Path(directory)
         venv = directory_path / "venv"
+        isolated_env = dict(os.environ)
+        isolated_env.pop("PYTHONPATH", None)
+        isolated_env.pop("PYTHONHOME", None)
         venv_command = [sys.executable, "-m", "venv"]
         if system_site_packages:
             venv_command.append("--system-site-packages")
-        subprocess.run([*venv_command, str(venv)], check=True)
+        subprocess.run([*venv_command, str(venv)], check=True, env=isolated_env)
         python = venv / "bin" / "python"
         subprocess.run(
             [
@@ -58,6 +62,7 @@ def replay(
             ],
             check=True,
             stdout=subprocess.DEVNULL,
+            env=isolated_env,
         )
         actual_path = directory_path / "result.json"
         subprocess.run(
@@ -74,6 +79,7 @@ def replay(
                 str(actual_path),
             ],
             check=True,
+            env=isolated_env,
         )
         actual_text = actual_path.read_text(encoding="utf-8")
         expected_text = expected_path.read_text(encoding="utf-8")

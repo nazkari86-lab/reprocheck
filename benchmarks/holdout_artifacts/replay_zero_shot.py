@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import difflib
 import hashlib
+import os
 import subprocess
 import sys
 import tempfile
@@ -40,7 +41,10 @@ def replay() -> None:
     with tempfile.TemporaryDirectory(prefix="reprocheck-holdout-replay-") as directory:
         temporary = Path(directory)
         venv = temporary / "venv"
-        subprocess.run([sys.executable, "-m", "venv", str(venv)], check=True)
+        isolated_env = dict(os.environ)
+        isolated_env.pop("PYTHONPATH", None)
+        isolated_env.pop("PYTHONHOME", None)
+        subprocess.run([sys.executable, "-m", "venv", str(venv)], check=True, env=isolated_env)
         python = venv / "bin" / "python"
         subprocess.run(
             [
@@ -54,6 +58,7 @@ def replay() -> None:
             ],
             check=True,
             stdout=subprocess.DEVNULL,
+            env=isolated_env,
         )
         actual = temporary / "zero-shot-v0.6.json"
         subprocess.run(
@@ -66,6 +71,7 @@ def replay() -> None:
                 str(actual),
             ],
             check=True,
+            env=isolated_env,
         )
         expected_text = EXPECTED.read_text(encoding="utf-8")
         actual_text = actual.read_text(encoding="utf-8")

@@ -163,6 +163,21 @@ reprocheck ablation --output outputs/rknp-ablation.json
 Если live demo нестабилен, использовать заранее сохраненный HTML/скриншот, но
 не выдавать его за запуск в реальном времени.
 
+### 5. Три минимальных witness
+
+Команда `make rknp-demo` дополнительно строит и проверяет:
+
+```text
+claim mismatch       5 узлов / 4 связи
+metric conflict      5 узлов / 4 связи
+exact split overlap  3 узла  / 2 связи + повторное чтение CSV
+```
+
+Controlled benchmark: 12 случаев, сокращение узлов 68.9%, bytes 77.8%,
+отклонено 48/48 подмен. Source-derived benchmark: 27 контролируемых мутаций
+трех реальных экспериментов, 3 clean controls, natural cases = 0. Не называть
+мутации естественными дефектами.
+
 ## Что разместить на стенде
 
 1. Проблема и один пример `94% в тексте != 91% из predictions`.
@@ -177,6 +192,16 @@ reprocheck ablation --output outputs/rknp-ablation.json
 
 **Где новизна?** Не в leakage или hashing отдельно. Новизна — audit-specific
 typed claim-to-evidence architecture и экспериментальная оценка уровней evidence.
+
+**Почему для split недостаточно графа?** Связи `train/test -> finding` показывают
+происхождение флага, но сами не доказывают совпадение строк. Поэтому verifier
+проверяет hashes файлов, читает CSV и заново вычисляет пересечение объявленных
+identity columns.
+
+**Почему 27 случаев — не 27 реальных ошибок?** Это детерминированные мутации
+трех замороженных реальных экспериментов. Они проверяют capability и fail-closed
+поведение. Для оценки естественной распространенности нужен отдельный корпус
+неизмененных проектов; текущий natural count равен нулю.
 
 **Почему это не ReproZip?** ReproZip сильнее в захвате окружения для повторного
 исполнения. ReproCheck не исполняет код и проверяет связи между claim,
@@ -218,7 +243,8 @@ scope tradeoff, а не полная замена reproduction environment.
 - парный McNemar test и почему `p=0.25` недостаточно;
 - точное определение minimal witness и область, внутри которой доказана минимальность;
 - почему one-hop neighborhood может быть меньше witness, но не является source-grounded доказательством;
-- почему controlled benchmark 58.3%/67.7% не доказывает экономию времени человека;
+- почему controlled benchmark 68.9%/77.8% не доказывает экономию времени человека;
+- почему 27 controlled mutations нельзя называть natural defects;
 - zero-shot, development set, preregistration и post-hoc change;
 - SHA-256, canonical digest, Ed25519 и различие между ними;
 - AST/data flow, exact/group/lexical leakage;

@@ -65,7 +65,7 @@ prior-art search supports it.
 
 ## Minimal witness boundary
 
-Version 0.17 does not claim to invent minimal provenance explanations. Database
+Versions 0.17-0.18 do not claim to invent minimal provenance explanations. Database
 provenance literature already formalizes why/why-not explanations and minimal
 witness bases; for example, Green describes the minimal witness basis as an
 irredundant family of contributing source sets, while PUG computes the relevant
@@ -76,10 +76,10 @@ part of a provenance graph for a why/why-not question:
 - [Lee, Ludäscher, Glavic, *PUG: Why & Why-Not Provenance*,
   2018](https://arxiv.org/abs/1808.05752)
 
-ReproCheck's narrower contribution is an executable verifier rule for one
-audit-specific contradiction: bind a numerical report claim and conflicting
-metric observation to their exact source artifacts, preserve their typed graph
-relations and digests, and independently repeat a cardinality-minimal grounding
-search against the original sealed audit certificate. The controlled benchmark
-supports that implementation boundary only. It does not establish a new general
-theory of provenance minimization.
+ReproCheck's narrower contribution is a registry of three executable
+audit-specific verifier rules. One binds a report claim to contradictory metric
+evidence, one binds two conflicting observations to distinct sources, and one
+binds train/test artifacts while recomputing exact identity overlap from their
+CSV bytes. Every rule repeats a cardinality-minimal grounding search against the
+sealed audit certificate. The benchmarks support this bounded implementation,
+not a new general theory of provenance minimization.

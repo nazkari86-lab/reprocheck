@@ -89,6 +89,70 @@ def test_verifier_accepts_canonical_legacy_v1_mismatch_witness(tmp_path: Path):
     assert verify_witness_file(output, certificate, artifacts) == []
 
 
+def test_legacy_v1_shape_validation_remains_fail_closed(tmp_path: Path):
+    certificate, _ = _mismatch_certificate(tmp_path)
+    source = json.loads(certificate.read_text(encoding="utf-8"))
+    base = _build_v1_mismatch_payload(source, 0)
+
+    def rejected(mutate, expected):
+        payload = json.loads(json.dumps(base))
+        mutate(payload)
+        errors = _validate_witness_shape(payload)
+        assert any(expected in error for error in errors), errors
+
+    rejected(lambda item: item["nodes"].append(None), "malformed witness node")
+    rejected(lambda item: item["nodes"].append(dict(item["nodes"][0])), "duplicate witness node")
+    rejected(lambda item: item["nodes"][0].update(label="tampered"), "node digest mismatch")
+    rejected(lambda item: item["edges"].append(None), "malformed witness edge")
+    rejected(lambda item: item["edges"].append(dict(item["edges"][0])), "duplicate witness edge")
+    rejected(lambda item: item["edges"][0].update(target="missing"), "unknown node")
+    rejected(lambda item: item.update(nodes=[]), "exactly one finding")
+    rejected(
+        lambda item: next(node for node in item["nodes"] if node["kind"] == "claim").update(
+            attributes=[]
+        ),
+        "attributes must be objects",
+    )
+    rejected(
+        lambda item: next(node for node in item["nodes"] if node["kind"] == "finding")[
+            "attributes"
+        ].update(code="other"),
+        "finding code",
+    )
+    rejected(lambda item: item.update(edges=[]), "claim-to-finding")
+    rejected(
+        lambda item: item.update(
+            edges=[edge for edge in item["edges"] if edge["relation"] != "contradicts"]
+        ),
+        "metric-to-claim",
+    )
+    rejected(
+        lambda item: item.update(
+            edges=[
+                edge for edge in item["edges"] if edge["relation"] not in {"reports", "recomputes"}
+            ]
+        ),
+        "source artifact",
+    )
+    rejected(lambda item: item.update(rule_inputs=[]), "rule inputs")
+    rejected(lambda item: item["rule_inputs"].update(tolerance="bad"), "finite number")
+    rejected(
+        lambda item: next(node for node in item["nodes"] if node["kind"] == "metric")[
+            "attributes"
+        ].update(name="f1"),
+        "names differ",
+    )
+    rejected(lambda item: item["rule_inputs"].update(observed=0.1), "observed value")
+    rejected(
+        lambda item: next(node for node in item["nodes"] if node["kind"] == "metric")[
+            "attributes"
+        ].update(value=0.8),
+        "mismatch tolerance",
+    )
+    rejected(lambda item: item["minimality"].update(minimum_node_count=99), "node count")
+    rejected(lambda item: item["minimality"].update(minimum_edge_count=99), "edge count")
+
+
 def test_witness_fails_closed_for_unsupported_or_missing_finding(tmp_path: Path):
     report = tmp_path / "report.md"
     metrics = tmp_path / "metrics.json"
@@ -220,6 +284,58 @@ def test_witness_shape_validation_rejects_malformed_and_semantically_invalid_pay
         lambda item: item["minimality"].update(minimum_edge_count=99),
         "edge count",
     )
+
+
+def test_v2_shape_validation_exercises_fail_closed_contract(tmp_path: Path):
+    certificate, _ = _mismatch_certificate(tmp_path)
+    base = build_witness_file(certificate, 0, tmp_path / "witness.json")
+
+    def rejected(mutate, expected):
+        payload = json.loads(json.dumps(base))
+        mutate(payload)
+        assert any(expected in error for error in _validate_witness_shape(payload))
+
+    rejected(lambda item: item.update(finding_code=None), "finding code")
+    rejected(lambda item: item.update(finding_code="unknown"), "unsupported minimal-witness")
+    rejected(lambda item: item.update(verifier_rule="unknown"), "verifier rule")
+    rejected(lambda item: item.update(nodes={}), "nodes and edges")
+    rejected(lambda item: item["nodes"].append(None), "malformed witness node")
+    rejected(lambda item: item["nodes"].append(dict(item["nodes"][0])), "duplicate witness node")
+    rejected(lambda item: item["nodes"][0].update(label="tampered"), "node digest mismatch")
+    rejected(lambda item: item["edges"].append(None), "malformed witness edge")
+    rejected(lambda item: item["edges"].append(dict(item["edges"][0])), "duplicate witness edge")
+    rejected(lambda item: item["edges"][0].update(target="missing"), "unknown node")
+    rejected(lambda item: item.update(minimality=[]), "minimality must be an object")
+    rejected(lambda item: item["minimality"].update(scope="wrong"), "minimality scope")
+
+
+def test_verifier_rejects_graph_binding_and_unreproducible_witness(tmp_path: Path, monkeypatch):
+    certificate, artifacts = _mismatch_certificate(tmp_path)
+    output = tmp_path / "witness.json"
+    base = build_witness_file(certificate, 0, output)
+
+    payload = json.loads(json.dumps(base))
+    payload["source_graph_sha256"] = "0" * 64
+    payload["witness_sha256"] = witness_digest(payload)
+    output.write_text(json.dumps(payload), encoding="utf-8")
+    assert "witness references a different source evidence graph" in verify_witness_file(
+        output, certificate, artifacts
+    )
+
+    output.write_text(json.dumps(base), encoding="utf-8")
+    monkeypatch.setattr(
+        "reprocheck.witness.build_witness_payload",
+        lambda *args, **kwargs: (_ for _ in ()).throw(ValueError("forced rebuild failure")),
+    )
+    errors = verify_witness_file(output, certificate, artifacts)
+    assert any("cannot be reproduced" in error for error in errors)
+
+    monkeypatch.undo()
+
+    payload = json.loads(json.dumps(base))
+    payload["rule_inputs"]["observed"] = float("nan")
+    output.write_text(json.dumps(payload), encoding="utf-8")
+    assert any("not canonicalizable" in error for error in verify_witness_file(output, certificate))
 
 
 def test_witness_build_and_io_helpers_fail_closed(tmp_path: Path):

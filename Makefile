@@ -140,9 +140,17 @@ rknp-demo:
 	python3 -m reprocheck.cli verify --certificate outputs/rknp-clean.json --artifact-dir benchmarks/external/sklearn-tabular
 	python3 -m reprocheck.cli demo --output-dir outputs/rknp-corrupted
 	-python3 -m reprocheck.cli audit --report benchmarks/rknp_witness_demo/report.md --metrics benchmarks/rknp_witness_demo/metrics.json --metrics-selector iris --tolerance 1e-9 --output outputs/rknp-witness-certificate.json
-	python3 -m reprocheck.cli witness --certificate outputs/rknp-witness-certificate.json --finding-index 0 --output outputs/rknp-witness.json
+	python3 -m reprocheck.cli witness --certificate outputs/rknp-witness-certificate.json --finding-index 0 --artifact-dir benchmarks/rknp_witness_demo --output outputs/rknp-witness.json
 	python3 -m reprocheck.cli verify-witness --witness outputs/rknp-witness.json --certificate outputs/rknp-witness-certificate.json --artifact-dir benchmarks/rknp_witness_demo
+	-python3 -m reprocheck.cli audit --report benchmarks/rknp_witness_demo/conflict_report.md --metrics benchmarks/rknp_witness_demo/conflict_metrics.json --predictions benchmarks/rknp_witness_demo/conflict_predictions.csv --tolerance 1e-9 --output outputs/rknp-conflict-certificate.json
+	python3 -m reprocheck.cli witness --certificate outputs/rknp-conflict-certificate.json --finding-index 0 --artifact-dir benchmarks/rknp_witness_demo --output outputs/rknp-conflict-witness.json
+	python3 -m reprocheck.cli verify-witness --witness outputs/rknp-conflict-witness.json --certificate outputs/rknp-conflict-certificate.json --artifact-dir benchmarks/rknp_witness_demo
+	-python3 -m reprocheck.cli audit --report benchmarks/rknp_witness_demo/split_report.md --train benchmarks/rknp_witness_demo/split_train.csv --test benchmarks/rknp_witness_demo/split_test.csv --identity-columns id --output outputs/rknp-split-certificate.json
+	python3 -m reprocheck.cli witness --certificate outputs/rknp-split-certificate.json --finding-index 0 --artifact-dir benchmarks/rknp_witness_demo --output outputs/rknp-split-witness.json
+	python3 -m reprocheck.cli verify-witness --witness outputs/rknp-split-witness.json --certificate outputs/rknp-split-certificate.json --artifact-dir benchmarks/rknp_witness_demo
 	python3 -m reprocheck.cli witness-benchmark --output outputs/rknp-witness-benchmark.json
+	python3 -m reprocheck.cli witness-source-benchmark --protocol benchmarks/witness_source/protocol.json --output outputs/rknp-witness-source-benchmark.json
+	python3 benchmarks/witness_source/check_baseline.py --result outputs/rknp-witness-source-benchmark.json
 	python3 -m reprocheck.cli ablation --output outputs/rknp-ablation.json
 	python3 benchmarks/evidence_ablation/check_baseline.py --result outputs/rknp-ablation.json
 

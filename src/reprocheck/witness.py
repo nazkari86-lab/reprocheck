@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import hashlib
-import itertools
 import json
 import math
 from pathlib import Path
@@ -105,101 +104,13 @@ def build_witness_payload(
 
 
 def _build_v1_mismatch_payload(source: dict[str, Any], finding_index: int) -> dict[str, Any]:
-    graph = source.get("evidence_graph")
-    if not isinstance(graph, dict):
-        raise ValueError("source certificate has no evidence graph")
-    nodes = _objects_by_id(graph.get("nodes"))
-    edges = _object_list(graph.get("edges"), "evidence graph edges")
-    finding_id = f"finding:{finding_index}"
-    finding = nodes.get(finding_id)
-    if finding is None:
-        raise ValueError(f"finding index does not exist: {finding_index}")
-    attributes = finding.get("attributes")
-    if not isinstance(attributes, dict) or attributes.get("code") != "claim_metric_mismatch":
+    witness = build_witness_payload(source, finding_index)
+    if witness.get("finding_code") != "claim_metric_mismatch":
         raise ValueError("only claim_metric_mismatch findings have a v1 minimal witness")
-
-    source_claim = _source_claim(source, attributes)
-    tolerance = _finite_number(source_claim.get("tolerance"), "claim tolerance")
-    observed = _finite_number(source_claim.get("observed"), "observed metric")
-    candidates: list[tuple[tuple[int, int, tuple[str, ...]], list[str], list[dict[str, Any]]]] = []
-
-    claim_ids = _predecessors(edges, finding_id, "raises")
-    for claim_id in claim_ids:
-        claim = nodes.get(claim_id)
-        if claim is None or claim.get("kind") != "claim":
-            continue
-        claim_attributes = claim.get("attributes")
-        if not isinstance(claim_attributes, dict):
-            continue
-        metric_ids = _predecessors(edges, claim_id, "contradicts")
-        report_ids = _predecessors(edges, claim_id, "contains")
-        for metric_id, report_id in itertools.product(metric_ids, report_ids):
-            metric = nodes.get(metric_id)
-            report = nodes.get(report_id)
-            if metric is None or report is None:
-                continue
-            metric_attributes = metric.get("attributes")
-            report_attributes = report.get("attributes")
-            if not isinstance(metric_attributes, dict) or not isinstance(report_attributes, dict):
-                continue
-            if report.get("kind") != "artifact" or report_attributes.get("role") != "report":
-                continue
-            metric_value = metric_attributes.get("value")
-            if not isinstance(metric_value, (int, float)) or isinstance(metric_value, bool):
-                continue
-            if not math.isclose(float(metric_value), observed, rel_tol=0.0, abs_tol=1e-12):
-                continue
-            source_ids = sorted(
-                set(_predecessors(edges, metric_id, "reports"))
-                | set(_predecessors(edges, metric_id, "recomputes"))
-            )
-            for source_id in source_ids:
-                source_artifact = nodes.get(source_id)
-                if source_artifact is None or source_artifact.get("kind") != "artifact":
-                    continue
-                selected_ids = sorted({finding_id, claim_id, metric_id, report_id, source_id})
-                selected_edges = _required_edges(
-                    edges,
-                    finding_id=finding_id,
-                    claim_id=claim_id,
-                    metric_id=metric_id,
-                    report_id=report_id,
-                    source_id=source_id,
-                )
-                if len(selected_edges) != 4:
-                    continue
-                key = (len(selected_ids), len(selected_edges), tuple(selected_ids))
-                candidates.append((key, selected_ids, selected_edges))
-
-    if not candidates:
-        raise ValueError("no source-grounded mismatch witness exists for this finding")
-    candidates.sort(key=lambda item: item[0])
-    key, selected_ids, selected_edges = candidates[0]
-    selected_nodes = [nodes[node_id] for node_id in selected_ids]
-    witness = {
-        "schema_version": WITNESS_SCHEMA_VERSION,
-        "tool_version": source.get("tool_version"),
-        "source_certificate_sha256": source.get("certificate_sha256"),
-        "source_graph_sha256": graph.get("graph_sha256"),
-        "finding_index": finding_index,
-        "finding_code": "claim_metric_mismatch",
-        "verifier_rule": WITNESS_RULE,
-        "rule_inputs": {
-            "tolerance": tolerance,
-            "observed": observed,
-        },
-        "nodes": selected_nodes,
-        "edges": selected_edges,
-        "minimality": {
-            "method": "complete typed-grounding enumeration",
-            "candidate_groundings_checked": len(candidates),
-            "minimum_node_count": key[0],
-            "minimum_edge_count": key[1],
-            "tie_break": "lexicographic node ids",
-            "scope": WITNESS_RULE,
-        },
-        "witness_sha256": "",
-    }
+    witness["schema_version"] = WITNESS_SCHEMA_VERSION
+    witness["verifier_rule"] = WITNESS_RULE
+    witness["minimality"]["tie_break"] = "lexicographic node ids"
+    witness["minimality"]["scope"] = WITNESS_RULE
     witness["witness_sha256"] = witness_digest(witness)
     return witness
 
@@ -431,66 +342,6 @@ def _semantic_errors(
     if not isinstance(minimality, dict) or minimality.get("minimum_edge_count") != len(edges):
         errors.append("witness minimality edge count is inconsistent")
     return errors
-
-
-def _source_claim(source: dict[str, Any], finding: dict[str, Any]) -> dict[str, Any]:
-    line = finding.get("line")
-    matches = []
-    for check in source.get("claims", []):
-        if not isinstance(check, dict) or check.get("status") != "mismatch":
-            continue
-        claim = check.get("claim")
-        if isinstance(claim, dict) and claim.get("line") == line:
-            matches.append(check)
-    if len(matches) != 1:
-        raise ValueError("finding does not resolve to exactly one mismatched source claim")
-    return matches[0]
-
-
-def _required_edges(
-    edges: list[dict[str, Any]],
-    *,
-    finding_id: str,
-    claim_id: str,
-    metric_id: str,
-    report_id: str,
-    source_id: str,
-) -> list[dict[str, Any]]:
-    required = {
-        (claim_id, finding_id, "raises"),
-        (metric_id, claim_id, "contradicts"),
-        (report_id, claim_id, "contains"),
-    }
-    source_relations = {
-        (source_id, metric_id, "reports"),
-        (source_id, metric_id, "recomputes"),
-    }
-    selected = [
-        edge
-        for edge in edges
-        if (edge.get("source"), edge.get("target"), edge.get("relation")) in required
-        or (edge.get("source"), edge.get("target"), edge.get("relation")) in source_relations
-    ]
-    return sorted(
-        selected,
-        key=lambda edge: (
-            str(edge.get("source")),
-            str(edge.get("target")),
-            str(edge.get("relation")),
-        ),
-    )
-
-
-def _predecessors(edges: list[dict[str, Any]], target: str, relation: str) -> list[str]:
-    return sorted(
-        {
-            str(edge["source"])
-            for edge in edges
-            if edge.get("target") == target
-            and edge.get("relation") == relation
-            and isinstance(edge.get("source"), str)
-        }
-    )
 
 
 def _objects_by_id(value: object) -> dict[str, dict[str, Any]]:
