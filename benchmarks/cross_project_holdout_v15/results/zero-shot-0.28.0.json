@@ -1,0 +1,448 @@
+{
+  "block_precision": 0.6473214285714286,
+  "block_precision_wilson_95": [
+    0.5827465032754675,
+    0.7069286082762913
+  ],
+  "cases": [
+    {
+      "block_lines": [
+        14,
+        23
+      ],
+      "exact": false,
+      "false_negative": 8,
+      "false_positive": 1,
+      "gold_claims": 8,
+      "predicted_claims": 1,
+      "rank": 1,
+      "repository": "Hellouyne2004/Multi-Agent-for-Vietnamese-Legal-QA",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        127,
+        130
+      ],
+      "exact": false,
+      "false_negative": 0,
+      "false_positive": 2,
+      "gold_claims": 10,
+      "predicted_claims": 12,
+      "rank": 2,
+      "repository": "Ramreddy2748/Fall-Detection-GenAI-Prompting-RAG-LoRA",
+      "true_positive": 10
+    },
+    {
+      "block_lines": [
+        29,
+        34
+      ],
+      "exact": false,
+      "false_negative": 0,
+      "false_positive": 2,
+      "gold_claims": 3,
+      "predicted_claims": 5,
+      "rank": 3,
+      "repository": "zonetecde/QuranCaption",
+      "true_positive": 3
+    },
+    {
+      "block_lines": [
+        11,
+        17
+      ],
+      "exact": false,
+      "false_negative": 3,
+      "false_positive": 0,
+      "gold_claims": 4,
+      "predicted_claims": 1,
+      "rank": 4,
+      "repository": "maxwmeadow/music-ai-assistant",
+      "true_positive": 1
+    },
+    {
+      "block_lines": [
+        51,
+        53
+      ],
+      "exact": true,
+      "false_negative": 0,
+      "false_positive": 0,
+      "gold_claims": 3,
+      "predicted_claims": 3,
+      "rank": 6,
+      "repository": "znajman/diplomamunka",
+      "true_positive": 3
+    },
+    {
+      "block_lines": [
+        33,
+        43
+      ],
+      "exact": false,
+      "false_negative": 8,
+      "false_positive": 0,
+      "gold_claims": 10,
+      "predicted_claims": 2,
+      "rank": 8,
+      "repository": "Gibo2706/Comtrade-AI-Task",
+      "true_positive": 2
+    },
+    {
+      "block_lines": [
+        199,
+        210
+      ],
+      "exact": false,
+      "false_negative": 3,
+      "false_positive": 0,
+      "gold_claims": 3,
+      "predicted_claims": 0,
+      "rank": 9,
+      "repository": "Dlahiru41/markov-rl-api-cache",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        28,
+        35
+      ],
+      "exact": false,
+      "false_negative": 6,
+      "false_positive": 6,
+      "gold_claims": 6,
+      "predicted_claims": 6,
+      "rank": 10,
+      "repository": "reh3376/mdemg",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        29,
+        38
+      ],
+      "exact": false,
+      "false_negative": 2,
+      "false_positive": 2,
+      "gold_claims": 8,
+      "predicted_claims": 8,
+      "rank": 11,
+      "repository": "Pankh-AI/wave-field-llm",
+      "true_positive": 6
+    },
+    {
+      "block_lines": [
+        12,
+        17
+      ],
+      "exact": false,
+      "false_negative": 1,
+      "false_positive": 3,
+      "gold_claims": 3,
+      "predicted_claims": 5,
+      "rank": 12,
+      "repository": "psood708/memory-weave",
+      "true_positive": 2
+    },
+    {
+      "block_lines": [
+        12,
+        17
+      ],
+      "exact": false,
+      "false_negative": 3,
+      "false_positive": 12,
+      "gold_claims": 5,
+      "predicted_claims": 14,
+      "rank": 13,
+      "repository": "rand/RUNE",
+      "true_positive": 2
+    },
+    {
+      "block_lines": [
+        14,
+        29
+      ],
+      "exact": false,
+      "false_negative": 3,
+      "false_positive": 3,
+      "gold_claims": 3,
+      "predicted_claims": 3,
+      "rank": 14,
+      "repository": "Llaminar/llaminar",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        8,
+        14
+      ],
+      "exact": false,
+      "false_negative": 1,
+      "false_positive": 5,
+      "gold_claims": 5,
+      "predicted_claims": 9,
+      "rank": 16,
+      "repository": "RamNarra/KAVACH-AI",
+      "true_positive": 4
+    },
+    {
+      "block_lines": [
+        267,
+        272
+      ],
+      "exact": false,
+      "false_negative": 10,
+      "false_positive": 6,
+      "gold_claims": 12,
+      "predicted_claims": 8,
+      "rank": 17,
+      "repository": "debasishg/porcupine-rust",
+      "true_positive": 2
+    },
+    {
+      "block_lines": [
+        21,
+        29
+      ],
+      "exact": false,
+      "false_negative": 2,
+      "false_positive": 0,
+      "gold_claims": 4,
+      "predicted_claims": 2,
+      "rank": 19,
+      "repository": "Emilio942/md",
+      "true_positive": 2
+    },
+    {
+      "block_lines": [
+        16,
+        20
+      ],
+      "exact": false,
+      "false_negative": 4,
+      "false_positive": 5,
+      "gold_claims": 12,
+      "predicted_claims": 13,
+      "rank": 20,
+      "repository": "beaux-riel/wtf-codebot",
+      "true_positive": 8
+    },
+    {
+      "block_lines": [
+        35,
+        39
+      ],
+      "exact": false,
+      "false_negative": 9,
+      "false_positive": 0,
+      "gold_claims": 9,
+      "predicted_claims": 0,
+      "rank": 21,
+      "repository": "thisguysiadbas/universal-metal-flash-attention",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        11,
+        17
+      ],
+      "exact": true,
+      "false_negative": 0,
+      "false_positive": 0,
+      "gold_claims": 4,
+      "predicted_claims": 4,
+      "rank": 22,
+      "repository": "yoshi32a/AIBTree",
+      "true_positive": 4
+    },
+    {
+      "block_lines": [
+        12,
+        18
+      ],
+      "exact": false,
+      "false_negative": 0,
+      "false_positive": 4,
+      "gold_claims": 10,
+      "predicted_claims": 14,
+      "rank": 23,
+      "repository": "declared-as-ala/sobitas-project",
+      "true_positive": 10
+    },
+    {
+      "block_lines": [
+        44,
+        51
+      ],
+      "exact": false,
+      "false_negative": 0,
+      "false_positive": 14,
+      "gold_claims": 4,
+      "predicted_claims": 18,
+      "rank": 25,
+      "repository": "JoegottabeGitenme/JoeGCServices",
+      "true_positive": 4
+    },
+    {
+      "block_lines": [
+        7,
+        37
+      ],
+      "exact": false,
+      "false_negative": 6,
+      "false_positive": 6,
+      "gold_claims": 6,
+      "predicted_claims": 6,
+      "rank": 26,
+      "repository": "Unicorn/Radium",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        29,
+        47
+      ],
+      "exact": false,
+      "false_negative": 6,
+      "false_positive": 1,
+      "gold_claims": 6,
+      "predicted_claims": 1,
+      "rank": 27,
+      "repository": "linjiw/rdma-multi-client",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        10,
+        21
+      ],
+      "exact": true,
+      "false_negative": 0,
+      "false_positive": 0,
+      "gold_claims": 20,
+      "predicted_claims": 20,
+      "rank": 28,
+      "repository": "KOSTUBH1197/VEILDRA",
+      "true_positive": 20
+    },
+    {
+      "block_lines": [
+        13,
+        20
+      ],
+      "exact": false,
+      "false_negative": 0,
+      "false_positive": 4,
+      "gold_claims": 8,
+      "predicted_claims": 12,
+      "rank": 29,
+      "repository": "Adjanour/graph-constrained-reasoning-dca",
+      "true_positive": 8
+    },
+    {
+      "block_lines": [
+        31,
+        48
+      ],
+      "exact": true,
+      "false_negative": 0,
+      "false_positive": 0,
+      "gold_claims": 14,
+      "predicted_claims": 14,
+      "rank": 30,
+      "repository": "MyatPyaePaingPie/chaos-eval",
+      "true_positive": 14
+    },
+    {
+      "block_lines": [
+        48,
+        52
+      ],
+      "exact": false,
+      "false_negative": 0,
+      "false_positive": 3,
+      "gold_claims": 6,
+      "predicted_claims": 9,
+      "rank": 31,
+      "repository": "yuzcat01/traffic_flow_prediction",
+      "true_positive": 6
+    },
+    {
+      "block_lines": [
+        14,
+        19
+      ],
+      "exact": true,
+      "false_negative": 0,
+      "false_positive": 0,
+      "gold_claims": 12,
+      "predicted_claims": 12,
+      "rank": 32,
+      "repository": "n57d30top/sovryn-open-inventions",
+      "true_positive": 12
+    },
+    {
+      "block_lines": [
+        38,
+        41
+      ],
+      "exact": true,
+      "false_negative": 0,
+      "false_positive": 0,
+      "gold_claims": 6,
+      "predicted_claims": 6,
+      "rank": 33,
+      "repository": "GargAvinash/PrintCatalog",
+      "true_positive": 6
+    },
+    {
+      "block_lines": [
+        29,
+        32
+      ],
+      "exact": true,
+      "false_negative": 0,
+      "false_positive": 0,
+      "gold_claims": 8,
+      "predicted_claims": 8,
+      "rank": 36,
+      "repository": "moonlight-liu/lips",
+      "true_positive": 8
+    },
+    {
+      "block_lines": [
+        3,
+        34
+      ],
+      "exact": true,
+      "false_negative": 0,
+      "false_positive": 0,
+      "gold_claims": 8,
+      "predicted_claims": 8,
+      "rank": 37,
+      "repository": "nubbyp/omega_go",
+      "true_positive": 8
+    }
+  ],
+  "claim_recall": 0.6590909090909091,
+  "claim_recall_wilson_95": [
+    0.594203796099678,
+    0.7185175396564152
+  ],
+  "eligible_documents": 30,
+  "evaluator_commit": "76614583ae8676ba6ed309b43ca8865e707d8c4e",
+  "exact_document_rate": 0.26666666666666666,
+  "exact_documents": 8,
+  "false_negative": 75,
+  "false_positive": 79,
+  "gold_claims": 220,
+  "phase": "zero-shot-v15-frozen-0.28.0",
+  "predicted_claims": 224,
+  "runtime_evaluator_version": "0.28.0",
+  "schema_version": "reprocheck.cross-project-zero-shot-result.v15",
+  "source_integrity": true,
+  "success": false,
+  "true_positive": 145
+}

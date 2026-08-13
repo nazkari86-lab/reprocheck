@@ -158,6 +158,13 @@ issue: several v14 gold names used a bespoke millisecond ontology rather than
 ReproCheck's published duration-in-seconds contract. Later studies must freeze
 the public supported ontology before retrieval; v14 is not relabeled or rescored.
 
+V15 froze that ontology before retrieval, sampled 90 new owners, and manually
+locked 220 supported outcomes from 30 eligible documents before the only 0.28.0
+evaluation. It recovered 145/220 outcomes with 145/224 block precision and made
+8/30 documents exact. This is a material gain over earlier broad-file holdouts,
+but the preregistered success condition was not met; the negative result remains
+immutable and is not replaced by post-inspection parser development.
+
 The 12-case witness benchmark is controlled capability evidence. The separate
 30-case source-derived benchmark contains 27 deterministic mutations of three
 frozen real experiments and three unchanged controls; it currently contains
