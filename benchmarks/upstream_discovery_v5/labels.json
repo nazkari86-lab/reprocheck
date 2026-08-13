@@ -1,0 +1,3043 @@
+{
+  "eligible_cases": 11,
+  "labels": [
+    {
+      "eligible": false,
+      "pull_request": 15,
+      "rank": 1,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "rai0409/demo-prediction-market"
+    },
+    {
+      "eligible": false,
+      "pull_request": 91,
+      "rank": 2,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "SpareCores/sc-keeper"
+    },
+    {
+      "eligible": false,
+      "pull_request": 31,
+      "rank": 3,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "brutisthebrut-debug/cinema-brain"
+    },
+    {
+      "eligible": false,
+      "pull_request": 36,
+      "rank": 4,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "WashU-Astroparticle-Lab/qpd"
+    },
+    {
+      "eligible": false,
+      "pull_request": 22,
+      "rank": 5,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "srmcno/wrstdy"
+    },
+    {
+      "eligible": false,
+      "pull_request": 18,
+      "rank": 6,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "afoninsky/skills"
+    },
+    {
+      "eligible": false,
+      "pull_request": 14,
+      "rank": 7,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Geravant/negaverse"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1138,
+      "rank": 8,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Stevenjxie/cretas"
+    },
+    {
+      "eligible": false,
+      "pull_request": 845,
+      "rank": 9,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "runcycles/cycles-docs"
+    },
+    {
+      "eligible": false,
+      "pull_request": 138,
+      "rank": 10,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "cachanova/synth-explorer"
+    },
+    {
+      "eligible": false,
+      "pull_request": 14,
+      "rank": 11,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "HectorIFC/malachi"
+    },
+    {
+      "eligible": false,
+      "pull_request": 155,
+      "rank": 12,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "opendatahub-io/workload-variant-autoscaler"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 13,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "kunickiaj/OpenAgentsControl"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 14,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "SYang521/KinderSortCMC"
+    },
+    {
+      "eligible": false,
+      "pull_request": 36,
+      "rank": 15,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Srcanesen/intent-bridge"
+    },
+    {
+      "eligible": false,
+      "pull_request": 31,
+      "rank": 16,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Actenon/actenon-scan"
+    },
+    {
+      "eligible": false,
+      "pull_request": 147,
+      "rank": 17,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "AvishaiBarnoy/genomics-lm"
+    },
+    {
+      "eligible": false,
+      "pull_request": 148,
+      "rank": 18,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "bumblei3/schach9x9"
+    },
+    {
+      "eligible": false,
+      "pull_request": 310,
+      "rank": 19,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "kasahart/wandas"
+    },
+    {
+      "eligible": false,
+      "pull_request": 98,
+      "rank": 20,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "LabOverWire/MQDB"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2251,
+      "rank": 21,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "fallow-rs/fallow"
+    },
+    {
+      "eligible": false,
+      "pull_request": 94,
+      "rank": 22,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "whatasoda/soda-gql"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 23,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Nagitch/benchmark-rust-rhai"
+    },
+    {
+      "eligible": false,
+      "pull_request": 20220,
+      "rank": 24,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "RIOT-OS/RIOT"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 25,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "benmandrew/counter"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2201,
+      "rank": 26,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "MODFLOW-ORG/modflow6"
+    },
+    {
+      "eligible": false,
+      "pull_request": 46,
+      "rank": 27,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "gpu-mode/lectures"
+    },
+    {
+      "case_id": "openadapt-saved-row-success-correction",
+      "eligible": true,
+      "pull_request": 302,
+      "rank": 28,
+      "reason": "same-scope numeric report correction with unique immutable snippets",
+      "repository": "OpenAdaptAI/openadapt-flow"
+    },
+    {
+      "eligible": false,
+      "pull_request": 215,
+      "rank": 29,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "alex-o-748/citation-checker-script"
+    },
+    {
+      "eligible": false,
+      "pull_request": 34063,
+      "rank": 30,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "huggingface/transformers"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4368,
+      "rank": 31,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "LadybirdBrowser/ladybird"
+    },
+    {
+      "eligible": false,
+      "pull_request": 486,
+      "rank": 32,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "RebeccaStevens/deepmerge-ts"
+    },
+    {
+      "eligible": false,
+      "pull_request": 709,
+      "rank": 33,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "EntityProcess/agentv"
+    },
+    {
+      "eligible": false,
+      "pull_request": 820,
+      "rank": 34,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "TigreGotico/orthography2ipa"
+    },
+    {
+      "case_id": "comet-speedup-formula-correction",
+      "eligible": true,
+      "pull_request": 691,
+      "rank": 35,
+      "reason": "same-scope numeric report correction with unique immutable snippets",
+      "repository": "apache/datafusion-comet"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4244,
+      "rank": 36,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "EricSpencer00/Resilient"
+    },
+    {
+      "eligible": false,
+      "pull_request": 113,
+      "rank": 37,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "blackjax-devs/tuningfork"
+    },
+    {
+      "eligible": false,
+      "pull_request": 230,
+      "rank": 38,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "ephpm/ephpm"
+    },
+    {
+      "eligible": false,
+      "pull_request": 74,
+      "rank": 39,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "neilotoole/sq-web"
+    },
+    {
+      "eligible": false,
+      "pull_request": 499,
+      "rank": 40,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "AlexsLemonade/OpenScPCA-analysis"
+    },
+    {
+      "eligible": false,
+      "pull_request": 73,
+      "rank": 41,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "domestique-labs/domestique-oss"
+    },
+    {
+      "eligible": false,
+      "pull_request": 51,
+      "rank": 42,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "haesleinhuepf/human-eval-bia"
+    },
+    {
+      "eligible": false,
+      "pull_request": 200,
+      "rank": 43,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "aws-amplify/amplify-data"
+    },
+    {
+      "eligible": false,
+      "pull_request": 18932,
+      "rank": 44,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Chia-Network/chia-blockchain"
+    },
+    {
+      "eligible": false,
+      "pull_request": 12,
+      "rank": 45,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "kenmulford/milestone-suite"
+    },
+    {
+      "eligible": false,
+      "pull_request": 64,
+      "rank": 46,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "ryanfowler/pagemark"
+    },
+    {
+      "eligible": false,
+      "pull_request": 378,
+      "rank": 47,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "baseballyama/rsvelte"
+    },
+    {
+      "eligible": false,
+      "pull_request": 17,
+      "rank": 48,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Mark007-R/AI-Customer-Ops-Engine"
+    },
+    {
+      "eligible": false,
+      "pull_request": 25,
+      "rank": 49,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "20sgt/Data-Architecture"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3,
+      "rank": 50,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "cameronpsutcliff/compound-ai-team"
+    },
+    {
+      "eligible": false,
+      "pull_request": 48,
+      "rank": 51,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "FireTable/langgraph-app"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 52,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "GitM-Labs/runtime"
+    },
+    {
+      "eligible": false,
+      "pull_request": 243,
+      "rank": 53,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "gethelio/helio"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 54,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "knkumar/flink-kafka"
+    },
+    {
+      "eligible": false,
+      "pull_request": 702,
+      "rank": 55,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "actual-software/actual-cli"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3991,
+      "rank": 56,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "LearningCircuit/local-deep-research"
+    },
+    {
+      "eligible": false,
+      "pull_request": 9,
+      "rank": 57,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "arekborek/b00b0-sparkrun"
+    },
+    {
+      "eligible": false,
+      "pull_request": 6233,
+      "rank": 58,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ai-dynamo/dynamo"
+    },
+    {
+      "eligible": false,
+      "pull_request": 85,
+      "rank": 59,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "daniel-m-campos/bonsai"
+    },
+    {
+      "eligible": false,
+      "pull_request": 244,
+      "rank": 60,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "subnet112/minotaur_subnet"
+    },
+    {
+      "eligible": false,
+      "pull_request": 8,
+      "rank": 61,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "choxos/rtransparency"
+    },
+    {
+      "eligible": false,
+      "pull_request": 24,
+      "rank": 62,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "zhouzhuojie/conditions"
+    },
+    {
+      "eligible": false,
+      "pull_request": 28,
+      "rank": 63,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Quantik-Mind/quantikmind-benchmark-online-boutique"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1951,
+      "rank": 64,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "issdandavis/SCBE-AETHERMOORE"
+    },
+    {
+      "eligible": false,
+      "pull_request": 303,
+      "rank": 65,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "dejanvasic85/ses-next"
+    },
+    {
+      "eligible": false,
+      "pull_request": 100,
+      "rank": 66,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "glitch452/eslint-config-spartan"
+    },
+    {
+      "eligible": false,
+      "pull_request": 89,
+      "rank": 67,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "TANMOY-SARKAR-cmd/dns-benchmark-app"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2343,
+      "rank": 68,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "devmgn/nextjs-boilerplate"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1047,
+      "rank": 69,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "kachkaev/njt"
+    },
+    {
+      "eligible": false,
+      "pull_request": 139,
+      "rank": 70,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "approvers/github-secretary"
+    },
+    {
+      "case_id": "turbovec-drifted-arm-speed-range",
+      "eligible": true,
+      "pull_request": 327,
+      "rank": 71,
+      "reason": "same-scope numeric report correction with unique immutable snippets",
+      "repository": "RyanCodrai/turbovec"
+    },
+    {
+      "eligible": false,
+      "pull_request": 289,
+      "rank": 72,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "ruvnet/RuVector"
+    },
+    {
+      "eligible": false,
+      "pull_request": 43,
+      "rank": 73,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "mantinedev/next-app-template"
+    },
+    {
+      "eligible": false,
+      "pull_request": 26,
+      "rank": 74,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "MikuroXina/PsdRename"
+    },
+    {
+      "eligible": false,
+      "pull_request": 63,
+      "rank": 75,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Aniket-a14/AI_friend"
+    },
+    {
+      "eligible": false,
+      "pull_request": 10936,
+      "rank": 76,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "zemn-me/monorepo"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2916,
+      "rank": 77,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "sanity-io/next-sanity"
+    },
+    {
+      "eligible": false,
+      "pull_request": 432,
+      "rank": 78,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "sdd-org/kiddo"
+    },
+    {
+      "case_id": "web-frontier-failure-aware-latency",
+      "eligible": true,
+      "pull_request": 5,
+      "rank": 79,
+      "reason": "same-scope numeric report correction with unique immutable snippets",
+      "repository": "usestring/web-data-frontier-benchmark"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3014,
+      "rank": 80,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ykzts/ykzts"
+    },
+    {
+      "eligible": false,
+      "pull_request": 501,
+      "rank": 81,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "lowsky/react-suspense-meetup-demo"
+    },
+    {
+      "eligible": false,
+      "pull_request": 523,
+      "rank": 82,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "nikhilsnayak/nikhilsnayak.dev"
+    },
+    {
+      "eligible": false,
+      "pull_request": 209,
+      "rank": 83,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "shusann01116/lgtmoon-rs"
+    },
+    {
+      "eligible": false,
+      "pull_request": 532,
+      "rank": 84,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "arunanshub/distrohop"
+    },
+    {
+      "eligible": false,
+      "pull_request": 163,
+      "rank": 85,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "coregx/coregex"
+    },
+    {
+      "eligible": false,
+      "pull_request": 23,
+      "rank": 86,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "starseeker/asciiquack"
+    },
+    {
+      "eligible": false,
+      "pull_request": 241,
+      "rank": 87,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "smallest-inc/smallest-ai-documentation"
+    },
+    {
+      "eligible": false,
+      "pull_request": 45,
+      "rank": 88,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "esphome-libs/micro-mp3"
+    },
+    {
+      "eligible": false,
+      "pull_request": 46,
+      "rank": 89,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "kvark/meganeura"
+    },
+    {
+      "eligible": false,
+      "pull_request": 142,
+      "rank": 90,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "teryxjs/xhtmlx"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4,
+      "rank": 91,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "fabriziosalmi/zion"
+    },
+    {
+      "eligible": false,
+      "pull_request": 29,
+      "rank": 92,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Snoob965/IICPC-SUMMER-TRADING-HACKATHON-2026-"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 93,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "danielroe/fnv1a-64"
+    },
+    {
+      "eligible": false,
+      "pull_request": 33,
+      "rank": 94,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "mrsalty/slowave"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 95,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "TrelisResearch/tiron"
+    },
+    {
+      "eligible": false,
+      "pull_request": 63,
+      "rank": 96,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Shunsuke-Hori/pyperfectforesight"
+    },
+    {
+      "eligible": false,
+      "pull_request": 782,
+      "rank": 97,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "turnstonelabs/turnstone"
+    },
+    {
+      "eligible": false,
+      "pull_request": 47,
+      "rank": 98,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "borkdude/reagami"
+    },
+    {
+      "eligible": false,
+      "pull_request": 14,
+      "rank": 99,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "MrEinsteinE/urban-air-quality-intelligence"
+    },
+    {
+      "eligible": false,
+      "pull_request": 11,
+      "rank": 100,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Zennoxa/shield"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 101,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Platob/yggdryl"
+    },
+    {
+      "eligible": false,
+      "pull_request": 17521,
+      "rank": 102,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "openlayers/openlayers"
+    },
+    {
+      "eligible": false,
+      "pull_request": 196,
+      "rank": 103,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "developer0hye/libjpeg-turbo-rs"
+    },
+    {
+      "eligible": false,
+      "pull_request": 17,
+      "rank": 104,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ms178/lccc"
+    },
+    {
+      "case_id": "kalpa-private-working-set-correction",
+      "eligible": true,
+      "pull_request": 296,
+      "rank": 105,
+      "reason": "same-scope numeric report correction with unique immutable snippets",
+      "repository": "ESO-Toolkit/kalpa"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 106,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "kaaburgh/bb-shadPS4-correctness-instrumentation"
+    },
+    {
+      "eligible": false,
+      "pull_request": 12,
+      "rank": 107,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Dennis-J-Carroll/bayesian-analysis-of-airbnb-seattle-market"
+    },
+    {
+      "eligible": false,
+      "pull_request": 6,
+      "rank": 108,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Tribunus-dev/prism-engine"
+    },
+    {
+      "eligible": false,
+      "pull_request": 59,
+      "rank": 109,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "sairam0424/ag-bash"
+    },
+    {
+      "eligible": false,
+      "pull_request": 136,
+      "rank": 110,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "sanskarpan/page-replacement-simulator-cow"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1362,
+      "rank": 111,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "RobinNagpal/dodao-ui"
+    },
+    {
+      "eligible": false,
+      "pull_request": 25415,
+      "rank": 112,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "hiero-ledger/hiero-consensus-node"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1058,
+      "rank": 113,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "sparq-org/sparq"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4,
+      "rank": 114,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "mmornati/home-assistant-mel-garbage-collection"
+    },
+    {
+      "eligible": false,
+      "pull_request": 12,
+      "rank": 115,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "puck-security/geiger"
+    },
+    {
+      "eligible": false,
+      "pull_request": 34,
+      "rank": 116,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "bdrive/rcloneview-support"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 117,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "NeelM0906/Mference"
+    },
+    {
+      "eligible": false,
+      "pull_request": 19,
+      "rank": 118,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Taz33m/tracebook"
+    },
+    {
+      "eligible": false,
+      "pull_request": 968,
+      "rank": 119,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "wangzitian0/finance_report"
+    },
+    {
+      "eligible": false,
+      "pull_request": 43,
+      "rank": 120,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ZingerLittleBee/dockerman.app"
+    },
+    {
+      "eligible": false,
+      "pull_request": 21,
+      "rank": 121,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ramina1964/NQueen"
+    },
+    {
+      "eligible": false,
+      "pull_request": 69,
+      "rank": 122,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "SupraSummus/prompt-wars"
+    },
+    {
+      "eligible": false,
+      "pull_request": 114,
+      "rank": 123,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "fjacquet/raidy"
+    },
+    {
+      "eligible": false,
+      "pull_request": 16,
+      "rank": 124,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "SRock44/rmbr"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3084,
+      "rank": 125,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "6529-Collections/6529seize-frontend"
+    },
+    {
+      "eligible": false,
+      "pull_request": 314,
+      "rank": 126,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "magx2/Capybara"
+    },
+    {
+      "eligible": false,
+      "pull_request": 194,
+      "rank": 127,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "KubeRocketCI/krci-portal"
+    },
+    {
+      "eligible": false,
+      "pull_request": 87,
+      "rank": 128,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "indiejames/indigo"
+    },
+    {
+      "eligible": false,
+      "pull_request": 65,
+      "rank": 129,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Agustinguglielmelli/portfolio-tracker-aseca"
+    },
+    {
+      "eligible": false,
+      "pull_request": 10149,
+      "rank": 130,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "opsmill/infrahub"
+    },
+    {
+      "eligible": false,
+      "pull_request": 50,
+      "rank": 131,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "wasmi-labs/wasmi-benchmarks"
+    },
+    {
+      "eligible": false,
+      "pull_request": 30,
+      "rank": 132,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "eashankaradia/dingaesweepstakewc26"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4,
+      "rank": 133,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Gyuho-Han/99-_RL_Trading"
+    },
+    {
+      "eligible": false,
+      "pull_request": 42,
+      "rank": 134,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "BalazsAronSzalai/superapp-dev"
+    },
+    {
+      "eligible": false,
+      "pull_request": 70,
+      "rank": 135,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "superness/swimchain"
+    },
+    {
+      "eligible": false,
+      "pull_request": 153,
+      "rank": 136,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "grob-lang/grob"
+    },
+    {
+      "eligible": false,
+      "pull_request": 455,
+      "rank": 137,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "The-Strategy-Unit/nhp_outputs"
+    },
+    {
+      "eligible": false,
+      "pull_request": 457,
+      "rank": 138,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "crymp-net/crymp-client"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3,
+      "rank": 139,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "CoreyLeath-code/cautious-enigma"
+    },
+    {
+      "eligible": false,
+      "pull_request": 26,
+      "rank": 140,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "LilosG/lilos-growth"
+    },
+    {
+      "eligible": false,
+      "pull_request": 36,
+      "rank": 141,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "jbk708/bwa-rs"
+    },
+    {
+      "eligible": false,
+      "pull_request": 904,
+      "rank": 142,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "paulomtts/pyjinhx"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 143,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Lostsoulfs/Lost-secuirty-local-llm-phone-evals"
+    },
+    {
+      "eligible": false,
+      "pull_request": 226,
+      "rank": 144,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "SEAME-pt/Team5_Senna_Tech"
+    },
+    {
+      "eligible": false,
+      "pull_request": 795,
+      "rank": 145,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "NVIDIA-NeMo/nemo-platform"
+    },
+    {
+      "eligible": false,
+      "pull_request": 14,
+      "rank": 146,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "littlemex/distributed-ai"
+    },
+    {
+      "eligible": false,
+      "pull_request": 12,
+      "rank": 147,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "dgverse-labs/helixid"
+    },
+    {
+      "eligible": false,
+      "pull_request": 20,
+      "rank": 148,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Juliolayme/STAR_RIS_RSMA_TD3"
+    },
+    {
+      "eligible": false,
+      "pull_request": 51,
+      "rank": 149,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "dominitas/vairas"
+    },
+    {
+      "eligible": false,
+      "pull_request": 33,
+      "rank": 150,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "WolfieLeader/benchmarks"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3,
+      "rank": 151,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "alessandrobessi/efficient-ai-lab"
+    },
+    {
+      "eligible": false,
+      "pull_request": 20,
+      "rank": 152,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "RiazCKhan/ThreadTheory"
+    },
+    {
+      "eligible": false,
+      "pull_request": 10,
+      "rank": 153,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Tryaii-Admin/tryaii"
+    },
+    {
+      "eligible": false,
+      "pull_request": 519,
+      "rank": 154,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ryanv11/travel-tracker"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1152,
+      "rank": 155,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ancore-org/ancore"
+    },
+    {
+      "eligible": false,
+      "pull_request": 14,
+      "rank": 156,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "popeyejjvv/jr-one-website"
+    },
+    {
+      "eligible": false,
+      "pull_request": 244,
+      "rank": 157,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "devopvoid/webrtc-java"
+    },
+    {
+      "eligible": false,
+      "pull_request": 38,
+      "rank": 158,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "JohnnyZLi/HOPSCOTCH"
+    },
+    {
+      "eligible": false,
+      "pull_request": 367,
+      "rank": 159,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "openclimatefix/nged-substation-forecast"
+    },
+    {
+      "eligible": false,
+      "pull_request": 6,
+      "rank": 160,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "MohamedAbdallah-14/awesome-claude-hooks"
+    },
+    {
+      "eligible": false,
+      "pull_request": 46,
+      "rank": 161,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "survey160/survey160r"
+    },
+    {
+      "eligible": false,
+      "pull_request": 20,
+      "rank": 162,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "scawful/barista"
+    },
+    {
+      "eligible": false,
+      "pull_request": 60,
+      "rank": 163,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "tyrelchambers/rigel"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 164,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Nicolinux-dev/Prometeu-Code"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 165,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "CarbonCommunity/Carbon.RSM.Old"
+    },
+    {
+      "eligible": false,
+      "pull_request": 177,
+      "rank": 166,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "pvnkmnk/djinn-netrunner"
+    },
+    {
+      "eligible": false,
+      "pull_request": 136,
+      "rank": 167,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "hyparam/hypaware"
+    },
+    {
+      "eligible": false,
+      "pull_request": 411,
+      "rank": 168,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Durgeshwar-AI/pdfToPng"
+    },
+    {
+      "eligible": false,
+      "pull_request": 562,
+      "rank": 169,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "The-Pipeline-Framework/pipelineframework"
+    },
+    {
+      "eligible": false,
+      "pull_request": 41,
+      "rank": 170,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "dreef3/zvaka-app"
+    },
+    {
+      "eligible": false,
+      "pull_request": 10,
+      "rank": 171,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Bomjan/one-minute-curiosity"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4,
+      "rank": 172,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Ditto190/pgvector"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 173,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "dk3yyyy/combosorter"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1279,
+      "rank": 174,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "bungcip/cendol"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1082,
+      "rank": 175,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "NickMonrad/kernel-ai-assistant"
+    },
+    {
+      "eligible": false,
+      "pull_request": 11,
+      "rank": 176,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "iwillspeak/Firethorn"
+    },
+    {
+      "eligible": false,
+      "pull_request": 212,
+      "rank": 177,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "MisterVVP/a2a-cpp"
+    },
+    {
+      "eligible": false,
+      "pull_request": 62,
+      "rank": 178,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "graywzc/nvidia-gddr6-fan-control"
+    },
+    {
+      "eligible": false,
+      "pull_request": 752,
+      "rank": 179,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ooples/AiDotNet.Tensors"
+    },
+    {
+      "eligible": false,
+      "pull_request": 12883,
+      "rank": 180,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "kubernetes-sigs/kueue"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 181,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "mdshzb04/RepoGraph"
+    },
+    {
+      "eligible": false,
+      "pull_request": 196,
+      "rank": 182,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "owieth/InputMetrics"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5736,
+      "rank": 183,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "tadanobutubutu/screeps"
+    },
+    {
+      "eligible": false,
+      "pull_request": 7,
+      "rank": 184,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Cle2ment/RayTracing"
+    },
+    {
+      "eligible": false,
+      "pull_request": 16,
+      "rank": 185,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "GeoffreyHull/Historian"
+    },
+    {
+      "eligible": false,
+      "pull_request": 304,
+      "rank": 186,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "punt-labs/vox"
+    },
+    {
+      "eligible": false,
+      "pull_request": 9,
+      "rank": 187,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "deepanshuc7/typing-game"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 188,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "triek/SIT305-10-1D"
+    },
+    {
+      "eligible": false,
+      "pull_request": 83,
+      "rank": 189,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "kaihuang1425/flashcard"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2004,
+      "rank": 190,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "IPS-Stuttgart/NeuRepTrace"
+    },
+    {
+      "eligible": false,
+      "pull_request": 265694,
+      "rank": 191,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "MetaMask/eth-phishing-detect"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 192,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ajaykumarwppu-bot/jee-question-tracker"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3797,
+      "rank": 193,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "inaturalist/iNaturalistReactNative"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1983,
+      "rank": 194,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Checkora/Checkora"
+    },
+    {
+      "eligible": false,
+      "pull_request": 110,
+      "rank": 195,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "alloevil/coding-agent"
+    },
+    {
+      "eligible": false,
+      "pull_request": 77,
+      "rank": 196,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "bavanchun/Typeburn"
+    },
+    {
+      "eligible": false,
+      "pull_request": 70,
+      "rank": 197,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ImTheOne-9/VideoTranslate"
+    },
+    {
+      "eligible": false,
+      "pull_request": 439,
+      "rank": 198,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "jweber93/tv-calibration"
+    },
+    {
+      "eligible": false,
+      "pull_request": 196,
+      "rank": 199,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "OpMDK-Aur/mdk-workspace"
+    },
+    {
+      "eligible": false,
+      "pull_request": 156,
+      "rank": 200,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "leewalker-beep/Deep-seek-The-Bag-Chaser-"
+    },
+    {
+      "eligible": false,
+      "pull_request": 29,
+      "rank": 201,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "hujinghaoabcd/StarHub"
+    },
+    {
+      "eligible": false,
+      "pull_request": 59,
+      "rank": 202,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Rsmk27/playzone"
+    },
+    {
+      "eligible": false,
+      "pull_request": 153,
+      "rank": 203,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "29miaoet/Andrew_WebPage"
+    },
+    {
+      "eligible": false,
+      "pull_request": 10,
+      "rank": 204,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "MindBridgeHealth/MindLog"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 205,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "atifabbas256/portfolio"
+    },
+    {
+      "eligible": false,
+      "pull_request": 56,
+      "rank": 206,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "gaurav-gandhi-2411/multimodal-fashion-recommender"
+    },
+    {
+      "eligible": false,
+      "pull_request": 13,
+      "rank": 207,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Nagomu0128/spark-on-GKE"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4,
+      "rank": 208,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "voleche09/kenyan-stock-analyzer"
+    },
+    {
+      "eligible": false,
+      "pull_request": 44,
+      "rank": 209,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "MG-Cloudflow/win32-toolkit"
+    },
+    {
+      "eligible": false,
+      "pull_request": 109,
+      "rank": 210,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "TrizenX/viparse"
+    },
+    {
+      "eligible": false,
+      "pull_request": 45,
+      "rank": 211,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "martsinlabs/telixon"
+    },
+    {
+      "eligible": false,
+      "pull_request": 24,
+      "rank": 212,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "trevinbrooks/pearlarr"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3166,
+      "rank": 213,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "tkgally/je-dict-1"
+    },
+    {
+      "eligible": false,
+      "pull_request": 120,
+      "rank": 214,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Eeems/arkes"
+    },
+    {
+      "eligible": false,
+      "pull_request": 39479,
+      "rank": 215,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "rjwalters/lean-genius"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3,
+      "rank": 216,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "komalkaushikr/FedFlower"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1393,
+      "rank": 217,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "opensandbox-group/OpenSandbox"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4,
+      "rank": 218,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Humblytics/humblytics-marketing-skills"
+    },
+    {
+      "eligible": false,
+      "pull_request": 155,
+      "rank": 219,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Hyperyond/Hover"
+    },
+    {
+      "eligible": false,
+      "pull_request": 14,
+      "rank": 220,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "JukisYuri/Kuzushiji-to-Hiragana-Recognition"
+    },
+    {
+      "eligible": false,
+      "pull_request": 464,
+      "rank": 221,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ea1188/mrisim"
+    },
+    {
+      "eligible": false,
+      "pull_request": 185,
+      "rank": 222,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "essentialbit/fredai"
+    },
+    {
+      "eligible": false,
+      "pull_request": 11,
+      "rank": 223,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "martindzejky/agentmemory"
+    },
+    {
+      "eligible": false,
+      "pull_request": 113,
+      "rank": 224,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "StuMason/polar-flow-server"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 225,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "saksham-45/tereliye"
+    },
+    {
+      "eligible": false,
+      "pull_request": 75,
+      "rank": 226,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "candy-lab/cits3403-group-web-project"
+    },
+    {
+      "eligible": false,
+      "pull_request": 567,
+      "rank": 227,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "scrypster/muninndb"
+    },
+    {
+      "eligible": false,
+      "pull_request": 418,
+      "rank": 228,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "RantAI-dev/RantAIClaw"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2319,
+      "rank": 229,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "0xMiden/rust-sdk"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 230,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "soker90/aur-packages"
+    },
+    {
+      "eligible": false,
+      "pull_request": 330,
+      "rank": 231,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "agenr-ai/agenr-v0"
+    },
+    {
+      "eligible": false,
+      "pull_request": 7,
+      "rank": 232,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "shivamjxin/CognitiveLoadDetection_usingWebcam"
+    },
+    {
+      "eligible": false,
+      "pull_request": 105,
+      "rank": 233,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ribbons-digital/memory-lane"
+    },
+    {
+      "eligible": false,
+      "pull_request": 24,
+      "rank": 234,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "yfractal/qing-jian"
+    },
+    {
+      "eligible": false,
+      "pull_request": 27,
+      "rank": 235,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "pauk-slon/immer-wiederholen"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2353,
+      "rank": 236,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "joshuaswarren/remnic"
+    },
+    {
+      "eligible": false,
+      "pull_request": 427,
+      "rank": 237,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "gtapps/claude-code-hermit"
+    },
+    {
+      "eligible": false,
+      "pull_request": 11,
+      "rank": 238,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "OpenRouterTeam/benchmark-harness"
+    },
+    {
+      "eligible": false,
+      "pull_request": 129,
+      "rank": 239,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "dcruzf/highFIS"
+    },
+    {
+      "eligible": false,
+      "pull_request": 11,
+      "rank": 240,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "pharmaterrabit/pharmadrone"
+    },
+    {
+      "eligible": false,
+      "pull_request": 14,
+      "rank": 241,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ProjectSidewalk/sidewalk-auto-labeler"
+    },
+    {
+      "eligible": false,
+      "pull_request": 19,
+      "rank": 242,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "howardcodes/qwen"
+    },
+    {
+      "eligible": false,
+      "pull_request": 701,
+      "rank": 243,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "FaultMaven/faultmaven"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 244,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "a7m6d2020-cyber/TenderLens-Pro"
+    },
+    {
+      "eligible": false,
+      "pull_request": 56,
+      "rank": 245,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "muhammadkh4n/engram"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2479,
+      "rank": 246,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Embassy-of-the-Free-Mind/sourcelibrary-v2"
+    },
+    {
+      "case_id": "markforge-dedup-recall-correction",
+      "eligible": true,
+      "pull_request": 8,
+      "rank": 247,
+      "reason": "same-scope numeric report correction with unique immutable snippets",
+      "repository": "anayy09/MarkForge"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 248,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "lukaszsaczo-cyber/swarm-os-benchmark"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1290,
+      "rank": 249,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "jason-easyazz/zoe-ai-assistant"
+    },
+    {
+      "eligible": false,
+      "pull_request": 25,
+      "rank": 250,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "TAIPANBOX/engram"
+    },
+    {
+      "eligible": false,
+      "pull_request": 149,
+      "rank": 251,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "fernandogarzaaa/AXIOM-AETHER"
+    },
+    {
+      "eligible": false,
+      "pull_request": 22,
+      "rank": 252,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "rocklambros/incident-rank-validation"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 253,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "maxineliu2020/ai-nursecall-runtime-anomaly-detection"
+    },
+    {
+      "eligible": false,
+      "pull_request": 16,
+      "rank": 254,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "nupsea/luminary"
+    },
+    {
+      "eligible": false,
+      "pull_request": 20,
+      "rank": 255,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "astragenie/astramem-local"
+    },
+    {
+      "eligible": false,
+      "pull_request": 254,
+      "rank": 256,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "alextra-lab/personal_agent"
+    },
+    {
+      "eligible": false,
+      "pull_request": 14,
+      "rank": 257,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Zain-Repo/ai-app"
+    },
+    {
+      "eligible": false,
+      "pull_request": 41,
+      "rank": 258,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "basicmachines-co/basic-memory-benchmarks"
+    },
+    {
+      "eligible": false,
+      "pull_request": 29,
+      "rank": 259,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "sachin-17-agarwal/LERN"
+    },
+    {
+      "eligible": false,
+      "pull_request": 122,
+      "rank": 260,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Dakera-AI/dakera-py"
+    },
+    {
+      "eligible": false,
+      "pull_request": 787,
+      "rank": 261,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "bhanunuthakki/earnings-summary"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 262,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "oxiverse-ecosystem/ravana"
+    },
+    {
+      "case_id": "sage-specificity-precision-correction",
+      "eligible": true,
+      "pull_request": 31,
+      "rank": 263,
+      "reason": "same-scope numeric report correction with unique immutable snippets",
+      "repository": "synergenix19/Sage"
+    },
+    {
+      "eligible": false,
+      "pull_request": 109,
+      "rank": 264,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "nwosumajor/maestro-sms"
+    },
+    {
+      "eligible": false,
+      "pull_request": 198,
+      "rank": 265,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "tarodo/clouder-core"
+    },
+    {
+      "eligible": false,
+      "pull_request": 6,
+      "rank": 266,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ebunt/jaffle-shop-template"
+    },
+    {
+      "eligible": false,
+      "pull_request": 95,
+      "rank": 267,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "crawfordind/PermaCraft"
+    },
+    {
+      "eligible": false,
+      "pull_request": 39,
+      "rank": 268,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "ramanathan1504/oss-cli"
+    },
+    {
+      "eligible": false,
+      "pull_request": 23,
+      "rank": 269,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Try-Pennie/eavesly"
+    },
+    {
+      "eligible": false,
+      "pull_request": 222,
+      "rank": 270,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "mohanagy/miftah"
+    },
+    {
+      "eligible": false,
+      "pull_request": 192,
+      "rank": 271,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "sota1111/signate-messy-drive-rag"
+    },
+    {
+      "eligible": false,
+      "pull_request": 7495,
+      "rank": 272,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "scp-fs2open/fs2open.github.com"
+    },
+    {
+      "eligible": false,
+      "pull_request": 260,
+      "rank": 273,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Tristan-TM-Poly/TFUGA-AI7-TRISTAN2"
+    },
+    {
+      "eligible": false,
+      "pull_request": 8944,
+      "rank": 274,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "JSONbored/loopover"
+    },
+    {
+      "eligible": false,
+      "pull_request": 113395,
+      "rank": 275,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "ClickHouse/ClickHouse"
+    },
+    {
+      "eligible": false,
+      "pull_request": 73,
+      "rank": 276,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "baidu-baige/LoongForge"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2232,
+      "rank": 277,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Paradispartiet/History-Go"
+    },
+    {
+      "eligible": false,
+      "pull_request": 44,
+      "rank": 278,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "vibhusharma101/Vibhu-website"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3853,
+      "rank": 279,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "radix-ui/primitives"
+    },
+    {
+      "eligible": false,
+      "pull_request": 36855,
+      "rank": 280,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "github/gh-aw"
+    },
+    {
+      "eligible": false,
+      "pull_request": 155,
+      "rank": 281,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Ancora-Labs/ATLAS"
+    },
+    {
+      "eligible": false,
+      "pull_request": 730,
+      "rank": 282,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "accesslayerorg/accesslayer-client"
+    },
+    {
+      "eligible": false,
+      "pull_request": 449,
+      "rank": 283,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "AzureAD/android-complete"
+    },
+    {
+      "eligible": false,
+      "pull_request": 80,
+      "rank": 284,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "NVIDIA/numba-cuda-mlir"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4056,
+      "rank": 285,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "mvanhorn/cli-printing-press"
+    },
+    {
+      "eligible": false,
+      "pull_request": 134,
+      "rank": 286,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Stiggtechnologies/ai-maintenance-system"
+    },
+    {
+      "eligible": false,
+      "pull_request": 119,
+      "rank": 287,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "l3a0/trading-strategies"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 288,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "khyeonsu515-source/Intone"
+    },
+    {
+      "eligible": false,
+      "pull_request": 23,
+      "rank": 289,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "hoyla/fusion-ocr"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4,
+      "rank": 290,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Sohadot/AptyAgent"
+    },
+    {
+      "eligible": false,
+      "pull_request": 24,
+      "rank": 291,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "mcmeeking/matle-difficulty-scorer"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 292,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "hypoxic127/buyorwait"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1719,
+      "rank": 293,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "openfoodfacts/openfoodfacts-explorer"
+    },
+    {
+      "eligible": false,
+      "pull_request": 66,
+      "rank": 294,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "rdi-berkeley/agents-last-exam"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1113,
+      "rank": 295,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "46ki75/internal"
+    },
+    {
+      "eligible": false,
+      "pull_request": 67,
+      "rank": 296,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "benjouk/ergdash"
+    },
+    {
+      "eligible": false,
+      "pull_request": 145,
+      "rank": 297,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "nadavyigal/ResumeBuilder-IOS-APP"
+    },
+    {
+      "eligible": false,
+      "pull_request": 85,
+      "rank": 298,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "TheShield2594/northwoodgirlssoccerdashboard"
+    },
+    {
+      "eligible": false,
+      "pull_request": 12,
+      "rank": 299,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "irunonpho/irunonpho.github.io"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 300,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "mcbane23/First-Godot-Game"
+    },
+    {
+      "eligible": false,
+      "pull_request": 8681,
+      "rank": 301,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "aegisfleet/amazon-product-article"
+    },
+    {
+      "eligible": false,
+      "pull_request": 85,
+      "rank": 302,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Oliver16/tenaxes"
+    },
+    {
+      "eligible": false,
+      "pull_request": 775,
+      "rank": 303,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "mightymoose/fortymm"
+    },
+    {
+      "eligible": false,
+      "pull_request": 8,
+      "rank": 304,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "PanGucheng/a-share-quant-research"
+    },
+    {
+      "eligible": false,
+      "pull_request": 131,
+      "rank": 305,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Govcraft/acton-service"
+    },
+    {
+      "eligible": false,
+      "pull_request": 308,
+      "rank": 306,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "ITSUA-team/GiTiempo"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1789,
+      "rank": 307,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "kedacore/keda-docs"
+    },
+    {
+      "eligible": false,
+      "pull_request": 32,
+      "rank": 308,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "model-health/model-health"
+    },
+    {
+      "eligible": false,
+      "pull_request": 198,
+      "rank": 309,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "ProjectTech4DevAI/kaapi-frontend"
+    },
+    {
+      "eligible": false,
+      "pull_request": 541,
+      "rank": 310,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "FreeForCharity/FFC-Cloudflare-Automation"
+    },
+    {
+      "eligible": false,
+      "pull_request": 10784,
+      "rank": 311,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "spiceai/spiceai"
+    },
+    {
+      "eligible": false,
+      "pull_request": 27,
+      "rank": 312,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "dabick14/camp-app"
+    },
+    {
+      "eligible": false,
+      "pull_request": 58,
+      "rank": 313,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Rehan1604/AI_NETWORK_INTELLIGENCE_SYSTEM"
+    },
+    {
+      "eligible": false,
+      "pull_request": 161,
+      "rank": 314,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "wwestlake/djehuti"
+    },
+    {
+      "eligible": false,
+      "pull_request": 189,
+      "rank": 315,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Azure/CosmosDBShell"
+    },
+    {
+      "eligible": false,
+      "pull_request": 74,
+      "rank": 316,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Cuvara/rpg-mmo-server"
+    },
+    {
+      "eligible": false,
+      "pull_request": 196,
+      "rank": 317,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "d4n-larsson/aegisdb"
+    },
+    {
+      "eligible": false,
+      "pull_request": 69,
+      "rank": 318,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "maurcarvalho/thesis-progressive-scalability"
+    },
+    {
+      "eligible": false,
+      "pull_request": 23,
+      "rank": 319,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "moesix/torque-dash-next"
+    },
+    {
+      "eligible": false,
+      "pull_request": 93,
+      "rank": 320,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "keneasson/tee-admin"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 321,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "siddhantmohanty20/Job-Application-Automation"
+    },
+    {
+      "eligible": false,
+      "pull_request": 57,
+      "rank": 322,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "craft-birdeye/myna"
+    },
+    {
+      "eligible": false,
+      "pull_request": 148,
+      "rank": 323,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "SeayInsights/dream-studio"
+    },
+    {
+      "eligible": false,
+      "pull_request": 71,
+      "rank": 324,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "AdaWorldAPI/tesseract-rs"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2385,
+      "rank": 325,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "tokuhirom/mutsu"
+    },
+    {
+      "eligible": false,
+      "pull_request": 966,
+      "rank": 326,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "DataBytes-Organisation/Project-Echo"
+    },
+    {
+      "eligible": false,
+      "pull_request": 33,
+      "rank": 327,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "vLLM-HUST/vllm-hust-website"
+    },
+    {
+      "eligible": false,
+      "pull_request": 212,
+      "rank": 328,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "trip2g/trip2g"
+    },
+    {
+      "eligible": false,
+      "pull_request": 74,
+      "rank": 329,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Burton-David/Recommender-Systems"
+    },
+    {
+      "eligible": false,
+      "pull_request": 42,
+      "rank": 330,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "bokujuu/bokujuu_cursorsetup"
+    },
+    {
+      "eligible": false,
+      "pull_request": 19,
+      "rank": 331,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "go-coldbrew/errors"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 332,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "KirilHadzhiyski/jarcomputers"
+    },
+    {
+      "eligible": false,
+      "pull_request": 8,
+      "rank": 333,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Chris-Wolfgang/ETL-FixedWidth"
+    },
+    {
+      "eligible": false,
+      "pull_request": 11568,
+      "rank": 334,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "elizaOS/eliza"
+    },
+    {
+      "eligible": false,
+      "pull_request": 70,
+      "rank": 335,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Mathews-Tom/Tessera"
+    },
+    {
+      "eligible": false,
+      "pull_request": 52,
+      "rank": 336,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "BurakAhmet/Best-Prime-Number-Function"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 337,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "kavyarathod05/dpls-xdp"
+    },
+    {
+      "eligible": false,
+      "pull_request": 19,
+      "rank": 338,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Rakshaad-Kolhe/leetcode-auto-sync"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 339,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "sisshiki1969/rubybench"
+    },
+    {
+      "eligible": false,
+      "pull_request": 15,
+      "rank": 340,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "agencyenterprise/coding-agent-cost-bench"
+    },
+    {
+      "eligible": false,
+      "pull_request": 32,
+      "rank": 341,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "elastic/competitive-benchmarking-studies"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3753,
+      "rank": 342,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "nexi-lab/nexus"
+    },
+    {
+      "eligible": false,
+      "pull_request": 812,
+      "rank": 343,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "chf3198/megingjord-harness"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2212,
+      "rank": 344,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "quantified-uncertainty/longterm-wiki"
+    },
+    {
+      "eligible": false,
+      "pull_request": 83,
+      "rank": 345,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "sofa-buffers/arena"
+    },
+    {
+      "eligible": false,
+      "pull_request": 51,
+      "rank": 346,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "fatherflem/djiDroneSim"
+    },
+    {
+      "eligible": false,
+      "pull_request": 62,
+      "rank": 347,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "syrnike13/syrnike13-app"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 348,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "cc8581/TCD-PRG"
+    },
+    {
+      "eligible": false,
+      "pull_request": 73,
+      "rank": 349,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "PolicyEngine/macro"
+    },
+    {
+      "case_id": "container-system-baseline-sync",
+      "eligible": true,
+      "pull_request": 36,
+      "rank": 350,
+      "reason": "same-scope numeric report correction with unique immutable snippets",
+      "repository": "kcenon/container_system"
+    },
+    {
+      "eligible": false,
+      "pull_request": 281,
+      "rank": 351,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "the-similarity/base"
+    },
+    {
+      "eligible": false,
+      "pull_request": 17,
+      "rank": 352,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "moulwyse/lattice"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 353,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "IlkhamFY/spectro-agent"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2690,
+      "rank": 354,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "souliane/teatree"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3,
+      "rank": 355,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "dravitch/secaudit"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1896,
+      "rank": 356,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "smith-horn/skillsmith"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4355,
+      "rank": 357,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "learn-ukrainian/learn-ukrainian.github.io"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 358,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ashrielbrian/skill-me"
+    },
+    {
+      "eligible": false,
+      "pull_request": 30,
+      "rank": 359,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "tornidomaroc-web/knowflow"
+    },
+    {
+      "eligible": false,
+      "pull_request": 7,
+      "rank": 360,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "ericmjl/opencode-autolearn"
+    },
+    {
+      "eligible": false,
+      "pull_request": 758,
+      "rank": 361,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "getagentseal/codeburn"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 362,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "bandersong/dungeonscan"
+    },
+    {
+      "case_id": "graph-invariant-paper-number-audit",
+      "eligible": true,
+      "pull_request": 47,
+      "rank": 363,
+      "reason": "same-scope numeric report correction with unique immutable snippets",
+      "repository": "TheIllusionOfLife/graph_invariant"
+    },
+    {
+      "eligible": false,
+      "pull_request": 149,
+      "rank": 364,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "cargotapan-collab/tac-express"
+    },
+    {
+      "eligible": false,
+      "pull_request": 69,
+      "rank": 365,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "velikiievgeniusultimate/waydroid-helper"
+    },
+    {
+      "eligible": false,
+      "pull_request": 69,
+      "rank": 366,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "abyssbugg/PulseUsage"
+    },
+    {
+      "eligible": false,
+      "pull_request": 33,
+      "rank": 367,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "talmolab/sleap-roots-predict"
+    },
+    {
+      "eligible": false,
+      "pull_request": 41,
+      "rank": 368,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "TheKeeks/countme.in"
+    },
+    {
+      "eligible": false,
+      "pull_request": 425,
+      "rank": 369,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "polittdj/Schedule-Manipulation-Analysis-Tool-Experiment"
+    },
+    {
+      "eligible": false,
+      "pull_request": 206,
+      "rank": 370,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "kbennett2000/radio-server"
+    },
+    {
+      "eligible": false,
+      "pull_request": 55,
+      "rank": 371,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "FERAL-AI/FERAL-AI"
+    },
+    {
+      "eligible": false,
+      "pull_request": 132,
+      "rank": 372,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "MOLAorg/mola_lidar_odometry"
+    },
+    {
+      "eligible": false,
+      "pull_request": 20,
+      "rank": 373,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "hherb/biasbuster"
+    },
+    {
+      "eligible": false,
+      "pull_request": 120,
+      "rank": 374,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "gregochr/goldenhour"
+    },
+    {
+      "eligible": false,
+      "pull_request": 769,
+      "rank": 375,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "davcs86/xstockstrat"
+    },
+    {
+      "eligible": false,
+      "pull_request": 16952,
+      "rank": 376,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "1024pix/pix"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 377,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "FadhieZzen13/Machine-Learning-Project"
+    },
+    {
+      "eligible": false,
+      "pull_request": 44,
+      "rank": 378,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "z3tz3r0/56konfilm"
+    },
+    {
+      "eligible": false,
+      "pull_request": 12,
+      "rank": 379,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "bsrikumar855-dot/GradeMIND"
+    },
+    {
+      "eligible": false,
+      "pull_request": 390,
+      "rank": 380,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Godzilla675/automatic-guacamole"
+    },
+    {
+      "eligible": false,
+      "pull_request": 24,
+      "rank": 381,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "AsianTroglodyte/resume-evaluator"
+    },
+    {
+      "eligible": false,
+      "pull_request": 13,
+      "rank": 382,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "zivtech/accessibility-skills"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2178,
+      "rank": 383,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Katsiarynakavaleuskaya/PulsePlate"
+    },
+    {
+      "eligible": false,
+      "pull_request": 123,
+      "rank": 384,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "luckyPipewrench/agent-egress-bench"
+    },
+    {
+      "eligible": false,
+      "pull_request": 13,
+      "rank": 385,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "melanson633/mog-codex-canvas"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 386,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "juniper-tc02e/quorumqa"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3,
+      "rank": 387,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "llusardo/my-pysyft-rag"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 388,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "vanichitkara/AgentKintsugi"
+    },
+    {
+      "eligible": false,
+      "pull_request": 215,
+      "rank": 389,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "pureliture/neurons"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1593,
+      "rank": 390,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Tyler-R-Kendrick/slm-training"
+    },
+    {
+      "eligible": false,
+      "pull_request": 772,
+      "rank": 391,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "ContextualWisdomLab/fast-mlsirm"
+    },
+    {
+      "eligible": false,
+      "pull_request": 22055,
+      "rank": 392,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "PurHur/php-compiler"
+    },
+    {
+      "case_id": "ssik-uncompiled-latency-correction",
+      "eligible": true,
+      "pull_request": 404,
+      "rank": 393,
+      "reason": "same-scope numeric report correction with unique immutable snippets",
+      "repository": "personalrobotics/ssik"
+    },
+    {
+      "eligible": false,
+      "pull_request": 470,
+      "rank": 394,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "Cloudstic/cli"
+    },
+    {
+      "case_id": "hangman-dictionary-metric-correction",
+      "eligible": true,
+      "pull_request": 2,
+      "rank": 395,
+      "reason": "same-scope numeric report correction with unique immutable snippets",
+      "repository": "MattFisher/hangman-bench"
+    },
+    {
+      "eligible": false,
+      "pull_request": 32,
+      "rank": 396,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "kaidokert/krabipqc-rs"
+    },
+    {
+      "eligible": false,
+      "pull_request": 379,
+      "rank": 397,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "pal-tamas/rask"
+    },
+    {
+      "eligible": false,
+      "pull_request": 60,
+      "rank": 398,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "flanksource/facet"
+    },
+    {
+      "eligible": false,
+      "pull_request": 20,
+      "rank": 399,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "mgh3326/scopefuel"
+    },
+    {
+      "eligible": false,
+      "pull_request": 35,
+      "rank": 400,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Yendoh-Derek/Cascade"
+    },
+    {
+      "eligible": false,
+      "pull_request": 926,
+      "rank": 401,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "iowarp/clio-core"
+    },
+    {
+      "eligible": false,
+      "pull_request": 335,
+      "rank": 402,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "anvai-labs/victor"
+    },
+    {
+      "eligible": false,
+      "pull_request": 8,
+      "rank": 403,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "konkomaji/bornomala"
+    },
+    {
+      "eligible": false,
+      "pull_request": 118,
+      "rank": 404,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Lyellr88/marm-memory"
+    },
+    {
+      "eligible": false,
+      "pull_request": 90,
+      "rank": 405,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "clappingmonkey/zuul-mcp"
+    },
+    {
+      "eligible": false,
+      "pull_request": 108,
+      "rank": 406,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "depado/gin-auth-example"
+    },
+    {
+      "eligible": false,
+      "pull_request": 25,
+      "rank": 407,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "sandipku1978-Uniqus/vara-ai-app-try2"
+    },
+    {
+      "eligible": false,
+      "pull_request": 255,
+      "rank": 408,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "vectojs/vectojs"
+    },
+    {
+      "eligible": false,
+      "pull_request": 238,
+      "rank": 409,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "fxd24/langres"
+    },
+    {
+      "eligible": false,
+      "pull_request": 15,
+      "rank": 410,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "radionest/dicorina"
+    },
+    {
+      "eligible": false,
+      "pull_request": 757,
+      "rank": 411,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "jxsl13/goai"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4467,
+      "rank": 412,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "bytedance/deer-flow"
+    },
+    {
+      "eligible": false,
+      "pull_request": 183,
+      "rank": 413,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "weby-homelab/power-framework"
+    },
+    {
+      "eligible": false,
+      "pull_request": 33100,
+      "rank": 414,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "sgl-project/sglang"
+    },
+    {
+      "eligible": false,
+      "pull_request": 90,
+      "rank": 415,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "amazon-contributing/upstream-to-pytorch"
+    },
+    {
+      "eligible": false,
+      "pull_request": 678,
+      "rank": 416,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "bytedance-iaas/sglang"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3,
+      "rank": 417,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "ggg-s/sglang-standalone-suffix"
+    },
+    {
+      "eligible": false,
+      "pull_request": 792,
+      "rank": 418,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "dowdiness/loom"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1665,
+      "rank": 419,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "chatelao/alpheusafpparser"
+    },
+    {
+      "eligible": false,
+      "pull_request": 306,
+      "rank": 420,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "xvanov/software-factory"
+    },
+    {
+      "eligible": false,
+      "pull_request": 169,
+      "rank": 421,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "HYGON-AI/sglang-das"
+    },
+    {
+      "eligible": false,
+      "pull_request": 517,
+      "rank": 422,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "forallsys/wire"
+    },
+    {
+      "eligible": false,
+      "pull_request": 76,
+      "rank": 423,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "luuquangvu/assist-canonicalizer"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1135,
+      "rank": 424,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Proteobench/ProteoBench"
+    },
+    {
+      "eligible": false,
+      "pull_request": 30,
+      "rank": 425,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "MahdiHedhli/DeepThought"
+    },
+    {
+      "eligible": false,
+      "pull_request": 25,
+      "rank": 426,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "aponiajs/aponiajs"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 427,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "curnane-lab/SpecForge"
+    },
+    {
+      "eligible": false,
+      "pull_request": 222,
+      "rank": 428,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "maksimzayats/diwire"
+    },
+    {
+      "eligible": false,
+      "pull_request": 10,
+      "rank": 429,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Vitalisn4/dukabind"
+    },
+    {
+      "eligible": false,
+      "pull_request": 496,
+      "rank": 430,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "Darkroom4364/togi"
+    },
+    {
+      "eligible": false,
+      "pull_request": 227,
+      "rank": 431,
+      "reason": "no paired removed-and-added numeric lines in an available human-readable report patch",
+      "repository": "wcatz/ghost"
+    },
+    {
+      "eligible": false,
+      "pull_request": 393,
+      "rank": 432,
+      "reason": "manual semantic review: new experiment/config/version/dataset, non-empirical number, or no uniquely groundable same-scope correction",
+      "repository": "developerz-ai/wurk"
+    }
+  ],
+  "parser_output_used": false,
+  "sample_size": 432,
+  "schema_version": "reprocheck.upstream-discovery-labels.v5"
+}

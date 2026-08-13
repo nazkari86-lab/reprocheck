@@ -1,0 +1,18 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-source-plan.v5",
+  "cases": [
+    {"id": "openadapt-saved-row-success-correction", "rank": 28, "files": ["benchmark/openemr/BENCHMARK.md", "benchmark/comparison_artifact/comparison.json"]},
+    {"id": "comet-speedup-formula-correction", "rank": 35, "files": ["docs/source/contributor-guide/benchmarking.md"]},
+    {"id": "turbovec-drifted-arm-speed-range", "rank": 71, "files": ["README.md"]},
+    {"id": "web-frontier-failure-aware-latency", "rank": 79, "files": ["README.md"]},
+    {"id": "kalpa-private-working-set-correction", "rank": 105, "files": ["README.md"]},
+    {"id": "lean-genius-stale-line-count", "rank": 215, "files": ["src/data/proofs/erdos-864/meta.json"]},
+    {"id": "markforge-dedup-recall-correction", "rank": 247, "files": ["docs/AGENTIFY.md"]},
+    {"id": "engram-stale-blend-weights", "rank": 250, "files": ["README.md"]},
+    {"id": "sage-specificity-precision-correction", "rank": 263, "files": ["docs/arabic-poc-study-readiness-2026-06-05.md"]},
+    {"id": "container-system-baseline-sync", "rank": 350, "files": ["README.md"]},
+    {"id": "graph-invariant-paper-number-audit", "rank": 363, "files": ["paper/sections/results.tex"]},
+    {"id": "ssik-uncompiled-latency-correction", "rank": 393, "files": ["README.md"]},
+    {"id": "hangman-dictionary-metric-correction", "rank": 395, "files": ["analysis/difficulty_report.tsv"]}
+  ]
+}

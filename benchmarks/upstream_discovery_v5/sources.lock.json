@@ -1,0 +1,117 @@
+{
+  "files": {
+    "comet-speedup-formula-correction--docs__source__contributor-guide__benchmarking.md.after.md": {
+      "sha256": "25545013727a015382baed6f17ecbd1c1fbf36c843b4d37913c4dad0244d5155",
+      "url": "https://raw.githubusercontent.com/apache/datafusion-comet/e8765d484e19655555800a65fd49ad88c310cc0f/docs/source/contributor-guide/benchmarking.md"
+    },
+    "comet-speedup-formula-correction--docs__source__contributor-guide__benchmarking.md.before.md": {
+      "sha256": "b7be4e0deb2e02692245e352204a64acefce89b36edb66acce496d4d5cdf7741",
+      "url": "https://raw.githubusercontent.com/apache/datafusion-comet/e8f6a8d1f9d0f24ad364413b94802df3ab9090a1/docs/source/contributor-guide/benchmarking.md"
+    },
+    "container-system-baseline-sync--README.md.after.md": {
+      "sha256": "0cee6e7341b5899fce86dbed224a6dadc951f5ce89a6db5808e7454f732b6d2e",
+      "url": "https://raw.githubusercontent.com/kcenon/container_system/61d46d573d63d22ceff9151a2df6e003a6fdd46b/README.md"
+    },
+    "container-system-baseline-sync--README.md.before.md": {
+      "sha256": "3c6db0d50fe98695104ef3e6e9b76c2f7f17771c91d9b3bf341554192d5ee74d",
+      "url": "https://raw.githubusercontent.com/kcenon/container_system/0071eeac164ea61ebd0e74968a80faf87067be83/README.md"
+    },
+    "engram-stale-blend-weights--README.md.after.md": {
+      "sha256": "fbce3389cbc462f2fc70dd448f9cc1164a338204eb498becebe25373bfa9c31e",
+      "url": "https://raw.githubusercontent.com/TAIPANBOX/engram/7c96330e3d9f09579b0b78678b5fe3ac37c87e5d/README.md"
+    },
+    "engram-stale-blend-weights--README.md.before.md": {
+      "sha256": "36cb268d72c80a5ecc6b694e2c8ae2cd6b911edf87107ae9f1d5b8230cdd7955",
+      "url": "https://raw.githubusercontent.com/TAIPANBOX/engram/85e06cbbe5341aacf8c6cc252fb14eed418ade2b/README.md"
+    },
+    "graph-invariant-paper-number-audit--paper__sections__results.tex.after.tex": {
+      "sha256": "c070f810c3512a014a20d1bc67c54df12ef483643cc104e93091ea8ee74f7e6e",
+      "url": "https://raw.githubusercontent.com/TheIllusionOfLife/graph_invariant/8309955a8f117cd5747595e71be5960060a9a070/paper/sections/results.tex"
+    },
+    "graph-invariant-paper-number-audit--paper__sections__results.tex.before.tex": {
+      "sha256": "4cc7fa055459466d492b6d9b75a0b86e7720000f5da423e83027f34b13bc14f8",
+      "url": "https://raw.githubusercontent.com/TheIllusionOfLife/graph_invariant/d7e6bed3803e02193d37cf09731d1793a2026056/paper/sections/results.tex"
+    },
+    "hangman-dictionary-metric-correction--analysis__difficulty_report.tsv.after.tsv": {
+      "sha256": "51208702ba0a36c6b2e7f5a31874028a38b82794f85963a2d08ce6483a19408b",
+      "url": "https://raw.githubusercontent.com/MattFisher/hangman-bench/ab0fcc8d9628dafc4d48b6475e9a8abf2a03ab4e/analysis/difficulty_report.tsv"
+    },
+    "hangman-dictionary-metric-correction--analysis__difficulty_report.tsv.before.tsv": {
+      "sha256": "f1f8f2c444aac75dbba400d78004318758a88c516fee65dbae70e47ea3bf2810",
+      "url": "https://raw.githubusercontent.com/MattFisher/hangman-bench/9f1f396e68191eb5ec99dbffbc6fea63609bd0b6/analysis/difficulty_report.tsv"
+    },
+    "kalpa-private-working-set-correction--README.md.after.md": {
+      "sha256": "5636aa6472a37dacef9cfdee29f89baf04937fa61d845bef8980c18ff8bcac65",
+      "url": "https://raw.githubusercontent.com/ESO-Toolkit/kalpa/492507c3052e447cd6e3e8d314a893e8a3ebc952/README.md"
+    },
+    "kalpa-private-working-set-correction--README.md.before.md": {
+      "sha256": "d4216ee01fd9200562fa35ab620ed06dcfd91077266badaa01a5a40e6bfa4e48",
+      "url": "https://raw.githubusercontent.com/ESO-Toolkit/kalpa/a20ebc4a7b4e7e089e8ed70424b59c9e69d804ae/README.md"
+    },
+    "lean-genius-stale-line-count--src__data__proofs__erdos-864__meta.json.after.json": {
+      "sha256": "fb596bf194b2648ce49ad88d7fee250f505fd82bfd5c7e0d7f4754df6dae3c5e",
+      "url": "https://raw.githubusercontent.com/rjwalters/lean-genius/0750aed6fea0dfcd9d78408b3352d4e32e195136/src/data/proofs/erdos-864/meta.json"
+    },
+    "lean-genius-stale-line-count--src__data__proofs__erdos-864__meta.json.before.json": {
+      "sha256": "43ea4787aeb8c4098df0c3b2c66b062497c0c44ca48d66e3b362dc2f3540ea31",
+      "url": "https://raw.githubusercontent.com/rjwalters/lean-genius/01f37a1218cf3eef02b3fe911bcdb5e8d951cb20/src/data/proofs/erdos-864/meta.json"
+    },
+    "markforge-dedup-recall-correction--docs__AGENTIFY.md.after.md": {
+      "sha256": "23e64c915d3cecdb387558aec10ef9794297dd5edfdb34362516b54a6de12e75",
+      "url": "https://raw.githubusercontent.com/anayy09/MarkForge/a390c31d6d154753c26dfc4a21506b63e5a7cbac/docs/AGENTIFY.md"
+    },
+    "markforge-dedup-recall-correction--docs__AGENTIFY.md.before.md": {
+      "sha256": "52694413c5722748798344997c72c6ec55d0fe2e038ff73df84051b88c955b16",
+      "url": "https://raw.githubusercontent.com/anayy09/MarkForge/05904fb6689ea15f0519c1210ffa751923a4b11c/docs/AGENTIFY.md"
+    },
+    "openadapt-saved-row-success-correction--benchmark__comparison_artifact__comparison.json.after.json": {
+      "sha256": "c5eb58d234ecbd5b03a687745fb6afeb53d0965459b0e42779942441b19dbbd6",
+      "url": "https://raw.githubusercontent.com/OpenAdaptAI/openadapt-flow/aee094193b232f472f991be6fa9b33c3c4b3f9be/benchmark/comparison_artifact/comparison.json"
+    },
+    "openadapt-saved-row-success-correction--benchmark__comparison_artifact__comparison.json.before.json": {
+      "sha256": "e9e4f64c4cd699a7d0e6889b8610e9d1bc1afa430a372786cb40b12309a675ba",
+      "url": "https://raw.githubusercontent.com/OpenAdaptAI/openadapt-flow/67ebec2afa8253df738a34a75e6deb1228c94a78/benchmark/comparison_artifact/comparison.json"
+    },
+    "openadapt-saved-row-success-correction--benchmark__openemr__BENCHMARK.md.after.md": {
+      "sha256": "e5955cb67393b4492ee792b4e0f1050814d62c6fd8b89d5c47fd83bf9cbd3fad",
+      "url": "https://raw.githubusercontent.com/OpenAdaptAI/openadapt-flow/aee094193b232f472f991be6fa9b33c3c4b3f9be/benchmark/openemr/BENCHMARK.md"
+    },
+    "openadapt-saved-row-success-correction--benchmark__openemr__BENCHMARK.md.before.md": {
+      "sha256": "97451c7bbf1cfcf9dbe20caaebfdc58d24a2cd2491c5de3ddd4228059d6a8ccf",
+      "url": "https://raw.githubusercontent.com/OpenAdaptAI/openadapt-flow/67ebec2afa8253df738a34a75e6deb1228c94a78/benchmark/openemr/BENCHMARK.md"
+    },
+    "sage-specificity-precision-correction--docs__arabic-poc-study-readiness-2026-06-05.md.after.md": {
+      "sha256": "0fe571c7a499ef90b78ef8fa26e07084f9d86a6e09e4417fda1746477201a2f9",
+      "url": "https://raw.githubusercontent.com/synergenix19/Sage/af4409f474b87b32f3a078274ed9f07c3f7747fc/docs/arabic-poc-study-readiness-2026-06-05.md"
+    },
+    "sage-specificity-precision-correction--docs__arabic-poc-study-readiness-2026-06-05.md.before.md": {
+      "sha256": "19e4872afd6a3bb46cb599e36070e5bd512073f0505ab4819ebaea0857cf0e35",
+      "url": "https://raw.githubusercontent.com/synergenix19/Sage/b8da46e051ed724859571f01bf8a4f8a83cebfb9/docs/arabic-poc-study-readiness-2026-06-05.md"
+    },
+    "ssik-uncompiled-latency-correction--README.md.after.md": {
+      "sha256": "d5dd176f67809e08bc2e876c2dabaea300c060d2d6013086dfd3668171f4a88e",
+      "url": "https://raw.githubusercontent.com/personalrobotics/ssik/574bc5b22efec8ad979c86f933558f3d488ae834/README.md"
+    },
+    "ssik-uncompiled-latency-correction--README.md.before.md": {
+      "sha256": "9269249c58d359a76f4c2b15058541f5222c06f3c7846748f288fcb2e778a0d3",
+      "url": "https://raw.githubusercontent.com/personalrobotics/ssik/0564d8b12c8ba581abdddf317ba3000fba96d0c7/README.md"
+    },
+    "turbovec-drifted-arm-speed-range--README.md.after.md": {
+      "sha256": "2a3335658221938f32c715a3669a403f52da9e201ba87a35f72e1ea1b863de7e",
+      "url": "https://raw.githubusercontent.com/RyanCodrai/turbovec/a2fee29452c53bc45d925ff5dd67ef78e791abb0/README.md"
+    },
+    "turbovec-drifted-arm-speed-range--README.md.before.md": {
+      "sha256": "33948ccd53d8e4181a0629635ee29a7f17c35203a88eafafe07fde2d92f27a7a",
+      "url": "https://raw.githubusercontent.com/RyanCodrai/turbovec/44571a3757d9733585df1b0e8b1f904ce6031aa2/README.md"
+    },
+    "web-frontier-failure-aware-latency--README.md.after.md": {
+      "sha256": "2fa6c3d535fcb53393a8c17649b17fc3da361a972f648c2183be25fed8df21f2",
+      "url": "https://raw.githubusercontent.com/usestring/web-data-frontier-benchmark/92a3a718fdce51d1ec64e557ac66b10427d88dc8/README.md"
+    },
+    "web-frontier-failure-aware-latency--README.md.before.md": {
+      "sha256": "1ad1a8b985fdc22cea1198887b30e397e83af9e82d412a4036e37d765a87167d",
+      "url": "https://raw.githubusercontent.com/usestring/web-data-frontier-benchmark/ab085ffb75752504dcfc282710d532d4111aef35/README.md"
+    }
+  },
+  "schema_version": "reprocheck.upstream-discovery-sources-lock.v5"
+}

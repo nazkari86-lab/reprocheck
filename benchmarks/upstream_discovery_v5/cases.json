@@ -1,0 +1,510 @@
+{
+  "cases": [
+    {
+      "claims": [
+        {
+          "after_snippet": "| success rate | 95% (19/20) | 100% (10/10) |",
+          "after_value": 0.95,
+          "before_snippet": "| success rate | 100% (20/20) | 100% (10/10) |",
+          "before_value": 1.0,
+          "context": {
+            "system": "compiled replay"
+          },
+          "file": "benchmark/openemr/BENCHMARK.md",
+          "metric": "success_rate"
+        }
+      ],
+      "files": [
+        "benchmark/openemr/BENCHMARK.md"
+      ],
+      "id": "openadapt-saved-row-success-correction",
+      "pull_request": 302,
+      "repository": "OpenAdaptAI/openadapt-flow",
+      "url": "https://github.com/OpenAdaptAI/openadapt-flow/pull/302"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "Comet currently provides a 54% speedup for TPC-H @ SF=100GB.",
+          "after_value": 0.54,
+          "before_snippet": "Comet currently provides a 35% speedup for TPC-H @ SF=100GB.",
+          "before_value": 0.35,
+          "context": {
+            "dataset": "TPC-H SF=100GB"
+          },
+          "file": "docs/source/contributor-guide/benchmarking.md",
+          "metric": "speedup"
+        },
+        {
+          "after_snippet": "Comet currently provides an 23% speedup for TPC-DS @ SF=100GB.",
+          "after_value": 0.23,
+          "before_snippet": "Comet currently provides an 18% speedup for TPC-DS @ SF=100GB.",
+          "before_value": 0.18,
+          "context": {
+            "dataset": "TPC-DS SF=100GB"
+          },
+          "file": "docs/source/contributor-guide/benchmarking.md",
+          "metric": "speedup"
+        }
+      ],
+      "files": [
+        "docs/source/contributor-guide/benchmarking.md"
+      ],
+      "id": "comet-speedup-formula-correction",
+      "pull_request": 691,
+      "repository": "apache/datafusion-comet",
+      "url": "https://github.com/apache/datafusion-comet/pull/691"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "On ARM, TurboQuant beats FAISS FastScan by 19–31% across every config.",
+          "after_value": 0.19,
+          "before_snippet": "On ARM, TurboQuant beats FAISS FastScan by 16–24% across every config.",
+          "before_value": 0.16,
+          "context": {
+            "baseline": "FAISS FastScan",
+            "platform": "ARM",
+            "system": "TurboQuant"
+          },
+          "file": "README.md",
+          "metric": "speedup_range_low"
+        },
+        {
+          "after_snippet": "On ARM, TurboQuant beats FAISS FastScan by 19–31% across every config.",
+          "after_value": 0.31,
+          "before_snippet": "On ARM, TurboQuant beats FAISS FastScan by 16–24% across every config.",
+          "before_value": 0.24,
+          "context": {
+            "baseline": "FAISS FastScan",
+            "platform": "ARM",
+            "system": "TurboQuant"
+          },
+          "file": "README.md",
+          "metric": "speedup_range_high"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "turbovec-drifted-arm-speed-range",
+      "pull_request": 327,
+      "repository": "RyanCodrai/turbovec",
+      "url": "https://github.com/RyanCodrai/turbovec/pull/327"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "|    1 | string           |        95.8% |        11.07s | 431/450 |",
+          "after_value": 11.07,
+          "before_snippet": "|    1 | string           |        95.8% |       9.70s | 431/450 |",
+          "before_value": 9.7,
+          "context": {
+            "system": "string"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|    2 | scrapfly         |        83.6% |        14.28s | 376/450 |",
+          "after_value": 14.28,
+          "before_snippet": "|    2 | scrapfly         |        83.6% |      12.01s | 376/450 |",
+          "before_value": 12.01,
+          "context": {
+            "system": "scrapfly"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|    3 | bright           |        80.9% |        24.33s | 364/450 |",
+          "after_value": 24.33,
+          "before_snippet": "|    3 | bright           |        80.9% |      24.23s | 364/450 |",
+          "before_value": 24.23,
+          "context": {
+            "system": "bright"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|    4 | context_dev      |        78.7% |        13.62s | 354/450 |",
+          "after_value": 13.62,
+          "before_snippet": "|    4 | context_dev      |        78.7% |      11.86s | 354/450 |",
+          "before_value": 11.86,
+          "context": {
+            "system": "context_dev"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|    5 | firecrawl        |        70.9% |        14.70s | 319/450 |",
+          "after_value": 14.7,
+          "before_snippet": "|    5 | firecrawl        |        70.9% |       8.38s | 319/450 |",
+          "before_value": 8.38,
+          "context": {
+            "system": "firecrawl"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|    6 | scraperapi       |        69.3% |        13.31s | 312/450 |",
+          "after_value": 13.31,
+          "before_snippet": "|    6 | scraperapi       |        69.3% |      13.71s | 312/450 |",
+          "before_value": 13.71,
+          "context": {
+            "system": "scraperapi"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|    7 | oxylabs          |        68.9% |        20.85s | 310/450 |",
+          "after_value": 20.85,
+          "before_snippet": "|    7 | oxylabs          |        68.9% |      20.73s | 310/450 |",
+          "before_value": 20.73,
+          "context": {
+            "system": "oxylabs"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|    8 | zyte             |        68.2% |        17.50s | 307/450 |",
+          "after_value": 17.5,
+          "before_snippet": "|    8 | zyte             |        68.2% |      15.15s | 307/450 |",
+          "before_value": 15.15,
+          "context": {
+            "system": "zyte"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|    9 | decodo           |        67.8% |        29.74s | 305/450 |",
+          "after_value": 29.74,
+          "before_snippet": "|    9 | decodo           |        67.8% |      31.54s | 305/450 |",
+          "before_value": 31.54,
+          "context": {
+            "system": "decodo"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|   10 | nimble           |        59.3% |        21.43s | 267/450 |",
+          "after_value": 21.43,
+          "before_snippet": "|   10 | nimble           |        59.3% |      27.21s | 267/450 |",
+          "before_value": 27.21,
+          "context": {
+            "system": "nimble"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|   11 | browserbase      |        50.0% |        15.25s | 225/450 |",
+          "after_value": 15.25,
+          "before_snippet": "|   11 | browserbase      |        50.0% |       2.43s | 225/450 |",
+          "before_value": 2.43,
+          "context": {
+            "system": "browserbase"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|   12 | zenrows          |        44.2% |        21.35s | 199/450 |",
+          "after_value": 21.35,
+          "before_snippet": "|   12 | zenrows          |        44.2% |      14.97s | 199/450 |",
+          "before_value": 14.97,
+          "context": {
+            "system": "zenrows"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|   13 | scrapingant      |        35.1% |        15.46s | 158/450 |",
+          "after_value": 15.46,
+          "before_snippet": "|   13 | scrapingant      |        35.1% |       5.09s | 158/450 |",
+          "before_value": 5.09,
+          "context": {
+            "system": "scrapingant"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|   14 | scrapingdog      |        35.1% |        15.01s | 158/450 |",
+          "after_value": 15.01,
+          "before_snippet": "|   14 | scrapingdog      |        35.1% |       4.61s | 158/450 |",
+          "before_value": 4.61,
+          "context": {
+            "system": "scrapingdog"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        },
+        {
+          "after_snippet": "|   15 | scrapingbee      |        33.3% |        18.15s | 150/450 |",
+          "after_value": 18.15,
+          "before_snippet": "|   15 | scrapingbee      |        33.3% |       7.20s | 150/450 |",
+          "before_value": 7.2,
+          "context": {
+            "system": "scrapingbee"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "web-frontier-failure-aware-latency",
+      "pull_request": 5,
+      "repository": "usestring/web-data-frontier-benchmark",
+      "url": "https://github.com/usestring/web-data-frontier-benchmark/pull/5"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "- **Native performance UI (beta, Windows)** — an opt-in mode that relaunches Kalpa as one native process instead of a webview and its six helpers, which cuts memory with the window open to about 85 MB from around 135 MB. The standard UI still wins once minimized, since the sidecar has no equivalent suspend. It covers addon management, the uploader, and Pack Hub. Switch back from Settings at any time; if it fails to start, Kalpa reverts to the standard UI on its own.",
+          "after_value": 85.0,
+          "before_snippet": "- **Native performance UI (beta, Windows)** — an opt-in mode that relaunches Kalpa as one native process instead of a webview and its six helpers. With the window open that cuts resident memory to about 130 MB from about 440 MB on the same 119-addon profile. It covers addon management, the uploader, and Pack Hub. Switch back from Settings at any time; if it fails to start, Kalpa reverts to the standard UI on its own.",
+          "before_value": 130.0,
+          "context": {
+            "system": "native UI"
+          },
+          "file": "README.md",
+          "metric": "memory_mb"
+        },
+        {
+          "after_snippet": "- **Native performance UI (beta, Windows)** — an opt-in mode that relaunches Kalpa as one native process instead of a webview and its six helpers, which cuts memory with the window open to about 85 MB from around 135 MB. The standard UI still wins once minimized, since the sidecar has no equivalent suspend. It covers addon management, the uploader, and Pack Hub. Switch back from Settings at any time; if it fails to start, Kalpa reverts to the standard UI on its own.",
+          "after_value": 135.0,
+          "before_snippet": "- **Native performance UI (beta, Windows)** — an opt-in mode that relaunches Kalpa as one native process instead of a webview and its six helpers. With the window open that cuts resident memory to about 130 MB from about 440 MB on the same 119-addon profile. It covers addon management, the uploader, and Pack Hub. Switch back from Settings at any time; if it fails to start, Kalpa reverts to the standard UI on its own.",
+          "before_value": 440.0,
+          "context": {
+            "system": "webview UI"
+          },
+          "file": "README.md",
+          "metric": "memory_mb"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "kalpa-private-working-set-correction",
+      "pull_request": 296,
+      "repository": "ESO-Toolkit/kalpa",
+      "url": "https://github.com/ESO-Toolkit/kalpa/pull/296"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "| **recall** — authored near-duplicate pairs merged | **0 of 2** |",
+          "after_value": 0.0,
+          "before_snippet": "| authored pairs merged | **1 of 2** |",
+          "before_value": 0.5,
+          "context": {
+            "task": "authored near-duplicate pairs"
+          },
+          "file": "docs/AGENTIFY.md",
+          "metric": "recall"
+        }
+      ],
+      "files": [
+        "docs/AGENTIFY.md"
+      ],
+      "id": "markforge-dedup-recall-correction",
+      "pull_request": 8,
+      "repository": "anayy09/MarkForge",
+      "url": "https://github.com/anayy09/MarkForge/pull/8"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "- Crisis path for English: S1 lexicon + S3 semantic OR-fusion. Measured recall: **37.1%** (86/232 CRADLE cases). Specificity: **95.7%** (178/186). Precision: **91.5%** (86/94). KPI is ≥95% recall — gap is **57.9 points**. (Corrected 2026-06-15: the 95.7% figure was previously mislabeled \"precision\"; it is specificity. True precision is 91.5%, given the frozen 2026-06-05 numerators — see tests/test_cradle_bench.py header.)",
+          "after_value": 0.915,
+          "before_snippet": "- Crisis path for English: S1 lexicon + S3 semantic OR-fusion. Measured recall: **37.1%** (86/232 CRADLE cases). Precision: **95.7%**. KPI is ≥95% recall — gap is **57.9 points**.",
+          "before_value": 0.957,
+          "context": {
+            "dataset": "CRADLE",
+            "system": "S1 lexicon + S3 semantic OR-fusion"
+          },
+          "file": "docs/arabic-poc-study-readiness-2026-06-05.md",
+          "metric": "precision"
+        }
+      ],
+      "files": [
+        "docs/arabic-poc-study-readiness-2026-06-05.md"
+      ],
+      "id": "sage-specificity-precision-correction",
+      "pull_request": 31,
+      "repository": "synergenix19/Sage",
+      "url": "https://github.com/synergenix19/Sage/pull/31"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "| 🏆 **Container System Binary** | **1.8M** | **100% (baseline)** | **1.5 MB** | High-performance scenarios |",
+          "after_value": 1800000.0,
+          "before_snippet": "| 🏆 **Container System Binary** | **2M/s** | **~10%** | **128B+data** | All scenarios (optimized) |",
+          "before_value": 2000000.0,
+          "context": {
+            "system": "Container System Binary"
+          },
+          "file": "README.md",
+          "metric": "throughput_ops_per_second"
+        },
+        {
+          "after_snippet": "| 📦 **MessagePack** | 1.6M | ~95% (compact) | ~1.4 MB | Compact binary format |",
+          "after_value": 1600000.0,
+          "before_snippet": "| 📦 **MessagePack** | 1.8M/s | ~12% | 150B+data | Compact binary format |",
+          "before_value": 1800000.0,
+          "context": {
+            "system": "MessagePack"
+          },
+          "file": "README.md",
+          "metric": "throughput_ops_per_second"
+        },
+        {
+          "after_snippet": "| 📦 **JSON (nlohmann)** | 950K | ~180% (readable) | ~2.0 MB | Human-readable interchange |",
+          "after_value": 950000.0,
+          "before_snippet": "| 📦 **JSON (nlohmann)** | 400K/s | ~40% | 300B+data | Human-readable interchange |",
+          "before_value": 400000.0,
+          "context": {
+            "system": "JSON (nlohmann)"
+          },
+          "file": "README.md",
+          "metric": "throughput_ops_per_second"
+        },
+        {
+          "after_snippet": "| 📦 **XML (pugixml)** | 720K | ~220% (verbose) | ~2.5 MB | Schema validation needs |",
+          "after_value": 720000.0,
+          "before_snippet": "| 📦 **XML (pugixml)** | 200K/s | ~60% | 400B+data | Schema validation needs |",
+          "before_value": 200000.0,
+          "context": {
+            "system": "XML (pugixml)"
+          },
+          "file": "README.md",
+          "metric": "throughput_ops_per_second"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "container-system-baseline-sync",
+      "pull_request": 36,
+      "repository": "kcenon/container_system",
+      "url": "https://github.com/kcenon/container_system/pull/36"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "ASPL experiment converges from a composite fitness score of 0.426 to 0.552",
+          "after_value": 0.552,
+          "before_snippet": "ASPL experiment converges from a composite fitness score of 0.426 to 0.553",
+          "before_value": 0.553,
+          "context": {
+            "experiment": "ASPL MAP-Elites final composite fitness"
+          },
+          "file": "paper/sections/results.tex",
+          "metric": "score"
+        }
+      ],
+      "files": [
+        "paper/sections/results.tex"
+      ],
+      "id": "graph-invariant-paper-number-audit",
+      "pull_request": 47,
+      "repository": "TheIllusionOfLife/graph_invariant",
+      "url": "https://github.com/TheIllusionOfLife/graph_invariant/pull/47"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "| Gen3 (**approximate-SRS 7R**, 12 mm offset) | **refuses** (\"Currently, only 1-6R robots are solvable with EAIK\") | 40.75 ± 0.91 ms / FK 1e-12 / 11-92 sols |",
+          "after_value": 0.04075,
+          "before_snippet": "| Gen3 (**approximate-SRS 7R**, 12 mm offset) | **refuses** (\"Currently, only 1-6R robots are solvable with EAIK\") | 51.25 ± 0.97 ms / FK 1e-12 / 11-92 sols |",
+          "before_value": 0.05125,
+          "context": {
+            "implementation": "ssik",
+            "system": "Gen3"
+          },
+          "file": "README.md",
+          "metric": "runtime_seconds"
+        },
+        {
+          "after_snippet": "| xArm7 (**approx spherical-shoulder 7R**) | **refuses** (\"Currently, only 1-6R robots are solvable with EAIK\") | 6.87 ± 0.15 ms / FK 1e-10 / 53-96 sols |",
+          "after_value": 0.00687,
+          "before_snippet": "| xArm7 (**approx spherical-shoulder 7R**) | **refuses** (\"Currently, only 1-6R robots are solvable with EAIK\") | 8.87 ± 0.19 ms / FK 1e-10 / 53-96 sols |",
+          "before_value": 0.00887,
+          "context": {
+            "implementation": "ssik",
+            "system": "xArm7"
+          },
+          "file": "README.md",
+          "metric": "runtime_seconds"
+        },
+        {
+          "after_snippet": "| PiPER (**non-Pieper 6R**) | **refuses** (\"Currently, only 1-6R robots are solvable with EAIK\") | 2.01 ± 1.01 ms / FK 1e-5 / 2-8 sols |",
+          "after_value": 0.00201,
+          "before_snippet": "| PiPER (**non-Pieper 6R**) | **refuses** (\"Currently, only 1-6R robots are solvable with EAIK\") | 2.50 ± 1.64 ms / FK 1e-5 / 2-8 sols |",
+          "before_value": 0.0025,
+          "context": {
+            "implementation": "ssik",
+            "system": "PiPER"
+          },
+          "file": "README.md",
+          "metric": "runtime_seconds"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "ssik-uncompiled-latency-correction",
+      "pull_request": 404,
+      "repository": "personalrobotics/ssik",
+      "url": "https://github.com/personalrobotics/ssik/pull/404"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "dwarves\t7\t2\t1\t16\t9.091\t1.000\t9.091",
+          "after_value": 1.0,
+          "before_snippet": "dwarves\t7\t16\t16\t16\t9.094\t1.000\t9.094",
+          "before_value": 16.0,
+          "context": {
+            "word": "dwarves"
+          },
+          "file": "analysis/difficulty_report.tsv",
+          "metric": "wrong_coverage"
+        },
+        {
+          "after_snippet": "pyjamas\t7\t2\t2\t14\t11.325\t1.167\t9.707",
+          "after_value": 2.0,
+          "before_snippet": "pyjamas\t7\t19\t19\t19\t11.331\t1.167\t9.713",
+          "before_value": 19.0,
+          "context": {
+            "word": "pyjamas"
+          },
+          "file": "analysis/difficulty_report.tsv",
+          "metric": "wrong_coverage"
+        }
+      ],
+      "files": [
+        "analysis/difficulty_report.tsv"
+      ],
+      "id": "hangman-dictionary-metric-correction",
+      "pull_request": 2,
+      "repository": "MattFisher/hangman-bench",
+      "url": "https://github.com/MattFisher/hangman-bench/pull/2"
+    }
+  ],
+  "evaluator_commit": "96e0a4688ef74e6ddc41ec78471276954c5cda66",
+  "parser_output_used": false,
+  "schema_version": "reprocheck.upstream-discovery-cases.v5"
+}
