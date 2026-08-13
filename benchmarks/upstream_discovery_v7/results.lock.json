@@ -1,0 +1,5 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-result-lock.v7",
+  "result": "results/zero-shot-0.22.0.json",
+  "sha256": "56de2e20bc6273259f7f007116edd0464fe77ac9edf97bf8ac8e2e7deed8bba5"
+}

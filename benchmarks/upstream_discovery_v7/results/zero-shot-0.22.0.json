@@ -1,0 +1,254 @@
+{
+  "breadth": {
+    "independent_repository_owners": 4,
+    "metric_families": [
+      "success_rate",
+      "speedup",
+      "latency",
+      "memory",
+      "recall_precision",
+      "throughput",
+      "composite_score",
+      "runtime",
+      "solver_difficulty"
+    ],
+    "repositories": 4,
+    "source_formats": [
+      "markdown_prose",
+      "markdown_table",
+      "latex",
+      "tsv"
+    ]
+  },
+  "case_visibility": 0.25,
+  "case_visibility_wilson_95": [
+    0.04558726080970055,
+    0.6993581574175981
+  ],
+  "cases": [
+    {
+      "claims": [
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 39.7,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 41.0,
+          "context": {
+            "system": "path-hash index"
+          },
+          "file": "README.md",
+          "metric": "memory_mb",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 70.9,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 73.0,
+          "context": {
+            "system": "full-path index"
+          },
+          "file": "README.md",
+          "metric": "memory_mb",
+          "passed": false
+        }
+      ],
+      "id": "oans-stale-hashfile-sizes",
+      "passed": false,
+      "pull_request": 151,
+      "repository": "martinus/oans",
+      "selected_claims": 2,
+      "source_integrity": true,
+      "visible_claims": 0
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 0.05182,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 0.022764,
+          "context": {
+            "system": "FP16"
+          },
+          "file": "README.md",
+          "metric": "avg_latency_seconds",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.7791,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.621,
+          "context": {
+            "system": "FP16"
+          },
+          "file": "README.md",
+          "metric": "map50",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 0.01629,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 0.015403,
+          "context": {
+            "system": "INT8"
+          },
+          "file": "README.md",
+          "metric": "avg_latency_seconds",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.7977,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.612,
+          "context": {
+            "system": "INT8"
+          },
+          "file": "README.md",
+          "metric": "map50",
+          "passed": true
+        }
+      ],
+      "id": "inferedge-rknn-document-sync",
+      "passed": false,
+      "pull_request": 90,
+      "repository": "gwonxhj/InferEdgeLab",
+      "selected_claims": 4,
+      "source_integrity": true,
+      "visible_claims": 2
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 19170.0,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 6066.0,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 13216.0,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 112.0,
+          "context": {
+            "scope": "Python"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": false
+        }
+      ],
+      "id": "scbe-stale-test-count",
+      "passed": false,
+      "pull_request": 2724,
+      "repository": "issdandavis/SCBE-AETHERMOORE",
+      "selected_claims": 2,
+      "source_integrity": true,
+      "visible_claims": 0
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.791,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.794,
+          "context": {
+            "system": "test_vad_inter_transmission_gap_speech.flac"
+          },
+          "file": "backend/pipeline/segmentation/tests/VAD_BENCHMARKS.md",
+          "metric": "f1",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.687,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.658,
+          "context": {
+            "system": "test_vad_inter_transmission_gap_speech.flac"
+          },
+          "file": "backend/pipeline/segmentation/tests/VAD_BENCHMARKS.md",
+          "metric": "precision",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.932,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 1.0,
+          "context": {
+            "system": "test_vad_inter_transmission_gap_speech.flac"
+          },
+          "file": "backend/pipeline/segmentation/tests/VAD_BENCHMARKS.md",
+          "metric": "recall",
+          "passed": true
+        }
+      ],
+      "id": "hood-river-vad-config-correction",
+      "passed": true,
+      "pull_request": 1163,
+      "repository": "watch-duty/radio-transcription",
+      "selected_claims": 3,
+      "source_integrity": true,
+      "visible_claims": 3
+    }
+  ],
+  "cases_sha256": "e9e8a824e0bd87901031f265bea01f7a913ea1b6017ad6418bb4cc8814a9b12d",
+  "claim_visibility": 0.45454545454545453,
+  "claim_visibility_wilson_95": [
+    0.21271271622459764,
+    0.719908462590678
+  ],
+  "eligible_cases": 4,
+  "eligible_yield": 0.025,
+  "eligible_yield_wilson_95": [
+    0.009763992546262524,
+    0.06250989286666742
+  ],
+  "evaluator_commit": "901352b",
+  "labels_sha256": "3a92138268f8401b3f6cefdc5393a6df925321b62d7a8bc6cac8b52c36a85fce",
+  "phase": "zero-shot-frozen-0.22.0",
+  "protocol_sha256": "456935dcf798d2a35bb37ea1de5c3eb8bf456656c37c593dc0b7d359ecef272c",
+  "runtime_evaluator_version": "0.22.0",
+  "sample_sha256": "de30b88fa157a94cab7422987dd87dc9fdd8cdd2047d935b12743099f6d7698f",
+  "sampled_pull_requests": 160,
+  "schema_version": "reprocheck.upstream-discovery-result.v5",
+  "scientific_boundary": "The deterministic one-owner sample estimates visibility only in 24 frozen, query-conditioned GitHub correction frames. It is not a population estimate. The frozen result is source-unseen; any later development result is post-inspection evidence.",
+  "selected_claims": 11,
+  "source_integrity": true,
+  "sources_lock_sha256": "2ba5df885e816a1fc7f4c3ac8c148c63b01c926480112dc345bc698951009c0e",
+  "visible_cases": 1,
+  "visible_claims": 5
+}
