@@ -1,0 +1,13 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-study-lock.v7",
+  "status": "labels-and-sources-frozen-before-evaluation",
+  "extractor_commit": "901352b",
+  "sha256": {
+    "protocol.md": "456935dcf798d2a35bb37ea1de5c3eb8bf456656c37c593dc0b7d359ecef272c",
+    "sample.json": "de30b88fa157a94cab7422987dd87dc9fdd8cdd2047d935b12743099f6d7698f",
+    "labels.json": "3a92138268f8401b3f6cefdc5393a6df925321b62d7a8bc6cac8b52c36a85fce",
+    "cases.json": "e9e8a824e0bd87901031f265bea01f7a913ea1b6017ad6418bb4cc8814a9b12d",
+    "sources.lock.json": "2ba5df885e816a1fc7f4c3ac8c148c63b01c926480112dc345bc698951009c0e",
+    "evaluate.py": "dd7d91e9bcad326706f5c4bd40ddd9768a641e1641c7107676419aeb594e3304"
+  }
+}

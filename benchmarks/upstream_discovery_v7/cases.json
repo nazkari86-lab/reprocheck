@@ -1,0 +1,172 @@
+{
+  "cases": [
+    {
+      "claims": [
+        {
+          "after_snippet": "| Compact 64-bit path-hash index | Smaller hashfile (**39.7 vs 70.9 MiB** on the larger-than-RAM tree), faster path lookups |",
+          "after_value": 39.7,
+          "before_snippet": "| Compact 64-bit path-hash index | Smaller hashfile (**41 vs 73 MiB** on the benchmark tree), faster path lookups |",
+          "before_value": 41.0,
+          "context": {
+            "system": "path-hash index"
+          },
+          "file": "README.md",
+          "metric": "memory_mb"
+        },
+        {
+          "after_snippet": "| Compact 64-bit path-hash index | Smaller hashfile (**39.7 vs 70.9 MiB** on the larger-than-RAM tree), faster path lookups |",
+          "after_value": 70.9,
+          "before_snippet": "| Compact 64-bit path-hash index | Smaller hashfile (**41 vs 73 MiB** on the benchmark tree), faster path lookups |",
+          "before_value": 73.0,
+          "context": {
+            "system": "full-path index"
+          },
+          "file": "README.md",
+          "metric": "memory_mb"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "oans-stale-hashfile-sizes",
+      "pull_request": 151,
+      "repository": "martinus/oans",
+      "url": "https://github.com/martinus/oans/pull/151"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "| FP16 | 51.82 ms | 0.7791 | 기준 결과 |",
+          "after_value": 0.05182,
+          "before_snippet": "| FP16 | 22.764 ms | 0.621 | 기준 결과 |",
+          "before_value": 0.022764,
+          "context": {
+            "system": "FP16"
+          },
+          "file": "README.md",
+          "metric": "avg_latency_seconds"
+        },
+        {
+          "after_snippet": "| FP16 | 51.82 ms | 0.7791 | 기준 결과 |",
+          "after_value": 0.7791,
+          "before_snippet": "| FP16 | 22.764 ms | 0.621 | 기준 결과 |",
+          "before_value": 0.621,
+          "context": {
+            "system": "FP16"
+          },
+          "file": "README.md",
+          "metric": "map50"
+        },
+        {
+          "after_snippet": "| Hybrid INT8 | 16.29 ms | 0.7977 | 더 빠르면서 accuracy도 유지/개선 |",
+          "after_value": 0.01629,
+          "before_snippet": "| INT8 | 15.403 ms | 0.612 | 더 빠르지만 accuracy trade-off 존재 |",
+          "before_value": 0.015403,
+          "context": {
+            "system": "INT8"
+          },
+          "file": "README.md",
+          "metric": "avg_latency_seconds"
+        },
+        {
+          "after_snippet": "| Hybrid INT8 | 16.29 ms | 0.7977 | 더 빠르면서 accuracy도 유지/개선 |",
+          "after_value": 0.7977,
+          "before_snippet": "| INT8 | 15.403 ms | 0.612 | 더 빠르지만 accuracy trade-off 존재 |",
+          "before_value": 0.612,
+          "context": {
+            "system": "INT8"
+          },
+          "file": "README.md",
+          "metric": "map50"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "inferedge-rknn-document-sync",
+      "pull_request": 90,
+      "repository": "gwonxhj/InferEdgeLab",
+      "url": "https://github.com/gwonxhj/InferEdgeLab/pull/90"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "| ~19,170 tests | Verification | 5,954 TypeScript + **13,216 Python** (`pytest --collect-only`, 2026-07-25, all under `tests/`); property-based with fast-check/Hypothesis |",
+          "after_value": 19170.0,
+          "before_snippet": "| 6,066 tests | Verification | 5,954 TypeScript + 112 Python; property-based with fast-check/Hypothesis |",
+          "before_value": 6066.0,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        },
+        {
+          "after_snippet": "| ~19,170 tests | Verification | 5,954 TypeScript + **13,216 Python** (`pytest --collect-only`, 2026-07-25, all under `tests/`); property-based with fast-check/Hypothesis |",
+          "after_value": 13216.0,
+          "before_snippet": "| 6,066 tests | Verification | 5,954 TypeScript + 112 Python; property-based with fast-check/Hypothesis |",
+          "before_value": 112.0,
+          "context": {
+            "scope": "Python"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "scbe-stale-test-count",
+      "pull_request": 2724,
+      "repository": "issdandavis/SCBE-AETHERMOORE",
+      "url": "https://github.com/issdandavis/SCBE-AETHERMOORE/pull/2724"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "| **`test_vad_inter_transmission_gap_speech.flac`** | **0.791** | `0.687` | `0.932` | Oregon Hood River (`bcfy_feeds`) 15s stream chunk (`c1416cf1`): inter-transmission gap with short quiet bursts. Production-shaped VAD input. The 0.068 recall gap is edge clipping, not a dropped burst: `0.532-0.832`, `5.696-5.872`, `6.672-6.848`. At production `pad_sec = 0.3` this file scores `0.794` / `0.659` / `1.000`. |",
+          "after_value": 0.791,
+          "before_snippet": "| **`test_vad_inter_transmission_gap_speech.flac`** | **0.794** | `0.658` | `1.000` | Watch Duty live feed inter-transmission gap with short speech bursts (`c1416cf1`). |",
+          "before_value": 0.794,
+          "context": {
+            "system": "test_vad_inter_transmission_gap_speech.flac"
+          },
+          "file": "backend/pipeline/segmentation/tests/VAD_BENCHMARKS.md",
+          "metric": "f1"
+        },
+        {
+          "after_snippet": "| **`test_vad_inter_transmission_gap_speech.flac`** | **0.791** | `0.687` | `0.932` | Oregon Hood River (`bcfy_feeds`) 15s stream chunk (`c1416cf1`): inter-transmission gap with short quiet bursts. Production-shaped VAD input. The 0.068 recall gap is edge clipping, not a dropped burst: `0.532-0.832`, `5.696-5.872`, `6.672-6.848`. At production `pad_sec = 0.3` this file scores `0.794` / `0.659` / `1.000`. |",
+          "after_value": 0.687,
+          "before_snippet": "| **`test_vad_inter_transmission_gap_speech.flac`** | **0.794** | `0.658` | `1.000` | Watch Duty live feed inter-transmission gap with short speech bursts (`c1416cf1`). |",
+          "before_value": 0.658,
+          "context": {
+            "system": "test_vad_inter_transmission_gap_speech.flac"
+          },
+          "file": "backend/pipeline/segmentation/tests/VAD_BENCHMARKS.md",
+          "metric": "precision"
+        },
+        {
+          "after_snippet": "| **`test_vad_inter_transmission_gap_speech.flac`** | **0.791** | `0.687` | `0.932` | Oregon Hood River (`bcfy_feeds`) 15s stream chunk (`c1416cf1`): inter-transmission gap with short quiet bursts. Production-shaped VAD input. The 0.068 recall gap is edge clipping, not a dropped burst: `0.532-0.832`, `5.696-5.872`, `6.672-6.848`. At production `pad_sec = 0.3` this file scores `0.794` / `0.659` / `1.000`. |",
+          "after_value": 0.932,
+          "before_snippet": "| **`test_vad_inter_transmission_gap_speech.flac`** | **0.794** | `0.658` | `1.000` | Watch Duty live feed inter-transmission gap with short speech bursts (`c1416cf1`). |",
+          "before_value": 1.0,
+          "context": {
+            "system": "test_vad_inter_transmission_gap_speech.flac"
+          },
+          "file": "backend/pipeline/segmentation/tests/VAD_BENCHMARKS.md",
+          "metric": "recall"
+        }
+      ],
+      "files": [
+        "backend/pipeline/segmentation/tests/VAD_BENCHMARKS.md"
+      ],
+      "id": "hood-river-vad-config-correction",
+      "pull_request": 1163,
+      "repository": "watch-duty/radio-transcription",
+      "url": "https://github.com/watch-duty/radio-transcription/pull/1163"
+    }
+  ],
+  "evaluator_commit": "901352b",
+  "parser_output_used": false,
+  "schema_version": "reprocheck.upstream-discovery-cases.v7"
+}

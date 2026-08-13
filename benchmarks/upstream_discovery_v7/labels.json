@@ -1,0 +1,1132 @@
+{
+  "eligible_cases": 4,
+  "labels": [
+    {
+      "eligible": false,
+      "pull_request": 28,
+      "rank": 1,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "fashioncloud/coding-challenge"
+    },
+    {
+      "eligible": false,
+      "pull_request": 17,
+      "rank": 2,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "hjmsano/frostpillar-btree"
+    },
+    {
+      "eligible": false,
+      "pull_request": 11,
+      "rank": 3,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Cohexa-ai/agent-coherence"
+    },
+    {
+      "eligible": false,
+      "pull_request": 127,
+      "rank": 4,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "divyeshio/commandly"
+    },
+    {
+      "eligible": false,
+      "pull_request": 38316,
+      "rank": 5,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "wazuh/wazuh"
+    },
+    {
+      "eligible": false,
+      "pull_request": 45,
+      "rank": 6,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "shiftbloom-studio/open-hallucination-index"
+    },
+    {
+      "eligible": false,
+      "pull_request": 65,
+      "rank": 7,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "technomensch/knowledge-graph"
+    },
+    {
+      "eligible": false,
+      "pull_request": 61,
+      "rank": 8,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "VeyronSakai/Zenn"
+    },
+    {
+      "eligible": false,
+      "pull_request": 10,
+      "rank": 9,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "NoClueMike/mitmproxy"
+    },
+    {
+      "eligible": false,
+      "pull_request": 10,
+      "rank": 10,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Vinclin/MEANStack_with_Atlas_on_AWS_EB"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 11,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "mike-arbuzov365/engineering-intelligence-framework"
+    },
+    {
+      "eligible": false,
+      "pull_request": 132,
+      "rank": 12,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "aiparallel0/kaggle"
+    },
+    {
+      "eligible": false,
+      "pull_request": 180,
+      "rank": 13,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "yarrasys/yarramate"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3,
+      "rank": 14,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "ivanm696/bolt.diy-main"
+    },
+    {
+      "eligible": false,
+      "pull_request": 394,
+      "rank": 15,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "El3ssar/ResDAG"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1720,
+      "rank": 16,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "esengine/DeepSeek-Reasonix"
+    },
+    {
+      "eligible": false,
+      "pull_request": 586,
+      "rank": 17,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "mbolaris/tank"
+    },
+    {
+      "eligible": false,
+      "pull_request": 17,
+      "rank": 18,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "scorpion7slayer/benchsift"
+    },
+    {
+      "eligible": false,
+      "pull_request": 6,
+      "rank": 19,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "dend/guildbridge"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3298,
+      "rank": 20,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "apache/fory"
+    },
+    {
+      "eligible": false,
+      "pull_request": 31,
+      "rank": 21,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "aponiajs/aponiajs"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4,
+      "rank": 22,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "bhavi-321/safe_legal_ai"
+    },
+    {
+      "eligible": false,
+      "pull_request": 15973,
+      "rank": 23,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "tsz-org/tsz"
+    },
+    {
+      "eligible": false,
+      "pull_request": 45,
+      "rank": 24,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Donovoi/bstrings"
+    },
+    {
+      "eligible": false,
+      "pull_request": 6,
+      "rank": 25,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "decisionsynth/decisionsynth-bench"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1545,
+      "rank": 26,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "nash226/quorum"
+    },
+    {
+      "eligible": false,
+      "pull_request": 195,
+      "rank": 27,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "bertpl/counted-float"
+    },
+    {
+      "eligible": false,
+      "pull_request": 216,
+      "rank": 28,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "one21labs/one21tools"
+    },
+    {
+      "eligible": false,
+      "pull_request": 29,
+      "rank": 29,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Starbhein/Distribution-Calculator"
+    },
+    {
+      "eligible": false,
+      "pull_request": 39,
+      "rank": 30,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "AuraIDToken/aura-guard-v1.3"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 31,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Sahil-SS9/hermes-memlock"
+    },
+    {
+      "eligible": false,
+      "pull_request": 871,
+      "rank": 32,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "agonza1/rtc-asr"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1847,
+      "rank": 33,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "rivet-dev/agentos"
+    },
+    {
+      "eligible": false,
+      "pull_request": 343,
+      "rank": 34,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "jeremydaly/lambda-api"
+    },
+    {
+      "eligible": false,
+      "pull_request": 14,
+      "rank": 35,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "rekal-dev/rekal-cli"
+    },
+    {
+      "eligible": false,
+      "pull_request": 23,
+      "rank": 36,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "KoichiroKAMADA/Yashima"
+    },
+    {
+      "eligible": false,
+      "pull_request": 9,
+      "rank": 37,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "schultz-is/go-threefish"
+    },
+    {
+      "case_id": "oans-stale-hashfile-sizes",
+      "eligible": true,
+      "pull_request": 151,
+      "rank": 38,
+      "reason": "same-scope stale or misconfigured numeric report correction",
+      "repository": "martinus/oans"
+    },
+    {
+      "eligible": false,
+      "pull_request": 68,
+      "rank": 39,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "finalflash159/soca"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3,
+      "rank": 40,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "henry753951/volley-court-training"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 41,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "CROCODILE-CESM/SeaSloth"
+    },
+    {
+      "eligible": false,
+      "pull_request": 7,
+      "rank": 42,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "MounibNemmiche/NNDL-Project-SaliencyPrediction"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 43,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "suyash333/TASS-protocol"
+    },
+    {
+      "eligible": false,
+      "pull_request": 14,
+      "rank": 44,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "YASSERRMD/barq-wasm"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2165,
+      "rank": 45,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "alex-place/lantern-os"
+    },
+    {
+      "eligible": false,
+      "pull_request": 33,
+      "rank": 46,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "sahilchopra-design/sustainability-platform-v2"
+    },
+    {
+      "eligible": false,
+      "pull_request": 355,
+      "rank": 47,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "krystophny/liric"
+    },
+    {
+      "eligible": false,
+      "pull_request": 10,
+      "rank": 48,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Pisama-AI/pisama-python"
+    },
+    {
+      "eligible": false,
+      "pull_request": 15,
+      "rank": 49,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Polished-Snow/Kipp"
+    },
+    {
+      "eligible": false,
+      "pull_request": 24,
+      "rank": 50,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Rinkia/modscan"
+    },
+    {
+      "eligible": false,
+      "pull_request": 16,
+      "rank": 51,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "MuhammadHassanminhas/DATA-CLEANING-DISTRIBUTED-SYSTEM"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5,
+      "rank": 52,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "arekborek/b00b0-sparkrun"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3,
+      "rank": 53,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "SomyaST2005/Image-Steganography"
+    },
+    {
+      "eligible": false,
+      "pull_request": 121,
+      "rank": 54,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "AbhiShake1/biswaas"
+    },
+    {
+      "eligible": false,
+      "pull_request": 52,
+      "rank": 55,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "AnaZec/image-restoration-pipeline"
+    },
+    {
+      "eligible": false,
+      "pull_request": 409,
+      "rank": 56,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "lbliii/bengal"
+    },
+    {
+      "eligible": false,
+      "pull_request": 569,
+      "rank": 57,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Vinix24/vnx-orchestration"
+    },
+    {
+      "eligible": false,
+      "pull_request": 8459,
+      "rank": 58,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "jsboige/CoursIA"
+    },
+    {
+      "eligible": false,
+      "pull_request": 303,
+      "rank": 59,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "archledger/irlume"
+    },
+    {
+      "eligible": false,
+      "pull_request": 309,
+      "rank": 60,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "freelawproject/eyecite"
+    },
+    {
+      "eligible": false,
+      "pull_request": 53,
+      "rank": 61,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "rendro/sediment"
+    },
+    {
+      "eligible": false,
+      "pull_request": 23,
+      "rank": 62,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "SamJSui/jetsonfabric"
+    },
+    {
+      "eligible": false,
+      "pull_request": 31507,
+      "rank": 63,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "sgl-project/sglang"
+    },
+    {
+      "eligible": false,
+      "pull_request": 29,
+      "rank": 64,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "erenyenigul/c11tester-bounded-window"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 65,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "juanjuandog/team-buy-platform"
+    },
+    {
+      "eligible": false,
+      "pull_request": 112,
+      "rank": 66,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "ianshank/AlphaGalerkin"
+    },
+    {
+      "eligible": false,
+      "pull_request": 6,
+      "rank": 67,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "thtran97/orienteering-cpp"
+    },
+    {
+      "eligible": false,
+      "pull_request": 358,
+      "rank": 68,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "wirestead/wirestead"
+    },
+    {
+      "eligible": false,
+      "pull_request": 23,
+      "rank": 69,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "mikhaeelatefrizk/bindsight"
+    },
+    {
+      "case_id": "inferedge-rknn-document-sync",
+      "eligible": true,
+      "pull_request": 90,
+      "rank": 70,
+      "reason": "same-scope stale or misconfigured numeric report correction",
+      "repository": "gwonxhj/InferEdgeLab"
+    },
+    {
+      "eligible": false,
+      "pull_request": 10,
+      "rank": 71,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "jafin/XLBench"
+    },
+    {
+      "eligible": false,
+      "pull_request": 20,
+      "rank": 72,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "ThingsAI-io/6-nimmt-agent"
+    },
+    {
+      "eligible": false,
+      "pull_request": 328,
+      "rank": 73,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "kubescape/storage"
+    },
+    {
+      "eligible": false,
+      "pull_request": 111,
+      "rank": 74,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "conda/conda-rattler-solver"
+    },
+    {
+      "eligible": false,
+      "pull_request": 14,
+      "rank": 75,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "yourconscience/llm_quest_benchmark"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 76,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "brockpat/Data-Science-Agent"
+    },
+    {
+      "eligible": false,
+      "pull_request": 131,
+      "rank": 77,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "NVIDIA-NeMo/nemo-platform"
+    },
+    {
+      "eligible": false,
+      "pull_request": 236,
+      "rank": 78,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "rm-hull/dot-block"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 79,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Voyage-Pet-AI/voyage-ai-vet-evals"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4140,
+      "rank": 80,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "snissn/gomap"
+    },
+    {
+      "eligible": false,
+      "pull_request": 37,
+      "rank": 81,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "hyhy2001/cloudbees"
+    },
+    {
+      "eligible": false,
+      "pull_request": 42,
+      "rank": 82,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "vcms-io/solidis"
+    },
+    {
+      "eligible": false,
+      "pull_request": 40,
+      "rank": 83,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "manit2004/wgblas"
+    },
+    {
+      "eligible": false,
+      "pull_request": 137,
+      "rank": 84,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Kim-J-Smith/Embedded-Function"
+    },
+    {
+      "eligible": false,
+      "pull_request": 157,
+      "rank": 85,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Adit-Jain-srm/NightmareNet"
+    },
+    {
+      "eligible": false,
+      "pull_request": 57,
+      "rank": 86,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Enelsep/agent-smith"
+    },
+    {
+      "eligible": false,
+      "pull_request": 27,
+      "rank": 87,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "HuynhLoc2004/TitanCore"
+    },
+    {
+      "eligible": false,
+      "pull_request": 48,
+      "rank": 88,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "aarora79/agentic-coding-harness-benchmarks"
+    },
+    {
+      "eligible": false,
+      "pull_request": 172,
+      "rank": 89,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "eiserv/easySFTP"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 90,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "betyledix/dsa-project-2"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4,
+      "rank": 91,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "jaydb04374-creator/primarykey"
+    },
+    {
+      "eligible": false,
+      "pull_request": 176,
+      "rank": 92,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "gastongouron/ironpress"
+    },
+    {
+      "eligible": false,
+      "pull_request": 30,
+      "rank": 93,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "ziad-elsheikh/greenfield-mcp-dispatch"
+    },
+    {
+      "eligible": false,
+      "pull_request": 15,
+      "rank": 94,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "causely-oss/causely-client"
+    },
+    {
+      "eligible": false,
+      "pull_request": 165,
+      "rank": 95,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "oxc-project/bench-resolver"
+    },
+    {
+      "eligible": false,
+      "pull_request": 894,
+      "rank": 96,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "lightly-ai/lightly-train"
+    },
+    {
+      "eligible": false,
+      "pull_request": 358,
+      "rank": 97,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "KipData/KiteSQL"
+    },
+    {
+      "eligible": false,
+      "pull_request": 120,
+      "rank": 98,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "inclusionAI/cuLA"
+    },
+    {
+      "eligible": false,
+      "pull_request": 8,
+      "rank": 99,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "tuist/swifterpm"
+    },
+    {
+      "eligible": false,
+      "pull_request": 29,
+      "rank": 100,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "pipecat-ai/stt-benchmark"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1741,
+      "rank": 101,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "go-git/go-git"
+    },
+    {
+      "eligible": false,
+      "pull_request": 521,
+      "rank": 102,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "nicholasdbrady/foundry-docs"
+    },
+    {
+      "eligible": false,
+      "pull_request": 272,
+      "rank": 103,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "fourcolors/luna"
+    },
+    {
+      "eligible": false,
+      "pull_request": 21167,
+      "rank": 104,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "pulumi/pulumi"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1670,
+      "rank": 105,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "shubhodeep1/coding-workflows"
+    },
+    {
+      "eligible": false,
+      "pull_request": 77,
+      "rank": 106,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "konflux-ci/ko-builder"
+    },
+    {
+      "eligible": false,
+      "pull_request": 23,
+      "rank": 107,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "jordanconway/package-manager-hardening"
+    },
+    {
+      "eligible": false,
+      "pull_request": 23,
+      "rank": 108,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "jacksonanstee/agent-harness-JA"
+    },
+    {
+      "eligible": false,
+      "pull_request": 31,
+      "rank": 109,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "kodustech/kodus-graph"
+    },
+    {
+      "eligible": false,
+      "pull_request": 121,
+      "rank": 110,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "grafana/Kost"
+    },
+    {
+      "eligible": false,
+      "pull_request": 15,
+      "rank": 111,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "tg12/phantomcreds"
+    },
+    {
+      "eligible": false,
+      "pull_request": 86,
+      "rank": 112,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "evanharmon1/harmon-devkit"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 113,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "AmosBunde/anomaly-desk"
+    },
+    {
+      "eligible": false,
+      "pull_request": 350,
+      "rank": 114,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "The-Chamber-of-Us/libelle"
+    },
+    {
+      "eligible": false,
+      "pull_request": 5752,
+      "rank": 115,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "runatlantis/atlantis"
+    },
+    {
+      "eligible": false,
+      "pull_request": 74,
+      "rank": 116,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "joshnroy/human-in-the-loop-practice-makes-perfect"
+    },
+    {
+      "eligible": false,
+      "pull_request": 42,
+      "rank": 117,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Dutchthenomad/VECTRA-PLAYER"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2463,
+      "rank": 118,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Aries-Serpent/_codex_"
+    },
+    {
+      "eligible": false,
+      "pull_request": 12578,
+      "rank": 119,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "ls1intum/Artemis"
+    },
+    {
+      "eligible": false,
+      "pull_request": 2,
+      "rank": 120,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "kushalkrishnappa/fai-final-project-2026"
+    },
+    {
+      "eligible": false,
+      "pull_request": 237,
+      "rank": 121,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "rust-works/succinctly"
+    },
+    {
+      "eligible": false,
+      "pull_request": 203,
+      "rank": 122,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "sagarm85/unidb"
+    },
+    {
+      "eligible": false,
+      "pull_request": 130,
+      "rank": 123,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "chiruu12/marshal"
+    },
+    {
+      "eligible": false,
+      "pull_request": 100,
+      "rank": 124,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "antonyrag/ragleap-core"
+    },
+    {
+      "eligible": false,
+      "pull_request": 13,
+      "rank": 125,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "derivexyz/derive-py"
+    },
+    {
+      "eligible": false,
+      "pull_request": 22,
+      "rank": 126,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "theatrus/seiza"
+    },
+    {
+      "eligible": false,
+      "pull_request": 117,
+      "rank": 127,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "xywei/volumential"
+    },
+    {
+      "eligible": false,
+      "pull_request": 164,
+      "rank": 128,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "stellayazilim/Ergosfare"
+    },
+    {
+      "eligible": false,
+      "pull_request": 15,
+      "rank": 129,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "singhangadin/DGX-Spark-Dashboard"
+    },
+    {
+      "eligible": false,
+      "pull_request": 120,
+      "rank": 130,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Lexmata/daimon"
+    },
+    {
+      "eligible": false,
+      "pull_request": 223,
+      "rank": 131,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "konjoai/squish"
+    },
+    {
+      "eligible": false,
+      "pull_request": 55,
+      "rank": 132,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "ynotbhatc/rego_policy_libraries"
+    },
+    {
+      "eligible": false,
+      "pull_request": 16,
+      "rank": 133,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "BNHR-dev/AI_ASSISTANT_CORE"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1260,
+      "rank": 134,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "roboflow/rf-detr"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1,
+      "rank": 135,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "niguang220/ledger"
+    },
+    {
+      "eligible": false,
+      "pull_request": 17,
+      "rank": 136,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Shaked98/avraham-sql-tools"
+    },
+    {
+      "eligible": false,
+      "pull_request": 130,
+      "rank": 137,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "jagoff/memo"
+    },
+    {
+      "eligible": false,
+      "pull_request": 19,
+      "rank": 138,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "coleleavitt/codegraph"
+    },
+    {
+      "eligible": false,
+      "pull_request": 901,
+      "rank": 139,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "repowise-dev/repowise"
+    },
+    {
+      "eligible": false,
+      "pull_request": 24,
+      "rank": 140,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "lfarrand/QrShard"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4739,
+      "rank": 141,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "DataDog/dd-trace-go"
+    },
+    {
+      "eligible": false,
+      "pull_request": 115,
+      "rank": 142,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Simon-He95/vue-tui"
+    },
+    {
+      "eligible": false,
+      "pull_request": 125,
+      "rank": 143,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "darknightdesigner/not-a-wrapper"
+    },
+    {
+      "eligible": false,
+      "pull_request": 3,
+      "rank": 144,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "chyones/OneDrive-Server-Transfer"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1740,
+      "rank": 145,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "joshuaswarren/remnic"
+    },
+    {
+      "eligible": false,
+      "pull_request": 21,
+      "rank": 146,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "noordeen123/culprit"
+    },
+    {
+      "eligible": false,
+      "pull_request": 170,
+      "rank": 147,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "johnhughes3/LegalForecastBench"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1513,
+      "rank": 148,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Broiler-Platform/Broiler"
+    },
+    {
+      "eligible": false,
+      "pull_request": 393,
+      "rank": 149,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "ronamosa/ronamosa.github.io"
+    },
+    {
+      "eligible": false,
+      "pull_request": 764,
+      "rank": 150,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "driftsys/dashscene"
+    },
+    {
+      "case_id": "scbe-stale-test-count",
+      "eligible": true,
+      "pull_request": 2724,
+      "rank": 151,
+      "reason": "same-scope stale or misconfigured numeric report correction",
+      "repository": "issdandavis/SCBE-AETHERMOORE"
+    },
+    {
+      "eligible": false,
+      "pull_request": 449,
+      "rank": 152,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "thomasluizon/orbit-api"
+    },
+    {
+      "case_id": "hood-river-vad-config-correction",
+      "eligible": true,
+      "pull_request": 1163,
+      "rank": 153,
+      "reason": "same-scope stale or misconfigured numeric report correction",
+      "repository": "watch-duty/radio-transcription"
+    },
+    {
+      "eligible": false,
+      "pull_request": 261,
+      "rank": 154,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "pedrobzz/AckerDB"
+    },
+    {
+      "eligible": false,
+      "pull_request": 526,
+      "rank": 155,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "doppler-dsp/doppler"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1632,
+      "rank": 156,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "rtk-ai/rtk"
+    },
+    {
+      "eligible": false,
+      "pull_request": 1892,
+      "rank": 157,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "SemiAnalysisAI/InferenceX"
+    },
+    {
+      "eligible": false,
+      "pull_request": 146,
+      "rank": 158,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "Arcanada-one/cubrim"
+    },
+    {
+      "eligible": false,
+      "pull_request": 4,
+      "rank": 159,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "bansalbhunesh/CourseFuzz"
+    },
+    {
+      "eligible": false,
+      "pull_request": 449,
+      "rank": 160,
+      "reason": "no eligible same-scope empirical correction after manual semantic review",
+      "repository": "trex0092/HAWKEYE-STERLING-RA"
+    }
+  ],
+  "parser_output_used": false,
+  "sample_size": 160,
+  "schema_version": "reprocheck.upstream-discovery-labels.v7"
+}

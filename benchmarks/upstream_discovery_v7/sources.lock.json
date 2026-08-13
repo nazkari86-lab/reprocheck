@@ -1,0 +1,37 @@
+{
+  "files": {
+    "hood-river-vad-config-correction--backend__pipeline__segmentation__tests__VAD_BENCHMARKS.md.after.md": {
+      "sha256": "7678987087b5e9c25db5181b0416fe1fa863b2c85320765447afca8f9b751229",
+      "url": "https://raw.githubusercontent.com/watch-duty/radio-transcription/ed68cb709544f275beb924a9a324a4ca54af6320/backend/pipeline/segmentation/tests/VAD_BENCHMARKS.md"
+    },
+    "hood-river-vad-config-correction--backend__pipeline__segmentation__tests__VAD_BENCHMARKS.md.before.md": {
+      "sha256": "0f8a717335051008a86ecddb73f23938a57ca64c3b642962004d6226e2fa978f",
+      "url": "https://raw.githubusercontent.com/watch-duty/radio-transcription/17f045d8e28ccf0f0e9d29fcc901ed4c19246be0/backend/pipeline/segmentation/tests/VAD_BENCHMARKS.md"
+    },
+    "inferedge-rknn-document-sync--README.md.after.md": {
+      "sha256": "e207a5aab124e4b6ad1f490c331f36192d17aa31919d74a428ada585b7ebdb41",
+      "url": "https://raw.githubusercontent.com/gwonxhj/InferEdgeLab/5d117d3bbed2e9ce56d0f0d3fef9b23e529a3295/README.md"
+    },
+    "inferedge-rknn-document-sync--README.md.before.md": {
+      "sha256": "304d256b662205ae6f11a69c83641a609bd91b28678ae063f4723f35dad87a0e",
+      "url": "https://raw.githubusercontent.com/gwonxhj/InferEdgeLab/110a70aa8744465ff316458aa670665c28856fdc/README.md"
+    },
+    "oans-stale-hashfile-sizes--README.md.after.md": {
+      "sha256": "dac42d26b25d64433ecc24887f6657830e0322df1c75ba3ed885a893f238b706",
+      "url": "https://raw.githubusercontent.com/martinus/oans/1867cdc6bdf1c358028b8d8f062a017277d3503e/README.md"
+    },
+    "oans-stale-hashfile-sizes--README.md.before.md": {
+      "sha256": "cdd05415083ff1be4830d9080cd62b6d70afda8f4994fb69fbf0cdd088d1a725",
+      "url": "https://raw.githubusercontent.com/martinus/oans/114efaf70d1e8f160b73aa57896808034ddff550/README.md"
+    },
+    "scbe-stale-test-count--README.md.after.md": {
+      "sha256": "5116dc8d2a8b11790a7c9d6d875f3acf2964229b142e94d2ccb4dab4dfd8c117",
+      "url": "https://raw.githubusercontent.com/issdandavis/SCBE-AETHERMOORE/acd3f7ba42d4011c21b21ea8d6db80b99042e27d/README.md"
+    },
+    "scbe-stale-test-count--README.md.before.md": {
+      "sha256": "9e19691cab216aaba237e26c32dfe408a66ac26d51ed340eb7b41283613d56eb",
+      "url": "https://raw.githubusercontent.com/issdandavis/SCBE-AETHERMOORE/c083c58edba5fa591c951c8a78236fa765b80126/README.md"
+    }
+  },
+  "schema_version": "reprocheck.upstream-discovery-sources-lock.v5"
+}

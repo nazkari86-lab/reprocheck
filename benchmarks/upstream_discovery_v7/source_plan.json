@@ -1,0 +1,9 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-source-plan.v7",
+  "cases": [
+    {"id": "oans-stale-hashfile-sizes", "rank": 38, "files": ["README.md"]},
+    {"id": "inferedge-rknn-document-sync", "rank": 70, "files": ["README.md"]},
+    {"id": "scbe-stale-test-count", "rank": 151, "files": ["README.md"]},
+    {"id": "hood-river-vad-config-correction", "rank": 153, "files": ["backend/pipeline/segmentation/tests/VAD_BENCHMARKS.md"]}
+  ]
+}
