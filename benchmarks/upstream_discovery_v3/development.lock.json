@@ -1,0 +1,8 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-development-lock.v1",
+  "implementation_commit": "724a66b5c8c94909cb116c8820c57eb564c7333e",
+  "development_result": {
+    "path": "results/development-current.json",
+    "sha256": "0f8d589f2b3042925ff92eb8597be8ba4912b1ef668a80708158b7e0fa28ec44"
+  }
+}

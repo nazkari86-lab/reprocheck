@@ -1,0 +1,426 @@
+{
+  "breadth": {
+    "independent_repository_owners": 2,
+    "metric_families": [
+      "information_retrieval_rank_metrics",
+      "swe_bench_verified"
+    ],
+    "repositories": 2,
+    "source_formats": [
+      "json",
+      "markdown_table"
+    ]
+  },
+  "case_visibility": 1.0,
+  "case_visibility_wilson_95": [
+    0.34238022750665303,
+    1.0
+  ],
+  "cases": [
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.151,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.142,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "map_1",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.236,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.216,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "map_10",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.175,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.159,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "map_3",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.187,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.17,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "map_4",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.199,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.182,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "map_5",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.151,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.142,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "mrr_1",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.265,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.249,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "mrr_10",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.206,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.192,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "mrr_3",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.221,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.204,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "mrr_4",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.233,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.217,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "mrr_5",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.151,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.142,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "ndcg_1",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.352,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.329,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "ndcg_10",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.225,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.209,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "ndcg_3",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.25,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.229,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "ndcg_4",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.273,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.254,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "ndcg_5",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.151,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.142,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "precision_1",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.077,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.072,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "precision_10",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.1,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.09,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "precision_3",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.092,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.082,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "precision_4",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.087,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.08,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "precision_5",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.123,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.114,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "recall_1",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.589,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.548,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "recall_10",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.238,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.212,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "recall_3",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.285,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.255,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "recall_4",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.34,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.312,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "recall_5",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.095,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.088,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "u_ndcg_2",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.133,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.12,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "u_ndcg_4",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.168,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.155,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "u_ndcg_6",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.184,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.169,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "u_recall_2",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.285,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.255,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "u_recall_4",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.386,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.357,
+          "file": "benchmarks/esmemeval/results.md",
+          "metric": "u_recall_6",
+          "passed": true
+        }
+      ],
+      "id": "emotional-memory-esmemeval-correction",
+      "passed": true,
+      "pull_request": 112,
+      "repository": "gianlucamazza/emotional-memory",
+      "selected_claims": 31,
+      "source_integrity": true,
+      "visible_claims": 31
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 96.0,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 80.0,
+          "file": "data/models.json",
+          "metric": "swebench",
+          "passed": true
+        }
+      ],
+      "id": "llmcompare-opus5-swebench",
+      "passed": true,
+      "pull_request": 18,
+      "repository": "gurunave/llmcompare",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    }
+  ],
+  "cases_sha256": "33356f82a693c2f5776851d0f78743908e56a17456c9c927b13253c044c149ac",
+  "claim_visibility": 1.0,
+  "claim_visibility_wilson_95": [
+    0.8928208017449293,
+    1.0
+  ],
+  "development_implementation_commit": "724a66b5c8c94909cb116c8820c57eb564c7333e",
+  "eligible_cases": 2,
+  "eligible_yield": 0.013333333333333334,
+  "eligible_yield_wilson_95": [
+    0.0036641291512270503,
+    0.04730690870036751
+  ],
+  "evaluation_role": "post_inspection_development",
+  "evaluator_commit": "7e5a6c087fc6f5e5df14ccde1c8436049c39c5b7",
+  "implementation_binding": "source tree committed with this result",
+  "independently_frozen_raw_evidence_cases": 0,
+  "labels_sha256": "07a1c059f4eddaf2dff7f0d0d26d3c2dae3db08b783945251ec433a96b265b9a",
+  "phase": "development-current",
+  "protocol_sha256": "2e9243a4533629cf7eb1426bef76cd81d99f785ee76f4ba176b1da104778b059",
+  "raw_evidence_agreement_rate": null,
+  "runtime_evaluator_version": "0.20.0",
+  "sample_sha256": "0578bbf8c145feb23f1a75012d4d055f14e7e7773d20adaf19fe52b881924418",
+  "sampled_pull_requests": 150,
+  "schema_version": "reprocheck.upstream-discovery-result.v2",
+  "scientific_boundary": "The deterministic sample estimates visibility only within five frozen, query-conditioned GitHub frames; it is not a population estimate. The two eligible cases are independent by owner but too few for a precise case-level rate.",
+  "selected_claims": 32,
+  "source_integrity": true,
+  "sources_lock_sha256": "d60c10fddb202bc625c2ca92684345b820edd87b119bd4e9ec6ee69844b14640",
+  "visible_cases": 2,
+  "visible_claims": 32
+}
