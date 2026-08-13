@@ -1,0 +1,95 @@
+{
+  "parser_output_used": false,
+  "reviews": [
+    {
+      "body": "## What this is\n\n**PLAN-0104 Step 7** — the gated live evidence run on MS-S1, executed under a **typed Cray §8 go requested for Step 7 by name (s228)**. This closes **AC-7**, the one claim no fixture can settle, and completes the PLAN **8/8**.\n\nOne warm + one sweep, per CLAUDE.md §8's minimize-live-runs rule. No other host state was touched.\n\n## Step 7's four pre-committed reads — all PASS\n\nThe pass/fail was fixed **in the PLAN before the run** and is read from there, never restated.\n\n| # | clause | result |\n|---|---|---|\n| 1 | Emission (AC-7-i) | ✅ nl-13 → `operation:\"count\"` **with** `group_by:\"asset_id\"`, emitted on the **first pass** |\n| 2 | Scoring (AC-7-ii) | ✅ `correct` under the exact, tolerance-free groups scorer; groups **relabelled to display names** — 5 / 3 / 3 / 2 = 13 |\n| 3 | Re-measurement (AC-7-ii) | ✅ 13 cases: **12/13**, expressible 92%, ceiling-rescue 100%, p50 15.9s / p95 75.7s |\n| 4 | No fixture re-recorded / no A/B re-run | ✅ `nl_query_ab_fixtures.py` diff empty |\n\n## Evidence integrity — checked BEFORE spending the run\n\n`CaseResult.query_json` comes from `ans.query`, which passes through the post-translate rewrite seam. Had `_infer_group_by` been able to synthesize a `group_by`, the artifact would have proved the **engine guessed it**, not that the **model emitted it** — which is the entire content of AC-7. `nl_query.py:971` early-returns unless `operation` is `max`/`min`, so it cannot fire on a `count` case.\n\nThe `goal-evaluator` independently corroborated this by a route I had not used: `:979` is the **only** site in the module that ever writes `group_by`, and `limit` varies across count cases (nl-02 → 1, nl-13 → 100), which a canned JSON would not.\n\n## 🔴 The prior figure is RETIRED, not overwritten — and the obvious citation is a trap\n\n`RESULTS.md:116`'s **`11/12` is the text-to-SQL arm**; the engine-A figure on that line is `8/12`. The prior **engine-A** accuracy is AC-9's `11/12` at **`RESULTS.md:316`** (2026-06-16, session 62). The two coincidentally share a number — which is precisely how the wrong one gets retired.\n\nThe record states both figures, the full lineage (`8/12 → 10/12 → 11/12 → [prompt + gold change] → 12/13`), **two independent sufficient reasons** (the shared system prompt changed in #1149; the gold set grew 12 → 13), an explicit *\"must not be cited as an improvement\"*, and a reading note disambiguating the arms. The original line is left intact.\n\n## The lone miss (nl-06) — investigated before merge, per clause 3\n\nnl-06 was correct in the prior recorded run, so the clause's single re-run applied. **It failed again**, which the clause makes *\"a defect investigated before merge, not noise.\"*\n\n**Finding: not a PLAN-0104 regression.**\n\n- Failure shape is the catalogued whole-table filter-omission (`filters:[]` → all 4 assets), in this file since the 2026-06-14 spike\n- #1149's diff changes **only the OPERATION sentence** — the FILTERS sentence is **byte-identical**\n- The class is recorded as run-to-run variance and **the victim moved**: AC-9's lone miss was nl-01, which is **correct in this run**\n- Both remedies are **proven negative** on this axis: 4 model families, 3 prompt variants, 5+ live runs\n- Answer-correct, zero fabrication\n\n**The one alternative a single sweep cannot refute to zero is recorded rather than smoothed over** — that the lengthened OPERATION sentence mildly dilutes attention to the FILTERS sentence — with its reopen condition stated in place: a future sweep showing simple-list filter-omission **concentrating** rather than **moving**.\n\n## Bookkeeping correction, surfaced rather than silently fixed\n\n`STATUS.md:115` asserts *\"AC-1..AC-6 and AC-8 are CLOSED\"*, but **every AC checkbox in the PLAN was still `[ ]` on disk** — the work shipped in #1145/#1148/#1149 and the closure was recorded only in STATUS. All eight are now ticked.\n\nTo be explicit about the basis: **AC-1..AC-6 and AC-8 are ticked against those merged PRs' recorded gate runs plus this PR's own full gate — not a fresh per-AC re-derivation.** AC-7 is closed by this run's evidence.\n\n## Gates\n\nCaptured **after committing, before pushing**:\n\n- full `tests/` — **4045 passed, 8 skipped**\n- `mypy --strict services/` — clean over **134** source files\n- `ruff check .` + `ruff format --check .` — clean, **judged on the HEAD tree** (`git archive HEAD`), because a bare run in the working dir also lints the untracked `.claude/benchmark-results/` and reports an S108 that is not in the repo\n\n## Not in this PR, deliberately\n\nArchiving PLAN-0104 to `docs/plans/done/` — the move requires retargeting every tracked reference in the same commit (R8), which belongs with the STATUS reconcile.\n\nRefs: PLAN-0104 Step 7 + AC-7; CLAUDE.md §8; #1145 / #1148 / #1149.\n",
+      "changed_files": 2,
+      "merge_commit_sha": "ad2804d1e79d7f7b13c17acd2bbfcc209f2a4595",
+      "merge_parent_sha": "33dfc26cf5dfe253aca50adb8224a6d6402dd6e6",
+      "paired_numeric_report_files": [
+        {
+          "added_numeric_lines": [
+            "+**Status:** Complete (8/8 ACs closed, session 228)",
+            "+- [x] **AC-1 — the validator admits exactly the new pair, nothing else.**",
+            "+- [x] **AC-2 — the scenario test drives the real producer into the real",
+            "+- [x] **AC-3 — ungrouped `count` is regression-frozen.** Every existing",
+            "+- [x] **AC-4 — the benchmark's own gold is repaired and the repair is",
+            "+- [x] **AC-5 — the run-corpus surface never silently collapses a grouped",
+            "+- [x] **AC-6 — the gold set gains the grouped-count case, offline.**",
+            "+- [x] **AC-7 — the live model emits the pair, measured on MS-S1 (HOST-STATE —",
+            "+- [x] **AC-8 — gates and the frozen corpus.** Full `tests/` green, `mypy",
+            "+✅ **EXECUTED s228 under Cray's typed §8 go, requested for this step by name.**",
+            "+`benchmarks/nl_query_feasibility/RESULTS.md` §\"Addendum — PLAN-0104 Step 7 live",
+            "+evidence run\" — **read it, not this summary**. Headline: nl-13 emitted",
+            "+`correct`; **12/13** over the full gold set; the prior **11/12** (AC-9,",
+            "+2026-06-16) is **RETIRED as non-comparable** for two independent reasons",
+            "+(the shared prompt changed in #1149; the gold set grew 12 → 13). The lone miss",
+            "+(nl-06) was re-run once per clause 3, failed again, and was **investigated",
+            "+variance — #1149's diff leaves the FILTERS sentence byte-identical, and the",
+            "+victim moved (AC-9's miss was nl-01, correct in this run) — **not a PLAN-0104"
+          ],
+          "filename": "docs/plans/0104-nl-query-count-with-group-by.md",
+          "removed_numeric_lines": [
+            "-- [ ] **AC-1 — the validator admits exactly the new pair, nothing else.**",
+            "-- [ ] **AC-2 — the scenario test drives the real producer into the real",
+            "-- [ ] **AC-3 — ungrouped `count` is regression-frozen.** Every existing",
+            "-- [ ] **AC-4 — the benchmark's own gold is repaired and the repair is",
+            "-- [ ] **AC-5 — the run-corpus surface never silently collapses a grouped",
+            "-- [ ] **AC-6 — the gold set gains the grouped-count case, offline.**",
+            "-- [ ] **AC-7 — the live model emits the pair, measured on MS-S1 (HOST-STATE —",
+            "-- [ ] **AC-8 — gates and the frozen corpus.** Full `tests/` green, `mypy"
+          ],
+          "status": "modified"
+        }
+      ],
+      "pull_request": 1151,
+      "rank": 1,
+      "report_files_without_patch": [],
+      "repository": "CrayJThiemsert/vero-lite",
+      "title": "docs(nl-query): PLAN-0104 Step 7 live evidence — AC-7 closed, prior accuracy RETIRED",
+      "url": "https://github.com/CrayJThiemsert/vero-lite/pull/1151"
+    },
+    {
+      "body": "<!--\r\nPlease submit this PR as a draft initially.\r\n\r\nDo not mark it as \"Ready for review\" until this PR meets the canonical\r\nDefinition of Ready For Review in `docs/readme/ready-for-review.md`.\r\n\r\nIn short: the template must be materially complete (not just section titles\r\npresent), all status checks must be currently passing, and the only expected\r\nfollow-up commits must be reviewer-driven.\r\n-->\r\n<!--\r\nmms-check directive vocabulary — read by .github/scripts/shared/pr-template-checks.ts\r\nat module load to build the validation plan. Directives are invisible in rendered\r\nmarkdown and must NOT be removed or edited without updating the validator registry.\r\n\r\n  type=text           Section must contain non-placeholder prose.\r\n  type=changelog      Section must have a valid CHANGELOG entry: line.\r\n  type=issue-link     Section must have a Fixes:/Closes:/Refs: line with a value.\r\n  type=manual-testing Section must have real testing steps or an explicit N/A.\r\n  type=screenshot     Section must have evidence (image/URL) or an explicit N/A.\r\n  type=checklist      Section must have all checkboxes consciously checked.\r\n  required=true|false Whether a missing/invalid section runs the validator at all.\r\n  blocking=true|false Whether a failure of this check fails the CI workflow.\r\n                      Default: false — failures are shown as warnings in the sticky\r\n                      comment but do not block the PR.\r\n\r\nSections without a directive are checked for structural presence only.\r\n-->\r\n\r\n## **Description**\r\n\r\n<!-- mms-check: type=text required=true -->\r\n\r\n<!--\r\nWrite a short description of the changes included in this pull request, also include relevant motivation and context. Have in mind the following questions:\r\n1. What is the reason for the change?\r\n2. What is the improvement/solution?\r\n-->\r\n\r\n## **Changelog**\r\n\r\n<!-- mms-check: type=changelog required=true blocking=true -->\r\n\r\n<!--\r\nIf this PR is not End-User-Facing and should not show up in the CHANGELOG, you can choose to either:\r\n1. Write `CHANGELOG entry: null`\r\n2. Label with `no-changelog`\r\n\r\nIf this PR is End-User-Facing, please write a short User-Facing description in the past tense like:\r\n`CHANGELOG entry: Added a new tab for users to see their NFTs`\r\n`CHANGELOG entry: Fixed a bug that was causing some NFTs to flicker`\r\n\r\n(This helps the Release Engineer do their job more quickly and accurately)\r\n-->\r\n\r\nCHANGELOG entry:\r\n\r\n## **Related issues**\r\n\r\n<!-- mms-check: type=issue-link required=true -->\r\n\r\nFixes:\r\n\r\n## **Manual testing steps**\r\n\r\n<!-- mms-check: type=manual-testing required=true -->\r\n\r\n```gherkin\r\nFeature: my feature name\r\n\r\n  Scenario: user [verb for user action]\r\n    Given [describe expected initial app state]\r\n\r\n    When user [verb for user action]\r\n    Then [describe expected outcome]\r\n```\r\n\r\n## **Screenshots/Recordings**\r\n\r\n<!-- mms-check: type=screenshot required=true -->\r\n\r\n<!-- If applicable, add screenshots and/or recordings to visualize the before and after of your change. -->\r\n\r\n### **Before**\r\n\r\n<!-- [screenshots/recordings] -->\r\n\r\n### **After**\r\n\r\n<!-- [screenshots/recordings] -->\r\n\r\n## **Pre-merge author checklist**\r\n\r\n<!-- mms-check: type=checklist required=true -->\r\n\r\n<!--\r\nEvery checklist item must be consciously assessed before marking this PR as\r\n\"Ready for review\". A checked box means you deliberately considered that\r\nresponsibility, not that you literally performed every action listed.\r\n\r\nUnchecked boxes are ambiguous: they are not an implicit \"N/A\" and they are not\r\na silent \"skip\". See `docs/readme/ready-for-review.md` for the full checklist\r\nsemantics.\r\n-->\r\n\r\n- [ ] I've followed [MetaMask Contributor Docs](https://github.com/MetaMask/contributor-docs) and [MetaMask Mobile Coding Standards](https://github.com/MetaMask/metamask-mobile/blob/main/.github/guidelines/CODING_GUIDELINES.md).\r\n- [ ] I've completed the PR template to the best of my ability\r\n- [ ] I've included tests if applicable\r\n- [ ] I've documented my code using [JSDoc](https://jsdoc.app/) format if applicable\r\n- [ ] I've applied the right labels on the PR (see [labeling guidelines](https://github.com/MetaMask/metamask-mobile/blob/main/.github/guidelines/LABELING_GUIDELINES.md)). Not required for external contributors.\r\n\r\n#### Performance checks (if applicable)\r\n\r\n- [ ] I've tested on Android\r\n  - Ideally on a mid-range device; emulator is acceptable\r\n- [ ] I've tested with a power user scenario\r\n  - Use these [power-user SRPs](https://consensyssoftware.atlassian.net/wiki/spaces/TL1/pages/edit-v2/401401446401?draftShareId=9d77e1e1-4bdc-4be1-9ebb-ccd916988d93) to import wallets with many accounts and tokens\r\n- [ ] I've instrumented key operations with Sentry traces for production performance metrics\r\n  - See [`trace()`](/app/util/trace.ts) for usage and [`addToken`](/app/components/Views/AddAsset/components/AddCustomToken/AddCustomToken.tsx#L274) for an example\r\n\r\nFor performance guidelines and tooling, see the [Performance Guide](https://consensyssoftware.atlassian.net/wiki/spaces/TL1/pages/400085549067/Performance+Guide+for+Engineers).\r\n\r\n## **Pre-merge reviewer checklist**\r\n\r\n<!--\r\nReviewer checklist items follow the same semantics as the author checklist: an\r\nunchecked box is ambiguous, a checked box means the reviewer consciously\r\nassessed that responsibility. See `docs/readme/ready-for-review.md`.\r\n-->\r\n\r\n- [ ] I've manually tested the PR (e.g. pull and build branch, run the app, test code being changed).\r\n- [ ] I confirm that this PR addresses all acceptance criteria described in the ticket it closes and includes the necessary testing evidence such as recordings and or screenshots.\r\n\n<!-- CURSOR_SUMMARY -->\n---\n\n> [!NOTE]\n> **Low Risk**\n> Documentation-only CHANGELOG and link updates with no application code changes.\n> \n> **Overview**\n> Documents **8.6.1** in `CHANGELOG.md` with a **Fixed** entry for translation updates (#34315), inserted above the existing **8.6.0** section.\n> \n> Release compare links at the bottom are updated so **`[8.7.0]`** compares `v8.6.1...v8.7.0` (instead of `v8.6.0...v8.7.0`) and a new **`[8.6.1]`** link points at `v8.6.0...v8.6.1`.\n> \n> <sup>Reviewed by [Cursor Bugbot](https://cursor.com/bugbot) for commit 2363301e5a4d3c8494dde860385de075aec5df30. Bugbot is set up for automated code reviews on this repo. Configure [here](https://www.cursor.com/dashboard/bugbot).</sup>\n<!-- /CURSOR_SUMMARY -->",
+      "changed_files": 1,
+      "merge_commit_sha": "4a5d6d80de4b769c48fb18054b07d3ce44cc298f",
+      "merge_parent_sha": "59244f434c5ff61456a55903357f98a0f3cada84",
+      "paired_numeric_report_files": [
+        {
+          "added_numeric_lines": [
+            "+## [8.6.1]",
+            "+- Update translations (#34315)",
+            "+[8.7.0]: https://github.com/MetaMask/metamask-mobile/compare/v8.6.1...v8.7.0",
+            "+[8.6.1]: https://github.com/MetaMask/metamask-mobile/compare/v8.6.0...v8.6.1"
+          ],
+          "filename": "CHANGELOG.md",
+          "removed_numeric_lines": [
+            "-[8.7.0]: https://github.com/MetaMask/metamask-mobile/compare/v8.6.0...v8.7.0"
+          ],
+          "status": "modified"
+        }
+      ],
+      "pull_request": 34767,
+      "rank": 2,
+      "report_files_without_patch": [],
+      "repository": "MetaMask/metamask-mobile",
+      "title": "chore: update changelog 8.7.0",
+      "url": "https://github.com/MetaMask/metamask-mobile/pull/34767"
+    },
+    {
+      "body": "## Summary\n\nUpdates the `wow-look-at-my/dats` composite action so that on Linux it ensures bubblewrap sandboxing actually works before running tests. It installs `bubblewrap` if missing and clears Ubuntu 24.04's default `apparmor_restrict_unprivileged_userns` restriction when it blocks bwrap, matching the approach already used in this repo's own CI.\n\nThe final bwrap check has no fallback: a runner where sandboxing genuinely cannot work fails loudly rather than silently shipping unsandboxed test runs. The step is skipped on non-Linux (macOS uses seatbelt, which needs no such fix).\n\nAlso updates `README.md` and `CLAUDE.md` to document the new behavior and removes the `--no-sandbox` workaround from the example usage.\n\n## Test notes\n\n- The sysctl write is wrapped in `|| true` so it acts as a harmless probe on kernels without the knob; the authoritative pass/fail signal is the final bwrap re-check.\n- No test results are reported here; the change relies on the same `sudo sysctl` approach already proven in this repo's CI workflow.\n\n### Claude sessions\n\n- https://claude.ai/code/session_01JXwuTPBdcSRVkvKAD7TA3E",
+      "changed_files": 3,
+      "merge_commit_sha": "97f8122db678f3f51def5f78c8e0cce7c35228b0",
+      "merge_parent_sha": "1b584f8da0c879ec0f43131734691bd3ac6a8863",
+      "paired_numeric_report_files": [],
+      "pull_request": 34,
+      "rank": 3,
+      "report_files_without_patch": [],
+      "repository": "wow-look-at-my/dats",
+      "title": "Enable bubblewrap sandboxing in dats action on Linux",
+      "url": "https://github.com/wow-look-at-my/dats/pull/34"
+    }
+  ],
+  "sample_size": 3,
+  "schema_version": "reprocheck.upstream-discovery-review-packet.v5"
+}

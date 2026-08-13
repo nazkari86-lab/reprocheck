@@ -1,0 +1,20 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-study-lock.v9",
+  "status": "complete-zero-eligible",
+  "extractor_commit": "2eff4e8",
+  "extractor_version": "0.24.0",
+  "sha256": {
+    "README.md": "20d9a3ede26a3edcdac1302ca7c03b7d5777e1cc56c930fa9eb0423f703fb6eb",
+    "protocol.md": "a77026279b6b4b8afeeb1bfa6627963e2dd0825555518cf20aef5ed203501024",
+    "registration.json": "02125807f60f935c0e7616c6bc7c9e852521a29ade825148d1135373f2efb868",
+    "retrieve.py": "70367e4e8b33c0b899c4360ff72cd19ac46a63928a43bf0392c54fe682683c75",
+    "collect_details.py": "5e7c5020ac104ee8f078210d5845ab44191211f4bb6ee82683859c88f65f0203",
+    "build_review_packet.py": "9cb5d69862c65b7a3ac5ba0a18606c63b6fd0f288744c02e73c56c67b5edc007",
+    "frames.json": "24b5bd026c3f566c0dad46686d1d352033b6137a733d5df1dacf68d3491fc667",
+    "sample.json": "a97bbe96d1e4675b0771ff86836a7d3be127a40ed114f3a7840f3c2b7d4ea10d",
+    "details.json": "7cfe35e882c97a38792ac98c1e93c5848006185a85d5429a7eec5b63d29606e0",
+    "review_packet.json": "3f68d2db93c73f6572ada24a70b0ad588f6699eacac5e0198f16e9f83ee2d68d",
+    "labels.json": "b6fa460f9deb8aa304d41cce9b0a2130cbe5c8458a233941f8a083277eb61e3f",
+    "cases.json": "84d59be4c502620059c0e8904628d57c389abae42eb1e6cbf9902cbd9b7dc562"
+  }
+}

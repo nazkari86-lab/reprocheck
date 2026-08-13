@@ -1,0 +1,29 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-labels.v9",
+  "parser_output_used": false,
+  "sample_size": 3,
+  "eligible_cases": 0,
+  "labels": [
+    {
+      "rank": 1,
+      "repository": "CrayJThiemsert/vero-lite",
+      "pull_request": 1151,
+      "eligible": false,
+      "reason": "new live run after prompt change and gold-set expansion from 12 to 13; not a same-scope correction"
+    },
+    {
+      "rank": 2,
+      "repository": "MetaMask/metamask-mobile",
+      "pull_request": 34767,
+      "eligible": false,
+      "reason": "release changelog version update; no empirical numeric result correction"
+    },
+    {
+      "rank": 3,
+      "repository": "wow-look-at-my/dats",
+      "pull_request": 34,
+      "eligible": false,
+      "reason": "infrastructure documentation change explicitly reporting no test results"
+    }
+  ]
+}

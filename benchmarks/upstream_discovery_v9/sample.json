@@ -1,0 +1,43 @@
+{
+  "evaluator_commit": "2eff4e8",
+  "evaluator_version": "0.24.0",
+  "retrieved_at": "2026-08-13T17:25:15.720457Z",
+  "sample_size": 3,
+  "samples": [
+    {
+      "created_at": "2026-08-13T16:40:06Z",
+      "merged_at": "2026-08-13T16:59:48Z",
+      "pull_request": 1151,
+      "query_frame": 8,
+      "repository": "CrayJThiemsert/vero-lite",
+      "sample_digest": "b1f8850c92803852c4f94cd003adbb863948a4dd62b1f90420cbebf458089c53",
+      "sample_rank": 1,
+      "title": "docs(nl-query): PLAN-0104 Step 7 live evidence — AC-7 closed, prior accuracy RETIRED",
+      "url": "https://github.com/CrayJThiemsert/vero-lite/pull/1151"
+    },
+    {
+      "created_at": "2026-08-13T15:43:37Z",
+      "merged_at": "2026-08-13T16:52:11Z",
+      "pull_request": 34767,
+      "query_frame": 10,
+      "repository": "MetaMask/metamask-mobile",
+      "sample_digest": "e59b406e5111a43fc1c8401f219b66bf86fc665bce8f680b59eb6d9e899f391d",
+      "sample_rank": 2,
+      "title": "chore: update changelog 8.7.0",
+      "url": "https://github.com/MetaMask/metamask-mobile/pull/34767"
+    },
+    {
+      "created_at": "2026-08-13T16:25:27Z",
+      "merged_at": "2026-08-13T17:11:20Z",
+      "pull_request": 34,
+      "query_frame": 32,
+      "repository": "wow-look-at-my/dats",
+      "sample_digest": "3d8487a50f7a2266933706d31d9cbd8e37b2adb71ee083dec7b55b2a8b0f0edb",
+      "sample_rank": 3,
+      "title": "Enable bubblewrap sandboxing in dats action on Linux",
+      "url": "https://github.com/wow-look-at-my/dats/pull/34"
+    }
+  ],
+  "schema_version": "reprocheck.upstream-discovery-sample.v4",
+  "seed": "reprocheck-upstream-v9"
+}
