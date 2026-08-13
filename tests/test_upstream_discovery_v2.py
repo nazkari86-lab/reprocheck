@@ -43,4 +43,6 @@ def test_prospective_sample_labels_sources_and_zero_shot_are_locked() -> None:
         "claims": 15,
         "zero_shot_cases": 0,
         "zero_shot_claims": 0,
+        "development_cases": 3,
+        "development_claims": 15,
     }

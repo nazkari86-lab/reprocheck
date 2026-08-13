@@ -84,6 +84,7 @@ METRIC_ALIASES = {
     "sync time (w/o cache)": "sync_time_without_cache_seconds",
     "sync time (w/ cache)": "sync_time_with_cache_seconds",
     "speedup": "speedup",
+    "score": "score",
 }
 
 UNIT_INTERVAL_METRICS = {

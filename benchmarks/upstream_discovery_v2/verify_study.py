@@ -37,6 +37,7 @@ def verify() -> dict[str, object]:
     cases = _load(ROOT / "cases.json")
     sources_lock = _load(ROOT / "sources.lock.json")
     results_lock = _load(ROOT / "results.lock.json")
+    summary = _load(ROOT / "study-summary.json")
 
     assert frames["seed"] == sample["seed"] == SEED
     assert sample["evaluator_commit"] == cases["evaluator_commit"] == EXPECTED_EVALUATOR
@@ -114,6 +115,50 @@ def verify() -> dict[str, object]:
     assert zero_shot["visible_cases"] == zero_shot["visible_claims"] == 0
     assert zero_shot["source_integrity"] is True
 
+    development_path = ROOT / "results" / "development-current.json"
+    development = _load(development_path)
+    locked_development = results_lock["files"][development_path.name]
+    assert _sha256(development_path) == locked_development["sha256"]
+    assert development["phase"] == locked_development["phase"] == "development_after_zero_shot"
+    assert development["protocol_sha256"] == zero_shot["protocol_sha256"]
+    assert development["sample_sha256"] == zero_shot["sample_sha256"]
+    assert development["labels_sha256"] == zero_shot["labels_sha256"]
+    assert development["cases_sha256"] == zero_shot["cases_sha256"]
+    assert development["sampled_pull_requests"] == zero_shot["sampled_pull_requests"]
+    assert development["eligible_cases"] == zero_shot["eligible_cases"]
+    assert development["selected_claims"] == zero_shot["selected_claims"]
+    assert development["visible_cases"] == development["eligible_cases"] == 3
+    assert development["visible_claims"] == development["selected_claims"] == 15
+    assert development["source_integrity"] is True
+    assert development["evaluation_role"] == "post_inspection_development"
+    assert development["implementation_binding"] == "source tree committed with this result"
+    assert development["evaluator_version"] == "0.19.0"
+    assert (
+        development["evaluator_commit_role"] == "frozen baseline used for the zero-shot comparison"
+    )
+
+    assert summary["retrieval"] == {
+        "query_frames": 3,
+        "unique_candidates": 298,
+        "deterministic_sample": 75,
+        "adjudicated": 75,
+    }
+    assert summary["eligible"]["cases"] == development["eligible_cases"]
+    assert summary["eligible"]["selected_claims"] == development["selected_claims"]
+    assert summary["eligible"]["repositories"] == len(
+        {item["repository"] for item in cases["cases"]}
+    )
+    assert summary["eligible"]["independent_owners"] == len(
+        {item["repository"].split("/", 1)[0] for item in cases["cases"]}
+    )
+    assert summary["eligible"]["immutable_files"] == len(sources_lock["files"])
+    assert summary["frozen_zero_shot"]["cases_visible"] == zero_shot["visible_cases"]
+    assert summary["frozen_zero_shot"]["claims_visible"] == zero_shot["visible_claims"]
+    assert summary["post_inspection_development"]["cases_visible"] == development["visible_cases"]
+    assert summary["post_inspection_development"]["claims_visible"] == development["visible_claims"]
+    assert summary["independently_frozen_raw_evidence"]["cases"] == 0
+    assert summary["independently_frozen_raw_evidence"]["agreement_rate"] is None
+
     return {
         "candidates": len(all_candidates),
         "sample": len(sample_identities),
@@ -121,6 +166,8 @@ def verify() -> dict[str, object]:
         "claims": zero_shot["selected_claims"],
         "zero_shot_cases": zero_shot["visible_cases"],
         "zero_shot_claims": zero_shot["visible_claims"],
+        "development_cases": development["visible_cases"],
+        "development_claims": development["visible_claims"],
     }
 
 
@@ -131,6 +178,8 @@ def main() -> int:
         f"candidates={result['candidates']} sample={result['sample']} "
         f"eligible={result['eligible']} zero-shot-cases={result['zero_shot_cases']}/"
         f"{result['eligible']} zero-shot-claims={result['zero_shot_claims']}/"
+        f"{result['claims']} development-cases={result['development_cases']}/"
+        f"{result['eligible']} development-claims={result['development_claims']}/"
         f"{result['claims']}"
     )
     return 0

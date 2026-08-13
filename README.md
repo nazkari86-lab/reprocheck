@@ -82,6 +82,7 @@ reprocheck benchmark
 reprocheck ablation
 make expanded-experiments
 make upstream-corrections
+make upstream-discovery-v2
 reprocheck study --corpus benchmarks/real_artifacts
 reprocheck review-prepare --corpus benchmarks/holdout_v07_artifacts
 reprocheck serve
@@ -97,6 +98,16 @@ cases are additionally checked against immutable raw evidence. The first 12
 cases are retrospective; five more are the complete accepted subset of a frozen
 25-result GitHub search cohort, with a recorded reason for every exclusion. This
 is not a random sample or an estimate of recall over every repository defect.
+
+The stricter prospective study, `make upstream-discovery-v2`, froze its protocol
+and evaluator before retrieval, selected 75 pull requests deterministically
+from three query-conditioned frames, and labeled eligibility without using
+ReproCheck output. Three natural corrections with 15 selected claims were
+eligible. Frozen 0.18.0 recovered 0/3 cases and 0/15 claims; the explicitly
+post-inspection development parser recovers 3/3 and 15/15. The failures remain
+committed. Because only three eligible cases were found (4.0% yield; Wilson 95%
+CI 1.37%-11.11%), this is evidence of a corrected failure mode, not a universal
+recall estimate.
 
 The 12-case witness benchmark is controlled capability evidence. The separate
 30-case source-derived benchmark contains 27 deterministic mutations of three

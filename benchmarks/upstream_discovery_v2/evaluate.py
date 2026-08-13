@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from reprocheck.claims import extract_claims
+from reprocheck.version import __version__
 
 
 ROOT = Path(__file__).resolve().parent
@@ -145,6 +146,11 @@ def evaluate(output: Path, phase: str) -> dict[str, Any]:
             "query-conditioned GitHub frames; it does not estimate global defect prevalence."
         ),
     }
+    if phase.startswith("development"):
+        result["evaluation_role"] = "post_inspection_development"
+        result["implementation_binding"] = "source tree committed with this result"
+        result["evaluator_version"] = __version__
+        result["evaluator_commit_role"] = "frozen baseline used for the zero-shot comparison"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(
         json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2) + "\n",

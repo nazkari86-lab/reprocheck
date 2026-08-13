@@ -45,6 +45,12 @@ exact McNemar p=0.03125. Graph добавил три integrity cases, но p=0.2
 заморозил новые holdouts: 94.89% и 87.80% recall. Это показывает не идеальность
 parser, а дисциплину разделения zero-shot проверки и последующей доработки.»
 
+«В новом prospective поиске eligibility больше не зависела от parser. Я
+заранее заморозил три поисковых запроса и SHA-256 sampling, проверил 75 PR и
+нашел три подходящих естественных исправления. Версия 0.18.0 получила 0/3 и
+0/15 claims; после просмотра development-версия — 3/3 и 15/15. Я не называю
+это generalization: n=3, выборка query-conditioned, а failures сохранены.»
+
 ### 4:05-4:50 — новизна и аналоги
 
 «Static leakage analyzers, ReproZip, provenance models и artifact review уже

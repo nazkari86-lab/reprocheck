@@ -1,0 +1,38 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-summary.v1",
+  "retrieval": {
+    "query_frames": 3,
+    "unique_candidates": 298,
+    "deterministic_sample": 75,
+    "adjudicated": 75
+  },
+  "eligible": {
+    "cases": 3,
+    "yield": 0.04,
+    "yield_wilson_95": [0.013696064260143935, 0.11112987082403747],
+    "repositories": 3,
+    "independent_owners": 3,
+    "selected_claims": 15,
+    "immutable_files": 16
+  },
+  "frozen_zero_shot": {
+    "cases_visible": 0,
+    "claims_visible": 0,
+    "case_visibility": 0.0,
+    "claim_visibility": 0.0
+  },
+  "post_inspection_development": {
+    "cases_visible": 3,
+    "claims_visible": 15,
+    "case_visibility": 1.0,
+    "case_visibility_wilson_95": [0.4385029682449546, 1.0],
+    "claim_visibility": 1.0,
+    "claim_visibility_wilson_95": [0.7961166989641515, 1.0]
+  },
+  "independently_frozen_raw_evidence": {
+    "cases": 0,
+    "agreement_rate": null,
+    "reason": "The cohort freezes corrected publication pairs but no independent raw experimental evidence."
+  },
+  "scientific_boundary": "The sample is deterministic within three query-conditioned GitHub frames, not a probability sample of repositories or defects. Development visibility is not zero-shot generalization."
+}

@@ -1,6 +1,10 @@
 {
   "schema_version": "reprocheck.upstream-discovery-results-lock.v1",
   "files": {
+    "development-current.json": {
+      "phase": "development_after_zero_shot",
+      "sha256": "1cdba3ab2691d3c69c128e8b6648dc9cec0ffd8be848c7591bf0bae4709ba2f4"
+    },
     "zero-shot-0.18.0.json": {
       "phase": "frozen_zero_shot_0.18.0",
       "sha256": "c02070bab8ae96337456948b478f1e73171c3c81fb2a6727bbbdfc8936833799"

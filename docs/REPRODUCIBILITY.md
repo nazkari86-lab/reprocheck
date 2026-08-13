@@ -67,6 +67,7 @@ independently supplied identity-to-key binding is correct.
 | external dual review | ready, not executed | `reprocheck review-prepare` |
 | three-rule minimal witness | 12 controlled cases, exact verifier | `make witness-benchmark` |
 | natural upstream corrections | 17 independent merged corrections, 56 selected claims across 12 repositories; 6 cases checked against raw evidence; all 25 results of one frozen discovery query adjudicated | `make upstream-corrections` |
+| prospective natural discovery v2 | 75/75 sampled pull requests labeled without parser output; 3 eligible cases and 15 claims; frozen 0.18.0 = 0/3 and 0/15, development = 3/3 and 15/15 | `make upstream-discovery-v2` |
 | source-derived witness mechanism evidence | 27 controlled mutations + 3 controls; 0 natural cases | `make witness-source-benchmark` |
 | source-unseen 0.17 holdout | protocol ready, not executed | `reprocheck holdout-verify-registration` |
 | randomized crossover human study | master ready, not executed | `reprocheck human-study-prepare` |

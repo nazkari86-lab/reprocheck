@@ -13,7 +13,9 @@ from .metric_names import (
 )
 from .models import Claim, ClaimCheck
 
-_ALIASES = "|".join(sorted((re.escape(k) for k in METRIC_ALIASES), key=len, reverse=True))
+_ALIASES = "|".join(
+    sorted((re.escape(k) for k in METRIC_ALIASES if k != "score"), key=len, reverse=True)
+)
 _NUMBER = r"[+-]?(?:\d+(?:[.,]\d*)?|[.,]\d+)(?:[eE][+-]?\d+)?"
 _CLAIM_RE = re.compile(
     rf"(?<![\w])(?P<metric>{_ALIASES})(?![\w])\s*(?:score|метрика)?\s*"
@@ -24,8 +26,20 @@ _CLAIM_RE = re.compile(
 )
 _NUMBER_RE = re.compile(rf"(?P<value>{_NUMBER})\s*(?P<percent>%)?")
 _STRUCTURED_KEY_RE = re.compile(
-    rf"(?<![\w])(?P<metric>[\w²][\w².()+-]*)\s*:\s*"
+    rf"(?<![\w])(?P<metric>[\w²][\w².()+-]*)[\"']?\s*:\s*"
     rf"(?P<value>{_NUMBER})\s*(?P<percent>%)?",
+    flags=re.IGNORECASE,
+)
+_GENERIC_SCORE_CONTEXT_RE = re.compile(
+    r"(?:\bpublished\s+result\b|\btarget\s+score\b|"
+    r"\bscore\s*(?:[=:≈<>]|>=|<=)|\bbenchmark(?:\s+score)?\s*(?:[=:~]|\bscore\s+of\b)|"
+    r"\b(?:beat|beats|beating|match|matched|matching)\b[^\n]*\bbenchmark\b)",
+    flags=re.IGNORECASE,
+)
+_GENERIC_SCORE_NUMBER_RE = re.compile(rf"(?<![\w])(?P<value>{_NUMBER})(?:\+)?(?![\w])")
+_VALIDATOR_COUNT_RE = re.compile(
+    rf"\b(?P<count>{_NUMBER}|single|one|two|three|four)"
+    r"(?:-node\s+dev\s+mode\b[^\n]*|\s+local\s+validators?\b)",
     flags=re.IGNORECASE,
 )
 _COCO_SUMMARY_RE = re.compile(
@@ -103,6 +117,19 @@ def extract_claims(text: str) -> list[Claim]:
                 claims.append(
                     Claim(metric="speedup", value=value, raw_text=line.strip(), line=line_number)
                 )
+        for match in _VALIDATOR_COUNT_RE.finditer(line):
+            value = _count_value(match.group("count"))
+            key = (line_number, "validator_count", value)
+            if key not in text_seen:
+                text_seen.add(key)
+                claims.append(
+                    Claim(
+                        metric="validator_count",
+                        value=value,
+                        raw_text=line.strip(),
+                        line=line_number,
+                    )
+                )
         for match in _STRUCTURED_KEY_RE.finditer(line):
             metric = _structured_metric_name(match.group("metric"))
             if metric is None:
@@ -137,6 +164,19 @@ def extract_claims(text: str) -> list[Claim]:
             claims.append(
                 Claim(metric=metric, value=value, raw_text=line.strip(), line=line_number)
             )
+        has_specific_metric = any(
+            seen_line == line_number and seen_metric != "score"
+            for seen_line, seen_metric, _ in text_seen
+        )
+        if _GENERIC_SCORE_CONTEXT_RE.search(line) and not has_specific_metric:
+            for match in _GENERIC_SCORE_NUMBER_RE.finditer(line):
+                value = float(match.group("value").replace(",", "."))
+                key = (line_number, "score", value)
+                if key not in text_seen:
+                    text_seen.add(key)
+                    claims.append(
+                        Claim(metric="score", value=value, raw_text=line.strip(), line=line_number)
+                    )
     for claim in extract_table_claims(text):
         key = (claim.line, claim.metric, claim.value)
         if key not in text_seen:
@@ -182,13 +222,24 @@ def _mask_html_tables(text: str) -> str:
 
 def _structured_metric_name(raw_name: str) -> str | None:
     canonical = canonical_metric(raw_name)
+    if canonical == "score":
+        return None
     tokens = set(re.split(r"[_.-]+", canonical))
     if tokens & _PARAMETER_TOKENS:
         return None
     family = metric_family(canonical)
     if family is None:
-        return None
+        measurement_suffixes = ("_close", "_count", "_pct", "_score")
+        return canonical if canonical.endswith(measurement_suffixes) else None
     return family if canonical == family else canonical
+
+
+def _count_value(raw: str) -> float:
+    words = {"single": 1.0, "one": 1.0, "two": 2.0, "three": 3.0, "four": 4.0}
+    normalized = raw.casefold()
+    if normalized in words:
+        return words[normalized]
+    return float(raw.replace(",", "."))
 
 
 def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:

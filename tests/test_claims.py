@@ -284,6 +284,74 @@ def test_extracts_narrative_metric_phrasing():
     ]
 
 
+def test_extracts_real_validator_methodology_counts():
+    before = "Benchmarks run in single-node dev mode on a dedicated bare-metal host."
+    after = "Benchmarks run two local validators in consensus on a dedicated host."
+
+    assert [(claim.metric, claim.value) for claim in extract_claims(before)] == [
+        ("validator_count", 1.0)
+    ]
+    assert [(claim.metric, claim.value) for claim in extract_claims(after)] == [
+        ("validator_count", 2.0)
+    ]
+    assert [(claim.metric, claim.value) for claim in extract_claims("2 local validators")] == [
+        ("validator_count", 2.0)
+    ]
+
+
+def test_extracts_real_json_measurement_keys_but_not_parameters():
+    text = """{
+  "spy_close": 754.95,
+  "spy_return_pct": -0.765617,
+  "inception_adjusted_close": 754.95,
+  "return_pct": -0.765617,
+  "threshold_pct": 20
+}"""
+
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("spy_close", 754.95),
+        ("spy_return_pct", -0.765617),
+        ("inception_adjusted_close", 754.95),
+        ("return_pct", -0.765617),
+    ]
+
+
+def test_extracts_real_generic_scores_from_table_and_comparison_prose():
+    text = """| Method | Score | Model |
+| --- | ---: | --- |
+| GEPA | 2.63598+ | gemini |
+
+HELIX matched the best published result (2.635982 vs 2.63598+).
+Target score >= 2.63598 to match the best published result.
+"""
+
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("score", 2.63598),
+        ("score", 2.635982),
+        ("score", 2.63598),
+        ("score", 2.63598),
+    ]
+
+
+def test_generic_score_does_not_duplicate_named_metrics_or_plain_benchmark_numbers():
+    text = """Brier score: 0.08
+Precision score: 88%
+The benchmark completed in 1 minute with seed 42.
+"""
+
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("brier_score", 0.08),
+        ("precision", 0.88),
+        ("runtime_seconds", 60.0),
+    ]
+
+
+def test_generic_structured_prediction_scores_are_not_report_metrics():
+    text = "Segment: {'id': 0, 'label_id': 0, 'score': 0.946127}"
+
+    assert extract_claims(text) == []
+
+
 def test_extracts_map_variants_and_skips_non_numeric_table_cells():
     text = """| Model | mAP<sup>75</sup> | mAP<sup>50</sup> | mean IoU | Accuracy |
 | --- | ---: | ---: | ---: | ---: |
