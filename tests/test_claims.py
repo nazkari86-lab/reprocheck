@@ -1102,3 +1102,67 @@ def test_portable_latency_does_not_duplicate_specialized_latency():
     assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
         ("avg_latency_seconds", 0.028),
     ]
+
+
+def test_portable_result_headers_preserve_supported_metric_semantics():
+    text = """| Metric | Value |
+| --- | ---: |
+| Supported Hit@1 | 73.33% |
+| Supported MRR | 0.812 |
+| Runtime error rate | 0% |
+| P95 latency | 117 ms |
+| Peak memory | 17.3 MB |
+| Macro F1 | 71.2% |
+"""
+    observed = {(claim.metric, round(claim.value, 9)) for claim in extract_claims(text)}
+    assert {
+        ("hit_rate", 0.7333),
+        ("mrr", 0.812),
+        ("fail_rate", 0.0),
+        ("p95_latency_seconds", 0.117),
+        ("peak_rss_mb", 17.3),
+        ("macro_f1", 0.712),
+    } <= observed
+
+
+def test_portable_result_prose_handles_postfix_percent_and_contextual_durations():
+    text = """Response latency
+P95: 32.1 ms
+Standard deviation: 4.2 ms
+Mean: 19.8 ms
+The validation pass achieved 88% precision.
+Result: 3.4787 µs
+"""
+    observed = {(claim.metric, round(claim.value, 10)) for claim in extract_claims(text)}
+    assert {
+        ("p95_latency_seconds", 0.0321),
+        ("latency_stdev_seconds", 0.0042),
+        ("avg_latency_seconds", 0.0198),
+        ("precision", 0.88),
+        ("runtime_seconds", 0.0000034787),
+    } <= observed
+
+
+def test_portable_duration_supports_grouped_thousands_minutes_and_nanoseconds():
+    text = """| Metric | Value |
+| --- | ---: |
+| Avg latency | 3,796 ms |
+| Peak memory | 43,781.9 MB |
+| Total training time | 28 min |
+| P99 latency | 120 ns |
+"""
+    observed = {(claim.metric, round(claim.value, 12)) for claim in extract_claims(text)}
+    assert {
+        ("avg_latency_seconds", 3.796),
+        ("memory_mb", 43781.9),
+        ("runtime_seconds", 1680.0),
+        ("p99_latency_seconds", 0.00000012),
+    } <= observed
+
+
+def test_mape_is_not_misclassified_as_average_precision():
+    text = """| Metric | Value |
+| --- | ---: |
+| MAPE | 11.95% |
+"""
+    assert not any(claim.metric == "ap" for claim in extract_claims(text))
