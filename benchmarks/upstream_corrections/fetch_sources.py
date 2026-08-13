@@ -7,6 +7,22 @@ import subprocess
 
 
 ROOT = Path(__file__).resolve().parent
+CURL = [
+    "/usr/bin/curl",
+    "--fail",
+    "--location",
+    "--silent",
+    "--show-error",
+    "--retry",
+    "5",
+    "--retry-all-errors",
+    "--retry-delay",
+    "2",
+    "--connect-timeout",
+    "20",
+    "--max-time",
+    "90",
+]
 
 
 def _sha256(data: bytes) -> str:
@@ -30,7 +46,7 @@ def main() -> int:
         ):
             url = f"https://raw.githubusercontent.com/{repo}/{commit}/{path}"
             completed = subprocess.run(
-                ["/usr/bin/curl", "--fail", "--location", "--silent", "--show-error", url],
+                [*CURL, url],
                 check=True,
                 capture_output=True,
             )
@@ -42,7 +58,7 @@ def main() -> int:
         if evidence:
             url = evidence["url"]
             completed = subprocess.run(
-                ["/usr/bin/curl", "--fail", "--location", "--silent", "--show-error", url],
+                [*CURL, url],
                 check=True,
                 capture_output=True,
             )
