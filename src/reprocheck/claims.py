@@ -535,6 +535,11 @@ def extract_claims(text: str) -> list[Claim]:
         if key not in text_seen:
             text_seen.add(key)
             claims.append(claim)
+    for claim in _extract_generic_benchmark_claims(text):
+        key = (claim.line, claim.metric, claim.value)
+        if key not in text_seen:
+            text_seen.add(key)
+            claims.append(claim)
     structured_pairs = {(claim.metric, claim.value) for claim in claims if claim.context}
     claims = [
         claim
@@ -867,6 +872,373 @@ def _extract_general_result_claims(text: str) -> list[Claim]:
     return claims
 
 
+def _extract_generic_benchmark_claims(text: str) -> list[Claim]:
+    """Parse reusable metric/value grammars used by benchmark prose and consoles."""
+    claims: list[Claim] = []
+    for line_number, raw_line in enumerate(text.splitlines(), start=1):
+        plain = _plain_cell(raw_line)
+        lower = plain.casefold()
+
+        if "accuracy" in lower and "this should" in lower:
+            for match in re.finditer(rf"(?P<value>{_NUMBER})\s*%", plain, re.I):
+                claims.append(
+                    Claim(
+                        "accuracy",
+                        _parse_number(match.group("value")) / 100,
+                        raw_line,
+                        line_number,
+                    )
+                )
+        for match in re.finditer(
+            rf"(?P<value>{_NUMBER})\s*%\s+pass\s*@\s*(?P<k>[1-9]\d*)", plain, re.I
+        ):
+            claims.append(
+                Claim(
+                    f"pass_{match.group('k')}",
+                    _parse_number(match.group("value")) / 100,
+                    raw_line,
+                    line_number,
+                )
+            )
+        for match in re.finditer(
+            rf"\b(?P<metric>PCC|MAE)\s+of\s+(?P<value>{_NUMBER})", plain, re.I
+        ):
+            claims.append(
+                Claim(
+                    canonical_metric(match.group("metric")),
+                    _parse_number(match.group("value")),
+                    raw_line,
+                    line_number,
+                )
+            )
+        if "perplexity" in lower and "/" in plain and "train an" in lower:
+            result_part = re.split(r"\bperplexity\b", plain, maxsplit=1, flags=re.I)
+            result_part = result_part[0] + " " + (result_part[1] if len(result_part) > 1 else "")
+            for match in _NUMBER_RE.finditer(result_part):
+                value = _parse_number(match.group("value"))
+                if 10 <= value <= 1000:
+                    claims.append(Claim("perplexity", value, raw_line, line_number))
+        route_rate = re.search(r"(?P<value>[0-9][0-9,]*(?:\.[0-9]+)?)\s+req/sec\s*$", plain, re.I)
+        if route_rate is not None:
+            claims.append(
+                Claim(
+                    "requests_per_second",
+                    float(route_rate.group("value").replace(",", "")),
+                    raw_line,
+                    line_number,
+                )
+            )
+        jmh = re.search(rf"\b(?P<value>{_NUMBER})\s+(?P<unit>ops/s|ns/op)\s*$", plain, re.I)
+        if jmh is not None:
+            value = float(jmh.group("value").replace(",", "."))
+            metric = "throughput_ops_per_second"
+            if jmh.group("unit").casefold() == "ns/op":
+                metric = "avg_latency_seconds"
+                value /= 1_000_000_000
+            claims.append(Claim(metric, value, raw_line, line_number))
+        position = re.search(
+            rf"\bpositions:\s*(?P<count>{_NUMBER}),\s*positions per second:\s*(?P<rate>{_NUMBER})",
+            plain,
+            re.I,
+        )
+        if position is not None:
+            claims.extend(
+                [
+                    Claim(
+                        "position_count",
+                        _parse_number(position.group("count")),
+                        raw_line,
+                        line_number,
+                    ),
+                    Claim(
+                        "positions_per_second",
+                        _parse_number(position.group("rate")),
+                        raw_line,
+                        line_number,
+                    ),
+                ]
+            )
+        dns_patterns = (
+            (
+                r"Total requests:\s*(?P<a>\d+)\s+of\s+(?P<b>\d+)\s+\((?P<c>[\d.]+)%\)",
+                (
+                    ("total_request_count", "a", 1),
+                    ("completed_request_count", "b", 1),
+                    ("completion_ratio", "c", 0.01),
+                ),
+            ),
+            (r"DNS success codes:\s*(?P<a>\d+)", (("dns_success_count", "a", 1),)),
+            (r"NOERROR:\s*(?P<a>\d+)", (("noerror_count", "a", 1),)),
+            (
+                rf"Time taken for tests:\s*(?P<a>{_NUMBER})(?P<unit>us|µs|ms|s)",
+                (("runtime_seconds", "a", "duration"),),
+            ),
+            (rf"Questions per second:\s*(?P<a>{_NUMBER})", (("questions_per_second", "a", 1),)),
+            (r"DNS timings,\s*(?P<a>\d+)\s+datapoints", (("datapoint_count", "a", 1),)),
+        )
+        for pattern, outputs in dns_patterns:
+            match = re.search(pattern, plain, re.I)
+            if match is None:
+                continue
+            for metric, group, factor in outputs:
+                if factor == "duration":
+                    value = _duration_seconds(match.group(group), match.group("unit"))
+                else:
+                    assert not isinstance(factor, str)
+                    value = _parse_number(match.group(group)) * factor
+                claims.append(Claim(metric, value, raw_line, line_number))
+        timing = re.search(
+            rf"^(?P<label>min|mean|\[\+/-sd\]|max):\s*(?P<value>{_NUMBER})(?P<unit>us|µs|ms|s)$",
+            plain,
+            re.I,
+        )
+        if timing is not None:
+            metric = {
+                "min": "min_latency_seconds",
+                "mean": "avg_latency_seconds",
+                "[+/-sd]": "latency_stdev_seconds",
+                "max": "max_latency_seconds",
+            }[timing.group("label").casefold()]
+            claims.append(
+                Claim(
+                    metric,
+                    _duration_seconds(timing.group("value"), timing.group("unit")),
+                    raw_line,
+                    line_number,
+                )
+            )
+        for pattern, metric in (
+            (
+                rf"~?(?P<value>{_NUMBER})\s*(?:µs|us|µsec|usec|msec|ms)\s+delay",
+                "channel_delay_seconds",
+            ),
+            (rf"updated in\s*<\s*(?P<value>{_NUMBER})\s*(?:µs|us)", "all_channel_update_seconds"),
+            (
+                rf"precision can be\s*<\s*(?P<value>{_NUMBER})\s*(?:µs|us)",
+                "waveform_precision_seconds",
+            ),
+        ):
+            match = re.search(pattern, plain, re.I)
+            if match is not None:
+                claims.append(
+                    Claim(
+                        metric,
+                        _parse_number(match.group("value")) / 1_000_000,
+                        raw_line,
+                        line_number,
+                    )
+                )
+        if "ripple" in lower:
+            for match in re.finditer(rf"~?(?P<value>{_NUMBER})\s*mV", plain, re.I):
+                claims.append(
+                    Claim(
+                        "ripple_volts",
+                        _parse_number(match.group("value")) / 1000,
+                        raw_line,
+                        line_number,
+                    )
+                )
+        compression = re.search(
+            rf"compression ratio of\s+(?P<ratio>{_NUMBER})%\s*\(~?(?P<factor>{_NUMBER})x[^)]*\).*?~?(?P<accuracy>{_NUMBER})%\s+search accuracy",
+            plain,
+            re.I,
+        )
+        if compression is not None:
+            claims.extend(
+                [
+                    Claim(
+                        "compression_ratio",
+                        _parse_number(compression.group("ratio")) / 100,
+                        raw_line,
+                        line_number,
+                    ),
+                    Claim(
+                        "speedup", _parse_number(compression.group("factor")), raw_line, line_number
+                    ),
+                    Claim(
+                        "search_accuracy",
+                        _parse_number(compression.group("accuracy")) / 100,
+                        raw_line,
+                        line_number,
+                    ),
+                ]
+            )
+        if "flop" in lower:
+            match = re.search(
+                rf"(?P<value>{_NUMBER})\s+add-multiply operations\s*\(FLOPs\)", plain, re.I
+            )
+            if match is not None:
+                claims.append(
+                    Claim("flop_count", _parse_number(match.group("value")), raw_line, line_number)
+                )
+        if "average time" in lower:
+            match = re.search(
+                rf"average time is given by\s*(?P<value>{_NUMBER})\s+seconds", plain, re.I
+            )
+            if match is not None:
+                claims.append(
+                    Claim(
+                        "runtime_seconds",
+                        _parse_number(match.group("value")),
+                        raw_line,
+                        line_number,
+                    )
+                )
+        if "categorical accuracy" in lower:
+            match = re.search(rf"accuracy[^.]*?equals\s*(?P<value>{_NUMBER})", plain, re.I)
+            if match is not None:
+                claims.append(
+                    Claim("accuracy", _parse_number(match.group("value")), raw_line, line_number)
+                )
+        improvement = re.search(
+            rf"approximately\s+(?P<value>{_NUMBER})%\s+increase in throughput", plain, re.I
+        )
+        if improvement is not None:
+            claims.append(
+                Claim(
+                    "throughput_improvement",
+                    _parse_number(improvement.group("value")) / 100,
+                    raw_line,
+                    line_number,
+                )
+            )
+    claims.extend(_extract_grid_table_claims(text.splitlines()))
+    claims.extend(_extract_box_latency_claims(text.splitlines()))
+    claims.extend(_extract_whitespace_table_claims(text.splitlines()))
+    claims.extend(_extract_short_separator_metric_table(text.splitlines()))
+    return claims
+
+
+def _extract_grid_table_claims(lines: list[str]) -> list[Claim]:
+    """Parse pipe tables whose separator uses reStructuredText-style plus signs."""
+    claims: list[Claim] = []
+    for index in range(len(lines) - 2):
+        if "|" not in lines[index] or "+" not in lines[index + 1]:
+            continue
+        if not re.fullmatch(r"[+|:=\-\s]+", lines[index + 1]):
+            continue
+        headers = [cell.strip() for cell in lines[index].strip().strip("|").split("|")]
+        metrics = [_metric_from_header(header) for header in headers]
+        if sum(metric is not None for metric in metrics) < 2:
+            continue
+        row = index + 2
+        while row < len(lines):
+            raw = lines[row]
+            if re.fullmatch(r"[+|:=\-\s]+", raw):
+                row += 1
+                continue
+            if "|" not in raw:
+                break
+            cells = [cell.strip() for cell in raw.strip().strip("|").split("|")]
+            if len(cells) != len(headers):
+                break
+            for column, metric in enumerate(metrics):
+                if metric is None:
+                    continue
+                value = _table_value_for_header(metric, headers[column], cells[column])
+                if value is not None:
+                    claims.append(Claim(metric, value, raw, row + 1))
+            row += 1
+    return claims
+
+
+def _extract_box_latency_claims(lines: list[str]) -> list[Claim]:
+    """Parse Unicode box-drawing latency summaries with statistic columns."""
+    claims: list[Claim] = []
+    headers: list[str] | None = None
+    for line_number, raw in enumerate(lines, start=1):
+        if not raw.lstrip().startswith("┃") and not raw.lstrip().startswith("│"):
+            continue
+        cells = [cell.strip() for cell in re.split(r"[┃│]", raw) if cell.strip()]
+        if cells and cells[0].casefold() == "metric":
+            headers = cells
+            continue
+        if headers is None or len(cells) != len(headers):
+            continue
+        label = cells[0].casefold()
+        if "time" not in label and "latency" not in label:
+            continue
+        unit_factor = 0.001 if "(ms)" in label else 1.0
+        for header, cell in zip(headers[1:], cells[1:], strict=True):
+            match = _NUMBER_RE.fullmatch(cell.replace(",", ""))
+            if match is None:
+                continue
+            metric = {
+                "avg": "avg_latency_seconds",
+                "min": "min_latency_seconds",
+                "max": "max_latency_seconds",
+                "p99": "p99_latency_seconds",
+                "p90": "p90_latency_seconds",
+                "p50": "p50_latency_seconds",
+                "std": "latency_stdev_seconds",
+            }.get(header.casefold())
+            if metric is not None:
+                claims.append(
+                    Claim(
+                        metric, _parse_number(match.group("value")) * unit_factor, raw, line_number
+                    )
+                )
+    return claims
+
+
+def _extract_whitespace_table_claims(lines: list[str]) -> list[Claim]:
+    """Parse compact console tables with whitespace-delimited numeric columns."""
+    claims: list[Claim] = []
+    active = False
+    for line_number, raw in enumerate(lines, start=1):
+        plain = _plain_cell(raw)
+        if re.fullmatch(r"num-workers\s+samples/sec\s+TFLOPs", plain, re.I):
+            active = True
+            continue
+        if not active:
+            continue
+        match = re.fullmatch(rf"\d+\s+(?P<samples>{_NUMBER})\s+(?P<tflops>{_NUMBER})", plain)
+        if match is None:
+            active = False
+            continue
+        claims.extend(
+            [
+                Claim(
+                    "samples_per_second",
+                    _parse_number(match.group("samples")),
+                    raw,
+                    line_number,
+                ),
+                Claim("tflops", _parse_number(match.group("tflops")), raw, line_number),
+            ]
+        )
+    return claims
+
+
+def _extract_short_separator_metric_table(lines: list[str]) -> list[Claim]:
+    """Accept compact two-dash tables only when explicit metric headers make them unambiguous."""
+    claims: list[Claim] = []
+    for index in range(len(lines) - 2):
+        headers = _split_table_row(lines[index])
+        separators = _split_table_row(lines[index + 1])
+        if headers is None or separators is None or len(headers) != len(separators):
+            continue
+        if not all(re.fullmatch(r":?-{2}:?", cell.replace(" ", "")) for cell in separators):
+            continue
+        metrics = [_metric_from_header(header) for header in headers]
+        explicit = {metric for metric in metrics if metric is not None}
+        if not {"accuracy", "weighted_f1"}.issubset(explicit):
+            continue
+        row = index + 2
+        while row < len(lines):
+            cells = _split_table_row(lines[row])
+            if cells is None or len(cells) != len(headers):
+                break
+            for column, metric in enumerate(metrics):
+                if metric is None:
+                    continue
+                value = _table_value(metric, cells[column])
+                if value is not None:
+                    claims.append(Claim(metric, value, lines[row], row + 1))
+            row += 1
+    return claims
+
+
 def extract_table_claims(text: str) -> list[Claim]:
     """Extract only claims represented by Markdown or HTML table cells."""
     claims = [
@@ -937,6 +1309,9 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
             _metric_from_comparison_header(headers, column) or _metric_from_header(header)
             for column, header in enumerate(headers)
         ]
+        nearby_metrics = _nearby_unit_table_metrics(lines, index, headers)
+        if nearby_metrics is not None:
+            metrics = nearby_metrics
         compound_metrics = [_compound_metrics_from_header(header) for header in headers]
         transposed_metric = _nearby_table_metric(lines, index, headers)
         row_index = index + 2
@@ -961,9 +1336,17 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
                 _row_labeled_metric_claims(headers, cells, lines[row_index].strip(), row_index + 1)
             )
             claims.extend(
+                _row_labeled_compound_claims(
+                    headers, cells, lines[row_index].strip(), row_index + 1
+                )
+            )
+            claims.extend(
                 _embedded_context_claims(headers, cells, lines[row_index].strip(), row_index + 1)
             )
             claims.extend(_embedded_text_claims(cells, lines[row_index].strip(), row_index + 1))
+            claims.extend(
+                _header_embedded_claims(headers, cells, lines[row_index].strip(), row_index + 1)
+            )
             claims.extend(
                 _transposed_metric_claims(
                     headers,
@@ -1045,6 +1428,16 @@ def _multilevel_table_metrics(
     return resolved
 
 
+def _nearby_unit_table_metrics(
+    lines: list[str], table_index: int, headers: list[str]
+) -> list[str | None] | None:
+    """Infer a table-wide metric from an explicit nearby unit declaration."""
+    prefix = _plain_cell(" ".join(lines[max(0, table_index - 6) : table_index])).casefold()
+    if re.search(r"numbers? (?:are|is) fps|frames per second", prefix):
+        return [None, *("frames_per_second" for _ in headers[1:])]
+    return None
+
+
 def _split_table_row(line: str) -> list[str] | None:
     if "|" not in line:
         return None
@@ -1097,14 +1490,15 @@ def _metric_from_header(header: str) -> str | None:
     compact = re.sub(r"[^\w²]+", " ", plain, flags=re.UNICODE).strip()
     ranked = re.search(
         r"\b(?P<family>map|mar|mrr|mndcg|ndcg|precision|recall|p|r)\s*@\s*"
-        r"(?P<k>[1-9]\d*)\b",
+        r"(?P<k>[1-9]\d*|1k)\b",
         plain,
     )
     if ranked:
         family = {"p": "precision", "r": "recall"}.get(
             ranked.group("family"), ranked.group("family")
         )
-        return f"{family}_{ranked.group('k')}"
+        k = "1000" if ranked.group("k") == "1k" else ranked.group("k")
+        return f"{family}_{k}"
     waymo = re.search(r"\b(maph|map)\s*l([12])\b", compact)
     if waymo:
         return f"{waymo.group(1)}_l{waymo.group(2)}"
@@ -1271,6 +1665,93 @@ def _embedded_text_claims(cells: list[str], raw_text: str, line: int) -> list[Cl
     return claims
 
 
+def _header_embedded_claims(
+    headers: list[str], cells: list[str], raw_text: str, line: int
+) -> list[Claim]:
+    """Extract compound values whose meaning is declared by the column header."""
+    claims: list[Claim] = []
+    for column, header in enumerate(headers):
+        if column >= len(cells):
+            continue
+        normalized = _plain_cell(header).casefold()
+        cell = _plain_cell(cells[column])
+        if "no-target" in normalized or "no target" in normalized:
+            match = re.search(rf"(?P<count>{_NUMBER})\s*\((?P<ratio>{_NUMBER})%\)", cell)
+            if match is not None:
+                claims.extend(
+                    [
+                        Claim(
+                            "no_target_count", _parse_number(match.group("count")), raw_text, line
+                        ),
+                        Claim(
+                            "no_target_ratio",
+                            _parse_number(match.group("ratio")) / 100,
+                            raw_text,
+                            line,
+                        ),
+                    ]
+                )
+        if "main metric" in normalized:
+            triple = re.search(
+                rf"mAP\s+Full/Pres/Abs:\s*(?P<full>{_NUMBER})\s*/\s*"
+                rf"(?P<present>{_NUMBER})\s*/\s*(?P<absent>{_NUMBER})",
+                cell,
+                re.I,
+            )
+            if triple is not None:
+                for group, metric in (
+                    ("full", "map_full"),
+                    ("present", "map_present"),
+                    ("absent", "map_absent"),
+                ):
+                    claims.append(
+                        Claim(metric, _parse_number(triple.group(group)) / 100, raw_text, line)
+                    )
+            pair = re.search(
+                rf"Pr\.\s*(?P<precision>{_NUMBER}),\s*N-acc\.\s*(?P<negative>{_NUMBER})",
+                cell,
+                re.I,
+            )
+            if pair is not None:
+                claims.extend(
+                    [
+                        Claim(
+                            "precision",
+                            _parse_number(pair.group("precision")) / 100,
+                            raw_text,
+                            line,
+                        ),
+                        Claim(
+                            "negative_accuracy",
+                            _parse_number(pair.group("negative")) / 100,
+                            raw_text,
+                            line,
+                        ),
+                    ]
+                )
+        if "delta" in normalized or "Δ" in header:
+            match = re.search(rf"(?P<value>[+-]?{_NUMBER})\s*(?:pp|%)", cell, re.I)
+            if match is not None:
+                base_metric = next(
+                    (
+                        metric
+                        for prior in reversed(headers[:column])
+                        if (metric := _metric_from_header(prior)) is not None
+                    ),
+                    None,
+                )
+                if base_metric is not None:
+                    claims.append(
+                        Claim(
+                            f"{base_metric}_delta",
+                            _parse_number(match.group("value")) / 100,
+                            raw_text,
+                            line,
+                        )
+                    )
+    return claims
+
+
 def _row_labeled_metric_claims(
     headers: list[str], cells: list[str], raw_text: str, line: int
 ) -> list[Claim]:
@@ -1312,6 +1793,45 @@ def _row_labeled_metric_claims(
                         context=context,
                     )
                 )
+    return claims
+
+
+def _row_labeled_compound_claims(
+    headers: list[str], cells: list[str], raw_text: str, line: int
+) -> list[Claim]:
+    """Parse rows such as `accuracy / macro F1 | 87% / 86%`."""
+    if len(headers) < 2 or len(cells) < 2:
+        return []
+    first_header = _plain_cell(headers[0]).casefold()
+    if first_header not in {"metric", "measurement", "measure"}:
+        return []
+    label = _plain_cell(cells[0]).casefold()
+    if "feature" in label and "check" in label:
+        match = re.search(r"(?P<total>\d+)\s+of\s+(?P<exact>\d+)\s+exact", cells[1], re.I)
+        if match is not None:
+            return [
+                Claim("feature_check_count", float(match.group("total")), raw_text, line),
+                Claim("exact_feature_check_count", float(match.group("exact")), raw_text, line),
+            ]
+    if "flash" in label and "sram" in label:
+        values = re.findall(rf"(?P<value>{_NUMBER})\s*B", _plain_cell(cells[1]), re.I)
+        if len(values) == 2:
+            return [
+                Claim("flash_bytes", _parse_number(values[0]), raw_text, line),
+                Claim("sram_bytes", _parse_number(values[1]), raw_text, line),
+            ]
+    if "/" not in cells[0]:
+        return []
+    metrics = [_metric_from_header(part) for part in _plain_cell(cells[0]).split("/")]
+    values = [part.strip() for part in _plain_cell(cells[1]).split("/")]
+    if len(metrics) != len(values) or any(metric is None for metric in metrics):
+        return []
+    claims: list[Claim] = []
+    for metric, cell in zip(metrics, values, strict=True):
+        assert metric is not None
+        value = _table_value(metric, cell)
+        if value is not None:
+            claims.append(Claim(metric, value, raw_text, line))
     return claims
 
 
@@ -1500,6 +2020,7 @@ def _extract_html_table_claims(text: str) -> list[Claim]:
             claims.extend(_row_labeled_metric_claims(headers, cells, " | ".join(cells), line))
             claims.extend(_embedded_context_claims(headers, cells, " | ".join(cells), line))
             claims.extend(_embedded_text_claims(cells, " | ".join(cells), line))
+            claims.extend(_header_embedded_claims(headers, cells, " | ".join(cells), line))
             claims.extend(_embedded_duration_table_claims(headers, cells, " | ".join(cells), line))
             for column, metric in enumerate(metrics):
                 if metric is None or column >= len(cells):

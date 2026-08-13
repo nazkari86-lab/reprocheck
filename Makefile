@@ -3,7 +3,7 @@ UV_VERSION ?= 0.12.1
 LOCKED_DEV_REQUIREMENTS ?= /tmp/reprocheck-dev-lock.txt
 LOCKED_RUNTIME_REQUIREMENTS ?= /tmp/reprocheck-runtime-lock.txt
 
-.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation witness-benchmark witness-source-benchmark upstream-corrections upstream-discovery-v2 upstream-discovery-v2-registration upstream-discovery-v3 upstream-discovery-v3-registration upstream-discovery-v4 upstream-discovery-v4-registration upstream-discovery-v5 upstream-discovery-v7 upstream-discovery-v8 cross-project-holdout-v10-development external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo rknp-demo serve
+.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation witness-benchmark witness-source-benchmark upstream-corrections upstream-discovery-v2 upstream-discovery-v2-registration upstream-discovery-v3 upstream-discovery-v3-registration upstream-discovery-v4 upstream-discovery-v4-registration upstream-discovery-v5 upstream-discovery-v7 upstream-discovery-v8 cross-project-holdout-v10-development cross-project-holdout-v11-development external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo rknp-demo serve
 
 install:
 	python3 -m pip install --quiet uv==$(UV_VERSION)
@@ -90,6 +90,9 @@ upstream-discovery-v8:
 cross-project-holdout-v10-development:
 	PYTHONPATH=src python3 benchmarks/cross_project_holdout_v10/evaluate_development.py
 
+cross-project-holdout-v11-development:
+	PYTHONPATH=src python3 benchmarks/cross_project_holdout_v11/evaluate_development.py
+
 external-holdout-registration:
 	python3 -m reprocheck.cli holdout-verify-registration --registration benchmarks/external_holdout_v017/registration.json --protocol benchmarks/external_holdout_v017/protocol.json --evaluator benchmarks/external_holdout_v017/evaluator/reprocheck-0.17.0-py3-none-any.whl
 
@@ -174,7 +177,7 @@ external-regenerate:
 build:
 	SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) python3 -m build
 
-gate: lock-check lint type coverage benchmark evidence-ablation witness-benchmark witness-source-benchmark upstream-corrections upstream-discovery-v2 upstream-discovery-v3 upstream-discovery-v4 upstream-discovery-v5 upstream-discovery-v7 upstream-discovery-v8 cross-project-holdout-v10-development external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
+gate: lock-check lint type coverage benchmark evidence-ablation witness-benchmark witness-source-benchmark upstream-corrections upstream-discovery-v2 upstream-discovery-v3 upstream-discovery-v4 upstream-discovery-v5 upstream-discovery-v7 upstream-discovery-v8 cross-project-holdout-v10-development cross-project-holdout-v11-development external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
 
 demo:
 	python3 -m reprocheck.cli demo

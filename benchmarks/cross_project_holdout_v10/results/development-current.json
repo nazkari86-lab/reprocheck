@@ -1123,7 +1123,7 @@
   ],
   "eligible_documents": 20,
   "phase": "post-inspection-development-current",
-  "runtime_evaluator_version": "0.25.0",
+  "runtime_evaluator_version": "0.26.0",
   "schema_version": "reprocheck.cross-project-development-result.v10",
   "scientific_boundary": "This score was produced after inspecting v10 failures. It measures development coverage only and must not be reported as zero-shot or external validation.",
   "selected_claims": 155,

@@ -241,7 +241,7 @@
   "labels_sha256": "3a92138268f8401b3f6cefdc5393a6df925321b62d7a8bc6cac8b52c36a85fce",
   "phase": "development-post-inspection-0.23.0",
   "protocol_sha256": "456935dcf798d2a35bb37ea1de5c3eb8bf456656c37c593dc0b7d359ecef272c",
-  "runtime_evaluator_version": "0.25.0",
+  "runtime_evaluator_version": "0.26.0",
   "sample_sha256": "de30b88fa157a94cab7422987dd87dc9fdd8cdd2047d935b12743099f6d7698f",
   "sampled_pull_requests": 160,
   "schema_version": "reprocheck.upstream-discovery-result.v5",
