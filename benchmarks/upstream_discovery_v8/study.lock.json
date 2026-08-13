@@ -1,0 +1,25 @@
+{
+  "extractor_commit": "6238f2c",
+  "extractor_version": "0.23.0",
+  "schema_version": "reprocheck.upstream-discovery-study-lock.v8",
+  "sha256": {
+    "README.md": "e27ec16ac3d2a7e16ecab98802ed48034a37b91bf04c530bc53c657e60ce6adb",
+    "build_review_packet.py": "9cb5d69862c65b7a3ac5ba0a18606c63b6fd0f288744c02e73c56c67b5edc007",
+    "cases.json": "7c62ae2b0c2642eea6728188bd3b89be43a501af98c5f7865b5101688d66c519",
+    "collect_details.py": "da4af81f4153a6fa00aea0f70996b07a8a84090adfb9ce878c89b9b774ad8be7",
+    "collect_details_graphql.py": "c11beb61db287908b2dba472d3ea2ce7b0f98c866d93700aa22e53471b08f15f",
+    "details.json.gz": "27b6997b6a4ad49d3940a0ccdc081bcaa365e402df142a0f559fb9ce4bafbd06",
+    "evaluate.py": "4295ac57e66bf86218a1f687f46eb0cc8b2506e9b085a59ae8036fce16d92d3a",
+    "frames.json": "1bb2ab6d2c316043e3d04fccd326f5066cb659ca09fad7a4593f83b8fcc2aaf4",
+    "labels.json": "b2dff215b3fe2a74d848d0839b5fefd70467d2e3dc8cc595043a0402ec3ab3ee",
+    "protocol.md": "9f925ceb8f582b6d89c4ed8887b7058d3312fe3866835460722e088c578c6a69",
+    "registration.json": "be3a22b92ad1cd220522cdbf27f9cde31b51f6b7de282fbaa658f192d60b750d",
+    "resume_collect_details.py": "e62da5fdb0861f1bded7ecd57e312bedbb42db0e46dc3520204f035d01baae13",
+    "retrieve.py": "39d0356cff9942b89cf1e23677593e224077f5a46f4d39b7ae87326f7710e6a6",
+    "review_packet.json": "bc2b526de02f085bb6c6c2b0ef2311eef5aeadd180bb4f641d9d45221da3a14d",
+    "sample.json": "11cd819274f1289a22c1b2a5e2bfdeae0238c8b9ce0956123a51d8c2928b9506",
+    "source_plan.json": "00076276ff049f61821d70b1b6a9c5e4adb80c68cc2b933d9a59cc3bf432f0ff",
+    "sources.lock.json": "e1382c7aabf51dc7990792f05653d2394fd9b9a1301c156e19b4c2b2e79aaf64"
+  },
+  "status": "labels-and-sources-frozen-before-evaluation"
+}

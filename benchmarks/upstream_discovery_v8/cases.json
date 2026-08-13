@@ -1,0 +1,439 @@
+{
+  "cases": [
+    {
+      "claims": [
+        {
+          "after_snippet": "| Vite build  |  1,000 | @vitejs/plugin-vue |    1.66s | 732.5ms |   **2.3×** |",
+          "after_value": 2.3,
+          "before_snippet": "| Vite build  | @vitejs/plugin-vue |    1.70s |   1.52s |   **1.1×** |",
+          "before_value": 1.1,
+          "context": {
+            "system": "Vite build"
+          },
+          "file": "README.md",
+          "metric": "speedup"
+        },
+        {
+          "after_snippet": "| Nuxt build  |    500 | Nuxt compiler      |    6.79s |   6.42s |  **1.1×**† |",
+          "after_value": 1.1,
+          "before_snippet": "| Nuxt build  | Nuxt compiler      |    6.68s |   7.35s |   **0.9×** |",
+          "before_value": 0.9,
+          "context": {
+            "system": "Nuxt build"
+          },
+          "file": "README.md",
+          "metric": "speedup"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "vize-benchmark-snapshot-reconciliation",
+      "pull_request": 3422,
+      "repository": "ubugeeei-prod/vize",
+      "url": "https://github.com/ubugeeei-prod/vize/pull/3422"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "3,010 passing",
+          "after_value": 3010,
+          "before_snippet": "2,874 passing unit",
+          "before_value": 2874,
+          "context": {
+            "scope": "total"
+          },
+          "file": "docs/Testing_and_Gym.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "docs/Testing_and_Gym.md"
+      ],
+      "id": "navsentinel-stale-test-count",
+      "pull_request": 527,
+      "repository": "Chris0Jeky/NavSentinel",
+      "url": "https://github.com/Chris0Jeky/NavSentinel/pull/527"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "peak of **~11.7 GB GPU VRAM**",
+          "after_value": 11980.8,
+          "before_snippet": "peak of **~13.4 GB GPU VRAM**",
+          "before_value": 13721.6,
+          "context": {
+            "system": "Qwen3-14B bf16"
+          },
+          "file": "wiki/en/concepts/offload-mechanism.md",
+          "metric": "memory_mb"
+        }
+      ],
+      "files": [
+        "wiki/en/concepts/offload-mechanism.md"
+      ],
+      "id": "trusta-offload-attribution",
+      "pull_request": 10,
+      "repository": "ADATA-TRUSTA/AI-Scaler-Toolkit",
+      "url": "https://github.com/ADATA-TRUSTA/AI-Scaler-Toolkit/pull/10"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "| **agentmemory hybrid** | **0.240** | **1.000** | **15 / 15** | 14 ms |",
+          "after_value": 0.24,
+          "before_snippet": "| **agentmemory hybrid** | **0.578** | **0.967** | **15 / 15** | 14 ms |",
+          "before_value": 0.578,
+          "context": {
+            "model": "agentmemory hybrid"
+          },
+          "file": "README.md",
+          "metric": "precision_5"
+        },
+        {
+          "after_snippet": "| **agentmemory hybrid** | **0.240** | **1.000** | **15 / 15** | 14 ms |",
+          "after_value": 1.0,
+          "before_snippet": "| **agentmemory hybrid** | **0.578** | **0.967** | **15 / 15** | 14 ms |",
+          "before_value": 0.967,
+          "context": {
+            "model": "agentmemory hybrid"
+          },
+          "file": "README.md",
+          "metric": "recall_5"
+        },
+        {
+          "after_snippet": "| grep baseline | 0.227 | 0.967 | 15 / 15 | 0 ms |",
+          "after_value": 0.227,
+          "before_snippet": "| grep baseline | 0.267 | 0.967 | 15 / 15 | 0 ms |",
+          "before_value": 0.267,
+          "context": {
+            "model": "grep baseline"
+          },
+          "file": "README.md",
+          "metric": "precision_5"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "agentmemory-p-at-five-correction",
+      "pull_request": 807,
+      "repository": "rohitg00/agentmemory",
+      "url": "https://github.com/rohitg00/agentmemory/pull/807"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "All 48 tests must pass",
+          "after_value": 48,
+          "before_snippet": "All 34 tests must pass",
+          "before_value": 34,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "ace-tracker-stale-test-count",
+      "pull_request": 90,
+      "repository": "jeremypfi/ace-tracker",
+      "url": "https://github.com/jeremypfi/ace-tracker/pull/90"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "There are 39 in total",
+          "after_value": 39,
+          "before_snippet": "There are 29 in total",
+          "before_value": 29,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "coursework-wrapper-test-count",
+      "pull_request": 5,
+      "repository": "MichaelSchenkDe/coursework-group-csm100",
+      "url": "https://github.com/MichaelSchenkDe/coursework-group-csm100/pull/5"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "**1,864 tests as of",
+          "after_value": 1864,
+          "before_snippet": "**1,729 tests as of",
+          "before_value": 1729,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "trading-agent-stale-test-count",
+      "pull_request": 94,
+      "repository": "connorshibley/trading-agent",
+      "url": "https://github.com/connorshibley/trading-agent/pull/94"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "**475 tests** repartidos",
+          "after_value": 475,
+          "before_snippet": "**370 tests** repartidos",
+          "before_value": 370,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "chatapp-test-coverage-count",
+      "pull_request": 58,
+      "repository": "AJRPachon/ChatApp",
+      "url": "https://github.com/AJRPachon/ChatApp/pull/58"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "**416 passed, 2 skipped**",
+          "after_value": 416,
+          "before_snippet": "**410 passed, 2 skipped**",
+          "before_value": 410,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "edith-stale-test-count",
+      "pull_request": 36,
+      "repository": "GSAPify/EDITH",
+      "url": "https://github.com/GSAPify/EDITH/pull/36"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "124개 자동 테스트",
+          "after_value": 124,
+          "before_snippet": "121개 자동 테스트",
+          "before_value": 121,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "coffergate-test-count",
+      "pull_request": 72,
+      "repository": "CofferGate/CofferGate_backend",
+      "url": "https://github.com/CofferGate/CofferGate_backend/pull/72"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "770 tests across 17 files",
+          "after_value": 770,
+          "before_snippet": "769 tests across 17 files",
+          "before_value": 769,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "sealrail-test-count",
+      "pull_request": 48,
+      "repository": "mystiquemide/sealrail",
+      "url": "https://github.com/mystiquemide/sealrail/pull/48"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "| Hub concentration (`hub_pct`) | 7.6%",
+          "after_value": 0.076,
+          "before_snippet": "| Hub concentration (`hub_pct`) | 7.5%",
+          "before_value": 0.075,
+          "context": {},
+          "file": "README.md",
+          "metric": "hub_pct"
+        },
+        {
+          "after_snippet": "| Dead-code rate (`dead_code_pct`, coverage-aware) | 5.6%",
+          "after_value": 0.056,
+          "before_snippet": "| Dead-code rate (`dead_code_pct`, coverage-aware) | 5.0%",
+          "before_value": 0.05,
+          "context": {},
+          "file": "README.md",
+          "metric": "dead_code_pct"
+        },
+        {
+          "after_snippet": "| Edge coverage (`edge_coverage_pct`) | 70.1%",
+          "after_value": 0.701,
+          "before_snippet": "| Edge coverage (`edge_coverage_pct`) | 74.9%",
+          "before_value": 0.749,
+          "context": {},
+          "file": "README.md",
+          "metric": "edge_coverage_pct"
+        },
+        {
+          "after_snippet": "| High-complexity functions (`high_complexity_pct`) | 2.8%",
+          "after_value": 0.028,
+          "before_snippet": "| High-complexity functions (`high_complexity_pct`) | 2.9%",
+          "before_value": 0.029,
+          "context": {},
+          "file": "README.md",
+          "metric": "high_complexity_pct"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "calm-measured-summary-refresh",
+      "pull_request": 49,
+      "repository": "Eilodon/CALM",
+      "url": "https://github.com/Eilodon/CALM/pull/49"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "877 tests. Every numeric",
+          "after_value": 877,
+          "before_snippet": "629 tests. Every numeric",
+          "before_value": 629,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "ai-architect-test-count",
+      "pull_request": 25,
+      "repository": "cdeust/ai-architect-mcp-spec",
+      "url": "https://github.com/cdeust/ai-architect-mcp-spec/pull/25"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "**992 tests.** 765 Python, 227 Rust.",
+          "after_value": 992,
+          "before_snippet": "**983 tests.** 756 Python, 227 Rust.",
+          "before_value": 983,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        },
+        {
+          "after_snippet": "**992 tests.** 765 Python, 227 Rust.",
+          "after_value": 765,
+          "before_snippet": "**983 tests.** 756 Python, 227 Rust.",
+          "before_value": 756,
+          "context": {
+            "scope": "Python"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "clickllm-published-counts",
+      "pull_request": 89,
+      "repository": "dshakes/clickllm",
+      "url": "https://github.com/dshakes/clickllm/pull/89"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "| **Recall speed** | ~45ms",
+          "after_value": 0.045,
+          "before_snippet": "| **Recall speed** | ~30ms",
+          "before_value": 0.03,
+          "context": {
+            "system": "recall"
+          },
+          "file": "README.md",
+          "metric": "runtime_seconds"
+        },
+        {
+          "after_snippet": "with 206 tests",
+          "after_value": 206,
+          "before_snippet": "with 327 unit tests",
+          "before_value": 327,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "README.md"
+      ],
+      "id": "uteke-readme-fact-check",
+      "pull_request": 643,
+      "repository": "codecoradev/uteke",
+      "url": "https://github.com/codecoradev/uteke/pull/643"
+    },
+    {
+      "claims": [
+        {
+          "after_snippet": "| Tests | 504 |",
+          "after_value": 504,
+          "before_snippet": "| Tests | 500 |",
+          "before_value": 500,
+          "context": {
+            "scope": "total"
+          },
+          "file": "STATUS.md",
+          "metric": "test_count"
+        }
+      ],
+      "files": [
+        "STATUS.md"
+      ],
+      "id": "topogeoml-test-count",
+      "pull_request": 59,
+      "repository": "smaniches/TopoGeoML",
+      "url": "https://github.com/smaniches/TopoGeoML/pull/59"
+    }
+  ],
+  "evaluator_commit": "6238f2c",
+  "parser_output_used": false,
+  "schema_version": "reprocheck.upstream-discovery-cases.v8"
+}

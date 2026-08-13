@@ -1,0 +1,23 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-source-plan.v8",
+  "cases": [
+    {"id": "vize-benchmark-snapshot-reconciliation", "rank": 153, "files": ["README.md"]},
+    {"id": "navsentinel-stale-test-count", "rank": 169, "files": ["docs/Testing_and_Gym.md"]},
+    {"id": "trusta-offload-attribution", "rank": 170, "files": ["wiki/en/concepts/offload-mechanism.md"]},
+    {"id": "bonsai-device-leafwise-correction", "rank": 181, "files": ["docs/method/results/perf-scale.md"]},
+    {"id": "agentmemory-p-at-five-correction", "rank": 303, "files": ["README.md"]},
+    {"id": "ace-tracker-stale-test-count", "rank": 456, "files": ["README.md"]},
+    {"id": "coursework-wrapper-test-count", "rank": 458, "files": ["README.md"]},
+    {"id": "trading-agent-stale-test-count", "rank": 460, "files": ["README.md"]},
+    {"id": "chatapp-test-coverage-count", "rank": 462, "files": ["README.md"]},
+    {"id": "edith-stale-test-count", "rank": 464, "files": ["README.md"]},
+    {"id": "coffergate-test-count", "rank": 472, "files": ["README.md"]},
+    {"id": "sealrail-test-count", "rank": 474, "files": ["README.md"]},
+    {"id": "calm-measured-summary-refresh", "rank": 528, "files": ["README.md"]},
+    {"id": "ai-architect-test-count", "rank": 532, "files": ["README.md"]},
+    {"id": "blinklab-eyeblink8-correction", "rank": 545, "files": ["README.md"]},
+    {"id": "clickllm-published-counts", "rank": 548, "files": ["README.md"]},
+    {"id": "uteke-readme-fact-check", "rank": 752, "files": ["README.md"]},
+    {"id": "topogeoml-test-count", "rank": 772, "files": ["STATUS.md"]}
+  ]
+}
