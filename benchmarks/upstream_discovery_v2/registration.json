@@ -1,0 +1,10 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-registration.v1",
+  "status": "registered_unretrieved",
+  "registered_at": "2026-08-13T11:02:00Z",
+  "evaluator_commit": "2618cad2c54c1610947f4f64e4b7ba8c5302fa28",
+  "evaluator_version": "0.18.0",
+  "protocol_sha256": "ead8828bf3d8b3120a0a1d802b4d8465aa5926970f4c0bd4f6214a29dc1f5a39",
+  "retrieval_started": false,
+  "labels_seen": false
+}
