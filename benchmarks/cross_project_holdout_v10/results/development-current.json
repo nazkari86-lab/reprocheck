@@ -1,0 +1,1133 @@
+{
+  "cases": [
+    {
+      "claims": [
+        {
+          "line": 58,
+          "metric": "runtime_seconds",
+          "value": 0.832,
+          "visible": true
+        },
+        {
+          "line": 58,
+          "metric": "runtime_seconds",
+          "value": 1.267,
+          "visible": true
+        },
+        {
+          "line": 59,
+          "metric": "runtime_seconds",
+          "value": 1.386,
+          "visible": true
+        },
+        {
+          "line": 59,
+          "metric": "runtime_seconds",
+          "value": 1.183,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 2,
+      "repository": "yksz/c-logger",
+      "selected_claims": 4,
+      "visible_claims": 4
+    },
+    {
+      "claims": [
+        {
+          "line": 80,
+          "metric": "optimal_throughput_ratio",
+          "value": 0.685,
+          "visible": true
+        },
+        {
+          "line": 80,
+          "metric": "speedup",
+          "value": 1.91,
+          "visible": true
+        },
+        {
+          "line": 80,
+          "metric": "optimal_throughput_ratio",
+          "value": 0.59,
+          "visible": true
+        },
+        {
+          "line": 80,
+          "metric": "optimal_throughput_ratio",
+          "value": 0.72,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 3,
+      "repository": "efeslab/Nanoflow",
+      "selected_claims": 4,
+      "visible_claims": 4
+    },
+    {
+      "claims": [
+        {
+          "line": 32,
+          "metric": "artifact_size_kb",
+          "value": 0,
+          "visible": true
+        },
+        {
+          "line": 32,
+          "metric": "avg_latency_seconds",
+          "value": 0.084,
+          "visible": true
+        },
+        {
+          "line": 32,
+          "metric": "latency_stdev_seconds",
+          "value": 0.008,
+          "visible": true
+        },
+        {
+          "line": 33,
+          "metric": "artifact_size_kb",
+          "value": 20,
+          "visible": true
+        },
+        {
+          "line": 33,
+          "metric": "avg_latency_seconds",
+          "value": 0.127,
+          "visible": true
+        },
+        {
+          "line": 33,
+          "metric": "latency_stdev_seconds",
+          "value": 0.026,
+          "visible": true
+        },
+        {
+          "line": 34,
+          "metric": "artifact_size_kb",
+          "value": 25,
+          "visible": true
+        },
+        {
+          "line": 34,
+          "metric": "avg_latency_seconds",
+          "value": 0.133,
+          "visible": true
+        },
+        {
+          "line": 34,
+          "metric": "latency_stdev_seconds",
+          "value": 0.03,
+          "visible": true
+        },
+        {
+          "line": 35,
+          "metric": "artifact_size_kb",
+          "value": 193,
+          "visible": true
+        },
+        {
+          "line": 35,
+          "metric": "avg_latency_seconds",
+          "value": 0.54,
+          "visible": true
+        },
+        {
+          "line": 35,
+          "metric": "latency_stdev_seconds",
+          "value": 0.235,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 6,
+      "repository": "samuelcolvin/cloudflare-worker-speed-test",
+      "selected_claims": 12,
+      "visible_claims": 12
+    },
+    {
+      "claims": [
+        {
+          "line": 161,
+          "metric": "processed_token_count",
+          "value": 6788,
+          "visible": true
+        },
+        {
+          "line": 161,
+          "metric": "phrase_count",
+          "value": 3818,
+          "visible": true
+        },
+        {
+          "line": 161,
+          "metric": "found_phrase_count",
+          "value": 3798,
+          "visible": true
+        },
+        {
+          "line": 161,
+          "metric": "correct_phrase_count",
+          "value": 3384,
+          "visible": true
+        },
+        {
+          "line": 163,
+          "metric": "accuracy",
+          "value": 0.9128,
+          "visible": true
+        },
+        {
+          "line": 163,
+          "metric": "precision",
+          "value": 0.891,
+          "visible": true
+        },
+        {
+          "line": 163,
+          "metric": "recall",
+          "value": 0.8863,
+          "visible": true
+        },
+        {
+          "line": 163,
+          "metric": "f1",
+          "value": 0.8887,
+          "visible": true
+        },
+        {
+          "line": 165,
+          "metric": "precision",
+          "value": 0.891,
+          "visible": true
+        },
+        {
+          "line": 165,
+          "metric": "recall",
+          "value": 0.8863,
+          "visible": true
+        },
+        {
+          "line": 165,
+          "metric": "f1",
+          "value": 0.8887,
+          "visible": true
+        },
+        {
+          "line": 165,
+          "metric": "found_phrase_count",
+          "value": 3798,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 9,
+      "repository": "sevenold/bert_sequence_label",
+      "selected_claims": 12,
+      "visible_claims": 12
+    },
+    {
+      "claims": [
+        {
+          "line": 46,
+          "metric": "precision",
+          "value": 0.96,
+          "visible": true
+        },
+        {
+          "line": 46,
+          "metric": "precision",
+          "value": 0.7,
+          "visible": true
+        },
+        {
+          "line": 46,
+          "metric": "precision",
+          "value": 0.97,
+          "visible": true
+        },
+        {
+          "line": 47,
+          "metric": "accuracy",
+          "value": 1.0,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 10,
+      "repository": "Tanishq665/Fraud_detection",
+      "selected_claims": 4,
+      "visible_claims": 4
+    },
+    {
+      "claims": [
+        {
+          "line": 166,
+          "metric": "f1",
+          "value": 0.5869,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 11,
+      "repository": "VTTI/Segmentation-and-detection-of-work-zone-scenes",
+      "selected_claims": 1,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "line": 11,
+          "metric": "artifact_size_mb",
+          "value": 3.2,
+          "visible": true
+        },
+        {
+          "line": 11,
+          "metric": "f1_improvement",
+          "value": 0.505,
+          "visible": true
+        },
+        {
+          "line": 11,
+          "metric": "aff_f1_improvement",
+          "value": 0.078,
+          "visible": true
+        },
+        {
+          "line": 11,
+          "metric": "auc_improvement",
+          "value": 0.1,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 12,
+      "repository": "EmorZz1G/PatchAD",
+      "selected_claims": 4,
+      "visible_claims": 4
+    },
+    {
+      "claims": [
+        {
+          "line": 199,
+          "metric": "runtime_seconds",
+          "value": 0.00018,
+          "visible": true
+        },
+        {
+          "line": 199,
+          "metric": "memory_bytes",
+          "value": 0,
+          "visible": true
+        },
+        {
+          "line": 199,
+          "metric": "runtime_seconds",
+          "value": 0.00026,
+          "visible": true
+        },
+        {
+          "line": 199,
+          "metric": "memory_bytes",
+          "value": 0,
+          "visible": true
+        },
+        {
+          "line": 199,
+          "metric": "runtime_seconds",
+          "value": 0.00044,
+          "visible": true
+        },
+        {
+          "line": 199,
+          "metric": "memory_bytes",
+          "value": 0,
+          "visible": true
+        },
+        {
+          "line": 199,
+          "metric": "runtime_seconds",
+          "value": 0.00101,
+          "visible": true
+        },
+        {
+          "line": 199,
+          "metric": "memory_bytes",
+          "value": 0,
+          "visible": true
+        },
+        {
+          "line": 200,
+          "metric": "runtime_seconds",
+          "value": 0.00102,
+          "visible": true
+        },
+        {
+          "line": 200,
+          "metric": "allocation_count",
+          "value": 0,
+          "visible": true
+        },
+        {
+          "line": 201,
+          "metric": "runtime_seconds",
+          "value": 0.0214,
+          "visible": true
+        },
+        {
+          "line": 201,
+          "metric": "allocation_count",
+          "value": 24,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 14,
+      "repository": "Chillu1/ModiBuff",
+      "selected_claims": 12,
+      "visible_claims": 12
+    },
+    {
+      "claims": [
+        {
+          "line": 47,
+          "metric": "max_batch_size",
+          "value": 7,
+          "visible": true
+        },
+        {
+          "line": 47,
+          "metric": "oom_batch_size",
+          "value": 8,
+          "visible": true
+        },
+        {
+          "line": 52,
+          "metric": "memory_mb",
+          "value": 7403.52,
+          "visible": true
+        },
+        {
+          "line": 52,
+          "metric": "fragmentation_ratio",
+          "value": 0.2846,
+          "visible": true
+        },
+        {
+          "line": 60,
+          "metric": "fragmentation_ratio",
+          "value": 0.01,
+          "visible": true
+        },
+        {
+          "line": 60,
+          "metric": "speedup",
+          "value": 7,
+          "visible": true
+        },
+        {
+          "line": 62,
+          "metric": "max_batch_size",
+          "value": 49,
+          "visible": true
+        },
+        {
+          "line": 65,
+          "metric": "memory_mb",
+          "value": 143.36,
+          "visible": true
+        },
+        {
+          "line": 65,
+          "metric": "fragmentation_ratio",
+          "value": 0.0057,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 15,
+      "repository": "tspeterkim/paged-attention-minimal",
+      "selected_claims": 9,
+      "visible_claims": 9
+    },
+    {
+      "claims": [
+        {
+          "line": 104,
+          "metric": "avg_latency_seconds",
+          "value": 0.00094,
+          "visible": true
+        },
+        {
+          "line": 104,
+          "metric": "latency_stdev_seconds",
+          "value": 0.00247,
+          "visible": true
+        },
+        {
+          "line": 104,
+          "metric": "max_latency_seconds",
+          "value": 0.20634,
+          "visible": true
+        },
+        {
+          "line": 104,
+          "metric": "within_stdev_ratio",
+          "value": 0.9964,
+          "visible": true
+        },
+        {
+          "line": 105,
+          "metric": "requests_per_second",
+          "value": 19590,
+          "visible": true
+        },
+        {
+          "line": 105,
+          "metric": "requests_per_second",
+          "value": 1530,
+          "visible": true
+        },
+        {
+          "line": 105,
+          "metric": "requests_per_second",
+          "value": 22740,
+          "visible": true
+        },
+        {
+          "line": 105,
+          "metric": "within_stdev_ratio",
+          "value": 0.75,
+          "visible": true
+        },
+        {
+          "line": 106,
+          "metric": "request_count",
+          "value": 780113,
+          "visible": true
+        },
+        {
+          "line": 106,
+          "metric": "runtime_seconds",
+          "value": 10.03,
+          "visible": true
+        },
+        {
+          "line": 106,
+          "metric": "data_read_mb",
+          "value": 826.55,
+          "visible": true
+        },
+        {
+          "line": 107,
+          "metric": "requests_per_second",
+          "value": 77770.1,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 17,
+      "repository": "VISHAL-Nk/Titan",
+      "selected_claims": 12,
+      "visible_claims": 12
+    },
+    {
+      "claims": [
+        {
+          "line": 96,
+          "metric": "avg_latency_seconds",
+          "value": 0.009747,
+          "visible": true
+        },
+        {
+          "line": 96,
+          "metric": "sampling_interval_seconds",
+          "value": 0.021,
+          "visible": true
+        },
+        {
+          "line": 97,
+          "metric": "avg_latency_seconds",
+          "value": 0.009631,
+          "visible": true
+        },
+        {
+          "line": 97,
+          "metric": "sampling_interval_seconds",
+          "value": 0.021,
+          "visible": true
+        },
+        {
+          "line": 99,
+          "metric": "avg_latency_seconds",
+          "value": 0.00646,
+          "visible": true
+        },
+        {
+          "line": 99,
+          "metric": "latency_stdev_seconds",
+          "value": 0.00193,
+          "visible": true
+        },
+        {
+          "line": 99,
+          "metric": "max_latency_seconds",
+          "value": 0.01234,
+          "visible": true
+        },
+        {
+          "line": 99,
+          "metric": "within_stdev_ratio",
+          "value": 0.6766,
+          "visible": true
+        },
+        {
+          "line": 100,
+          "metric": "requests_per_second",
+          "value": 1050,
+          "visible": true
+        },
+        {
+          "line": 100,
+          "metric": "requests_per_second",
+          "value": 1120,
+          "visible": true
+        },
+        {
+          "line": 100,
+          "metric": "requests_per_second",
+          "value": 2500,
+          "visible": true
+        },
+        {
+          "line": 100,
+          "metric": "within_stdev_ratio",
+          "value": 0.6484,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 18,
+      "repository": "devhands-io/wrkx",
+      "selected_claims": 12,
+      "visible_claims": 12
+    },
+    {
+      "claims": [
+        {
+          "line": 30,
+          "metric": "tokens_per_second_gpu",
+          "value": 9731,
+          "visible": true
+        },
+        {
+          "line": 30,
+          "metric": "tflops_per_second_gpu",
+          "value": 57.6,
+          "visible": true
+        },
+        {
+          "line": 30,
+          "metric": "mfu",
+          "value": 0.225,
+          "visible": true
+        },
+        {
+          "line": 30,
+          "metric": "memory_mb",
+          "value": 22732.8,
+          "visible": true
+        },
+        {
+          "line": 31,
+          "metric": "tokens_per_second_gpu",
+          "value": 9834,
+          "visible": true
+        },
+        {
+          "line": 31,
+          "metric": "tflops_per_second_gpu",
+          "value": 99.8,
+          "visible": true
+        },
+        {
+          "line": 31,
+          "metric": "mfu",
+          "value": 0.39,
+          "visible": true
+        },
+        {
+          "line": 31,
+          "metric": "memory_mb",
+          "value": 21913.6,
+          "visible": true
+        },
+        {
+          "line": 32,
+          "metric": "tokens_per_second_gpu",
+          "value": 9079,
+          "visible": true
+        },
+        {
+          "line": 32,
+          "metric": "tflops_per_second_gpu",
+          "value": 143.3,
+          "visible": true
+        },
+        {
+          "line": 32,
+          "metric": "mfu",
+          "value": 0.56,
+          "visible": true
+        },
+        {
+          "line": 32,
+          "metric": "memory_mb",
+          "value": 40140.8,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 20,
+      "repository": "jianzhnie/ScaleTorch",
+      "selected_claims": 12,
+      "visible_claims": 12
+    },
+    {
+      "claims": [
+        {
+          "line": 62,
+          "metric": "assertion_count",
+          "value": 1,
+          "visible": true
+        },
+        {
+          "line": 62,
+          "metric": "test_count",
+          "value": 1,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 24,
+      "repository": "ovsoil/leetcode",
+      "selected_claims": 2,
+      "visible_claims": 2
+    },
+    {
+      "claims": [
+        {
+          "line": 69,
+          "metric": "bleu_2",
+          "value": 0.061,
+          "visible": true
+        },
+        {
+          "line": 69,
+          "metric": "bleu_4",
+          "value": 0.027,
+          "visible": true
+        },
+        {
+          "line": 69,
+          "metric": "rouge_l_1",
+          "value": 0.204,
+          "visible": true
+        },
+        {
+          "line": 69,
+          "metric": "rouge_l_2",
+          "value": 0.087,
+          "visible": true
+        },
+        {
+          "line": 69,
+          "metric": "rouge_l",
+          "value": 0.186,
+          "visible": true
+        },
+        {
+          "line": 69,
+          "metric": "meteor",
+          "value": 0.114,
+          "visible": true
+        },
+        {
+          "line": 69,
+          "metric": "text2mol",
+          "value": 0.057,
+          "visible": true
+        },
+        {
+          "line": 70,
+          "metric": "bleu_2",
+          "value": 0.103,
+          "visible": true
+        },
+        {
+          "line": 70,
+          "metric": "bleu_4",
+          "value": 0.05,
+          "visible": true
+        },
+        {
+          "line": 70,
+          "metric": "rouge_l_1",
+          "value": 0.261,
+          "visible": true
+        },
+        {
+          "line": 70,
+          "metric": "rouge_l_2",
+          "value": 0.088,
+          "visible": true
+        },
+        {
+          "line": 70,
+          "metric": "rouge_l",
+          "value": 0.204,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 28,
+      "repository": "phenixace/MolReGPT",
+      "selected_claims": 12,
+      "visible_claims": 12
+    },
+    {
+      "claims": [
+        {
+          "line": 4,
+          "metric": "bleu_improvement",
+          "value": 1.12,
+          "visible": true
+        },
+        {
+          "line": 4,
+          "metric": "rouge_l_improvement",
+          "value": 0.217,
+          "visible": true
+        },
+        {
+          "line": 4,
+          "metric": "bleu_stdev",
+          "value": 3.72,
+          "visible": true
+        },
+        {
+          "line": 4,
+          "metric": "rouge_l_stdev",
+          "value": 0.00075,
+          "visible": true
+        },
+        {
+          "line": 4,
+          "metric": "weighted_f1_decline",
+          "value": 0.13,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 31,
+      "repository": "abdanhafidz/DawetAI",
+      "selected_claims": 5,
+      "visible_claims": 5
+    },
+    {
+      "claims": [
+        {
+          "line": 89,
+          "metric": "wikitq_accuracy",
+          "value": 0.3889,
+          "visible": true
+        },
+        {
+          "line": 89,
+          "metric": "temptabqa_accuracy",
+          "value": 0.047599999999999996,
+          "visible": true
+        },
+        {
+          "line": 89,
+          "metric": "sstqa_accuracy",
+          "value": 0.24,
+          "visible": true
+        },
+        {
+          "line": 89,
+          "metric": "sstqa_rouge_l",
+          "value": 0.23870000000000002,
+          "visible": true
+        },
+        {
+          "line": 91,
+          "metric": "wikitq_accuracy",
+          "value": 0.35009999999999997,
+          "visible": true
+        },
+        {
+          "line": 91,
+          "metric": "temptabqa_accuracy",
+          "value": 0.327,
+          "visible": true
+        },
+        {
+          "line": 91,
+          "metric": "sstqa_accuracy",
+          "value": 0.4039,
+          "visible": true
+        },
+        {
+          "line": 91,
+          "metric": "sstqa_rouge_l",
+          "value": 0.2671,
+          "visible": true
+        },
+        {
+          "line": 92,
+          "metric": "wikitq_accuracy",
+          "value": 0.624,
+          "visible": true
+        },
+        {
+          "line": 92,
+          "metric": "temptabqa_accuracy",
+          "value": 0.0913,
+          "visible": true
+        },
+        {
+          "line": 92,
+          "metric": "sstqa_accuracy",
+          "value": 0.0784,
+          "visible": true
+        },
+        {
+          "line": 92,
+          "metric": "sstqa_rouge_l",
+          "value": 0.029300000000000003,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 32,
+      "repository": "OpenDataBox/ST-Raptor",
+      "selected_claims": 12,
+      "visible_claims": 12
+    },
+    {
+      "claims": [
+        {
+          "line": 149,
+          "metric": "iou",
+          "value": 0.9,
+          "visible": true
+        },
+        {
+          "line": 150,
+          "metric": "dice",
+          "value": 0.95,
+          "visible": true
+        },
+        {
+          "line": 151,
+          "metric": "precision",
+          "value": 0.92,
+          "visible": true
+        },
+        {
+          "line": 152,
+          "metric": "recall",
+          "value": 0.97,
+          "visible": true
+        },
+        {
+          "line": 153,
+          "metric": "auroc",
+          "value": 0.99,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 33,
+      "repository": "Gautier9d/chocolate-recognition-deep-learning",
+      "selected_claims": 5,
+      "visible_claims": 5
+    },
+    {
+      "claims": [
+        {
+          "line": 178,
+          "metric": "precision",
+          "value": 0.974872,
+          "visible": true
+        },
+        {
+          "line": 179,
+          "metric": "recall",
+          "value": 0.982158,
+          "visible": true
+        },
+        {
+          "line": 180,
+          "metric": "f1",
+          "value": 0.978501,
+          "visible": true
+        },
+        {
+          "line": 181,
+          "metric": "specificity",
+          "value": 0.991546,
+          "visible": true
+        },
+        {
+          "line": 182,
+          "metric": "auroc",
+          "value": 0.986852,
+          "visible": true
+        },
+        {
+          "line": 183,
+          "metric": "iou",
+          "value": 0.957907,
+          "visible": true
+        },
+        {
+          "line": 184,
+          "metric": "dice",
+          "value": 0.978501,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 34,
+      "repository": "CoboAr/Lung-Mask-Segmentation-with-U-Net",
+      "selected_claims": 7,
+      "visible_claims": 7
+    },
+    {
+      "claims": [
+        {
+          "line": 28,
+          "metric": "auroc",
+          "value": 0.9515,
+          "visible": true
+        },
+        {
+          "line": 28,
+          "metric": "pro",
+          "value": 0.9293,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 35,
+      "repository": "caoyunkang/CPMF",
+      "selected_claims": 2,
+      "visible_claims": 2
+    },
+    {
+      "claims": [
+        {
+          "line": 60,
+          "metric": "ndcg_5",
+          "value": 0.63,
+          "visible": true
+        },
+        {
+          "line": 60,
+          "metric": "ndcg_10",
+          "value": 0.666,
+          "visible": true
+        },
+        {
+          "line": 60,
+          "metric": "mrr",
+          "value": 0.717,
+          "visible": true
+        },
+        {
+          "line": 60,
+          "metric": "recall_10",
+          "value": 0.766,
+          "visible": true
+        },
+        {
+          "line": 60,
+          "metric": "map_10",
+          "value": 0.573,
+          "visible": true
+        },
+        {
+          "line": 61,
+          "metric": "ndcg_5",
+          "value": 0.626,
+          "visible": true
+        },
+        {
+          "line": 61,
+          "metric": "ndcg_10",
+          "value": 0.66,
+          "visible": true
+        },
+        {
+          "line": 61,
+          "metric": "mrr",
+          "value": 0.709,
+          "visible": true
+        },
+        {
+          "line": 61,
+          "metric": "recall_10",
+          "value": 0.767,
+          "visible": true
+        },
+        {
+          "line": 61,
+          "metric": "map_10",
+          "value": 0.564,
+          "visible": true
+        },
+        {
+          "line": 62,
+          "metric": "ndcg_5",
+          "value": 0.624,
+          "visible": true
+        },
+        {
+          "line": 62,
+          "metric": "ndcg_10",
+          "value": 0.657,
+          "visible": true
+        }
+      ],
+      "passed": true,
+      "rank": 38,
+      "repository": "mathieusharp/mmore-colvision-benchmark",
+      "selected_claims": 12,
+      "visible_claims": 12
+    }
+  ],
+  "claim_visibility": 1.0,
+  "claim_visibility_wilson_95": [
+    0.9758157671856282,
+    1.0
+  ],
+  "document_visibility": 1.0,
+  "document_visibility_wilson_95": [
+    0.8388748419471806,
+    1.0
+  ],
+  "eligible_documents": 20,
+  "phase": "post-inspection-development-current",
+  "runtime_evaluator_version": "0.25.0",
+  "schema_version": "reprocheck.cross-project-development-result.v10",
+  "scientific_boundary": "This score was produced after inspecting v10 failures. It measures development coverage only and must not be reported as zero-shot or external validation.",
+  "selected_claims": 155,
+  "source_integrity": true,
+  "visible_claims": 155,
+  "visible_documents": 20
+}

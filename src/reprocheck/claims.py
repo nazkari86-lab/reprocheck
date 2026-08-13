@@ -118,6 +118,102 @@ _SEPARABILITY_RE = re.compile(
     rf"(?P<value>{_NUMBER})",
     flags=re.IGNORECASE,
 )
+_THROUGHPUT_BOOST_RE = re.compile(
+    rf"(?P<value>{_NUMBER})\s*[x×]\s+(?:throughput\s+)?boost\b", re.IGNORECASE
+)
+_OPTIMAL_THROUGHPUT_RE = re.compile(
+    rf"(?P<value>{_NUMBER})\s*\\?%\s+of\s+optimal\s+throughput", re.IGNORECASE
+)
+_OPTIMAL_THROUGHPUT_RANGE_RE = re.compile(
+    rf"(?P<low>{_NUMBER})\s*\\?%\s+(?:to|[-–—])\s*(?P<high>{_NUMBER})\s*\\?%\s+"
+    r"of\s+optimal\s+throughput",
+    re.IGNORECASE,
+)
+_METRIC_IMPROVEMENT_RE = re.compile(
+    rf"(?P<metric>Aff[- ]?F1|Weighted\s+F1|F1|AUC|BLEU|ROUGE[- ]?L)"
+    rf"(?:\s+scores?)?[^.;,]{{0,35}}?(?:by|of)\s+(?P<value>{_NUMBER})\s*\\?%",
+    re.IGNORECASE,
+)
+_PERCENT_IN_METRIC_RE = re.compile(
+    rf"(?P<value>{_NUMBER})\s*\\?%\s+in\s+(?P<metric>BLEU|ROUGE[- ]?L|F1)(?:\s+scores?)?",
+    re.IGNORECASE,
+)
+_POSTFIX_METRIC_RE = re.compile(
+    rf"(?P<value>{_NUMBER})\s*%\s+(?:image-level\s+|pixel-level\s+)?"
+    rf"(?P<metric>AU[- ]?ROC|PRO)\b",
+    re.IGNORECASE,
+)
+_BEST_METRIC_RE = re.compile(
+    rf"(?<![\w_])(?:best\s+)?(?P<metric>F1(?:\s+score)?|accuracy|precision|recall|"
+    rf"specificity|AUC|AUROC|IoU|Dice)(?![\w_])(?:\s+(?:score|coefficient))?\s*"
+    rf"(?:achieved[^:;]{{0,80}})?\s*:\s*(?P<value>{_NUMBER})\s*(?P<percent>%)?",
+    re.IGNORECASE,
+)
+_FRAGMENTED_MEMORY_RE = re.compile(
+    rf"Fragmented\s+Memory:\s*(?P<memory>{_NUMBER})\s*(?P<unit>GB|MB)\s*"
+    rf"\((?P<ratio>{_NUMBER})\s*%\)",
+    re.IGNORECASE,
+)
+_MAX_BATCH_RE = re.compile(rf"maximum\s+batch\s+size\s+is\s+(?P<value>{_NUMBER})", re.I)
+_OOM_BATCH_RE = re.compile(rf"OOM\s+with\s+(?P<value>{_NUMBER})", re.I)
+_ASSERTION_TEST_RE = re.compile(
+    rf"(?P<assertions>{_NUMBER})\s+assertions?\s+in\s+(?P<tests>{_NUMBER})\s+test\s+cases?",
+    re.IGNORECASE,
+)
+_WRK_LATENCY_RE = re.compile(
+    rf"^\s*Latency\s+(?P<avg>{_NUMBER})(?P<unit>us|µs|ms|s)\s+"
+    rf"(?P<stdev>{_NUMBER})(?P=unit)\s+(?P<max>{_NUMBER})(?P=unit)\s+"
+    rf"(?P<within>{_NUMBER})%",
+    re.IGNORECASE,
+)
+_WRK_REQ_RE = re.compile(
+    rf"^\s*Req/Sec\s+(?P<avg>{_NUMBER})(?P<avg_scale>[kKmM]?)\s+"
+    rf"(?P<stdev>{_NUMBER})(?P<stdev_scale>[kKmM]?)\s+"
+    rf"(?P<max>{_NUMBER})(?P<max_scale>[kKmM]?)\s+(?P<within>{_NUMBER})%",
+    re.IGNORECASE,
+)
+_WRK_TOTAL_RE = re.compile(
+    rf"(?P<requests>{_NUMBER})\s+requests\s+in\s+(?P<seconds>{_NUMBER})s,\s*"
+    rf"(?P<data>{_NUMBER})(?P<unit>KB|MB|GB)\s+read",
+    re.IGNORECASE,
+)
+_REQUESTS_PER_SECOND_RE = re.compile(rf"Requests/sec:\s*(?P<value>{_NUMBER})", re.I)
+_RESULT_COUNT_RE = re.compile(
+    rf"processed\s+(?P<processed>{_NUMBER})\s+tokens\s+with\s+(?P<phrases>{_NUMBER})\s+phrases;\s*"
+    rf"found:\s*(?P<found>{_NUMBER})\s+phrases;\s*correct:\s*(?P<correct>{_NUMBER})",
+    re.IGNORECASE,
+)
+_TRAILING_FOUND_COUNT_RE = re.compile(rf"\bFB1:\s*{_NUMBER}\s+(?P<found>{_NUMBER})\s*$", re.I)
+_PAREN_PERCENT_RE = re.compile(rf"\((?:~\s*)?(?P<value>{_NUMBER})\s*\\?%\)")
+_ARTIFACT_SIZE_RE = re.compile(
+    rf"(?:requir(?:es|ing)|artifact(?:\s+size)?(?:\s+is)?)[^\n]{{0,24}}?(?P<value>{_NUMBER})\s*"
+    rf"(?P<unit>KB|MB|GB)\b",
+    re.IGNORECASE,
+)
+_BATCH_SPEEDUP_RE = re.compile(
+    rf"(?:increase|increases|increased)[^\n]{{0,40}}?batch\s+size\s+by\s+(?P<value>{_NUMBER})\s*[x×]",
+    re.IGNORECASE,
+)
+_CALIBRATION_RE = re.compile(
+    rf"mean\s+lat\.:\s*(?P<latency>{_NUMBER})\s*(?P<latency_unit>usec|us|µs|ms),\s*"
+    rf"rate\s+sampling\s+interval:\s*(?P<interval>{_NUMBER})\s*(?P<interval_unit>msec|ms|us|µs)",
+    re.IGNORECASE,
+)
+_APPROXIMATE_METRIC_RE = re.compile(
+    rf"(?P<metric>accuracy|precision|recall|F1|AUC|IoU|Dice)[^.;:]{{0,45}}?"
+    rf"\(?~\s*(?P<value>{_NUMBER})\s*\\?%\)?",
+    re.IGNORECASE,
+)
+_PAIRED_STDEV_RE = re.compile(
+    rf"standard\s+deviations?\s+of\s+(?P<first>{_NUMBER})\s+and\s+"
+    rf"(?P<second>{_NUMBER})\s*,?\s+respectively",
+    re.IGNORECASE,
+)
+_FRAGMENTATION_BOUND_RE = re.compile(
+    rf"(?:decrease|decreases|decreased)[^.;]{{0,40}}?fragmentation\s+to\s*"
+    rf"(?P<comparator><=|<|~)?\s*(?P<value>{_NUMBER})\s*\\?%",
+    re.IGNORECASE,
+)
 _RANKED_ARROW_RE = re.compile(
     rf"(?<![\w])(?P<family>map|mar|mrr|mndcg|ndcg|precision|recall)\s*@\s*"
     rf"(?P<k>[1-9]\d*)[^\n|]*?[→➜]\s*(?P<value>{_NUMBER})\s*(?P<percent>%)?",
@@ -434,6 +530,11 @@ def extract_claims(text: str) -> list[Claim]:
         key = (claim.line, claim.metric, claim.value)
         if key not in text_seen:
             claims.append(claim)
+    for claim in _extract_general_result_claims(text):
+        key = (claim.line, claim.metric, claim.value)
+        if key not in text_seen:
+            text_seen.add(key)
+            claims.append(claim)
     structured_pairs = {(claim.metric, claim.value) for claim in claims if claim.context}
     claims = [
         claim
@@ -447,6 +548,322 @@ def extract_claims(text: str) -> list[Claim]:
         )
     ]
     claims.sort(key=lambda claim: claim.line)
+    return claims
+
+
+def _extract_general_result_claims(text: str) -> list[Claim]:
+    """Extract common result prose and console formats without repository-specific rules."""
+    claims: list[Claim] = []
+    raw_lines = text.splitlines()
+    for line_number, raw_line in enumerate(raw_lines, start=1):
+        line = _plain_cell(raw_line)
+        for match in _THROUGHPUT_BOOST_RE.finditer(line):
+            claims.append(
+                Claim("speedup", _parse_number(match.group("value")), raw_line, line_number)
+            )
+        for match in _OPTIMAL_THROUGHPUT_RE.finditer(line):
+            claims.append(
+                Claim(
+                    "optimal_throughput_ratio",
+                    _parse_number(match.group("value")) / 100,
+                    raw_line,
+                    line_number,
+                )
+            )
+        for match in _OPTIMAL_THROUGHPUT_RANGE_RE.finditer(line):
+            for group in ("low", "high"):
+                claims.append(
+                    Claim(
+                        "optimal_throughput_ratio",
+                        _parse_number(match.group(group)) / 100,
+                        raw_line,
+                        line_number,
+                    )
+                )
+        lower_line = line.casefold()
+        if "improv" in lower_line or "decline" in lower_line:
+            for match in _METRIC_IMPROVEMENT_RE.finditer(line):
+                matched_phrase = match.group(0).casefold()
+                direction = "decline" if "declin" in matched_phrase else "improvement"
+                raw_metric = match.group("metric").casefold().replace(" ", "-")
+                base = {
+                    "aff-f1": "aff_f1",
+                    "weighted-f1": "weighted_f1",
+                    "rouge-l": "rouge_l",
+                    "auc": "auc",
+                }.get(raw_metric, canonical_metric(raw_metric))
+                metric = f"{base}_{direction}"
+                claims.append(
+                    Claim(metric, _parse_number(match.group("value")) / 100, raw_line, line_number)
+                )
+            for match in _PERCENT_IN_METRIC_RE.finditer(line):
+                prefix = line[max(0, match.start() - 100) : match.start()].casefold()
+                direction = (
+                    "decline" if prefix.rfind("declin") > prefix.rfind("improv") else "improvement"
+                )
+                base = canonical_metric(match.group("metric"))
+                claims.append(
+                    Claim(
+                        f"{base}_{direction}",
+                        _parse_number(match.group("value")) / 100,
+                        raw_line,
+                        line_number,
+                    )
+                )
+        for match in _POSTFIX_METRIC_RE.finditer(line):
+            metric = canonical_metric(match.group("metric"))
+            claims.append(
+                Claim(metric, _parse_number(match.group("value")) / 100, raw_line, line_number)
+            )
+        for match in _BEST_METRIC_RE.finditer(line):
+            metric = canonical_metric(match.group("metric"))
+            value = _normalize_value(
+                metric,
+                _parse_number(match.group("value")),
+                percent=bool(match.group("percent")),
+            )
+            claims.append(Claim(metric, value, raw_line, line_number))
+        for match in _APPROXIMATE_METRIC_RE.finditer(raw_line):
+            metric = canonical_metric(match.group("metric"))
+            claims.append(
+                Claim(metric, _parse_number(match.group("value")) / 100, raw_line, line_number)
+            )
+        fragmented = _FRAGMENTED_MEMORY_RE.search(line)
+        if fragmented is not None:
+            claims.extend(
+                [
+                    Claim(
+                        "memory_mb",
+                        _memory_mb(fragmented.group("memory"), fragmented.group("unit")),
+                        raw_line,
+                        line_number,
+                    ),
+                    Claim(
+                        "fragmentation_ratio",
+                        _parse_number(fragmented.group("ratio")) / 100,
+                        raw_line,
+                        line_number,
+                    ),
+                ]
+            )
+        fragmentation_bound = _FRAGMENTATION_BOUND_RE.search(line)
+        if fragmentation_bound is not None:
+            claims.append(
+                Claim(
+                    "fragmentation_ratio",
+                    _parse_number(fragmentation_bound.group("value")) / 100,
+                    raw_line,
+                    line_number,
+                )
+            )
+        artifact = _ARTIFACT_SIZE_RE.search(line)
+        if artifact is not None:
+            claims.append(
+                Claim(
+                    "artifact_size_mb",
+                    _memory_mb(artifact.group("value"), artifact.group("unit")),
+                    raw_line,
+                    line_number,
+                )
+            )
+        for regex, metric in ((_MAX_BATCH_RE, "max_batch_size"), (_OOM_BATCH_RE, "oom_batch_size")):
+            match = regex.search(line)
+            if match is not None:
+                claims.append(
+                    Claim(metric, _parse_number(match.group("value")), raw_line, line_number)
+                )
+        batch_speedup = _BATCH_SPEEDUP_RE.search(line)
+        if batch_speedup is not None:
+            claims.append(
+                Claim("speedup", _parse_number(batch_speedup.group("value")), raw_line, line_number)
+            )
+        if re.search(r"\bpython\b", line, re.I):
+            prior = " ".join(
+                _plain_cell(value) for value in raw_lines[max(0, line_number - 6) : line_number - 1]
+            )
+            if re.search(r"maximum\s+batch\s+size|increase[^.]*batch\s+size", prior, re.I):
+                command_number = re.search(
+                    r"\bpython\b[^\n]*?\s(?P<value>[1-9]\d*)\s*$", line, re.I
+                )
+                if command_number is not None:
+                    claims.append(
+                        Claim(
+                            "max_batch_size",
+                            _parse_number(command_number.group("value")),
+                            raw_line,
+                            line_number,
+                        )
+                    )
+        assertion = _ASSERTION_TEST_RE.search(line)
+        if assertion is not None:
+            claims.extend(
+                [
+                    Claim(
+                        "assertion_count",
+                        _parse_number(assertion.group("assertions")),
+                        raw_line,
+                        line_number,
+                    ),
+                    Claim(
+                        "test_count", _parse_number(assertion.group("tests")), raw_line, line_number
+                    ),
+                ]
+            )
+        wrk_latency = _WRK_LATENCY_RE.search(line)
+        if wrk_latency is not None:
+            claims.extend(
+                [
+                    Claim(
+                        "avg_latency_seconds",
+                        _duration_seconds(wrk_latency.group("avg"), wrk_latency.group("unit")),
+                        raw_line,
+                        line_number,
+                    ),
+                    Claim(
+                        "latency_stdev_seconds",
+                        _duration_seconds(wrk_latency.group("stdev"), wrk_latency.group("unit")),
+                        raw_line,
+                        line_number,
+                    ),
+                    Claim(
+                        "max_latency_seconds",
+                        _duration_seconds(wrk_latency.group("max"), wrk_latency.group("unit")),
+                        raw_line,
+                        line_number,
+                    ),
+                    Claim(
+                        "within_stdev_ratio",
+                        _parse_number(wrk_latency.group("within")) / 100,
+                        raw_line,
+                        line_number,
+                    ),
+                ]
+            )
+        wrk_req = _WRK_REQ_RE.search(line)
+        if wrk_req is not None:
+            for group in ("avg", "stdev", "max"):
+                scale = wrk_req.group(f"{group}_scale").casefold()
+                value = (
+                    _parse_number(wrk_req.group(group)) * {"": 1, "k": 1000, "m": 1_000_000}[scale]
+                )
+                claims.append(Claim("requests_per_second", value, raw_line, line_number))
+            claims.append(
+                Claim(
+                    "within_stdev_ratio",
+                    _parse_number(wrk_req.group("within")) / 100,
+                    raw_line,
+                    line_number,
+                )
+            )
+        total = _WRK_TOTAL_RE.search(line)
+        if total is not None:
+            data_factor = {"kb": 1 / 1024, "mb": 1, "gb": 1024}[total.group("unit").casefold()]
+            claims.extend(
+                [
+                    Claim(
+                        "request_count",
+                        _parse_number(total.group("requests")),
+                        raw_line,
+                        line_number,
+                    ),
+                    Claim(
+                        "runtime_seconds",
+                        _parse_number(total.group("seconds")),
+                        raw_line,
+                        line_number,
+                    ),
+                    Claim(
+                        "data_read_mb",
+                        _parse_number(total.group("data")) * data_factor,
+                        raw_line,
+                        line_number,
+                    ),
+                ]
+            )
+        request_rate = _REQUESTS_PER_SECOND_RE.search(line)
+        if request_rate is not None:
+            claims.append(
+                Claim(
+                    "requests_per_second",
+                    _parse_number(request_rate.group("value")),
+                    raw_line,
+                    line_number,
+                )
+            )
+        counts = _RESULT_COUNT_RE.search(line)
+        if counts is not None:
+            for group, metric in (
+                ("processed", "processed_token_count"),
+                ("phrases", "phrase_count"),
+                ("found", "found_phrase_count"),
+                ("correct", "correct_phrase_count"),
+            ):
+                claims.append(
+                    Claim(metric, _parse_number(counts.group(group)), raw_line, line_number)
+                )
+        trailing = _TRAILING_FOUND_COUNT_RE.search(line)
+        if trailing is not None:
+            claims.append(
+                Claim(
+                    "found_phrase_count",
+                    _parse_number(trailing.group("found")),
+                    raw_line,
+                    line_number,
+                )
+            )
+        if re.search(r"\bprecision\b", line, re.I) and line.count("%") + line.count(r"\%") >= 2:
+            for match in _PAREN_PERCENT_RE.finditer(line):
+                claims.append(
+                    Claim(
+                        "precision",
+                        _parse_number(match.group("value")) / 100,
+                        raw_line,
+                        line_number,
+                    )
+                )
+        calibration = _CALIBRATION_RE.search(line)
+        if calibration is not None:
+            latency_unit = calibration.group("latency_unit").replace("usec", "us")
+            interval_unit = calibration.group("interval_unit").replace("msec", "ms")
+            claims.extend(
+                [
+                    Claim(
+                        "avg_latency_seconds",
+                        _duration_seconds(calibration.group("latency"), latency_unit),
+                        raw_line,
+                        line_number,
+                    ),
+                    Claim(
+                        "sampling_interval_seconds",
+                        _duration_seconds(calibration.group("interval"), interval_unit),
+                        raw_line,
+                        line_number,
+                    ),
+                ]
+            )
+        paired_stdev = _PAIRED_STDEV_RE.search(line)
+        if paired_stdev is not None:
+            mentioned = []
+            for token, metric in (("BLEU", "bleu_stdev"), ("ROUGE-L", "rouge_l_stdev")):
+                if token.casefold() in line.casefold():
+                    mentioned.append(metric)
+            if len(mentioned) == 2:
+                claims.extend(
+                    [
+                        Claim(
+                            mentioned[0],
+                            _parse_number(paired_stdev.group("first")),
+                            raw_line,
+                            line_number,
+                        ),
+                        Claim(
+                            mentioned[1],
+                            _parse_number(paired_stdev.group("second")),
+                            raw_line,
+                            line_number,
+                        ),
+                    ]
+                )
     return claims
 
 
@@ -523,6 +940,14 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
         compound_metrics = [_compound_metrics_from_header(header) for header in headers]
         transposed_metric = _nearby_table_metric(lines, index, headers)
         row_index = index + 2
+        value_headers = headers
+        if row_index < len(lines):
+            lower_headers = _split_table_row(lines[row_index])
+            multilevel = _multilevel_table_metrics(headers, lower_headers or [])
+            if multilevel is not None:
+                metrics = multilevel
+                value_headers = lower_headers or headers
+                row_index += 1
         while row_index < len(lines):
             cells = _split_table_row(lines[row_index])
             if not cells:
@@ -556,7 +981,7 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
             for column, metric in enumerate(metrics):
                 if metric is None or column >= len(cells):
                     continue
-                value = _table_value(metric, cells[column])
+                value = _table_value_for_header(metric, value_headers[column], cells[column])
                 if value is not None:
                     claims.append(
                         Claim(
@@ -596,6 +1021,28 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
             row_index += 1
         index = max(row_index, index + 1)
     return claims
+
+
+def _multilevel_table_metrics(
+    upper_headers: list[str], lower_headers: list[str]
+) -> list[str | None] | None:
+    """Resolve a second Markdown header row such as dataset + metric."""
+    if len(upper_headers) != len(lower_headers) or not lower_headers:
+        return None
+    if any(_NUMBER_RE.search(_plain_cell(cell)) for cell in lower_headers):
+        return None
+    lower_metrics = [_metric_from_header(cell) for cell in lower_headers]
+    if sum(metric is not None for metric in lower_metrics) < 2:
+        return None
+    resolved: list[str | None] = []
+    for upper, lower_metric in zip(upper_headers, lower_metrics, strict=True):
+        if lower_metric is None:
+            resolved.append(None)
+            continue
+        scope = re.sub(r"[^a-z0-9]+", "_", _plain_cell(upper).casefold()).strip("_")
+        scope = re.sub(r"_st$", "", scope)
+        resolved.append(f"{scope}_{lower_metric}" if scope else lower_metric)
+    return resolved
 
 
 def _split_table_row(line: str) -> list[str] | None:
@@ -696,6 +1143,10 @@ def _metric_from_row_label(header: str, cell: str) -> str | None:
             return canonical_metric(embedded[-1])
         if label in {"test", "tests", "test_count"}:
             return "test_count"
+        if "@" not in label:
+            direct_metric = _metric_from_header(label)
+            if direct_metric is not None:
+                return direct_metric
     if label.startswith("success_rate"):
         return "success_rate"
     if label == "recall" or label == "authored_pairs_merged" or label.startswith("recall_—_"):
@@ -1053,7 +1504,7 @@ def _extract_html_table_claims(text: str) -> list[Claim]:
             for column, metric in enumerate(metrics):
                 if metric is None or column >= len(cells):
                     continue
-                value = _table_value(metric, cells[column])
+                value = _table_value_for_header(metric, headers[column], cells[column])
                 if value is not None:
                     claims.append(
                         Claim(
@@ -1087,12 +1538,61 @@ def _table_value(metric: str, cell: str) -> float | None:
         scaled = _scaled_quantity(cell)
         if scaled is not None:
             return scaled
+    if metric == "memory_mb":
+        memory = re.fullmatch(rf"\s*(?P<value>{_NUMBER})\s*(?P<unit>kb|mb|gb)\s*", plain_cell, re.I)
+        if memory is not None:
+            return _memory_mb(memory.group("value"), memory.group("unit"))
+    if metric in {"requests_per_second", "tokens_per_second_gpu"}:
+        scaled = _scaled_quantity(cell)
+        if scaled is not None:
+            return scaled
     matches = list(_NUMBER_RE.finditer(plain_cell))
     if len(matches) != 1:
         return None
     match = matches[0]
     value = _parse_number(match.group("value"))
     return _normalize_value(metric, value, percent=bool(match.group("percent")))
+
+
+def _table_value_for_header(metric: str, header: str, cell: str) -> float | None:
+    """Parse a cell while honoring a unit declared once in its column header."""
+    value = _table_value(metric, cell)
+    if value is not None:
+        plain_header = _plain_cell(header).casefold()
+        if metric in {"artifact_size_kb", "artifact_size_mb"}:
+            unit_match = re.search(r"\b(?P<unit>kb|mb|gb)\b", plain_header)
+            if unit_match is not None:
+                value_mb = _memory_mb(str(value), unit_match.group("unit"))
+                return value_mb * 1024 if metric == "artifact_size_kb" else value_mb
+        if metric.endswith("_seconds") and not re.search(
+            rf"{_NUMBER}\s*(?:us|µs|ms|s|sec(?:ond)?s?)\b", _plain_cell(cell), re.I
+        ):
+            value = None
+        else:
+            return value
+    plain_header = _plain_cell(header).casefold()
+    plain_cell = _plain_cell(cell)
+    match = _NUMBER_RE.fullmatch(plain_cell.replace(",", ""))
+    if match is None:
+        return None
+    number = _parse_number(match.group("value"))
+    if metric.endswith("_seconds"):
+        if re.search(r"\b(?:microseconds?|us|µs)\b", plain_header):
+            return number / 1_000_000
+        if re.search(r"\b(?:milliseconds?|ms)\b", plain_header):
+            return number / 1_000
+        if re.search(r"\b(?:seconds?|secs?|s)\b", plain_header):
+            return number
+    if metric in {"artifact_size_kb", "artifact_size_mb"}:
+        unit_match = re.search(r"\b(?P<unit>kb|mb|gb)\b", plain_header)
+        if unit_match is not None:
+            value_mb = _memory_mb(str(number), unit_match.group("unit"))
+            return value_mb * 1024 if metric == "artifact_size_kb" else value_mb
+    return _normalize_value(
+        metric,
+        number,
+        percent=bool(match.group("percent")) or "%" in plain_header,
+    )
 
 
 def _metric_from_comparison_header(headers: list[str], column: int) -> str | None:
@@ -1171,6 +1671,29 @@ def _embedded_duration_table_claims(
                 },
             )
         )
+        plain_cell = _plain_cell(cells[column])
+        bytes_match = re.search(rf"(?:,|^)\s*(?P<value>{_NUMBER})\s*B\b", plain_cell, re.I)
+        if bytes_match is not None:
+            claims.append(
+                Claim(
+                    metric="memory_bytes",
+                    value=_parse_number(bytes_match.group("value")),
+                    raw_text=raw_text,
+                    line=line,
+                    context={"system": system},
+                )
+            )
+        allocation_match = re.search(rf"(?:,|^)\s*(?P<value>{_NUMBER})\s*GC\b", plain_cell, re.I)
+        if allocation_match is not None:
+            claims.append(
+                Claim(
+                    metric="allocation_count",
+                    value=_parse_number(allocation_match.group("value")),
+                    raw_text=raw_text,
+                    line=line,
+                    context={"system": system},
+                )
+            )
     return claims
 
 

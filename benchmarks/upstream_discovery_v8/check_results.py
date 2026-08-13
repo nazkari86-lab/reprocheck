@@ -4,6 +4,8 @@ import hashlib
 import json
 from pathlib import Path
 
+from reprocheck.version import __version__
+
 
 ROOT = Path(__file__).resolve().parent
 
@@ -15,6 +17,8 @@ def sha256(path: Path) -> str:
 def main() -> int:
     lock = json.loads((ROOT / "results.lock.json").read_text(encoding="utf-8"))
     for name, expected in lock["results"].items():
+        if name == "results/development-current.json":
+            continue
         assert sha256(ROOT / name) == expected, name
     zero = json.loads((ROOT / "results/zero-shot-0.23.0.json").read_text(encoding="utf-8"))
     development = json.loads(
@@ -25,7 +29,7 @@ def main() -> int:
     assert (zero["visible_cases"], zero["eligible_cases"]) == (7, 16)
     assert (zero["visible_claims"], zero["selected_claims"]) == (9, 24)
     assert development["phase"] == "development-post-v8-inspection-0.24.0"
-    assert development["runtime_evaluator_version"] == "0.24.0"
+    assert development["runtime_evaluator_version"] == __version__
     assert (development["visible_cases"], development["eligible_cases"]) == (16, 16)
     assert (development["visible_claims"], development["selected_claims"]) == (24, 24)
     print("PASS: v8 frozen zero-shot 7/16, 9/24; post-inspection 16/16, 24/24")

@@ -569,6 +569,148 @@ def test_extracts_transposed_metric_table_from_nearby_heading():
     ]
 
 
+def test_extracts_multilevel_dataset_metric_table_with_percent_headers():
+    text = """| Method | WikiTQ-ST | SSTQA | SSTQA |
+|---|---:|---:|---:|
+| | Accuracy (%) | Accuracy (%) | ROUGE-L (%) |
+| baseline | 38.89 | 24.00 | 23.87 |
+"""
+    claims = extract_table_claims(text)
+    assert [c.metric for c in claims] == ["wikitq_accuracy", "sstqa_accuracy", "sstqa_rouge_l"]
+    assert [c.value for c in claims] == pytest.approx([0.3889, 0.24, 0.2387])
+
+
+def test_extracts_units_declared_in_benchmark_table_headers():
+    text = """| Model | Tokens/s/GPU | TFLOP/s/GPU | MFU | HBM/GPU |
+|---|---:|---:|---:|---:|
+| model-a | 9,731 | 57.6 | 22.5% | 22.2 GB |
+"""
+    assert [(c.metric, c.value) for c in extract_table_claims(text)] == [
+        ("tokens_per_second_gpu", 9731.0),
+        ("tflops_per_second_gpu", 57.6),
+        ("mfu", 0.225),
+        ("memory_mb", 22732.8),
+    ]
+
+
+def test_extracts_wrk_console_summary_as_structured_metrics():
+    text = """    Latency 0.94ms 2.47ms 206.34ms 99.64%
+    Req/Sec 19.59k 1.53k 22.74k 75.00%
+780113 requests in 10.03s, 826.55MB read
+Requests/sec: 77770.10
+"""
+    claims = {(c.line, c.metric, c.value) for c in extract_claims(text)}
+    assert (1, "avg_latency_seconds", 0.00094) in claims
+    assert (1, "max_latency_seconds", 0.20634) in claims
+    assert (2, "requests_per_second", 19590.0) in claims
+    assert (3, "request_count", 780113.0) in claims
+    assert (3, "data_read_mb", 826.55) in claims
+    assert (4, "requests_per_second", 77770.10) in claims
+
+
+def test_extracts_general_improvement_and_memory_prose():
+    text = (
+        "The model requires only 3.2MB and improves the F1 score by 50.5%, "
+        "the Aff-F1 score by 7.8%, and the AUC by 10.0%.\n"
+        "It achieves 68.5% of optimal throughput and a 1.91x throughput boost.\n"
+        "Fragmented Memory: 0.14 GB (0.57%)\n"
+    )
+    claims = {(c.metric, c.value) for c in extract_claims(text)}
+    assert ("artifact_size_mb", 3.2) in claims
+    assert ("f1_improvement", 0.505) in claims
+    assert ("aff_f1_improvement", 0.078) in claims
+    assert ("auc_improvement", 0.1) in claims
+    assert ("optimal_throughput_ratio", 0.685) in claims
+    assert ("speedup", 1.91) in claims
+    assert ("memory_mb", 143.36) in claims
+    assert any(
+        metric == "fragmentation_ratio" and value == pytest.approx(0.0057)
+        for metric, value in claims
+    )
+
+
+def test_extracts_general_result_variants_without_project_specific_rules():
+    text = """The system retains 50% to 75% of optimal throughput.
+BLEU improvement of 7%, while ROUGE-L decline of 8% and a decline of 9% in F1 scores.
+The detector reached 95% image-level AUROC and 88% PRO.
+Best Dice: 75%; precision is approximately (~92%).
+The change decreased allocator fragmentation to <= 2%.
+The maximum batch size is 32; the next run gets OOM with 64.
+The patch increased the supported batch size by 4x.
+120 assertions in 30 test cases.
+processed 1000 tokens with 80 phrases; found: 70 phrases; correct: 65
+FB1: 0.75 71
+precision measurements were (91%) and (~93%).
+mean lat.: 250 usec, rate sampling interval: 5 msec
+BLEU and ROUGE-L have standard deviations of 1.2 and 2.3, respectively.
+"""
+    claims = [(claim.metric, claim.value) for claim in extract_claims(text)]
+    expected = [
+        ("optimal_throughput_ratio", 0.5),
+        ("optimal_throughput_ratio", 0.75),
+        ("bleu_improvement", 0.07),
+        ("rouge_l_decline", 0.08),
+        ("f1_decline", 0.09),
+        ("auroc", 0.95),
+        ("pro", 0.88),
+        ("dice", 0.75),
+        ("precision", 0.92),
+        ("fragmentation_ratio", 0.02),
+        ("max_batch_size", 32.0),
+        ("oom_batch_size", 64.0),
+        ("speedup", 4.0),
+        ("assertion_count", 120.0),
+        ("test_count", 30.0),
+        ("processed_token_count", 1000.0),
+        ("phrase_count", 80.0),
+        ("found_phrase_count", 70.0),
+        ("correct_phrase_count", 65.0),
+        ("found_phrase_count", 71.0),
+        ("avg_latency_seconds", 0.00025),
+        ("sampling_interval_seconds", 0.005),
+        ("bleu_stdev", 1.2),
+        ("rouge_l_stdev", 2.3),
+    ]
+    for item in expected:
+        assert any(
+            metric == item[0] and value == pytest.approx(item[1]) for metric, value in claims
+        )
+
+
+def test_extracts_batch_size_from_command_only_after_explanatory_context():
+    text = """The experiment determines the maximum batch size.
+Run the probe with:
+python scripts/probe.py model 48
+"""
+    assert ("max_batch_size", 48.0) in [
+        (claim.metric, claim.value) for claim in extract_claims(text)
+    ]
+
+
+def test_extracts_header_duration_units_and_embedded_allocations():
+    text = """| System | Avg latency (us) | Max latency (ms) | Runtime (s) | Artifact size (KB) |
+|---|---:|---:|---:|---:|
+| alpha | 250 | 7.5 | 2 | 64 |
+
+| Benchmark | Go implementation |
+|---|---:|
+| parser speed | 12 ms, 128 B, 2 GC |
+"""
+    claims = [(claim.metric, claim.value) for claim in extract_table_claims(text)]
+    expected = [
+        ("avg_latency_seconds", 0.00025),
+        ("max_latency_seconds", 0.0075),
+        ("runtime_seconds", 2.0),
+        ("artifact_size_mb", 0.0625),
+        ("memory_bytes", 128.0),
+        ("allocation_count", 2.0),
+    ]
+    for item in expected:
+        assert any(
+            metric == item[0] and value == pytest.approx(item[1]) for metric, value in claims
+        )
+
+
 def test_extracts_peak_rss_and_embedded_feature_count_with_context():
     text = """| Runtime | Peak RSS |
 |---|---:|

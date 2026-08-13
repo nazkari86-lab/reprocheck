@@ -549,7 +549,7 @@
   "labels_sha256": "b2dff215b3fe2a74d848d0839b5fefd70467d2e3dc8cc595043a0402ec3ab3ee",
   "phase": "development-post-v8-inspection-0.24.0",
   "protocol_sha256": "9f925ceb8f582b6d89c4ed8887b7058d3312fe3866835460722e088c578c6a69",
-  "runtime_evaluator_version": "0.24.0",
+  "runtime_evaluator_version": "0.25.0",
   "sample_sha256": "11cd819274f1289a22c1b2a5e2bfdeae0238c8b9ce0956123a51d8c2928b9506",
   "sampled_pull_requests": 994,
   "schema_version": "reprocheck.upstream-discovery-result.v8",
