@@ -38,8 +38,7 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: make install
-      - run: python -m ruff format --check .
-      - run: python -m ruff check .
+      - run: make lint
       - run: python -m pyright src tests
       - run: python -m pytest --cov=src/reprocheck --cov-report=term-missing --cov-fail-under=97
 
