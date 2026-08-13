@@ -26,7 +26,7 @@ test:
 	python3 -m pytest
 
 lint:
-	python3 -m ruff format --check . --exclude benchmarks/upstream_discovery_v8
+	python3 -m ruff format --check . --exclude benchmarks/upstream_discovery_v8 --exclude benchmarks/upstream_discovery_v9
 	python3 -m ruff check .
 
 type:
