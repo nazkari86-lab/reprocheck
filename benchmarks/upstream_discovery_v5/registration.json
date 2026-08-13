@@ -1,0 +1,25 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-registration.v4",
+  "status": "registered_unretrieved",
+  "registered_at": "2026-08-13T14:23:19Z",
+  "evaluator_commit": "96e0a4688ef74e6ddc41ec78471276954c5cda66",
+  "evaluator_version": "0.21.0",
+  "evaluator_wheel": "evaluator/reprocheck-0.21.0-py3-none-any.whl",
+  "evaluator_wheel_sha256": "50e9858be7876cab91575670c6cf9d6bd39cc910fce894e2eedd2633693faa34",
+  "protocol_sha256": "f652c40241dce41e5dcc58d2bed8b5ec5101f6cb2e084e02ebd9c86252d17e33",
+  "retrieval_script_sha256": "51c69618e9111ed5bc2bec13dfc48ec06b15ad341007fdb93f2f55d95eb6cf38",
+  "query_frames": 24,
+  "maximum_sample_size": 480,
+  "selected_per_frame": 20,
+  "global_owner_cap": 1,
+  "prior_exposure_inputs": {
+    "../upstream_discovery_v2/frames.json": "7e2ba1e5758ae6ec2114b86bbc9e747e9a47b3fa21b5dbcdcbad7d6b67371b30",
+    "../upstream_discovery_v3/frames.json": "923bfebe1c8cdd0e38dccf7e5a89190ee7395ece530835c494e469f952bc8be3",
+    "../upstream_discovery_v4/frames.json": "d3d5ab59afaa24424744745d8c073b3d26f62ee170b6d18ff78acf518a4346ce",
+    "../upstream_corrections/discovery_snapshot.json": "048ae9ca1d972d5f2998aee996dfd3010ea36d940b98a73d65dffaf148c36a0a",
+    "../upstream_corrections/manifest.json": "d07dfec9bb9e4c83673f58051bb8108f7219d9a03562db32a0692344e61d3ed0"
+  },
+  "retrieval_started": false,
+  "candidates_seen": false,
+  "labels_seen": false
+}
