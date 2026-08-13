@@ -93,7 +93,9 @@ def collect() -> dict[str, int]:
         if (candidate["repository"], candidate["pull_request"]) not in completed_keys
     ]
     with ThreadPoolExecutor(max_workers=8) as executor:
-        futures = {executor.submit(_collect_candidate, candidate): candidate for candidate in pending}
+        futures = {
+            executor.submit(_collect_candidate, candidate): candidate for candidate in pending
+        }
         for future in as_completed(futures):
             candidate = futures[future]
             detail = future.result()

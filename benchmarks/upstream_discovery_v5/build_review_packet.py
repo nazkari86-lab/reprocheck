@@ -7,9 +7,7 @@ import re
 
 ROOT = Path(__file__).resolve().parent
 NUMBER = re.compile(r"(?<![A-Za-z_])[+-]?(?:\d[\d,]*(?:\.\d+)?|\.\d+)%?(?![A-Za-z_])")
-REPORT_SUFFIXES = {
-    ".csv", ".html", ".json", ".md", ".rst", ".tex", ".tsv", ".txt", ".yaml", ".yml"
-}
+REPORT_SUFFIXES = {".csv", ".html", ".json", ".md", ".rst", ".tex", ".tsv", ".txt", ".yaml", ".yml"}
 
 
 def _numeric_diff_lines(patch: str | None) -> tuple[list[str], list[str]]:

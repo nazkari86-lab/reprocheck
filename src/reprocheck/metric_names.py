@@ -89,6 +89,8 @@ METRIC_ALIASES = {
     "mean wall time": "mean_wall_time_seconds",
     "avg latency": "avg_latency_seconds",
     "avg latency (s)": "avg_latency_seconds",
+    "mean latency": "avg_latency_seconds",
+    "mean latency (ms)": "avg_latency_seconds",
     "p95 latency": "p95_latency_seconds",
     "p95 latency (s)": "p95_latency_seconds",
     "latency score": "latency_score_seconds",
@@ -100,6 +102,8 @@ METRIC_ALIASES = {
     "throughput": "throughput_ops_per_second",
     "throughput (ops/s)": "throughput_ops_per_second",
     "feature count": "feature_count",
+    "test count": "test_count",
+    "artifact size": "artifact_size_mb",
     "separability delta": "separability_delta",
     "ndcg": "ndcg",
     "u_ndcg": "u_ndcg",
@@ -178,6 +182,8 @@ NONNEGATIVE_METRICS = {
     "memory_mb",
     "throughput_ops_per_second",
     "feature_count",
+    "test_count",
+    "artifact_size_mb",
     "separability_delta",
 }
 

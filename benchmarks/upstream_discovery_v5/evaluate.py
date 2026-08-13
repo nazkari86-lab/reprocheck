@@ -30,9 +30,11 @@ def wilson(successes: int, total: int, z: float = 1.959963984540054) -> list[flo
     proportion = successes / total
     denominator = 1 + z * z / total
     center = (proportion + z * z / (2 * total)) / denominator
-    margin = z * math.sqrt(
-        proportion * (1 - proportion) / total + z * z / (4 * total * total)
-    ) / denominator
+    margin = (
+        z
+        * math.sqrt(proportion * (1 - proportion) / total + z * z / (4 * total * total))
+        / denominator
+    )
     return [center - margin, center + margin]
 
 
@@ -50,8 +52,15 @@ def _claim_matches(claim: Claim, expected: dict[str, Any], value: float) -> bool
 
 
 def matching_claim_count(text: str, expected: dict[str, Any], value: float) -> int:
-    snippet = expected["before_snippet"] if value == expected["before_value"] else expected["after_snippet"]
-    return sum(snippet in claim.raw_text and _claim_matches(claim, expected, value) for claim in extract_claims(text))
+    snippet = (
+        expected["before_snippet"]
+        if value == expected["before_value"]
+        else expected["after_snippet"]
+    )
+    return sum(
+        snippet in claim.raw_text and _claim_matches(claim, expected, value)
+        for claim in extract_claims(text)
+    )
 
 
 def evaluate(output: Path, phase: str) -> dict[str, Any]:
@@ -78,27 +87,43 @@ def evaluate(output: Path, phase: str) -> dict[str, Any]:
         for expected in case["claims"]:
             before_text = texts[(expected["file"], "before")]
             after_text = texts[(expected["file"], "after")]
-            before_matches = matching_claim_count(before_text, expected, float(expected["before_value"]))
-            after_matches = matching_claim_count(after_text, expected, float(expected["after_value"]))
+            before_matches = matching_claim_count(
+                before_text, expected, float(expected["before_value"])
+            )
+            after_matches = matching_claim_count(
+                after_text, expected, float(expected["after_value"])
+            )
             before_source_count = before_text.count(expected["before_snippet"])
             after_source_count = after_text.count(expected["after_snippet"])
-            passed = before_source_count == after_source_count == before_matches == after_matches == 1
-            claim_results.append({
-                "file": expected["file"], "metric": expected["metric"],
-                "context": expected.get("context", {}),
-                "before_value": expected["before_value"], "after_value": expected["after_value"],
-                "before_source_count": before_source_count, "after_source_count": after_source_count,
-                "before_parser_matches": before_matches, "after_parser_matches": after_matches,
-                "passed": passed,
-            })
-        case_results.append({
-            "id": case["id"], "repository": case["repository"],
-            "pull_request": case["pull_request"], "source_integrity": integrity,
-            "selected_claims": len(claim_results),
-            "visible_claims": sum(result["passed"] for result in claim_results),
-            "passed": integrity and all(result["passed"] for result in claim_results),
-            "claims": claim_results,
-        })
+            passed = (
+                before_source_count == after_source_count == before_matches == after_matches == 1
+            )
+            claim_results.append(
+                {
+                    "file": expected["file"],
+                    "metric": expected["metric"],
+                    "context": expected.get("context", {}),
+                    "before_value": expected["before_value"],
+                    "after_value": expected["after_value"],
+                    "before_source_count": before_source_count,
+                    "after_source_count": after_source_count,
+                    "before_parser_matches": before_matches,
+                    "after_parser_matches": after_matches,
+                    "passed": passed,
+                }
+            )
+        case_results.append(
+            {
+                "id": case["id"],
+                "repository": case["repository"],
+                "pull_request": case["pull_request"],
+                "source_integrity": integrity,
+                "selected_claims": len(claim_results),
+                "visible_claims": sum(result["passed"] for result in claim_results),
+                "passed": integrity and all(result["passed"] for result in claim_results),
+                "claims": claim_results,
+            }
+        )
     eligible_cases = len(case_results)
     visible_cases = sum(case["passed"] for case in case_results)
     selected_claims = sum(case["selected_claims"] for case in case_results)
@@ -127,11 +152,20 @@ def evaluate(output: Path, phase: str) -> dict[str, Any]:
         "source_integrity": all(case["source_integrity"] for case in case_results),
         "breadth": {
             "repositories": len({case["repository"] for case in case_results}),
-            "independent_repository_owners": len({case["repository"].split("/", 1)[0] for case in case_results}),
+            "independent_repository_owners": len(
+                {case["repository"].split("/", 1)[0] for case in case_results}
+            ),
             "source_formats": ["markdown_prose", "markdown_table", "latex", "tsv"],
             "metric_families": [
-                "success_rate", "speedup", "latency", "memory", "recall_precision",
-                "throughput", "composite_score", "runtime", "solver_difficulty",
+                "success_rate",
+                "speedup",
+                "latency",
+                "memory",
+                "recall_precision",
+                "throughput",
+                "composite_score",
+                "runtime",
+                "solver_difficulty",
             ],
         },
         "cases": case_results,
@@ -142,7 +176,9 @@ def evaluate(output: Path, phase: str) -> dict[str, Any]:
         ),
     }
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+    output.write_text(
+        json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8"
+    )
     print(
         f"PASS: phase={phase} evaluator={__version__} sample={sample['sample_size']} "
         f"eligible={eligible_cases} cases={visible_cases}/{eligible_cases} "

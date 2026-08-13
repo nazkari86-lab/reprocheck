@@ -59,7 +59,7 @@ Install the published wheel directly from the immutable GitHub release:
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install \
-  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.21.0/reprocheck-0.21.0-py3-none-any.whl
+  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.23.0/reprocheck-0.23.0-py3-none-any.whl
 reprocheck demo
 ```
 
@@ -131,6 +131,13 @@ development parser recovers 11/11 and 34/34 by adding general support for decora
 prose, row-labeled and compound tables, scaled quantities, LaTeX-like prose, and TSV.
 That perfect development score is not fresh external validation and is not reported as
 such; see [`benchmarks/upstream_discovery_v5`](benchmarks/upstream_discovery_v5).
+
+The fresh v7 holdout froze 0.22.0 before sampling 160 additional independent owners.
+Four cases with 11 claims were eligible. Zero-shot recovery was 1/4 complete cases
+(Wilson 95% 4.6%–69.9%) and 5/11 claims (21.3%–72.0%). The immutable failures remain
+the external score. Post-inspection 0.23.0 recovers 3/4 and 9/11; the remaining
+hashfile-size case uses a distinct artifact-size metric instead of being mislabeled as
+memory. The accidentally unblinded v6 attempt is explicitly invalidated and unscored.
 
 The 12-case witness benchmark is controlled capability evidence. The separate
 30-case source-derived benchmark contains 27 deterministic mutations of three

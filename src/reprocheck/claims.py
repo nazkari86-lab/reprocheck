@@ -73,6 +73,16 @@ _UNIT_DURATION_RE = re.compile(
     rf"(?P<unit>microseconds?|µs|us|milliseconds?|ms|seconds?|secs?|s)\b",
     flags=re.IGNORECASE,
 )
+_TEST_COUNT_RE = re.compile(
+    r"(?<![\w.,])(?P<value>(?:[1-9]\d{0,2}(?:,\d{3})+|[1-9]\d*))\s+"
+    r"(?:(?P<scope>Python|TypeScript)(?:\s+[Tt]ests)?|[Tt]ests)\b",
+)
+_ARTIFACT_SIZE_COMPARISON_RE = re.compile(
+    rf"\b(?:hashfile|artifact|file)\b[^\n()]*\([^\n)]*?"
+    rf"(?P<first>{_NUMBER})\s+(?:vs\.?|versus)\s+(?P<second>{_NUMBER})\s*"
+    rf"(?P<unit>kib|mib|gib)\b",
+    flags=re.IGNORECASE,
+)
 _RANKED_PROSE_RE = re.compile(
     rf"(?<![\w])(?P<family>map|mar|mrr|mndcg|ndcg|precision|recall)\s*@\s*"
     rf"(?P<k>[1-9]\d*)(?:\s*(?:=|:)\s*|\s+)(?P<value>{_NUMBER})\s*(?P<percent>%)?",
@@ -200,6 +210,39 @@ def extract_claims(text: str) -> list[Claim]:
                             context={"system": system},
                         )
                     )
+        for match in _TEST_COUNT_RE.finditer(line):
+            value = _parse_number(match.group("value"))
+            key = (line_number, "test_count", value)
+            if key not in text_seen:
+                text_seen.add(key)
+                context = (
+                    {"scope": match.group("scope")} if match.group("scope") else {"scope": "total"}
+                )
+                claims.append(
+                    Claim(
+                        metric="test_count",
+                        value=value,
+                        raw_text=raw_line.strip(),
+                        line=line_number,
+                        context=context,
+                    )
+                )
+        for match in _ARTIFACT_SIZE_COMPARISON_RE.finditer(line):
+            factor = {"kib": 1 / 1024, "mib": 1, "gib": 1024}[match.group("unit").casefold()]
+            for group, system in (("first", "reported artifact"), ("second", "baseline artifact")):
+                value = _parse_number(match.group(group)) * factor
+                key = (line_number, "artifact_size_mb", value)
+                if key not in text_seen:
+                    text_seen.add(key)
+                    claims.append(
+                        Claim(
+                            metric="artifact_size_mb",
+                            value=value,
+                            raw_text=raw_line.strip(),
+                            line=line_number,
+                            context={"system": system},
+                        )
+                    )
         for match in _RANKED_PROSE_RE.finditer(line):
             family = match.group("family").casefold()
             metric = f"{family}_{match.group('k')}"
@@ -310,6 +353,18 @@ def extract_claims(text: str) -> list[Claim]:
         key = (claim.line, claim.metric, claim.value)
         if key not in text_seen:
             claims.append(claim)
+    structured_pairs = {(claim.metric, claim.value) for claim in claims if claim.context}
+    claims = [
+        claim
+        for claim in claims
+        if claim.context
+        or (claim.metric, claim.value) not in structured_pairs
+        or not re.search(
+            rf"\byield\s+(?:an?\s+)?{re.escape(claim.metric.replace('_', ' '))}\b",
+            _plain_cell(claim.raw_text),
+            flags=re.IGNORECASE,
+        )
+    ]
     claims.sort(key=lambda claim: claim.line)
     return claims
 
@@ -520,6 +575,8 @@ def _metric_from_header(header: str) -> str | None:
         return f"{waymo.group(1)}_l{waymo.group(2)}"
     if re.search(r"\b(?:m\s*)?ap\b", compact) and _is_size_specific_ap(compact.split()):
         return None
+    if re.fullmatch(r"pq\s+(?:th|st)", compact):
+        return None
     detection_metric = _detection_metric_from_header(compact)
     if detection_metric is not None:
         return detection_metric
@@ -606,6 +663,37 @@ def _embedded_text_claims(cells: list[str], raw_text: str, line: int) -> list[Cl
     seen: set[tuple[str, float]] = set()
     for cell in cells:
         plain = _plain_cell(cell)
+        for match in _TEST_COUNT_RE.finditer(plain):
+            value = _parse_number(match.group("value"))
+            if ("test_count", value) not in seen:
+                seen.add(("test_count", value))
+                context = (
+                    {"scope": match.group("scope")} if match.group("scope") else {"scope": "total"}
+                )
+                claims.append(
+                    Claim(
+                        metric="test_count",
+                        value=value,
+                        raw_text=raw_text,
+                        line=line,
+                        context=context,
+                    )
+                )
+        for match in _ARTIFACT_SIZE_COMPARISON_RE.finditer(plain):
+            factor = {"kib": 1 / 1024, "mib": 1, "gib": 1024}[match.group("unit").casefold()]
+            for group, system in (("first", "reported artifact"), ("second", "baseline artifact")):
+                value = _parse_number(match.group(group)) * factor
+                if ("artifact_size_mb", value) not in seen:
+                    seen.add(("artifact_size_mb", value))
+                    claims.append(
+                        Claim(
+                            metric="artifact_size_mb",
+                            value=value,
+                            raw_text=raw_text,
+                            line=line,
+                            context={"system": system},
+                        )
+                    )
         for match in _RANKED_PROSE_RE.finditer(plain):
             metric = f"{match.group('family').casefold()}_{match.group('k')}"
             value = _normalize_value(
@@ -894,13 +982,16 @@ def _extract_html_table_claims(text: str) -> list[Claim]:
 
 
 def _table_value(metric: str, cell: str) -> float | None:
+    plain_cell = _plain_cell(cell)
+    if re.fullmatch(r"[A-Za-z_]+\d+(?:[A-Za-z_]+)?", plain_cell):
+        return None
     if metric.endswith("_seconds"):
         return _duration_cell_seconds(cell)
     if metric == "throughput_ops_per_second":
         scaled = _scaled_quantity(cell)
         if scaled is not None:
             return scaled
-    matches = list(_NUMBER_RE.finditer(_plain_cell(cell)))
+    matches = list(_NUMBER_RE.finditer(plain_cell))
     if len(matches) != 1:
         return None
     match = matches[0]
@@ -1038,7 +1129,11 @@ def _duration_seconds(value: str, unit: str) -> float:
 
 
 def _duration_cell_seconds(cell: str) -> float | None:
-    plain = _plain_cell(cell).casefold().replace(" ", "")
+    readable = _plain_cell(cell).casefold()
+    unit_match = _UNIT_DURATION_RE.fullmatch(readable)
+    if unit_match is not None:
+        return _duration_seconds(unit_match.group("value"), unit_match.group("unit"))
+    plain = readable.replace(" ", "")
     match = re.fullmatch(
         rf"(?:(?P<minutes>{_NUMBER})(?:m|min|mins|minute|minutes))?"
         rf"(?:(?P<seconds>{_NUMBER})(?:s|sec|secs|second|seconds)?)?",

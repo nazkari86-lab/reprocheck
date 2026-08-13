@@ -11,3 +11,8 @@ the RKNN table was partial; hashfile-size prose and test-count prose were missed
 The exact result is checksum-locked in `results.lock.json`. It is a query-conditioned,
 small cohort: 25% case visibility has Wilson 95% interval 4.6%–69.9%, and 45.5% claim
 visibility has interval 21.3%–72.0%. These are not population estimates.
+
+After inspecting the misses, development 0.23.0 recovers 3/4 cases and 9/11
+claims by adding mean-latency and test-count support. The remaining hashfile-size
+case is intentionally represented as `artifact_size_mb`, not mislabeled as memory
+merely to raise the score. This post-inspection result is not external validation.

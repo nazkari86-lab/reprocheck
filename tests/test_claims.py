@@ -283,6 +283,57 @@ def test_extracts_scores_from_old_new_benchmark_table():
     ]
 
 
+def test_extracts_mean_latency_table_header_in_seconds():
+    text = """| Precision | Mean Latency | Accuracy (mAP50) |
+|---|---|---|
+| FP16 | 51.82 ms | 0.7791 |
+"""
+    claims = extract_table_claims(text)
+    assert [(c.metric, c.value) for c in claims] == [
+        ("avg_latency_seconds", 0.05182),
+        ("latency_score_seconds", 0.05182),
+        ("map50", 0.7791),
+    ]
+
+
+def test_extracts_total_and_language_test_counts():
+    claims = extract_claims("~19,170 tests: 5,954 TypeScript + 13,216 Python")
+    assert [(c.metric, c.value, c.context) for c in claims] == [
+        ("test_count", 19170.0, {"scope": "total"}),
+        ("test_count", 5954.0, {"scope": "TypeScript"}),
+        ("test_count", 13216.0, {"scope": "Python"}),
+    ]
+
+
+def test_test_count_does_not_treat_version_tail_as_count():
+    claims = extract_claims("PyTorch 2.12.0, Python 3.14.5; max_det=300, seed=0.")
+
+    assert not [claim for claim in claims if claim.metric == "test_count"]
+
+
+def test_extracts_artifact_size_comparison_without_calling_it_memory():
+    claims = extract_claims("Smaller hashfile (**39.7 vs 70.9 MiB** on the tree)")
+    assert [(c.metric, c.value) for c in claims] == [
+        ("artifact_size_mb", 39.7),
+        ("artifact_size_mb", 70.9),
+    ]
+
+
+def test_extracts_counts_and_artifact_sizes_inside_table_cells():
+    text = """| Evidence | Details |
+|---|---|
+| Verification | 19,170 tests: 13,216 Python |
+| Storage | Smaller hashfile (39.7 vs 70.9 MiB on the tree) |
+"""
+    claims = extract_table_claims(text)
+    assert [(c.metric, c.value, c.context) for c in claims] == [
+        ("test_count", 19170.0, {"scope": "total"}),
+        ("test_count", 13216.0, {"scope": "Python"}),
+        ("artifact_size_mb", 39.7, {"system": "reported artifact"}),
+        ("artifact_size_mb", 70.9, {"system": "baseline artifact"}),
+    ]
+
+
 def test_normalizes_subsecond_prose_durations_and_rejects_invalid_time_cells():
     text = """Processing time: 250 milliseconds
 Processing time: 40 us

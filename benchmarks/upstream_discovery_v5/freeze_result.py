@@ -21,7 +21,10 @@ def main() -> int:
     if not result.exists():
         raise FileNotFoundError(result)
     payload = json.loads(result.read_text(encoding="utf-8"))
-    if payload["phase"] != "zero-shot-frozen-0.21.0" or payload["runtime_evaluator_version"] != "0.21.0":
+    if (
+        payload["phase"] != "zero-shot-frozen-0.21.0"
+        or payload["runtime_evaluator_version"] != "0.21.0"
+    ):
         raise ValueError("unexpected frozen result identity")
     lock = {
         "schema_version": "reprocheck.upstream-discovery-result-lock.v5",
