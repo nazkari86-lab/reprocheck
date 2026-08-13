@@ -1,0 +1,28 @@
+{
+  "schema_version": "reprocheck.metric-policy.v1",
+  "frozen_before_retrieval": true,
+  "numeric_normalization": {
+    "percent": "divide by 100 for unit-interval metrics",
+    "commas": "remove thousands separators before parsing",
+    "duration": "normalize explicit seconds, microseconds, and nanoseconds to milliseconds",
+    "memory": "normalize explicit KiB, GiB, KB, and GB to MB using the unit written by the source",
+    "scaled_counts": "expand explicit k, M, and G suffixes by powers of 1000"
+  },
+  "canonical_families": {
+    "classification": ["accuracy", "precision", "recall", "f1", "auroc", "auprc", "log_loss", "brier"],
+    "ranking_generation": ["bleu", "bleu_4", "meteor", "rouge_1", "rouge_2", "rouge_l", "mrr", "mrr_10", "ndcg", "ndcg_10"],
+    "vision": ["map", "map25", "map50", "map75", "map50_95", "miou", "dice", "psnr", "ssim"],
+    "regression": ["mae", "mse", "rmse", "r2"],
+    "systems": ["latency_ms", "runtime_ms", "throughput", "speedup", "memory_mb", "compression_ratio", "size_bytes"]
+  },
+  "rules": [
+    "Use an explicit metric label from the same row, column, or sentence when present.",
+    "Validation and test prefixes remain part of a metric only when the source explicitly distinguishes them.",
+    "For unlabeled benchmark time columns use runtime_ms; use latency_ms only when latency is explicit.",
+    "For operations, requests, rows, tokens, samples, or items per time use throughput unless a canonical labeled rate exists.",
+    "Do not label targets, limits, thresholds, hyperparameters, input dimensions, counts of test cases, or dates as outcomes.",
+    "Do not derive ratios or deltas that the source does not print.",
+    "If a cell prints multiple independently labeled outcomes, annotate each one.",
+    "If the same outcome appears twice in the registered block, annotate both occurrences."
+  ]
+}
