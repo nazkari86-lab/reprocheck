@@ -32,6 +32,7 @@ _STRUCTURED_KEY_RE = re.compile(
 )
 _GENERIC_SCORE_CONTEXT_RE = re.compile(
     r"(?:\bpublished\s+result\b|\btarget\s+score\b|"
+    r"\b(?:composite\s+)?fitness\s+score\b|"
     r"\bscore\s*(?:[=:≈<>]|>=|<=)|\bbenchmark(?:\s+score)?\s*(?:[=:~]|\bscore\s+of\b)|"
     r"\b(?:beat|beats|beating|match|matched|matching)\b[^\n]*\bbenchmark\b)",
     flags=re.IGNORECASE,
@@ -54,6 +55,24 @@ _DURATION_CLAIM_RE = re.compile(
     flags=re.IGNORECASE,
 )
 _SPEEDUP_CLAIM_RE = re.compile(rf"(?P<value>{_NUMBER})\s*[x×]\s+faster\b", flags=re.IGNORECASE)
+_POSTFIX_SPEEDUP_RE = re.compile(
+    rf"(?P<value>{_NUMBER})\s*(?P<percent>%)?\s+speedup\b", flags=re.IGNORECASE
+)
+_SPEEDUP_RANGE_RE = re.compile(
+    rf"\bbeats?\b[^\n]*?\bby\s+(?P<low>{_NUMBER})\s*[–—-]\s*(?P<high>{_NUMBER})\s*%",
+    flags=re.IGNORECASE,
+)
+_MEMORY_COMPARISON_RE = re.compile(
+    rf"\b(?:cuts?|reduces?)\s+(?:resident\s+)?memory\b[^\n]*?\bto\s+(?:about|around|~)?\s*"
+    rf"(?P<target>{_NUMBER})\s*(?P<target_unit>kb|mb|gb)\b[^\n]*?\bfrom\s+"
+    rf"(?:about|around|~)?\s*(?P<source>{_NUMBER})\s*(?P<source_unit>kb|mb|gb)\b",
+    flags=re.IGNORECASE,
+)
+_UNIT_DURATION_RE = re.compile(
+    rf"(?P<value>{_NUMBER})\s*(?:±\s*{_NUMBER}\s*)?"
+    rf"(?P<unit>microseconds?|µs|us|milliseconds?|ms|seconds?|secs?|s)\b",
+    flags=re.IGNORECASE,
+)
 _RANKED_PROSE_RE = re.compile(
     rf"(?<![\w])(?P<family>map|mar|mrr|mndcg|ndcg|precision|recall)\s*@\s*"
     rf"(?P<k>[1-9]\d*)(?:\s*(?:=|:)\s*|\s+)(?P<value>{_NUMBER})\s*(?P<percent>%)?",
@@ -79,10 +98,12 @@ _CONTEXT_HEADERS = {
     "model": "model",
     "model name": "model",
     "name": "model",
+    "provider": "system",
     "run": "run",
     "runtime": "system",
     "split": "split",
     "task": "task",
+    "serialization type": "system",
     "threshold": "threshold",
     "variant": "variant",
 }
@@ -94,9 +115,10 @@ def extract_claims(text: str) -> list[Claim]:
     lines = text.splitlines()
     table_lines = _markdown_table_line_numbers(lines)
     prose_lines = _mask_html_tables(text).splitlines()
-    for line_number, line in enumerate(prose_lines, start=1):
+    for line_number, raw_line in enumerate(prose_lines, start=1):
         if line_number in table_lines:
             continue
+        line = _plain_cell(raw_line)
         coco_match = _COCO_SUMMARY_RE.search(line)
         if coco_match is not None:
             metric = _coco_summary_metric(coco_match)
@@ -108,7 +130,7 @@ def extract_claims(text: str) -> list[Claim]:
                 )
                 text_seen.add((line_number, metric, value))
                 claims.append(
-                    Claim(metric=metric, value=value, raw_text=line.strip(), line=line_number)
+                    Claim(metric=metric, value=value, raw_text=raw_line.strip(), line=line_number)
                 )
             continue
         duration_matches = list(_DURATION_CLAIM_RE.finditer(line))
@@ -121,7 +143,7 @@ def extract_claims(text: str) -> list[Claim]:
                     Claim(
                         metric="runtime_seconds",
                         value=value,
-                        raw_text=line.strip(),
+                        raw_text=raw_line.strip(),
                         line=line_number,
                     )
                 )
@@ -131,8 +153,52 @@ def extract_claims(text: str) -> list[Claim]:
             if key not in text_seen:
                 text_seen.add(key)
                 claims.append(
-                    Claim(metric="speedup", value=value, raw_text=line.strip(), line=line_number)
+                    Claim(
+                        metric="speedup", value=value, raw_text=raw_line.strip(), line=line_number
+                    )
                 )
+        for match in _POSTFIX_SPEEDUP_RE.finditer(line):
+            value = _normalize_value(
+                "speedup", _parse_number(match.group("value")), percent=bool(match.group("percent"))
+            )
+            key = (line_number, "speedup", value)
+            if key not in text_seen:
+                text_seen.add(key)
+                claims.append(
+                    Claim(
+                        metric="speedup", value=value, raw_text=raw_line.strip(), line=line_number
+                    )
+                )
+        for match in _SPEEDUP_RANGE_RE.finditer(line):
+            for metric, group in (("speedup_range_low", "low"), ("speedup_range_high", "high")):
+                value = _parse_number(match.group(group)) / 100.0
+                key = (line_number, metric, value)
+                if key not in text_seen:
+                    text_seen.add(key)
+                    claims.append(
+                        Claim(
+                            metric=metric, value=value, raw_text=raw_line.strip(), line=line_number
+                        )
+                    )
+        for match in _MEMORY_COMPARISON_RE.finditer(line):
+            roles = (
+                ("target", "target_unit", "native UI"),
+                ("source", "source_unit", "webview UI"),
+            )
+            for value_group, unit_group, system in roles:
+                value = _memory_mb(match.group(value_group), match.group(unit_group))
+                key = (line_number, "memory_mb", value)
+                if key not in text_seen:
+                    text_seen.add(key)
+                    claims.append(
+                        Claim(
+                            metric="memory_mb",
+                            value=value,
+                            raw_text=raw_line.strip(),
+                            line=line_number,
+                            context={"system": system},
+                        )
+                    )
         for match in _RANKED_PROSE_RE.finditer(line):
             family = match.group("family").casefold()
             metric = f"{family}_{match.group('k')}"
@@ -145,7 +211,7 @@ def extract_claims(text: str) -> list[Claim]:
             if key not in text_seen:
                 text_seen.add(key)
                 claims.append(
-                    Claim(metric=metric, value=value, raw_text=line.strip(), line=line_number)
+                    Claim(metric=metric, value=value, raw_text=raw_line.strip(), line=line_number)
                 )
         for match in _RANKED_ARROW_RE.finditer(line):
             metric = f"{match.group('family').casefold()}_{match.group('k')}"
@@ -158,7 +224,7 @@ def extract_claims(text: str) -> list[Claim]:
             if key not in text_seen:
                 text_seen.add(key)
                 claims.append(
-                    Claim(metric=metric, value=value, raw_text=line.strip(), line=line_number)
+                    Claim(metric=metric, value=value, raw_text=raw_line.strip(), line=line_number)
                 )
         for match in _SEPARABILITY_RE.finditer(line):
             value = float(match.group("value").replace(",", "."))
@@ -169,7 +235,7 @@ def extract_claims(text: str) -> list[Claim]:
                     Claim(
                         metric="separability_delta",
                         value=value,
-                        raw_text=line.strip(),
+                        raw_text=raw_line.strip(),
                         line=line_number,
                     )
                 )
@@ -182,7 +248,7 @@ def extract_claims(text: str) -> list[Claim]:
                     Claim(
                         metric="validator_count",
                         value=value,
-                        raw_text=line.strip(),
+                        raw_text=raw_line.strip(),
                         line=line_number,
                     )
                 )
@@ -199,7 +265,7 @@ def extract_claims(text: str) -> list[Claim]:
             if key not in text_seen:
                 text_seen.add(key)
                 claims.append(
-                    Claim(metric=metric, value=value, raw_text=line.strip(), line=line_number)
+                    Claim(metric=metric, value=value, raw_text=raw_line.strip(), line=line_number)
                 )
         for match in _CLAIM_RE.finditer(line):
             alias = match.group("metric").lower()
@@ -218,7 +284,7 @@ def extract_claims(text: str) -> list[Claim]:
                 continue
             text_seen.add(key)
             claims.append(
-                Claim(metric=metric, value=value, raw_text=line.strip(), line=line_number)
+                Claim(metric=metric, value=value, raw_text=raw_line.strip(), line=line_number)
             )
         has_specific_metric = any(
             seen_line == line_number and seen_metric != "score"
@@ -231,9 +297,15 @@ def extract_claims(text: str) -> list[Claim]:
                 if key not in text_seen:
                     text_seen.add(key)
                     claims.append(
-                        Claim(metric="score", value=value, raw_text=line.strip(), line=line_number)
+                        Claim(
+                            metric="score", value=value, raw_text=raw_line.strip(), line=line_number
+                        )
                     )
     for claim in extract_table_claims(text):
+        key = (claim.line, claim.metric, claim.value)
+        if key not in text_seen:
+            claims.append(claim)
+    for claim in _extract_tsv_claims(text):
         key = (claim.line, claim.metric, claim.value)
         if key not in text_seen:
             claims.append(claim)
@@ -332,6 +404,11 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
                     transposed_metric,
                 )
             )
+            claims.extend(
+                _embedded_duration_table_claims(
+                    headers, cells, lines[row_index].strip(), row_index + 1
+                )
+            )
             for column, metric in enumerate(metrics):
                 if metric is None or column >= len(cells):
                     continue
@@ -346,6 +423,16 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
                             context=context,
                         )
                     )
+                    if metric == "avg_latency_seconds":
+                        claims.append(
+                            Claim(
+                                metric="latency_score_seconds",
+                                value=value,
+                                raw_text=lines[row_index].strip(),
+                                line=row_index + 1,
+                                context=context,
+                            )
+                        )
             for column, compound in enumerate(compound_metrics):
                 if not compound or column >= len(cells):
                     continue
@@ -410,7 +497,7 @@ def _plain_cell(value: str) -> str:
     value = re.sub(r"<br\s*/?>", " ", value, flags=re.IGNORECASE)
     value = re.sub(r"<[^>]+>", " ", value)
     value = re.sub(r"!?(?:\[([^]]*)\])\([^)]*\)", r"\1", value)
-    value = re.sub(r"[`*_~]", "", value)
+    value = re.sub(r"[`*~]", "", value)
     return re.sub(r"\s+", " ", html.unescape(value)).strip()
 
 
@@ -449,11 +536,15 @@ def _metric_from_row_label(header: str, cell: str) -> str | None:
     normalized_header = re.sub(
         r"[^\w]+", " ", _plain_cell(header).casefold(), flags=re.UNICODE
     ).strip()
-    if normalized_header not in {"metric", "measure", "метрика"}:
-        return None
     label = html.unescape(cell).casefold().strip()
     label = re.sub(r"<[^>]+>", "", label)
     label = label.replace("`", "").replace("*", "").replace(" ", "_")
+    if label.startswith("success_rate"):
+        return "success_rate"
+    if label == "recall" or label == "authored_pairs_merged" or label.startswith("recall_—_"):
+        return "recall"
+    if normalized_header not in {"", "metric", "measure", "метрика"}:
+        return None
     match = re.fullmatch(
         r"(?P<family>map|mar|mrr|mndcg|ndcg|precision|recall|u_ndcg|u_recall)"
         r"@(?P<k>[1-9]\d*)(?:_\(s\))?",
@@ -554,6 +645,8 @@ def _row_labeled_metric_claims(
         system = _plain_cell(headers[column])
         value = _table_value(metric, cells[column])
         numbers = list(_NUMBER_RE.finditer(_plain_cell(cells[column])))
+        if value is None:
+            value = _ratio_cell_value(metric, cells[column])
         if system.casefold() == "delta" and numbers and "pp" in _plain_cell(cells[column]):
             value = _parse_number(numbers[0].group("value")) / 100
         if value is None and system.casefold() == "delta" and numbers:
@@ -765,6 +858,7 @@ def _extract_html_table_claims(text: str) -> list[Claim]:
             claims.extend(_row_labeled_metric_claims(headers, cells, " | ".join(cells), line))
             claims.extend(_embedded_context_claims(headers, cells, " | ".join(cells), line))
             claims.extend(_embedded_text_claims(cells, " | ".join(cells), line))
+            claims.extend(_embedded_duration_table_claims(headers, cells, " | ".join(cells), line))
             for column, metric in enumerate(metrics):
                 if metric is None or column >= len(cells):
                     continue
@@ -779,18 +873,137 @@ def _extract_html_table_claims(text: str) -> list[Claim]:
                             context=context,
                         )
                     )
+                    if metric == "avg_latency_seconds":
+                        claims.append(
+                            Claim(
+                                metric="latency_score_seconds",
+                                value=value,
+                                raw_text=" | ".join(cells),
+                                line=line,
+                                context=context,
+                            )
+                        )
     return claims
 
 
 def _table_value(metric: str, cell: str) -> float | None:
     if metric.endswith("_seconds"):
         return _duration_cell_seconds(cell)
+    if metric == "throughput_ops_per_second":
+        scaled = _scaled_quantity(cell)
+        if scaled is not None:
+            return scaled
     matches = list(_NUMBER_RE.finditer(_plain_cell(cell)))
     if len(matches) != 1:
         return None
     match = matches[0]
     value = _parse_number(match.group("value"))
     return _normalize_value(metric, value, percent=bool(match.group("percent")))
+
+
+def _memory_mb(value: str, unit: str) -> float:
+    number = _parse_number(value)
+    factors = {"kb": 1 / 1024, "mb": 1, "gb": 1024}
+    return number * factors[unit.casefold()]
+
+
+def _ratio_cell_value(metric: str, cell: str) -> float | None:
+    plain = _plain_cell(cell)
+    leading_percent = re.match(rf"\s*(?P<value>{_NUMBER})\s*%", plain)
+    if leading_percent is not None:
+        return _parse_number(leading_percent.group("value")) / 100
+    ratio = re.fullmatch(
+        rf"\s*(?P<numerator>{_NUMBER})\s+(?:of|/)\s*(?P<denominator>{_NUMBER})\s*",
+        plain,
+        flags=re.IGNORECASE,
+    )
+    if ratio is None or not is_unit_interval_metric(metric):
+        return None
+    denominator = _parse_number(ratio.group("denominator"))
+    if denominator <= 0:
+        return None
+    return _parse_number(ratio.group("numerator")) / denominator
+
+
+def _scaled_quantity(cell: str) -> float | None:
+    plain = _plain_cell(cell).replace(",", "")
+    match = re.fullmatch(
+        rf"\s*(?P<value>{_NUMBER})\s*(?P<scale>[kKmM])?\s*(?:ops?)?\s*(?:/\s*s|per\s+second)?\s*",
+        plain,
+        flags=re.IGNORECASE,
+    )
+    if match is None:
+        return None
+    scale = (match.group("scale") or "").casefold()
+    return _parse_number(match.group("value")) * {"": 1, "k": 1_000, "m": 1_000_000}[scale]
+
+
+def _embedded_duration_table_claims(
+    headers: list[str], cells: list[str], raw_text: str, line: int
+) -> list[Claim]:
+    if len(cells) < 2:
+        return []
+    system = re.split(r"\s*\(", _context_label(cells[0]), maxsplit=1)[0].strip()
+    claims: list[Claim] = []
+    for column in range(1, min(len(headers), len(cells))):
+        if _metric_from_header(headers[column]) is not None:
+            continue
+        match = _UNIT_DURATION_RE.search(_plain_cell(cells[column]))
+        if match is None:
+            continue
+        claims.append(
+            Claim(
+                metric="runtime_seconds",
+                value=_duration_seconds(match.group("value"), match.group("unit")),
+                raw_text=raw_text,
+                line=line,
+                context={
+                    "system": system,
+                    "implementation": _plain_cell(headers[column]).casefold(),
+                },
+            )
+        )
+    return claims
+
+
+def _extract_tsv_claims(text: str) -> list[Claim]:
+    lines = text.splitlines()
+    if len(lines) < 2 or "\t" not in lines[0]:
+        return []
+    headers = [_plain_cell(cell) for cell in lines[0].split("\t")]
+    if len(headers) < 2:
+        return []
+    metrics: list[str | None] = [None]
+    for header in headers[1:]:
+        canonical = canonical_metric(header)
+        metrics.append(canonical if re.fullmatch(r"[a-z][a-z0-9_]*", canonical) else None)
+    context_key = canonical_metric(headers[0]) or "item"
+    claims: list[Claim] = []
+    for line_number, raw_line in enumerate(lines[1:], start=2):
+        cells = raw_line.split("\t")
+        if len(cells) != len(headers):
+            continue
+        context = {context_key: _plain_cell(cells[0])}
+        for column, metric in enumerate(metrics[1:], start=1):
+            if metric is None:
+                continue
+            match = _NUMBER_RE.fullmatch(_plain_cell(cells[column]))
+            if match is None:
+                continue
+            claims.append(
+                Claim(
+                    metric=metric,
+                    value=_normalize_value(
+                        metric,
+                        _parse_number(match.group("value")),
+                        percent=bool(match.group("percent")),
+                    ),
+                    raw_text=raw_line.strip(),
+                    line=line_number,
+                    context=context,
+                )
+            )
+    return claims
 
 
 def _duration_seconds(value: str, unit: str) -> float:
@@ -830,13 +1043,17 @@ def _table_context(
             r"[^\w]+", " ", _plain_cell(header).casefold(), flags=re.UNICODE
         ).strip()
         key = _CONTEXT_HEADERS.get(normalized_header)
-        value = _plain_cell(cells[index])
+        value = _context_label(cells[index])
         if key and value and len(value) <= 200:
             context[key] = value
             continue
         if metrics[index] is not None:
             continue
     return context
+
+
+def _context_label(value: str) -> str:
+    return re.sub(r"^[^\w]+", "", _plain_cell(value), flags=re.UNICODE).strip()
 
 
 def _normalize_value(metric: str, value: float, *, percent: bool) -> float:

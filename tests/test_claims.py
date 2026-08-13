@@ -177,6 +177,100 @@ The benchmark measured HyperIndex completing the test in 1 minute, 143x faster.
     ]
 
 
+def test_extracts_markdown_wrapped_metrics_without_losing_raw_text():
+    claims = extract_claims("Precision: **95.7%**")
+    assert [(claim.metric, round(claim.value, 6), claim.raw_text) for claim in claims] == [
+        ("precision", 0.957, "Precision: **95.7%**")
+    ]
+
+
+def test_extracts_postfix_speedup_and_speedup_range():
+    claims = extract_claims("35% speedup\nTurboQuant beats FAISS by 16–24%")
+    assert [(claim.metric, claim.value) for claim in claims] == [
+        ("speedup", 0.35),
+        ("speedup_range_low", 0.16),
+        ("speedup_range_high", 0.24),
+    ]
+
+
+def test_extracts_row_labeled_rates_and_ratios():
+    text = """| | compiled replay | agent |
+|---|---|---|
+| success rate | 95% (19/20) | 100% (20/20) |
+| recall | 1 of 2 | 2 of 2 |
+"""
+    claims = extract_table_claims(text)
+    assert [(c.metric, c.value, c.context) for c in claims] == [
+        ("success_rate", 0.95, {"system": "compiled replay"}),
+        ("success_rate", 1.0, {"system": "agent"}),
+        ("recall", 0.5, {"system": "compiled replay"}),
+        ("recall", 1.0, {"system": "agent"}),
+    ]
+
+
+def test_extracts_latency_score_alias_and_provider_context():
+    text = """| Provider | Avg latency | Latency score |
+|---|---|---|
+| remote | 2.4s | 2.8s |
+"""
+    claims = extract_table_claims(text)
+    assert [(c.metric, c.value, c.context) for c in claims] == [
+        ("avg_latency_seconds", 2.4, {"system": "remote"}),
+        ("latency_score_seconds", 2.4, {"system": "remote"}),
+        ("latency_score_seconds", 2.8, {"system": "remote"}),
+    ]
+
+
+def test_extracts_memory_comparison_and_normalizes_units():
+    claims = extract_claims("It cuts resident memory to about 130 MB from about 1 GB.")
+    assert [(c.metric, c.value, c.context) for c in claims] == [
+        ("memory_mb", 130.0, {"system": "native UI"}),
+        ("memory_mb", 1024.0, {"system": "webview UI"}),
+    ]
+
+
+def test_extracts_scaled_throughput_with_system_context():
+    text = """| Serialization Type | Throughput (ops/s) |
+|---|---|
+| JSON | 12.5K |
+| Binary | 1.2M |
+"""
+    claims = extract_table_claims(text)
+    assert [(c.metric, c.value, c.context) for c in claims] == [
+        ("throughput_ops_per_second", 12_500.0, {"system": "JSON"}),
+        ("throughput_ops_per_second", 1_200_000.0, {"system": "Binary"}),
+    ]
+
+
+def test_extracts_embedded_duration_from_comparison_table():
+    text = """| Solver | baseline | SSIK |
+|---|---|---|
+| search (cold) | failed | 18.2 ms (compiled) |
+"""
+    claims = extract_table_claims(text)
+    assert [(c.metric, c.value, c.context) for c in claims] == [
+        (
+            "runtime_seconds",
+            0.0182,
+            {"system": "search", "implementation": "ssik"},
+        )
+    ]
+
+
+def test_extracts_numeric_tsv_columns_with_row_context():
+    text = "word\twrong_coverage\nexample\t0.42\nother\t0.55\n"
+    claims = extract_claims(text)
+    assert [(c.metric, c.value, c.context) for c in claims] == [
+        ("wrong_coverage", 0.42, {"word": "example"}),
+        ("wrong_coverage", 0.55, {"word": "other"}),
+    ]
+
+
+def test_extracts_both_values_from_fitness_score_comparison():
+    claims = extract_claims("fitness score improved from 0.426 to 0.553")
+    assert [(c.metric, c.value) for c in claims] == [("score", 0.426), ("score", 0.553)]
+
+
 def test_normalizes_subsecond_prose_durations_and_rejects_invalid_time_cells():
     text = """Processing time: 250 milliseconds
 Processing time: 40 us

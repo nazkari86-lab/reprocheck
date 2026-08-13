@@ -84,6 +84,7 @@ make expanded-experiments
 make upstream-corrections
 make upstream-discovery-v2
 make upstream-discovery-v4
+make upstream-discovery-v5
 reprocheck study --corpus benchmarks/real_artifacts
 reprocheck review-prepare --corpus benchmarks/holdout_v07_artifacts
 reprocheck serve
@@ -121,6 +122,15 @@ Post-inspection 0.21.0 recovers 6/6 cases and 93/93 valid claims. For three
 cases, corrected reports were independently reproduced from 1,986 question
 rows, 390 runs per arm, and 35,555 prediction rows. This remains a
 query-conditioned six-case cohort, not a population-wide recall estimate.
+
+The broader v5 study sampled 432 merged pull requests from 432 previously unseen
+repository owners across 24 frozen search frames and blind-labeled every candidate.
+Eleven natural corrections with 34 selected claims were eligible. Frozen 0.21.0
+recovered 0/11 cases and 0/34 claims; this failure is immutable. The post-inspection
+development parser recovers 11/11 and 34/34 by adding general support for decorated
+prose, row-labeled and compound tables, scaled quantities, LaTeX-like prose, and TSV.
+That perfect development score is not fresh external validation and is not reported as
+such; see [`benchmarks/upstream_discovery_v5`](benchmarks/upstream_discovery_v5).
 
 The 12-case witness benchmark is controlled capability evidence. The separate
 30-case source-derived benchmark contains 27 deterministic mutations of three

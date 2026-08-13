@@ -1,0 +1,661 @@
+{
+  "breadth": {
+    "independent_repository_owners": 11,
+    "metric_families": [
+      "success_rate",
+      "speedup",
+      "latency",
+      "memory",
+      "recall_precision",
+      "throughput",
+      "composite_score",
+      "runtime",
+      "solver_difficulty"
+    ],
+    "repositories": 11,
+    "source_formats": [
+      "markdown_prose",
+      "markdown_table",
+      "latex",
+      "tsv"
+    ]
+  },
+  "case_visibility": 1.0,
+  "case_visibility_wilson_95": [
+    0.7411670330319684,
+    1.0
+  ],
+  "cases": [
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.95,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 1.0,
+          "context": {
+            "system": "compiled replay"
+          },
+          "file": "benchmark/openemr/BENCHMARK.md",
+          "metric": "success_rate",
+          "passed": true
+        }
+      ],
+      "id": "openadapt-saved-row-success-correction",
+      "passed": true,
+      "pull_request": 302,
+      "repository": "OpenAdaptAI/openadapt-flow",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.54,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.35,
+          "context": {
+            "dataset": "TPC-H SF=100GB"
+          },
+          "file": "docs/source/contributor-guide/benchmarking.md",
+          "metric": "speedup",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.23,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.18,
+          "context": {
+            "dataset": "TPC-DS SF=100GB"
+          },
+          "file": "docs/source/contributor-guide/benchmarking.md",
+          "metric": "speedup",
+          "passed": true
+        }
+      ],
+      "id": "comet-speedup-formula-correction",
+      "passed": true,
+      "pull_request": 691,
+      "repository": "apache/datafusion-comet",
+      "selected_claims": 2,
+      "source_integrity": true,
+      "visible_claims": 2
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.19,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.16,
+          "context": {
+            "baseline": "FAISS FastScan",
+            "platform": "ARM",
+            "system": "TurboQuant"
+          },
+          "file": "README.md",
+          "metric": "speedup_range_low",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.31,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.24,
+          "context": {
+            "baseline": "FAISS FastScan",
+            "platform": "ARM",
+            "system": "TurboQuant"
+          },
+          "file": "README.md",
+          "metric": "speedup_range_high",
+          "passed": true
+        }
+      ],
+      "id": "turbovec-drifted-arm-speed-range",
+      "passed": true,
+      "pull_request": 327,
+      "repository": "RyanCodrai/turbovec",
+      "selected_claims": 2,
+      "source_integrity": true,
+      "visible_claims": 2
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 11.07,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 9.7,
+          "context": {
+            "system": "string"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 14.28,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 12.01,
+          "context": {
+            "system": "scrapfly"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 24.33,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 24.23,
+          "context": {
+            "system": "bright"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 13.62,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 11.86,
+          "context": {
+            "system": "context_dev"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 14.7,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 8.38,
+          "context": {
+            "system": "firecrawl"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 13.31,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 13.71,
+          "context": {
+            "system": "scraperapi"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 20.85,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 20.73,
+          "context": {
+            "system": "oxylabs"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 17.5,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 15.15,
+          "context": {
+            "system": "zyte"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 29.74,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 31.54,
+          "context": {
+            "system": "decodo"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 21.43,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 27.21,
+          "context": {
+            "system": "nimble"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 15.25,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 2.43,
+          "context": {
+            "system": "browserbase"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 21.35,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 14.97,
+          "context": {
+            "system": "zenrows"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 15.46,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 5.09,
+          "context": {
+            "system": "scrapingant"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 15.01,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 4.61,
+          "context": {
+            "system": "scrapingdog"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 18.15,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 7.2,
+          "context": {
+            "system": "scrapingbee"
+          },
+          "file": "README.md",
+          "metric": "latency_score_seconds",
+          "passed": true
+        }
+      ],
+      "id": "web-frontier-failure-aware-latency",
+      "passed": true,
+      "pull_request": 5,
+      "repository": "usestring/web-data-frontier-benchmark",
+      "selected_claims": 15,
+      "source_integrity": true,
+      "visible_claims": 15
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 85.0,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 130.0,
+          "context": {
+            "system": "native UI"
+          },
+          "file": "README.md",
+          "metric": "memory_mb",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 135.0,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 440.0,
+          "context": {
+            "system": "webview UI"
+          },
+          "file": "README.md",
+          "metric": "memory_mb",
+          "passed": true
+        }
+      ],
+      "id": "kalpa-private-working-set-correction",
+      "passed": true,
+      "pull_request": 296,
+      "repository": "ESO-Toolkit/kalpa",
+      "selected_claims": 2,
+      "source_integrity": true,
+      "visible_claims": 2
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.0,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.5,
+          "context": {
+            "task": "authored near-duplicate pairs"
+          },
+          "file": "docs/AGENTIFY.md",
+          "metric": "recall",
+          "passed": true
+        }
+      ],
+      "id": "markforge-dedup-recall-correction",
+      "passed": true,
+      "pull_request": 8,
+      "repository": "anayy09/MarkForge",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.915,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.957,
+          "context": {
+            "dataset": "CRADLE",
+            "system": "S1 lexicon + S3 semantic OR-fusion"
+          },
+          "file": "docs/arabic-poc-study-readiness-2026-06-05.md",
+          "metric": "precision",
+          "passed": true
+        }
+      ],
+      "id": "sage-specificity-precision-correction",
+      "passed": true,
+      "pull_request": 31,
+      "repository": "synergenix19/Sage",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 1800000.0,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 2000000.0,
+          "context": {
+            "system": "Container System Binary"
+          },
+          "file": "README.md",
+          "metric": "throughput_ops_per_second",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 1600000.0,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 1800000.0,
+          "context": {
+            "system": "MessagePack"
+          },
+          "file": "README.md",
+          "metric": "throughput_ops_per_second",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 950000.0,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 400000.0,
+          "context": {
+            "system": "JSON (nlohmann)"
+          },
+          "file": "README.md",
+          "metric": "throughput_ops_per_second",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 720000.0,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 200000.0,
+          "context": {
+            "system": "XML (pugixml)"
+          },
+          "file": "README.md",
+          "metric": "throughput_ops_per_second",
+          "passed": true
+        }
+      ],
+      "id": "container-system-baseline-sync",
+      "passed": true,
+      "pull_request": 36,
+      "repository": "kcenon/container_system",
+      "selected_claims": 4,
+      "source_integrity": true,
+      "visible_claims": 4
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.552,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.553,
+          "context": {
+            "experiment": "ASPL MAP-Elites final composite fitness"
+          },
+          "file": "paper/sections/results.tex",
+          "metric": "score",
+          "passed": true
+        }
+      ],
+      "id": "graph-invariant-paper-number-audit",
+      "passed": true,
+      "pull_request": 47,
+      "repository": "TheIllusionOfLife/graph_invariant",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.04075,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.05125,
+          "context": {
+            "implementation": "ssik",
+            "system": "Gen3"
+          },
+          "file": "README.md",
+          "metric": "runtime_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.00687,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.00887,
+          "context": {
+            "implementation": "ssik",
+            "system": "xArm7"
+          },
+          "file": "README.md",
+          "metric": "runtime_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.00201,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.0025,
+          "context": {
+            "implementation": "ssik",
+            "system": "PiPER"
+          },
+          "file": "README.md",
+          "metric": "runtime_seconds",
+          "passed": true
+        }
+      ],
+      "id": "ssik-uncompiled-latency-correction",
+      "passed": true,
+      "pull_request": 404,
+      "repository": "personalrobotics/ssik",
+      "selected_claims": 3,
+      "source_integrity": true,
+      "visible_claims": 3
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 1.0,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 16.0,
+          "context": {
+            "word": "dwarves"
+          },
+          "file": "analysis/difficulty_report.tsv",
+          "metric": "wrong_coverage",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 2.0,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 19.0,
+          "context": {
+            "word": "pyjamas"
+          },
+          "file": "analysis/difficulty_report.tsv",
+          "metric": "wrong_coverage",
+          "passed": true
+        }
+      ],
+      "id": "hangman-dictionary-metric-correction",
+      "passed": true,
+      "pull_request": 2,
+      "repository": "MattFisher/hangman-bench",
+      "selected_claims": 2,
+      "source_integrity": true,
+      "visible_claims": 2
+    }
+  ],
+  "cases_sha256": "850844dfcef68410f40a1d9f159dbab7b8fe72fb172a4ef4035f7373ce6ecb9d",
+  "claim_visibility": 1.0,
+  "claim_visibility_wilson_95": [
+    0.8984854458466761,
+    0.9999999999999999
+  ],
+  "eligible_cases": 11,
+  "eligible_yield": 0.02546296296296296,
+  "eligible_yield_wilson_95": [
+    0.01427646546230223,
+    0.04501449527056678
+  ],
+  "evaluator_commit": "96e0a4688ef74e6ddc41ec78471276954c5cda66",
+  "labels_sha256": "fa6c039965fee068ac56654766ce422cc48a44882cc73db61cccbcedefb95302",
+  "phase": "development-post-inspection",
+  "protocol_sha256": "f652c40241dce41e5dcc58d2bed8b5ec5101f6cb2e084e02ebd9c86252d17e33",
+  "runtime_evaluator_version": "0.22.0",
+  "sample_sha256": "4f63094dfb607665375dae4366db79fbff5bda9ea23fa3c3e3736ad6762adb26",
+  "sampled_pull_requests": 432,
+  "schema_version": "reprocheck.upstream-discovery-result.v5",
+  "scientific_boundary": "The deterministic one-owner sample estimates visibility only in 24 frozen, query-conditioned GitHub correction frames. It is not a population estimate. The frozen result is source-unseen; any later development result is post-inspection evidence.",
+  "selected_claims": 34,
+  "source_integrity": true,
+  "sources_lock_sha256": "9ccc0501203d6cfb28811711bc95772c93c09480e6e1f1fe973b801902cba5b9",
+  "visible_cases": 11,
+  "visible_claims": 34
+}
