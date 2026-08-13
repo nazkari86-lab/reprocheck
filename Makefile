@@ -160,7 +160,7 @@ external-regenerate:
 build:
 	SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) python3 -m build
 
-gate: lock-check lint type coverage benchmark evidence-ablation witness-benchmark witness-source-benchmark upstream-corrections upstream-discovery-v2 upstream-discovery-v3 external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
+gate: lock-check lint type coverage benchmark evidence-ablation witness-benchmark witness-source-benchmark upstream-corrections upstream-discovery-v2 upstream-discovery-v3 upstream-discovery-v4 external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
 
 demo:
 	python3 -m reprocheck.cli demo

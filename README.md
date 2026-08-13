@@ -59,7 +59,7 @@ Install the published wheel directly from the immutable GitHub release:
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install \
-  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.16.0/reprocheck-0.16.0-py3-none-any.whl
+  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.21.0/reprocheck-0.21.0-py3-none-any.whl
 reprocheck demo
 ```
 
@@ -83,6 +83,7 @@ reprocheck ablation
 make expanded-experiments
 make upstream-corrections
 make upstream-discovery-v2
+make upstream-discovery-v4
 reprocheck study --corpus benchmarks/real_artifacts
 reprocheck review-prepare --corpus benchmarks/holdout_v07_artifacts
 reprocheck serve
@@ -108,6 +109,18 @@ post-inspection development parser recovers 3/3 and 15/15. The failures remain
 committed. Because only three eligible cases were found (4.0% yield; Wilson 95%
 CI 1.37%-11.11%), this is evidence of a corrected failure mode, not a universal
 recall estimate.
+
+The larger source-unseen v4 study froze a 0.20.0 wheel and ten query frames
+before retrieval, deterministically sampled 250 previously unseen merged pull
+requests, and blind-labeled every candidate. Six like-for-like corrections from
+six independent repository owners were eligible. Frozen 0.20.0 recovered 0/6
+complete cases and 3/96 initially selected claims. Three malformed labels were
+then transparently adjudicated because their frozen snippet contained no target
+value; the immutable original labels and zero-shot result remain preserved.
+Post-inspection 0.21.0 recovers 6/6 cases and 93/93 valid claims. For three
+cases, corrected reports were independently reproduced from 1,986 question
+rows, 390 runs per arm, and 35,555 prediction rows. This remains a
+query-conditioned six-case cohort, not a population-wide recall estimate.
 
 The 12-case witness benchmark is controlled capability evidence. The separate
 30-case source-derived benchmark contains 27 deterministic mutations of three
