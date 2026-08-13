@@ -1,0 +1,9 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-results-lock.v1",
+  "files": {
+    "zero-shot-0.18.0.json": {
+      "phase": "frozen_zero_shot_0.18.0",
+      "sha256": "c02070bab8ae96337456948b478f1e73171c3c81fb2a6727bbbdfc8936833799"
+    }
+  }
+}

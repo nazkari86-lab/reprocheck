@@ -1,0 +1,231 @@
+{
+  "case_visibility": 0.0,
+  "case_visibility_wilson_95": [
+    5.551115123125783e-17,
+    0.5614970317550454
+  ],
+  "cases": [
+    {
+      "claims": [
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 2.0,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 1.0,
+          "file": "apps/perf/src/routes/methodology.tsx",
+          "metric": "validator_count",
+          "passed": false
+        }
+      ],
+      "id": "tempo-validator-count",
+      "passed": false,
+      "pull_request": 959,
+      "repository": "tempoxyz/tempo-apps",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 0
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 754.95,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 749.17,
+          "file": "data/codex.json",
+          "metric": "spy_close",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": -0.765617,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 0.0,
+          "file": "data/market-history.json",
+          "metric": "spy_return_pct",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 754.95,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 749.17,
+          "file": "data/market.json",
+          "metric": "inception_adjusted_close",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": -0.765617,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 0.0,
+          "file": "data/market.json",
+          "metric": "return_pct",
+          "passed": false
+        }
+      ],
+      "id": "agentstocks-spy-baseline",
+      "passed": false,
+      "pull_request": 8,
+      "repository": "almostmike/agentstocks",
+      "selected_claims": 4,
+      "source_integrity": true,
+      "visible_claims": 0
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 2.63598,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 2.635,
+          "file": "README.md",
+          "metric": "score",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 2.635982,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 2.636,
+          "file": "README.md",
+          "metric": "score",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 2.63598,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 2.635,
+          "file": "README.md",
+          "metric": "score",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 2.635982,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 2.636,
+          "file": "examples/circle_packing/README.md",
+          "metric": "score",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 2.63598,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 2.635,
+          "file": "examples/circle_packing/README.md",
+          "metric": "score",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 2.63598,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 2.635,
+          "file": "examples/circle_packing/helix.toml",
+          "metric": "score",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 2.6358,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 2.635,
+          "file": "examples/circle_packing/helix.toml",
+          "metric": "score",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 2.63598,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 2.635,
+          "file": "examples/circle_packing/helix.toml",
+          "metric": "score",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 2.635982,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 2.635,
+          "file": "examples/circle_packing/solve_optimized.py",
+          "metric": "score",
+          "passed": false
+        },
+        {
+          "after_parser_matches": 0,
+          "after_source_count": 1,
+          "after_value": 2.63598,
+          "before_parser_matches": 0,
+          "before_source_count": 1,
+          "before_value": 2.635,
+          "file": "examples/circle_packing/solve_optimized.py",
+          "metric": "score",
+          "passed": false
+        }
+      ],
+      "id": "helix-circle-packing-scores",
+      "passed": false,
+      "pull_request": 59,
+      "repository": "KE7/helix",
+      "selected_claims": 10,
+      "source_integrity": true,
+      "visible_claims": 0
+    }
+  ],
+  "cases_sha256": "0ae13ec2eb7850c6a000563b324dba5b8826fe2a290cc2ce635b3073961d5ecd",
+  "claim_visibility": 0.0,
+  "claim_visibility_wilson_95": [
+    0.0,
+    0.20388330103584862
+  ],
+  "eligible_cases": 3,
+  "eligible_yield": 0.04,
+  "eligible_yield_wilson_95": [
+    0.013696064260143935,
+    0.11112987082403747
+  ],
+  "evaluator_commit": "2618cad2c54c1610947f4f64e4b7ba8c5302fa28",
+  "labels_sha256": "618300898b1964274c2912ef01586c9108b9eae896fd4ec10644709e715ac262",
+  "phase": "frozen_zero_shot_0.18.0",
+  "protocol_sha256": "ead8828bf3d8b3120a0a1d802b4d8465aa5926970f4c0bd4f6214a29dc1f5a39",
+  "sample_sha256": "e001e771d8cef9c91f8cecf17d0aa2f98bac5737d083081dd0581eb9e90b42c3",
+  "sampled_pull_requests": 75,
+  "schema_version": "reprocheck.upstream-discovery-result.v1",
+  "scientific_boundary": "The deterministic sample estimates visibility only within three frozen, query-conditioned GitHub frames; it does not estimate global defect prevalence.",
+  "selected_claims": 15,
+  "source_integrity": true,
+  "visible_cases": 0,
+  "visible_claims": 0
+}

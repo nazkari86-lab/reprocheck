@@ -1,0 +1,69 @@
+{
+  "files": {
+    "agentstocks-spy-baseline--data__codex.json.after.json": {
+      "sha256": "8d16ebf65fe748b626a768ff36d45f75287bc7f02b865c7e739a45c6c8ace365",
+      "url": "https://raw.githubusercontent.com/almostmike/agentstocks/e29f0b33b76bdf17dbb6d6bc3640941f56383700/data/codex.json"
+    },
+    "agentstocks-spy-baseline--data__codex.json.before.json": {
+      "sha256": "30a36595e5b9233ea8c5d9bcd76f5b6d98039edebeefe37fe09b63ced3aab632",
+      "url": "https://raw.githubusercontent.com/almostmike/agentstocks/1818e7880c088fe955468a6b52e9034a433147a2/data/codex.json"
+    },
+    "agentstocks-spy-baseline--data__market-history.json.after.json": {
+      "sha256": "d0a9ead5876f255ba6c15ae117cf1f0d7a1086c671a3d573e2b5d49fac0c9297",
+      "url": "https://raw.githubusercontent.com/almostmike/agentstocks/e29f0b33b76bdf17dbb6d6bc3640941f56383700/data/market-history.json"
+    },
+    "agentstocks-spy-baseline--data__market-history.json.before.json": {
+      "sha256": "2107540981cb0db4806b5b1642b7b2c19d5c15592e01d2792e14264d7df38636",
+      "url": "https://raw.githubusercontent.com/almostmike/agentstocks/1818e7880c088fe955468a6b52e9034a433147a2/data/market-history.json"
+    },
+    "agentstocks-spy-baseline--data__market.json.after.json": {
+      "sha256": "5104b07a12ae7dd24169dffa891a3b20beccb4a001b6a13f94fc4b932880a00d",
+      "url": "https://raw.githubusercontent.com/almostmike/agentstocks/e29f0b33b76bdf17dbb6d6bc3640941f56383700/data/market.json"
+    },
+    "agentstocks-spy-baseline--data__market.json.before.json": {
+      "sha256": "1289830c846e19924ace91c8ece52abdb24edb9e0d9528513e5f32e30c2d54b0",
+      "url": "https://raw.githubusercontent.com/almostmike/agentstocks/1818e7880c088fe955468a6b52e9034a433147a2/data/market.json"
+    },
+    "helix-circle-packing-scores--README.md.after.md": {
+      "sha256": "2eec5c7cdc0f7bbb506e4015d6337e1cdc923867be07e2b13c995d0fe7280e8e",
+      "url": "https://raw.githubusercontent.com/KE7/helix/20aec4c42800081041fe80a8f871a2783a8317fd/README.md"
+    },
+    "helix-circle-packing-scores--README.md.before.md": {
+      "sha256": "0bc0af3306d8e18a736e552180f475927620ee2ec0515f0e6fbd911a93cea178",
+      "url": "https://raw.githubusercontent.com/KE7/helix/77379bf60a21f422196ca8e27f725880c7afb229/README.md"
+    },
+    "helix-circle-packing-scores--examples__circle_packing__README.md.after.md": {
+      "sha256": "1ee44a733a6f080cf6a7169135d7a204acd412a795de25562b4e8b83fffbdd22",
+      "url": "https://raw.githubusercontent.com/KE7/helix/20aec4c42800081041fe80a8f871a2783a8317fd/examples/circle_packing/README.md"
+    },
+    "helix-circle-packing-scores--examples__circle_packing__README.md.before.md": {
+      "sha256": "8ddf2d74aed608255a632bd24871632634c04f85c11ef01abf5e28067b8dc69f",
+      "url": "https://raw.githubusercontent.com/KE7/helix/77379bf60a21f422196ca8e27f725880c7afb229/examples/circle_packing/README.md"
+    },
+    "helix-circle-packing-scores--examples__circle_packing__helix.toml.after.toml": {
+      "sha256": "59f2fa6c67298685574d961bc9599ceae7d9ccafb8a3e8f3e52192711b862a78",
+      "url": "https://raw.githubusercontent.com/KE7/helix/20aec4c42800081041fe80a8f871a2783a8317fd/examples/circle_packing/helix.toml"
+    },
+    "helix-circle-packing-scores--examples__circle_packing__helix.toml.before.toml": {
+      "sha256": "2a72d4294799cd16113d10ab06d50a21a026acb42be57ee1c52da302a850abe9",
+      "url": "https://raw.githubusercontent.com/KE7/helix/77379bf60a21f422196ca8e27f725880c7afb229/examples/circle_packing/helix.toml"
+    },
+    "helix-circle-packing-scores--examples__circle_packing__solve_optimized.py.after.py": {
+      "sha256": "d3f0aa71ef5823ee7e2da0cbef3137b9db1450d79244ef6c0ea4698108359a0c",
+      "url": "https://raw.githubusercontent.com/KE7/helix/20aec4c42800081041fe80a8f871a2783a8317fd/examples/circle_packing/solve_optimized.py"
+    },
+    "helix-circle-packing-scores--examples__circle_packing__solve_optimized.py.before.py": {
+      "sha256": "019ab82b8db0928541de5a4e98085fe06d0f89f912d8d0d34aa510ad990b39fa",
+      "url": "https://raw.githubusercontent.com/KE7/helix/77379bf60a21f422196ca8e27f725880c7afb229/examples/circle_packing/solve_optimized.py"
+    },
+    "tempo-validator-count--apps__perf__src__routes__methodology.tsx.after.tsx": {
+      "sha256": "0f9da60b65c4ce94287b04330bccf62f11e29123033ae7440e3ff34f00e7694e",
+      "url": "https://raw.githubusercontent.com/tempoxyz/tempo-apps/19ef7003b6839467f9d901e88dc763a7db52b41b/apps/perf/src/routes/methodology.tsx"
+    },
+    "tempo-validator-count--apps__perf__src__routes__methodology.tsx.before.tsx": {
+      "sha256": "50594f121d967178cc77a5390f9c70d855c30e4b1262b7955b16f9d7e8903fe9",
+      "url": "https://raw.githubusercontent.com/tempoxyz/tempo-apps/409fcf78e462165af00ef549d40cec82765074f6/apps/perf/src/routes/methodology.tsx"
+    }
+  },
+  "schema_version": "reprocheck.upstream-discovery-sources-lock.v1"
+}

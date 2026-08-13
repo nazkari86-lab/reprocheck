@@ -1,0 +1,42 @@
+{
+  "market_date": "2026-07-13",
+  "generated_at": "2026-07-13T21:23:27+00:00",
+  "price_type": "split-and-distribution-adjusted closing prices",
+  "source": "Yahoo Finance via yfinance",
+  "source_status": "unofficial display feed; not used for order execution",
+  "portfolio": {
+    "cash": 400.0,
+    "equity_value": 597.11,
+    "account_value": 997.11,
+    "return_pct": -0.288779
+  },
+  "benchmark": {
+    "symbol": "SPY",
+    "adjusted_close": 749.17,
+    "inception_adjusted_close": 754.95,
+    "return_pct": -0.765617
+  },
+  "positions": [
+    {
+      "ticker": "NVDA",
+      "shares": 0.961785,
+      "avg_cost": 207.95,
+      "price": 203.53,
+      "value": 195.75
+    },
+    {
+      "ticker": "NTAP",
+      "shares": 1.226692,
+      "avg_cost": 163.04,
+      "price": 163.93,
+      "value": 201.09
+    },
+    {
+      "ticker": "ADM",
+      "shares": 2.441108,
+      "avg_cost": 81.93,
+      "price": 82.04,
+      "value": 200.27
+    }
+  ]
+}

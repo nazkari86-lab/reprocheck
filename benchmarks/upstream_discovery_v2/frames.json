@@ -1,0 +1,3024 @@
+{
+  "frames": [
+    {
+      "api_returned_count": 100,
+      "api_total_count": 4041,
+      "candidates": [
+        {
+          "created_at": "2026-07-28T05:08:13Z",
+          "merged_at": "2026-07-28T05:26:24Z",
+          "pull_request": 142,
+          "query_frame": 1,
+          "repository": "morluto/jacobian",
+          "sample_digest": "01a3e9420b2af4da31f7137fbb2a1ab6d4f7d5aedfd52fd4817b8b3a7499f948",
+          "title": "Replace dynamic benchmark loading with typed imports",
+          "url": "https://github.com/morluto/jacobian/pull/142"
+        },
+        {
+          "created_at": "2026-06-15T14:13:57Z",
+          "merged_at": "2026-06-15T14:17:24Z",
+          "pull_request": 227,
+          "query_frame": 1,
+          "repository": "anip-protocol/anip",
+          "sample_digest": "04102dd43751591153332568f25aa52e5e10259e88e127903687f4a90029d20c",
+          "title": "Document GTM hard-mode and multi-turn gates",
+          "url": "https://github.com/anip-protocol/anip/pull/227"
+        },
+        {
+          "created_at": "2026-08-11T14:51:18Z",
+          "merged_at": "2026-08-11T15:27:03Z",
+          "pull_request": 392,
+          "query_frame": 1,
+          "repository": "kernel/hypeman",
+          "sample_digest": "070907696e445acead2fe5bac10b7d3547db3b0ba8eb39c6f86f4d492372c1f4",
+          "title": "Avoid repeated sorting when tracking shared extents",
+          "url": "https://github.com/kernel/hypeman/pull/392"
+        },
+        {
+          "created_at": "2026-07-08T21:45:03Z",
+          "merged_at": "2026-07-08T22:48:44Z",
+          "pull_request": 680,
+          "query_frame": 1,
+          "repository": "anuma-ai/sdk",
+          "sample_digest": "07e4f031352fd8166b14631d2da16f6145c5aca53570cca8896e1cc595b02deb",
+          "title": "fix(memory): don't leak zero-score composite tail into recall() (#566)",
+          "url": "https://github.com/anuma-ai/sdk/pull/680"
+        },
+        {
+          "created_at": "2026-04-09T18:36:15Z",
+          "merged_at": "2026-04-09T18:41:51Z",
+          "pull_request": 3442,
+          "query_frame": 1,
+          "repository": "LearningCircuit/local-deep-research",
+          "sample_digest": "0b517378c102ab70547bf3d074a31498ce65ece4d9b4f9bf102b403b53571864",
+          "title": "fix(benchmark): use actual dataset + strategy in YAML export",
+          "url": "https://github.com/LearningCircuit/local-deep-research/pull/3442"
+        },
+        {
+          "created_at": "2026-08-04T11:23:01Z",
+          "merged_at": "2026-08-04T11:33:11Z",
+          "pull_request": 85,
+          "query_frame": 1,
+          "repository": "ruanchaves/hashformers",
+          "sample_digest": "0bd8246a48fc6477ea349e5288fee795cf3c0e37a2c3d08b81203078fb682a3b",
+          "title": "Showcase Hashformers benchmark results in README",
+          "url": "https://github.com/ruanchaves/hashformers/pull/85"
+        },
+        {
+          "created_at": "2026-07-19T15:30:02Z",
+          "merged_at": "2026-07-19T15:53:51Z",
+          "pull_request": 20,
+          "query_frame": 1,
+          "repository": "Skrockle/Essentia-Studio",
+          "sample_digest": "0d39c21a9d7b910b6dc916d43d9629a4320d8068a22432813214ef44ce0b7b80",
+          "title": "fix: accept ONNX feature arrays from Essentia",
+          "url": "https://github.com/Skrockle/Essentia-Studio/pull/20"
+        },
+        {
+          "created_at": "2026-08-11T23:05:21Z",
+          "merged_at": "2026-08-11T23:07:17Z",
+          "pull_request": 3,
+          "query_frame": 1,
+          "repository": "NovenHQ/Noven",
+          "sample_digest": "0e3156efab6d00105d0bec4b080eb28bf6e232112c6068240acf41b805632941",
+          "title": "fix: distinguish neurone types in evidence matching",
+          "url": "https://github.com/NovenHQ/Noven/pull/3"
+        },
+        {
+          "created_at": "2026-03-26T19:09:44Z",
+          "merged_at": "2026-03-26T19:15:10Z",
+          "pull_request": 45,
+          "query_frame": 1,
+          "repository": "wavekat/wavekat-vad",
+          "sample_digest": "10dc013bd3e21789bb46c675d6a520e84b6876afe4f308f9966036f5d613dabe",
+          "title": "chore(wavekat-vad): release v0.1.12",
+          "url": "https://github.com/wavekat/wavekat-vad/pull/45"
+        },
+        {
+          "created_at": "2026-07-28T13:44:32Z",
+          "merged_at": "2026-07-28T13:54:29Z",
+          "pull_request": 320,
+          "query_frame": 1,
+          "repository": "adamtheturtle/strict-kwargs",
+          "sample_digest": "12c5ce04ef641d014630c06a514718ba7c049ba2d005498d83ccceb756b818c5",
+          "title": "Fail fast when benchmark setup fails",
+          "url": "https://github.com/adamtheturtle/strict-kwargs/pull/320"
+        },
+        {
+          "created_at": "2026-06-23T09:57:12Z",
+          "merged_at": "2026-06-23T11:13:07Z",
+          "pull_request": 1428,
+          "query_frame": 1,
+          "repository": "modelscope/evalscope",
+          "sample_digest": "15865929edd9c5ab47ee8532c99c37d83d844308914a4cf54ebfe76f4194ab9d",
+          "title": "refactor: restructure adapter architecture - AudioLanguageAdapter, FunctionCallAdapter, merge AgentLoopAdapter",
+          "url": "https://github.com/modelscope/evalscope/pull/1428"
+        },
+        {
+          "created_at": "2026-08-07T21:57:22Z",
+          "merged_at": "2026-08-07T22:01:03Z",
+          "pull_request": 19,
+          "query_frame": 1,
+          "repository": "crptcusco/cbn_core",
+          "sample_digest": "15d05c611fdc8f3fd9ec15b4efb5a59e0385bc9cf5cffd481835eb3c8510c407",
+          "title": "Refactor attractor fields complexity check and dynamic safety checks",
+          "url": "https://github.com/crptcusco/cbn_core/pull/19"
+        },
+        {
+          "created_at": "2026-08-03T00:05:54Z",
+          "merged_at": "2026-08-03T00:08:37Z",
+          "pull_request": 10,
+          "query_frame": 1,
+          "repository": "steipete/bslog",
+          "sample_digest": "245a101162cce5d95ba71a0255e5888128495d73d380722d9fc949a5a14e283a",
+          "title": "docs: rewrite README to house standard",
+          "url": "https://github.com/steipete/bslog/pull/10"
+        },
+        {
+          "created_at": "2026-05-15T14:55:58Z",
+          "merged_at": "2026-05-15T15:28:06Z",
+          "pull_request": 959,
+          "query_frame": 1,
+          "repository": "tempoxyz/tempo-apps",
+          "sample_digest": "24c901d3728c250c87129fb17eb2fbfe657b8a009642e32b7ce03bf581aa1c0c",
+          "title": "fix(perf): correct node configuration in methodology page",
+          "url": "https://github.com/tempoxyz/tempo-apps/pull/959"
+        },
+        {
+          "created_at": "2026-04-27T07:58:26Z",
+          "merged_at": "2026-05-03T17:51:12Z",
+          "pull_request": 989,
+          "query_frame": 1,
+          "repository": "Tracer-Cloud/opensre",
+          "sample_digest": "287158f33321022beeabdf015f6d1b8e03d3d7cd615089ac0e889c7431f13f5e",
+          "title": "eval: harden OpenSRE LLM judge JSON extraction",
+          "url": "https://github.com/Tracer-Cloud/opensre/pull/989"
+        },
+        {
+          "created_at": "2026-07-09T12:50:08Z",
+          "merged_at": "2026-07-09T15:17:19Z",
+          "pull_request": 2,
+          "query_frame": 1,
+          "repository": "matulni/graphix-mqtbench",
+          "sample_digest": "2e82d43c7751130e519b8ffea6572cca5c656d1bd7a432a1b46183b8dc1bd7b6",
+          "title": "Pin `mqt-bench==2.2.2` and Update `_benchmark_names.py` + Generator",
+          "url": "https://github.com/matulni/graphix-mqtbench/pull/2"
+        },
+        {
+          "created_at": "2026-06-02T01:39:56Z",
+          "merged_at": "2026-06-02T01:40:13Z",
+          "pull_request": 20,
+          "query_frame": 1,
+          "repository": "huluk98/Decoder-Chinese-SLM",
+          "sample_digest": "356c8511f84b2f94e868cea03ee47293a99d48223bb537c2485617d94681d68f",
+          "title": "Fix pruning benchmark result accounting",
+          "url": "https://github.com/huluk98/Decoder-Chinese-SLM/pull/20"
+        },
+        {
+          "created_at": "2026-07-26T16:54:24Z",
+          "merged_at": "2026-07-26T21:46:39Z",
+          "pull_request": 116,
+          "query_frame": 1,
+          "repository": "IsaacCheng9/order-book-simulator",
+          "sample_digest": "3ba2cee6f52717b0671bb65823e9657d0be896655749f53ed1dd822533507ea6",
+          "title": "fix: Restore the simulator CLI and surface benchmark failures",
+          "url": "https://github.com/IsaacCheng9/order-book-simulator/pull/116"
+        },
+        {
+          "created_at": "2026-08-07T23:04:04Z",
+          "merged_at": "2026-08-07T23:07:43Z",
+          "pull_request": 2,
+          "query_frame": 1,
+          "repository": "brutalstein/TensorGraft",
+          "sample_digest": "3deeb1af78148b9486fac23e60d29ad2d6d89af93918ea44d626cb2d3ea74eff",
+          "title": "Add zero-copy tensor fabric and transport benchmarks",
+          "url": "https://github.com/brutalstein/TensorGraft/pull/2"
+        },
+        {
+          "created_at": "2026-07-13T09:39:15Z",
+          "merged_at": "2026-07-13T10:02:28Z",
+          "pull_request": 1,
+          "query_frame": 1,
+          "repository": "TheYoungW/Motor-Drive-Layer",
+          "sample_digest": "3f8e37787f7b780039b438aa7ddcb76df21323c18ec80f6def6431ede1cf5410",
+          "title": "Prepare open-source hardware release",
+          "url": "https://github.com/TheYoungW/Motor-Drive-Layer/pull/1"
+        },
+        {
+          "created_at": "2026-07-30T07:38:29Z",
+          "merged_at": "2026-07-30T07:48:23Z",
+          "pull_request": 1,
+          "query_frame": 1,
+          "repository": "Cadan-mark/cacheforge",
+          "sample_digest": "433f99c8e8666f52bd34c5a049fc3d87ac6e79fac8a5b138bd15a0136c1a7d51",
+          "title": "Implement CacheForge Milestone 1 attention runtime and contiguous KV cache",
+          "url": "https://github.com/Cadan-mark/cacheforge/pull/1"
+        },
+        {
+          "created_at": "2026-07-13T21:24:15Z",
+          "merged_at": "2026-07-13T21:24:27Z",
+          "pull_request": 8,
+          "query_frame": 1,
+          "repository": "almostmike/agentstocks",
+          "sample_digest": "46ce70dd39e527cc158ad71fbb7dc24f9706c8ea8655b396b8c39061c5c83b50",
+          "title": "use prior close spy baseline",
+          "url": "https://github.com/almostmike/agentstocks/pull/8"
+        },
+        {
+          "created_at": "2026-04-06T07:02:34Z",
+          "merged_at": "2026-05-18T09:15:23Z",
+          "pull_request": 2,
+          "query_frame": 1,
+          "repository": "jacksong-sourse/DR_agent",
+          "sample_digest": "4809343438dc49b6a21a5bb4a14bbf310a367cf739db27252658d87457cd1dbc",
+          "title": "feat: 标准权威跑分框架 (GSM8K, MMLU, MATH)",
+          "url": "https://github.com/jacksong-sourse/DR_agent/pull/2"
+        },
+        {
+          "created_at": "2026-08-10T21:57:27Z",
+          "merged_at": "2026-08-10T23:10:50Z",
+          "pull_request": 553,
+          "query_frame": 1,
+          "repository": "roboflow/trackers",
+          "sample_digest": "4943597897896268da16b5596aa4e5001f6b87bdfe8a536499acccc30419385d",
+          "title": "docs: add cross-ref map for benchmark tables",
+          "url": "https://github.com/roboflow/trackers/pull/553"
+        },
+        {
+          "created_at": "2026-07-11T22:02:11Z",
+          "merged_at": "2026-07-11T22:03:41Z",
+          "pull_request": 48,
+          "query_frame": 1,
+          "repository": "h3nnn4n/cubotron",
+          "sample_digest": "4aad07674e0acdcba756931690f87099dd5667ba47df9ee92c680df05ad10446",
+          "title": "fix(benchmark): capture warmup end time before benchmark phase",
+          "url": "https://github.com/h3nnn4n/cubotron/pull/48"
+        },
+        {
+          "created_at": "2026-08-08T13:16:48Z",
+          "merged_at": "2026-08-08T13:44:46Z",
+          "pull_request": 84,
+          "query_frame": 1,
+          "repository": "BlueDot-IT/Odinn-Forge",
+          "sample_digest": "4c10f1ea33da417ede0c63491ac5f448e1018e46b60e992ca0d4fc69ce2634a8",
+          "title": "docs: add current feature navigation",
+          "url": "https://github.com/BlueDot-IT/Odinn-Forge/pull/84"
+        },
+        {
+          "created_at": "2026-08-06T23:02:21Z",
+          "merged_at": "2026-08-06T23:02:34Z",
+          "pull_request": 12,
+          "query_frame": 1,
+          "repository": "CLARIN-PL/LEPISZCZE",
+          "sample_digest": "4eb9eade811e7c702eaff186a2f700b2eb73a36fe13472581c293295b016f741",
+          "title": "Integrate legacy Expansio QA datasets into LEPISZCZE",
+          "url": "https://github.com/CLARIN-PL/LEPISZCZE/pull/12"
+        },
+        {
+          "created_at": "2026-07-13T20:45:16Z",
+          "merged_at": "2026-07-14T01:34:44Z",
+          "pull_request": 2858,
+          "query_frame": 1,
+          "repository": "groonga/groonga",
+          "sample_digest": "50d78e875c66c76bbf7fdcbdab197c0eec1a4da48d6c3a234b6717ee2e653ffd",
+          "title": "benchmark: Remove incorrect G_GNUC_CONST usage",
+          "url": "https://github.com/groonga/groonga/pull/2858"
+        },
+        {
+          "created_at": "2026-07-27T15:27:57Z",
+          "merged_at": "2026-07-27T21:39:22Z",
+          "pull_request": 122,
+          "query_frame": 1,
+          "repository": "key4hep/k4Bench",
+          "sample_digest": "51ada7f425c64aaa88a6f09c8818f720b1b0eca1c0d41938b6092bcc7135bac4",
+          "title": "fix(regression): treat a run one night behind the report night as part of the same batch",
+          "url": "https://github.com/key4hep/k4Bench/pull/122"
+        },
+        {
+          "created_at": "2026-06-04T16:17:01Z",
+          "merged_at": "2026-06-04T16:17:14Z",
+          "pull_request": 7,
+          "query_frame": 1,
+          "repository": "KalokUmich/conductor",
+          "sample_digest": "5246c20209c25572eac5ac705f9357ea24000cca11c0a576913a1d37274b9670",
+          "title": "feat: fix the AI PR function",
+          "url": "https://github.com/KalokUmich/conductor/pull/7"
+        },
+        {
+          "created_at": "2026-05-25T07:11:26Z",
+          "merged_at": "2026-05-25T07:47:02Z",
+          "pull_request": 599,
+          "query_frame": 1,
+          "repository": "eval-hub/eval-hub",
+          "sample_digest": "536904173cdeee71f6b0714775d66db7bf01174d39154a239be634f3383001c2",
+          "title": "chore(config): relocate misplaced YAML comments in provider configs",
+          "url": "https://github.com/eval-hub/eval-hub/pull/599"
+        },
+        {
+          "created_at": "2026-07-15T13:36:01Z",
+          "merged_at": "2026-07-20T11:29:55Z",
+          "pull_request": 5646,
+          "query_frame": 1,
+          "repository": "tenstorrent/tt-xla",
+          "sample_digest": "584ec33472063a1416744c895cca1e7f813608c28ba5e0ff9d817a9337615060",
+          "title": "vLLM benchmark get device info",
+          "url": "https://github.com/tenstorrent/tt-xla/pull/5646"
+        },
+        {
+          "created_at": "2026-08-12T03:56:14Z",
+          "merged_at": "2026-08-12T05:52:36Z",
+          "pull_request": 1186,
+          "query_frame": 1,
+          "repository": "BashfulBits/city-meeting-podcasts",
+          "sample_digest": "58afba108132998771ed08960b24b1e9130f9f0ee15bb2c50c32bd205284e2e4",
+          "title": "Implement unified R5 tag calibration overlay",
+          "url": "https://github.com/BashfulBits/city-meeting-podcasts/pull/1186"
+        },
+        {
+          "created_at": "2026-08-09T14:22:51Z",
+          "merged_at": "2026-08-10T05:53:26Z",
+          "pull_request": 1,
+          "query_frame": 1,
+          "repository": "SYang521/KinderSortCMC",
+          "sample_digest": "58bb22b2205d2fba8a2b3a7b90a38b9407ea8b0b978f8943dbfd750e42264979",
+          "title": "Add automated benchmark evaluation workflow",
+          "url": "https://github.com/SYang521/KinderSortCMC/pull/1"
+        },
+        {
+          "created_at": "2026-08-10T14:31:10Z",
+          "merged_at": "2026-08-13T01:06:43Z",
+          "pull_request": 185,
+          "query_frame": 1,
+          "repository": "siyul-park/minivm",
+          "sample_digest": "5f3ca4d08341c6c58101c778c6cf554e93b098106ce4cd6a3ea07b7775b26293",
+          "title": "fix(interp): make recursive trace boundary explicit",
+          "url": "https://github.com/siyul-park/minivm/pull/185"
+        },
+        {
+          "created_at": "2026-05-15T15:04:02Z",
+          "merged_at": "2026-05-15T15:04:21Z",
+          "pull_request": 61,
+          "query_frame": 1,
+          "repository": "dyy21zyy/eBus-Drone",
+          "sample_digest": "609b26440faa30397cfd3b378778c596ffadd34a9e5f9bd732008149639130f6",
+          "title": "Fix evaluator inputs for dwell-greedy and battery-threshold policies",
+          "url": "https://github.com/dyy21zyy/eBus-Drone/pull/61"
+        },
+        {
+          "created_at": "2026-07-30T02:18:58Z",
+          "merged_at": "2026-07-30T02:21:37Z",
+          "pull_request": 1,
+          "query_frame": 1,
+          "repository": "liujs25/quant-strategy-backtest",
+          "sample_digest": "61a3d329da97af1318d286f54d7105ccd9edb0020cb8674b0f5e5827ea2d2911",
+          "title": "Improve README and fix backtest pipeline",
+          "url": "https://github.com/liujs25/quant-strategy-backtest/pull/1"
+        },
+        {
+          "created_at": "2026-06-24T21:55:00Z",
+          "merged_at": "2026-06-25T23:46:20Z",
+          "pull_request": 1,
+          "query_frame": 1,
+          "repository": "djmmoss/ThunderKittens",
+          "sample_digest": "63f348ba7d80fb9f39e733752ca3468223e498c6cf9272a4c523a4042b10c8c3",
+          "title": "Fix nvfp4 k96 SMEM descriptor",
+          "url": "https://github.com/djmmoss/ThunderKittens/pull/1"
+        },
+        {
+          "created_at": "2026-06-18T20:17:05Z",
+          "merged_at": "2026-06-19T00:24:52Z",
+          "pull_request": 227,
+          "query_frame": 1,
+          "repository": "semantic-reasoning/wyrebox",
+          "sample_digest": "64f7d370fa93eefa583fa3890e96be6e49d99f72ae9a921fa92b1d1bd743eebb",
+          "title": "[codex] Harden DuckDB query-template search benchmark",
+          "url": "https://github.com/semantic-reasoning/wyrebox/pull/227"
+        },
+        {
+          "created_at": "2026-07-17T08:17:33Z",
+          "merged_at": "2026-07-17T08:18:46Z",
+          "pull_request": 152,
+          "query_frame": 1,
+          "repository": "yutori-ai/navi-bench",
+          "sample_digest": "67de7992c3f9ed0907dfab03a91d6fefa7b4e9a1dc966ec4592d919de4085097",
+          "title": "fix(dates): stop initialize_placeholder_map from re-deriving a single shared year",
+          "url": "https://github.com/yutori-ai/navi-bench/pull/152"
+        },
+        {
+          "created_at": "2026-06-29T22:13:25Z",
+          "merged_at": "2026-07-02T11:08:58Z",
+          "pull_request": 24993,
+          "query_frame": 1,
+          "repository": "ultralytics/ultralytics",
+          "sample_digest": "69efe9edffe7b8b0dd779bc56f90c19918dfb0e5fff7ad49d87a047eab07e165",
+          "title": "Clarify square image size requirement in benchmark docs",
+          "url": "https://github.com/ultralytics/ultralytics/pull/24993"
+        },
+        {
+          "created_at": "2026-02-04T00:22:34Z",
+          "merged_at": "2026-02-04T00:54:54Z",
+          "pull_request": 117,
+          "query_frame": 1,
+          "repository": "gold-silver-copper/grift",
+          "sample_digest": "6d510fb82e84fbf1e943ff481a3e7936b3e9851b0b8623e8778743389752f828",
+          "title": "Fix shared-state test flakiness and bench.rs member expectation; add call/cc implementation plan",
+          "url": "https://github.com/gold-silver-copper/grift/pull/117"
+        },
+        {
+          "created_at": "2026-08-12T01:49:56Z",
+          "merged_at": "2026-08-12T11:10:54Z",
+          "pull_request": 3958,
+          "query_frame": 1,
+          "repository": "Sinity/polylogue",
+          "sample_digest": "73c01958ad8ec4c06b1b7ed71530eb31d47e42f5b5a88dd450d54bb2c41e026a",
+          "title": "fix(testmon): preserve terminal teardown outcomes",
+          "url": "https://github.com/Sinity/polylogue/pull/3958"
+        },
+        {
+          "created_at": "2026-07-02T22:24:35Z",
+          "merged_at": "2026-07-02T22:31:39Z",
+          "pull_request": 74,
+          "query_frame": 1,
+          "repository": "Baelfyre/Orchestra",
+          "sample_digest": "7755cabe0d653e21e40c95b11869b62c812dd84ad8a7dc7b0203fc90eba74a94",
+          "title": "test(routing): add negative router benchmark fixture tests",
+          "url": "https://github.com/Baelfyre/Orchestra/pull/74"
+        },
+        {
+          "created_at": "2026-08-11T19:48:32Z",
+          "merged_at": "2026-08-11T20:04:16Z",
+          "pull_request": 22,
+          "query_frame": 1,
+          "repository": "DANISRAELZ/NODOX",
+          "sample_digest": "7861b642351679cddfb156ecba9aa801c582819800b410f31f6a00807eaad2be",
+          "title": "Implement Stage 5A.1 strain-specific benchmark scope",
+          "url": "https://github.com/DANISRAELZ/NODOX/pull/22"
+        },
+        {
+          "created_at": "2026-07-25T06:16:31Z",
+          "merged_at": "2026-07-25T06:17:01Z",
+          "pull_request": 8,
+          "query_frame": 1,
+          "repository": "buaa-djw/nonsmooth-vlsi-placer",
+          "sample_digest": "7bda52b30e8431b688d98b6241c667b627a0c05a88f3a055a4ac92cbfc1a57bb",
+          "title": "Restore the paper nonsmooth optimization flow",
+          "url": "https://github.com/buaa-djw/nonsmooth-vlsi-placer/pull/8"
+        },
+        {
+          "created_at": "2026-07-24T17:20:42Z",
+          "merged_at": "2026-07-24T20:50:07Z",
+          "pull_request": 10,
+          "query_frame": 1,
+          "repository": "barbarahelena/osmo_refdb",
+          "sample_digest": "7f0c8ca81783f335f114856930ebbc8232536fff45a35fa14b12acac08c9ec78",
+          "title": "Task1 firmicutes gap filling",
+          "url": "https://github.com/barbarahelena/osmo_refdb/pull/10"
+        },
+        {
+          "created_at": "2026-06-23T21:52:54Z",
+          "merged_at": "2026-07-08T16:50:43Z",
+          "pull_request": 418,
+          "query_frame": 1,
+          "repository": "wolfSSL/wolfHSM",
+          "sample_digest": "7fd28b5be65884dad7fe2fe5af8a26ebe6358971116ffa282877fb1c258b95d8",
+          "title": "Fix benchmark guard macros",
+          "url": "https://github.com/wolfSSL/wolfHSM/pull/418"
+        },
+        {
+          "created_at": "2026-07-14T20:35:27Z",
+          "merged_at": "2026-07-15T15:07:36Z",
+          "pull_request": 478,
+          "query_frame": 1,
+          "repository": "elastic/cli",
+          "sample_digest": "83488463a2a0beb7fc1c429ab9dd74458dc725c11a1391841c6dc34e586b9d22",
+          "title": "fix: improve performance of config resolver",
+          "url": "https://github.com/elastic/cli/pull/478"
+        },
+        {
+          "created_at": "2026-07-20T06:21:51Z",
+          "merged_at": "2026-07-20T11:01:23Z",
+          "pull_request": 4888,
+          "query_frame": 1,
+          "repository": "flagos-ai/FlagGems",
+          "sample_digest": "891588ed80894c519f1318339bc18f9095d937a0d9e885e91dee5c9b0428a1e1",
+          "title": "fix(test): add try/except for fp8_einsum import avoiding false CI failures",
+          "url": "https://github.com/flagos-ai/FlagGems/pull/4888"
+        },
+        {
+          "created_at": "2026-06-10T18:04:56Z",
+          "merged_at": "2026-06-10T18:36:17Z",
+          "pull_request": 1013,
+          "query_frame": 1,
+          "repository": "ben-ranford/lopper",
+          "sample_digest": "89938d5c21719199d5253325b78d7f6afe436fec0cb8d3489ab4d8f9a033299a",
+          "title": "fix(lang): scan hoisted js and go monorepo sources",
+          "url": "https://github.com/ben-ranford/lopper/pull/1013"
+        },
+        {
+          "created_at": "2026-07-09T15:25:59Z",
+          "merged_at": "2026-07-09T23:27:11Z",
+          "pull_request": 30,
+          "query_frame": 1,
+          "repository": "gianlucamazza/xllama",
+          "sample_digest": "89eda1506be6ea94b6f97c3a9f21cf01b8e01dc97a26bd084e1b2202009ad253",
+          "title": "feat(gguf): complete catalogue plumbing — layout-aware Auto, resolve support, bench guard + tests",
+          "url": "https://github.com/gianlucamazza/xllama/pull/30"
+        },
+        {
+          "created_at": "2026-02-18T16:47:35Z",
+          "merged_at": "2026-02-18T16:47:51Z",
+          "pull_request": 20,
+          "query_frame": 1,
+          "repository": "h3nnn4n/cubotron",
+          "sample_digest": "8b43f51b2147ef0e502c424e531e164bedf9d514129393f36d2eb27f5e21d881",
+          "title": "Fix incorrect benchmark comparison",
+          "url": "https://github.com/h3nnn4n/cubotron/pull/20"
+        },
+        {
+          "created_at": "2026-08-08T16:37:10Z",
+          "merged_at": "2026-08-11T09:21:59Z",
+          "pull_request": 103,
+          "query_frame": 1,
+          "repository": "bluntmachetti/synthworld",
+          "sample_digest": "8bc0190a51cedd13cabdccfaa573a1887a1581e3b26a9342b73aeec6ed919293",
+          "title": "Add governed capability inventory",
+          "url": "https://github.com/bluntmachetti/synthworld/pull/103"
+        },
+        {
+          "created_at": "2021-01-11T10:36:06Z",
+          "merged_at": "2021-01-11T10:55:17Z",
+          "pull_request": 60,
+          "query_frame": 1,
+          "repository": "secure-io/sio-go",
+          "sample_digest": "8d2802cb353c367f896753fccdd71755b0e039757abfd292a1b244812c584231",
+          "title": "fix incorrect benchmark Decrypt/WriteTo",
+          "url": "https://github.com/secure-io/sio-go/pull/60"
+        },
+        {
+          "created_at": "2026-07-06T09:11:34Z",
+          "merged_at": "2026-07-06T09:15:03Z",
+          "pull_request": 11490,
+          "query_frame": 1,
+          "repository": "vllm-project/vllm-ascend",
+          "sample_digest": "94fad846f1be1bf989861d002e7d22df1dfa8c02eb3cb0706b605d6ac3928513",
+          "title": "[v0.23.0][BugFix][P/D] Restrict recompute scheduler to decode nodes",
+          "url": "https://github.com/vllm-project/vllm-ascend/pull/11490"
+        },
+        {
+          "created_at": "2026-04-22T00:16:32Z",
+          "merged_at": "2026-05-01T20:49:48Z",
+          "pull_request": 19,
+          "query_frame": 1,
+          "repository": "AMD-AGI/Magpie",
+          "sample_digest": "96692aff8069006bc73e50ed00997f4e374b712bae6c9b792e9c435869d5c501",
+          "title": "Fix benchmark edge cases, tighten CLI validation, and expand unit test coverage",
+          "url": "https://github.com/AMD-AGI/Magpie/pull/19"
+        },
+        {
+          "created_at": "2026-05-19T08:55:25Z",
+          "merged_at": "2026-05-19T08:55:57Z",
+          "pull_request": 129,
+          "query_frame": 1,
+          "repository": "kdlucas/byte-unixbench",
+          "sample_digest": "97d1d740a773483109df7ed983507c4e0e4cdef777b4adab5db1bdb2220f1007",
+          "title": "unixbench release 6.0.1",
+          "url": "https://github.com/kdlucas/byte-unixbench/pull/129"
+        },
+        {
+          "created_at": "2026-08-09T02:09:48Z",
+          "merged_at": "2026-08-09T02:30:46Z",
+          "pull_request": 34143,
+          "query_frame": 1,
+          "repository": "sgl-project/sglang",
+          "sample_digest": "99f9d4d0eccd81bccd13cd955c9304e67fbadb2f378f95bd54f8d604502450b3",
+          "title": "docs(diffusion): refresh skills for latest runtime",
+          "url": "https://github.com/sgl-project/sglang/pull/34143"
+        },
+        {
+          "created_at": "2026-08-04T12:34:46Z",
+          "merged_at": "2026-08-04T21:07:39Z",
+          "pull_request": 180,
+          "query_frame": 1,
+          "repository": "grob-lang/grob",
+          "sample_digest": "9ba02d187f794ab94c5d1aab0e9d00bf93ce088ee68793f0369cae48c006a34d",
+          "title": "fix(build): decouple time-gating from allocation-gating in BenchCheck",
+          "url": "https://github.com/grob-lang/grob/pull/180"
+        },
+        {
+          "created_at": "2026-07-06T02:08:10Z",
+          "merged_at": "2026-07-06T02:11:56Z",
+          "pull_request": 30,
+          "query_frame": 1,
+          "repository": "hugodzibetti/lattice",
+          "sample_digest": "a1983128be8ea0d491c2fafe63c558269190ae5c81f50caf4da9c6633f66d96e",
+          "title": "Fix CLI encoding label: Delta → Dictionary",
+          "url": "https://github.com/hugodzibetti/lattice/pull/30"
+        },
+        {
+          "created_at": "2026-07-01T15:55:54Z",
+          "merged_at": "2026-07-01T16:08:49Z",
+          "pull_request": 458,
+          "query_frame": 1,
+          "repository": "vuetifyjs/0",
+          "sample_digest": "a396da9b992e0be4463e854898db45e1e9ce53298b1d755e082929ce9276bb38",
+          "title": "docs: fix outdated composable examples and stale data across guide pages",
+          "url": "https://github.com/vuetifyjs/0/pull/458"
+        },
+        {
+          "created_at": "2026-07-29T20:24:47Z",
+          "merged_at": "2026-07-29T20:41:33Z",
+          "pull_request": 595,
+          "query_frame": 1,
+          "repository": "Stellabill/stellabill-backend",
+          "sample_digest": "a5626090fbea1bcd16cb21fcc4228f8122250aa88e9ac16fe0a217e2d94f5163",
+          "title": "ci: fix workflow breakages across 4 workflows",
+          "url": "https://github.com/Stellabill/stellabill-backend/pull/595"
+        },
+        {
+          "created_at": "2026-07-19T04:05:38Z",
+          "merged_at": "2026-07-19T04:12:43Z",
+          "pull_request": 166,
+          "query_frame": 1,
+          "repository": "YuzeJ21/Scope-Proof",
+          "sample_digest": "a5b14e7f9e14ab4cbe8aa77d0f8574ad412615e29381224405e31b29c097aa00",
+          "title": "Prepare ScopeProof v0.2.2 internal candidate",
+          "url": "https://github.com/YuzeJ21/Scope-Proof/pull/166"
+        },
+        {
+          "created_at": "2026-06-24T11:39:23Z",
+          "merged_at": "2026-06-25T06:14:09Z",
+          "pull_request": 51,
+          "query_frame": 1,
+          "repository": "Zijian-Ni/awesome-ai-agents-2026",
+          "sample_digest": "a6f05541bbb7933d26c97224b402475e3fa68f50cdf6bb687adfd48a54bb6f47",
+          "title": "Correct taOSmd benchmark figure (remove end-to-end Judge number)",
+          "url": "https://github.com/Zijian-Ni/awesome-ai-agents-2026/pull/51"
+        },
+        {
+          "created_at": "2026-07-01T11:50:09Z",
+          "merged_at": "2026-07-01T14:12:51Z",
+          "pull_request": 339,
+          "query_frame": 1,
+          "repository": "yasuhito/qni-cli",
+          "sample_digest": "a921a0b9f9b2cbbc66cc965d71638b6f5a4aba83d77c6e9ce2afa16c58e43e0f",
+          "title": "BasicGates に複数採点ケースの単一量子ビット課題を追加する",
+          "url": "https://github.com/yasuhito/qni-cli/pull/339"
+        },
+        {
+          "created_at": "2026-04-15T18:49:15Z",
+          "merged_at": "2026-04-15T21:24:26Z",
+          "pull_request": 71,
+          "query_frame": 1,
+          "repository": "fiveoutofnine/whatcanirun",
+          "sample_digest": "abb1bebfbb1ad000128b14ec2c9b5fe75b36976e27893882928d0cda1957d67b",
+          "title": "[codex] Normalize AMD Linux APU GPU names",
+          "url": "https://github.com/fiveoutofnine/whatcanirun/pull/71"
+        },
+        {
+          "created_at": "2026-07-20T07:11:56Z",
+          "merged_at": "2026-07-20T07:12:10Z",
+          "pull_request": 3,
+          "query_frame": 1,
+          "repository": "alittlegangsta/edgeai-deploy-benchmark",
+          "sample_digest": "ad02a069ffa40f366d2c67d78cf57733199109a657cf8afef440e58ee30dcbcf",
+          "title": "docs: define PC stage execution protocol and tasks",
+          "url": "https://github.com/alittlegangsta/edgeai-deploy-benchmark/pull/3"
+        },
+        {
+          "created_at": "2026-08-04T10:30:30Z",
+          "merged_at": "2026-08-04T14:10:21Z",
+          "pull_request": 33,
+          "query_frame": 1,
+          "repository": "fededamo/omadedef.",
+          "sample_digest": "adf98d923d77f1a81214672c1b7ad4768adf5f5d7d0e4ab021b62c457cb96382",
+          "title": "⚡ [preserve benchmark baseline]",
+          "url": "https://github.com/fededamo/omadedef./pull/33"
+        },
+        {
+          "created_at": "2026-07-10T08:58:14Z",
+          "merged_at": "2026-07-10T09:03:22Z",
+          "pull_request": 165,
+          "query_frame": 1,
+          "repository": "huynhngochuyhoang/reactive-http-client",
+          "sample_digest": "b39807d3a2aac22d3db5f6eb86f6b78c7d30001516c9aa638a18c03dae8be91a",
+          "title": "Enforce benchmark classification and validation for report generation",
+          "url": "https://github.com/huynhngochuyhoang/reactive-http-client/pull/165"
+        },
+        {
+          "created_at": "2026-07-08T22:28:08Z",
+          "merged_at": "2026-07-08T23:41:07Z",
+          "pull_request": 245,
+          "query_frame": 1,
+          "repository": "coval-ai/benchmarks",
+          "sample_digest": "b40c3d0d226b04a04d1142530dc7bbc6b8e42da3c66d8f7ff1cec9fdf0785cff",
+          "title": "Stop normal metric edge cases from flipping benchmark runs to partial",
+          "url": "https://github.com/coval-ai/benchmarks/pull/245"
+        },
+        {
+          "created_at": "2026-06-03T13:12:26Z",
+          "merged_at": "2026-06-03T13:25:31Z",
+          "pull_request": 1116,
+          "query_frame": 1,
+          "repository": "f5-sales-demo/xcsh",
+          "sample_digest": "b80c7d0809be828652be4c89687540a9c47fe48ff0cff711ac23625a63a6c804",
+          "title": "fix(autoresearch): correct CRUD and enrichment benchmark comparison logic",
+          "url": "https://github.com/f5-sales-demo/xcsh/pull/1116"
+        },
+        {
+          "created_at": "2026-06-21T18:51:06Z",
+          "merged_at": "2026-06-21T18:56:31Z",
+          "pull_request": 188,
+          "query_frame": 1,
+          "repository": "osprey-dcs/dp-service",
+          "sample_digest": "b89441e80d15e694ed4833a72cd9ea9559d7044c914b26010c377e676de30eff",
+          "title": "dp-service #183 #185: fix stale section references and query client note in benchmark-overview.md",
+          "url": "https://github.com/osprey-dcs/dp-service/pull/188"
+        },
+        {
+          "created_at": "2026-08-04T14:15:36Z",
+          "merged_at": "2026-08-04T14:33:20Z",
+          "pull_request": 1586,
+          "query_frame": 1,
+          "repository": "BrokkAi/bifrost",
+          "sample_digest": "b9679fd4054df0887d95d3aa431b42a960374dc4b2ffae1e13b86d603d284c51",
+          "title": "Add RMCP promotion validation gates",
+          "url": "https://github.com/BrokkAi/bifrost/pull/1586"
+        },
+        {
+          "created_at": "2026-04-09T11:48:49Z",
+          "merged_at": "2026-04-09T12:37:00Z",
+          "pull_request": 225,
+          "query_frame": 1,
+          "repository": "starseeker/brlcad_quickiterate",
+          "sample_digest": "bb67b57acd3f22016c6420fc0927eb4c0596785ed671d6b23d068c352d906825",
+          "title": "Fix never-perfect-black: remove benchmark==0 guard in view.c; update rtwizard ref images",
+          "url": "https://github.com/starseeker/brlcad_quickiterate/pull/225"
+        },
+        {
+          "created_at": "2026-07-31T16:17:52Z",
+          "merged_at": "2026-07-31T16:30:54Z",
+          "pull_request": 351,
+          "query_frame": 1,
+          "repository": "hellobertrand/zxc",
+          "sample_digest": "bd21507c8502a6cb64061c68ee463b54b27c6df58ac3450da8420388d8273410",
+          "title": "fix(cctx): Reset dict_size in compression context",
+          "url": "https://github.com/hellobertrand/zxc/pull/351"
+        },
+        {
+          "created_at": "2026-07-01T08:38:02Z",
+          "merged_at": "2026-07-06T09:02:41Z",
+          "pull_request": 11265,
+          "query_frame": 1,
+          "repository": "vllm-project/vllm-ascend",
+          "sample_digest": "c028f521d083ea3b547ec429c7bddb005e1838d0ffaf0c9e3c03ef3b028d4905",
+          "title": "[BugFix][P/D] Restrict recompute scheduler to decode nodes",
+          "url": "https://github.com/vllm-project/vllm-ascend/pull/11265"
+        },
+        {
+          "created_at": "2026-08-02T12:15:57Z",
+          "merged_at": "2026-08-03T07:22:46Z",
+          "pull_request": 66363,
+          "query_frame": 1,
+          "repository": "apache/doris",
+          "sample_digest": "c370bad1ec41dea3256b1d915766bbb07b86f1f6162471b469bde44d035cc3e8",
+          "title": "[improvement](json) Lazily construct JSON error messages",
+          "url": "https://github.com/apache/doris/pull/66363"
+        },
+        {
+          "created_at": "2026-05-24T16:07:48Z",
+          "merged_at": "2026-05-24T16:08:09Z",
+          "pull_request": 3,
+          "query_frame": 1,
+          "repository": "IvanEfremovW/Reverse-Index",
+          "sample_digest": "c6309ef33a96e47d3b8399e04ff31ce3767f93c4eb255a7b3d1397a809715948",
+          "title": "fix: correct compression metrics in benchmark",
+          "url": "https://github.com/IvanEfremovW/Reverse-Index/pull/3"
+        },
+        {
+          "created_at": "2026-07-25T21:28:18Z",
+          "merged_at": "2026-07-25T21:47:08Z",
+          "pull_request": 26,
+          "query_frame": 1,
+          "repository": "kelindar/binary",
+          "sample_digest": "c76d6a95a60ac674ffb3aebe30d7f1b34481bd119bec8f5d776e7703b2ba9acf",
+          "title": "Fix nocopy values decoded from streams",
+          "url": "https://github.com/kelindar/binary/pull/26"
+        },
+        {
+          "created_at": "2026-03-31T19:40:23Z",
+          "merged_at": "2026-03-31T20:56:42Z",
+          "pull_request": 9834,
+          "query_frame": 1,
+          "repository": "google/XNNPACK",
+          "sample_digest": "caa333f3dfb86739a088e7a10b55dad942a26f896698ce903bac9091f6b4c297",
+          "title": "Fix incorrectly disabled benchmarks and tests",
+          "url": "https://github.com/google/XNNPACK/pull/9834"
+        },
+        {
+          "created_at": "2026-05-14T17:38:00Z",
+          "merged_at": "2026-05-15T09:34:46Z",
+          "pull_request": 578,
+          "query_frame": 1,
+          "repository": "eval-hub/eval-hub",
+          "sample_digest": "cc0da12cb7047a2802e6e3c1ce7a7fab5497c4f434328639fe8e026244fe3f57",
+          "title": " test(evaluation jobs): add complete E2E tests for all OOB collections",
+          "url": "https://github.com/eval-hub/eval-hub/pull/578"
+        },
+        {
+          "created_at": "2026-03-26T19:08:26Z",
+          "merged_at": "2026-03-26T19:08:34Z",
+          "pull_request": 44,
+          "query_frame": 1,
+          "repository": "wavekat/wavekat-vad",
+          "sample_digest": "ccd965c3ea4bd9c20cab79eda5ca540b0535544e2e1fbc5d28b94d79c60db007",
+          "title": "docs: fix incorrect benchmark claims",
+          "url": "https://github.com/wavekat/wavekat-vad/pull/44"
+        },
+        {
+          "created_at": "2026-07-18T06:41:05Z",
+          "merged_at": "2026-07-18T06:44:34Z",
+          "pull_request": 23,
+          "query_frame": 1,
+          "repository": "OmprakashSahani/codex-benchmark-guardian",
+          "sample_digest": "ce2ddffbfeb2d81e677fb9165b5d5221a89e16321488ee0d38a07e7f3a39135b",
+          "title": "Fix benchmark publisher artifact paths",
+          "url": "https://github.com/OmprakashSahani/codex-benchmark-guardian/pull/23"
+        },
+        {
+          "created_at": "2026-08-12T14:17:43Z",
+          "merged_at": "2026-08-12T15:30:05Z",
+          "pull_request": 39,
+          "query_frame": 1,
+          "repository": "aakbarpour/flect",
+          "sample_digest": "ce5b330b880c8869027bfcc393fa5fbf1a38ea5de7e9c2f0e7d0ae6e169149ad",
+          "title": "fix(eval): correct benchmark execution semantics",
+          "url": "https://github.com/aakbarpour/flect/pull/39"
+        },
+        {
+          "created_at": "2026-08-07T12:47:31Z",
+          "merged_at": "2026-08-07T13:14:11Z",
+          "pull_request": 46,
+          "query_frame": 1,
+          "repository": "Shweta-Mishra-ai/tokenmizer",
+          "sample_digest": "d3c9389719158206909d3114d8699a15f0eb24783cefe85d7085ab3e9cd6485a",
+          "title": "Pre-launch number audit: two wrong numbers, one restored section",
+          "url": "https://github.com/Shweta-Mishra-ai/tokenmizer/pull/46"
+        },
+        {
+          "created_at": "2026-06-30T14:36:08Z",
+          "merged_at": "2026-06-30T14:36:51Z",
+          "pull_request": 974,
+          "query_frame": 1,
+          "repository": "huangruiteng/loopx",
+          "sample_digest": "da6295d2aede7752c563cb77b71fe0866240483a9f8c58206e3782c46cace693",
+          "title": "Expose actionable catalog canary plan commands",
+          "url": "https://github.com/huangruiteng/loopx/pull/974"
+        },
+        {
+          "created_at": "2026-06-22T09:55:39Z",
+          "merged_at": "2026-06-22T10:00:15Z",
+          "pull_request": 108,
+          "query_frame": 1,
+          "repository": "xmh1011/go-kv",
+          "sample_digest": "dc7c6abb0bc5a891182fe89fad1d7fa603e4963d7a56558e3bb9dd980aff3046",
+          "title": "fix: harden raft and lsm recovery under e2e",
+          "url": "https://github.com/xmh1011/go-kv/pull/108"
+        },
+        {
+          "created_at": "2026-08-05T16:35:49Z",
+          "merged_at": "2026-08-05T17:00:15Z",
+          "pull_request": 65,
+          "query_frame": 1,
+          "repository": "lac-dcc/proteus",
+          "sample_digest": "dd807a0f7e964ca842ea43f11c3a751a53b54d42cfb61a4776b930a549bc7b0f",
+          "title": "Feat/micro benchmarks",
+          "url": "https://github.com/lac-dcc/proteus/pull/65"
+        },
+        {
+          "created_at": "2026-08-02T08:40:56Z",
+          "merged_at": "2026-08-02T08:41:49Z",
+          "pull_request": 869,
+          "query_frame": 1,
+          "repository": "unilabsim/UniLab",
+          "sample_digest": "ddf860baa37e1af01d915b4511dab8345826ef70da723c4475b221b5746d4e67",
+          "title": "test: stabilize benchmark timing contract",
+          "url": "https://github.com/unilabsim/UniLab/pull/869"
+        },
+        {
+          "created_at": "2026-07-29T02:06:07Z",
+          "merged_at": "2026-07-29T07:16:32Z",
+          "pull_request": 309,
+          "query_frame": 1,
+          "repository": "tiangong-lca/database-engine",
+          "sample_digest": "de337f4d502a4df209dc23879ce30ce5fbaf8d35dbd20a86ccb658164521cb3d",
+          "title": "feat: add expiring scope-closure evidence lifecycle",
+          "url": "https://github.com/tiangong-lca/database-engine/pull/309"
+        },
+        {
+          "created_at": "2026-06-03T17:30:18Z",
+          "merged_at": "2026-06-03T17:34:00Z",
+          "pull_request": 230,
+          "query_frame": 1,
+          "repository": "vllm-project/vllm-project.github.io",
+          "sample_digest": "e3753b7add8eb317318441d314462ab5ff11e5072329b987def977f47f0280fc",
+          "title": "fix: replace benchmark image in vllm course post",
+          "url": "https://github.com/vllm-project/vllm-project.github.io/pull/230"
+        },
+        {
+          "created_at": "2026-07-10T03:25:02Z",
+          "merged_at": "2026-07-10T03:48:17Z",
+          "pull_request": 1095,
+          "query_frame": 1,
+          "repository": "casact/chainladder-python",
+          "sample_digest": "e607340498681ad0bed7dfa386c1bfaac81ea6b0f8e0fa660c150963b973a36f",
+          "title": "restoring mack calculations",
+          "url": "https://github.com/casact/chainladder-python/pull/1095"
+        },
+        {
+          "created_at": "2026-07-01T16:56:04Z",
+          "merged_at": "2026-07-01T17:13:46Z",
+          "pull_request": 503,
+          "query_frame": 1,
+          "repository": "redis/memtier_benchmark",
+          "sample_digest": "e6d14c96857fa8b43dad3e07c7bd841418adfc15aa0fd6ae257c87dd61c32e3f",
+          "title": "fix(run_stats): normalize through int64_t microseconds (backport #463/#465 to 2.4)",
+          "url": "https://github.com/redis/memtier_benchmark/pull/503"
+        },
+        {
+          "created_at": "2026-07-09T15:28:51Z",
+          "merged_at": "2026-07-10T02:48:13Z",
+          "pull_request": 161,
+          "query_frame": 1,
+          "repository": "huynhngochuyhoang/reactive-http-client",
+          "sample_digest": "eac1207747b9b6f834f12796fa7d599626c3b2a5690aa6c832f492e73b798e9d",
+          "title": "feat: enhance documentation with performance claim guidelines and support-bundle capture recipes",
+          "url": "https://github.com/huynhngochuyhoang/reactive-http-client/pull/161"
+        },
+        {
+          "created_at": "2026-08-08T19:03:01Z",
+          "merged_at": "2026-08-08T19:03:11Z",
+          "pull_request": 1,
+          "query_frame": 1,
+          "repository": "Microck/websearch-bench",
+          "sample_digest": "edc3a1a993d46abc1b20078c952783cfe31e2e098a82042f45ccd2fa8312f4aa",
+          "title": "Add Codex benchmark artifacts in runs/codex",
+          "url": "https://github.com/Microck/websearch-bench/pull/1"
+        },
+        {
+          "created_at": "2026-05-26T16:35:48Z",
+          "merged_at": "2026-05-27T06:55:03Z",
+          "pull_request": 603,
+          "query_frame": 1,
+          "repository": "eval-hub/eval-hub",
+          "sample_digest": "f258b0e1b9d10414ba39708770c9576dc1ff648a408337cec61e7628a0cd106b",
+          "title": "test(fvt): enable collection override tests and fix expected error codes",
+          "url": "https://github.com/eval-hub/eval-hub/pull/603"
+        },
+        {
+          "created_at": "2026-08-11T00:45:02Z",
+          "merged_at": "2026-08-11T23:26:17Z",
+          "pull_request": 9071,
+          "query_frame": 1,
+          "repository": "processing/p5.js",
+          "sample_digest": "fd5ea96a7548fc5c23611531befc40284e0b1087b40a87e1eeb65d1dc8b9f3a6",
+          "title": "fix: pass geometry to freeGeometry in CPU transform benchmark",
+          "url": "https://github.com/processing/p5.js/pull/9071"
+        },
+        {
+          "created_at": "2026-04-28T20:21:31Z",
+          "merged_at": "2026-05-07T17:41:00Z",
+          "pull_request": 1161,
+          "query_frame": 1,
+          "repository": "NVIDIA-NeMo/Gym",
+          "sample_digest": "fda2ce130200bdd4413e26567151638dd29e793ba1daa744ff930c5d6b23096f",
+          "title": "Add imo-gradingbench benchmark + imo_gradingbench resource server",
+          "url": "https://github.com/NVIDIA-NeMo/Gym/pull/1161"
+        },
+        {
+          "created_at": "2026-04-01T07:58:14Z",
+          "merged_at": "2026-04-01T11:38:35Z",
+          "pull_request": 556,
+          "query_frame": 1,
+          "repository": "numbagg/numbagg",
+          "sample_digest": "fffde89010265a7362b5d7d5ec1c92073033ee5acb54f2bdd03db8329980538c",
+          "title": "Fix benchmark test path in CLAUDE.md",
+          "url": "https://github.com/numbagg/numbagg/pull/556"
+        }
+      ],
+      "query": "\"incorrect benchmark\" in:title,body is:merged",
+      "query_frame": 1,
+      "raw_file": "raw/frame-1.json",
+      "raw_sha256": "278fa8ff33d3f36717efde88ca43a10f9f06f5b852325d96319ffd49ec783d97",
+      "selected_count": 25,
+      "unique_after_prior_frames": 100
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 3359,
+      "candidates": [
+        {
+          "created_at": "2026-07-31T02:47:26Z",
+          "merged_at": "2026-07-31T02:52:03Z",
+          "pull_request": 23,
+          "query_frame": 2,
+          "repository": "rhawk117/agentlens",
+          "sample_digest": "006bb311601c28330edd5e8821dc8603a23188636181425cd08117f1edd52558",
+          "title": "fix(core): name the real fault when several addresses are passed",
+          "url": "https://github.com/rhawk117/agentlens/pull/23"
+        },
+        {
+          "created_at": "2026-07-25T19:16:40Z",
+          "merged_at": "2026-07-25T19:16:52Z",
+          "pull_request": 7,
+          "query_frame": 2,
+          "repository": "Aethis-ai/.github",
+          "sample_digest": "00aa075e26d9da1e4b453ef0e85ac9bc9d26a86a0050847dae60a3f3ddc9a9ae",
+          "title": "docs: update org-profile Simpson citation to paper v3.13",
+          "url": "https://github.com/Aethis-ai/.github/pull/7"
+        },
+        {
+          "created_at": "2026-08-03T10:12:54Z",
+          "merged_at": "2026-08-04T08:37:07Z",
+          "pull_request": 1,
+          "query_frame": 2,
+          "repository": "Tilt-Funds/website-identifier",
+          "sample_digest": "057d6d777c2694986f0db64ec4a20debfdc8548a33c8b71897bad592214ebbc8",
+          "title": "Precision fixes for website discovery: zero wrong answers on both scored benchmarks",
+          "url": "https://github.com/Tilt-Funds/website-identifier/pull/1"
+        },
+        {
+          "created_at": "2026-08-05T20:52:36Z",
+          "merged_at": "2026-08-05T20:53:17Z",
+          "pull_request": 30,
+          "query_frame": 2,
+          "repository": "ostin-pil/claude-plugins",
+          "sample_digest": "0644158de570bfe88dafb33a504772bf2b92de3550b341b9fbd69da4f8ff1a76",
+          "title": "feat(bench): stale-read scenario for session-start (session 2)",
+          "url": "https://github.com/ostin-pil/claude-plugins/pull/30"
+        },
+        {
+          "created_at": "2026-07-30T20:07:07Z",
+          "merged_at": "2026-07-30T20:10:19Z",
+          "pull_request": 48,
+          "query_frame": 2,
+          "repository": "benbalter/jekyll-optional-front-matter",
+          "sample_digest": "0b38c3c3332b623b9cf3f3619ea790a7476ea6d632ef48f9684f8faff0c1e854",
+          "title": "Modernize CI matrix",
+          "url": "https://github.com/benbalter/jekyll-optional-front-matter/pull/48"
+        },
+        {
+          "created_at": "2026-07-30T02:04:23Z",
+          "merged_at": "2026-07-30T03:25:02Z",
+          "pull_request": 27,
+          "query_frame": 2,
+          "repository": "fikrikarim/parlor",
+          "sample_digest": "0b66592766127a89765e11ef18536aef0fa637a035ac4003d1179abf1388ffdd",
+          "title": "Delete TURN_MODE: measure the three turn modes, keep only smart-turn",
+          "url": "https://github.com/fikrikarim/parlor/pull/27"
+        },
+        {
+          "created_at": "2026-08-04T10:04:40Z",
+          "merged_at": "2026-08-05T10:01:47Z",
+          "pull_request": 27,
+          "query_frame": 2,
+          "repository": "dj-techs/embedding-model-shootout",
+          "sample_digest": "0bb282d44772c60fc8221531f92e081df0efc201c320f48a78549498dd09bd08",
+          "title": "fix(sweep): the per-query embed seam enforces one vector per text (#112)",
+          "url": "https://github.com/dj-techs/embedding-model-shootout/pull/27"
+        },
+        {
+          "created_at": "2026-08-07T04:04:50Z",
+          "merged_at": "2026-08-07T04:07:18Z",
+          "pull_request": 111,
+          "query_frame": 2,
+          "repository": "m-shogo/alpha-pon",
+          "sample_digest": "10e6d10fa88b77d923049e2b5711a516429f7bc0e9d4ddca45516dab291646be",
+          "title": "fix: pin recommendation benchmark price provenance",
+          "url": "https://github.com/m-shogo/alpha-pon/pull/111"
+        },
+        {
+          "created_at": "2026-06-21T11:07:22Z",
+          "merged_at": "2026-06-21T11:07:29Z",
+          "pull_request": 33,
+          "query_frame": 2,
+          "repository": "0xCaretaker/Dip-Mafia",
+          "sample_digest": "129a33f3e64365609e928818923e5cdc7e0153f65f8846e1d567d375e59785b0",
+          "title": "Pine: fix single-symbol idle-cash sizing + add Timed-vs-SIP comparison",
+          "url": "https://github.com/0xCaretaker/Dip-Mafia/pull/33"
+        },
+        {
+          "created_at": "2026-08-12T13:15:57Z",
+          "merged_at": "2026-08-12T13:16:07Z",
+          "pull_request": 2,
+          "query_frame": 2,
+          "repository": "prestigesf/BILLROSETTA",
+          "sample_digest": "1b247e6f2e014041edc31f63491d6017e4b010416f12a337cb42ed76fa617bd5",
+          "title": "feat: price bills against the real CMS fee schedule",
+          "url": "https://github.com/prestigesf/BILLROSETTA/pull/2"
+        },
+        {
+          "created_at": "2026-08-03T14:42:06Z",
+          "merged_at": "2026-08-03T14:58:45Z",
+          "pull_request": 442,
+          "query_frame": 2,
+          "repository": "vscorza/mununu",
+          "sample_digest": "213f970c19c9f6c89dbfc9d75d3f6398bc5624afc47cfaba9afb184858f024b7",
+          "title": "fix(sv): design-dir --top note no longer reads as \"your --top was ignored\"",
+          "url": "https://github.com/vscorza/mununu/pull/442"
+        },
+        {
+          "created_at": "2026-08-06T16:10:16Z",
+          "merged_at": "2026-08-06T16:10:21Z",
+          "pull_request": 16,
+          "query_frame": 2,
+          "repository": "magpiecapital/magpie-collectibles-lending",
+          "sample_digest": "24b0176dc4fc8bda2439f4e4b14f03449b7fac1c029ce884d6a8be8cbf0893ec",
+          "title": "docs: full competitive teardown (doc 29)",
+          "url": "https://github.com/magpiecapital/magpie-collectibles-lending/pull/16"
+        },
+        {
+          "created_at": "2026-07-25T02:45:14Z",
+          "merged_at": "2026-07-25T03:50:13Z",
+          "pull_request": 93,
+          "query_frame": 2,
+          "repository": "arnavp103/hazard-pay",
+          "sample_digest": "25c34feeec696ac13a5405daf458ae32ce24a6126f6073b04c24a5352829a152",
+          "title": "chore(repo): harvest art bake-off round-3 and lane-4 retros into harness facts",
+          "url": "https://github.com/arnavp103/hazard-pay/pull/93"
+        },
+        {
+          "created_at": "2026-06-22T07:30:11Z",
+          "merged_at": "2026-06-22T07:30:28Z",
+          "pull_request": 455,
+          "query_frame": 2,
+          "repository": "mastermindx-market-intelligence/macro",
+          "sample_digest": "330e5fd821a1282988018256f3a05f2506dc8d0440c23355d41e479188101aa6",
+          "title": "fix(basket detail): un-escape bilingual entry chip + regional benchmark label",
+          "url": "https://github.com/mastermindx-market-intelligence/macro/pull/455"
+        },
+        {
+          "created_at": "2026-07-30T17:55:43Z",
+          "merged_at": "2026-07-30T17:59:38Z",
+          "pull_request": 405,
+          "query_frame": 2,
+          "repository": "draugr-dev/draugr",
+          "sample_digest": "33ea9cb7d8c6e9dc8e686dfd471481e2f8db3fe573f0bdee93b0a7877e1f8678",
+          "title": "fix(kube-bench): audit a managed cluster against its own CIS benchmark",
+          "url": "https://github.com/draugr-dev/draugr/pull/405"
+        },
+        {
+          "created_at": "2026-07-29T16:19:21Z",
+          "merged_at": "2026-07-29T16:31:59Z",
+          "pull_request": 120,
+          "query_frame": 2,
+          "repository": "mdwhite365-ops/shrap_firm",
+          "sample_digest": "342f9071bee3b62fc8f9c15a23273173d83141071827b14ae1aedea2bf0a6796",
+          "title": "docs: ADR-0016 — Shrap is a multi-asset, continuously-operating firm",
+          "url": "https://github.com/mdwhite365-ops/shrap_firm/pull/120"
+        },
+        {
+          "created_at": "2026-06-29T07:25:11Z",
+          "merged_at": "2026-06-30T19:26:20Z",
+          "pull_request": 4130,
+          "query_frame": 2,
+          "repository": "commonwarexyz/monorepo",
+          "sample_digest": "3526ad85afbfdcd28f68578999b2f5c32faa1fea21770a0e7459970d23647210",
+          "title": "[strategy] Automatically Tune Behavior",
+          "url": "https://github.com/commonwarexyz/monorepo/pull/4130"
+        },
+        {
+          "created_at": "2026-08-10T13:57:05Z",
+          "merged_at": "2026-08-10T17:46:20Z",
+          "pull_request": 142,
+          "query_frame": 2,
+          "repository": "wiedehopf/readsb",
+          "sample_digest": "3bb33e11c3407735224a92d657384bc51d79ea7581da63ee2fc04fd92453a31f",
+          "title": "Make 'make benchmarks' work again",
+          "url": "https://github.com/wiedehopf/readsb/pull/142"
+        },
+        {
+          "created_at": "2026-07-23T21:29:04Z",
+          "merged_at": "2026-07-23T21:30:21Z",
+          "pull_request": 222,
+          "query_frame": 2,
+          "repository": "inth3shadows/runecho",
+          "sample_digest": "3c7675945a18f8be9f1c44b89738e64366165e6515eb8197fa3555b507b59904",
+          "title": "guard: multi-candidate did-you-mean, and the allocation bug behind it (#200)",
+          "url": "https://github.com/inth3shadows/runecho/pull/222"
+        },
+        {
+          "created_at": "2026-08-11T16:12:48Z",
+          "merged_at": "2026-08-11T16:19:39Z",
+          "pull_request": 2282,
+          "query_frame": 2,
+          "repository": "docasheesh-png/navbharatai",
+          "sample_digest": "3c8c6900d1e255af07d7602bc615feded6311a4cf6330c611efe06a5e17fb82c",
+          "title": "[#2282] docs(mission): Phase 0 forensic audit — the gap is evidence, not features [19c13ec]",
+          "url": "https://github.com/docasheesh-png/navbharatai/pull/2282"
+        },
+        {
+          "created_at": "2026-07-04T20:42:46Z",
+          "merged_at": "2026-07-04T21:11:48Z",
+          "pull_request": 86,
+          "query_frame": 2,
+          "repository": "eilon-shai/wordsbywtm-hub",
+          "sample_digest": "3d11b0d3f23a35a83b958165e6b28b5b78299809368ef2da4a244431e176e653",
+          "title": "UX proof-density pass 1: trust facts, hub copy, self-hosted hero, footer support",
+          "url": "https://github.com/eilon-shai/wordsbywtm-hub/pull/86"
+        },
+        {
+          "created_at": "2026-06-19T11:54:50Z",
+          "merged_at": "2026-06-19T12:49:45Z",
+          "pull_request": 85,
+          "query_frame": 2,
+          "repository": "Arc86/dBrief",
+          "sample_digest": "3e044ceb8069ee36858ec66b82e8a3166e0c82a11f146d6d5c811169227909ac",
+          "title": "fix: reconcile speakers across independently-diarized parts of long recordings",
+          "url": "https://github.com/Arc86/dBrief/pull/85"
+        },
+        {
+          "created_at": "2026-07-14T21:08:06Z",
+          "merged_at": "2026-07-14T21:55:31Z",
+          "pull_request": 14,
+          "query_frame": 2,
+          "repository": "EBiM-Benchmark/.github",
+          "sample_digest": "3ff6965956e29c7a15817aee28394988b2816492372e6292f321117985cc48f0",
+          "title": "docs(contributing): lift repo-specific setup out of the org-default guide",
+          "url": "https://github.com/EBiM-Benchmark/.github/pull/14"
+        },
+        {
+          "created_at": "2026-06-18T16:05:40Z",
+          "merged_at": "2026-06-19T07:20:41Z",
+          "pull_request": 15,
+          "query_frame": 2,
+          "repository": "aleixlopezpascual/orbit-wars",
+          "sample_digest": "4426e866cae46a6129a3c76b4b797174b91c78a4ba878e872de7bed0a385e336",
+          "title": "Producer-first validation flow and replay artifact tooling",
+          "url": "https://github.com/aleixlopezpascual/orbit-wars/pull/15"
+        },
+        {
+          "created_at": "2026-08-07T05:46:07Z",
+          "merged_at": "2026-08-07T06:19:03Z",
+          "pull_request": 41,
+          "query_frame": 2,
+          "repository": "Cuvara/rpg-mmo-server",
+          "sample_digest": "48389a73a9169f7639f75f969b2bc4213efed606b6e422c53b4d4104ed68c0df",
+          "title": "feat(shared): Protobuf wire protocol from one schema, migrated by content sniffing",
+          "url": "https://github.com/Cuvara/rpg-mmo-server/pull/41"
+        },
+        {
+          "created_at": "2026-07-11T01:54:42Z",
+          "merged_at": "2026-07-11T04:09:01Z",
+          "pull_request": 180,
+          "query_frame": 2,
+          "repository": "James-CUDA/Gittensor-TinyRouter",
+          "sample_digest": "48595ac72268d68ace485150882718104038c8bc4d1753c8f7290f3be5f10faa",
+          "title": "fix: scope novelty to benchmark king and compare full policy (#156)",
+          "url": "https://github.com/James-CUDA/Gittensor-TinyRouter/pull/180"
+        },
+        {
+          "created_at": "2026-07-31T03:51:39Z",
+          "merged_at": "2026-07-31T05:09:42Z",
+          "pull_request": 4,
+          "query_frame": 2,
+          "repository": "wangyu-sd/MechET",
+          "sample_digest": "4b5b0381599bbe31cfedc9d2e752f5d0f2eaf95c86834743c47e573c4c0cede7",
+          "title": "Align MechET around proof-carrying retrosynthesis",
+          "url": "https://github.com/wangyu-sd/MechET/pull/4"
+        },
+        {
+          "created_at": "2026-08-11T18:13:58Z",
+          "merged_at": "2026-08-11T18:23:21Z",
+          "pull_request": 16,
+          "query_frame": 2,
+          "repository": "dennisobrien/polars_uuid",
+          "sample_digest": "4ca8ab7c61c95878e6dc8b6567dfb902acb58d7ad06f4e009a2ad8921d36fa47",
+          "title": "State which baseline the performance claim measures, add a realistic benchmark",
+          "url": "https://github.com/dennisobrien/polars_uuid/pull/16"
+        },
+        {
+          "created_at": "2026-07-11T15:43:29Z",
+          "merged_at": "2026-07-11T15:56:01Z",
+          "pull_request": 9,
+          "query_frame": 2,
+          "repository": "mparrett/paserati",
+          "sample_digest": "4e0715030810f10f3bb004ce851e391cafa512bf558084457f614554f639d9bc",
+          "title": "perf(bench-ratchet): reduce -count samples by min, not mean",
+          "url": "https://github.com/mparrett/paserati/pull/9"
+        },
+        {
+          "created_at": "2026-08-08T13:25:25Z",
+          "merged_at": "2026-08-08T13:25:31Z",
+          "pull_request": 17,
+          "query_frame": 2,
+          "repository": "kindrat86/sipi-bot",
+          "sample_digest": "4efa410dfc77040c54e892ddf7e39817149ae00df2557ce5b8fbf06aafd6725c",
+          "title": "feat(seo): round 36 — LLM gateways + xAI + security answers, 13 pages (664→677)",
+          "url": "https://github.com/kindrat86/sipi-bot/pull/17"
+        },
+        {
+          "created_at": "2026-07-12T19:42:51Z",
+          "merged_at": "2026-07-13T10:18:36Z",
+          "pull_request": 15,
+          "query_frame": 2,
+          "repository": "AI-Security-Internships-2026/13-secureagent-soc-guardrails",
+          "sample_digest": "5067c5d82b18fe8df4ada6442e0b6017dce1862b6876b08a94a9cd0d495058f9",
+          "title": "[Week 5]: real dataset integration, FP testing, threading benchmark, dashboard",
+          "url": "https://github.com/AI-Security-Internships-2026/13-secureagent-soc-guardrails/pull/15"
+        },
+        {
+          "created_at": "2026-08-02T15:29:24Z",
+          "merged_at": "2026-08-02T15:29:33Z",
+          "pull_request": 5,
+          "query_frame": 2,
+          "repository": "juxhinr/bindwidth",
+          "sample_digest": "5090f7aaf672fcf1d71af9433994c0a0334091d9d9fae7e735cd60f38fa7bdd3",
+          "title": "Dev",
+          "url": "https://github.com/juxhinr/bindwidth/pull/5"
+        },
+        {
+          "created_at": "2026-07-04T11:20:59Z",
+          "merged_at": "2026-07-04T12:15:06Z",
+          "pull_request": 159,
+          "query_frame": 2,
+          "repository": "Bhidy/financehub-pro",
+          "sample_digest": "521882a02aa5bc809fb92fdd0cbfed77c8a37ce680b1d61c603937a80b20bcba",
+          "title": "feat(funds): Phase-2 — server-side risk-metrics engine (volatility, maxDrawdown, 52w)",
+          "url": "https://github.com/Bhidy/financehub-pro/pull/159"
+        },
+        {
+          "created_at": "2026-07-29T17:05:57Z",
+          "merged_at": "2026-07-29T17:25:22Z",
+          "pull_request": 2848,
+          "query_frame": 2,
+          "repository": "ruvnet/ruflo",
+          "sample_digest": "52ca5f7f4cdd946218b8b510e2710b2da1c1917e7a3897245471c5b2ad2535d3",
+          "title": "feat: ship adaptive swarm and resolve top runtime issues",
+          "url": "https://github.com/ruvnet/ruflo/pull/2848"
+        },
+        {
+          "created_at": "2026-07-17T06:22:44Z",
+          "merged_at": "2026-07-17T07:24:08Z",
+          "pull_request": 51,
+          "query_frame": 2,
+          "repository": "KhalidAlmutairi0/sanad",
+          "sample_digest": "54361969dbc7f3bd30750653765fc83aa85fbc384abac5fff50fa2e3591c470b",
+          "title": "Benchmark suite: honest metrics + ground-truth harness",
+          "url": "https://github.com/KhalidAlmutairi0/sanad/pull/51"
+        },
+        {
+          "created_at": "2026-08-03T10:55:54Z",
+          "merged_at": "2026-08-03T11:33:35Z",
+          "pull_request": 5,
+          "query_frame": 2,
+          "repository": "danielPoloWork/egl-util-php",
+          "sample_digest": "546201e6e5676a57e3235af3d0c10607cf65a372e980eaf8b44d0fb1d0d54624",
+          "title": "build(build): lay down the Composer build system and PSR-4 skeleton",
+          "url": "https://github.com/danielPoloWork/egl-util-php/pull/5"
+        },
+        {
+          "created_at": "2026-07-28T03:03:14Z",
+          "merged_at": "2026-07-28T03:09:15Z",
+          "pull_request": 793,
+          "query_frame": 2,
+          "repository": "jbylund/sylvan_librarian",
+          "sample_digest": "55194a2358f0fd4068a587772fb45abd8588b45d6424a18c8cb5d207cfa42f50",
+          "title": "Docs: Plan Binding What Arrived Instead of What Was Declared",
+          "url": "https://github.com/jbylund/sylvan_librarian/pull/793"
+        },
+        {
+          "created_at": "2026-07-25T09:42:10Z",
+          "merged_at": "2026-07-25T15:23:52Z",
+          "pull_request": 82,
+          "query_frame": 2,
+          "repository": "matthew-dean/parseman",
+          "sample_digest": "56acc3caa1002b75fe4c02f9b6b48768fcba465590b886c6ed6cd7dccfd9803e",
+          "title": "fix(bench): a reused reference worktree could benchmark the wrong commit",
+          "url": "https://github.com/matthew-dean/parseman/pull/82"
+        },
+        {
+          "created_at": "2026-08-06T00:36:23Z",
+          "merged_at": "2026-08-06T00:36:34Z",
+          "pull_request": 1,
+          "query_frame": 2,
+          "repository": "dipak-bhujbal/llama-tools",
+          "sample_digest": "58d098e5fcb8997b9acd3e425ddf1a083c917b8c5e6eb0ee1856f1e492bb9ba2",
+          "title": "study2: correct the public record, freeze the eval inputs, preregister study 2",
+          "url": "https://github.com/dipak-bhujbal/llama-tools/pull/1"
+        },
+        {
+          "created_at": "2026-07-31T10:52:01Z",
+          "merged_at": "2026-08-01T17:31:36Z",
+          "pull_request": 1418,
+          "query_frame": 2,
+          "repository": "ModelTC/LightLLM",
+          "sample_digest": "594603f05c8cbdae69b7f17ea720be97e34789f0ee86daa16d69ed261ac996fb",
+          "title": "docs: remove non-existent --pd_decode_rpyc_port option and fix benchmark_client.py path",
+          "url": "https://github.com/ModelTC/LightLLM/pull/1418"
+        },
+        {
+          "created_at": "2026-07-31T17:03:21Z",
+          "merged_at": "2026-07-31T17:14:33Z",
+          "pull_request": 62,
+          "query_frame": 2,
+          "repository": "meedoomostafa/devdiag",
+          "sample_digest": "5a311688fffb4a442fab90156861d7c419fc30ec8fe8da70d8769f0ab91f5efc",
+          "title": "refactor(redact): scan assignments by index instead of re-matching fragments",
+          "url": "https://github.com/meedoomostafa/devdiag/pull/62"
+        },
+        {
+          "created_at": "2026-07-20T18:22:42Z",
+          "merged_at": "2026-07-20T18:49:03Z",
+          "pull_request": 178,
+          "query_frame": 2,
+          "repository": "OpenAdaptAI/openadapt-flow",
+          "sample_digest": "5a9509f1480c0e998d0dfc2dfa6538033eadcaeb4266e13421b9c14b9ec9e1b1",
+          "title": "feat(benchmark): EffectBench foundation — episode schema + substrate-agnostic effect-oracle harness",
+          "url": "https://github.com/OpenAdaptAI/openadapt-flow/pull/178"
+        },
+        {
+          "created_at": "2026-07-26T23:52:42Z",
+          "merged_at": "2026-07-26T23:53:54Z",
+          "pull_request": 77,
+          "query_frame": 2,
+          "repository": "axiom-orion/cason-heritage",
+          "sample_digest": "62030929f57a8c77734fec3a7bc5e3e293032dc7d5439f2a9513d1d8b7968ffd",
+          "title": "fix(claims): restate the CogniGate latency claim as its own published target",
+          "url": "https://github.com/axiom-orion/cason-heritage/pull/77"
+        },
+        {
+          "created_at": "2026-07-01T09:01:28Z",
+          "merged_at": "2026-07-02T07:03:22Z",
+          "pull_request": 1857,
+          "query_frame": 2,
+          "repository": "NVIDIA-NeMo/Gym",
+          "sample_digest": "62983beff0747ce260ac9ddf4f66f4968f218d4a35a62f35aa81061ac795d552",
+          "title": "feat: use all available domain info when listing benchmarks",
+          "url": "https://github.com/NVIDIA-NeMo/Gym/pull/1857"
+        },
+        {
+          "created_at": "2026-07-18T05:51:29Z",
+          "merged_at": "2026-07-18T05:54:11Z",
+          "pull_request": 41,
+          "query_frame": 2,
+          "repository": "manfromnowhere143/telos",
+          "sample_digest": "64b418ba6694db0d961f286522505e92f196d1d0b59de56009cc2fc991301758",
+          "title": "Preregister iter230: gold-free detector on the first natural certified-yet-wrong benchmark",
+          "url": "https://github.com/manfromnowhere143/telos/pull/41"
+        },
+        {
+          "created_at": "2026-07-10T07:04:21Z",
+          "merged_at": "2026-07-10T07:05:20Z",
+          "pull_request": 35,
+          "query_frame": 2,
+          "repository": "Bashara-aina/Industreal_improved",
+          "sample_digest": "679e78e3cbcae3bc0ac34fea8fc18b44467daac2089601d415c07b9d908809cf",
+          "title": "Add Round 5 consultation analysis: architecture strategy verification",
+          "url": "https://github.com/Bashara-aina/Industreal_improved/pull/35"
+        },
+        {
+          "created_at": "2026-08-13T02:46:34Z",
+          "merged_at": "2026-08-13T02:46:59Z",
+          "pull_request": 5,
+          "query_frame": 2,
+          "repository": "prestigesf/BILLROSETTA",
+          "sample_digest": "6d98f0aed81378cd00fa3ac960a2f6fb82b865a9def49529ada8fb6712b81af5",
+          "title": "fix: authentication, facility-charge detection, and honest read quality",
+          "url": "https://github.com/prestigesf/BILLROSETTA/pull/5"
+        },
+        {
+          "created_at": "2026-07-10T19:39:37Z",
+          "merged_at": "2026-07-21T21:42:20Z",
+          "pull_request": 2283,
+          "query_frame": 2,
+          "repository": "FlexMeasures/flexmeasures",
+          "sample_digest": "75e71112ed9b593f354732ecf4a96d0f87aeee3488ba8a0449bf734a4b784282",
+          "title": "Add FLEXMEASURES_LP_SOLVER_OPTIONS to configure solver options",
+          "url": "https://github.com/FlexMeasures/flexmeasures/pull/2283"
+        },
+        {
+          "created_at": "2026-08-01T20:59:45Z",
+          "merged_at": "2026-08-02T06:06:49Z",
+          "pull_request": 548,
+          "query_frame": 2,
+          "repository": "carstenartur/Regelsuche",
+          "sample_digest": "777c1ca9f5dffc70817ff56217366554640e4c310c7967d3a265f094baff547b",
+          "title": "Add unit-aware JMH regression gate v2",
+          "url": "https://github.com/carstenartur/Regelsuche/pull/548"
+        },
+        {
+          "created_at": "2026-07-07T20:59:05Z",
+          "merged_at": "2026-07-07T21:05:21Z",
+          "pull_request": 12,
+          "query_frame": 2,
+          "repository": "beardfaceguy/daimonos",
+          "sample_digest": "7854f54442b2e02ec772a6370845eff6866bf4d64bf164e4683ea3d415868046",
+          "title": "fix(cargo): surface `rebuilt` so ok:true can't mask a stale no-op build (#946)",
+          "url": "https://github.com/beardfaceguy/daimonos/pull/12"
+        },
+        {
+          "created_at": "2026-07-19T14:57:39Z",
+          "merged_at": "2026-07-20T09:11:23Z",
+          "pull_request": 2297,
+          "query_frame": 2,
+          "repository": "jundot/omlx",
+          "sample_digest": "7e39a1e66fff1a755cdbf4feae1b1a13a8c0047e541e8331f521fa5c22f950ed",
+          "title": "fix(admin): distinguish external benchmark failures from wrong answers",
+          "url": "https://github.com/jundot/omlx/pull/2297"
+        },
+        {
+          "created_at": "2026-07-05T18:59:05Z",
+          "merged_at": "2026-07-05T18:59:44Z",
+          "pull_request": 9,
+          "query_frame": 2,
+          "repository": "EBiM-Benchmark/.github",
+          "sample_digest": "8013f50801dd2bf1281320a72bc062e45e62f79c9fb97ef1d17a57dce7e50e3c",
+          "title": "docs(profile): mark benchmark repo Public (developer preview)",
+          "url": "https://github.com/EBiM-Benchmark/.github/pull/9"
+        },
+        {
+          "created_at": "2026-08-12T13:34:15Z",
+          "merged_at": "2026-08-12T13:37:45Z",
+          "pull_request": 18,
+          "query_frame": 2,
+          "repository": "saptayh-8910/qa-compliance-sentry",
+          "sample_digest": "81f90d2d560dde9dd13fc4eddd4007b04d6c9e2e93c6cd2a225c089e6f6dc30b",
+          "title": "Benchmark RAG latency and stability",
+          "url": "https://github.com/saptayh-8910/qa-compliance-sentry/pull/18"
+        },
+        {
+          "created_at": "2026-08-11T07:12:15Z",
+          "merged_at": "2026-08-11T07:12:27Z",
+          "pull_request": 373,
+          "query_frame": 2,
+          "repository": "danabrams/playhead",
+          "sample_digest": "826848659f4b66ae8c3774ef36aad2123fa53f20966fac7199c55c360979f217",
+          "title": "fix(final-pass): a window minted behind the coverage frontier can still be re-transcribed (playhead-jzj0)",
+          "url": "https://github.com/danabrams/playhead/pull/373"
+        },
+        {
+          "created_at": "2026-08-07T01:27:59Z",
+          "merged_at": "2026-08-07T01:28:11Z",
+          "pull_request": 91,
+          "query_frame": 2,
+          "repository": "mudler/vllm.cpp",
+          "sample_digest": "8b7294b2c83716d273c38df563487d4c8523840e7f48595159555ee786d45f44",
+          "title": "protocol(doc-gate): preflight checks the committed RANGE — --staged was vacuous",
+          "url": "https://github.com/mudler/vllm.cpp/pull/91"
+        },
+        {
+          "created_at": "2026-08-03T02:32:57Z",
+          "merged_at": "2026-08-03T02:36:22Z",
+          "pull_request": 850,
+          "query_frame": 2,
+          "repository": "juanmicrosoft/calor",
+          "sample_digest": "8e1bfd64f051c437c5a9a70a9f41fd384821a3ebf7e32f39bad930a5e0a13366",
+          "title": "ci: exempt round-trip/real-scale benchmark harness from calor-first guard",
+          "url": "https://github.com/juanmicrosoft/calor/pull/850"
+        },
+        {
+          "created_at": "2026-07-03T15:59:04Z",
+          "merged_at": "2026-07-03T18:16:10Z",
+          "pull_request": 16,
+          "query_frame": 2,
+          "repository": "WBHankins93/ai-engineering-studio",
+          "sample_digest": "8fdf998f1865da84e6eeb27855247b67d71a897a911180f0efa1de214914ad4d",
+          "title": "Good Enough · Decision Frame",
+          "url": "https://github.com/WBHankins93/ai-engineering-studio/pull/16"
+        },
+        {
+          "created_at": "2026-07-07T01:04:59Z",
+          "merged_at": "2026-07-07T01:09:09Z",
+          "pull_request": 8,
+          "query_frame": 2,
+          "repository": "ANaka/easydiffvg",
+          "sample_digest": "919577e92ecc2928bb50037a4462fd9f85fc0071c5c3b3349c846369df12133c",
+          "title": "perf(splat): Triton tile kernels (tiling=\"triton\") — 15.8× over the tiled path at G=10k",
+          "url": "https://github.com/ANaka/easydiffvg/pull/8"
+        },
+        {
+          "created_at": "2026-08-05T17:16:37Z",
+          "merged_at": "2026-08-05T17:25:50Z",
+          "pull_request": 1,
+          "query_frame": 2,
+          "repository": "neil-z-kelly/EASTL-steered",
+          "sample_digest": "944c1e65b150f6446d9481e2365b1f0b9c65bcd085548bff3b1f952459865d15",
+          "title": "Add .devin/wiki.json to steer DeepWiki generation",
+          "url": "https://github.com/neil-z-kelly/EASTL-steered/pull/1"
+        },
+        {
+          "created_at": "2026-08-11T16:17:27Z",
+          "merged_at": "2026-08-11T17:43:46Z",
+          "pull_request": 426,
+          "query_frame": 2,
+          "repository": "Tristan-TM-Poly/TFUGA-AI7-TRISTAN2",
+          "sample_digest": "9c54a0c66aba69eb9a43ebc2474c472014a968956d652fae1fc795810c0dc1ad",
+          "title": "Add Ω-SKILLGEN-T∞ installable recursive Agent Skill civilization foundry",
+          "url": "https://github.com/Tristan-TM-Poly/TFUGA-AI7-TRISTAN2/pull/426"
+        },
+        {
+          "created_at": "2026-08-06T04:04:04Z",
+          "merged_at": "2026-08-06T04:17:26Z",
+          "pull_request": 1729,
+          "query_frame": 2,
+          "repository": "macanderson/stella",
+          "sample_digest": "9dbd54923223ccbb74785f7120d497fe53209e03d6524e7d3d1fb55b41a11a66",
+          "title": "fix(arenabench): flip replay never applied a patch where it was taken",
+          "url": "https://github.com/macanderson/stella/pull/1729"
+        },
+        {
+          "created_at": "2026-08-08T18:01:08Z",
+          "merged_at": "2026-08-08T18:08:30Z",
+          "pull_request": 245,
+          "query_frame": 2,
+          "repository": "GiulioDER/RE-call",
+          "sample_digest": "a1d1d816039c18a817f8f43533a1e392a15016b71c7690fb049d5276a1d763db",
+          "title": "fix(bench): the other three arms refused every question too",
+          "url": "https://github.com/GiulioDER/RE-call/pull/245"
+        },
+        {
+          "created_at": "2026-07-31T00:35:39Z",
+          "merged_at": "2026-07-31T00:37:51Z",
+          "pull_request": 3,
+          "query_frame": 2,
+          "repository": "SartajBhuvaji/kryptos-benchmark",
+          "sample_digest": "a709efebe28dde83f7a4645bca606fb8d4375bde2b57b39fc1c1f7e03fff4d13",
+          "title": "Phase 1.3 — Vigenère and Hill",
+          "url": "https://github.com/SartajBhuvaji/kryptos-benchmark/pull/3"
+        },
+        {
+          "created_at": "2026-07-05T20:27:14Z",
+          "merged_at": "2026-07-05T20:32:55Z",
+          "pull_request": 479,
+          "query_frame": 2,
+          "repository": "tangle-network/agent-runtime",
+          "sample_digest": "ac5a361389454684f6d43d0e9276163044da017ddbe84ef5a74aefafdab7c7fa",
+          "title": "docs(examples): rewrite every example README for a new reader",
+          "url": "https://github.com/tangle-network/agent-runtime/pull/479"
+        },
+        {
+          "created_at": "2026-08-04T18:26:46Z",
+          "merged_at": "2026-08-04T18:30:14Z",
+          "pull_request": 104,
+          "query_frame": 2,
+          "repository": "calef/cricker-os",
+          "sample_digest": "b48eddd086cc3ccc047a882a625ebe7fc37e6b603301a47c675664602ab63523",
+          "title": "milestone 101: the L4 comparison, measured instead of assumed",
+          "url": "https://github.com/calef/cricker-os/pull/104"
+        },
+        {
+          "created_at": "2026-08-11T09:05:29Z",
+          "merged_at": "2026-08-11T09:08:16Z",
+          "pull_request": 500,
+          "query_frame": 2,
+          "repository": "Xroga/xroga.com",
+          "sample_digest": "b4b29a896afe210643f4e6380ebc1ad4476ee581c419bd24fa7ea954101e0639",
+          "title": "command3: test the benchmark suite directly and document what it proves",
+          "url": "https://github.com/Xroga/xroga.com/pull/500"
+        },
+        {
+          "created_at": "2026-08-01T23:48:27Z",
+          "merged_at": "2026-08-01T23:48:49Z",
+          "pull_request": 210,
+          "query_frame": 2,
+          "repository": "ISAAC-DOE/isaac-ai-ready-record",
+          "sample_digest": "b9f8c0256aa79e1c53f15e919028e8b676a5a64ed4f9cc7057913251e1630a70",
+          "title": "manifest 0.63: not reported is not the same as not knowable (corrects 0.62)",
+          "url": "https://github.com/ISAAC-DOE/isaac-ai-ready-record/pull/210"
+        },
+        {
+          "created_at": "2026-07-22T09:23:57Z",
+          "merged_at": "2026-07-22T09:42:33Z",
+          "pull_request": 1,
+          "query_frame": 2,
+          "repository": "gsxhq/gsx-bench",
+          "sample_digest": "c07ac89fcb1fccb5186e5aaec6b750daacff7d3be57907b6f3239cc6f42108b2",
+          "title": "bench: refresh direct component performance coverage",
+          "url": "https://github.com/gsxhq/gsx-bench/pull/1"
+        },
+        {
+          "created_at": "2026-08-07T10:55:42Z",
+          "merged_at": "2026-08-07T11:03:23Z",
+          "pull_request": 444,
+          "query_frame": 2,
+          "repository": "MongLong0214/commitlore",
+          "sample_digest": "c0c3c9ac7e0dd03355bf2a78006a4298eee3bdc2dbd137810bae94bdefae1130",
+          "title": "Give CDEB its schemas and a verifier that owns the whole study tree",
+          "url": "https://github.com/MongLong0214/commitlore/pull/444"
+        },
+        {
+          "created_at": "2026-08-03T16:53:20Z",
+          "merged_at": "2026-08-03T20:41:11Z",
+          "pull_request": 78,
+          "query_frame": 2,
+          "repository": "morainedb/moraine",
+          "sample_digest": "c0e2af656483671aff45859a41c24ddf08918a0dfb8bdffa70c769142c96d347",
+          "title": "feat: measure and reclaim a store's substrate bytes",
+          "url": "https://github.com/morainedb/moraine/pull/78"
+        },
+        {
+          "created_at": "2026-08-12T23:53:14Z",
+          "merged_at": "2026-08-12T23:58:03Z",
+          "pull_request": 175,
+          "query_frame": 2,
+          "repository": "MattOrefice/investment-tracker",
+          "sample_digest": "c58b39cc7777c07b6f467c5301a64fab0b5721b0be254f6a57b44dc87b68b9c2",
+          "title": "Pre-gate _auto_migrate so touching a database never writes to it",
+          "url": "https://github.com/MattOrefice/investment-tracker/pull/175"
+        },
+        {
+          "created_at": "2026-08-04T07:44:42Z",
+          "merged_at": "2026-08-05T07:05:50Z",
+          "pull_request": 113,
+          "query_frame": 2,
+          "repository": "jt-mchorse/embedding-model-shootout",
+          "sample_digest": "c697cd1f66511df1e177ba3f457566f0d66961caa5c487adb42dd251803e1bb2",
+          "title": "fix(sweep): the per-query embed seam enforces one vector per text (#112)",
+          "url": "https://github.com/jt-mchorse/embedding-model-shootout/pull/113"
+        },
+        {
+          "created_at": "2026-06-04T05:04:38Z",
+          "merged_at": "2026-06-04T05:05:08Z",
+          "pull_request": 40,
+          "query_frame": 2,
+          "repository": "SKNETWORKS-FAMILY-AICAMP/SKN28-3rd-1Team",
+          "sample_digest": "ca51605c48b6657b1aaba0e166514cff3d1393bf44be601ee57755d18c65285b",
+          "title": "LLM judge 벤치마크 산출물과 RAG 도구 처리를 정리",
+          "url": "https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN28-3rd-1Team/pull/40"
+        },
+        {
+          "created_at": "2026-07-02T22:03:45Z",
+          "merged_at": "2026-07-12T05:24:25Z",
+          "pull_request": 176,
+          "query_frame": 2,
+          "repository": "DPBG/Engram.AI",
+          "sample_digest": "cadae3af4626f315cace3c7a3a44bbe501b667aa2c25afd2d498040edeaa533a",
+          "title": "fix(dashboard): align Learning Evidence panel with benchmark suite metrics",
+          "url": "https://github.com/DPBG/Engram.AI/pull/176"
+        },
+        {
+          "created_at": "2026-08-08T23:44:27Z",
+          "merged_at": "2026-08-08T23:45:56Z",
+          "pull_request": 20,
+          "query_frame": 2,
+          "repository": "Aybavs/go-kv-store",
+          "sample_digest": "cc16742cbdef5588ed1320f1b8bd6e19878597a4ecdfe76555b9e63a83a07668",
+          "title": "perf(engine): stop building AOF records when there is no log",
+          "url": "https://github.com/Aybavs/go-kv-store/pull/20"
+        },
+        {
+          "created_at": "2026-08-12T14:49:17Z",
+          "merged_at": "2026-08-12T15:01:22Z",
+          "pull_request": 712,
+          "query_frame": 2,
+          "repository": "duvu/openstock",
+          "sample_digest": "ce267b698ed7d68badd343cdf4ad729bfa9eec14144cdc5ae3108d65410f7ea2",
+          "title": "fix(watchlist): decouple benchmark readiness",
+          "url": "https://github.com/duvu/openstock/pull/712"
+        },
+        {
+          "created_at": "2026-07-13T14:43:16Z",
+          "merged_at": "2026-07-13T14:49:39Z",
+          "pull_request": 67,
+          "query_frame": 2,
+          "repository": "OpenAdaptAI/openadapt-flow",
+          "sample_digest": "ce80aab28ac3607a01547120dbd1944032fe1f319b8fa80ff42ed8efd98fb5b3",
+          "title": "feat: silent-wrong-action-rate benchmark (screen-verify vs effect-verify on MockMed faults)",
+          "url": "https://github.com/OpenAdaptAI/openadapt-flow/pull/67"
+        },
+        {
+          "created_at": "2026-07-31T21:12:02Z",
+          "merged_at": "2026-07-31T22:07:10Z",
+          "pull_request": 217,
+          "query_frame": 2,
+          "repository": "DarcStar-Technologies/darcstar-technologies-website",
+          "sample_digest": "d0295a4f23d21d642244df202c268718c312a14a25461d588789e537a73da9b8",
+          "title": "fix(evidence): attribute each real-time margin to its percentile (DAR-209)",
+          "url": "https://github.com/DarcStar-Technologies/darcstar-technologies-website/pull/217"
+        },
+        {
+          "created_at": "2026-07-28T06:27:21Z",
+          "merged_at": "2026-07-28T07:37:54Z",
+          "pull_request": 8,
+          "query_frame": 2,
+          "repository": "vayl-dev/vayl",
+          "sample_digest": "d0e630a6d9d39bb6f65ea37abe065d87c2ed254638c9732b6e49b2e5ab818835",
+          "title": "feat(engine): pre-LLM dedup — skip extraction for verbatim restatements",
+          "url": "https://github.com/vayl-dev/vayl/pull/8"
+        },
+        {
+          "created_at": "2026-07-25T05:29:22Z",
+          "merged_at": "2026-07-25T06:22:30Z",
+          "pull_request": 574,
+          "query_frame": 2,
+          "repository": "Layr-Labs/d-inference",
+          "sample_digest": "d3c1dedfdd0204abde2d5376c02243a0dfe5041afeeae28ca8a9cc876cb55ddc",
+          "title": "fix(metallib): key the cache on mlx working-tree contents, not just HEAD",
+          "url": "https://github.com/Layr-Labs/d-inference/pull/574"
+        },
+        {
+          "created_at": "2026-07-03T05:18:39Z",
+          "merged_at": "2026-07-07T23:17:30Z",
+          "pull_request": 10842,
+          "query_frame": 2,
+          "repository": "wolfSSL/wolfssl",
+          "sample_digest": "d3f6cadac57aecdca535ef2c4e66131a539d4d6cf406008e98569871ba5624a9",
+          "title": "[Renesas RX72N] RX72N TSIP fixes and command-line build/flash/UART tooling",
+          "url": "https://github.com/wolfSSL/wolfssl/pull/10842"
+        },
+        {
+          "created_at": "2026-07-29T03:10:42Z",
+          "merged_at": "2026-07-29T03:22:08Z",
+          "pull_request": 48,
+          "query_frame": 2,
+          "repository": "openmasorah/masoretic-benchmark",
+          "sample_digest": "d63ee80efc4a9ae045e973b2f000202e2bce4cd518f4c2ad1cccebe7b5800428",
+          "title": "fix: correct tier-2/3 CER (<DR> editor-token contamination) + v0.1.1 corrections",
+          "url": "https://github.com/openmasorah/masoretic-benchmark/pull/48"
+        },
+        {
+          "created_at": "2026-07-30T05:05:43Z",
+          "merged_at": "2026-07-30T05:06:21Z",
+          "pull_request": 3,
+          "query_frame": 2,
+          "repository": "mvl-lang/.github",
+          "sample_digest": "d745b65b57886ec6323344a679c78dd28858632cb7db14ec22cf7255671a03dc",
+          "title": "docs(security): Dependabot claim was true for 2 of 8 repos",
+          "url": "https://github.com/mvl-lang/.github/pull/3"
+        },
+        {
+          "created_at": "2026-08-07T16:32:27Z",
+          "merged_at": "2026-08-07T16:32:51Z",
+          "pull_request": 6,
+          "query_frame": 2,
+          "repository": "KyreFu/ysu-course-picker",
+          "sample_digest": "d75d2ebce92651c14748e6c6ec9076e630ecb71814ac80a7793ccc02128ea15b",
+          "title": "Data corrections, schedule v3, and the registrar's first answers",
+          "url": "https://github.com/KyreFu/ysu-course-picker/pull/6"
+        },
+        {
+          "created_at": "2026-08-12T13:29:33Z",
+          "merged_at": "2026-08-12T13:45:49Z",
+          "pull_request": 574,
+          "query_frame": 2,
+          "repository": "lodgvideon/poseidon-http-client",
+          "sample_digest": "d7ab70aa6b622db8e2d4f3bfb58e2427ce9baae3d39e0137c08670b43d2bb448",
+          "title": "test(conn): measure conn, and run the gates that never ran",
+          "url": "https://github.com/lodgvideon/poseidon-http-client/pull/574"
+        },
+        {
+          "created_at": "2026-08-03T20:10:09Z",
+          "merged_at": "2026-08-03T20:13:58Z",
+          "pull_request": 9,
+          "query_frame": 2,
+          "repository": "Kar488/molsanity",
+          "sample_digest": "d902487ec01c319212af3f09eccfe56fe380c285bc48b8f1c887e8d87148b4be",
+          "title": "Compute BENCHMARK_GT's conclusions instead of asserting them, and regenerate what was stale",
+          "url": "https://github.com/Kar488/molsanity/pull/9"
+        },
+        {
+          "created_at": "2026-08-02T00:50:05Z",
+          "merged_at": "2026-08-02T00:50:28Z",
+          "pull_request": 10,
+          "query_frame": 2,
+          "repository": "bobashopcashier/kalshi-cli",
+          "sample_digest": "de176f5bc9abce8efb174bc7cbe314ab274200872c4ce293dce6d572c158cfbf",
+          "title": "docs: clarify schema-drift benchmark direction",
+          "url": "https://github.com/bobashopcashier/kalshi-cli/pull/10"
+        },
+        {
+          "created_at": "2026-08-07T12:44:12Z",
+          "merged_at": "2026-08-07T21:18:02Z",
+          "pull_request": 45,
+          "query_frame": 2,
+          "repository": "jonathangana131-lab/NovaForge",
+          "sample_digest": "e1ad791f5273b43523078f7bca7df46e4b8abb411cf10cd1f9a855f15c0b6dd4",
+          "title": "[V13] Add truthful local model compatibility preflight",
+          "url": "https://github.com/jonathangana131-lab/NovaForge/pull/45"
+        },
+        {
+          "created_at": "2026-08-02T05:53:25Z",
+          "merged_at": "2026-08-02T06:02:49Z",
+          "pull_request": 483,
+          "query_frame": 2,
+          "repository": "oaslananka/zaptrace",
+          "sample_digest": "e8eec0e3c4aa19b8956514cbc911a84703e869dff07cf5dc7c43abb84ad50397",
+          "title": "security(benchmark): constrain CLI spec path",
+          "url": "https://github.com/oaslananka/zaptrace/pull/483"
+        },
+        {
+          "created_at": "2026-08-09T16:06:00Z",
+          "merged_at": "2026-08-10T00:55:10Z",
+          "pull_request": 106,
+          "query_frame": 2,
+          "repository": "flipslidersand/github-engineer-dashboard",
+          "sample_digest": "ead2c98a19a86177425bc911e076634ca8dc71bd4280b399b75a7a60b4c041af",
+          "title": "chore: エラーナレッジ追加 + timezone unused import 除去",
+          "url": "https://github.com/flipslidersand/github-engineer-dashboard/pull/106"
+        },
+        {
+          "created_at": "2026-07-11T21:08:49Z",
+          "merged_at": "2026-07-11T21:08:57Z",
+          "pull_request": 243,
+          "query_frame": 2,
+          "repository": "GunduLabs/gaze",
+          "sample_digest": "eb79ad47a922e1a637701ae77264daafd7d38ca28bcbed6f15ff2eab695d5122",
+          "title": "fix: benchmark hanging via wrong blocking bridge",
+          "url": "https://github.com/GunduLabs/gaze/pull/243"
+        },
+        {
+          "created_at": "2026-07-29T19:32:09Z",
+          "merged_at": "2026-07-29T19:33:05Z",
+          "pull_request": 600,
+          "query_frame": 2,
+          "repository": "coen-gpt/coenconstruction.com",
+          "sample_digest": "ebd2cba2791cf547ea9b4e1d59305a7190efe73efba988f783aec58c7f1d1ce4",
+          "title": "Cost data: one shared whole word is enough to quote a benchmark",
+          "url": "https://github.com/coen-gpt/coenconstruction.com/pull/600"
+        },
+        {
+          "created_at": "2026-07-23T02:14:53Z",
+          "merged_at": "2026-07-23T02:53:29Z",
+          "pull_request": 132,
+          "query_frame": 2,
+          "repository": "inth3shadows/terse",
+          "sample_digest": "f1108588d92a391edd4ede69f7b336250bba0aa16370133592ffca230247a59d",
+          "title": "fix: let a broken capture/stats/audit sink be heard (#131)",
+          "url": "https://github.com/inth3shadows/terse/pull/132"
+        },
+        {
+          "created_at": "2026-07-18T17:17:20Z",
+          "merged_at": "2026-07-18T17:31:10Z",
+          "pull_request": 98,
+          "query_frame": 2,
+          "repository": "key4hep/k4Bench",
+          "sample_digest": "f1f1820360b1de7d5f7098a7005060d9cec80d4e215dfd2748fc816f5a2d4f60",
+          "title": "fix(dashboard): keep scoped defaults aligned with sidebar selections",
+          "url": "https://github.com/key4hep/k4Bench/pull/98"
+        },
+        {
+          "created_at": "2026-07-22T23:57:27Z",
+          "merged_at": "2026-07-24T07:47:57Z",
+          "pull_request": 128,
+          "query_frame": 2,
+          "repository": "apache/sedona-spatialbench",
+          "sample_digest": "f635d728571486b9bda9667126dce467c9592807bbaf341c9ffbf8d45daa4cdd",
+          "title": "Verify engine correctness in a downstream job that reuses benchmark results",
+          "url": "https://github.com/apache/sedona-spatialbench/pull/128"
+        },
+        {
+          "created_at": "2026-08-06T19:55:43Z",
+          "merged_at": "2026-08-06T20:21:36Z",
+          "pull_request": 9,
+          "query_frame": 2,
+          "repository": "poojakira/adversarial-ml-lab",
+          "sample_digest": "f72b7e8f57d416b118528ba10657e091fde22d6e688a8a75a0631e588449ef2a",
+          "title": "security: mark benchmarks synthetic, SECURITY_AUDIT.md, dependabot",
+          "url": "https://github.com/poojakira/adversarial-ml-lab/pull/9"
+        },
+        {
+          "created_at": "2026-07-10T12:56:31Z",
+          "merged_at": "2026-07-10T12:58:22Z",
+          "pull_request": 98,
+          "query_frame": 2,
+          "repository": "voidcorp-core/void-harness",
+          "sample_digest": "f74bc85f7c9a8bd31b576f6caa86286ecf4fbc8ea6842f280eddb6fe0da7ddd0",
+          "title": "refactor(skills): de-couple /benchmark, /benchmark-models, /claude-api from gstack (DEV-401)",
+          "url": "https://github.com/voidcorp-core/void-harness/pull/98"
+        },
+        {
+          "created_at": "2026-07-29T22:11:34Z",
+          "merged_at": "2026-07-29T22:48:57Z",
+          "pull_request": 423,
+          "query_frame": 2,
+          "repository": "zubovartemiy/graneth-dashboard",
+          "sample_digest": "fc3157fca08ab3eb832ef9db8e351df826d526e18a5b5b84d684723a954231c1",
+          "title": "feat(changelog): /changelog on the design layer — the SPINE case, and the band finally had its set",
+          "url": "https://github.com/zubovartemiy/graneth-dashboard/pull/423"
+        },
+        {
+          "created_at": "2026-07-12T02:52:50Z",
+          "merged_at": "2026-07-12T09:28:08Z",
+          "pull_request": 7,
+          "query_frame": 2,
+          "repository": "seL4/sel4bench-results",
+          "sample_digest": "fc6587d777aa0657a176a66a641b3a1162311b3a85ab20763d09337ee3de86b7",
+          "title": "skylake: remove incorrect data lines",
+          "url": "https://github.com/seL4/sel4bench-results/pull/7"
+        }
+      ],
+      "query": "\"wrong benchmark\" in:title,body is:merged",
+      "query_frame": 2,
+      "raw_file": "raw/frame-2.json",
+      "raw_sha256": "d39c49a9bcade064d98a04ee53bf4df1d993057bb8661638489fc177c315edf4",
+      "selected_count": 25,
+      "unique_after_prior_frames": 99
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 29980,
+      "candidates": [
+        {
+          "created_at": "2026-07-20T12:39:21Z",
+          "merged_at": "2026-07-20T12:39:34Z",
+          "pull_request": 24,
+          "query_frame": 3,
+          "repository": "evelynyaxueke/anti-ai-writing-kit",
+          "sample_digest": "0003682419c7d131237d908fdf1f52f5d5771a964d92e6802a524f8a90b0467b",
+          "title": "Correct benchmark reporting",
+          "url": "https://github.com/evelynyaxueke/anti-ai-writing-kit/pull/24"
+        },
+        {
+          "created_at": "2026-07-07T03:41:53Z",
+          "merged_at": "2026-07-07T04:13:31Z",
+          "pull_request": 175,
+          "query_frame": 3,
+          "repository": "gmarupilla/AgroTerraFlow",
+          "sample_digest": "013b824c87a454104df01493fc85e8ffca0a13a4a06cc978a0b855eb55a9e70c",
+          "title": "fix(drought): correct benchmark datasheet + Zenodo metadata",
+          "url": "https://github.com/gmarupilla/AgroTerraFlow/pull/175"
+        },
+        {
+          "created_at": "2026-07-30T21:50:44Z",
+          "merged_at": "2026-07-30T21:51:28Z",
+          "pull_request": 1,
+          "query_frame": 3,
+          "repository": "VaishGajaraj/Understory-AI",
+          "sample_digest": "028571a17ac735353605bf3d3fb2711f1fa7c9b5992e33bb59893177eaf9fa26",
+          "title": "Fix real-data benchmark correctness",
+          "url": "https://github.com/VaishGajaraj/Understory-AI/pull/1"
+        },
+        {
+          "created_at": "2026-07-29T07:31:41Z",
+          "merged_at": "2026-07-29T07:31:57Z",
+          "pull_request": 33,
+          "query_frame": 3,
+          "repository": "QPG-MIT/PixCell",
+          "sample_digest": "02f2ff129a25e573b3d85131fe9dd8d344067912df62f34723341eaa4426b41f",
+          "title": "Correct benchmark component descriptions",
+          "url": "https://github.com/QPG-MIT/PixCell/pull/33"
+        },
+        {
+          "created_at": "2026-07-27T07:13:13Z",
+          "merged_at": "2026-07-27T07:14:10Z",
+          "pull_request": 214,
+          "query_frame": 3,
+          "repository": "gammapy/gammapy-benchmarks",
+          "sample_digest": "05a1f342170cc275e836fa2fb37e4791c97b36600c179cb96fda6443605d8161",
+          "title": "Correct benchmarks workflow",
+          "url": "https://github.com/gammapy/gammapy-benchmarks/pull/214"
+        },
+        {
+          "created_at": "2026-08-10T04:37:03Z",
+          "merged_at": "2026-08-10T04:39:38Z",
+          "pull_request": 2483,
+          "query_frame": 3,
+          "repository": "Luke-Bradford/eBull",
+          "sample_digest": "092f4541ae5ff2e4de05b561b29e2e453b8943ff9fd37cde1f40ee193314d575",
+          "title": "docs(#2482): correct the recent benchmark frontier",
+          "url": "https://github.com/Luke-Bradford/eBull/pull/2483"
+        },
+        {
+          "created_at": "2026-06-27T17:15:12Z",
+          "merged_at": "2026-06-28T14:22:16Z",
+          "pull_request": 10463,
+          "query_frame": 3,
+          "repository": "sktime/sktime",
+          "sample_digest": "0b9c02d868b04b40f153ee7f6970a3798501486729a00c93e0377861eee5826e",
+          "title": "[BUG] Correct `benchmark.add()`'s inconsistent API",
+          "url": "https://github.com/sktime/sktime/pull/10463"
+        },
+        {
+          "created_at": "2026-08-09T13:48:14Z",
+          "merged_at": "2026-08-09T13:49:24Z",
+          "pull_request": 131,
+          "query_frame": 3,
+          "repository": "intact-software-systems/ar-eye-hunter",
+          "sample_digest": "0daf227e8915fc5af90bb207547a14c361cf54371a3ee5660dc6ddc47df76ba4",
+          "title": "docs: correct topology benchmark artifact owner path",
+          "url": "https://github.com/intact-software-systems/ar-eye-hunter/pull/131"
+        },
+        {
+          "created_at": "2026-08-08T04:14:41Z",
+          "merged_at": "2026-08-08T04:18:47Z",
+          "pull_request": 286,
+          "query_frame": 3,
+          "repository": "chuyflores-dev/dotnet-axi",
+          "sample_digest": "0eb636b6b8b18b0e0f7268203d2885fcb6d3792b17b1818965150ee3bc4fa1b2",
+          "title": "[MVP-E13-S18] Correct Codex benchmark result reconciliation",
+          "url": "https://github.com/chuyflores-dev/dotnet-axi/pull/286"
+        },
+        {
+          "created_at": "2026-07-14T18:49:51Z",
+          "merged_at": "2026-07-14T18:51:03Z",
+          "pull_request": 89,
+          "query_frame": 3,
+          "repository": "remete618/widemem-ai",
+          "sample_digest": "1014eb8fc1cd3ada8878f50886ef9d02e021f9ce2bc91ba8eab8200abd64e983",
+          "title": "README: correct benchmark section after label transposition",
+          "url": "https://github.com/remete618/widemem-ai/pull/89"
+        },
+        {
+          "created_at": "2026-06-13T14:47:22Z",
+          "merged_at": "2026-06-13T14:48:25Z",
+          "pull_request": 4,
+          "query_frame": 3,
+          "repository": "baak-jun/cuda_monte_four",
+          "sample_digest": "11b734d1deb76ec2fd6c0c278445b4937950ac58e9202fad7ce9a3715d4fbc41",
+          "title": "Fix/cuda correctness benchmarks",
+          "url": "https://github.com/baak-jun/cuda_monte_four/pull/4"
+        },
+        {
+          "created_at": "2026-06-22T12:22:23Z",
+          "merged_at": "2026-07-22T20:31:10Z",
+          "pull_request": 95,
+          "query_frame": 3,
+          "repository": "dgraph-io/dgraph-benchmarks",
+          "sample_digest": "135a5d4fb81f2ddc9ef609d8ecb7eb9c4490d07d9259f3bb5c8e28bbad65652f",
+          "title": "k-shortest-path: add correctness benchmark harness",
+          "url": "https://github.com/dgraph-io/dgraph-benchmarks/pull/95"
+        },
+        {
+          "created_at": "2026-07-26T21:13:04Z",
+          "merged_at": "2026-07-26T21:16:46Z",
+          "pull_request": 26,
+          "query_frame": 3,
+          "repository": "MarcoKl99/neural-core-cpp",
+          "sample_digest": "1d57d48ce7e2213dfca61c9b2ccfe16a113222c6d477efc672bffd0d2164e02e",
+          "title": "fix: Move heap allocation in sum over axes back into the loop - docum…",
+          "url": "https://github.com/MarcoKl99/neural-core-cpp/pull/26"
+        },
+        {
+          "created_at": "2026-08-11T11:56:15Z",
+          "merged_at": "2026-08-12T10:47:29Z",
+          "pull_request": 59,
+          "query_frame": 3,
+          "repository": "KE7/helix",
+          "sample_digest": "1db008cc604752bcdc2934d8d51bbfc731f32ef7a5ef70a2cf44c376374082d0",
+          "title": "docs(circle_packing): correct the benchmark figure and the claim it supports",
+          "url": "https://github.com/KE7/helix/pull/59"
+        },
+        {
+          "created_at": "2026-08-05T02:50:48Z",
+          "merged_at": "2026-08-13T07:44:45Z",
+          "pull_request": 51,
+          "query_frame": 3,
+          "repository": "cc-c122/TileLang-Remote-Autotuning-Agent",
+          "sample_digest": "1df3a6e7abbbd926d0abfde837107ce80925c909c45fbd6a1a65eb1bbc29b6d2",
+          "title": "Add C500 Paged Attention baseline import scaffold",
+          "url": "https://github.com/cc-c122/TileLang-Remote-Autotuning-Agent/pull/51"
+        },
+        {
+          "created_at": "2026-07-22T23:04:01Z",
+          "merged_at": "2026-07-23T00:49:30Z",
+          "pull_request": 22,
+          "query_frame": 3,
+          "repository": "wladerer/gradwave",
+          "sample_digest": "1eee68f327200b10afa77513236f55232cf1db83a52e02f3a73f7533759acdd5",
+          "title": "Post-SCF dedup, COHP correctness, offloaded benchmarks",
+          "url": "https://github.com/wladerer/gradwave/pull/22"
+        },
+        {
+          "created_at": "2026-07-15T19:33:37Z",
+          "merged_at": "2026-07-15T19:35:43Z",
+          "pull_request": 542,
+          "query_frame": 3,
+          "repository": "nash226/quorum",
+          "sample_digest": "21775a1436a8556c20e1ce16ce5113d37a559617ae3d1b4231af69ceab43574b",
+          "title": "docs: correct README benchmark coverage",
+          "url": "https://github.com/nash226/quorum/pull/542"
+        },
+        {
+          "created_at": "2026-07-21T09:34:50Z",
+          "merged_at": "2026-07-21T11:51:46Z",
+          "pull_request": 28,
+          "query_frame": 3,
+          "repository": "sysutils-ts/sysutils",
+          "sample_digest": "23e95fe15f3c041e076d1177e75d2b725dd8a6543527ad757dc5c3c5359e61df",
+          "title": "fix(ps): correct benchmark badge URL and render a grouped bar chart",
+          "url": "https://github.com/sysutils-ts/sysutils/pull/28"
+        },
+        {
+          "created_at": "2026-07-03T00:28:29Z",
+          "merged_at": "2026-07-04T10:32:55Z",
+          "pull_request": 16,
+          "query_frame": 3,
+          "repository": "tryvinci/brainy",
+          "sample_digest": "284757ae07b173a9ba61e70a690ba0f7b4cc7eef128a2a2c55739bea57a2554c",
+          "title": "OpMem: operational memory correctness benchmark (paper topic 2)",
+          "url": "https://github.com/tryvinci/brainy/pull/16"
+        },
+        {
+          "created_at": "2026-06-22T10:41:49Z",
+          "merged_at": "2026-06-22T10:41:52Z",
+          "pull_request": 141,
+          "query_frame": 3,
+          "repository": "gyuminlee-repo/kuma",
+          "sample_digest": "2abf526d6c0863e37788f3c6ea1a00cdb864e21b0c479fef950af7b5c7ce970c",
+          "title": "docs(kuro): temper diversity claims to match corrected benchmark",
+          "url": "https://github.com/gyuminlee-repo/kuma/pull/141"
+        },
+        {
+          "created_at": "2026-08-12T21:48:28Z",
+          "merged_at": "2026-08-12T22:12:48Z",
+          "pull_request": 81,
+          "query_frame": 3,
+          "repository": "Memorithm/FLAT-ATTENTION",
+          "sample_digest": "2b5e59d06a0f9f7701a8ef8ab226830d0126a05259ae6da5c629a118b741a8b1",
+          "title": "docs(phase-o): define GQA K/V reuse optimization baseline",
+          "url": "https://github.com/Memorithm/FLAT-ATTENTION/pull/81"
+        },
+        {
+          "created_at": "2026-08-03T06:25:30Z",
+          "merged_at": "2026-08-03T10:31:22Z",
+          "pull_request": 12,
+          "query_frame": 3,
+          "repository": "rivastava/ertw",
+          "sample_digest": "2c89aa743b8e08ba2bce093aff2890c20d993bbc8900ee72deef4c527c9e1a30",
+          "title": "Correct performance benchmark fixture and diagnostics",
+          "url": "https://github.com/rivastava/ertw/pull/12"
+        },
+        {
+          "created_at": "2026-07-24T16:52:40Z",
+          "merged_at": "2026-07-28T17:22:36Z",
+          "pull_request": 3138,
+          "query_frame": 3,
+          "repository": "pytorch/helion",
+          "sample_digest": "2ed51f7b6ccb336a61e67c5bde2b0bc08ed9e6c1756c273a29801979a3995746",
+          "title": "[cutedsl] Correct attention benchmark config detection",
+          "url": "https://github.com/pytorch/helion/pull/3138"
+        },
+        {
+          "created_at": "2026-08-05T14:49:36Z",
+          "merged_at": "2026-08-08T13:50:25Z",
+          "pull_request": 59,
+          "query_frame": 3,
+          "repository": "Nacho-Labs-LLC/ngx-component-meta",
+          "sample_digest": "2f3d851e6bdb6602682436be6df9df3163598867d3c8494d8dbbdc55afb572d8",
+          "title": "docs: correct remaining Compodoc benchmark inaccuracies",
+          "url": "https://github.com/Nacho-Labs-LLC/ngx-component-meta/pull/59"
+        },
+        {
+          "created_at": "2026-07-29T09:21:32Z",
+          "merged_at": "2026-07-29T09:23:39Z",
+          "pull_request": 130,
+          "query_frame": 3,
+          "repository": "Scilence2022/CodeXomics",
+          "sample_digest": "34ca127701049d33ecd54b1e6ef97514c7b77ca1de2daaaee68e0c59c33d858a",
+          "title": "fix(chat): correct benchmark ChatBox message order; add collapsed benchmark header digest",
+          "url": "https://github.com/Scilence2022/CodeXomics/pull/130"
+        },
+        {
+          "created_at": "2026-08-12T22:24:36Z",
+          "merged_at": "2026-08-12T22:24:55Z",
+          "pull_request": 16,
+          "query_frame": 3,
+          "repository": "dbontr/fantasy-football-analytics",
+          "sample_digest": "35ecb53f0f8cc68f3da7a82831e18468c4f31d69e936f2fcc2c56192abdc1d33",
+          "title": "Correct Draft benchmark parity and preserve rejected challenger",
+          "url": "https://github.com/dbontr/fantasy-football-analytics/pull/16"
+        },
+        {
+          "created_at": "2026-08-05T13:22:08Z",
+          "merged_at": "2026-08-05T13:22:15Z",
+          "pull_request": 1778,
+          "query_frame": 3,
+          "repository": "ChainBench/OpenChainBench",
+          "sample_digest": "374801498fb8360908ca1d8ef3fd223f5b06a536026ffa63b23f22656372084d",
+          "title": "fix: improve data-api report, retire indexing-freshness, CompareBenchCard panel tabs",
+          "url": "https://github.com/ChainBench/OpenChainBench/pull/1778"
+        },
+        {
+          "created_at": "2026-08-01T17:07:41Z",
+          "merged_at": "2026-08-01T17:19:21Z",
+          "pull_request": 22,
+          "query_frame": 3,
+          "repository": "priyanshu-s-rana/kv_store",
+          "sample_digest": "4122ed36d09bcd07fe38f158309e2181f5452c6cfe4eecf7ee2684f6b9707e31",
+          "title": "Harden correctness, add benchmark/stress infra, and performance CI",
+          "url": "https://github.com/priyanshu-s-rana/kv_store/pull/22"
+        },
+        {
+          "created_at": "2026-06-24T21:04:00Z",
+          "merged_at": "2026-06-24T21:04:52Z",
+          "pull_request": 4,
+          "query_frame": 3,
+          "repository": "ScaleX-IO/uGDS",
+          "sample_digest": "4a39b9ce83811a24dc50ed8c1c730194c5246947f25941d58c523cd0d3abb5a7",
+          "title": "fix: correct benchmark bandwidth calculation and clarify batch latency",
+          "url": "https://github.com/ScaleX-IO/uGDS/pull/4"
+        },
+        {
+          "created_at": "2026-07-08T23:30:41Z",
+          "merged_at": "2026-07-08T23:33:48Z",
+          "pull_request": 24,
+          "query_frame": 3,
+          "repository": "akassh9/vidura-labs",
+          "sample_digest": "4ad6c5354a10df8ce0f5c569243d3d03f2f0bae8bb108d7970f051c9efc16eef",
+          "title": "Add HEP correctness benchmark harness",
+          "url": "https://github.com/akassh9/vidura-labs/pull/24"
+        },
+        {
+          "created_at": "2026-07-05T22:16:41Z",
+          "merged_at": "2026-07-05T22:16:50Z",
+          "pull_request": 15,
+          "query_frame": 3,
+          "repository": "Jason-Jensen/mechanical-technical-document-evaluation-harness",
+          "sample_digest": "4b7c5c5d8000cc25882482847f47a009290d41521fab8b08a0bb4e716033bc74",
+          "title": "Verify seed cases and correct benchmark defects",
+          "url": "https://github.com/Jason-Jensen/mechanical-technical-document-evaluation-harness/pull/15"
+        },
+        {
+          "created_at": "2026-07-13T21:53:19Z",
+          "merged_at": "2026-07-13T22:40:42Z",
+          "pull_request": 61,
+          "query_frame": 3,
+          "repository": "geoff-davis/aiogzip",
+          "sample_digest": "4d9fbdb2a9023ba06b7abb8d7b2e568e5cecd4c07ef7c4c47aae974dc4d7632e",
+          "title": "Correct benchmark comparisons and performance claims",
+          "url": "https://github.com/geoff-davis/aiogzip/pull/61"
+        },
+        {
+          "created_at": "2026-08-07T01:55:27Z",
+          "merged_at": "2026-08-07T02:16:18Z",
+          "pull_request": 4,
+          "query_frame": 3,
+          "repository": "PlaneSight/rust-zig-cpp-simd-lab",
+          "sample_digest": "4ff4c13331cefc4cfeb2fdac4d8345855fc723be4ee29aa8a5fdcfa15c4beaee",
+          "title": "Harden SIMD correctness and benchmark methodology",
+          "url": "https://github.com/PlaneSight/rust-zig-cpp-simd-lab/pull/4"
+        },
+        {
+          "created_at": "2026-07-21T07:08:57Z",
+          "merged_at": "2026-07-21T07:22:23Z",
+          "pull_request": 829,
+          "query_frame": 3,
+          "repository": "nash226/quorum",
+          "sample_digest": "52962346d2e6b54baa840c3cfb515e8ba8ae27172c18a91f842257ddbdb3b274",
+          "title": "docs: correct benchmark fixture totals",
+          "url": "https://github.com/nash226/quorum/pull/829"
+        },
+        {
+          "created_at": "2026-07-29T22:25:48Z",
+          "merged_at": "2026-07-29T22:26:06Z",
+          "pull_request": 11,
+          "query_frame": 3,
+          "repository": "tabulai/metal-graph",
+          "sample_digest": "557d3a20b7ff745587bdc55d004f3058f7f2cfdcc2213033e283a158764e5100",
+          "title": "Correct benchmark and API documentation claims",
+          "url": "https://github.com/tabulai/metal-graph/pull/11"
+        },
+        {
+          "created_at": "2026-06-18T12:43:51Z",
+          "merged_at": "2026-06-18T12:53:17Z",
+          "pull_request": 111,
+          "query_frame": 3,
+          "repository": "adulari/forge",
+          "sample_digest": "59aa10e2a91ddca2f920fc4c22ff89c6f9d708a21a65c9b759bd31ec2d1ba34f",
+          "title": "fix: correct benchmark score scaling and model matching",
+          "url": "https://github.com/adulari/forge/pull/111"
+        },
+        {
+          "created_at": "2026-06-18T16:53:27Z",
+          "merged_at": "2026-06-18T17:03:11Z",
+          "pull_request": 112,
+          "query_frame": 3,
+          "repository": "Nan0pk/Rush-linux",
+          "sample_digest": "5b2f4d6432998250218a02463fe7a4b5e05e1a38510c824bac9bc5eec65fb75b",
+          "title": "fix(rushbench): correct benchmark measurement methodology",
+          "url": "https://github.com/Nan0pk/Rush-linux/pull/112"
+        },
+        {
+          "created_at": "2026-07-19T08:01:03Z",
+          "merged_at": "2026-07-19T08:16:05Z",
+          "pull_request": 239,
+          "query_frame": 3,
+          "repository": "EpiAware/ComposedDistributions.jl",
+          "sample_digest": "61531f0c46b2878ade79032902a2cd70cb2f439abac5601c1c970f56400d416f",
+          "title": "docs: correct benchmark-history page description + note the parked trigger (#231)",
+          "url": "https://github.com/EpiAware/ComposedDistributions.jl/pull/239"
+        },
+        {
+          "created_at": "2026-08-07T14:20:23Z",
+          "merged_at": "2026-08-07T23:31:25Z",
+          "pull_request": 207,
+          "query_frame": 3,
+          "repository": "AlvisoOculus/optionsahoy-mcp",
+          "sample_digest": "63bfb98820807b932ef5b8dd1819be6464262ef749d2e9aa4bb8e264b176e768",
+          "title": "ChatGPT skill: plan-equity-portfolio, plus correct the benchmark range",
+          "url": "https://github.com/AlvisoOculus/optionsahoy-mcp/pull/207"
+        },
+        {
+          "created_at": "2026-06-24T18:21:15Z",
+          "merged_at": "2026-06-24T19:10:38Z",
+          "pull_request": 99,
+          "query_frame": 3,
+          "repository": "HumanGuardrail/hugr-lightr",
+          "sample_digest": "64f7a3a18d1c8f44a6613ee1c996a80d6f7f1449f6979ff1b57e5d9d5ecab6ba",
+          "title": "docs(bench): correct benchmark overclaim (net-ns / isolation framing)",
+          "url": "https://github.com/HumanGuardrail/hugr-lightr/pull/99"
+        },
+        {
+          "created_at": "2026-07-30T07:06:41Z",
+          "merged_at": "2026-07-30T07:08:55Z",
+          "pull_request": 27,
+          "query_frame": 3,
+          "repository": "abgnydn/zero-tvm",
+          "sample_digest": "68d4bdd2da6b72b16e26aa639daa386afdf91e3189dee9c1f90a72beb0e387cb",
+          "title": "fix: correct benchmark accounting, withdraw two pairs, republish honest numbers",
+          "url": "https://github.com/abgnydn/zero-tvm/pull/27"
+        },
+        {
+          "created_at": "2026-07-19T05:08:31Z",
+          "merged_at": "2026-07-19T05:23:01Z",
+          "pull_request": 715,
+          "query_frame": 3,
+          "repository": "nash226/quorum",
+          "sample_digest": "68eacf49e4175a55e3cda0b41d86b7151c7106b3139829f6f75ecac2f5190120",
+          "title": "docs: correct benchmark CSV fixture count",
+          "url": "https://github.com/nash226/quorum/pull/715"
+        },
+        {
+          "created_at": "2026-08-09T22:00:27Z",
+          "merged_at": "2026-08-10T03:16:17Z",
+          "pull_request": 2,
+          "query_frame": 3,
+          "repository": "aizach2018/test-silence",
+          "sample_digest": "706f6fbc12b6f61e10c8d73e6751a868e712562339b426b797a0495013e2c232",
+          "title": "Update benchmark interpretation",
+          "url": "https://github.com/aizach2018/test-silence/pull/2"
+        },
+        {
+          "created_at": "2026-07-14T17:10:29Z",
+          "merged_at": "2026-07-14T17:15:27Z",
+          "pull_request": 381,
+          "query_frame": 3,
+          "repository": "danielcanfly/knowledge-engine",
+          "sample_digest": "713306c55dc027641f131b39f1976f2ea82682fe313edc038b5240a251dc7c7e",
+          "title": "M23.5: correct benchmark contract and select BGE-M3 pilot",
+          "url": "https://github.com/danielcanfly/knowledge-engine/pull/381"
+        },
+        {
+          "created_at": "2026-06-25T13:37:06Z",
+          "merged_at": "2026-06-25T14:06:52Z",
+          "pull_request": 9,
+          "query_frame": 3,
+          "repository": "RainingSherry/plantnet",
+          "sample_digest": "71375016b7e9df9bb0dc4c58b9b90226076a5ec5bcd745ed3dd6213a48888d70",
+          "title": "phase12: correct benchmark protocol defaults",
+          "url": "https://github.com/RainingSherry/plantnet/pull/9"
+        },
+        {
+          "created_at": "2026-07-21T17:45:45Z",
+          "merged_at": "2026-07-21T18:11:31Z",
+          "pull_request": 7,
+          "query_frame": 3,
+          "repository": "alibakh62/decision-agent-bench",
+          "sample_digest": "75cc21de6e15aa46f33df4f5ffd462dabd0c3775aa44b5ee79063aee4a73d5a8",
+          "title": "Release v0.2.1: harden evidence and correct benchmark claims",
+          "url": "https://github.com/alibakh62/decision-agent-bench/pull/7"
+        },
+        {
+          "created_at": "2026-08-01T12:50:42Z",
+          "merged_at": "2026-08-01T12:51:36Z",
+          "pull_request": 69,
+          "query_frame": 3,
+          "repository": "3lown4way/cubetimer",
+          "sample_digest": "7a85b756486775b68fb464f7abbf6dbf07e6bfd519397c852a2a3f9b2f5787cb",
+          "title": "Correct ZB benchmark label to Pure ZB",
+          "url": "https://github.com/3lown4way/cubetimer/pull/69"
+        },
+        {
+          "created_at": "2026-08-01T12:40:37Z",
+          "merged_at": "2026-08-02T01:36:39Z",
+          "pull_request": 42,
+          "query_frame": 3,
+          "repository": "greysquirr3l/malcolm",
+          "sample_digest": "7acb745bb5f2457cdef81b32684b901c7ab3b36b7eae73faa6f24bdf77ffbba8",
+          "title": "fix(docs): correct benchmark SVG paths in mdBook",
+          "url": "https://github.com/greysquirr3l/malcolm/pull/42"
+        },
+        {
+          "created_at": "2026-07-31T13:40:53Z",
+          "merged_at": "2026-08-02T16:41:05Z",
+          "pull_request": 52,
+          "query_frame": 3,
+          "repository": "ObiterDictum/obiter",
+          "sample_digest": "80eea9d3af8d21724fa615f35b2bad3a8c87c0e1e54be96720c9f62f632047af",
+          "title": "Add search correctness benchmark",
+          "url": "https://github.com/ObiterDictum/obiter/pull/52"
+        },
+        {
+          "created_at": "2026-07-31T07:52:02Z",
+          "merged_at": "2026-07-31T08:14:31Z",
+          "pull_request": 5,
+          "query_frame": 3,
+          "repository": "Westfield-Innovations/pdm-memory",
+          "sample_digest": "859076e6a1570754e54ed95f2e9c65a051710820a1160660ff168057d2cd56a8",
+          "title": "feat: implement correctability benchmark harness and evaluation suite…",
+          "url": "https://github.com/Westfield-Innovations/pdm-memory/pull/5"
+        },
+        {
+          "created_at": "2026-07-15T01:00:33Z",
+          "merged_at": "2026-07-15T01:00:53Z",
+          "pull_request": 3230,
+          "query_frame": 3,
+          "repository": "modelscope/FunASR",
+          "sample_digest": "866660fe8b5a28cded05d062fa22018cf7be8f1a223a4e812b525a4cefd56457",
+          "title": "docs: correct Nano benchmark language scope",
+          "url": "https://github.com/modelscope/FunASR/pull/3230"
+        },
+        {
+          "created_at": "2026-07-13T06:48:28Z",
+          "merged_at": "2026-07-13T06:50:52Z",
+          "pull_request": 3,
+          "query_frame": 3,
+          "repository": "BeltUp-LLC/PrimeForge",
+          "sample_digest": "8761be6b272032f84bb24400c533e5b8f8779a5c0ea66f35de330bbaa7ceb316",
+          "title": "Correct benchmark record: two real 5900XT runs (in-memory vs on-disk)",
+          "url": "https://github.com/BeltUp-LLC/PrimeForge/pull/3"
+        },
+        {
+          "created_at": "2026-07-26T17:22:16Z",
+          "merged_at": "2026-07-26T17:24:03Z",
+          "pull_request": 82,
+          "query_frame": 3,
+          "repository": "shcherboroda/high-performance-ledger-service",
+          "sample_digest": "879a1819729e9f77ebcc63657737485d2ba145b91d2d3e1eac3be81932dc1558",
+          "title": "Correct benchmark pool baseline wording",
+          "url": "https://github.com/shcherboroda/high-performance-ledger-service/pull/82"
+        },
+        {
+          "created_at": "2026-07-25T16:26:06Z",
+          "merged_at": "2026-07-25T16:33:22Z",
+          "pull_request": 3,
+          "query_frame": 3,
+          "repository": "CacinieP/Tests4LLMs",
+          "sample_digest": "8c08a06945a61800c0f48c3b3947938a9ca1973500ea8ff55241e86789dcf67e",
+          "title": "Fix benchmark correctness and coverage",
+          "url": "https://github.com/CacinieP/Tests4LLMs/pull/3"
+        },
+        {
+          "created_at": "2026-07-03T20:46:53Z",
+          "merged_at": "2026-07-03T20:47:01Z",
+          "pull_request": 236,
+          "query_frame": 3,
+          "repository": "matiaszanolli/midi2nes",
+          "sample_digest": "8c43f16769de16c58ee45ba3d2702b594aff15716642e07070028ac18df3ed0e",
+          "title": "fix: compact intermediate JSON, correct benchmark modules, nesting-sa…",
+          "url": "https://github.com/matiaszanolli/midi2nes/pull/236"
+        },
+        {
+          "created_at": "2026-08-02T14:52:29Z",
+          "merged_at": "2026-08-02T14:54:27Z",
+          "pull_request": 24,
+          "query_frame": 3,
+          "repository": "Ashish-Barmaiya/torus-proxy",
+          "sample_digest": "91925eb7913ecd5f6dd1e0a6d3d57379a0b07f930ebc972c5e3cb80d20859c58",
+          "title": "fix(docs): correct Benchmark-003 asset references",
+          "url": "https://github.com/Ashish-Barmaiya/torus-proxy/pull/24"
+        },
+        {
+          "created_at": "2026-07-17T11:48:43Z",
+          "merged_at": "2026-07-17T11:48:47Z",
+          "pull_request": 40,
+          "query_frame": 3,
+          "repository": "msislaam46/duet-thesis",
+          "sample_digest": "93490176c5427cfaa506fbd437a33ddc8601272a09c119e950fe88399ac68f7a",
+          "title": "fix(eval): correct benchmark semantics, scale claims, and statistical inference",
+          "url": "https://github.com/msislaam46/duet-thesis/pull/40"
+        },
+        {
+          "created_at": "2026-08-06T02:54:13Z",
+          "merged_at": "2026-08-07T12:35:22Z",
+          "pull_request": 51,
+          "query_frame": 3,
+          "repository": "mufflyt/simulation",
+          "sample_digest": "95a63e0bdfa1e6c95559a08306831b9437f961c5a29e804ca8005563b13f3b40",
+          "title": "Scientific-correctness benchmark suite (#8) + orientation link (#9)",
+          "url": "https://github.com/mufflyt/simulation/pull/51"
+        },
+        {
+          "created_at": "2026-08-12T00:13:02Z",
+          "merged_at": "2026-08-12T00:18:00Z",
+          "pull_request": 70,
+          "query_frame": 3,
+          "repository": "BackslashBryant/control-atlas",
+          "sample_digest": "9770519015d348e01991055d5a68b8caa8844a0abba91e4502a13117c3e9c000",
+          "title": "Improve record readability and STIG hierarchy",
+          "url": "https://github.com/BackslashBryant/control-atlas/pull/70"
+        },
+        {
+          "created_at": "2026-07-17T00:47:16Z",
+          "merged_at": "2026-07-17T00:47:19Z",
+          "pull_request": 35,
+          "query_frame": 3,
+          "repository": "msislaam46/duet-thesis",
+          "sample_digest": "99fad85947dc6833a0bff6baf5bf4bc2a27a5527d84c459f73a78130d443fc23",
+          "title": "thesis(round-11): correct benchmark numbers to canonical 16-July data (A1-A6, B1-B6)",
+          "url": "https://github.com/msislaam46/duet-thesis/pull/35"
+        },
+        {
+          "created_at": "2026-07-09T16:21:10Z",
+          "merged_at": "2026-07-16T06:15:53Z",
+          "pull_request": 3136,
+          "query_frame": 3,
+          "repository": "ethereum/execution-specs",
+          "sample_digest": "9b554c4149eb3515962deeafc40f2e0c36edbdb579d8118054848114d329482d",
+          "title": "fix(test-benchmark): correct compute benchmarks that ran below worst case",
+          "url": "https://github.com/ethereum/execution-specs/pull/3136"
+        },
+        {
+          "created_at": "2026-07-06T00:54:05Z",
+          "merged_at": "2026-07-06T01:00:13Z",
+          "pull_request": 63,
+          "query_frame": 3,
+          "repository": "ShimeraTeam/ShimeraDocs",
+          "sample_digest": "9b845d43d852da6793964ddc3d640c495b6ab00e3f548cfece843e4dfa506bb2",
+          "title": "merge: fix: update documentation links to point to the correct benchmark files",
+          "url": "https://github.com/ShimeraTeam/ShimeraDocs/pull/63"
+        },
+        {
+          "created_at": "2026-05-30T11:46:23Z",
+          "merged_at": "2026-05-30T11:46:29Z",
+          "pull_request": 13,
+          "query_frame": 3,
+          "repository": "sifr-lang/leetcode",
+          "sample_digest": "9d2261dc523d0ba6186afd5036c668ae5cd8c14d817e29370e36756ae8df952e",
+          "title": "Fix correctness benchmark blockers",
+          "url": "https://github.com/sifr-lang/leetcode/pull/13"
+        },
+        {
+          "created_at": "2026-08-10T21:24:23Z",
+          "merged_at": "2026-08-11T04:44:00Z",
+          "pull_request": 1058,
+          "query_frame": 3,
+          "repository": "HKUDS/Vibe-Trading",
+          "sample_digest": "9ddd9b4792bca657264db86b50640eba0ec1ba7ecc34e1aaa97b3bf75cba6603",
+          "title": "fix(backtest): keep excess_return consistent with corrected benchmark_return",
+          "url": "https://github.com/HKUDS/Vibe-Trading/pull/1058"
+        },
+        {
+          "created_at": "2026-08-05T03:25:00Z",
+          "merged_at": "2026-08-05T13:48:01Z",
+          "pull_request": 26,
+          "query_frame": 3,
+          "repository": "grayleopard/clevr-tools",
+          "sample_digest": "9eb6689a431c21bd864473fab2a2278299c8f200fb5a939968eaefaabb348cc2",
+          "title": "Correct GIF benchmark frame expectations",
+          "url": "https://github.com/grayleopard/clevr-tools/pull/26"
+        },
+        {
+          "created_at": "2026-07-25T18:18:32Z",
+          "merged_at": "2026-07-26T01:42:35Z",
+          "pull_request": 6,
+          "query_frame": 3,
+          "repository": "hunterchen7/viewr",
+          "sample_digest": "9eef8f95077c252dba14e5899982b60bdfd0fa4c5bc5ad7cb1a01921a57c217a",
+          "title": "Audit performance, correctness, and benchmark architecture",
+          "url": "https://github.com/hunterchen7/viewr/pull/6"
+        },
+        {
+          "created_at": "2026-08-11T11:47:17Z",
+          "merged_at": "2026-08-11T13:22:05Z",
+          "pull_request": 153,
+          "query_frame": 3,
+          "repository": "JorgeG94/metalquicha",
+          "sample_digest": "9f85ca62c67613cd323fdc4d81d6c9d4fa122e697c5d6af4773b3975d4b759bd",
+          "title": "Speed up the three-centre driver and RI-MP2 energy loop",
+          "url": "https://github.com/JorgeG94/metalquicha/pull/153"
+        },
+        {
+          "created_at": "2026-07-08T11:44:38Z",
+          "merged_at": "2026-07-08T16:37:00Z",
+          "pull_request": 53,
+          "query_frame": 3,
+          "repository": "sensopensource/DicTeX",
+          "sample_digest": "a0dcf1a5c6517a0584ad9ed8ae6a084dbdcfe077a2cac912da640f4bf678eb5c",
+          "title": "Benchmark STT candidates over a corrected benchmark set",
+          "url": "https://github.com/sensopensource/DicTeX/pull/53"
+        },
+        {
+          "created_at": "2026-07-31T03:58:31Z",
+          "merged_at": "2026-07-31T05:07:52Z",
+          "pull_request": 1866,
+          "query_frame": 3,
+          "repository": "saurabhav88/EnviousWispr",
+          "sample_digest": "a5d4118d688c24426fcded6360cef2e9eff066c1d741d62123b9232d0af79511",
+          "title": "fix(test): make the corrector benchmark gate load-invariant",
+          "url": "https://github.com/saurabhav88/EnviousWispr/pull/1866"
+        },
+        {
+          "created_at": "2026-07-16T22:56:36Z",
+          "merged_at": "2026-07-26T05:30:25Z",
+          "pull_request": 14,
+          "query_frame": 3,
+          "repository": "Sil3ntVip3r/Mac-Power-Lab",
+          "sample_digest": "a698e01465f6b7be6a997bf5b79a7c9fec0da694a85dc72f188c905845865063",
+          "title": "fix: correct benchmark completion and prepare v1.5.0",
+          "url": "https://github.com/Sil3ntVip3r/Mac-Power-Lab/pull/14"
+        },
+        {
+          "created_at": "2026-07-22T09:30:45Z",
+          "merged_at": "2026-07-22T09:37:15Z",
+          "pull_request": 50,
+          "query_frame": 3,
+          "repository": "sanskarpan/greenthreads",
+          "sample_digest": "a767712fc9e330c184307beebc52c7e7f415c777860d1c1f67b4799a92ade5a5",
+          "title": "Scheduler correctness and benchmark tests",
+          "url": "https://github.com/sanskarpan/greenthreads/pull/50"
+        },
+        {
+          "created_at": "2026-08-11T02:33:03Z",
+          "merged_at": "2026-08-11T02:45:15Z",
+          "pull_request": 115,
+          "query_frame": 3,
+          "repository": "laomou/lm-flow",
+          "sample_digest": "a79e6ccb052cbd8892ace1f073b2117499fb135506961b3bb76fc43fb5613007",
+          "title": "fix(adapters): GPU adapter correctness fixes, benchmark, and download allocation",
+          "url": "https://github.com/laomou/lm-flow/pull/115"
+        },
+        {
+          "created_at": "2026-08-07T17:15:00Z",
+          "merged_at": "2026-08-08T04:56:31Z",
+          "pull_request": 581,
+          "query_frame": 3,
+          "repository": "javimosch/machin",
+          "sample_digest": "a7c8749ec82b895981a84f677508f60853a5451850ad55215986fc42976cd262",
+          "title": "release: v0.126.0 — sort / sort_by builtins (#580), corrected benchmarks, new bench suites",
+          "url": "https://github.com/javimosch/machin/pull/581"
+        },
+        {
+          "created_at": "2026-08-04T08:22:23Z",
+          "merged_at": "2026-08-04T08:32:21Z",
+          "pull_request": 128,
+          "query_frame": 3,
+          "repository": "pg-cuvs/pg_cuvs",
+          "sample_digest": "a9c0b17e2fcc555dc551ceec9eda41f2101a4b9886a5dc179a6c60b57a75b3ad",
+          "title": "docs: correct benchmark dataset hierarchy — wiki_all_1M canonical, Cohere legacy (#92 redefined)",
+          "url": "https://github.com/pg-cuvs/pg_cuvs/pull/128"
+        },
+        {
+          "created_at": "2026-07-30T08:54:06Z",
+          "merged_at": "2026-07-30T09:35:54Z",
+          "pull_request": 7,
+          "query_frame": 3,
+          "repository": "xbz123/repo-issue-intelligence",
+          "sample_digest": "add28b71f8be598830938b5522843a903f6f74eaa5e1583d58274461771ee58d",
+          "title": "Correct benchmark inputs and add symbol metrics",
+          "url": "https://github.com/xbz123/repo-issue-intelligence/pull/7"
+        },
+        {
+          "created_at": "2026-08-05T10:53:27Z",
+          "merged_at": "2026-08-05T10:53:54Z",
+          "pull_request": 1,
+          "query_frame": 3,
+          "repository": "drrowdev/portfolio-analysis-agent",
+          "sample_digest": "af04a4e5bd4c31f3238d6a02921535ee6240c7841382223fa5fd6b48cd61d178",
+          "title": "fix: correct portfolio benchmark performance",
+          "url": "https://github.com/drrowdev/portfolio-analysis-agent/pull/1"
+        },
+        {
+          "created_at": "2026-07-07T14:17:27Z",
+          "merged_at": "2026-07-07T14:21:56Z",
+          "pull_request": 62,
+          "query_frame": 3,
+          "repository": "andersongadelhaadv-cmyk/fracta",
+          "sample_digest": "b094b4fc473e83e233ac3f92342adc5952659180aa587025b71f11c6a8061eea",
+          "title": "feat(bench): correctness benchmark (precision/recall) para CSP + cookies",
+          "url": "https://github.com/andersongadelhaadv-cmyk/fracta/pull/62"
+        },
+        {
+          "created_at": "2026-07-13T06:50:05Z",
+          "merged_at": "2026-07-13T06:53:55Z",
+          "pull_request": 47,
+          "query_frame": 3,
+          "repository": "YongleEncyclopedia/parallel-global-stiffness-assembly-research-and-implementation",
+          "sample_digest": "be4fece0d86fcc2c71b3455cd06f6847cc0ee0a039f06b7aa57674a248d7dee3",
+          "title": "[CSC3 Demo] Add reproducible correctness, benchmark, and report evidence pipeline",
+          "url": "https://github.com/YongleEncyclopedia/parallel-global-stiffness-assembly-research-and-implementation/pull/47"
+        },
+        {
+          "created_at": "2026-06-26T16:53:25Z",
+          "merged_at": "2026-06-26T16:53:36Z",
+          "pull_request": 3,
+          "query_frame": 3,
+          "repository": "kartikeya-27/snipz",
+          "sample_digest": "c26f9625ca278ef263ecde6537d92cbdb29da5728db5a0e94ee3b3c53ea4f278",
+          "title": "phase 8b: head-to-head correctness benchmark + v0.2.0",
+          "url": "https://github.com/kartikeya-27/snipz/pull/3"
+        },
+        {
+          "created_at": "2026-07-20T18:07:29Z",
+          "merged_at": "2026-07-20T18:33:09Z",
+          "pull_request": 269,
+          "query_frame": 3,
+          "repository": "AI-Hypercomputer/tpu-recipes",
+          "sample_digest": "c53ca817d381bfb242514c51a1d927ed6d734dd256eb37f79eeb55117e7b329a",
+          "title": "Correct benchmark output for Qwen3.5-397B recipe",
+          "url": "https://github.com/AI-Hypercomputer/tpu-recipes/pull/269"
+        },
+        {
+          "created_at": "2026-07-14T00:20:11Z",
+          "merged_at": "2026-07-14T00:23:02Z",
+          "pull_request": 564,
+          "query_frame": 3,
+          "repository": "DataViking-Tech/Althing",
+          "sample_digest": "c5ca534f61767350f062e6dc3c95dacb0a899939a2a23907c3a1f0fad4295d31",
+          "title": "fix(site): correct benchmark claims to match live data + backfill changelog",
+          "url": "https://github.com/DataViking-Tech/Althing/pull/564"
+        },
+        {
+          "created_at": "2026-08-01T17:51:01Z",
+          "merged_at": "2026-08-04T02:14:17Z",
+          "pull_request": 75,
+          "query_frame": 3,
+          "repository": "WenyuChiou/awesome-agentic-ai-zh",
+          "sample_digest": "c685fec01bccc1785b98da6f862987b94318699d9ed730f045d740f21c25fe1d",
+          "title": "docs: add corrected ClawBench benchmark entry",
+          "url": "https://github.com/WenyuChiou/awesome-agentic-ai-zh/pull/75"
+        },
+        {
+          "created_at": "2026-08-10T16:10:21Z",
+          "merged_at": "2026-08-10T16:13:52Z",
+          "pull_request": 16,
+          "query_frame": 3,
+          "repository": "soothill/soothill.github.io",
+          "sample_digest": "cc7a91b8df091a09091468c372ab244675cadfab34f57e83627944f66bab8b72",
+          "title": "Correct SGLang benchmark percentage wording",
+          "url": "https://github.com/soothill/soothill.github.io/pull/16"
+        },
+        {
+          "created_at": "2026-07-30T14:37:53Z",
+          "merged_at": "2026-07-30T14:39:58Z",
+          "pull_request": 28,
+          "query_frame": 3,
+          "repository": "isty2e/einf",
+          "sample_digest": "d24a876b7e4de83aa118e6742ded8a221ef2f60e2ec011369acb6944be787483",
+          "title": "Correct benchmark evidence and uncertainty documentation",
+          "url": "https://github.com/isty2e/einf/pull/28"
+        },
+        {
+          "created_at": "2026-07-24T03:24:06Z",
+          "merged_at": "2026-07-24T03:45:05Z",
+          "pull_request": 1001,
+          "query_frame": 3,
+          "repository": "graydonpleasants/geo-polygonize",
+          "sample_digest": "d93d1f2d43e7966b1ad6ec54851be2fbf8ae662004d6b9a50913906de7dcd1d1",
+          "title": "perf(core): publish correctness-gated benchmark records",
+          "url": "https://github.com/graydonpleasants/geo-polygonize/pull/1001"
+        },
+        {
+          "created_at": "2026-07-05T12:02:29Z",
+          "merged_at": "2026-07-05T12:11:14Z",
+          "pull_request": 22,
+          "query_frame": 3,
+          "repository": "Praneshrajan137/dataforge",
+          "sample_digest": "dd1be90bc53f5fedff0f05273375f2ec3b818c6ee72c9a8db0652881c67ee0ad",
+          "title": "Codex/bedrock corrector benchmark",
+          "url": "https://github.com/Praneshrajan137/dataforge/pull/22"
+        },
+        {
+          "created_at": "2026-08-12T22:24:36Z",
+          "merged_at": "2026-08-12T22:24:57Z",
+          "pull_request": 17,
+          "query_frame": 3,
+          "repository": "dbontr/fantasy-football-analytics",
+          "sample_digest": "de9dceb3c544301a8be452336c6c6253bfcb75ea4b4836e31a90dbede5405e8a",
+          "title": "Correct Draft benchmark parity and preserve rejected challenger",
+          "url": "https://github.com/dbontr/fantasy-football-analytics/pull/17"
+        },
+        {
+          "created_at": "2026-08-08T11:42:11Z",
+          "merged_at": "2026-08-08T11:53:44Z",
+          "pull_request": 19,
+          "query_frame": 3,
+          "repository": "atmvsv/fraud_detection",
+          "sample_digest": "e11eb023237049f79e9fa903ba2b43dd4802ef9cfb8b6dc17fbf02058dda5c7c",
+          "title": "Add corrected CatBoost benchmark training",
+          "url": "https://github.com/atmvsv/fraud_detection/pull/19"
+        },
+        {
+          "created_at": "2026-08-10T18:09:46Z",
+          "merged_at": "2026-08-10T18:14:37Z",
+          "pull_request": 302,
+          "query_frame": 3,
+          "repository": "chuyflores-dev/dotnet-axi",
+          "sample_digest": "e12a10f390c15397aecb0f77fad40a4d469c39097c1ca058ee3f42de9ed08064",
+          "title": "[MVP-E13-S35] Remove cross-agent skill activation noise",
+          "url": "https://github.com/chuyflores-dev/dotnet-axi/pull/302"
+        },
+        {
+          "created_at": "2026-07-24T15:48:28Z",
+          "merged_at": "2026-07-24T15:49:58Z",
+          "pull_request": 106,
+          "query_frame": 3,
+          "repository": "LYNCA-OS/lynca-listing-copilot",
+          "sample_digest": "e794e714089bd28ded56a72c81664a08740d834922d1db6dde96576ce1a479f7",
+          "title": "Correct cold benchmark timeline reconstruction",
+          "url": "https://github.com/LYNCA-OS/lynca-listing-copilot/pull/106"
+        },
+        {
+          "created_at": "2026-07-26T13:00:57Z",
+          "merged_at": "2026-07-26T13:01:18Z",
+          "pull_request": 3,
+          "query_frame": 3,
+          "repository": "tdprice12/income-etf-terminal",
+          "sample_digest": "eb5afa525dc966c63afa3a2af71af144d301496becdd7d0a025d1743a67a52f3",
+          "title": "Correct benchmark comparison methodology",
+          "url": "https://github.com/tdprice12/income-etf-terminal/pull/3"
+        },
+        {
+          "created_at": "2026-07-04T07:02:23Z",
+          "merged_at": "2026-07-04T07:05:11Z",
+          "pull_request": 13043,
+          "query_frame": 3,
+          "repository": "elizaOS/eliza",
+          "sample_digest": "ecb1997e53cefb497ea55e412885d7c74d8b9fc868516c90fd7f4b12b928ca7d",
+          "title": "docs(#12903): correct benchmark check evidence",
+          "url": "https://github.com/elizaOS/eliza/pull/13043"
+        },
+        {
+          "created_at": "2026-08-09T18:25:57Z",
+          "merged_at": "2026-08-09T18:28:20Z",
+          "pull_request": 65,
+          "query_frame": 3,
+          "repository": "skuirrels/DuckDB.EFCoreProvider",
+          "sample_digest": "ee154c6d73a534bc48826375e7848a509805b0e3e5f5b03123978aa41e5c455c",
+          "title": "Correct v1.18.0 changelog",
+          "url": "https://github.com/skuirrels/DuckDB.EFCoreProvider/pull/65"
+        },
+        {
+          "created_at": "2026-06-16T18:27:30Z",
+          "merged_at": "2026-06-17T17:08:03Z",
+          "pull_request": 274,
+          "query_frame": 3,
+          "repository": "privacy-ethereum/private-transfers-benchmarks",
+          "sample_digest": "f1bf50c5e8c68c80c9fbd61fe97912710857632017e34068a62dd0b868a18166",
+          "title": "feat(evaluation): add correct benchmarks to dashboard",
+          "url": "https://github.com/privacy-ethereum/private-transfers-benchmarks/pull/274"
+        },
+        {
+          "created_at": "2026-07-14T17:16:18Z",
+          "merged_at": "2026-07-14T17:17:37Z",
+          "pull_request": 382,
+          "query_frame": 3,
+          "repository": "danielcanfly/knowledge-engine",
+          "sample_digest": "f223c295147b0fe5c15314bc0eee3ec8f7a786e3f6f515d05b0db1ab74a0fef7",
+          "title": "M23.5: reconcile corrected benchmark acceptance",
+          "url": "https://github.com/danielcanfly/knowledge-engine/pull/382"
+        },
+        {
+          "created_at": "2026-07-16T11:06:36Z",
+          "merged_at": "2026-07-16T11:29:51Z",
+          "pull_request": 18,
+          "query_frame": 3,
+          "repository": "huggingface/harbor-hf",
+          "sample_digest": "f286c68559500ede37a65821bb0694ba009debfc7b786e45e5c7de816f3d5831",
+          "title": "feat(results): compose corrected benchmark publications",
+          "url": "https://github.com/huggingface/harbor-hf/pull/18"
+        },
+        {
+          "created_at": "2026-07-08T23:17:46Z",
+          "merged_at": "2026-07-08T23:18:01Z",
+          "pull_request": 23,
+          "query_frame": 3,
+          "repository": "akassh9/vidura-labs",
+          "sample_digest": "f99e44a4cb333f0ad1dfb9a3bbe8510ffda3b3428636d90b1fb38fa865007dd2",
+          "title": "Reframe roadmap around HEP correctness benchmark",
+          "url": "https://github.com/akassh9/vidura-labs/pull/23"
+        },
+        {
+          "created_at": "2026-07-10T23:46:44Z",
+          "merged_at": "2026-07-11T09:06:44Z",
+          "pull_request": 176,
+          "query_frame": 3,
+          "repository": "zeokin/Cuda-Compute-OSS",
+          "sample_digest": "fdc696889e28df237faef99d7feea2facf2a0b1040731f7feba9f840db1c5b2e",
+          "title": "fix(docs): correct BENCHMARKS FLOP-savings from ~4x to ~2x fewer",
+          "url": "https://github.com/zeokin/Cuda-Compute-OSS/pull/176"
+        },
+        {
+          "created_at": "2026-07-24T12:26:37Z",
+          "merged_at": "2026-07-24T12:30:48Z",
+          "pull_request": 6,
+          "query_frame": 3,
+          "repository": "EL-K-Code/Job-Copilot",
+          "sample_digest": "fe8ded3cd4fca405d81bd90592434dcb73eb4ddd8bef1b2a4e165da93ce93c95",
+          "title": "Correct Benchmark V1 metrics and add a stratified smoke suite",
+          "url": "https://github.com/EL-K-Code/Job-Copilot/pull/6"
+        }
+      ],
+      "query": "\"correct benchmark\" in:title,body is:merged",
+      "query_frame": 3,
+      "raw_file": "raw/frame-3.json",
+      "raw_sha256": "7c14dd567fd541976ca04e2a942f97e3a66e7632f4efab6528371dd3cb500073",
+      "selected_count": 25,
+      "unique_after_prior_frames": 99
+    }
+  ],
+  "requested_per_query": 100,
+  "retrieved_at": "2026-08-13T10:57:51.270102Z",
+  "schema_version": "reprocheck.upstream-discovery-frames.v1",
+  "seed": "reprocheck-upstream-v2"
+}

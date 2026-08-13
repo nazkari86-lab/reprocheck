@@ -1,0 +1,86 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-cases.v1",
+  "evaluator_commit": "2618cad2c54c1610947f4f64e4b7ba8c5302fa28",
+  "cases": [
+    {
+      "id": "tempo-validator-count",
+      "repository": "tempoxyz/tempo-apps",
+      "pull_request": 959,
+      "parent_commit": "409fcf78e462165af00ef549d40cec82765074f6",
+      "merge_commit": "19ef7003b6839467f9d901e88dc763a7db52b41b",
+      "files": ["apps/perf/src/routes/methodology.tsx"],
+      "claims": [
+        {
+          "file": "apps/perf/src/routes/methodology.tsx",
+          "before_snippet": "Benchmarks run in single-node dev mode on a dedicated bare-metal",
+          "after_snippet": "Benchmarks run two local validators in consensus on a dedicated",
+          "metric": "validator_count",
+          "before_value": 1.0,
+          "after_value": 2.0
+        }
+      ]
+    },
+    {
+      "id": "agentstocks-spy-baseline",
+      "repository": "almostmike/agentstocks",
+      "pull_request": 8,
+      "parent_commit": "1818e7880c088fe955468a6b52e9034a433147a2",
+      "merge_commit": "e29f0b33b76bdf17dbb6d6bc3640941f56383700",
+      "files": ["data/codex.json", "data/market-history.json", "data/market.json"],
+      "claims": [
+        {
+          "file": "data/codex.json",
+          "before_snippet": "\"spy_close\": 749.17,",
+          "after_snippet": "\"spy_close\": 754.95,",
+          "metric": "spy_close",
+          "before_value": 749.17,
+          "after_value": 754.95
+        },
+        {
+          "file": "data/market-history.json",
+          "before_snippet": "\"spy_return_pct\": 0.0",
+          "after_snippet": "\"spy_return_pct\": -0.765617",
+          "metric": "spy_return_pct",
+          "before_value": 0.0,
+          "after_value": -0.765617
+        },
+        {
+          "file": "data/market.json",
+          "before_snippet": "\"inception_adjusted_close\": 749.17,",
+          "after_snippet": "\"inception_adjusted_close\": 754.95,",
+          "metric": "inception_adjusted_close",
+          "before_value": 749.17,
+          "after_value": 754.95
+        },
+        {
+          "file": "data/market.json",
+          "before_snippet": "\"return_pct\": 0.0",
+          "after_snippet": "\"return_pct\": -0.765617",
+          "metric": "return_pct",
+          "before_value": 0.0,
+          "after_value": -0.765617
+        }
+      ]
+    },
+    {
+      "id": "helix-circle-packing-scores",
+      "repository": "KE7/helix",
+      "pull_request": 59,
+      "parent_commit": "77379bf60a21f422196ca8e27f725880c7afb229",
+      "merge_commit": "20aec4c42800081041fe80a8f871a2783a8317fd",
+      "files": ["README.md", "examples/circle_packing/README.md", "examples/circle_packing/helix.toml", "examples/circle_packing/solve_optimized.py"],
+      "claims": [
+        {"file": "README.md", "before_snippet": "| GEPA optimize_anything ([blog](https://gepa-ai.github.io/gepa/blog/2026/02/18/introducing-optimize-anything/)) | 2.635 | gemini-3-flash |", "after_snippet": "| GEPA optimize_anything ([blog](https://gepa-ai.github.io/gepa/blog/2026/02/18/introducing-optimize-anything/)) | 2.63598+ | gemini-3-flash |", "metric": "score", "before_value": 2.635, "after_value": 2.63598},
+        {"file": "README.md", "before_snippet": "**beat the GEPA blog benchmark** (2.6360 vs 2.635)", "after_snippet": "**matched the best published result** (2.635982 vs 2.63598+)", "metric": "score", "before_value": 2.636, "after_value": 2.635982},
+        {"file": "README.md", "before_snippet": "**beat the GEPA blog benchmark** (2.6360 vs 2.635)", "after_snippet": "**matched the best published result** (2.635982 vs 2.63598+)", "metric": "score", "before_value": 2.635, "after_value": 2.63598},
+        {"file": "examples/circle_packing/README.md", "before_snippet": "HELIX evolves a solution that reaches **2.6360**, beating the published GEPA benchmark score of **2.635**.", "after_snippet": "HELIX evolves a solution that reaches **2.635982** — matching the best published result of **2.63598+**", "metric": "score", "before_value": 2.636, "after_value": 2.635982},
+        {"file": "examples/circle_packing/README.md", "before_snippet": "HELIX evolves a solution that reaches **2.6360**, beating the published GEPA benchmark score of **2.635**.", "after_snippet": "HELIX evolves a solution that reaches **2.635982** — matching the best published result of **2.63598+**", "metric": "score", "before_value": 2.635, "after_value": 2.63598},
+        {"file": "examples/circle_packing/helix.toml", "before_snippet": "Current GEPA benchmark: 2.635. AlphaEvolve: ~2.635.", "after_snippet": "Best published result: 2.63598+. AlphaEvolve: 2.6358.", "metric": "score", "before_value": 2.635, "after_value": 2.63598},
+        {"file": "examples/circle_packing/helix.toml", "before_snippet": "Current GEPA benchmark: 2.635. AlphaEvolve: ~2.635.", "after_snippet": "Best published result: 2.63598+. AlphaEvolve: 2.6358.", "metric": "score", "before_value": 2.635, "after_value": 2.6358},
+        {"file": "examples/circle_packing/helix.toml", "before_snippet": "Target score > 2.635 to beat GEPA benchmark.", "after_snippet": "Target score >= 2.63598 to match the best published result.", "metric": "score", "before_value": 2.635, "after_value": 2.63598},
+        {"file": "examples/circle_packing/solve_optimized.py", "before_snippet": "Achieves > 2.635 (beats GEPA/AlphaEvolve benchmark).", "after_snippet": "Achieves 2.635982, matching the best published result and above AlphaEvolve's 2.6358.", "metric": "score", "before_value": 2.635, "after_value": 2.635982},
+        {"file": "examples/circle_packing/solve_optimized.py", "before_snippet": "score ≈ 2.635982, beats GEPA 2.635 benchmark", "after_snippet": "score ≈ 2.635982, matches the 2.63598+ published result", "metric": "score", "before_value": 2.635, "after_value": 2.63598}
+      ]
+    }
+  ]
+}
