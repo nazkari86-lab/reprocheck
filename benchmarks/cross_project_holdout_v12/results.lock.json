@@ -1,0 +1,9 @@
+{
+  "schema_version": "reprocheck.cross-project-results-lock.v12",
+  "status": "first_zero_shot_result_frozen",
+  "evaluator_commit": "0b52adad8061d77e355a200dee88b7522252f292",
+  "evaluator_version": "0.26.0",
+  "result": "results/zero-shot-0.26.0.json",
+  "sha256": "1a8938f686caea152bc0d5bb8025886fa5633abc272f8c56560c4c8e2a1d5ad5",
+  "success": false
+}

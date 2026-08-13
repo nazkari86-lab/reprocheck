@@ -1,0 +1,308 @@
+{
+  "block_precision": 0.6341463414634146,
+  "block_precision_wilson_95": [
+    0.4812070108791201,
+    0.7641016898031056
+  ],
+  "cases": [
+    {
+      "block_lines": [
+        76,
+        81
+      ],
+      "complete": false,
+      "false_negative": 7,
+      "false_positive": 4,
+      "gold_claims": 7,
+      "predicted_claims": 4,
+      "rank": 5,
+      "repository": "antarys-ai/python",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        50,
+        54
+      ],
+      "complete": false,
+      "false_negative": 3,
+      "false_positive": 0,
+      "gold_claims": 3,
+      "predicted_claims": 0,
+      "rank": 6,
+      "repository": "BADBADBADBOY/CardDetectRotate",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        188,
+        195
+      ],
+      "complete": false,
+      "false_negative": 1,
+      "false_positive": 5,
+      "gold_claims": 6,
+      "predicted_claims": 10,
+      "rank": 7,
+      "repository": "TechnoKhamis/vision-track",
+      "true_positive": 5
+    },
+    {
+      "block_lines": [
+        43,
+        56
+      ],
+      "complete": false,
+      "false_negative": 13,
+      "false_positive": 0,
+      "gold_claims": 14,
+      "predicted_claims": 1,
+      "rank": 8,
+      "repository": "nazmiefearmutcu/awareness",
+      "true_positive": 1
+    },
+    {
+      "block_lines": [
+        321,
+        325
+      ],
+      "complete": false,
+      "false_negative": 10,
+      "false_positive": 0,
+      "gold_claims": 10,
+      "predicted_claims": 0,
+      "rank": 9,
+      "repository": "connor4312/blake3",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        35,
+        35
+      ],
+      "complete": false,
+      "false_negative": 3,
+      "false_positive": 0,
+      "gold_claims": 3,
+      "predicted_claims": 0,
+      "rank": 10,
+      "repository": "colinmollenhour/magento-cache-benchmark",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        38,
+        42
+      ],
+      "complete": false,
+      "false_negative": 10,
+      "false_positive": 0,
+      "gold_claims": 10,
+      "predicted_claims": 0,
+      "rank": 12,
+      "repository": "uucico/poc-presto",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        30,
+        35
+      ],
+      "complete": false,
+      "false_negative": 6,
+      "false_positive": 1,
+      "gold_claims": 6,
+      "predicted_claims": 1,
+      "rank": 18,
+      "repository": "sbhakim/ansr-dt",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        146,
+        147
+      ],
+      "complete": false,
+      "false_negative": 5,
+      "false_positive": 1,
+      "gold_claims": 6,
+      "predicted_claims": 2,
+      "rank": 20,
+      "repository": "akashkam559/Covid19-Face-Mask-Detector",
+      "true_positive": 1
+    },
+    {
+      "block_lines": [
+        80,
+        85
+      ],
+      "complete": false,
+      "false_negative": 16,
+      "false_positive": 0,
+      "gold_claims": 16,
+      "predicted_claims": 0,
+      "rank": 21,
+      "repository": "filaPro/fcaf3d",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        47,
+        50
+      ],
+      "complete": false,
+      "false_negative": 18,
+      "false_positive": 4,
+      "gold_claims": 18,
+      "predicted_claims": 4,
+      "rank": 26,
+      "repository": "Vikas120203/Image-Caption-Generation-using-CNN---GRU",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        7,
+        7
+      ],
+      "complete": false,
+      "false_negative": 4,
+      "false_positive": 0,
+      "gold_claims": 4,
+      "predicted_claims": 0,
+      "rank": 27,
+      "repository": "hidasib/GRU4Rec",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        41,
+        46
+      ],
+      "complete": false,
+      "false_negative": 18,
+      "false_positive": 0,
+      "gold_claims": 18,
+      "predicted_claims": 0,
+      "rank": 28,
+      "repository": "Alibaba-NLP/Multi-CPR",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        35,
+        35
+      ],
+      "complete": false,
+      "false_negative": 2,
+      "false_positive": 0,
+      "gold_claims": 3,
+      "predicted_claims": 1,
+      "rank": 30,
+      "repository": "thanhdtran/SDMR",
+      "true_positive": 1
+    },
+    {
+      "block_lines": [
+        55,
+        73
+      ],
+      "complete": true,
+      "false_negative": 0,
+      "false_positive": 0,
+      "gold_claims": 17,
+      "predicted_claims": 17,
+      "rank": 31,
+      "repository": "jackycwwang/lighthouse_lab_midterm_project",
+      "true_positive": 17
+    },
+    {
+      "block_lines": [
+        17,
+        17
+      ],
+      "complete": false,
+      "false_negative": 6,
+      "false_positive": 0,
+      "gold_claims": 7,
+      "predicted_claims": 1,
+      "rank": 36,
+      "repository": "UCHI-DB/DoubleCompression",
+      "true_positive": 1
+    },
+    {
+      "block_lines": [
+        12,
+        33
+      ],
+      "complete": false,
+      "false_negative": 9,
+      "false_positive": 0,
+      "gold_claims": 9,
+      "predicted_claims": 0,
+      "rank": 40,
+      "repository": "carldata/timeseries",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        61,
+        65
+      ],
+      "complete": false,
+      "false_negative": 8,
+      "false_positive": 0,
+      "gold_claims": 8,
+      "predicted_claims": 0,
+      "rank": 41,
+      "repository": "marekzmyslowski/libfiowrapper",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        34,
+        36
+      ],
+      "complete": false,
+      "false_negative": 10,
+      "false_positive": 0,
+      "gold_claims": 10,
+      "predicted_claims": 0,
+      "rank": 46,
+      "repository": "xKDR/TSFrames.jl",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        16,
+        20
+      ],
+      "complete": false,
+      "false_negative": 15,
+      "false_positive": 0,
+      "gold_claims": 15,
+      "predicted_claims": 0,
+      "rank": 50,
+      "repository": "Alphyn44/prompt-bloat-talk",
+      "true_positive": 0
+    }
+  ],
+  "claim_recall": 0.1368421052631579,
+  "claim_recall_wilson_95": [
+    0.09512509997310233,
+    0.1929528951081677
+  ],
+  "complete_document_visibility": 0.05,
+  "complete_documents": 1,
+  "eligible_documents": 20,
+  "evaluator_commit": "0b52adad8061d77e355a200dee88b7522252f292",
+  "false_negative": 164,
+  "false_positive": 15,
+  "gold_claims": 190,
+  "phase": "zero-shot-frozen-0.26.0",
+  "predicted_claims": 41,
+  "runtime_evaluator_version": "0.26.0",
+  "schema_version": "reprocheck.cross-project-zero-shot-result.v12",
+  "source_integrity": true,
+  "success": false,
+  "true_positive": 26
+}
