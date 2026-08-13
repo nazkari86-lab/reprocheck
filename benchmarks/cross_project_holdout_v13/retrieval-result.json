@@ -1,0 +1,12 @@
+{
+  "schema_version": "reprocheck.cross-project-retrieval-result.v13",
+  "status": "sampling_frame_exhausted",
+  "registered_target_documents": 25,
+  "registered_minimum_documents": 20,
+  "query_frames": 30,
+  "selected_documents": 0,
+  "independent_owners": 0,
+  "labels_created": false,
+  "evaluator_run": false,
+  "scientific_boundary": "This null sample is not evidence for or against extractor generalization."
+}
