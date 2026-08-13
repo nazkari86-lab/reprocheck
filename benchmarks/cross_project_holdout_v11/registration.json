@@ -1,0 +1,25 @@
+{
+  "schema_version": "reprocheck.cross-project-registration.v11",
+  "status": "registered_unretrieved",
+  "registered_at": "2026-08-13T18:57:48Z",
+  "extractor_commit": "792ad73",
+  "extractor_version": "0.25.0",
+  "query_frames": 32,
+  "maximum_sample_size": 64,
+  "target_eligible_documents": 25,
+  "minimum_eligible_documents": 20,
+  "global_owner_cap": 1,
+  "success_thresholds": {
+    "claim_visibility": 0.85,
+    "claim_visibility_wilson_95_lower": 0.70,
+    "complete_document_visibility": 0.75
+  },
+  "sha256": {
+    "protocol.md": "2b34716813a9f6964949ee34387c332ad3fd9eb77ed5712b8527375228721134",
+    "retrieve.py": "148dee8ca55a3464c7f9f225fb2e7e3a19de21280b4d32481d5296401e22deb0",
+    "evaluate.py": "11355c3eb1a1c5fb56ef2bd7885c9ed92ae1ab16adaae767aa73df64bb1d11da",
+    "verify_registration.py": "88fb3d9d0aae352c2a5725bca98ce526bbcc089e5274dbade03195638088dd7d",
+    "../../src/reprocheck/claims.py": "6882d1d81faab65ddeb25c1b1169467330edb8105500e4827493d0ca44af6257",
+    "../../src/reprocheck/metric_names.py": "40b23eab1f310a2b54b85477f832ce597bb276c2bdcc0cba4798364b98ba82ac"
+  }
+}
