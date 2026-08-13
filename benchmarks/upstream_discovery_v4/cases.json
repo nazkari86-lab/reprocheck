@@ -1,0 +1,847 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-cases.v2",
+  "evaluator_commit": "4b1ffdf633723c2672449aa15198d259f80b7568",
+  "cases": [
+    {
+      "id": "popoto-locomo-gold-blind-scoring",
+      "repository": "tomcounsell/popoto",
+      "pull_request": 528,
+      "parent_commit": "3dbecca64a49ee9d3a5db5f5fdba3a7d5ffa3cb8",
+      "merge_commit": "592e24136a89f87d6160131e1096c83a81a303e0",
+      "files": [
+        "docs/benchmarks.md"
+      ],
+      "claims": [
+        {
+          "file": "docs/benchmarks.md",
+          "before_snippet": "| Recall@1 | 0.2986 |",
+          "after_snippet": "| Recall@1 | 0.2981 |",
+          "metric": "recall_1",
+          "before_value": 0.2986,
+          "after_value": 0.2981
+        },
+        {
+          "file": "docs/benchmarks.md",
+          "before_snippet": "| Recall@5 | 0.5534 |",
+          "after_snippet": "| Recall@5 | 0.5302 |",
+          "metric": "recall_5",
+          "before_value": 0.5534,
+          "after_value": 0.5302
+        },
+        {
+          "file": "docs/benchmarks.md",
+          "before_snippet": "| Recall@10 | 0.6400 |",
+          "after_snippet": "| Recall@10 | 0.6017 |",
+          "metric": "recall_10",
+          "before_value": 0.64,
+          "after_value": 0.6017
+        },
+        {
+          "file": "docs/benchmarks.md",
+          "before_snippet": "| MRR | 0.4124 |",
+          "after_snippet": "| MRR | 0.4005 |",
+          "metric": "mrr",
+          "before_value": 0.4124,
+          "after_value": 0.4005
+        }
+      ]
+    },
+    {
+      "id": "ddharmon-authoritative-metric-sync",
+      "repository": "Phenome-Health/ddharmon",
+      "pull_request": 30,
+      "parent_commit": "55395ae84fa790d7cc903750600faf75bb6f9b4d",
+      "merge_commit": "1eb4825533be88807fe25e46b87c4a84d6cc8178",
+      "files": [
+        "docs/methods.md"
+      ],
+      "claims": [
+        {
+          "file": "docs/methods.md",
+          "before_snippet": "| **Hybrid retrieve** | `BM25` (lexical, over rich CDE text) ⊕ dense centroid cosine, fused by **Reciprocal Rank Fusion**; top-k=20 | The candidate generator. Hybrid beats dense at every k (recall@5 0.447 → 0.632 on the CDEMapper gold); a dense-rich control confirmed the gain is real lexical signal. Reusable in `ddharmon.matching` (`BM25`, `hybrid_topk`). |",
+          "after_snippet": "| **Hybrid retrieve** | `BM25` (lexical, over rich CDE text) ⊕ dense centroid cosine, fused by **Reciprocal Rank Fusion**; top-k=20 | The candidate generator. Hybrid beats dense on the CDEMapper gold (recall@5 0.674); a dense-rich control confirmed the gain is real lexical signal. Reusable in `ddharmon.matching` (`BM25`, `hybrid_topk`). |",
+          "metric": "recall_5",
+          "before_value": 0.632,
+          "after_value": 0.674
+        },
+        {
+          "file": "docs/methods.md",
+          "before_snippet": "| **CDEMapper** | Are we matching the **right CDE**? | Yale CDE-Mapping-Tool (494 field→CDE) | hybrid retrieval recall@5 0.632; fused assignment (in-backbone) 0.521 |",
+          "after_snippet": "| **CDEMapper** | Are we matching the **right CDE**? | Yale CDE-Mapping-Tool (494 field→CDE) | hybrid retrieval recall@5 0.674; fused assignment (in-backbone) 0.521 |",
+          "metric": "recall_5",
+          "before_value": 0.632,
+          "after_value": 0.674
+        },
+        {
+          "file": "docs/methods.md",
+          "before_snippet": "| **PhenX** | Do same-concept vars from **different cohorts** co-cluster? | PhenX↔dbGaP crosswalk | embedding separability Δ0.536; clustering's edge is diffuse (motivates assignment-first) |",
+          "after_snippet": "| **PhenX** | Do same-concept vars from **different cohorts** co-cluster? | PhenX↔dbGaP crosswalk | embedding separability Δ0.611; clustering's edge is diffuse (motivates assignment-first) |",
+          "metric": "separability_delta",
+          "before_value": 0.536,
+          "after_value": 0.611
+        }
+      ]
+    },
+    {
+      "id": "lore-esbuild-ground-truth-correction",
+      "repository": "jafreck/Lore",
+      "pull_request": 240,
+      "parent_commit": "938b7382818f016afac05488aae54b3533172a10",
+      "merge_commit": "4c09f48c1d79713666f03ef77330cf2f821cee00",
+      "files": [
+        "docs/benchmark-results.md"
+      ],
+      "claims": [
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Success rate** | 81.8% | 92.6% | **+10.8pp** |",
+          "after_snippet": "| **Success rate** | 89.2% | 94.9% | **+5.6pp** |",
+          "metric": "success_rate_control",
+          "before_value": 0.818,
+          "after_value": 0.892
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Success rate** | 81.8% | 92.6% | **+10.8pp** |",
+          "after_snippet": "| **Success rate** | 89.2% | 94.9% | **+5.6pp** |",
+          "metric": "success_rate_lore",
+          "before_value": 0.9259999999999999,
+          "after_value": 0.9490000000000001
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Success rate** | 81.8% | 92.6% | **+10.8pp** |",
+          "after_snippet": "| **Success rate** | 89.2% | 94.9% | **+5.6pp** |",
+          "metric": "success_rate_delta_pp",
+          "before_value": 10.8,
+          "after_value": 5.6
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Partial rate** | 17.4% | 7.4% | -10.0pp |",
+          "after_snippet": "| **Partial rate** | 7.2% | 4.1% | -3.1pp |",
+          "metric": "partial_rate_control",
+          "before_value": 0.174,
+          "after_value": 0.07200000000000001
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Partial rate** | 17.4% | 7.4% | -10.0pp |",
+          "after_snippet": "| **Partial rate** | 7.2% | 4.1% | -3.1pp |",
+          "metric": "partial_rate_lore",
+          "before_value": 0.07400000000000001,
+          "after_value": 0.040999999999999995
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Partial rate** | 17.4% | 7.4% | -10.0pp |",
+          "after_snippet": "| **Partial rate** | 7.2% | 4.1% | -3.1pp |",
+          "metric": "partial_rate_delta_pp",
+          "before_value": -10.0,
+          "after_value": -3.1
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Fail rate** | 0.8% | 0.0% | -0.8pp |",
+          "after_snippet": "| **Fail rate** | 3.6% | 1.0% | -2.6pp |",
+          "metric": "fail_rate_control",
+          "before_value": 0.008,
+          "after_value": 0.036000000000000004
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Fail rate** | 0.8% | 0.0% | -0.8pp |",
+          "after_snippet": "| **Fail rate** | 3.6% | 1.0% | -2.6pp |",
+          "metric": "fail_rate_lore",
+          "before_value": 0.0,
+          "after_value": 0.01
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Fail rate** | 0.8% | 0.0% | -0.8pp |",
+          "after_snippet": "| **Fail rate** | 3.6% | 1.0% | -2.6pp |",
+          "metric": "fail_rate_delta_pp",
+          "before_value": -0.8,
+          "after_value": -2.6
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Correctness** | 85.1% | 86.0% | **+1.0pp** |",
+          "after_snippet": "| **Correctness** | 87.3% | 90.8% | **+3.5pp** |",
+          "metric": "correctness_control",
+          "before_value": 0.851,
+          "after_value": 0.873
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Correctness** | 85.1% | 86.0% | **+1.0pp** |",
+          "after_snippet": "| **Correctness** | 87.3% | 90.8% | **+3.5pp** |",
+          "metric": "correctness_lore",
+          "before_value": 0.86,
+          "after_value": 0.9079999999999999
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Correctness** | 85.1% | 86.0% | **+1.0pp** |",
+          "after_snippet": "| **Correctness** | 87.3% | 90.8% | **+3.5pp** |",
+          "metric": "correctness_delta_pp",
+          "before_value": 1.0,
+          "after_value": 3.5
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Answer coverage** | 86.9% | 88.9% | **+2.0pp** |",
+          "after_snippet": "| **Answer coverage** | 89.0% | 92.0% | **+3.0pp** |",
+          "metric": "answer_coverage_control",
+          "before_value": 0.8690000000000001,
+          "after_value": 0.89
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Answer coverage** | 86.9% | 88.9% | **+2.0pp** |",
+          "after_snippet": "| **Answer coverage** | 89.0% | 92.0% | **+3.0pp** |",
+          "metric": "answer_coverage_lore",
+          "before_value": 0.889,
+          "after_value": 0.92
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Answer coverage** | 86.9% | 88.9% | **+2.0pp** |",
+          "after_snippet": "| **Answer coverage** | 89.0% | 92.0% | **+3.0pp** |",
+          "metric": "answer_coverage_delta_pp",
+          "before_value": 2.0,
+          "after_value": 3.0
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Mean tool calls** | 28.0 | 16.7 | **-11.3 (−40.5%)** |",
+          "after_snippet": "| **Mean tool calls** | 30.7 | 18.4 | **-12.3 (−40.2%)** |",
+          "metric": "mean_tool_calls_control",
+          "before_value": 28.0,
+          "after_value": 30.7
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Mean tool calls** | 28.0 | 16.7 | **-11.3 (−40.5%)** |",
+          "after_snippet": "| **Mean tool calls** | 30.7 | 18.4 | **-12.3 (−40.2%)** |",
+          "metric": "mean_tool_calls_lore",
+          "before_value": 16.7,
+          "after_value": 18.4
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Mean tool calls** | 28.0 | 16.7 | **-11.3 (−40.5%)** |",
+          "after_snippet": "| **Mean tool calls** | 30.7 | 18.4 | **-12.3 (−40.2%)** |",
+          "metric": "mean_tool_calls_delta",
+          "before_value": -11.3,
+          "after_value": -12.3
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Mean tool calls** | 28.0 | 16.7 | **-11.3 (−40.5%)** |",
+          "after_snippet": "| **Mean tool calls** | 30.7 | 18.4 | **-12.3 (−40.2%)** |",
+          "metric": "mean_tool_calls_delta_percent",
+          "before_value": -40.5,
+          "after_value": -40.2
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Mean tokens** | 8,023 | 5,660 | **-2,363 (−29.5%)** |",
+          "after_snippet": "| **Mean tokens** | 8,952 | 6,182 | **-2,771 (−30.9%)** |",
+          "metric": "mean_tokens_control",
+          "before_value": 8023.0,
+          "after_value": 8952.0
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Mean tokens** | 8,023 | 5,660 | **-2,363 (−29.5%)** |",
+          "after_snippet": "| **Mean tokens** | 8,952 | 6,182 | **-2,771 (−30.9%)** |",
+          "metric": "mean_tokens_lore",
+          "before_value": 5660.0,
+          "after_value": 6182.0
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Mean tokens** | 8,023 | 5,660 | **-2,363 (−29.5%)** |",
+          "after_snippet": "| **Mean tokens** | 8,952 | 6,182 | **-2,771 (−30.9%)** |",
+          "metric": "mean_tokens_delta",
+          "before_value": -2363.0,
+          "after_value": -2771.0
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Mean tokens** | 8,023 | 5,660 | **-2,363 (−29.5%)** |",
+          "after_snippet": "| **Mean tokens** | 8,952 | 6,182 | **-2,771 (−30.9%)** |",
+          "metric": "mean_tokens_delta_percent",
+          "before_value": -29.5,
+          "after_value": -30.9
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Mean wall time** | 103.2s | 98.5s | -4.7s (−4.6%) |",
+          "after_snippet": "| **Mean wall time** | 110.3s | 101.7s | -8.6s (−7.8%) |",
+          "metric": "mean_wall_time_seconds_control",
+          "before_value": 103.2,
+          "after_value": 110.3
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Mean wall time** | 103.2s | 98.5s | -4.7s (−4.6%) |",
+          "after_snippet": "| **Mean wall time** | 110.3s | 101.7s | -8.6s (−7.8%) |",
+          "metric": "mean_wall_time_seconds_lore",
+          "before_value": 98.5,
+          "after_value": 101.7
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Mean wall time** | 103.2s | 98.5s | -4.7s (−4.6%) |",
+          "after_snippet": "| **Mean wall time** | 110.3s | 101.7s | -8.6s (−7.8%) |",
+          "metric": "mean_wall_time_seconds_delta",
+          "before_value": -4.7,
+          "after_value": -8.6
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| **Mean wall time** | 103.2s | 98.5s | -4.7s (−4.6%) |",
+          "after_snippet": "| **Mean wall time** | 110.3s | 101.7s | -8.6s (−7.8%) |",
+          "metric": "mean_wall_time_seconds_delta_percent",
+          "before_value": -4.6,
+          "after_value": -7.8
+        }
+      ]
+    },
+    {
+      "id": "sekiban-rss-log-correction",
+      "repository": "J-Tech-Japan/SekibanWasmRuntime",
+      "pull_request": 82,
+      "parent_commit": "a951277fdf4cbc720f13dbfc90fafdf6497cb02a",
+      "merge_commit": "2014abc464073d77d82221b7e0ca4f7ad7371dcf",
+      "files": [
+        "docs/benchmark-results.md"
+      ],
+      "claims": [
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| C# Native | `completed` | `2004.1` | `236.7` | `91.0` | `1586.5` | `597.6 s` | `~2626.4 MB` | `0` |",
+          "after_snippet": "| C# Native (Postgres) | `completed` | `2004.1` | `236.7` | `91.0` | `1586.5` | `597.6 s` | `~1637.2 MB` | `0` |",
+          "metric": "csharp_native_peak_rss_mb",
+          "before_value": 2626.4,
+          "after_value": 1637.2
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| MoonBit WASM | `completed` | `1460.5` | `556.8` | `214.1` | `164.5` | `340.9 s` | `~1961.6 MB` | `0` |",
+          "after_snippet": "| MoonBit WASM | `completed` | `1460.5` | `556.8` | `214.1` | `164.5` | `340.9 s` | `~1301.6 MB` | `0` |",
+          "metric": "moonbit_wasm_peak_rss_mb",
+          "before_value": 1961.6,
+          "after_value": 1301.6
+        },
+        {
+          "file": "docs/benchmark-results.md",
+          "before_snippet": "| Go WASM | `completed` | `1547.8` | `520.1` | `200.0` | `335.8` | `388.5 s` | `~2502.4 MB` | `0` |",
+          "after_snippet": "| Go WASM | `completed` | `1547.8` | `520.1` | `200.0` | `335.8` | `388.5 s` | `~2514.2 MB` | `0` |",
+          "metric": "go_wasm_peak_rss_mb",
+          "before_value": 2502.4,
+          "after_value": 2514.2
+        }
+      ]
+    },
+    {
+      "id": "sestrav-feature-count-label-correction",
+      "repository": "Gavin-Borges/SESTRAV",
+      "pull_request": 213,
+      "parent_commit": "a1b043cd1e4ae917cfb9abd985cbb916cb9e6ad2",
+      "merge_commit": "ffd36db3be168f1d76cafe10760fe53ed9c83662",
+      "files": [
+        "results/external_benchmark_comparison.md"
+      ],
+      "claims": [
+        {
+          "file": "results/external_benchmark_comparison.md",
+          "before_snippet": "| SESTRAV RF (30-feat) | 704 | 0.7255 | 0.8278 | 0.8429 | 0.8352 | 0.8429 | 0.1204 | 0.8764 | 0.8352 | 0.3000 | 0.8522 | 0.9788 | 0.9956 |",
+          "after_snippet": "| SESTRAV RF (31-feat) | 704 | 0.7255 | 0.8278 | 0.8429 | 0.8352 | 0.8429 | 0.1204 | 0.8764 | 0.8352 | 0.3000 | 0.8522 | 0.9788 | 0.9956 |",
+          "metric": "feature_count",
+          "before_value": 30.0,
+          "after_value": 31.0
+        }
+      ]
+    },
+    {
+      "id": "power-path-parser-metric-correction",
+      "repository": "weby-homelab/power-framework",
+      "pull_request": 110,
+      "parent_commit": "76e02f097843d95986f7bc467d1dea5ed2799c26",
+      "merge_commit": "6ed24a9fb41de45af7af395120a83d8b94e59ea5",
+      "files": [
+        "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+        "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md"
+      ],
+      "claims": [
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MRR** | `1/rank_first_hit` (avg) | Де знаходиться перший релевантний результат |",
+          "after_snippet": "| **MRR** | `1/rank_first_hit` (avg) | Де знаходиться перший релевантний результат |",
+          "metric": "mrr_fts",
+          "before_value": 0.311,
+          "after_value": 0.619
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MRR** | `1/rank_first_hit` (avg) | Де знаходиться перший релевантний результат |",
+          "after_snippet": "| **MRR** | `1/rank_first_hit` (avg) | Де знаходиться перший релевантний результат |",
+          "metric": "mrr_vector",
+          "before_value": 0.377,
+          "after_value": 0.75
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MRR** | `1/rank_first_hit` (avg) | Де знаходиться перший релевантний результат |",
+          "after_snippet": "| **MRR** | `1/rank_first_hit` (avg) | Де знаходиться перший релевантний результат |",
+          "metric": "mrr_hybrid",
+          "before_value": 0.374,
+          "after_value": 0.754
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MAP@3** | 0.311 | 0.378 | 0.378 | 🥇 Vector/Hybrid |",
+          "after_snippet": "| **MAP@3** | 0.422 | **0.556** | 0.489 | 🥇 Vector |",
+          "metric": "map_3_fts",
+          "before_value": 0.311,
+          "after_value": 0.422
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MAP@3** | 0.311 | 0.378 | 0.378 | 🥇 Vector/Hybrid |",
+          "after_snippet": "| **MAP@3** | 0.422 | **0.556** | 0.489 | 🥇 Vector |",
+          "metric": "map_3_vector",
+          "before_value": 0.378,
+          "after_value": 0.556
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MAP@3** | 0.311 | 0.378 | 0.378 | 🥇 Vector/Hybrid |",
+          "after_snippet": "| **MAP@3** | 0.422 | **0.556** | 0.489 | 🥇 Vector |",
+          "metric": "map_3_hybrid",
+          "before_value": 0.378,
+          "after_value": 0.489
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MAP@5** | 0.387 | **0.520** | 0.427 | 🥇 Vector |",
+          "after_snippet": "| **MAP@5** | 0.267 | **0.467** | 0.453 | 🥇 Vector |",
+          "metric": "map_5_fts",
+          "before_value": 0.387,
+          "after_value": 0.267
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MAP@5** | 0.387 | **0.520** | 0.427 | 🥇 Vector |",
+          "after_snippet": "| **MAP@5** | 0.267 | **0.467** | 0.453 | 🥇 Vector |",
+          "metric": "map_5_vector",
+          "before_value": 0.52,
+          "after_value": 0.467
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MAP@5** | 0.387 | **0.520** | 0.427 | 🥇 Vector |",
+          "after_snippet": "| **MAP@5** | 0.267 | **0.467** | 0.453 | 🥇 Vector |",
+          "metric": "map_5_hybrid",
+          "before_value": 0.427,
+          "after_value": 0.453
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MAR@5** | 0.567 | **0.733** | 0.611 | 🥇 Vector |",
+          "after_snippet": "| **MAR@5** | 0.367 | **0.650** | 0.633 | 🥇 Vector |",
+          "metric": "mar_5_fts",
+          "before_value": 0.567,
+          "after_value": 0.367
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MAR@5** | 0.567 | **0.733** | 0.611 | 🥇 Vector |",
+          "after_snippet": "| **MAR@5** | 0.367 | **0.650** | 0.633 | 🥇 Vector |",
+          "metric": "mar_5_vector",
+          "before_value": 0.733,
+          "after_value": 0.65
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MAR@5** | 0.567 | **0.733** | 0.611 | 🥇 Vector |",
+          "after_snippet": "| **MAR@5** | 0.367 | **0.650** | 0.633 | 🥇 Vector |",
+          "metric": "mar_5_hybrid",
+          "before_value": 0.611,
+          "after_value": 0.633
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MAR@10** | 1.339 | **1.622** | 1.339 | 🥇 Vector |",
+          "after_snippet": "| **MAR@10** | 0.467 | **1.133** | 1.044 | 🥇 Vector |",
+          "metric": "mar_10_fts",
+          "before_value": 1.339,
+          "after_value": 0.467
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MAR@10** | 1.339 | **1.622** | 1.339 | 🥇 Vector |",
+          "after_snippet": "| **MAR@10** | 0.467 | **1.133** | 1.044 | 🥇 Vector |",
+          "metric": "mar_10_vector",
+          "before_value": 1.622,
+          "after_value": 1.133
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MAR@10** | 1.339 | **1.622** | 1.339 | 🥇 Vector |",
+          "after_snippet": "| **MAR@10** | 0.467 | **1.133** | 1.044 | 🥇 Vector |",
+          "metric": "mar_10_hybrid",
+          "before_value": 1.339,
+          "after_value": 1.044
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MnDCG@5** | 0.189 | 0.264 | **0.294** | 🥇 Hybrid |",
+          "after_snippet": "| **MnDCG@5** | 0.419 | 0.376 | **0.491** | 🥇 Hybrid |",
+          "metric": "mndcg_5_fts",
+          "before_value": 0.189,
+          "after_value": 0.419
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MnDCG@5** | 0.189 | 0.264 | **0.294** | 🥇 Hybrid |",
+          "after_snippet": "| **MnDCG@5** | 0.419 | 0.376 | **0.491** | 🥇 Hybrid |",
+          "metric": "mndcg_5_vector",
+          "before_value": 0.264,
+          "after_value": 0.376
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MnDCG@5** | 0.189 | 0.264 | **0.294** | 🥇 Hybrid |",
+          "after_snippet": "| **MnDCG@5** | 0.419 | 0.376 | **0.491** | 🥇 Hybrid |",
+          "metric": "mndcg_5_hybrid",
+          "before_value": 0.294,
+          "after_value": 0.491
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MnDCG@10** | 0.390 | **0.510** | 0.506 | 🥇 Vector |",
+          "after_snippet": "| **MnDCG@10** | 0.459 | 0.517 | **0.654** | 🥇 Hybrid |",
+          "metric": "mndcg_10_fts",
+          "before_value": 0.39,
+          "after_value": 0.459
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MnDCG@10** | 0.390 | **0.510** | 0.506 | 🥇 Vector |",
+          "after_snippet": "| **MnDCG@10** | 0.459 | 0.517 | **0.654** | 🥇 Hybrid |",
+          "metric": "mndcg_10_vector",
+          "before_value": 0.51,
+          "after_value": 0.517
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **MnDCG@10** | 0.390 | **0.510** | 0.506 | 🥇 Vector |",
+          "after_snippet": "| **MnDCG@10** | 0.459 | 0.517 | **0.654** | 🥇 Hybrid |",
+          "metric": "mndcg_10_hybrid",
+          "before_value": 0.506,
+          "after_value": 0.654
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **Avg Latency (s)** | 16.141 | **3.544** | 4.194 | 🥇 Vector |",
+          "after_snippet": "| **Avg Latency (s)** | **0.559** | 2.208 | 2.270 | 🥇 FTS |",
+          "metric": "avg_latency_seconds_fts",
+          "before_value": 16.141,
+          "after_value": 0.559
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **Avg Latency (s)** | 16.141 | **3.544** | 4.194 | 🥇 Vector |",
+          "after_snippet": "| **Avg Latency (s)** | **0.559** | 2.208 | 2.270 | 🥇 FTS |",
+          "metric": "avg_latency_seconds_vector",
+          "before_value": 3.544,
+          "after_value": 2.208
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **Avg Latency (s)** | 16.141 | **3.544** | 4.194 | 🥇 Vector |",
+          "after_snippet": "| **Avg Latency (s)** | **0.559** | 2.208 | 2.270 | 🥇 FTS |",
+          "metric": "avg_latency_seconds_hybrid",
+          "before_value": 4.194,
+          "after_value": 2.27
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **P95 Latency (s)** | 46.743 | **8.727** | 30.167 | 🥇 Vector |",
+          "after_snippet": "| **P95 Latency (s)** | **0.889** | 5.878 | 5.294 | 🥇 FTS |",
+          "metric": "p95_latency_seconds_fts",
+          "before_value": 46.743,
+          "after_value": 0.889
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **P95 Latency (s)** | 46.743 | **8.727** | 30.167 | 🥇 Vector |",
+          "after_snippet": "| **P95 Latency (s)** | **0.889** | 5.878 | 5.294 | 🥇 FTS |",
+          "metric": "p95_latency_seconds_vector",
+          "before_value": 8.727,
+          "after_value": 5.878
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+          "before_snippet": "| **P95 Latency (s)** | 46.743 | **8.727** | 30.167 | 🥇 Vector |",
+          "after_snippet": "| **P95 Latency (s)** | **0.889** | 5.878 | 5.294 | 🥇 FTS |",
+          "metric": "p95_latency_seconds_hybrid",
+          "before_value": 30.167,
+          "after_value": 5.294
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MRR** | 0.107 | 0.168 | **0.196** |",
+          "after_snippet": "| **MRR** | 0.204 | 0.340 | **0.385** | 🥇 Hybrid |",
+          "metric": "mrr_fts",
+          "before_value": 0.107,
+          "after_value": 0.204
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MRR** | 0.107 | 0.168 | **0.196** |",
+          "after_snippet": "| **MRR** | 0.204 | 0.340 | **0.385** | 🥇 Hybrid |",
+          "metric": "mrr_vector",
+          "before_value": 0.168,
+          "after_value": 0.34
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MRR** | 0.107 | 0.168 | **0.196** |",
+          "after_snippet": "| **MRR** | 0.204 | 0.340 | **0.385** | 🥇 Hybrid |",
+          "metric": "mrr_hybrid",
+          "before_value": 0.196,
+          "after_value": 0.385
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MAP@5** | 0.090 | **0.200** | 0.190 |",
+          "after_snippet": "| **MAP@5** | 0.080 | 0.210 | **0.230** | 🥇 Hybrid |",
+          "metric": "map_5_fts",
+          "before_value": 0.09,
+          "after_value": 0.08
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MAP@5** | 0.090 | **0.200** | 0.190 |",
+          "after_snippet": "| **MAP@5** | 0.080 | 0.210 | **0.230** | 🥇 Hybrid |",
+          "metric": "map_5_vector",
+          "before_value": 0.2,
+          "after_value": 0.21
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MAP@5** | 0.090 | **0.200** | 0.190 |",
+          "after_snippet": "| **MAP@5** | 0.080 | 0.210 | **0.230** | 🥇 Hybrid |",
+          "metric": "map_5_hybrid",
+          "before_value": 0.19,
+          "after_value": 0.23
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MAR@5** | 0.142 | **0.300** | 0.287 |",
+          "after_snippet": "| **MAR@5** | 0.138 | 0.312 | **0.358** | 🥇 Hybrid |",
+          "metric": "mar_5_fts",
+          "before_value": 0.142,
+          "after_value": 0.138
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MAR@5** | 0.142 | **0.300** | 0.287 |",
+          "after_snippet": "| **MAR@5** | 0.138 | 0.312 | **0.358** | 🥇 Hybrid |",
+          "metric": "mar_5_vector",
+          "before_value": 0.3,
+          "after_value": 0.312
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MAR@5** | 0.142 | **0.300** | 0.287 |",
+          "after_snippet": "| **MAR@5** | 0.138 | 0.312 | **0.358** | 🥇 Hybrid |",
+          "metric": "mar_5_hybrid",
+          "before_value": 0.287,
+          "after_value": 0.358
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MAR@10** | 0.250 | 0.483 | **0.617** |",
+          "after_snippet": "| **MAR@10** | 0.154 | 0.554 | **0.604** | 🥇 Hybrid |",
+          "metric": "mar_10_fts",
+          "before_value": 0.25,
+          "after_value": 0.154
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MAR@10** | 0.250 | 0.483 | **0.617** |",
+          "after_snippet": "| **MAR@10** | 0.154 | 0.554 | **0.604** | 🥇 Hybrid |",
+          "metric": "mar_10_vector",
+          "before_value": 0.483,
+          "after_value": 0.554
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MAR@10** | 0.250 | 0.483 | **0.617** |",
+          "after_snippet": "| **MAR@10** | 0.154 | 0.554 | **0.604** | 🥇 Hybrid |",
+          "metric": "mar_10_hybrid",
+          "before_value": 0.617,
+          "after_value": 0.604
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MnDCG@5** | 0.065 | **0.166** | 0.126 |",
+          "after_snippet": "| **MnDCG@5** | 0.082 | 0.254 | **0.256** | 🥇 Hybrid |",
+          "metric": "mndcg_5_fts",
+          "before_value": 0.065,
+          "after_value": 0.082
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MnDCG@5** | 0.065 | **0.166** | 0.126 |",
+          "after_snippet": "| **MnDCG@5** | 0.082 | 0.254 | **0.256** | 🥇 Hybrid |",
+          "metric": "mndcg_5_vector",
+          "before_value": 0.166,
+          "after_value": 0.254
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MnDCG@5** | 0.065 | **0.166** | 0.126 |",
+          "after_snippet": "| **MnDCG@5** | 0.082 | 0.254 | **0.256** | 🥇 Hybrid |",
+          "metric": "mndcg_5_hybrid",
+          "before_value": 0.126,
+          "after_value": 0.256
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MnDCG@10** | 0.093 | 0.234 | **0.261** |",
+          "after_snippet": "| **MnDCG@10** | 0.091 | 0.326 | **0.343** | 🥇 Hybrid |",
+          "metric": "mndcg_10_fts",
+          "before_value": 0.093,
+          "after_value": 0.091
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MnDCG@10** | 0.093 | 0.234 | **0.261** |",
+          "after_snippet": "| **MnDCG@10** | 0.091 | 0.326 | **0.343** | 🥇 Hybrid |",
+          "metric": "mndcg_10_vector",
+          "before_value": 0.234,
+          "after_value": 0.326
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **MnDCG@10** | 0.093 | 0.234 | **0.261** |",
+          "after_snippet": "| **MnDCG@10** | 0.091 | 0.326 | **0.343** | 🥇 Hybrid |",
+          "metric": "mndcg_10_hybrid",
+          "before_value": 0.261,
+          "after_value": 0.343
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **Avg Latency** | **0.56s** | 2.57s | 2.43s |",
+          "after_snippet": "| **Avg Latency** | **0.56s** | 2.28s | 2.49s | 🥇 FTS |",
+          "metric": "avg_latency_seconds_vector",
+          "before_value": 2.57,
+          "after_value": 2.28
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **Avg Latency** | **0.56s** | 2.57s | 2.43s |",
+          "after_snippet": "| **Avg Latency** | **0.56s** | 2.28s | 2.49s | 🥇 FTS |",
+          "metric": "avg_latency_seconds_hybrid",
+          "before_value": 2.43,
+          "after_value": 2.49
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **P95 Latency** | **0.79s** | 5.43s | 5.58s |",
+          "after_snippet": "| **P95 Latency** | **0.85s** | 5.49s | 5.48s | 🥇 FTS |",
+          "metric": "p95_latency_seconds_fts",
+          "before_value": 0.79,
+          "after_value": 0.85
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **P95 Latency** | **0.79s** | 5.43s | 5.58s |",
+          "after_snippet": "| **P95 Latency** | **0.85s** | 5.49s | 5.48s | 🥇 FTS |",
+          "metric": "p95_latency_seconds_vector",
+          "before_value": 5.43,
+          "after_value": 5.49
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| **P95 Latency** | **0.79s** | 5.43s | 5.58s |",
+          "after_snippet": "| **P95 Latency** | **0.85s** | 5.49s | 5.48s | 🥇 FTS |",
+          "metric": "p95_latency_seconds_hybrid",
+          "before_value": 5.58,
+          "after_value": 5.48
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| 🇺🇦 UA→UA | 0.146 | 0.250 | **0.302** | Hybrid найкращий |",
+          "after_snippet": "| 🇺🇦 UA→UA | 0.115 | 0.344 | **0.396** | Hybrid найкращий |",
+          "metric": "language_recall_1_fts",
+          "before_value": 0.146,
+          "after_value": 0.115
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| 🇺🇦 UA→UA | 0.146 | 0.250 | **0.302** | Hybrid найкращий |",
+          "after_snippet": "| 🇺🇦 UA→UA | 0.115 | 0.344 | **0.396** | Hybrid найкращий |",
+          "metric": "language_recall_1_vector",
+          "before_value": 0.25,
+          "after_value": 0.344
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| 🇺🇦 UA→UA | 0.146 | 0.250 | **0.302** | Hybrid найкращий |",
+          "after_snippet": "| 🇺🇦 UA→UA | 0.115 | 0.344 | **0.396** | Hybrid найкращий |",
+          "metric": "language_recall_1_hybrid",
+          "before_value": 0.302,
+          "after_value": 0.396
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| 🇬🇧 EN→UA | 0.417 | **0.667** | 0.500 | Vector домінує |",
+          "after_snippet": "| 🇬🇧 EN→UA | 0.375 | 0.500 | **0.625** | Hybrid найкращий |",
+          "metric": "language_recall_2_fts",
+          "before_value": 0.417,
+          "after_value": 0.375
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| 🇬🇧 EN→UA | 0.417 | **0.667** | 0.500 | Vector домінує |",
+          "after_snippet": "| 🇬🇧 EN→UA | 0.375 | 0.500 | **0.625** | Hybrid найкращий |",
+          "metric": "language_recall_2_vector",
+          "before_value": 0.667,
+          "after_value": 0.5
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| 🇬🇧 EN→UA | 0.417 | **0.667** | 0.500 | Vector домінує |",
+          "after_snippet": "| 🇬🇧 EN→UA | 0.375 | 0.500 | **0.625** | Hybrid найкращий |",
+          "metric": "language_recall_2_hybrid",
+          "before_value": 0.5,
+          "after_value": 0.625
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| 🇺🇦 UA→EN | **0.000** | **0.000** | **0.000** | ❌ Повний провал |",
+          "after_snippet": "| 🇺🇦 UA→EN | **0.000** | **0.208** | **0.208** | ⚠️ Частковий успіх семантики |",
+          "metric": "language_recall_3_vector",
+          "before_value": 0.0,
+          "after_value": 0.208
+        },
+        {
+          "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md",
+          "before_snippet": "| 🇺🇦 UA→EN | **0.000** | **0.000** | **0.000** | ❌ Повний провал |",
+          "after_snippet": "| 🇺🇦 UA→EN | **0.000** | **0.208** | **0.208** | ⚠️ Частковий успіх семантики |",
+          "metric": "language_recall_3_hybrid",
+          "before_value": 0.0,
+          "after_value": 0.208
+        }
+      ]
+    }
+  ]
+}

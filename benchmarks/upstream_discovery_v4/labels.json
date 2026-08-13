@@ -1,0 +1,1764 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-labels.v2",
+  "eligibility_blinded_to_parser_output": true,
+  "sample_size": 250,
+  "labels": [
+    {
+      "rank": 1,
+      "repository": "Zefan-Cai/R-KV",
+      "pull_request": 35,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 2,
+      "repository": "Bluetooth-Devices/habluetooth",
+      "pull_request": 374,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 3,
+      "repository": "TigreGotico/orthography2ipa",
+      "pull_request": 276,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 4,
+      "repository": "getkoji/koji",
+      "pull_request": 221,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 5,
+      "repository": "Geravant/negaverse",
+      "pull_request": 10,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 6,
+      "repository": "tre-systems/rgou-cloudflare",
+      "pull_request": 32,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 7,
+      "repository": "Perseus-Computing-LLC/rbm-demo",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 8,
+      "repository": "atilaneves/quickbite",
+      "pull_request": 470,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 9,
+      "repository": "kuokdavinci/ReconciliationIngestionPlatform",
+      "pull_request": 35,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 10,
+      "repository": "Zefan-Cai/R-KV",
+      "pull_request": 36,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 11,
+      "repository": "NeuroTechX/moabb",
+      "pull_request": 1128,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 12,
+      "repository": "Lumiwealth/lumibot",
+      "pull_request": 1055,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 13,
+      "repository": "oferchen/rsync",
+      "pull_request": 5447,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 14,
+      "repository": "local-inference-lab/blackwell-llm-docker",
+      "pull_request": 20,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 15,
+      "repository": "bruin-data/bruin",
+      "pull_request": 2389,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 16,
+      "repository": "xsovad06/sova",
+      "pull_request": 572,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 17,
+      "repository": "tomcounsell/popoto",
+      "pull_request": 528,
+      "eligible": true,
+      "reason": "same_dataset_and_retrieval_outputs_scored_with_gold_blind_ranking",
+      "case_id": "popoto-locomo-gold-blind-scoring"
+    },
+    {
+      "rank": 18,
+      "repository": "bryanbarton525/prism",
+      "pull_request": 15,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 19,
+      "repository": "conn-castle/agent-layer",
+      "pull_request": 183,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 20,
+      "repository": "MolarVerse/ThermoScreening",
+      "pull_request": 135,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 21,
+      "repository": "nzy1997/rust-qec",
+      "pull_request": 446,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 22,
+      "repository": "SamJSui/lampshade",
+      "pull_request": 7,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 23,
+      "repository": "TigreGotico/orthography2ipa",
+      "pull_request": 741,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 24,
+      "repository": "Jefino9488/OptiRoute",
+      "pull_request": 8,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 25,
+      "repository": "cjprybol/Mycelia",
+      "pull_request": 437,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 26,
+      "repository": "curvelogic/eucalypt",
+      "pull_request": 752,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 27,
+      "repository": "sanskarpan/sanskar-site",
+      "pull_request": 3,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 28,
+      "repository": "danReynolds/resqlite",
+      "pull_request": 66,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 29,
+      "repository": "api7/ngx_http_ffi_client",
+      "pull_request": 33,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 30,
+      "repository": "yonk-labs/pg-raggraph",
+      "pull_request": 54,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 31,
+      "repository": "Phenome-Health/ddharmon",
+      "pull_request": 30,
+      "eligible": true,
+      "reason": "stale_documented_metrics_corrected_to_committed_authoritative_evidence",
+      "case_id": "ddharmon-authoritative-metric-sync"
+    },
+    {
+      "rank": 32,
+      "repository": "adulari/forge",
+      "pull_request": 313,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 33,
+      "repository": "AgentOptimizer/agentopt",
+      "pull_request": 78,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 34,
+      "repository": "lfglabs-dev/ethereum-verification-benchmark",
+      "pull_request": 118,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 35,
+      "repository": "justrach/turboAPI",
+      "pull_request": 77,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 36,
+      "repository": "tomtom215/a2a-rust",
+      "pull_request": 62,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 37,
+      "repository": "jafreck/Lore",
+      "pull_request": 240,
+      "eligible": true,
+      "reason": "same_system_rerun_after_benchmark_ground_truth_correction",
+      "case_id": "lore-esbuild-ground-truth-correction"
+    },
+    {
+      "rank": 38,
+      "repository": "hupo-0905/multifactor-backtest",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 39,
+      "repository": "SailfinIO/sailfin",
+      "pull_request": 2416,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 40,
+      "repository": "godaddy/asherah-ffi",
+      "pull_request": 33,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 41,
+      "repository": "wd7512/Moonboard-Analysis",
+      "pull_request": 29,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 42,
+      "repository": "aimasteracc/tree-sitter-analyzer",
+      "pull_request": 521,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 43,
+      "repository": "GawainTheCoder/ColdReadBench",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 44,
+      "repository": "alberttwong/redis_financial_demo",
+      "pull_request": 17,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 45,
+      "repository": "nittygritty-zzy/sqlglot",
+      "pull_request": 9,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 46,
+      "repository": "JeffreySardella/accessguard",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 47,
+      "repository": "manit2004/wgblas",
+      "pull_request": 47,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 48,
+      "repository": "schivei/net-mediate",
+      "pull_request": 57,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 49,
+      "repository": "twine-rs-labs/twine.rs",
+      "pull_request": 16,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 50,
+      "repository": "EmNudge/wat-fft",
+      "pull_request": 58,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 51,
+      "repository": "thebentobot/bento-web",
+      "pull_request": 755,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 52,
+      "repository": "cric96/experiments-2026-ecological-informatics-herd-behavior",
+      "pull_request": 50,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 53,
+      "repository": "D-sorganization/AffineDrift",
+      "pull_request": 1768,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 54,
+      "repository": "sgibson91/sgibson91.github.io",
+      "pull_request": 323,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 55,
+      "repository": "AlexanderMattTurner/punctilio",
+      "pull_request": 110,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 56,
+      "repository": "FlowFuse/mqtt-schema-agent",
+      "pull_request": 75,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 57,
+      "repository": "ticaki/ioBroker.nspanel-lovelace-ui",
+      "pull_request": 639,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 58,
+      "repository": "GoogleCloudPlatform/PerfKitBenchmarker",
+      "pull_request": 6515,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 59,
+      "repository": "mlcommons/mobile_app_open",
+      "pull_request": 1130,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 60,
+      "repository": "LennardZuendorf/pytest-bench-action",
+      "pull_request": 6,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 61,
+      "repository": "nodejs/node",
+      "pull_request": 60841,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 62,
+      "repository": "nanvix/nanvix",
+      "pull_request": 2258,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 63,
+      "repository": "erikraft/Drop",
+      "pull_request": 321,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 64,
+      "repository": "Azure/azure-sdk-tools",
+      "pull_request": 14736,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 65,
+      "repository": "DROG-group/drog-website-new",
+      "pull_request": 4,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 66,
+      "repository": "SciML/NeuralLyapunov.jl",
+      "pull_request": 163,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 67,
+      "repository": "yikoyu/unconfig",
+      "pull_request": 71,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 68,
+      "repository": "maplibre/maplibre-gl-js",
+      "pull_request": 7612,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 69,
+      "repository": "J-Tech-Japan/SekibanWasmRuntime",
+      "pull_request": 82,
+      "eligible": true,
+      "reason": "same_runs_rss_values_corrected_against_frozen_logs",
+      "case_id": "sekiban-rss-log-correction"
+    },
+    {
+      "rank": 70,
+      "repository": "SStranks/tech-expo",
+      "pull_request": 20,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 71,
+      "repository": "ertrzyiks/ertrzyiks.me",
+      "pull_request": 165,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 72,
+      "repository": "MKlimenko/PseudoRenderingFarm",
+      "pull_request": 9,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 73,
+      "repository": "EuroEval/EuroEval",
+      "pull_request": 2032,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 74,
+      "repository": "TANMOY-SARKAR-cmd/dns-benchmark-app",
+      "pull_request": 33,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 75,
+      "repository": "cric96/experiments-2026-ecological-informatics-imageomics-drones",
+      "pull_request": 37,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 76,
+      "repository": "EvolvingLMMs-Lab/lmms-eval",
+      "pull_request": 931,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 77,
+      "repository": "nodejs/undici",
+      "pull_request": 4913,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 78,
+      "repository": "PhysShell/Own.NET",
+      "pull_request": 55,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 79,
+      "repository": "FluffyAIcode/LLM-KV--Cache-compress",
+      "pull_request": 18,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 80,
+      "repository": "mrkhn/crockford32",
+      "pull_request": 12,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 81,
+      "repository": "sarchlab/m2sim2",
+      "pull_request": 78,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 82,
+      "repository": "duckdb/duckdb",
+      "pull_request": 13205,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 83,
+      "repository": "rulehunt/rulehunt",
+      "pull_request": 85,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 84,
+      "repository": "ryancinsight/kwavers",
+      "pull_request": 264,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 85,
+      "repository": "duckdb/duckdb",
+      "pull_request": 15562,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 86,
+      "repository": "ROCm/aiter",
+      "pull_request": 3154,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 87,
+      "repository": "quantivly/dotfiles",
+      "pull_request": 22,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 88,
+      "repository": "ms178/lccc",
+      "pull_request": 12,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 89,
+      "repository": "kdantuono/money-wise",
+      "pull_request": 139,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 90,
+      "repository": "NOAA-OWP/ras2fim",
+      "pull_request": 320,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 91,
+      "repository": "rjwalters/vibesql",
+      "pull_request": 2904,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 92,
+      "repository": "sarchlab/m2sim",
+      "pull_request": 188,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 93,
+      "repository": "nav0-org/nav0-browser",
+      "pull_request": 64,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 94,
+      "repository": "volcano-sh/volcano",
+      "pull_request": 3857,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 95,
+      "repository": "redwing-johan/ec2-benchmark-dashboard",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 96,
+      "repository": "optyx-dev/optyx",
+      "pull_request": 29,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 97,
+      "repository": "aegisfleet/tool-survey-report",
+      "pull_request": 797,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 98,
+      "repository": "ROCm/rocm-libraries",
+      "pull_request": 3278,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 99,
+      "repository": "halotukozak/scala-commons3",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 100,
+      "repository": "zlib-ng/zlib-ng",
+      "pull_request": 2122,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 101,
+      "repository": "sgl-project/sglang",
+      "pull_request": 10372,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 102,
+      "repository": "hernanponcedeleon/Dat3M",
+      "pull_request": 973,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 103,
+      "repository": "NLstn/go-odata",
+      "pull_request": 860,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 104,
+      "repository": "PhiFEM/phiFEM",
+      "pull_request": 32,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 105,
+      "repository": "chc-comp/chc-comp25-benchmarks",
+      "pull_request": 8,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 106,
+      "repository": "halotukozak-com/alpaca",
+      "pull_request": 276,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 107,
+      "repository": "makr-code/ThemisDB",
+      "pull_request": 3566,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 108,
+      "repository": "NVIDIA/cutlass",
+      "pull_request": 3124,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 109,
+      "repository": "spate-etl/spate",
+      "pull_request": 102,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 110,
+      "repository": "RedisAI/VectorSimilarity",
+      "pull_request": 973,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 111,
+      "repository": "tjhop/slog-gokit",
+      "pull_request": 22,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 112,
+      "repository": "aurelianware/cloudhealthoffice",
+      "pull_request": 951,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 113,
+      "repository": "MetaMask/metamask-extension",
+      "pull_request": 41217,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 114,
+      "repository": "aleixlopezpascual/orbit-wars",
+      "pull_request": 4,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 115,
+      "repository": "ashtonchew/modal-computer-use",
+      "pull_request": 17,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 116,
+      "repository": "zivid/zivid-cpp-samples",
+      "pull_request": 293,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 117,
+      "repository": "vitalNohj/blender-axi",
+      "pull_request": 4,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 118,
+      "repository": "xerj-org/xerj",
+      "pull_request": 5,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 119,
+      "repository": "Gavin-Borges/SESTRAV",
+      "pull_request": 213,
+      "eligible": true,
+      "reason": "same_certified_model_numeric_configuration_label_corrected",
+      "case_id": "sestrav-feature-count-label-correction"
+    },
+    {
+      "rank": 120,
+      "repository": "blowthehwistle/Grouped-GEMM",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 121,
+      "repository": "vllm-project/vllm",
+      "pull_request": 27014,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 122,
+      "repository": "paraloom-labs/paraloom-core",
+      "pull_request": 620,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 123,
+      "repository": "acg-box/ELF",
+      "pull_request": 127,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 124,
+      "repository": "microsoft/TypeAgent",
+      "pull_request": 2644,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 125,
+      "repository": "UniClipboard/UniClipboard",
+      "pull_request": 1356,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 126,
+      "repository": "prasannadupakuntla/Paper_Checker",
+      "pull_request": 4,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 127,
+      "repository": "sookoothaii/IntelShed",
+      "pull_request": 178,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 128,
+      "repository": "UBC-MDS/DSCI_575_project_jt8919_nicolelink33",
+      "pull_request": 6,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 129,
+      "repository": "studynightfive/one-stop-intelligent-bidding-platform",
+      "pull_request": 59,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 130,
+      "repository": "devreet-kaur/face-emotion-recognition",
+      "pull_request": 21,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 131,
+      "repository": "UKGovernmentBEIS/inspect_evals",
+      "pull_request": 1845,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 132,
+      "repository": "empireenglishcommunity-glitch/empire-nexus",
+      "pull_request": 219,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 133,
+      "repository": "j4n1kynt/rocket-elevators-ops-dashboard",
+      "pull_request": 78,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 134,
+      "repository": "vllm-project/tpu-inference",
+      "pull_request": 3294,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 135,
+      "repository": "OpenAdaptAI/openadapt-ml",
+      "pull_request": 70,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 136,
+      "repository": "patnir411/kaetram-arena",
+      "pull_request": 36,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 137,
+      "repository": "fundthmcalculus/grad-school",
+      "pull_request": 25,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 138,
+      "repository": "EuroEval/EuroEval",
+      "pull_request": 1951,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 139,
+      "repository": "Sangeethramuk/wed",
+      "pull_request": 61,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 140,
+      "repository": "dpaluy/rubric_llm",
+      "pull_request": 7,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 141,
+      "repository": "hatemmsc-ops/CyberBoard-AI",
+      "pull_request": 2,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 142,
+      "repository": "Tyler-R-Kendrick/slm-training",
+      "pull_request": 411,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 143,
+      "repository": "aboydnw/local-llm-rag",
+      "pull_request": 27,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 144,
+      "repository": "bem-team/bem-crm",
+      "pull_request": 23,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 145,
+      "repository": "princesslana/princhess",
+      "pull_request": 481,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 146,
+      "repository": "michalmaj/improcv",
+      "pull_request": 89,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 147,
+      "repository": "susipriyasuraj/laureate-hitl",
+      "pull_request": 3,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 148,
+      "repository": "nvtanphat/sentenai-absa-dashboard",
+      "pull_request": 15,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 149,
+      "repository": "rosalinatorres888/cosql-nba-spatial",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 150,
+      "repository": "b7n0de/proofbundle",
+      "pull_request": 73,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 151,
+      "repository": "drevald/type-one",
+      "pull_request": 62,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 152,
+      "repository": "thewildofficial/epistemic-steering",
+      "pull_request": 2,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 153,
+      "repository": "SebastianNagl/benger-platform",
+      "pull_request": 236,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 154,
+      "repository": "HyunsunHwang/scholarship-curation-platform",
+      "pull_request": 20,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 155,
+      "repository": "Zaha-Projects/Zaha-Core-Orbit",
+      "pull_request": 119,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 156,
+      "repository": "Open-Systems-Pharmacology/OSPSuite.ParameterIdentification",
+      "pull_request": 280,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 157,
+      "repository": "netbirdio/netbird",
+      "pull_request": 7093,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 158,
+      "repository": "mamangwiro/fleet-performance-predictive-maintenance",
+      "pull_request": 14,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 159,
+      "repository": "weby-homelab/power-framework",
+      "pull_request": 110,
+      "eligible": true,
+      "reason": "same_search_outputs_recomputed_with_correct_path_only_parser",
+      "case_id": "power-path-parser-metric-correction"
+    },
+    {
+      "rank": 160,
+      "repository": "NVIDIA-TAO/tao-skill-bank",
+      "pull_request": 109,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 161,
+      "repository": "pkarakala/cqec-ml-decoder",
+      "pull_request": 3,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 162,
+      "repository": "checkmarble/marble-backend",
+      "pull_request": 1735,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 163,
+      "repository": "fdavidgithub/sensoriando_webservice",
+      "pull_request": 68,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 164,
+      "repository": "matheusschreiber/frame-guesser",
+      "pull_request": 15,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 165,
+      "repository": "SebastianNagl/benger-platform",
+      "pull_request": 8,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 166,
+      "repository": "handism/mini-brain",
+      "pull_request": 42,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 167,
+      "repository": "ballerina-nutcracker/ballerina",
+      "pull_request": 501,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 168,
+      "repository": "promptfoo/promptfoo",
+      "pull_request": 9390,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 169,
+      "repository": "AaryanSinghChauhan09/SigmaOS",
+      "pull_request": 226,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 170,
+      "repository": "DrewM96/nfl-prediction-system",
+      "pull_request": 7,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 171,
+      "repository": "rlcancian/Genesys-Simulator",
+      "pull_request": 89,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 172,
+      "repository": "mindersec/minder",
+      "pull_request": 6361,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 173,
+      "repository": "chathuranga-sudusinghe/opencv-face-recognition",
+      "pull_request": 4,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 174,
+      "repository": "Thoth-Software/fiat",
+      "pull_request": 46,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 175,
+      "repository": "VforVitorio/F1-StratLab",
+      "pull_request": 754,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 176,
+      "repository": "dallascrilley/dowser",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 177,
+      "repository": "microsoft/pyright",
+      "pull_request": 9765,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 178,
+      "repository": "w4bo/docker-python",
+      "pull_request": 278,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 179,
+      "repository": "hongbo-miao/hongbomiao.com",
+      "pull_request": 39390,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 180,
+      "repository": "getsentry/sentry",
+      "pull_request": 107311,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 181,
+      "repository": "ultralytics/ultralytics",
+      "pull_request": 25158,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 182,
+      "repository": "couchbase-examples/agent-catalog-quickstart",
+      "pull_request": 11,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 183,
+      "repository": "hongbo-miao/hongbomiao.com",
+      "pull_request": 39394,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 184,
+      "repository": "emcie-co/parlant",
+      "pull_request": 730,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 185,
+      "repository": "microsoft/pyright",
+      "pull_request": 9567,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 186,
+      "repository": "mautic/mautic",
+      "pull_request": 15791,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 187,
+      "repository": "DataDog/dd-trace-dotnet",
+      "pull_request": 7994,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 188,
+      "repository": "jpoz/werkbook",
+      "pull_request": 39,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 189,
+      "repository": "manafishrov/app",
+      "pull_request": 27,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 190,
+      "repository": "alialquraan/m9-l9b-alialquraan",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 191,
+      "repository": "konveyor/analyzer-lsp",
+      "pull_request": 1151,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 192,
+      "repository": "PhonePe/bonsai",
+      "pull_request": 9,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 193,
+      "repository": "Arcadia-1/razavi-bench",
+      "pull_request": 10,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 194,
+      "repository": "demml/scouter",
+      "pull_request": 264,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 195,
+      "repository": "voxel51/fiftyone",
+      "pull_request": 6471,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 196,
+      "repository": "Kapernikov/asset360-rust",
+      "pull_request": 20,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 197,
+      "repository": "chrisjcc/text-to-sql-finetuning",
+      "pull_request": 8,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 198,
+      "repository": "Two-Weeks-Team/somm.dev",
+      "pull_request": 265,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 199,
+      "repository": "murkiaga/koadernoa",
+      "pull_request": 65,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 200,
+      "repository": "PostHog/posthog",
+      "pull_request": 51317,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 201,
+      "repository": "digithings-ai/digithings",
+      "pull_request": 1930,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 202,
+      "repository": "maxwellsantoro/dotrepo",
+      "pull_request": 95,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 203,
+      "repository": "bfogels/infergrade-runner",
+      "pull_request": 516,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 204,
+      "repository": "coen-gpt/coenconstruction.com",
+      "pull_request": 597,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 205,
+      "repository": "aarora79/agentic-coding-harness-benchmarks",
+      "pull_request": 109,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 206,
+      "repository": "amos-labs/amos-platform-2.0",
+      "pull_request": 60,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 207,
+      "repository": "openvang/vanguarstew",
+      "pull_request": 1934,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 208,
+      "repository": "mlcommons/endpoints",
+      "pull_request": 432,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 209,
+      "repository": "Actenon/actenon-scan",
+      "pull_request": 26,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 210,
+      "repository": "adigo-pro/CodeCouncil",
+      "pull_request": 7,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 211,
+      "repository": "00PrabalK00/Continuum",
+      "pull_request": 66,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 212,
+      "repository": "TigreGotico/orthography2ipa",
+      "pull_request": 830,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 213,
+      "repository": "run-llama/ExtractBench",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 214,
+      "repository": "firejake308/grocerez-web",
+      "pull_request": 9,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 215,
+      "repository": "Chuzom/Chuzom",
+      "pull_request": 220,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 216,
+      "repository": "Lamatic/AgentKit",
+      "pull_request": 312,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 217,
+      "repository": "ClatTribe/tsengine",
+      "pull_request": 1073,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 218,
+      "repository": "Snowy-Girl-Labs/OpenFugu",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 219,
+      "repository": "KarmaloopAI/Jiva",
+      "pull_request": 53,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 220,
+      "repository": "franciszver/clarif-eye",
+      "pull_request": 36,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 221,
+      "repository": "saurabhav88/EnviousWispr",
+      "pull_request": 1917,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 222,
+      "repository": "biopb/biopb",
+      "pull_request": 714,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 223,
+      "repository": "Kickoman/rain-analysis",
+      "pull_request": 168,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 224,
+      "repository": "praxagent/prax",
+      "pull_request": 126,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 225,
+      "repository": "invergent-ai/surogate_eval",
+      "pull_request": 4,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 226,
+      "repository": "robomotionio/goant",
+      "pull_request": 5,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 227,
+      "repository": "RA-CONSULTING/Aureon-OS",
+      "pull_request": 192,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 228,
+      "repository": "ajhcs/healthcare-data-mcp",
+      "pull_request": 58,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 229,
+      "repository": "zackbart/connecta",
+      "pull_request": 205,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 230,
+      "repository": "Anshuman11o/Cybersecurity-Coding-Agent-Harness",
+      "pull_request": 34,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 231,
+      "repository": "morluto/jacobian",
+      "pull_request": 375,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 232,
+      "repository": "ravan-chuang/Embedding_Compression_for_RAG_Retrieval",
+      "pull_request": 14,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 233,
+      "repository": "olxver2025/llmcompare",
+      "pull_request": 7,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 234,
+      "repository": "merefield/codexometer",
+      "pull_request": 9,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 235,
+      "repository": "andrei649/jarvis-hub",
+      "pull_request": 803,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 236,
+      "repository": "oaslananka/zaptrace",
+      "pull_request": 329,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 237,
+      "repository": "grunobuide/scoutlens",
+      "pull_request": 54,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 238,
+      "repository": "bobrenjc93/helion-attention",
+      "pull_request": 84,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 239,
+      "repository": "zuranta/task3",
+      "pull_request": 5,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 240,
+      "repository": "modelscope/evalscope",
+      "pull_request": 1551,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 241,
+      "repository": "trentleslie/biomapper2",
+      "pull_request": 19,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 242,
+      "repository": "ludo-technologies/polyscan",
+      "pull_request": 33,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 243,
+      "repository": "e35ventura/taopedia-articles",
+      "pull_request": 12580,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 244,
+      "repository": "thejacobbarney/thejacobbarney.github.io",
+      "pull_request": 3,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 245,
+      "repository": "ist-h-i/agent-spectrum-kernel",
+      "pull_request": 201,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 246,
+      "repository": "DANISRAELZ/NODOX",
+      "pull_request": 23,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 247,
+      "repository": "777genius/infinity-context",
+      "pull_request": 51,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 248,
+      "repository": "uinaf/healthmule-ios",
+      "pull_request": 25,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 249,
+      "repository": "rsasaki0109/lidar_slam_ros2",
+      "pull_request": 417,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    },
+    {
+      "rank": 250,
+      "repository": "jtrefon/amber",
+      "pull_request": 45,
+      "eligible": false,
+      "reason": "no_eligible_like_for_like_numeric_claim_pair"
+    }
+  ],
+  "scientific_boundary": "All 250 decisions were made from frozen GitHub metadata, merge-parent/merge diffs, and immutable source pairs without importing or executing ReproCheck. Repeated narrative and derived restatements were collapsed to each case's primary corrected claim surface."
+}

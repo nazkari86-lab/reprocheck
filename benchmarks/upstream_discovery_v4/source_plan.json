@@ -1,0 +1,39 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-source-plan.v1",
+  "eligibility_blinded_to_parser_output": true,
+  "cases": [
+    {
+      "rank": 17,
+      "id": "popoto-locomo-gold-blind-scoring",
+      "files": ["docs/benchmarks.md"]
+    },
+    {
+      "rank": 31,
+      "id": "ddharmon-authoritative-metric-sync",
+      "files": ["docs/methods.md"]
+    },
+    {
+      "rank": 37,
+      "id": "lore-esbuild-ground-truth-correction",
+      "files": ["docs/benchmark-results.md"]
+    },
+    {
+      "rank": 69,
+      "id": "sekiban-rss-log-correction",
+      "files": ["docs/benchmark-results.md"]
+    },
+    {
+      "rank": 119,
+      "id": "sestrav-feature-count-label-correction",
+      "files": ["results/external_benchmark_comparison.md"]
+    },
+    {
+      "rank": 159,
+      "id": "power-path-parser-metric-correction",
+      "files": [
+        "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+        "docs/tests/P.O.W.E.R.2.0.3-TEST-3.md"
+      ]
+    }
+  ]
+}

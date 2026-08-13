@@ -1,0 +1,61 @@
+{
+  "files": {
+    "ddharmon-authoritative-metric-sync--docs__methods.md.after.md": {
+      "sha256": "02fbf8fd823c2d6e6790c218b6bdebd348b3ac3176d2a5cde8b95e75855c3af3",
+      "url": "https://raw.githubusercontent.com/Phenome-Health/ddharmon/1eb4825533be88807fe25e46b87c4a84d6cc8178/docs/methods.md"
+    },
+    "ddharmon-authoritative-metric-sync--docs__methods.md.before.md": {
+      "sha256": "d41b7560202b00d593e20d5a44032c6286b64840fd024fa15cedae17ddba1933",
+      "url": "https://raw.githubusercontent.com/Phenome-Health/ddharmon/55395ae84fa790d7cc903750600faf75bb6f9b4d/docs/methods.md"
+    },
+    "lore-esbuild-ground-truth-correction--docs__benchmark-results.md.after.md": {
+      "sha256": "0d6f2954fb6de8802ba4a20a0e4eca5dfd63471f84d539f16186b9e3bde68619",
+      "url": "https://raw.githubusercontent.com/jafreck/Lore/4c09f48c1d79713666f03ef77330cf2f821cee00/docs/benchmark-results.md"
+    },
+    "lore-esbuild-ground-truth-correction--docs__benchmark-results.md.before.md": {
+      "sha256": "0297e66433d53575b8ae403c4a2ef4f6d944fd3d9c683c9873d3cf6da4b1fb56",
+      "url": "https://raw.githubusercontent.com/jafreck/Lore/938b7382818f016afac05488aae54b3533172a10/docs/benchmark-results.md"
+    },
+    "popoto-locomo-gold-blind-scoring--docs__benchmarks.md.after.md": {
+      "sha256": "7cf3702f7b125a4739acb3d3236e171e230367acc03092ad13e21e21d6531a7f",
+      "url": "https://raw.githubusercontent.com/tomcounsell/popoto/592e24136a89f87d6160131e1096c83a81a303e0/docs/benchmarks.md"
+    },
+    "popoto-locomo-gold-blind-scoring--docs__benchmarks.md.before.md": {
+      "sha256": "a1acb2b40c7c235451d6ab2191376e17a0e62bd3b4a27a383a561493a2d527bb",
+      "url": "https://raw.githubusercontent.com/tomcounsell/popoto/3dbecca64a49ee9d3a5db5f5fdba3a7d5ffa3cb8/docs/benchmarks.md"
+    },
+    "power-path-parser-metric-correction--docs__tests__P.O.W.E.R.2.0.3-TEST-2.md.after.md": {
+      "sha256": "6a9a976bbc09b87cace063db032aa8f317fb7b2aa96798967a56da135839b994",
+      "url": "https://raw.githubusercontent.com/weby-homelab/power-framework/6ed24a9fb41de45af7af395120a83d8b94e59ea5/docs/tests/P.O.W.E.R.2.0.3-TEST-2.md"
+    },
+    "power-path-parser-metric-correction--docs__tests__P.O.W.E.R.2.0.3-TEST-2.md.before.md": {
+      "sha256": "585f0d7c569be76ba73b55b3de208693a4336c8ccf1257e7cf335074eb14c818",
+      "url": "https://raw.githubusercontent.com/weby-homelab/power-framework/76e02f097843d95986f7bc467d1dea5ed2799c26/docs/tests/P.O.W.E.R.2.0.3-TEST-2.md"
+    },
+    "power-path-parser-metric-correction--docs__tests__P.O.W.E.R.2.0.3-TEST-3.md.after.md": {
+      "sha256": "87891b1feb426813b4d109737ee15803d3d67050cead3a46dfb2f56f0bb9983b",
+      "url": "https://raw.githubusercontent.com/weby-homelab/power-framework/6ed24a9fb41de45af7af395120a83d8b94e59ea5/docs/tests/P.O.W.E.R.2.0.3-TEST-3.md"
+    },
+    "power-path-parser-metric-correction--docs__tests__P.O.W.E.R.2.0.3-TEST-3.md.before.md": {
+      "sha256": "bb97fff358c72a8f50d1fb20f26616849fb298f7df0d0e29fd9bec16d8cc2007",
+      "url": "https://raw.githubusercontent.com/weby-homelab/power-framework/76e02f097843d95986f7bc467d1dea5ed2799c26/docs/tests/P.O.W.E.R.2.0.3-TEST-3.md"
+    },
+    "sekiban-rss-log-correction--docs__benchmark-results.md.after.md": {
+      "sha256": "488d3aa0243ea07e29df73827d332ced71f6339e7189c6d90ba316c93719404f",
+      "url": "https://raw.githubusercontent.com/J-Tech-Japan/SekibanWasmRuntime/2014abc464073d77d82221b7e0ca4f7ad7371dcf/docs/benchmark-results.md"
+    },
+    "sekiban-rss-log-correction--docs__benchmark-results.md.before.md": {
+      "sha256": "5fc0a51fe960043cff2e318a1c4cc91c632d0a89d9f792f1f92ee4de13a98ad7",
+      "url": "https://raw.githubusercontent.com/J-Tech-Japan/SekibanWasmRuntime/a951277fdf4cbc720f13dbfc90fafdf6497cb02a/docs/benchmark-results.md"
+    },
+    "sestrav-feature-count-label-correction--results__external_benchmark_comparison.md.after.md": {
+      "sha256": "cc921c36c4684c4cd6fe209ce95d6f529369ac33c8d881962a532341be1ceb39",
+      "url": "https://raw.githubusercontent.com/Gavin-Borges/SESTRAV/ffd36db3be168f1d76cafe10760fe53ed9c83662/results/external_benchmark_comparison.md"
+    },
+    "sestrav-feature-count-label-correction--results__external_benchmark_comparison.md.before.md": {
+      "sha256": "e05a741567c2509cadfdea32b271199447747a9de0f7263555e145efc67f492f",
+      "url": "https://raw.githubusercontent.com/Gavin-Borges/SESTRAV/a1b043cd1e4ae917cfb9abd985cbb916cb9e6ad2/results/external_benchmark_comparison.md"
+    }
+  },
+  "schema_version": "reprocheck.upstream-discovery-sources-lock.v2"
+}
