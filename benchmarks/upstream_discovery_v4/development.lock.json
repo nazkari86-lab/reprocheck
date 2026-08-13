@@ -1,0 +1,8 @@
+{
+  "development_result": {
+    "path": "results/development-current.json",
+    "sha256": "a65df9daf086d86499aef8ad14276b7a9339dc27b7810123778f79965affa5eb"
+  },
+  "implementation_commit": "4d389e265fd358c59717acdeb64ef997e0d68096",
+  "schema_version": "reprocheck.upstream-discovery-development-lock.v1"
+}
