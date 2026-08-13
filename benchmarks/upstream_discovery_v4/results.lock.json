@@ -1,0 +1,11 @@
+{
+  "frozen_evaluator_wheel": {
+    "path": "evaluator/reprocheck-0.20.0-py3-none-any.whl",
+    "sha256": "f73561ca61a1bb04211ef4a4d73c7250c0e969c35105077d219be54a61f810fd"
+  },
+  "schema_version": "reprocheck.upstream-discovery-result-lock.v1",
+  "zero_shot_result": {
+    "path": "results/zero-shot-0.20.0.json",
+    "sha256": "64e121cdb771a30ae7cbbb02576cbf02ba871bd59a82caa26758f42ec5a8e6d2"
+  }
+}
