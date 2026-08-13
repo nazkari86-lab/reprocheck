@@ -3,7 +3,7 @@ UV_VERSION ?= 0.12.1
 LOCKED_DEV_REQUIREMENTS ?= /tmp/reprocheck-dev-lock.txt
 LOCKED_RUNTIME_REQUIREMENTS ?= /tmp/reprocheck-runtime-lock.txt
 
-.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation witness-benchmark witness-source-benchmark external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo rknp-demo serve
+.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation witness-benchmark witness-source-benchmark upstream-corrections external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development external external-regenerate build gate demo rknp-demo serve
 
 install:
 	python3 -m pip install --quiet uv==$(UV_VERSION)
@@ -49,6 +49,10 @@ witness-benchmark:
 witness-source-benchmark:
 	python3 -m reprocheck.cli witness-source-benchmark --protocol benchmarks/witness_source/protocol.json --output outputs/witness-source-benchmark.json
 	python3 benchmarks/witness_source/check_baseline.py --result outputs/witness-source-benchmark.json
+
+upstream-corrections:
+	python3 benchmarks/upstream_corrections/fetch_sources.py
+	python3 benchmarks/upstream_corrections/run_benchmark.py --output outputs/upstream-corrections.json
 
 external-holdout-registration:
 	python3 -m reprocheck.cli holdout-verify-registration --registration benchmarks/external_holdout_v017/registration.json --protocol benchmarks/external_holdout_v017/protocol.json --evaluator benchmarks/external_holdout_v017/evaluator/reprocheck-0.17.0-py3-none-any.whl
@@ -134,7 +138,7 @@ external-regenerate:
 build:
 	SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) python3 -m build
 
-gate: lock-check lint type coverage benchmark evidence-ablation witness-benchmark witness-source-benchmark external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
+gate: lock-check lint type coverage benchmark evidence-ablation witness-benchmark witness-source-benchmark upstream-corrections external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development demo external build
 
 demo:
 	python3 -m reprocheck.cli demo

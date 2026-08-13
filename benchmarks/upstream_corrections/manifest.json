@@ -1,0 +1,52 @@
+{
+  "schema_version": "reprocheck.upstream-corrections.v1",
+  "evidence_policy": "Only merged upstream corrections whose PR explicitly identifies the prior value or metric label as erroneous are eligible.",
+  "corrections": [
+    {
+      "id": "mmdet-fpg-box-ap",
+      "repository": "open-mmlab/mmdetection",
+      "pull_request": "https://github.com/open-mmlab/mmdetection/pull/9041",
+      "merge_commit": "09bc48c1bb2aec4ed02b42ecdc17170b20bcfc50",
+      "parent_commit": "a249dfe8d6e1939e346398aa7c6f712ce4d47e68",
+      "path": "configs/fpg/README.md",
+      "kind": "numeric_metric_value",
+      "metric": "box AP",
+      "expected_before_claim": {"metric": "box_ap", "value": 0.496},
+      "expected_after_claim": {"metric": "box_ap", "value": 0.396},
+      "before": "|  Mask R-CNN  |    FPN     |   50e   |   23.2   |       -        |  49.6  |  35.6",
+      "after": "|  Mask R-CNN  |    FPN     |   50e   |   23.2   |       -        |  39.6  |  35.6",
+      "affected_records": 1
+    },
+    {
+      "id": "mmdet-conditional-detr-box-ap",
+      "repository": "open-mmlab/mmdetection",
+      "pull_request": "https://github.com/open-mmlab/mmdetection/pull/9889",
+      "merge_commit": "a4c94134f0bcb82686184dbb69f7f9011ef87d72",
+      "parent_commit": "1d06209db5a1d147800e669e86c962f776360ceb",
+      "path": "configs/conditional_detr/README.md",
+      "kind": "numeric_metric_value",
+      "metric": "box AP",
+      "expected_before_claim": {"metric": "box_ap", "value": 0.409},
+      "expected_after_claim": {"metric": "box_ap", "value": 0.411},
+      "before": "|   R-50   | Conditional DETR |   50e   |          |                |  40.9  |",
+      "after": "|   R-50   | Conditional DETR |   50e   |          |                |  41.1  |",
+      "affected_records": 1
+    },
+    {
+      "id": "mmseg-unet-dice-label",
+      "repository": "open-mmlab/mmsegmentation",
+      "pull_request": "https://github.com/open-mmlab/mmsegmentation/pull/1041",
+      "merge_commit": "97f9670c5a4a2a3b4cfb411bcc26db16b23745f7",
+      "parent_commit": "6b3e5506c56fa6a04a5d2bde086919d62310884f",
+      "path": "configs/unet/unet.yml",
+      "kind": "metric_name",
+      "metric": "Dice",
+      "expected_before_claim": {"metric": "miou"},
+      "expected_after_claim": {"metric": "dice"},
+      "before": "      mIoU:",
+      "after": "      Dice:",
+      "affected_records": 12
+    }
+  ],
+  "scientific_boundary": "This corpus contains 3 independent upstream corrections and 14 affected records. Records changed by one PR are not counted as independent projects. It does not measure recall over all real repository defects."
+}

@@ -1,0 +1,29 @@
+{
+  "files": {
+    "mmdet-conditional-detr-box-ap.after.md": {
+      "sha256": "036b73f39c2626c058b2829109a1959cb8f2185bd3b5a9fc7c8b09b9e79ff794",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/a4c94134f0bcb82686184dbb69f7f9011ef87d72/configs/conditional_detr/README.md"
+    },
+    "mmdet-conditional-detr-box-ap.before.md": {
+      "sha256": "9bef352100f069cca4797140796345ac1a8f000bdd61c957a8ec8bbbb8eb7822",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/1d06209db5a1d147800e669e86c962f776360ceb/configs/conditional_detr/README.md"
+    },
+    "mmdet-fpg-box-ap.after.md": {
+      "sha256": "3fa80f6fbd8a7e3eb4e31494ba9a36c8a7f43cb6393baf7396252fbf5e2fd76e",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/09bc48c1bb2aec4ed02b42ecdc17170b20bcfc50/configs/fpg/README.md"
+    },
+    "mmdet-fpg-box-ap.before.md": {
+      "sha256": "4748728075af4c44d35bd9409f6ede66e1c8bf6ff645adf7660bebccad0607ca",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/a249dfe8d6e1939e346398aa7c6f712ce4d47e68/configs/fpg/README.md"
+    },
+    "mmseg-unet-dice-label.after.yml": {
+      "sha256": "7cf4777ddc16ca66baba29dd0fc176c9699aa5d3cadc2419774ab53f52b3f0f3",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmsegmentation/97f9670c5a4a2a3b4cfb411bcc26db16b23745f7/configs/unet/unet.yml"
+    },
+    "mmseg-unet-dice-label.before.yml": {
+      "sha256": "79cbf69a9a57f7e1b05b72730ca8eb901d9dbc6889209192565047b770df4b71",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmsegmentation/6b3e5506c56fa6a04a5d2bde086919d62310884f/configs/unet/unet.yml"
+    }
+  },
+  "schema_version": "reprocheck.upstream-corrections-lock.v1"
+}

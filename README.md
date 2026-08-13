@@ -81,12 +81,19 @@ reprocheck check examples/reprocheck.json --output-dir outputs/project --html
 reprocheck benchmark
 reprocheck ablation
 make expanded-experiments
+make upstream-corrections
 reprocheck study --corpus benchmarks/real_artifacts
 reprocheck review-prepare --corpus benchmarks/holdout_v07_artifacts
 reprocheck serve
 make rknp-demo
 make gate
 ```
+
+The primary natural-error evidence is `make upstream-corrections`: three
+independent merged upstream corrections affecting fourteen real metadata
+records, frozen at immutable commits and visible to ReproCheck's claim parser.
+This is a historical correction corpus, not an estimate of recall over every
+repository defect.
 
 The 12-case witness benchmark is controlled capability evidence. The separate
 30-case source-derived benchmark contains 27 deterministic mutations of three
