@@ -1,0 +1,1601 @@
+{
+  "schema_version": "reprocheck.cross-project-labels.v14",
+  "annotation_mode": "manual-source-only-no-extractor-output",
+  "review_order": "ascending sample rank",
+  "stop_rule": "first 25 eligible documents",
+  "reviewed_documents": 47,
+  "eligible_documents": 25,
+  "labels": [
+    {
+      "rank": 1,
+      "eligible": false,
+      "reason": "first benchmark table contains more than twenty outcome claims",
+      "claims": [],
+      "repository": "SohamJog/reed_solomon_rs",
+      "source_file": "sources/sample-01.md"
+    },
+    {
+      "rank": 2,
+      "eligible": true,
+      "reason": "first result table contains eight performance outcomes",
+      "block_lines": [
+        11,
+        15
+      ],
+      "claims": [
+        {
+          "line": 13,
+          "metric": "requests_per_second",
+          "value": 31272
+        },
+        {
+          "line": 13,
+          "metric": "latency_ms",
+          "value": 3.2
+        },
+        {
+          "line": 13,
+          "metric": "performance_change_percent",
+          "value": 120
+        },
+        {
+          "line": 14,
+          "metric": "requests_per_second",
+          "value": 20840
+        },
+        {
+          "line": 14,
+          "metric": "latency_ms",
+          "value": 4.8
+        },
+        {
+          "line": 14,
+          "metric": "performance_change_percent",
+          "value": 47
+        },
+        {
+          "line": 15,
+          "metric": "requests_per_second",
+          "value": 14207
+        },
+        {
+          "line": 15,
+          "metric": "latency_ms",
+          "value": 7.04
+        }
+      ],
+      "repository": "supratim1609/rivet",
+      "source_file": "sources/sample-02.md"
+    },
+    {
+      "rank": 3,
+      "eligible": false,
+      "reason": "first result table contains thirty quantitative outcomes",
+      "claims": [],
+      "repository": "zhaoxinyu2002/wechat-assistant-nanobot",
+      "source_file": "sources/sample-03.md"
+    },
+    {
+      "rank": 4,
+      "eligible": true,
+      "reason": "first result table contains three measured render times",
+      "block_lines": [
+        15,
+        19
+      ],
+      "claims": [
+        {
+          "line": 17,
+          "metric": "runtime_ms",
+          "value": 17.94
+        },
+        {
+          "line": 18,
+          "metric": "runtime_ms",
+          "value": 8.35
+        },
+        {
+          "line": 19,
+          "metric": "runtime_ms",
+          "value": 1.91
+        }
+      ],
+      "repository": "mehdi-nasiri-jahroodi/react-calendar-datetime-picker",
+      "source_file": "sources/sample-04.md"
+    },
+    {
+      "rank": 5,
+      "eligible": true,
+      "reason": "first confirmed-result table contains twenty outcomes",
+      "block_lines": [
+        14,
+        21
+      ],
+      "claims": [
+        {
+          "line": 16,
+          "metric": "baseline_column_count",
+          "value": 107
+        },
+        {
+          "line": 16,
+          "metric": "optimized_column_count",
+          "value": 74
+        },
+        {
+          "line": 16,
+          "metric": "column_reduction",
+          "value": -33
+        },
+        {
+          "line": 16,
+          "metric": "column_reduction_percent",
+          "value": 31
+        },
+        {
+          "line": 17,
+          "metric": "baseline_memory_mb",
+          "value": 577.5
+        },
+        {
+          "line": 17,
+          "metric": "optimized_memory_mb",
+          "value": 228.1
+        },
+        {
+          "line": 17,
+          "metric": "memory_reduction_mb",
+          "value": -349.4
+        },
+        {
+          "line": 17,
+          "metric": "memory_reduction_percent",
+          "value": 61
+        },
+        {
+          "line": 18,
+          "metric": "baseline_runtime_seconds",
+          "value": 0.145
+        },
+        {
+          "line": 18,
+          "metric": "optimized_runtime_seconds",
+          "value": 0.041
+        },
+        {
+          "line": 18,
+          "metric": "speedup",
+          "value": 3.5
+        },
+        {
+          "line": 19,
+          "metric": "baseline_runtime_seconds",
+          "value": 0.671
+        },
+        {
+          "line": 19,
+          "metric": "optimized_runtime_seconds",
+          "value": 0.412
+        },
+        {
+          "line": 19,
+          "metric": "speedup",
+          "value": 1.6
+        },
+        {
+          "line": 20,
+          "metric": "baseline_runtime_seconds",
+          "value": 0.129
+        },
+        {
+          "line": 20,
+          "metric": "optimized_runtime_seconds",
+          "value": 0.051
+        },
+        {
+          "line": 20,
+          "metric": "speedup",
+          "value": 2.5
+        },
+        {
+          "line": 21,
+          "metric": "baseline_runtime_seconds",
+          "value": 1.895
+        },
+        {
+          "line": 21,
+          "metric": "optimized_runtime_seconds",
+          "value": 0.512
+        },
+        {
+          "line": 21,
+          "metric": "speedup",
+          "value": 3.7
+        }
+      ],
+      "repository": "niloydebbarma-code/zervepulse",
+      "source_file": "sources/sample-05.md"
+    },
+    {
+      "rank": 6,
+      "eligible": true,
+      "reason": "executive-summary block contains four outcomes",
+      "block_lines": [
+        9,
+        13
+      ],
+      "claims": [
+        {
+          "line": 10,
+          "metric": "speedup_percent",
+          "value": 47
+        },
+        {
+          "line": 11,
+          "metric": "relative_performance_percent",
+          "value": 109
+        },
+        {
+          "line": 12,
+          "metric": "relative_performance_percent",
+          "value": 80
+        },
+        {
+          "line": 13,
+          "metric": "tokens_per_second",
+          "value": 13.49
+        }
+      ],
+      "repository": "maderix/SimpLang",
+      "source_file": "sources/sample-06.md"
+    },
+    {
+      "rank": 7,
+      "eligible": true,
+      "reason": "first accuracy table contains sixteen outcome values",
+      "block_lines": [
+        5,
+        11
+      ],
+      "claims": [
+        {
+          "line": 7,
+          "metric": "strict_match_accuracy",
+          "value": 0.8582
+        },
+        {
+          "line": 7,
+          "metric": "flexible_extract_accuracy",
+          "value": 0.8582
+        },
+        {
+          "line": 8,
+          "metric": "strict_match_accuracy",
+          "value": 0.8537
+        },
+        {
+          "line": 8,
+          "metric": "flexible_extract_accuracy",
+          "value": 0.8544
+        },
+        {
+          "line": 8,
+          "metric": "strict_delta_percentage_points",
+          "value": -0.45
+        },
+        {
+          "line": 8,
+          "metric": "flexible_delta_percentage_points",
+          "value": -0.38
+        },
+        {
+          "line": 9,
+          "metric": "strict_match_accuracy",
+          "value": 0.7945
+        },
+        {
+          "line": 9,
+          "metric": "flexible_extract_accuracy",
+          "value": 0.7945
+        },
+        {
+          "line": 10,
+          "metric": "strict_match_accuracy",
+          "value": 0.0197
+        },
+        {
+          "line": 10,
+          "metric": "flexible_extract_accuracy",
+          "value": 0.1061
+        },
+        {
+          "line": 10,
+          "metric": "strict_delta_percentage_points",
+          "value": -77.48
+        },
+        {
+          "line": 10,
+          "metric": "flexible_delta_percentage_points",
+          "value": -68.84
+        },
+        {
+          "line": 11,
+          "metric": "strict_match_accuracy",
+          "value": 0.7938
+        },
+        {
+          "line": 11,
+          "metric": "flexible_extract_accuracy",
+          "value": 0.793
+        },
+        {
+          "line": 11,
+          "metric": "strict_delta_percentage_points",
+          "value": -0.07
+        },
+        {
+          "line": 11,
+          "metric": "flexible_delta_percentage_points",
+          "value": -0.15
+        }
+      ],
+      "repository": "pegainfer-project/pegainfer",
+      "source_file": "sources/sample-07.md"
+    },
+    {
+      "rank": 8,
+      "eligible": true,
+      "reason": "first evidence paragraph contains six scored outcomes",
+      "block_lines": [
+        11,
+        17
+      ],
+      "claims": [
+        {
+          "line": 14,
+          "metric": "holistic_score",
+          "value": 8.255
+        },
+        {
+          "line": 14,
+          "metric": "mobile_score",
+          "value": 8.595
+        },
+        {
+          "line": 15,
+          "metric": "holistic_score",
+          "value": 8.185
+        },
+        {
+          "line": 15,
+          "metric": "mobile_score",
+          "value": 8.645
+        },
+        {
+          "line": 17,
+          "metric": "holistic_score",
+          "value": 7.58
+        },
+        {
+          "line": 17,
+          "metric": "mobile_score",
+          "value": 7.46
+        }
+      ],
+      "repository": "DonaldMurillo/gofastr",
+      "source_file": "sources/sample-08.md"
+    },
+    {
+      "rank": 9,
+      "eligible": true,
+      "reason": "first performance table contains twelve outcomes",
+      "block_lines": [
+        5,
+        10
+      ],
+      "claims": [
+        {
+          "line": 7,
+          "metric": "accuracy",
+          "value": 0.6518
+        },
+        {
+          "line": 7,
+          "metric": "avg_response_tokens",
+          "value": 4315.8
+        },
+        {
+          "line": 7,
+          "metric": "avg_response_chars",
+          "value": 12096.0
+        },
+        {
+          "line": 8,
+          "metric": "accuracy",
+          "value": 0.8686
+        },
+        {
+          "line": 8,
+          "metric": "avg_response_tokens",
+          "value": 2944.8
+        },
+        {
+          "line": 8,
+          "metric": "avg_response_chars",
+          "value": 8141.1
+        },
+        {
+          "line": 9,
+          "metric": "accuracy",
+          "value": 0.8834
+        },
+        {
+          "line": 9,
+          "metric": "avg_response_tokens",
+          "value": 2849.3
+        },
+        {
+          "line": 9,
+          "metric": "avg_response_chars",
+          "value": 7886.6
+        },
+        {
+          "line": 10,
+          "metric": "accuracy",
+          "value": 0.8438
+        },
+        {
+          "line": 10,
+          "metric": "avg_response_tokens",
+          "value": 3198.8
+        },
+        {
+          "line": 10,
+          "metric": "avg_response_chars",
+          "value": 8822.7
+        }
+      ],
+      "repository": "Fzkuji/Ensemble-Hub",
+      "source_file": "sources/sample-09.md"
+    },
+    {
+      "rank": 10,
+      "eligible": true,
+      "reason": "executive summary contains accuracy, successful-answer, and completion outcomes",
+      "block_lines": [
+        10,
+        15
+      ],
+      "claims": [
+        {
+          "line": 11,
+          "metric": "accuracy",
+          "value": 0.8189
+        },
+        {
+          "line": 15,
+          "metric": "successful_answer_count",
+          "value": 42
+        },
+        {
+          "line": 15,
+          "metric": "completion_rate",
+          "value": 1.0
+        }
+      ],
+      "repository": "Vedantdev777/legal-rag-system",
+      "source_file": "sources/sample-10.md"
+    },
+    {
+      "rank": 11,
+      "eligible": true,
+      "reason": "first result table contains six mean keyword-count outcomes",
+      "block_lines": [
+        17,
+        24
+      ],
+      "claims": [
+        {
+          "line": 19,
+          "metric": "mean_keyword_count",
+          "value": 4.43
+        },
+        {
+          "line": 20,
+          "metric": "mean_keyword_count",
+          "value": 1.31
+        },
+        {
+          "line": 21,
+          "metric": "mean_keyword_count",
+          "value": 18.0
+        },
+        {
+          "line": 22,
+          "metric": "mean_keyword_count",
+          "value": 4.37
+        },
+        {
+          "line": 23,
+          "metric": "mean_keyword_count",
+          "value": 1.73
+        },
+        {
+          "line": 24,
+          "metric": "mean_keyword_count",
+          "value": 2.51
+        }
+      ],
+      "repository": "devharsh/municipal-cyber-policy-analytics",
+      "source_file": "sources/sample-11.md"
+    },
+    {
+      "rank": 12,
+      "eligible": true,
+      "reason": "first validation table contains twelve active metric outcomes",
+      "block_lines": [
+        24,
+        29
+      ],
+      "claims": [
+        {
+          "line": 26,
+          "metric": "retrieval",
+          "value": 1.0
+        },
+        {
+          "line": 26,
+          "metric": "lifecycle",
+          "value": 1.0
+        },
+        {
+          "line": 27,
+          "metric": "retrieval",
+          "value": 1.0
+        },
+        {
+          "line": 27,
+          "metric": "lifecycle",
+          "value": 1.0
+        },
+        {
+          "line": 27,
+          "metric": "scope_accuracy",
+          "value": 1.0
+        },
+        {
+          "line": 28,
+          "metric": "retrieval",
+          "value": 1.0
+        },
+        {
+          "line": 28,
+          "metric": "lifecycle",
+          "value": 1.0
+        },
+        {
+          "line": 28,
+          "metric": "scope_accuracy",
+          "value": 1.0
+        },
+        {
+          "line": 28,
+          "metric": "qa",
+          "value": 1.0
+        },
+        {
+          "line": 29,
+          "metric": "retrieval",
+          "value": 1.0
+        },
+        {
+          "line": 29,
+          "metric": "lifecycle",
+          "value": 1.0
+        },
+        {
+          "line": 29,
+          "metric": "scope_accuracy",
+          "value": 1.0
+        }
+      ],
+      "repository": "shisa-ai/MELT",
+      "source_file": "sources/sample-12.md"
+    },
+    {
+      "rank": 13,
+      "eligible": true,
+      "reason": "first empirical history table contains four open-time outcomes",
+      "block_lines": [
+        21,
+        25
+      ],
+      "claims": [
+        {
+          "line": 23,
+          "metric": "cold_open_ms",
+          "value": 55
+        },
+        {
+          "line": 24,
+          "metric": "cold_open_seconds",
+          "value": 1.1
+        },
+        {
+          "line": 25,
+          "metric": "cold_open_seconds",
+          "value": 1.1
+        },
+        {
+          "line": 25,
+          "metric": "warm_open_ms",
+          "value": 26
+        }
+      ],
+      "repository": "Mikedan37/BlazeDB",
+      "source_file": "sources/sample-13.md"
+    },
+    {
+      "rank": 14,
+      "eligible": false,
+      "reason": "first summary table contains more than twenty outcomes",
+      "claims": [],
+      "repository": "HBartosch/Effinitive",
+      "source_file": "sources/sample-14.md"
+    },
+    {
+      "rank": 15,
+      "eligible": true,
+      "reason": "first summary table contains twelve relative-performance outcomes",
+      "block_lines": [
+        7,
+        13
+      ],
+      "claims": [
+        {
+          "line": 9,
+          "metric": "performance_change_percent",
+          "value": -43
+        },
+        {
+          "line": 9,
+          "metric": "performance_change_percent",
+          "value": -13
+        },
+        {
+          "line": 10,
+          "metric": "performance_change_percent",
+          "value": -40
+        },
+        {
+          "line": 10,
+          "metric": "overhead_percent",
+          "value": 2
+        },
+        {
+          "line": 10,
+          "metric": "overhead_percent",
+          "value": 5
+        },
+        {
+          "line": 11,
+          "metric": "performance_change_percent",
+          "value": -25
+        },
+        {
+          "line": 11,
+          "metric": "overhead_percent",
+          "value": 2
+        },
+        {
+          "line": 11,
+          "metric": "overhead_percent",
+          "value": 5
+        },
+        {
+          "line": 12,
+          "metric": "performance_change_percent",
+          "value": -46
+        },
+        {
+          "line": 12,
+          "metric": "overhead_percent",
+          "value": 2
+        },
+        {
+          "line": 12,
+          "metric": "overhead_percent",
+          "value": 5
+        },
+        {
+          "line": 13,
+          "metric": "performance_change_percent",
+          "value": 9
+        }
+      ],
+      "repository": "riktaHQ/rikta.js",
+      "source_file": "sources/sample-15.md"
+    },
+    {
+      "rank": 16,
+      "eligible": false,
+      "reason": "resource guide defines metrics but reports no empirical result block",
+      "claims": [],
+      "repository": "wdkang123/ai-infra-handbook",
+      "source_file": "sources/sample-16.md"
+    },
+    {
+      "rank": 17,
+      "eligible": true,
+      "reason": "first console-result block contains five resource outcomes",
+      "block_lines": [
+        11,
+        18
+      ],
+      "claims": [
+        {
+          "line": 13,
+          "metric": "user_time_seconds",
+          "value": 3.83
+        },
+        {
+          "line": 14,
+          "metric": "system_time_seconds",
+          "value": 0.48
+        },
+        {
+          "line": 15,
+          "metric": "cpu_percent",
+          "value": 540
+        },
+        {
+          "line": 16,
+          "metric": "elapsed_time_seconds",
+          "value": 0.8
+        },
+        {
+          "line": 17,
+          "metric": "memory_kb",
+          "value": 485672
+        }
+      ],
+      "repository": "NickRoz1/gbam",
+      "source_file": "sources/sample-17.md"
+    },
+    {
+      "rank": 18,
+      "eligible": true,
+      "reason": "first type-distribution result table contains eighteen outcomes",
+      "block_lines": [
+        55,
+        62
+      ],
+      "claims": [
+        {
+          "line": 57,
+          "metric": "zero_count_ratio",
+          "value": 0.143
+        },
+        {
+          "line": 57,
+          "metric": "p25",
+          "value": 1.25
+        },
+        {
+          "line": 57,
+          "metric": "median",
+          "value": 3
+        },
+        {
+          "line": 58,
+          "metric": "zero_count_ratio",
+          "value": 0.286
+        },
+        {
+          "line": 58,
+          "metric": "p25",
+          "value": 0.25
+        },
+        {
+          "line": 58,
+          "metric": "median",
+          "value": 2
+        },
+        {
+          "line": 59,
+          "metric": "zero_count_ratio",
+          "value": 0.357
+        },
+        {
+          "line": 59,
+          "metric": "p25",
+          "value": 0
+        },
+        {
+          "line": 59,
+          "metric": "median",
+          "value": 1
+        },
+        {
+          "line": 60,
+          "metric": "zero_count_ratio",
+          "value": 0.643
+        },
+        {
+          "line": 60,
+          "metric": "p25",
+          "value": 0
+        },
+        {
+          "line": 60,
+          "metric": "median",
+          "value": 0
+        },
+        {
+          "line": 61,
+          "metric": "zero_count_ratio",
+          "value": 0.643
+        },
+        {
+          "line": 61,
+          "metric": "p25",
+          "value": 0
+        },
+        {
+          "line": 61,
+          "metric": "median",
+          "value": 0
+        },
+        {
+          "line": 62,
+          "metric": "zero_score_ratio",
+          "value": 0
+        },
+        {
+          "line": 62,
+          "metric": "p25",
+          "value": 40
+        },
+        {
+          "line": 62,
+          "metric": "median",
+          "value": 60
+        }
+      ],
+      "repository": "jun-0411/hankkeut-analysis",
+      "source_file": "sources/sample-18.md"
+    },
+    {
+      "rank": 19,
+      "eligible": false,
+      "reason": "generated API type documentation contains no empirical outcomes",
+      "claims": [],
+      "repository": "rehanalam/vz-test-package-js-sdk",
+      "source_file": "sources/sample-19.md"
+    },
+    {
+      "rank": 20,
+      "eligible": false,
+      "reason": "implementation report lists checks but no quantitative result block",
+      "claims": [],
+      "repository": "simpx/uproot",
+      "source_file": "sources/sample-20.md"
+    },
+    {
+      "rank": 21,
+      "eligible": true,
+      "reason": "first accelerator table contains nine cycle and speed outcomes",
+      "block_lines": [
+        7,
+        11
+      ],
+      "claims": [
+        {
+          "line": 9,
+          "metric": "cpu_cycles",
+          "value": 11070
+        },
+        {
+          "line": 9,
+          "metric": "accelerator_cycles",
+          "value": 1100
+        },
+        {
+          "line": 9,
+          "metric": "speedup",
+          "value": 10.0
+        },
+        {
+          "line": 10,
+          "metric": "cpu_cycles",
+          "value": 84780
+        },
+        {
+          "line": 10,
+          "metric": "accelerator_cycles",
+          "value": 8235
+        },
+        {
+          "line": 10,
+          "metric": "speedup",
+          "value": 10.3
+        },
+        {
+          "line": 11,
+          "metric": "cpu_cycles",
+          "value": 766232
+        },
+        {
+          "line": 11,
+          "metric": "accelerator_cycles",
+          "value": 69490
+        },
+        {
+          "line": 11,
+          "metric": "speedup",
+          "value": 11.02
+        }
+      ],
+      "repository": "lithegreat/systolic-array-AI-accelerator",
+      "source_file": "sources/sample-21.md"
+    },
+    {
+      "rank": 22,
+      "eligible": false,
+      "reason": "generated API reference defines a result type but contains no measured result",
+      "claims": [],
+      "repository": "juspay/neurolink",
+      "source_file": "sources/sample-22.md"
+    },
+    {
+      "rank": 23,
+      "eligible": true,
+      "reason": "first calibration table contains eight accuracy outcomes",
+      "block_lines": [
+        11,
+        20
+      ],
+      "claims": [
+        {
+          "line": 13,
+          "metric": "accuracy",
+          "value": 1.0
+        },
+        {
+          "line": 14,
+          "metric": "accuracy",
+          "value": 1.0
+        },
+        {
+          "line": 15,
+          "metric": "accuracy",
+          "value": 1.0
+        },
+        {
+          "line": 16,
+          "metric": "accuracy",
+          "value": 1.0
+        },
+        {
+          "line": 17,
+          "metric": "accuracy",
+          "value": 1.0
+        },
+        {
+          "line": 18,
+          "metric": "accuracy",
+          "value": 1.0
+        },
+        {
+          "line": 19,
+          "metric": "accuracy",
+          "value": 1.0
+        },
+        {
+          "line": 20,
+          "metric": "accuracy",
+          "value": 0.917
+        }
+      ],
+      "repository": "shsridhar-beep/svgap",
+      "source_file": "sources/sample-23.md"
+    },
+    {
+      "rank": 24,
+      "eligible": true,
+      "reason": "first game-level table contains twenty confusion and performance outcomes",
+      "block_lines": [
+        12,
+        15
+      ],
+      "claims": [
+        {
+          "line": 14,
+          "metric": "true_positive",
+          "value": 15863
+        },
+        {
+          "line": 14,
+          "metric": "true_negative",
+          "value": 396
+        },
+        {
+          "line": 14,
+          "metric": "false_positive_1",
+          "value": 142
+        },
+        {
+          "line": 14,
+          "metric": "false_positive_2",
+          "value": 17
+        },
+        {
+          "line": 14,
+          "metric": "false_negative",
+          "value": 775
+        },
+        {
+          "line": 14,
+          "metric": "accuracy",
+          "value": 0.946
+        },
+        {
+          "line": 14,
+          "metric": "precision",
+          "value": 0.99
+        },
+        {
+          "line": 14,
+          "metric": "recall",
+          "value": 0.957
+        },
+        {
+          "line": 14,
+          "metric": "f1",
+          "value": 0.973
+        },
+        {
+          "line": 14,
+          "metric": "frames_per_second",
+          "value": 156.9
+        },
+        {
+          "line": 15,
+          "metric": "true_positive",
+          "value": 15973
+        },
+        {
+          "line": 15,
+          "metric": "true_negative",
+          "value": 389
+        },
+        {
+          "line": 15,
+          "metric": "false_positive_1",
+          "value": 167
+        },
+        {
+          "line": 15,
+          "metric": "false_positive_2",
+          "value": 24
+        },
+        {
+          "line": 15,
+          "metric": "false_negative",
+          "value": 640
+        },
+        {
+          "line": 15,
+          "metric": "accuracy",
+          "value": 0.952
+        },
+        {
+          "line": 15,
+          "metric": "precision",
+          "value": 0.988
+        },
+        {
+          "line": 15,
+          "metric": "recall",
+          "value": 0.961
+        },
+        {
+          "line": 15,
+          "metric": "f1",
+          "value": 0.975
+        },
+        {
+          "line": 15,
+          "metric": "frames_per_second",
+          "value": 155.7
+        }
+      ],
+      "repository": "TrackNetV4/TrackNetV4",
+      "source_file": "sources/sample-24.md"
+    },
+    {
+      "rank": 25,
+      "eligible": true,
+      "reason": "first wrk console block contains thirteen performance outcomes",
+      "block_lines": [
+        7,
+        12
+      ],
+      "claims": [
+        {
+          "line": 8,
+          "metric": "latency_ms",
+          "value": 92.21
+        },
+        {
+          "line": 8,
+          "metric": "latency_stdev_ms",
+          "value": 66.06
+        },
+        {
+          "line": 8,
+          "metric": "max_latency_ms",
+          "value": 708.65
+        },
+        {
+          "line": 8,
+          "metric": "latency_within_stdev_ratio",
+          "value": 0.8061
+        },
+        {
+          "line": 9,
+          "metric": "requests_per_second",
+          "value": 386.64
+        },
+        {
+          "line": 9,
+          "metric": "requests_per_second_stdev",
+          "value": 48.25
+        },
+        {
+          "line": 9,
+          "metric": "max_requests_per_second",
+          "value": 570.0
+        },
+        {
+          "line": 9,
+          "metric": "requests_within_stdev_ratio",
+          "value": 0.7207
+        },
+        {
+          "line": 10,
+          "metric": "request_count",
+          "value": 138365
+        },
+        {
+          "line": 10,
+          "metric": "runtime_seconds",
+          "value": 30.03
+        },
+        {
+          "line": 10,
+          "metric": "data_read_mb",
+          "value": 7.92
+        },
+        {
+          "line": 11,
+          "metric": "requests_per_second",
+          "value": 4606.98
+        },
+        {
+          "line": 12,
+          "metric": "transfer_kb_per_second",
+          "value": 269.94
+        }
+      ],
+      "repository": "co-rs/cdbc",
+      "source_file": "sources/sample-25.md"
+    },
+    {
+      "rank": 26,
+      "eligible": false,
+      "reason": "personal notes contain plans and links but no empirical result block",
+      "claims": [],
+      "repository": "Martins3/Martins3.github.io",
+      "source_file": "sources/sample-26.md"
+    },
+    {
+      "rank": 27,
+      "eligible": true,
+      "reason": "result list contains six exact-match, win, delta, and range outcomes",
+      "block_lines": [
+        6,
+        12
+      ],
+      "claims": [
+        {
+          "line": 7,
+          "metric": "exact_match_count",
+          "value": 2
+        },
+        {
+          "line": 9,
+          "metric": "win_count",
+          "value": 11
+        },
+        {
+          "line": 10,
+          "metric": "mean_delta_ms",
+          "value": -0.0006
+        },
+        {
+          "line": 10,
+          "metric": "mean_delta_percent",
+          "value": -0.17
+        },
+        {
+          "line": 11,
+          "metric": "min_delta_percent",
+          "value": -0.59
+        },
+        {
+          "line": 11,
+          "metric": "max_delta_percent",
+          "value": 0.39
+        }
+      ],
+      "repository": "Dogacel/auto-gpu-kernel",
+      "source_file": "sources/sample-27.md"
+    },
+    {
+      "rank": 28,
+      "eligible": false,
+      "reason": "first detailed benchmark block contains more than twenty outcomes",
+      "claims": [],
+      "repository": "electronicarts/EASTL",
+      "source_file": "sources/sample-28.md"
+    },
+    {
+      "rank": 29,
+      "eligible": false,
+      "reason": "first BenchmarkDotNet result table contains more than twenty outcomes",
+      "claims": [],
+      "repository": "DumplingsDevs/Pipelines",
+      "source_file": "sources/sample-29.md"
+    },
+    {
+      "rank": 30,
+      "eligible": false,
+      "reason": "first OCR leaderboard table contains more than twenty outcomes",
+      "claims": [],
+      "repository": "memect/memect-ppx",
+      "source_file": "sources/sample-30.md"
+    },
+    {
+      "rank": 31,
+      "eligible": true,
+      "reason": "first inline result table contains nine relative-performance endpoints",
+      "block_lines": [
+        253,
+        259
+      ],
+      "claims": [
+        {
+          "line": 255,
+          "metric": "speedup",
+          "value": 0.01
+        },
+        {
+          "line": 255,
+          "metric": "speedup",
+          "value": 0.2
+        },
+        {
+          "line": 256,
+          "metric": "speedup",
+          "value": 0.1
+        },
+        {
+          "line": 256,
+          "metric": "speedup",
+          "value": 0.5
+        },
+        {
+          "line": 257,
+          "metric": "speedup",
+          "value": 0.1
+        },
+        {
+          "line": 257,
+          "metric": "speedup",
+          "value": 0.3
+        },
+        {
+          "line": 258,
+          "metric": "speedup",
+          "value": 0.2
+        },
+        {
+          "line": 258,
+          "metric": "speedup",
+          "value": 0.5
+        },
+        {
+          "line": 259,
+          "metric": "speedup",
+          "value": 0.2
+        }
+      ],
+      "repository": "dco-dev/ordered-collections",
+      "source_file": "sources/sample-31.md"
+    },
+    {
+      "rank": 32,
+      "eligible": false,
+      "reason": "benchmark index provides commands and external links but no textual result block",
+      "claims": [],
+      "repository": "oblac/jodd",
+      "source_file": "sources/sample-32.md"
+    },
+    {
+      "rank": 33,
+      "eligible": false,
+      "reason": "first benchmark table contains more than twenty outcomes",
+      "claims": [],
+      "repository": "canvasxyz/okra",
+      "source_file": "sources/sample-33.md"
+    },
+    {
+      "rank": 34,
+      "eligible": true,
+      "reason": "first LLM-latency table contains four latency outcomes",
+      "block_lines": [
+        16,
+        22
+      ],
+      "claims": [
+        {
+          "line": 19,
+          "metric": "mean_latency_ms",
+          "value": 5519.4
+        },
+        {
+          "line": 20,
+          "metric": "p50_latency_ms",
+          "value": 4200.5
+        },
+        {
+          "line": 21,
+          "metric": "p95_latency_ms",
+          "value": 14470.2
+        },
+        {
+          "line": 22,
+          "metric": "p99_latency_ms",
+          "value": 49487.6
+        }
+      ],
+      "repository": "CodingCodingK/mas-pipeline",
+      "source_file": "sources/sample-34.md"
+    },
+    {
+      "rank": 35,
+      "eligible": false,
+      "reason": "first headline prose block contains more than twenty quantitative outcomes",
+      "claims": [],
+      "repository": "yaroslav/kino",
+      "source_file": "sources/sample-35.md"
+    },
+    {
+      "rank": 36,
+      "eligible": true,
+      "reason": "first graphics-performance block contains three FPS outcomes",
+      "block_lines": [
+        3,
+        11
+      ],
+      "claims": [
+        {
+          "line": 5,
+          "metric": "frames_per_second",
+          "value": 9000
+        },
+        {
+          "line": 9,
+          "metric": "frames_per_second",
+          "value": 14000
+        },
+        {
+          "line": 11,
+          "metric": "frames_per_second",
+          "value": 22000
+        }
+      ],
+      "repository": "cirosantilli/notes",
+      "source_file": "sources/sample-36.md"
+    },
+    {
+      "rank": 37,
+      "eligible": false,
+      "reason": "experiment plan contains methodology but no measured results",
+      "claims": [],
+      "repository": "sandeeep-prajapati/my_library",
+      "source_file": "sources/sample-37.md"
+    },
+    {
+      "rank": 38,
+      "eligible": false,
+      "reason": "experiment index links to external results without textual outcome block",
+      "claims": [],
+      "repository": "squaresLab/genprog-code",
+      "source_file": "sources/sample-38.md"
+    },
+    {
+      "rank": 39,
+      "eligible": false,
+      "reason": "reproduction instructions contain no textual empirical outcomes",
+      "claims": [],
+      "repository": "SaravanaPrakash-1925/fold-artist-spin-trak",
+      "source_file": "sources/sample-39.md"
+    },
+    {
+      "rank": 40,
+      "eligible": false,
+      "reason": "command notebook contains configurations but no textual result block",
+      "claims": [],
+      "repository": "rominay/DL_project",
+      "source_file": "sources/sample-40.md"
+    },
+    {
+      "rank": 41,
+      "eligible": false,
+      "reason": "experiment inventory reports configurations and run lengths rather than outcome metrics",
+      "claims": [],
+      "repository": "ACCESS-NRI/access-om3-configs",
+      "source_file": "sources/sample-41.md"
+    },
+    {
+      "rank": 42,
+      "eligible": false,
+      "reason": "first downstream validation table contains more than twenty outcomes",
+      "claims": [],
+      "repository": "Vishal-sys-code/neuromorphic_decision_transformer",
+      "source_file": "sources/sample-42.md"
+    },
+    {
+      "rank": 43,
+      "eligible": false,
+      "reason": "coursework instructions contain no completed empirical results",
+      "claims": [],
+      "repository": "leouieda/gravity-processing",
+      "source_file": "sources/sample-43.md"
+    },
+    {
+      "rank": 44,
+      "eligible": true,
+      "reason": "executive summary contains six evaluation outcomes",
+      "block_lines": [
+        3,
+        7
+      ],
+      "claims": [
+        {
+          "line": 7,
+          "metric": "gold_hit_count",
+          "value": 76
+        },
+        {
+          "line": 7,
+          "metric": "gold_span_recall",
+          "value": 0.6609
+        },
+        {
+          "line": 7,
+          "metric": "baseline_gold_span_recall",
+          "value": 0.6435
+        },
+        {
+          "line": 7,
+          "metric": "summary_pass_count",
+          "value": 50
+        },
+        {
+          "line": 7,
+          "metric": "completed_contract_count",
+          "value": 50
+        },
+        {
+          "line": 7,
+          "metric": "alignment_rate",
+          "value": 0.9565
+        }
+      ],
+      "repository": "Ansh086/cuad-contract-analyzer",
+      "source_file": "sources/sample-44.md"
+    },
+    {
+      "rank": 45,
+      "eligible": true,
+      "reason": "first result summary contains three model-size and latency outcomes",
+      "block_lines": [
+        35,
+        38
+      ],
+      "claims": [
+        {
+          "line": 38,
+          "metric": "parameter_count",
+          "value": 95000
+        },
+        {
+          "line": 38,
+          "metric": "flops",
+          "value": 10560000
+        },
+        {
+          "line": 38,
+          "metric": "latency_ms",
+          "value": 1.0
+        }
+      ],
+      "repository": "rishimehta04/NAS-concept-evolution-gemini",
+      "source_file": "sources/sample-45.md"
+    },
+    {
+      "rank": 46,
+      "eligible": false,
+      "reason": "first totals table contains more than twenty outcomes",
+      "claims": [],
+      "repository": "deedy/imo-2026",
+      "source_file": "sources/sample-46.md"
+    },
+    {
+      "rank": 47,
+      "eligible": true,
+      "reason": "first result table contains eight validation-loss outcomes",
+      "block_lines": [
+        43,
+        46
+      ],
+      "claims": [
+        {
+          "line": 45,
+          "metric": "adamw_validation_loss",
+          "value": 3.135
+        },
+        {
+          "line": 45,
+          "metric": "adamw_validation_loss_stdev",
+          "value": 0.023
+        },
+        {
+          "line": 45,
+          "metric": "kenian_validation_loss",
+          "value": 3.067
+        },
+        {
+          "line": 45,
+          "metric": "kenian_validation_loss_stdev",
+          "value": 0.013
+        },
+        {
+          "line": 46,
+          "metric": "adamw_validation_loss",
+          "value": 3.182
+        },
+        {
+          "line": 46,
+          "metric": "adamw_validation_loss_stdev",
+          "value": 0.003
+        },
+        {
+          "line": 46,
+          "metric": "kenian_validation_loss",
+          "value": 3.212
+        },
+        {
+          "line": 46,
+          "metric": "kenian_validation_loss_stdev",
+          "value": 0.006
+        }
+      ],
+      "repository": "tasmaikeni13/Kenian",
+      "source_file": "sources/sample-47.md"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+# Sortformer diarization benchmark
+
+Summary of streaming Sortformer and baseline diarization models on a fixed multi-dataset evaluation protocol. **Lower DER is better.** Rankings use **total (real)** DER (real-world corpora only; synthetic `val_*` splits excluded from that aggregate).
+
+## Evaluation parameters
+
+| Parameter | Value |
+|-----------|-------|
+| Post-processing | None |
+| Collar | 0.25s |
+| Ignore overlap | False |
+| Chunk size | 340 frames |
+| Batch size | 1 |
+
+## Ranking (by total real DER)
+
+| Rank | Model | total DER | total Spk_Count_Acc | total (real) DER | total (real) Spk_Count_Acc |
+|------|-------|-----------|---------------------|------------------|---------------------------|
+| 1 | diar_streaming_sortformer_4spk-v2.1 | 21.98% | 62.03% | 16.96% | 77.15% |
+| 2 | pyannote(mago_mstudio) | 22.90% | 41.01% | 19.00% | 48.27% |
+
+---
+
+## Synthetic validation splits (`val_2spk` … `val_8spk`)
+
+These rows are **synthetic multi-speaker sessions** (90 s, controlled silence and overlap) built for diarization evaluation. Single-speaker Korean utterances are drawn from the AI Hub **[Multi-speaker Speech Synthesis dataset](https://www.aihub.or.kr/aihubdata/data/view.do?aihubDataSe=data&dataSetSn=542)** (NIA), then mixed with the project’s **sentence-level** multispeaker simulator (NeMo [`multispeaker_simulator`](https://github.com/NVIDIA/NeMo/blob/main/tools/speech_data_simulator/multispeaker_simulator.py)-style pipeline, sentence-level turn-taking).
+
+| Source (AI Hub corpus) | Utterances | Language |
+|------------------------|------------|----------|
+| `multispeaker_speech_synthesis_data/Training` | 8,666,803 | Korean |
+| `multispeaker_speech_synthesis_data/Validation` | 1,225,244 | Korean |
+
+Training-side variants in this repo include overlap settings such as **`ov0.05`** (~5% mean overlap) and **`ov0.15`** (~15%); validation sessions used in these tables follow the same simulation recipe. See the repository README **Synthetic Training Data** for session counts and overlap details.
+
+---
+
+## Datasets
+
+| Dataset | Description | Language | Source |
+|---------|-------------|----------|--------|
+| val_2spk ~ val_8spk | Synthetic validation (2–8 speakers, 90 s, silence / overlap); see *Synthetic validation splits* above | Korean | [AI Hub — multi-speaker speech synthesis](https://www.aihub.or.kr/aihubdata/data/view.do?aihubDataSe=data&dataSetSn=542) |
+| alimeeting | AliMeeting meeting speech | Chinese | — |
+| ami_ihm_test | AMI IHM (individual headset) test | English | — |
+| ami_sdm_test | AMI SDM (single distant mic) test | English | — |
+| callhome_eng | CallHome English | English | — |
+| callhome_deu | CallHome German | German | — |
+| callhome_jpn | CallHome Japanese | Japanese | — |
+| callhome_spa | CallHome Spanish | Spanish | — |
+| callhome_zho | CallHome Chinese | Chinese | — |
+| kdomainconf_5spk | Meeting speech recognition by major domain — five-speaker condition; 30-session subset for diarization evaluation | Korean | [AI Hub — meeting by domain](https://www.aihub.or.kr/aihubdata/data/view.do?pageIndex=1&currMenu=115&topMenu=100&srchOptnCnd=OPTNCND001&searchKeyword=%EC%A3%BC%EC%9A%94+%EC%98%81%EC%97%AD%EB%B3%84+%ED%9A%8C%EC%9D%98+%EC%9D%8C%EC%84%B1%EC%9D%B8%EC%8B%9D+%EB%8D%B0%EC%9D%B4%ED%84%B0&srchDetailCnd=DETAILCND001&srchOrder=ORDER001&srchPagePer=20&aihubDataSe=data&dataSetSn=464) |
+| kdomainconf_3_4spk | Same corpus line as kdomainconf — three- to four-speaker validation split; 30-session diarization evaluation | Korean | [AI Hub — meeting by domain](https://www.aihub.or.kr/aihubdata/data/view.do?pageIndex=1&currMenu=115&topMenu=100&srchOptnCnd=OPTNCND001&searchKeyword=%EC%A3%BC%EC%9A%94+%EC%98%81%EC%97%AD%EB%B3%84+%ED%9A%8C%EC%9D%98+%EC%9D%8C%EC%84%B1%EC%9D%B8%EC%8B%9D+%EB%8D%B0%EC%9D%B4%ED%84%B0&srchDetailCnd=DETAILCND001&srchOrder=ORDER001&srchPagePer=20&aihubDataSe=data&dataSetSn=464) |
+| kaddress | Address and location read speech; 30-session diarization evaluation | Korean | [AI Hub — address speech](https://www.aihub.or.kr/aihubdata/data/view.do?pageIndex=1&currMenu=115&topMenu=100&srchOptnCnd=OPTNCND001&searchKeyword=%EC%A3%BC%EC%86%8C%EC%9D%8C%EC%84%B1%EB%8D%B0%EC%9D%B4%ED%84%B0&srchDetailCnd=DETAILCND001&srchOrder=ORDER001&srchPagePer=20&aihubDataSe=data&dataSetSn=71556) |
+| kemergency | Enhanced emergency speech and acoustic events; national emergency hotline (119) intelligent call-intake speech corpus; 30-session diarization evaluation | Korean | [AI Hub — emergency / 119 call-intake](https://www.aihub.or.kr/aihubdata/data/view.do?pageIndex=1&currMenu=115&topMenu=100&srchOptnCnd=OPTNCND001&searchKeyword=%EC%9C%84%EA%B8%89%EC%83%81%ED%99%A9+%EC%9D%8C%EC%84%B1%2F%EC%9D%8C%ED%96%A5+%28%EA%B3%A0%EB%8F%84%ED%99%94%29+-+119+%EC%A7%80%EB%8A%A5%ED%98%95+%EC%8B%A0%EA%B3%A0%EC%A0%91%EC%88%98+%EC%9D%8C%EC%84%B1+%EC%9D%B8%EC%8B%9D+%EB%8D%B0%EC%9D%B4%ED%84%B0&srchDetailCnd=DETAILCND001&srchOrder=ORDER001&srchPagePer=20&aihubDataSe=data&dataSetSn=71768) |
+
+
+
+## diar_streaming_sortformer_4spk-v2.1
+
+| dataset | FA | MISS | CER | DER | Spk_Count_Acc |
+|---------|-----|------|-----|-----|---------------|
+| val_2spk | 0.00% | 15.21% | 0.05% | 15.26% | 100.00% |
+| val_3spk | 0.04% | 15.41% | 6.62% | 22.07% | 67.00% |
+| val_4spk | 0.20% | 15.19% | 9.81% | 25.19% | 54.00% |
+| val_5spk | 0.13% | 15.69% | 12.33% | 28.16% | 0.00% |
+| val_6spk | 0.16% | 15.98% | 18.46% | 34.59% | 0.00% |
+| val_7spk | 0.14% | 16.33% | 24.08% | 40.56% | 0.00% |
+| val_8spk | 0.09% | 16.48% | 27.58% | 44.15% | 0.00% |
+| alimeeting | 0.40% | 9.93% | 0.70% | 11.03% | 95.00% |
+| ami_ihm_test | 0.50% | 23.51% | 2.03% | 26.05% | 93.75% |
+| ami_sdm_test | 0.82% | 23.76% | 3.72% | 28.29% | 93.75% |
+| callhome_eng | 1.84% | 2.85% | 0.25% | 4.94% | 83.57% |
+| callhome_deu | 1.08% | 5.01% | 0.61% | 6.70% | 80.83% |
+| callhome_jpn | 1.69% | 6.71% | 1.63% | 10.03% | 79.17% |
+| callhome_spa | 2.75% | 18.76% | 1.76% | 23.27% | 63.57% |
+| callhome_zho | 1.45% | 4.43% | 1.27% | 7.15% | 72.86% |
+| kdomainconf_5spk | 2.96% | 11.65% | 13.23% | 27.84% | 0.00% |
+| kdomainconf_3_4spk | 3.19% | 11.44% | 11.09% | 25.73% | 70.00% |
+| kaddress | 0.00% | 10.79% | 0.00% | 10.79% | 100.00% |
+| kemergency | 6.72% | 12.54% | 2.40% | 21.67% | 93.33% |
+| **total** | - | - | - | **21.98%** | **62.03%** |
+| **total (real)** | - | - | - | **16.96%** | **77.15%** |
+
+
+## pyannote(mago_mstudio)
+
+Pyannote-based Mago MStudio diarization pipeline.
+
+| dataset | FA | MISS | CER | DER | Spk_Count_Acc |
+|---------|-----|------|-----|-----|---------------|
+| val_2spk | 0.00% | 13.34% | 11.52% | 24.86% | 68.00% |
+| val_3spk | 0.00% | 12.99% | 13.13% | 26.13% | 61.00% |
+| val_4spk | 0.00% | 12.87% | 13.46% | 26.34% | 41.00% |
+| val_5spk | 0.02% | 13.01% | 13.69% | 26.71% | 20.00% |
+| val_6spk | 0.00% | 12.93% | 17.66% | 30.59% | 9.00% |
+| val_7spk | 0.00% | 13.17% | 21.19% | 34.37% | 1.00% |
+| val_8spk | 0.00% | 13.17% | 24.85% | 38.02% | 0.00% |
+| alimeeting | 2.28% | 5.38% | 7.16% | 14.82% | 40.00% |
+| ami_ihm_test | 1.76% | 6.79% | 3.58% | 12.13% | 25.00% |
+| ami_sdm_test | 2.00% | 8.26% | 5.01% | 15.27% | 31.25% |
+| callhome_eng | 1.80% | 7.35% | 6.70% | 15.86% | 58.57% |
+| callhome_deu | 1.31% | 10.50% | 5.30% | 17.11% | 45.00% |
+| callhome_jpn | 1.94% | 13.50% | 11.88% | 27.32% | 40.83% |
+| callhome_spa | 2.93% | 14.33% | 7.63% | 24.89% | 47.86% |
+| callhome_zho | 2.54% | 6.93% | 9.78% | 19.25% | 50.71% |
+| kdomainconf_5spk | 2.58% | 10.45% | 2.66% | 15.69% | 50.00% |
+| kdomainconf_3_4spk | 3.59% | 9.95% | 7.70% | 21.24% | 40.00% |
+| kaddress | 0.10% | 11.72% | 2.55% | 14.37% | 93.33% |
+| kemergency | 5.70% | 15.91% | 8.43% | 30.04% | 56.67% |
+| **total** | - | - | - | **22.90%** | **41.01%** |
+| **total (real)** | - | - | - | **19.00%** | **48.27%** |
