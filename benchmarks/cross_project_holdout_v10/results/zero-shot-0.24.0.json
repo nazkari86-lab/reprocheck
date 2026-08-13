@@ -1,0 +1,1518 @@
+{
+  "cases": [
+    {
+      "blob_sha": "fd60c9beaab68c1ac06d159c0a63e7a6a0fc501b",
+      "claims": [
+        {
+          "line": 58,
+          "matches": 1,
+          "metric": "runtime_seconds",
+          "snippet": "| 1 | 0.832s | 1.267s |",
+          "value": 0.832,
+          "visible": true
+        },
+        {
+          "line": 58,
+          "matches": 1,
+          "metric": "runtime_seconds",
+          "snippet": "| 1 | 0.832s | 1.267s |",
+          "value": 1.267,
+          "visible": true
+        },
+        {
+          "line": 59,
+          "matches": 1,
+          "metric": "runtime_seconds",
+          "snippet": "| 10 | 1.386s | 1.183s |",
+          "value": 1.386,
+          "visible": true
+        },
+        {
+          "line": 59,
+          "matches": 1,
+          "metric": "runtime_seconds",
+          "snippet": "| 10 | 1.386s | 1.183s |",
+          "value": 1.183,
+          "visible": true
+        }
+      ],
+      "extracted_claim_count": 5,
+      "passed": true,
+      "path": "README.md",
+      "rank": 2,
+      "repository": "yksz/c-logger",
+      "selected_claims": 4,
+      "visible_claims": 4
+    },
+    {
+      "blob_sha": "e9e4b9cf92d0716470fd8dca59972c8c16db7d89",
+      "claims": [
+        {
+          "line": 80,
+          "matches": 0,
+          "metric": "optimal_throughput_ratio",
+          "snippet": "NanoFlow achieves 68.5% of optimal throughput",
+          "value": 0.685,
+          "visible": false
+        },
+        {
+          "line": 80,
+          "matches": 0,
+          "metric": "speedup",
+          "snippet": "provides 1.91× throughput boost",
+          "value": 1.91,
+          "visible": false
+        },
+        {
+          "line": 80,
+          "matches": 0,
+          "metric": "optimal_throughput_ratio",
+          "snippet": "achieving 59% to 72% of optimal throughput",
+          "value": 0.59,
+          "visible": false
+        },
+        {
+          "line": 80,
+          "matches": 0,
+          "metric": "optimal_throughput_ratio",
+          "snippet": "achieving 59% to 72% of optimal throughput",
+          "value": 0.72,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 0,
+      "passed": false,
+      "path": "README.md",
+      "rank": 3,
+      "repository": "efeslab/Nanoflow",
+      "selected_claims": 4,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "a9967a33f7513791d1a71abc0dce0beee3ec8391",
+      "claims": [
+        {
+          "line": 32,
+          "matches": 0,
+          "metric": "artifact_size_kb",
+          "snippet": "| javascript | 0 | 84 | 8 |",
+          "value": 0,
+          "visible": false
+        },
+        {
+          "line": 32,
+          "matches": 0,
+          "metric": "avg_latency_seconds",
+          "snippet": "| javascript | 0 | 84 | 8 |",
+          "value": 0.084,
+          "visible": false
+        },
+        {
+          "line": 32,
+          "matches": 0,
+          "metric": "latency_stdev_seconds",
+          "snippet": "| javascript | 0 | 84 | 8 |",
+          "value": 0.008,
+          "visible": false
+        },
+        {
+          "line": 33,
+          "matches": 0,
+          "metric": "artifact_size_kb",
+          "snippet": "| simple replace, wee_alloc | 20 | 127 | 26 |",
+          "value": 20,
+          "visible": false
+        },
+        {
+          "line": 33,
+          "matches": 0,
+          "metric": "avg_latency_seconds",
+          "snippet": "| simple replace, wee_alloc | 20 | 127 | 26 |",
+          "value": 0.127,
+          "visible": false
+        },
+        {
+          "line": 33,
+          "matches": 0,
+          "metric": "latency_stdev_seconds",
+          "snippet": "| simple replace, wee_alloc | 20 | 127 | 26 |",
+          "value": 0.026,
+          "visible": false
+        },
+        {
+          "line": 34,
+          "matches": 0,
+          "metric": "artifact_size_kb",
+          "snippet": "| simple replace, no wee_alloc | 25 | 133 | 30 |",
+          "value": 25,
+          "visible": false
+        },
+        {
+          "line": 34,
+          "matches": 0,
+          "metric": "avg_latency_seconds",
+          "snippet": "| simple replace, no wee_alloc | 25 | 133 | 30 |",
+          "value": 0.133,
+          "visible": false
+        },
+        {
+          "line": 34,
+          "matches": 0,
+          "metric": "latency_stdev_seconds",
+          "snippet": "| simple replace, no wee_alloc | 25 | 133 | 30 |",
+          "value": 0.03,
+          "visible": false
+        },
+        {
+          "line": 35,
+          "matches": 0,
+          "metric": "artifact_size_kb",
+          "snippet": "| regex, wee_alloc, default-features off | 193 | 540 | 235 |",
+          "value": 193,
+          "visible": false
+        },
+        {
+          "line": 35,
+          "matches": 0,
+          "metric": "avg_latency_seconds",
+          "snippet": "| regex, wee_alloc, default-features off | 193 | 540 | 235 |",
+          "value": 0.54,
+          "visible": false
+        },
+        {
+          "line": 35,
+          "matches": 0,
+          "metric": "latency_stdev_seconds",
+          "snippet": "| regex, wee_alloc, default-features off | 193 | 540 | 235 |",
+          "value": 0.235,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 0,
+      "passed": false,
+      "path": "README.md",
+      "rank": 6,
+      "repository": "samuelcolvin/cloudflare-worker-speed-test",
+      "selected_claims": 12,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "bd9f0f10f5ac3ad3a578294b0682dd97d5e51fb1",
+      "claims": [
+        {
+          "line": 161,
+          "matches": 0,
+          "metric": "processed_token_count",
+          "snippet": "processed 6788 tokens with 3818 phrases",
+          "value": 6788,
+          "visible": false
+        },
+        {
+          "line": 161,
+          "matches": 0,
+          "metric": "phrase_count",
+          "snippet": "processed 6788 tokens with 3818 phrases",
+          "value": 3818,
+          "visible": false
+        },
+        {
+          "line": 161,
+          "matches": 0,
+          "metric": "found_phrase_count",
+          "snippet": "found: 3798 phrases",
+          "value": 3798,
+          "visible": false
+        },
+        {
+          "line": 161,
+          "matches": 0,
+          "metric": "correct_phrase_count",
+          "snippet": "correct: 3384",
+          "value": 3384,
+          "visible": false
+        },
+        {
+          "line": 163,
+          "matches": 1,
+          "metric": "accuracy",
+          "snippet": "accuracy: 91.28%",
+          "value": 0.9128,
+          "visible": true
+        },
+        {
+          "line": 163,
+          "matches": 1,
+          "metric": "precision",
+          "snippet": "precision: 89.10%",
+          "value": 0.891,
+          "visible": true
+        },
+        {
+          "line": 163,
+          "matches": 1,
+          "metric": "recall",
+          "snippet": "recall: 88.63%",
+          "value": 0.8863,
+          "visible": true
+        },
+        {
+          "line": 163,
+          "matches": 0,
+          "metric": "f1",
+          "snippet": "FB1: 88.87",
+          "value": 0.8887,
+          "visible": false
+        },
+        {
+          "line": 165,
+          "matches": 1,
+          "metric": "precision",
+          "snippet": "precision: 89.10%",
+          "value": 0.891,
+          "visible": true
+        },
+        {
+          "line": 165,
+          "matches": 1,
+          "metric": "recall",
+          "snippet": "recall: 88.63%",
+          "value": 0.8863,
+          "visible": true
+        },
+        {
+          "line": 165,
+          "matches": 0,
+          "metric": "f1",
+          "snippet": "FB1: 88.87",
+          "value": 0.8887,
+          "visible": false
+        },
+        {
+          "line": 165,
+          "matches": 0,
+          "metric": "found_phrase_count",
+          "snippet": "FB1: 88.87 3798",
+          "value": 3798,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 10,
+      "passed": false,
+      "path": "README.md",
+      "rank": 9,
+      "repository": "sevenold/bert_sequence_label",
+      "selected_claims": 12,
+      "visible_claims": 5
+    },
+    {
+      "blob_sha": "9d5a5aab26296dea8739967e579c8ec8960ce4e8",
+      "claims": [
+        {
+          "line": 46,
+          "matches": 0,
+          "metric": "precision",
+          "snippet": "Random Forest showed superior precision (96%)",
+          "value": 0.96,
+          "visible": false
+        },
+        {
+          "line": 46,
+          "matches": 0,
+          "metric": "precision",
+          "snippet": "Decision Tree (70%)",
+          "value": 0.7,
+          "visible": false
+        },
+        {
+          "line": 46,
+          "matches": 0,
+          "metric": "precision",
+          "snippet": "XGBoost (97%)",
+          "value": 0.97,
+          "visible": false
+        },
+        {
+          "line": 47,
+          "matches": 0,
+          "metric": "accuracy",
+          "snippet": "similar overall accuracy (~100%)",
+          "value": 1.0,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 0,
+      "passed": false,
+      "path": "README.md",
+      "rank": 10,
+      "repository": "Tanishq665/Fraud_detection",
+      "selected_claims": 4,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "645c78d199abd30ee7afc9128a7ae396bc49235a",
+      "claims": [
+        {
+          "line": 166,
+          "matches": 0,
+          "metric": "f1",
+          "snippet": "best F1 score achieved on testing set of 173 images: 0.5869",
+          "value": 0.5869,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 0,
+      "passed": false,
+      "path": "README.md",
+      "rank": 11,
+      "repository": "VTTI/Segmentation-and-detection-of-work-zone-scenes",
+      "selected_claims": 1,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "333545548ed1d3a2d0f23c046d5eb2ac94bd2948",
+      "claims": [
+        {
+          "line": 11,
+          "matches": 0,
+          "metric": "artifact_size_mb",
+          "snippet": "requiring only 3.2MB",
+          "value": 3.2,
+          "visible": false
+        },
+        {
+          "line": 11,
+          "matches": 0,
+          "metric": "f1_improvement",
+          "snippet": "improves the classical F1 score by 50.5%",
+          "value": 0.505,
+          "visible": false
+        },
+        {
+          "line": 11,
+          "matches": 0,
+          "metric": "aff_f1_improvement",
+          "snippet": "Aff-F1 score by 7.8%",
+          "value": 0.078,
+          "visible": false
+        },
+        {
+          "line": 11,
+          "matches": 0,
+          "metric": "auc_improvement",
+          "snippet": "AUC by 10.0%",
+          "value": 0.1,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 0,
+      "passed": false,
+      "path": "README.md",
+      "rank": 12,
+      "repository": "EmorZz1G/PatchAD",
+      "selected_claims": 4,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "ccac4798fbb7d4ffca84d1b7c20c9217ddacbf5b",
+      "claims": [
+        {
+          "line": 199,
+          "matches": 1,
+          "metric": "runtime_seconds",
+          "snippet": "0.18ms, 0 B",
+          "value": 0.00018,
+          "visible": true
+        },
+        {
+          "line": 199,
+          "matches": 0,
+          "metric": "memory_bytes",
+          "snippet": "0.18ms, 0 B",
+          "value": 0,
+          "visible": false
+        },
+        {
+          "line": 199,
+          "matches": 1,
+          "metric": "runtime_seconds",
+          "snippet": "0.26ms, 0 B",
+          "value": 0.00026,
+          "visible": true
+        },
+        {
+          "line": 199,
+          "matches": 0,
+          "metric": "memory_bytes",
+          "snippet": "0.26ms, 0 B",
+          "value": 0,
+          "visible": false
+        },
+        {
+          "line": 199,
+          "matches": 1,
+          "metric": "runtime_seconds",
+          "snippet": "0.44ms, 0 B",
+          "value": 0.00044,
+          "visible": true
+        },
+        {
+          "line": 199,
+          "matches": 0,
+          "metric": "memory_bytes",
+          "snippet": "0.44ms, 0 B",
+          "value": 0,
+          "visible": false
+        },
+        {
+          "line": 199,
+          "matches": 1,
+          "metric": "runtime_seconds",
+          "snippet": "1.01ms, 0 B",
+          "value": 0.00101,
+          "visible": true
+        },
+        {
+          "line": 199,
+          "matches": 0,
+          "metric": "memory_bytes",
+          "snippet": "1.01ms, 0 B",
+          "value": 0,
+          "visible": false
+        },
+        {
+          "line": 200,
+          "matches": 1,
+          "metric": "runtime_seconds",
+          "snippet": "1.02ms, 0 GC",
+          "value": 0.00102,
+          "visible": true
+        },
+        {
+          "line": 200,
+          "matches": 0,
+          "metric": "allocation_count",
+          "snippet": "1.02ms, 0 GC",
+          "value": 0,
+          "visible": false
+        },
+        {
+          "line": 201,
+          "matches": 1,
+          "metric": "runtime_seconds",
+          "snippet": "21.4ms, 24 GC",
+          "value": 0.0214,
+          "visible": true
+        },
+        {
+          "line": 201,
+          "matches": 0,
+          "metric": "allocation_count",
+          "snippet": "21.4ms, 24 GC",
+          "value": 24,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 21,
+      "passed": false,
+      "path": "README.md",
+      "rank": 14,
+      "repository": "Chillu1/ModiBuff",
+      "selected_claims": 12,
+      "visible_claims": 6
+    },
+    {
+      "blob_sha": "70ca629b06a8dd0d20c03fb31743d0edd80bf078",
+      "claims": [
+        {
+          "line": 47,
+          "matches": 0,
+          "metric": "max_batch_size",
+          "snippet": "maximum batch size is 7",
+          "value": 7,
+          "visible": false
+        },
+        {
+          "line": 47,
+          "matches": 0,
+          "metric": "oom_batch_size",
+          "snippet": "I get an OOM with 8",
+          "value": 8,
+          "visible": false
+        },
+        {
+          "line": 52,
+          "matches": 0,
+          "metric": "memory_mb",
+          "snippet": "Fragmented Memory: 7.23 GB",
+          "value": 7403.52,
+          "visible": false
+        },
+        {
+          "line": 52,
+          "matches": 0,
+          "metric": "fragmentation_ratio",
+          "snippet": "Fragmented Memory: 7.23 GB (28.46%)",
+          "value": 0.2846,
+          "visible": false
+        },
+        {
+          "line": 60,
+          "matches": 0,
+          "metric": "fragmentation_ratio",
+          "snippet": "decreases fragmentation to <1%",
+          "value": 0.01,
+          "visible": false
+        },
+        {
+          "line": 60,
+          "matches": 0,
+          "metric": "speedup",
+          "snippet": "increases maximum batch size by 7X",
+          "value": 7,
+          "visible": false
+        },
+        {
+          "line": 62,
+          "matches": 0,
+          "metric": "max_batch_size",
+          "snippet": "python llama3-paged.py 49",
+          "value": 49,
+          "visible": false
+        },
+        {
+          "line": 65,
+          "matches": 0,
+          "metric": "memory_mb",
+          "snippet": "Fragmented Memory: 0.14 GB",
+          "value": 143.36,
+          "visible": false
+        },
+        {
+          "line": 65,
+          "matches": 0,
+          "metric": "fragmentation_ratio",
+          "snippet": "Fragmented Memory: 0.14 GB (0.57%)",
+          "value": 0.0057,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 2,
+      "passed": false,
+      "path": "README.md",
+      "rank": 15,
+      "repository": "tspeterkim/paged-attention-minimal",
+      "selected_claims": 9,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "8360628b70ca2935d85b0581a133a92575b2a12e",
+      "claims": [
+        {
+          "line": 104,
+          "matches": 0,
+          "metric": "avg_latency_seconds",
+          "snippet": "Latency 0.94ms 2.47ms 206.34ms 99.64%",
+          "value": 0.00094,
+          "visible": false
+        },
+        {
+          "line": 104,
+          "matches": 0,
+          "metric": "latency_stdev_seconds",
+          "snippet": "Latency 0.94ms 2.47ms 206.34ms 99.64%",
+          "value": 0.00247,
+          "visible": false
+        },
+        {
+          "line": 104,
+          "matches": 0,
+          "metric": "max_latency_seconds",
+          "snippet": "Latency 0.94ms 2.47ms 206.34ms 99.64%",
+          "value": 0.20634,
+          "visible": false
+        },
+        {
+          "line": 104,
+          "matches": 0,
+          "metric": "within_stdev_ratio",
+          "snippet": "Latency 0.94ms 2.47ms 206.34ms 99.64%",
+          "value": 0.9964,
+          "visible": false
+        },
+        {
+          "line": 105,
+          "matches": 0,
+          "metric": "requests_per_second",
+          "snippet": "Req/Sec 19.59k 1.53k 22.74k 75.00%",
+          "value": 19590,
+          "visible": false
+        },
+        {
+          "line": 105,
+          "matches": 0,
+          "metric": "requests_per_second",
+          "snippet": "Req/Sec 19.59k 1.53k 22.74k 75.00%",
+          "value": 1530,
+          "visible": false
+        },
+        {
+          "line": 105,
+          "matches": 0,
+          "metric": "requests_per_second",
+          "snippet": "Req/Sec 19.59k 1.53k 22.74k 75.00%",
+          "value": 22740,
+          "visible": false
+        },
+        {
+          "line": 105,
+          "matches": 0,
+          "metric": "within_stdev_ratio",
+          "snippet": "Req/Sec 19.59k 1.53k 22.74k 75.00%",
+          "value": 0.75,
+          "visible": false
+        },
+        {
+          "line": 106,
+          "matches": 0,
+          "metric": "request_count",
+          "snippet": "780113 requests in 10.03s, 826.55MB read",
+          "value": 780113,
+          "visible": false
+        },
+        {
+          "line": 106,
+          "matches": 0,
+          "metric": "runtime_seconds",
+          "snippet": "780113 requests in 10.03s, 826.55MB read",
+          "value": 10.03,
+          "visible": false
+        },
+        {
+          "line": 106,
+          "matches": 0,
+          "metric": "data_read_mb",
+          "snippet": "780113 requests in 10.03s, 826.55MB read",
+          "value": 826.55,
+          "visible": false
+        },
+        {
+          "line": 107,
+          "matches": 0,
+          "metric": "requests_per_second",
+          "snippet": "Requests/sec: 77770.10",
+          "value": 77770.1,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 5,
+      "passed": false,
+      "path": "README.md",
+      "rank": 17,
+      "repository": "VISHAL-Nk/Titan",
+      "selected_claims": 12,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "cff22328cc736f55dbe423f96931041f8319dbe5",
+      "claims": [
+        {
+          "line": 96,
+          "matches": 0,
+          "metric": "avg_latency_seconds",
+          "snippet": "Thread calibration: mean lat.: 9747 usec",
+          "value": 0.009747,
+          "visible": false
+        },
+        {
+          "line": 96,
+          "matches": 0,
+          "metric": "sampling_interval_seconds",
+          "snippet": "rate sampling interval: 21 msec",
+          "value": 0.021,
+          "visible": false
+        },
+        {
+          "line": 97,
+          "matches": 0,
+          "metric": "avg_latency_seconds",
+          "snippet": "Thread calibration: mean lat.: 9631 usec",
+          "value": 0.009631,
+          "visible": false
+        },
+        {
+          "line": 97,
+          "matches": 0,
+          "metric": "sampling_interval_seconds",
+          "snippet": "rate sampling interval: 21 msec",
+          "value": 0.021,
+          "visible": false
+        },
+        {
+          "line": 99,
+          "matches": 0,
+          "metric": "avg_latency_seconds",
+          "snippet": "Latency 6.46ms 1.93ms 12.34ms 67.66%",
+          "value": 0.00646,
+          "visible": false
+        },
+        {
+          "line": 99,
+          "matches": 0,
+          "metric": "latency_stdev_seconds",
+          "snippet": "Latency 6.46ms 1.93ms 12.34ms 67.66%",
+          "value": 0.00193,
+          "visible": false
+        },
+        {
+          "line": 99,
+          "matches": 0,
+          "metric": "max_latency_seconds",
+          "snippet": "Latency 6.46ms 1.93ms 12.34ms 67.66%",
+          "value": 0.01234,
+          "visible": false
+        },
+        {
+          "line": 99,
+          "matches": 0,
+          "metric": "within_stdev_ratio",
+          "snippet": "Latency 6.46ms 1.93ms 12.34ms 67.66%",
+          "value": 0.6766,
+          "visible": false
+        },
+        {
+          "line": 100,
+          "matches": 0,
+          "metric": "requests_per_second",
+          "snippet": "Req/Sec 1.05k 1.12k 2.50k 64.84%",
+          "value": 1050,
+          "visible": false
+        },
+        {
+          "line": 100,
+          "matches": 0,
+          "metric": "requests_per_second",
+          "snippet": "Req/Sec 1.05k 1.12k 2.50k 64.84%",
+          "value": 1120,
+          "visible": false
+        },
+        {
+          "line": 100,
+          "matches": 0,
+          "metric": "requests_per_second",
+          "snippet": "Req/Sec 1.05k 1.12k 2.50k 64.84%",
+          "value": 2500,
+          "visible": false
+        },
+        {
+          "line": 100,
+          "matches": 0,
+          "metric": "within_stdev_ratio",
+          "snippet": "Req/Sec 1.05k 1.12k 2.50k 64.84%",
+          "value": 0.6484,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 1,
+      "passed": false,
+      "path": "README.md",
+      "rank": 18,
+      "repository": "devhands-io/wrkx",
+      "selected_claims": 12,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "0d8c98a87c5012f2eb86cb821c3b9268ff0d7966",
+      "claims": [
+        {
+          "line": 30,
+          "matches": 0,
+          "metric": "tokens_per_second_gpu",
+          "snippet": "Qwen3-0.6B | 2048 | 2 | - | 9,731",
+          "value": 9731,
+          "visible": false
+        },
+        {
+          "line": 30,
+          "matches": 0,
+          "metric": "tflops_per_second_gpu",
+          "snippet": "57.6 | 22.5% | 22.2 GB",
+          "value": 57.6,
+          "visible": false
+        },
+        {
+          "line": 30,
+          "matches": 0,
+          "metric": "mfu",
+          "snippet": "57.6 | 22.5% | 22.2 GB",
+          "value": 0.225,
+          "visible": false
+        },
+        {
+          "line": 30,
+          "matches": 0,
+          "metric": "memory_mb",
+          "snippet": "22.2 GB",
+          "value": 22732.8,
+          "visible": false
+        },
+        {
+          "line": 31,
+          "matches": 0,
+          "metric": "tokens_per_second_gpu",
+          "snippet": "Qwen3-0.6B | 8192 | 1 | Yes | 9,834",
+          "value": 9834,
+          "visible": false
+        },
+        {
+          "line": 31,
+          "matches": 0,
+          "metric": "tflops_per_second_gpu",
+          "snippet": "99.8 | 39.0% | 21.4 GB",
+          "value": 99.8,
+          "visible": false
+        },
+        {
+          "line": 31,
+          "matches": 0,
+          "metric": "mfu",
+          "snippet": "99.8 | 39.0% | 21.4 GB",
+          "value": 0.39,
+          "visible": false
+        },
+        {
+          "line": 31,
+          "matches": 0,
+          "metric": "memory_mb",
+          "snippet": "21.4 GB",
+          "value": 21913.6,
+          "visible": false
+        },
+        {
+          "line": 32,
+          "matches": 0,
+          "metric": "tokens_per_second_gpu",
+          "snippet": "Qwen3-0.6B | 16384 | 1 | Yes | 9,079",
+          "value": 9079,
+          "visible": false
+        },
+        {
+          "line": 32,
+          "matches": 0,
+          "metric": "tflops_per_second_gpu",
+          "snippet": "143.3 | 56.0% | 39.2 GB",
+          "value": 143.3,
+          "visible": false
+        },
+        {
+          "line": 32,
+          "matches": 0,
+          "metric": "mfu",
+          "snippet": "143.3 | 56.0% | 39.2 GB",
+          "value": 0.56,
+          "visible": false
+        },
+        {
+          "line": 32,
+          "matches": 0,
+          "metric": "memory_mb",
+          "snippet": "39.2 GB",
+          "value": 40140.8,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 2,
+      "passed": false,
+      "path": "README.md",
+      "rank": 20,
+      "repository": "jianzhnie/ScaleTorch",
+      "selected_claims": 12,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "a9f85834d4519b8b65ba221f60ddeb46e00647e9",
+      "claims": [
+        {
+          "line": 62,
+          "matches": 0,
+          "metric": "assertion_count",
+          "snippet": "All tests passed (1 assertions in 1 test case)",
+          "value": 1,
+          "visible": false
+        },
+        {
+          "line": 62,
+          "matches": 0,
+          "metric": "test_count",
+          "snippet": "All tests passed (1 assertions in 1 test case)",
+          "value": 1,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 0,
+      "passed": false,
+      "path": "README.md",
+      "rank": 24,
+      "repository": "ovsoil/leetcode",
+      "selected_claims": 2,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "6f9dd79739382b5abfd38e69aca7d923b9458cb9",
+      "claims": [
+        {
+          "line": 69,
+          "matches": 0,
+          "metric": "bleu_2",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.061,
+          "visible": false
+        },
+        {
+          "line": 69,
+          "matches": 0,
+          "metric": "bleu_4",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.027,
+          "visible": false
+        },
+        {
+          "line": 69,
+          "matches": 0,
+          "metric": "rouge_l_1",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.204,
+          "visible": false
+        },
+        {
+          "line": 69,
+          "matches": 0,
+          "metric": "rouge_l_2",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.087,
+          "visible": false
+        },
+        {
+          "line": 69,
+          "matches": 0,
+          "metric": "rouge_l",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.186,
+          "visible": false
+        },
+        {
+          "line": 69,
+          "matches": 0,
+          "metric": "meteor",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.114,
+          "visible": false
+        },
+        {
+          "line": 69,
+          "matches": 0,
+          "metric": "text2mol",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.057,
+          "visible": false
+        },
+        {
+          "line": 70,
+          "matches": 0,
+          "metric": "bleu_2",
+          "snippet": "GPT-3.5-turbo (zero_shot) | 0.103 | 0.050 | 0.261 | 0.088 | 0.204",
+          "value": 0.103,
+          "visible": false
+        },
+        {
+          "line": 70,
+          "matches": 0,
+          "metric": "bleu_4",
+          "snippet": "GPT-3.5-turbo (zero_shot) | 0.103 | 0.050 | 0.261 | 0.088 | 0.204",
+          "value": 0.05,
+          "visible": false
+        },
+        {
+          "line": 70,
+          "matches": 0,
+          "metric": "rouge_l_1",
+          "snippet": "GPT-3.5-turbo (zero_shot) | 0.103 | 0.050 | 0.261 | 0.088 | 0.204",
+          "value": 0.261,
+          "visible": false
+        },
+        {
+          "line": 70,
+          "matches": 0,
+          "metric": "rouge_l_2",
+          "snippet": "GPT-3.5-turbo (zero_shot) | 0.103 | 0.050 | 0.261 | 0.088 | 0.204",
+          "value": 0.088,
+          "visible": false
+        },
+        {
+          "line": 70,
+          "matches": 0,
+          "metric": "rouge_l",
+          "snippet": "GPT-3.5-turbo (zero_shot) | 0.103 | 0.050 | 0.261 | 0.088 | 0.204",
+          "value": 0.204,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 0,
+      "passed": false,
+      "path": "README.md",
+      "rank": 28,
+      "repository": "phenixace/MolReGPT",
+      "selected_claims": 12,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "51301335b3188e2c4b9888a1635b71eb3cfee0e5",
+      "claims": [
+        {
+          "line": 4,
+          "matches": 0,
+          "metric": "bleu_improvement",
+          "snippet": "improvements of 112% in BLEU scores",
+          "value": 1.12,
+          "visible": false
+        },
+        {
+          "line": 4,
+          "matches": 0,
+          "metric": "rouge_l_improvement",
+          "snippet": "21.7% in ROUGE-L scores",
+          "value": 0.217,
+          "visible": false
+        },
+        {
+          "line": 4,
+          "matches": 0,
+          "metric": "bleu_stdev",
+          "snippet": "standard deviations of 3.72 and 0.00075",
+          "value": 3.72,
+          "visible": false
+        },
+        {
+          "line": 4,
+          "matches": 0,
+          "metric": "rouge_l_stdev",
+          "snippet": "standard deviations of 3.72 and 0.00075",
+          "value": 0.00075,
+          "visible": false
+        },
+        {
+          "line": 4,
+          "matches": 0,
+          "metric": "weighted_f1_decline",
+          "snippet": "Weighted F1 scores showed an expected decline of 13%",
+          "value": 0.13,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 0,
+      "passed": false,
+      "path": "README.md",
+      "rank": 31,
+      "repository": "abdanhafidz/DawetAI",
+      "selected_claims": 5,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "a80dd636aa7c095b4052a1c5eb1a0bf6a98efe08",
+      "claims": [
+        {
+          "line": 89,
+          "matches": 0,
+          "metric": "wikitq_accuracy",
+          "snippet": "OpenSearch-SQL | 38.89 | 4.76 | 24.00 | 23.87",
+          "value": 0.3889,
+          "visible": false
+        },
+        {
+          "line": 89,
+          "matches": 0,
+          "metric": "temptabqa_accuracy",
+          "snippet": "OpenSearch-SQL | 38.89 | 4.76 | 24.00 | 23.87",
+          "value": 0.047599999999999996,
+          "visible": false
+        },
+        {
+          "line": 89,
+          "matches": 0,
+          "metric": "sstqa_accuracy",
+          "snippet": "OpenSearch-SQL | 38.89 | 4.76 | 24.00 | 23.87",
+          "value": 0.24,
+          "visible": false
+        },
+        {
+          "line": 89,
+          "matches": 0,
+          "metric": "sstqa_rouge_l",
+          "snippet": "OpenSearch-SQL | 38.89 | 4.76 | 24.00 | 23.87",
+          "value": 0.23870000000000002,
+          "visible": false
+        },
+        {
+          "line": 91,
+          "matches": 0,
+          "metric": "wikitq_accuracy",
+          "snippet": "TableLLaMA | 35.01 | 32.70 | 40.39 | 26.71",
+          "value": 0.35009999999999997,
+          "visible": false
+        },
+        {
+          "line": 91,
+          "matches": 0,
+          "metric": "temptabqa_accuracy",
+          "snippet": "TableLLaMA | 35.01 | 32.70 | 40.39 | 26.71",
+          "value": 0.327,
+          "visible": false
+        },
+        {
+          "line": 91,
+          "matches": 0,
+          "metric": "sstqa_accuracy",
+          "snippet": "TableLLaMA | 35.01 | 32.70 | 40.39 | 26.71",
+          "value": 0.4039,
+          "visible": false
+        },
+        {
+          "line": 91,
+          "matches": 0,
+          "metric": "sstqa_rouge_l",
+          "snippet": "TableLLaMA | 35.01 | 32.70 | 40.39 | 26.71",
+          "value": 0.2671,
+          "visible": false
+        },
+        {
+          "line": 92,
+          "matches": 0,
+          "metric": "wikitq_accuracy",
+          "snippet": "TableLLM | 62.40 | 9.13 | 7.84 | 2.93",
+          "value": 0.624,
+          "visible": false
+        },
+        {
+          "line": 92,
+          "matches": 0,
+          "metric": "temptabqa_accuracy",
+          "snippet": "TableLLM | 62.40 | 9.13 | 7.84 | 2.93",
+          "value": 0.0913,
+          "visible": false
+        },
+        {
+          "line": 92,
+          "matches": 0,
+          "metric": "sstqa_accuracy",
+          "snippet": "TableLLM | 62.40 | 9.13 | 7.84 | 2.93",
+          "value": 0.0784,
+          "visible": false
+        },
+        {
+          "line": 92,
+          "matches": 0,
+          "metric": "sstqa_rouge_l",
+          "snippet": "TableLLM | 62.40 | 9.13 | 7.84 | 2.93",
+          "value": 0.029300000000000003,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 0,
+      "passed": false,
+      "path": "README.md",
+      "rank": 32,
+      "repository": "OpenDataBox/ST-Raptor",
+      "selected_claims": 12,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "60c850f758f78dd398c7445bf75f7637cb6747ca",
+      "claims": [
+        {
+          "line": 149,
+          "matches": 0,
+          "metric": "iou",
+          "snippet": "| IoU | 0.90 |",
+          "value": 0.9,
+          "visible": false
+        },
+        {
+          "line": 150,
+          "matches": 0,
+          "metric": "dice",
+          "snippet": "| Dice | 0.95 |",
+          "value": 0.95,
+          "visible": false
+        },
+        {
+          "line": 151,
+          "matches": 0,
+          "metric": "precision",
+          "snippet": "| Precision | 0.92 |",
+          "value": 0.92,
+          "visible": false
+        },
+        {
+          "line": 152,
+          "matches": 1,
+          "metric": "recall",
+          "snippet": "| Recall | 0.97 |",
+          "value": 0.97,
+          "visible": true
+        },
+        {
+          "line": 153,
+          "matches": 0,
+          "metric": "auroc",
+          "snippet": "| ROC AUC | 0.99 |",
+          "value": 0.99,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 13,
+      "passed": false,
+      "path": "README.md",
+      "rank": 33,
+      "repository": "Gautier9d/chocolate-recognition-deep-learning",
+      "selected_claims": 5,
+      "visible_claims": 1
+    },
+    {
+      "blob_sha": "b679b94155f222ba58b4004760a930b98b44c8c6",
+      "claims": [
+        {
+          "line": 178,
+          "matches": 1,
+          "metric": "precision",
+          "snippet": "Precision: 0.974872",
+          "value": 0.974872,
+          "visible": true
+        },
+        {
+          "line": 179,
+          "matches": 1,
+          "metric": "recall",
+          "snippet": "Recall: 0.982158",
+          "value": 0.982158,
+          "visible": true
+        },
+        {
+          "line": 180,
+          "matches": 1,
+          "metric": "f1",
+          "snippet": "F1 Score: 0.978501",
+          "value": 0.978501,
+          "visible": true
+        },
+        {
+          "line": 181,
+          "matches": 0,
+          "metric": "specificity",
+          "snippet": "Specificity: 0.991546",
+          "value": 0.991546,
+          "visible": false
+        },
+        {
+          "line": 182,
+          "matches": 0,
+          "metric": "auroc",
+          "snippet": "AUC: 0.986852",
+          "value": 0.986852,
+          "visible": false
+        },
+        {
+          "line": 183,
+          "matches": 1,
+          "metric": "iou",
+          "snippet": "IoU: 0.957907",
+          "value": 0.957907,
+          "visible": true
+        },
+        {
+          "line": 184,
+          "matches": 0,
+          "metric": "dice",
+          "snippet": "Dice Coefficient: 0.978501",
+          "value": 0.978501,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 5,
+      "passed": false,
+      "path": "README.md",
+      "rank": 34,
+      "repository": "CoboAr/Lung-Mask-Segmentation-with-U-Net",
+      "selected_claims": 7,
+      "visible_claims": 4
+    },
+    {
+      "blob_sha": "512337d397c01bc5d8d2ad2e76b782d5b53403bb",
+      "claims": [
+        {
+          "line": 28,
+          "matches": 0,
+          "metric": "auroc",
+          "snippet": "95.15% image-level AU-ROC",
+          "value": 0.9515,
+          "visible": false
+        },
+        {
+          "line": 28,
+          "matches": 0,
+          "metric": "pro",
+          "snippet": "92.93% pixel-level PRO",
+          "value": 0.9293,
+          "visible": false
+        }
+      ],
+      "extracted_claim_count": 0,
+      "passed": false,
+      "path": "README.md",
+      "rank": 35,
+      "repository": "caoyunkang/CPMF",
+      "selected_claims": 2,
+      "visible_claims": 0
+    },
+    {
+      "blob_sha": "59853c1223328929e2305ff5261c8fa90204fa35",
+      "claims": [
+        {
+          "line": 60,
+          "matches": 1,
+          "metric": "ndcg_5",
+          "snippet": "ColQwen2.5 | 0.630 | 0.666 | 0.717 | 0.766 | 0.573",
+          "value": 0.63,
+          "visible": true
+        },
+        {
+          "line": 60,
+          "matches": 1,
+          "metric": "ndcg_10",
+          "snippet": "ColQwen2.5 | 0.630 | 0.666 | 0.717 | 0.766 | 0.573",
+          "value": 0.666,
+          "visible": true
+        },
+        {
+          "line": 60,
+          "matches": 1,
+          "metric": "mrr",
+          "snippet": "ColQwen2.5 | 0.630 | 0.666 | 0.717 | 0.766 | 0.573",
+          "value": 0.717,
+          "visible": true
+        },
+        {
+          "line": 60,
+          "matches": 1,
+          "metric": "recall_10",
+          "snippet": "ColQwen2.5 | 0.630 | 0.666 | 0.717 | 0.766 | 0.573",
+          "value": 0.766,
+          "visible": true
+        },
+        {
+          "line": 60,
+          "matches": 1,
+          "metric": "map_10",
+          "snippet": "ColQwen2.5 | 0.630 | 0.666 | 0.717 | 0.766 | 0.573",
+          "value": 0.573,
+          "visible": true
+        },
+        {
+          "line": 61,
+          "matches": 1,
+          "metric": "ndcg_5",
+          "snippet": "ColGemma3 | 0.626 | 0.660 | 0.709 | 0.767 | 0.564",
+          "value": 0.626,
+          "visible": true
+        },
+        {
+          "line": 61,
+          "matches": 1,
+          "metric": "ndcg_10",
+          "snippet": "ColGemma3 | 0.626 | 0.660 | 0.709 | 0.767 | 0.564",
+          "value": 0.66,
+          "visible": true
+        },
+        {
+          "line": 61,
+          "matches": 1,
+          "metric": "mrr",
+          "snippet": "ColGemma3 | 0.626 | 0.660 | 0.709 | 0.767 | 0.564",
+          "value": 0.709,
+          "visible": true
+        },
+        {
+          "line": 61,
+          "matches": 1,
+          "metric": "recall_10",
+          "snippet": "ColGemma3 | 0.626 | 0.660 | 0.709 | 0.767 | 0.564",
+          "value": 0.767,
+          "visible": true
+        },
+        {
+          "line": 61,
+          "matches": 1,
+          "metric": "map_10",
+          "snippet": "ColGemma3 | 0.626 | 0.660 | 0.709 | 0.767 | 0.564",
+          "value": 0.564,
+          "visible": true
+        },
+        {
+          "line": 62,
+          "matches": 1,
+          "metric": "ndcg_5",
+          "snippet": "ColQwen2 | 0.624 | 0.657",
+          "value": 0.624,
+          "visible": true
+        },
+        {
+          "line": 62,
+          "matches": 1,
+          "metric": "ndcg_10",
+          "snippet": "ColQwen2 | 0.624 | 0.657",
+          "value": 0.657,
+          "visible": true
+        }
+      ],
+      "extracted_claim_count": 42,
+      "passed": true,
+      "path": "README.md",
+      "rank": 38,
+      "repository": "mathieusharp/mmore-colvision-benchmark",
+      "selected_claims": 12,
+      "visible_claims": 12
+    }
+  ],
+  "claim_visibility": 0.2064516129032258,
+  "claim_visibility_wilson_95": [
+    0.15020666665923887,
+    0.27689504421887623
+  ],
+  "document_visibility": 0.1,
+  "document_visibility_wilson_95": [
+    0.027866481213768224,
+    0.3010336452284873
+  ],
+  "eligible_documents": 20,
+  "extractor_commit": "734a3d5b4ec421bcccacede69df4f86f7c1900fe",
+  "independent_owners": 20,
+  "phase": "preregistered-zero-shot-frozen-0.24.0",
+  "reviewed_documents": 38,
+  "runtime_evaluator_version": "0.24.0",
+  "sampled_documents": 48,
+  "schema_version": "reprocheck.cross-project-result.v10",
+  "scientific_boundary": "This is a preregistered, query-conditioned GitHub Markdown holdout with one document per previously unseen owner. It estimates visibility within the frozen search frames, not all software documentation. No v0.24.0 extractor change follows source retrieval or annotation.",
+  "selected_claims": 155,
+  "threshold_pass": {
+    "claim_visibility": false,
+    "claim_visibility_wilson_lower": false,
+    "document_visibility_for_9_of_10": false,
+    "minimum_eligible_documents": true
+  },
+  "thresholds": {
+    "claim_visibility": 0.85,
+    "claim_visibility_wilson_lower": 0.7,
+    "document_visibility_for_9_of_10": 0.85,
+    "minimum_eligible_documents": 15
+  },
+  "visible_claims": 32,
+  "visible_documents": 2
+}
