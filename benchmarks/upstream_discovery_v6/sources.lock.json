@@ -1,0 +1,13 @@
+{
+  "files": {
+    "mem0-readme-score-sync--README.md.after.md": {
+      "sha256": "7509347d34a767a2ef37ceb6cf6c714de9e8d84fe66ad5eea92bbae824a8fbeb",
+      "url": "https://raw.githubusercontent.com/mem0ai/mem0/5dbf071356e4b9fc81ed924d51586926c4c48a63/README.md"
+    },
+    "mem0-readme-score-sync--README.md.before.md": {
+      "sha256": "fe5211cfd7c3d565b3d35ded3ff7f4ad4f9820dfcc27bbe2b54d6a63cb9f1eb9",
+      "url": "https://raw.githubusercontent.com/mem0ai/mem0/b26469e006f9787410b1ba5fe6b7937d281392f8/README.md"
+    }
+  },
+  "schema_version": "reprocheck.upstream-discovery-sources-lock.v5"
+}

@@ -1,0 +1,3698 @@
+{
+  "frames": [
+    {
+      "api_returned_count": 58,
+      "api_total_count": 58,
+      "candidates": [
+        {
+          "created_at": "2026-07-13T23:09:48Z",
+          "merged_at": "2026-07-13T23:13:21Z",
+          "pull_request": 39,
+          "query_frame": 1,
+          "repository": "AnaTofuZ/GraphQL-Houtou",
+          "sample_digest": "05eddd7c47a44374fbd71c6d09d6c5fc5d3c37f549c15bff7c380807e4a9f918",
+          "title": "Refresh the main POD and document the public modules",
+          "url": "https://github.com/AnaTofuZ/GraphQL-Houtou/pull/39"
+        },
+        {
+          "created_at": "2026-07-28T18:43:28Z",
+          "merged_at": "2026-07-28T19:33:10Z",
+          "pull_request": 4128,
+          "query_frame": 1,
+          "repository": "dyad-sh/dyad",
+          "sample_digest": "0f52e0e5bcdf5076e816b1df9ae8dd05b194e28e8470fd297e28171e1a27c7de",
+          "title": "Pin compaction to gpt-5.6-luna for Pro users; add compaction quality benchmark",
+          "url": "https://github.com/dyad-sh/dyad/pull/4128"
+        },
+        {
+          "created_at": "2026-07-09T10:20:40Z",
+          "merged_at": "2026-07-09T10:27:05Z",
+          "pull_request": 6182,
+          "query_frame": 1,
+          "repository": "mem0ai/mem0",
+          "sample_digest": "1491ecb16f45536c51f15f78713925745a258b16cbade5a499e0ac0a728e0457",
+          "title": "docs: update README benchmarks to current temporal-reasoning results",
+          "url": "https://github.com/mem0ai/mem0/pull/6182"
+        },
+        {
+          "created_at": "2026-05-31T16:03:33Z",
+          "merged_at": "2026-05-31T21:50:15Z",
+          "pull_request": 1,
+          "query_frame": 1,
+          "repository": "cschett13-collab/kimi-k2.5",
+          "sample_digest": "15985994b6b4dbb133567dd28a693c7cf4ae287b8c08e724c92b4d4ca6ea1c71",
+          "title": "Fix documentation inconsistencies in README and deploy guide",
+          "url": "https://github.com/cschett13-collab/kimi-k2.5/pull/1"
+        },
+        {
+          "created_at": "2026-07-28T23:38:33Z",
+          "merged_at": "2026-07-29T00:54:41Z",
+          "pull_request": 1,
+          "query_frame": 1,
+          "repository": "plaught-armor/SpatialHash",
+          "sample_digest": "179b0d0ad2a27f1886840c3b7d5eaaace11cfd721ddd139e8637dca51859ee65",
+          "title": "perf: faster build() and nearest-K, a bound on sparse grids, and deterministic variants",
+          "url": "https://github.com/plaught-armor/SpatialHash/pull/1"
+        },
+        {
+          "created_at": "2026-08-12T07:22:23Z",
+          "merged_at": "2026-08-12T14:46:38Z",
+          "pull_request": 11,
+          "query_frame": 1,
+          "repository": "COMBINE-lab/caps-sa",
+          "sample_digest": "17dc3a902922780c74bad57faca4923111b4bb5696fafef6250ec33208e1f605",
+          "title": "test+build+ci: LCP-array coverage, release profile, and a Rust workflow (independent)",
+          "url": "https://github.com/COMBINE-lab/caps-sa/pull/11"
+        },
+        {
+          "created_at": "2026-07-25T17:48:47Z",
+          "merged_at": "2026-07-25T17:49:41Z",
+          "pull_request": 20,
+          "query_frame": 1,
+          "repository": "0Smallcat0/OpenRead",
+          "sample_digest": "2313ec493427c9dfa6c99bb80b068fc575c7a6fa6a8872ac27c57e4c9f12fa04",
+          "title": "feat(eval): re-score the benchmark through the current pipeline (v2.2.10)",
+          "url": "https://github.com/0Smallcat0/OpenRead/pull/20"
+        },
+        {
+          "created_at": "2026-06-30T09:02:52Z",
+          "merged_at": "2026-06-30T12:22:23Z",
+          "pull_request": 53,
+          "query_frame": 1,
+          "repository": "useboardwalk/orca",
+          "sample_digest": "248daa2cbb8baec0dbe86495af43a26a49223e8ab4c6e99b59c57962e532796e",
+          "title": "Publish live benchmark results + poison/injection ASR harness",
+          "url": "https://github.com/useboardwalk/orca/pull/53"
+        },
+        {
+          "created_at": "2026-07-30T22:17:14Z",
+          "merged_at": "2026-07-30T22:25:00Z",
+          "pull_request": 14517,
+          "query_frame": 1,
+          "repository": "activepieces/activepieces",
+          "sample_digest": "29583e0ed3b827b61cb55dd7ea56869a4f845dd239a9a5ea305d19aacc9f1781",
+          "title": "docs(benchmark): re-measure the GKE scaling benchmark and correct the analysis",
+          "url": "https://github.com/activepieces/activepieces/pull/14517"
+        },
+        {
+          "created_at": "2026-05-27T17:47:01Z",
+          "merged_at": "2026-05-27T19:05:47Z",
+          "pull_request": 41,
+          "query_frame": 1,
+          "repository": "leandror172/local-llm",
+          "sample_digest": "2dd4c103e803cff701d14bbb3a1bf1dc2cac5801074df5336a036d2411130c9f",
+          "title": "docs: apply advisor review to model survey (session 69)",
+          "url": "https://github.com/leandror172/local-llm/pull/41"
+        },
+        {
+          "created_at": "2026-08-10T20:19:17Z",
+          "merged_at": "2026-08-10T22:15:57Z",
+          "pull_request": 196,
+          "query_frame": 1,
+          "repository": "duckedup/nidus",
+          "sample_digest": "320b3d0c4c5bf83498d005f016903e986922403fc777c63003e682b481cdd211",
+          "title": "🪺 docs: close the 2026-08 audit coverage gaps",
+          "url": "https://github.com/duckedup/nidus/pull/196"
+        },
+        {
+          "created_at": "2026-07-31T17:02:45Z",
+          "merged_at": "2026-07-31T17:47:06Z",
+          "pull_request": 17,
+          "query_frame": 1,
+          "repository": "radzserg/rsdi",
+          "sample_digest": "3485ab7e26a6daea37c91fc06f80950e8064e69caf72f5eba6adafc7da28b78b",
+          "title": "perf: linear wiring and faster cached resolution, with a benchmark suite to prove it",
+          "url": "https://github.com/radzserg/rsdi/pull/17"
+        },
+        {
+          "created_at": "2026-07-03T06:30:14Z",
+          "merged_at": "2026-07-03T06:32:36Z",
+          "pull_request": 83,
+          "query_frame": 1,
+          "repository": "knaisoma/data-olympus",
+          "sample_digest": "3896d7317e6dc22ae8b58af544949c935a79fdef408ca9b56fc192e2d8584206",
+          "title": "fix(search): penalized expansion backfill, gated trigram build, dense-channel and build perf fixes",
+          "url": "https://github.com/knaisoma/data-olympus/pull/83"
+        },
+        {
+          "created_at": "2026-06-10T10:40:55Z",
+          "merged_at": "2026-06-27T14:04:54Z",
+          "pull_request": 1,
+          "query_frame": 1,
+          "repository": "SvnFrs/eco-mcp",
+          "sample_digest": "39fd258cf7b950d4df0e3666bce542799285b60397aad458523f5e3390c518d7",
+          "title": "Context Packs (CCI) + repo-map + GitHub Models benchmark provider",
+          "url": "https://github.com/SvnFrs/eco-mcp/pull/1"
+        },
+        {
+          "created_at": "2026-06-14T22:07:41Z",
+          "merged_at": "2026-06-15T02:11:06Z",
+          "pull_request": 125,
+          "query_frame": 1,
+          "repository": "manafishrov/app",
+          "sample_digest": "3b2e7677cc33f0b8bbe41844c7742df7165741d254f508d722938e58a4cda953",
+          "title": "chore(deps): Update all patch dependencies",
+          "url": "https://github.com/manafishrov/app/pull/125"
+        },
+        {
+          "created_at": "2026-02-24T18:05:53Z",
+          "merged_at": "2026-02-24T18:45:13Z",
+          "pull_request": 13,
+          "query_frame": 1,
+          "repository": "DeltaRule/DeltaDatabase",
+          "sample_digest": "45049f33f8ce67496dd44cf8fa2d1aaa0165b284d31575ccc2acce30a8d325ef",
+          "title": "docs: fix README inaccuracies, extract build docs, elevate Docker/Kubernetes deployment, update benchmarks",
+          "url": "https://github.com/DeltaRule/DeltaDatabase/pull/13"
+        },
+        {
+          "created_at": "2026-07-23T19:04:49Z",
+          "merged_at": "2026-07-24T23:18:39Z",
+          "pull_request": 142,
+          "query_frame": 1,
+          "repository": "jbsiddall/lightning-yaml",
+          "sample_digest": "4fa59c2c5772a0fa58334a4d90de9d008c6bc44d72a30e762967fc6a780194e0",
+          "title": "fix: reject spec-invalid directives, cap key-cache memory, show README benchmarks as ratios",
+          "url": "https://github.com/jbsiddall/lightning-yaml/pull/142"
+        },
+        {
+          "created_at": "2026-05-12T18:24:20Z",
+          "merged_at": "2026-05-12T18:41:00Z",
+          "pull_request": 44,
+          "query_frame": 1,
+          "repository": "rakibulhasanshuvo/izzan",
+          "sample_digest": "50ed221f6dd9bf7ac35aedbbd9779f01ccef81cece339736f7b701180d654150",
+          "title": "⚡ Optimize order processing with bulk findMany query",
+          "url": "https://github.com/rakibulhasanshuvo/izzan/pull/44"
+        },
+        {
+          "created_at": "2026-08-04T16:00:59Z",
+          "merged_at": "2026-08-04T19:32:26Z",
+          "pull_request": 791,
+          "query_frame": 1,
+          "repository": "TigreGotico/orthography2ipa",
+          "sample_digest": "52e849aeb567e6cea6dde4122283bcaf65deab1ffe1fedb52689042867bfce7e",
+          "title": "data: beat-espeak campaign — Germanic (nl/de/sv)",
+          "url": "https://github.com/TigreGotico/orthography2ipa/pull/791"
+        },
+        {
+          "created_at": "2026-08-12T11:03:08Z",
+          "merged_at": "2026-08-12T11:06:44Z",
+          "pull_request": 8,
+          "query_frame": 1,
+          "repository": "yablokolabs/QuantumClaw",
+          "sample_digest": "59432a2ada17ade50a66eb7b3afd45947207f8bebf2165eddeb61f5c6df4045c",
+          "title": "fix: reproducible benchmarks, and stop the classical row running a sampler",
+          "url": "https://github.com/yablokolabs/QuantumClaw/pull/8"
+        },
+        {
+          "created_at": "2026-07-27T21:48:47Z",
+          "merged_at": "2026-07-27T21:56:51Z",
+          "pull_request": 71,
+          "query_frame": 1,
+          "repository": "Huang-lab/fastVEP",
+          "sample_digest": "5de9d24f816b5daf0910154ee8bbeb3a92b8eade56ae34df88a7d210abd8f401",
+          "title": "feat(sa): v2 .osa2 for all allele-level & positional sources; --format auto default",
+          "url": "https://github.com/Huang-lab/fastVEP/pull/71"
+        },
+        {
+          "created_at": "2026-05-16T08:10:16Z",
+          "merged_at": "2026-05-16T08:21:11Z",
+          "pull_request": 31,
+          "query_frame": 1,
+          "repository": "memenow/memenow-storage-cf-workers",
+          "sample_digest": "60b170ff7cae9e9676c5ee75ffcc5a7a1688d30b57a1a4586ee6dcce506c08f8",
+          "title": "docs: refresh comments, docs, and README to match current code",
+          "url": "https://github.com/memenow/memenow-storage-cf-workers/pull/31"
+        },
+        {
+          "created_at": "2026-07-09T05:23:56Z",
+          "merged_at": "2026-07-09T19:07:47Z",
+          "pull_request": 32,
+          "query_frame": 1,
+          "repository": "goodshawn12/pyorica",
+          "sample_digest": "647fa549a2bc9c10c039a2bff04df17c854c5e867c1d1d33c9c6f95e32968c7b",
+          "title": "Align ICLabelClassifier with legacy ORICA use_icalabel_online (extracted from #31)",
+          "url": "https://github.com/goodshawn12/pyorica/pull/32"
+        },
+        {
+          "created_at": "2026-06-25T04:00:16Z",
+          "merged_at": "2026-06-25T04:01:05Z",
+          "pull_request": 30,
+          "query_frame": 1,
+          "repository": "alexanderjulianmartinez/mars",
+          "sample_digest": "68557b6598ddb3e016d4a5b6f0651bbfe8393253e37b0c74f48ae0a23f4e55a4",
+          "title": "Add Substack blog version and figure PNG exports",
+          "url": "https://github.com/alexanderjulianmartinez/mars/pull/30"
+        },
+        {
+          "created_at": "2026-08-05T18:43:35Z",
+          "merged_at": "2026-08-05T19:01:32Z",
+          "pull_request": 212,
+          "query_frame": 1,
+          "repository": "GiulioDER/RE-call",
+          "sample_digest": "68723f98959b5bd72396135d2ac307d34d376d1a4cf512b58041a25f4370eb84",
+          "title": "bench(mtrag): MTRAGEval RB_alg probe — preregistered, falsified, and corrected twice",
+          "url": "https://github.com/GiulioDER/RE-call/pull/212"
+        },
+        {
+          "created_at": "2026-07-25T08:59:20Z",
+          "merged_at": "2026-07-25T09:00:37Z",
+          "pull_request": 14,
+          "query_frame": 1,
+          "repository": "manas-vamsi/cognitive-memory-engine",
+          "sample_digest": "6cbf29660d5bc37012532c0f47e8d1f5011e11c2bef1e016c045f4e3b95da4f1",
+          "title": "Benchmarks: measure the claims, fix the solver they broke",
+          "url": "https://github.com/manas-vamsi/cognitive-memory-engine/pull/14"
+        },
+        {
+          "created_at": "2026-05-24T01:00:51Z",
+          "merged_at": "2026-05-24T16:48:49Z",
+          "pull_request": 1,
+          "query_frame": 1,
+          "repository": "gastonmorixe/react-native-new-architecture-research",
+          "sample_digest": "6cd7c480854432d629c94b817da8d2fbed8ea8d01fa4552db92f93003af94fd5",
+          "title": "docs(audit): source-grounded audit pass against React Native v0.86.0-rc.1",
+          "url": "https://github.com/gastonmorixe/react-native-new-architecture-research/pull/1"
+        },
+        {
+          "created_at": "2026-06-16T03:32:27Z",
+          "merged_at": "2026-06-16T03:35:34Z",
+          "pull_request": 2978,
+          "query_frame": 1,
+          "repository": "stSoftwareAU/NEAT-AI",
+          "sample_digest": "701544996154e9ed3df2401ec598b3e14b1e0960e7a70be0c222611d4b8eb58c",
+          "title": "Docs: audit Predictive Coding guides — fact-check vs implementation (#2965)",
+          "url": "https://github.com/stSoftwareAU/NEAT-AI/pull/2978"
+        },
+        {
+          "created_at": "2026-06-26T18:39:49Z",
+          "merged_at": "2026-06-26T18:44:05Z",
+          "pull_request": 43359,
+          "query_frame": 1,
+          "repository": "hongbo-miao/hongbomiao.com",
+          "sample_digest": "724c1fcbb337dcadb41bb72e321cc271d92f37a60885f9fc392265a4d0d71243",
+          "title": "fix(camera-radar-fusion): update dependency ultralytics to v8.4.71",
+          "url": "https://github.com/hongbo-miao/hongbomiao.com/pull/43359"
+        },
+        {
+          "created_at": "2026-07-14T20:14:24Z",
+          "merged_at": "2026-07-14T20:35:54Z",
+          "pull_request": 6,
+          "query_frame": 1,
+          "repository": "IHIutch/grass",
+          "sample_digest": "8255aa8c78416544f7d5e664f3a4a344946e555966df6ee90b371b85ffb40e77",
+          "title": "Release 0.15.0: dart-sass JS-API parity fix (breaking), honest benchmarks, Node 24 LTS",
+          "url": "https://github.com/IHIutch/grass/pull/6"
+        },
+        {
+          "created_at": "2026-06-13T20:03:12Z",
+          "merged_at": "2026-06-13T20:16:42Z",
+          "pull_request": 107,
+          "query_frame": 1,
+          "repository": "mitos-run/mitos",
+          "sample_digest": "8d53b8c0434867d5f4d7af8b96cd9a4ad7f163f3c4a57cd36c4caf2f6c9cf714",
+          "title": "docs(readme): fix comparison table header (sandbox -> mitos) + refresh stale project status",
+          "url": "https://github.com/mitos-run/mitos/pull/107"
+        },
+        {
+          "created_at": "2026-06-27T18:24:30Z",
+          "merged_at": "2026-06-27T18:40:34Z",
+          "pull_request": 43383,
+          "query_frame": 1,
+          "repository": "hongbo-miao/hongbomiao.com",
+          "sample_digest": "908304526d37355865da06ecf20df1d3f6ab50ffe942fe1c1df758c82df70184",
+          "title": "fix(export-yolo-to-onnx): update dependency ultralytics to v8.4.72",
+          "url": "https://github.com/hongbo-miao/hongbomiao.com/pull/43383"
+        },
+        {
+          "created_at": "2026-06-27T18:23:21Z",
+          "merged_at": "2026-06-27T18:40:52Z",
+          "pull_request": 43379,
+          "query_frame": 1,
+          "repository": "hongbo-miao/hongbomiao.com",
+          "sample_digest": "9281eec9c171e1a9668ad2e7d3ff5f283ab2f5a78c1c5c07440be47457848b12",
+          "title": "fix(detect-objects): update dependency ultralytics to v8.4.72",
+          "url": "https://github.com/hongbo-miao/hongbomiao.com/pull/43379"
+        },
+        {
+          "created_at": "2026-07-22T00:42:07Z",
+          "merged_at": "2026-07-22T04:49:59Z",
+          "pull_request": 286,
+          "query_frame": 1,
+          "repository": "hyeons-lab/cera",
+          "sample_digest": "965c8af1f472337fb525e6852c11aa18f467420c978eaad02da928fb7b477799",
+          "title": "perf(cpu): row-tile the Q4_0/Q8_0 prefill GEMM (+19%)",
+          "url": "https://github.com/hyeons-lab/cera/pull/286"
+        },
+        {
+          "created_at": "2026-06-14T01:13:03Z",
+          "merged_at": "2026-06-14T01:14:07Z",
+          "pull_request": 316,
+          "query_frame": 1,
+          "repository": "brianegge/garbage_bin",
+          "sample_digest": "a7cd085a38ca519d0a91e6d1a58353b9528f5ff24ed7bfcc2a707d8f1e149f44",
+          "title": "Update dependency ultralytics to v8.4.67",
+          "url": "https://github.com/brianegge/garbage_bin/pull/316"
+        },
+        {
+          "created_at": "2026-07-25T03:29:37Z",
+          "merged_at": "2026-07-25T04:22:21Z",
+          "pull_request": 2874,
+          "query_frame": 1,
+          "repository": "kim-em/lean-zip",
+          "sample_digest": "aba666866286b096bd6fd3d36b08ed205e53413f73f016d7e645d8b49875d7eb",
+          "title": "perf(decode): refill input a word at a time",
+          "url": "https://github.com/kim-em/lean-zip/pull/2874"
+        },
+        {
+          "created_at": "2026-05-28T21:05:06Z",
+          "merged_at": "2026-05-28T21:07:55Z",
+          "pull_request": 16,
+          "query_frame": 1,
+          "repository": "geoff-davis/aiogzip",
+          "sample_digest": "b42bc95ed6fafc420053c519c9bee0e19cba3131481cb9bbc3e50a69d616b541",
+          "title": "Docs: refresh for 256 KiB default and current performance numbers",
+          "url": "https://github.com/geoff-davis/aiogzip/pull/16"
+        },
+        {
+          "created_at": "2026-07-12T07:13:47Z",
+          "merged_at": "2026-07-12T08:34:27Z",
+          "pull_request": 348,
+          "query_frame": 1,
+          "repository": "NikolayS/PgQue",
+          "sample_digest": "b669b489b7e7218acae17f3fe78bf34c1665dee568820cc1987c2ed8e1c89447",
+          "title": "docs: polish user-facing text for clarity and consistency",
+          "url": "https://github.com/NikolayS/PgQue/pull/348"
+        },
+        {
+          "created_at": "2026-08-07T17:10:19Z",
+          "merged_at": "2026-08-07T19:31:09Z",
+          "pull_request": 19,
+          "query_frame": 1,
+          "repository": "CW-Codewalnut/typemate",
+          "sample_digest": "b8a9415393a40d596775aa94358784b7a9e8e6f490752b37d2655640aaebe9ad",
+          "title": "fix: dictation, engine lifecycle, and insights defects",
+          "url": "https://github.com/CW-Codewalnut/typemate/pull/19"
+        },
+        {
+          "created_at": "2026-06-14T15:39:01Z",
+          "merged_at": "2026-06-14T17:27:09Z",
+          "pull_request": 175,
+          "query_frame": 1,
+          "repository": "TasneemEltabakh/smartload",
+          "sample_digest": "bb50a0e76edf2bc59d9c2122387139f22425ea1155db75737d0184801d48fead",
+          "title": "docs: documentation staleness audit — factual fixes + honest RL framing",
+          "url": "https://github.com/TasneemEltabakh/smartload/pull/175"
+        },
+        {
+          "created_at": "2026-07-22T01:48:05Z",
+          "merged_at": "2026-07-22T01:48:15Z",
+          "pull_request": 513,
+          "query_frame": 1,
+          "repository": "mralaminahamed/media-bulk-downloads",
+          "sample_digest": "bbee6970bc2ed98ea5cbd606bd6229b7f9a1af9c278759946286c0707c729a59",
+          "title": "docs(website): install badges, mermaid diagrams, content + UI polish",
+          "url": "https://github.com/mralaminahamed/media-bulk-downloads/pull/513"
+        },
+        {
+          "created_at": "2026-07-28T01:55:50Z",
+          "merged_at": "2026-08-01T03:17:00Z",
+          "pull_request": 3,
+          "query_frame": 1,
+          "repository": "llvm-x86/loom",
+          "sample_digest": "d4ca41c06fa3fabbd76da3f8f98e158150befe44f89dc735b31d2d19b4968370",
+          "title": "perf: bound process-lifetime caches (snapshot store, discovery fs, LSP, JS eval contexts)",
+          "url": "https://github.com/llvm-x86/loom/pull/3"
+        },
+        {
+          "created_at": "2026-07-27T06:49:49Z",
+          "merged_at": "2026-07-27T06:52:39Z",
+          "pull_request": 21,
+          "query_frame": 1,
+          "repository": "darklordVirtual/REMORA-research",
+          "sample_digest": "d7f9564ea092b75550f698e12ff3c3db74742166114c2655418dc996807e98da",
+          "title": "fix(audit): close all five P0 research blockers + CI content integrity",
+          "url": "https://github.com/darklordVirtual/REMORA-research/pull/21"
+        },
+        {
+          "created_at": "2026-08-13T05:14:15Z",
+          "merged_at": "2026-08-13T10:14:54Z",
+          "pull_request": 5,
+          "query_frame": 1,
+          "repository": "nerds-run/strix_halo_vllm",
+          "sample_digest": "d9fab0d7738e4511757df1827f2bc3c7908ab63cd0c351672effe0d64267144e",
+          "title": "Add lightning, coder-next, deepseek profiles; pin image and re-baseline the fleet",
+          "url": "https://github.com/nerds-run/strix_halo_vllm/pull/5"
+        },
+        {
+          "created_at": "2026-07-28T16:33:11Z",
+          "merged_at": "2026-07-28T17:21:32Z",
+          "pull_request": 30,
+          "query_frame": 1,
+          "repository": "damborik22/BinderScout",
+          "sample_digest": "dc48dbf2a63a303a628ec05b5c5ccb45c93eb617bd38df24a15ab83a63c13578",
+          "title": "Part U: close the metric question; one ranking; restore the per-tool native tables",
+          "url": "https://github.com/damborik22/BinderScout/pull/30"
+        },
+        {
+          "created_at": "2026-07-17T21:11:33Z",
+          "merged_at": "2026-07-18T22:20:25Z",
+          "pull_request": 387,
+          "query_frame": 1,
+          "repository": "theSherwood/vm",
+          "sample_digest": "e2a6c10fd1043163a6d2c994f0898ff06f1b9ee0e89d45c00221cb2a164cc004",
+          "title": "Doc sync: bring the tracking docs in line with landed work",
+          "url": "https://github.com/theSherwood/vm/pull/387"
+        },
+        {
+          "created_at": "2026-08-02T04:48:34Z",
+          "merged_at": "2026-08-02T08:04:04Z",
+          "pull_request": 83,
+          "query_frame": 1,
+          "repository": "Assault-Consulting/Palimpsests",
+          "sample_digest": "e3ee032ed15e9cd9026a78fc185476c6c81d78737e9f7fac2be83400a9bf1ecc",
+          "title": "docs: close the 0.5 measurement campaign — composite + lift density HOLD across README, POSITIONING, CONSOLIDATION",
+          "url": "https://github.com/Assault-Consulting/Palimpsests/pull/83"
+        },
+        {
+          "created_at": "2026-07-25T03:20:36Z",
+          "merged_at": "2026-07-25T03:36:31Z",
+          "pull_request": 41,
+          "query_frame": 1,
+          "repository": "Sagargupta16/claude-cost-optimizer",
+          "sample_digest": "e619e6fa030c566ce70cdb3df5b1fb3efeaaf09e49a2568cbcf0514a2ba6fb02",
+          "title": "feat: add Opus 5 across pricing data, tools, guides, and site",
+          "url": "https://github.com/Sagargupta16/claude-cost-optimizer/pull/41"
+        },
+        {
+          "created_at": "2026-06-08T15:24:47Z",
+          "merged_at": "2026-06-08T17:21:16Z",
+          "pull_request": 8,
+          "query_frame": 1,
+          "repository": "crutkas/DesktopGrass",
+          "sample_digest": "e639e3756a11885b6f0ac0d441ad0a7be3ccf490fa806f029fc1b0e12f27100c",
+          "title": "perf: pace frame loop with a high-resolution waitable timer",
+          "url": "https://github.com/crutkas/DesktopGrass/pull/8"
+        },
+        {
+          "created_at": "2026-06-10T01:58:26Z",
+          "merged_at": "2026-06-14T13:22:00Z",
+          "pull_request": 410,
+          "query_frame": 1,
+          "repository": "jazzlyn/ml-detector",
+          "sample_digest": "eab771134014a5399342c598da19850d4fcd62de504b65fd91b11f9d1f821629",
+          "title": "fix(deps): update dependency ultralytics ( 8.4.62 → 8.4.67 )",
+          "url": "https://github.com/jazzlyn/ml-detector/pull/410"
+        },
+        {
+          "created_at": "2026-06-12T08:01:05Z",
+          "merged_at": "2026-06-12T08:01:25Z",
+          "pull_request": 315,
+          "query_frame": 1,
+          "repository": "hyuntohoon/myblog-workspace",
+          "sample_digest": "ee443d0184f769e70c69dcd418f789e229a004f7776eda818098d8f022bf8c56",
+          "title": "docs(genre): FEAT-genre-system RFC (Step 0) — discard genre-taxonomy, capture sub-genre seeds",
+          "url": "https://github.com/hyuntohoon/myblog-workspace/pull/315"
+        },
+        {
+          "created_at": "2026-08-06T14:20:08Z",
+          "merged_at": "2026-08-06T16:46:36Z",
+          "pull_request": 366,
+          "query_frame": 1,
+          "repository": "jasonfen/terminal-space-program",
+          "sample_digest": "f087c12d208f18d095640fc9f2899ae88d55fc3d47920a6d5c1782dd4b7f3b17",
+          "title": "perf: coalesce Canvas.String() per-cell styling into per-run calls",
+          "url": "https://github.com/jasonfen/terminal-space-program/pull/366"
+        },
+        {
+          "created_at": "2026-06-10T21:03:11Z",
+          "merged_at": "2026-06-10T21:10:33Z",
+          "pull_request": 4,
+          "query_frame": 1,
+          "repository": "nkwib/pr-engine",
+          "sample_digest": "ff8e29555c64845e2a436fa0b21ab14c9c54c525b5e5dd7fb607c0ea0c436516",
+          "title": "Align docs with published package names, fix metadata, add CI",
+          "url": "https://github.com/nkwib/pr-engine/pull/4"
+        }
+      ],
+      "duplicate_hits": 0,
+      "owner_cap_hits": 0,
+      "prior_exposure_hits": 5,
+      "query": "\"benchmark numbers were\" corrected is:pr is:merged created:>=2024-01-01 in:title,body",
+      "query_frame": 1,
+      "raw_file": "raw/frame-1.json",
+      "raw_sha256": "ed280429d8fba5d25f8617ecafa175fb7bc816a7df24781a58f3a0d56d4d4bb9",
+      "repository_cap_hits": 0,
+      "selected_count": 15,
+      "unique_candidates": 53
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 414,
+      "candidates": [
+        {
+          "created_at": "2026-07-15T22:51:08Z",
+          "merged_at": "2026-07-15T23:01:20Z",
+          "pull_request": 4,
+          "query_frame": 2,
+          "repository": "anqxz/kafka_project",
+          "sample_digest": "04294fd856e2d28b03c3feb3bbeea680cece4177fc17839c1061dc8bd81d6a8f",
+          "title": "fix(compose): PR 4 — bringup fixes for observability stack (rootless-compatible)",
+          "url": "https://github.com/anqxz/kafka_project/pull/4"
+        },
+        {
+          "created_at": "2026-07-20T19:34:19Z",
+          "merged_at": "2026-07-24T15:07:34Z",
+          "pull_request": 197,
+          "query_frame": 2,
+          "repository": "insights-onprem/cost-onprem-chart",
+          "sample_digest": "0450f2a701381bead6869ea4d5c93c63f295c44cd41f61e617c54f0cedd52e58",
+          "title": "COST-7598 Processing pipeline analysis",
+          "url": "https://github.com/insights-onprem/cost-onprem-chart/pull/197"
+        },
+        {
+          "created_at": "2026-06-12T17:08:20Z",
+          "merged_at": "2026-06-23T14:17:03Z",
+          "pull_request": 26333,
+          "query_frame": 2,
+          "repository": "Graylog2/graylog2-server",
+          "sample_digest": "04b624ca2bc85218d10403400fca9249343884c550f282c0237561062ed466ac",
+          "title": "Fix Inputs Metrics telemetry not being reported (`7.1`)",
+          "url": "https://github.com/Graylog2/graylog2-server/pull/26333"
+        },
+        {
+          "created_at": "2026-05-05T13:08:26Z",
+          "merged_at": "2026-05-05T13:08:35Z",
+          "pull_request": 47,
+          "query_frame": 2,
+          "repository": "MONQDL/Monq.Core.BasicDotNetMicroservice",
+          "sample_digest": "052399a42809c0e56231db16e3663f42a36f4176f914b5f7a490df00a8a429be",
+          "title": "Fix bug at metrics reported configuration.",
+          "url": "https://github.com/MONQDL/Monq.Core.BasicDotNetMicroservice/pull/47"
+        },
+        {
+          "created_at": "2026-06-30T09:37:24Z",
+          "merged_at": "2026-07-16T09:00:48Z",
+          "pull_request": 5985,
+          "query_frame": 2,
+          "repository": "red-hat-storage/cephci",
+          "sample_digest": "0a79aed0be8590f8c1f7bc1e9823deddd6ffd7f8e8c749af4fa397c1ab8e3d80",
+          "title": "TFA fixes for system test",
+          "url": "https://github.com/red-hat-storage/cephci/pull/5985"
+        },
+        {
+          "created_at": "2026-04-02T13:40:00Z",
+          "merged_at": "2026-04-03T16:07:06Z",
+          "pull_request": 48806,
+          "query_frame": 2,
+          "repository": "DataDog/datadog-agent",
+          "sample_digest": "0ceca3e8a896bddab7692c454e5269d9c6688b39e0b887a35a9cd43322f73cd9",
+          "title": "[SNMP] Fix bandwidth metrics not being reported when there are intermittent check failures",
+          "url": "https://github.com/DataDog/datadog-agent/pull/48806"
+        },
+        {
+          "created_at": "2026-08-06T21:07:08Z",
+          "merged_at": "2026-08-06T21:07:15Z",
+          "pull_request": 42,
+          "query_frame": 2,
+          "repository": "dkadaj75-dev/SpaceArena",
+          "sample_digest": "0e1f61faa951b990e201a5fb156857c35c83b920e8b6dc772a74e25c26c49355",
+          "title": "Fix the invisible launch prompt, and the bots that rest against surfaces forever",
+          "url": "https://github.com/dkadaj75-dev/SpaceArena/pull/42"
+        },
+        {
+          "created_at": "2026-07-30T20:35:58Z",
+          "merged_at": "2026-07-30T20:37:40Z",
+          "pull_request": 38,
+          "query_frame": 2,
+          "repository": "marzimin/ds-template",
+          "sample_digest": "1286a12f36d84e725f81c7e3c053525514202c757b53baac8fa58c48268828ec",
+          "title": "refactor(frontend): format numbers by magnitude, extract page components",
+          "url": "https://github.com/marzimin/ds-template/pull/38"
+        },
+        {
+          "created_at": "2026-08-02T14:26:45Z",
+          "merged_at": "2026-08-02T14:29:31Z",
+          "pull_request": 33,
+          "query_frame": 2,
+          "repository": "Unisynchq/Clearform_Version_2.0",
+          "sample_digest": "160ccb49ab0c86d63833fb3c99cc2a3ff59ea996ad853aed5f49c4d8d0fe1fe4",
+          "title": "fix(analytics): track form funnel opened/started/completed events correctly",
+          "url": "https://github.com/Unisynchq/Clearform_Version_2.0/pull/33"
+        },
+        {
+          "created_at": "2026-07-05T15:03:32Z",
+          "merged_at": "2026-07-05T15:05:15Z",
+          "pull_request": 513,
+          "query_frame": 2,
+          "repository": "quadseven/grug",
+          "sample_digest": "17ec2168d5c44928b1007784c243ef023fa12a1794338a17207f01ac284030ff",
+          "title": "fix(observability): poller re-emits the enforcement gauge - unblind the enforcement-gap monitor",
+          "url": "https://github.com/quadseven/grug/pull/513"
+        },
+        {
+          "created_at": "2026-06-26T15:28:33Z",
+          "merged_at": "2026-06-26T15:46:26Z",
+          "pull_request": 91,
+          "query_frame": 2,
+          "repository": "travisjohnsonga/netpulse",
+          "sample_digest": "196365ecf77fa1d39c7bc3e2ae1a813aebb21d4e1654f961d8665ee1343dfbcb",
+          "title": "fix(agents): refresh stored agent version from metrics payload (API-side)",
+          "url": "https://github.com/travisjohnsonga/netpulse/pull/91"
+        },
+        {
+          "created_at": "2026-06-03T10:45:38Z",
+          "merged_at": "2026-06-03T11:50:06Z",
+          "pull_request": 55,
+          "query_frame": 2,
+          "repository": "wvanloco-alt/life-app",
+          "sample_digest": "1993f2b5ed25c3ab0edec73a148bda2b789700403a258507011084ac85daa69d",
+          "title": "feat(body-metrics): edit and delete individual log entries",
+          "url": "https://github.com/wvanloco-alt/life-app/pull/55"
+        },
+        {
+          "created_at": "2026-07-07T01:05:22Z",
+          "merged_at": "2026-07-07T01:08:00Z",
+          "pull_request": 56,
+          "query_frame": 2,
+          "repository": "MattOrefice/investment-tracker",
+          "sample_digest": "1efa2338915670bc7d78f548ae7f1e3132f1676d83d4b737dc5f812658d90ba4",
+          "title": "Cash contributions no longer counted as investment return",
+          "url": "https://github.com/MattOrefice/investment-tracker/pull/56"
+        },
+        {
+          "created_at": "2026-06-29T17:42:02Z",
+          "merged_at": "2026-06-29T18:29:43Z",
+          "pull_request": 7,
+          "query_frame": 2,
+          "repository": "OpenIRL/srt-live-server",
+          "sample_digest": "1f6a8253c5393702d117ba2dfec7bcdba848b94ec8d460786d98384349fce078",
+          "title": "SRTLA Connection Stats & Throughput Metrics",
+          "url": "https://github.com/OpenIRL/srt-live-server/pull/7"
+        },
+        {
+          "created_at": "2026-07-31T20:27:32Z",
+          "merged_at": "2026-07-31T20:37:48Z",
+          "pull_request": 1236,
+          "query_frame": 2,
+          "repository": "Tyler-R-Kendrick/slm-training",
+          "sample_digest": "21841b4693a501ed4f88a0d6000434b7dfa3cea971bcf460b11791a21603984e",
+          "title": "fix(autotrain): complete continuous measurement (stage wall, smoke-only)",
+          "url": "https://github.com/Tyler-R-Kendrick/slm-training/pull/1236"
+        },
+        {
+          "created_at": "2026-01-27T10:42:59Z",
+          "merged_at": "2026-01-27T13:16:44Z",
+          "pull_request": 2706,
+          "query_frame": 2,
+          "repository": "port-labs/ocean",
+          "sample_digest": "21bcafea787ad1957e2096cb87ce34d8b06a10662b2d020f8c0e5874716c79c2",
+          "title": "[Core] Fix metrics not reported",
+          "url": "https://github.com/port-labs/ocean/pull/2706"
+        },
+        {
+          "created_at": "2026-08-07T21:49:02Z",
+          "merged_at": "2026-08-08T12:52:53Z",
+          "pull_request": 105,
+          "query_frame": 2,
+          "repository": "openai-oss-forks/grafana-experiments",
+          "sample_digest": "222cbfa9af11ad19701a0c091e646904a266dfb76c38805b0c937b308d0c511d",
+          "title": "[grafana] - Fix Metrics Drilldown native histograms",
+          "url": "https://github.com/openai-oss-forks/grafana-experiments/pull/105"
+        },
+        {
+          "created_at": "2026-07-02T05:41:59Z",
+          "merged_at": "2026-07-02T05:43:25Z",
+          "pull_request": 41,
+          "query_frame": 2,
+          "repository": "khuepm/GeniusQA",
+          "sample_digest": "2924736808d9b0ffee5aad8afb01370e45a913488617284c4278cd7af775f927",
+          "title": "fix(rust-core): fix all 27 visual_testing test failures",
+          "url": "https://github.com/khuepm/GeniusQA/pull/41"
+        },
+        {
+          "created_at": "2026-06-17T01:39:07Z",
+          "merged_at": "2026-06-17T01:40:31Z",
+          "pull_request": 221,
+          "query_frame": 2,
+          "repository": "teamswyg/riido-control-plane",
+          "sample_digest": "2bfd26974fd1a0058f338d321fbe75841cb43105b689cd3fbab5077137c6fc47",
+          "title": "Normalize control-plane HTTP metrics route vocabulary",
+          "url": "https://github.com/teamswyg/riido-control-plane/pull/221"
+        },
+        {
+          "created_at": "2026-06-09T19:36:18Z",
+          "merged_at": "2026-06-10T07:39:18Z",
+          "pull_request": 438,
+          "query_frame": 2,
+          "repository": "SneaksAndData/arcane-framework-scala",
+          "sample_digest": "2cba6eb19a155b7be682f382da6820049d4dfc2b8e64102bd8c38808dd4e74b6",
+          "title": "[Metrics] Fix watermark age not being reported",
+          "url": "https://github.com/SneaksAndData/arcane-framework-scala/pull/438"
+        },
+        {
+          "created_at": "2026-07-28T10:27:49Z",
+          "merged_at": "2026-07-28T19:36:26Z",
+          "pull_request": 149,
+          "query_frame": 2,
+          "repository": "gke-labs/in-cluster-observability",
+          "sample_digest": "302734144a8f6cf4b05fe987d93bb0ee6b66c9024348e6a39dba1e6ea7bf2b18",
+          "title": "agent: in-process bearer-token auth on the scrape endpoint",
+          "url": "https://github.com/gke-labs/in-cluster-observability/pull/149"
+        },
+        {
+          "created_at": "2026-03-13T16:11:03Z",
+          "merged_at": "2026-03-13T20:48:11Z",
+          "pull_request": 1630,
+          "query_frame": 2,
+          "repository": "blinklabs-io/dingo",
+          "sample_digest": "357abb99309b460b1e14454b353640f755c30ed01f9f78de43bced158af67163",
+          "title": "fix: SPO-reported metrics, blockfetch pipeline stall, and peer quotas",
+          "url": "https://github.com/blinklabs-io/dingo/pull/1630"
+        },
+        {
+          "created_at": "2026-07-21T13:27:22Z",
+          "merged_at": "2026-07-21T14:24:28Z",
+          "pull_request": 155,
+          "query_frame": 2,
+          "repository": "syndicalt/zaxy",
+          "sample_digest": "36e0b0eb7642ff0cca996a18e812eed3e5f5c328c91f87502f3df92aa89b7714",
+          "title": "bench: freeze the four workload fingerprints and add the missing report manifest",
+          "url": "https://github.com/syndicalt/zaxy/pull/155"
+        },
+        {
+          "created_at": "2025-08-21T02:01:22Z",
+          "merged_at": "2025-08-25T22:56:04Z",
+          "pull_request": 2587,
+          "query_frame": 2,
+          "repository": "ai-dynamo/dynamo",
+          "sample_digest": "38cdad020d28c00a49204fd06c89ceae50ccb24adb34cfc90845f967ede7dddb",
+          "title": "refactor: move uptime tracking from system_status_server(HTTP) to DRT level",
+          "url": "https://github.com/ai-dynamo/dynamo/pull/2587"
+        },
+        {
+          "created_at": "2026-06-16T11:14:55Z",
+          "merged_at": "2026-07-07T07:46:10Z",
+          "pull_request": 17,
+          "query_frame": 2,
+          "repository": "ersilia-os/olinda",
+          "sample_digest": "403f70d6c66db580d68fda38253b36e90b81d84a27a3ccd4f3343f6384619b2b",
+          "title": "Fix broken isotonic calibrator, harden validation, add tests + CI",
+          "url": "https://github.com/ersilia-os/olinda/pull/17"
+        },
+        {
+          "created_at": "2026-05-23T15:31:53Z",
+          "merged_at": "2026-05-23T15:32:21Z",
+          "pull_request": 237,
+          "query_frame": 2,
+          "repository": "SemeAIPletinnya/silence-as-control",
+          "sample_digest": "4273cb8b71044d24725c32ab790ea7d29dfc14a7d0608355051e5e1ebbe682cb",
+          "title": "Docs: add release-risk benchmark index and clarify benchmark reports/metrics",
+          "url": "https://github.com/SemeAIPletinnya/silence-as-control/pull/237"
+        },
+        {
+          "created_at": "2026-05-28T10:57:59Z",
+          "merged_at": "2026-06-01T13:43:02Z",
+          "pull_request": 17159,
+          "query_frame": 2,
+          "repository": "gravitee-io/gravitee-api-management",
+          "sample_digest": "462272c15e9669565a6a53d6f82cf1422d9d858ae6955bfe7a66af8ef188b239",
+          "title": "feat(analytics): fix Shadow AI page - register EDGE_DETECTION_COUNT metric",
+          "url": "https://github.com/gravitee-io/gravitee-api-management/pull/17159"
+        },
+        {
+          "created_at": "2026-08-07T13:29:55Z",
+          "merged_at": "2026-08-07T13:34:51Z",
+          "pull_request": 1,
+          "query_frame": 2,
+          "repository": "salavii/llm-from-scratch",
+          "sample_digest": "46c9b39e4981db038b330b0c107f92d8d5db083a488b635efc777434a25ad45f",
+          "title": "Fix loss averaging bug, correct reported metrics, add setup docs",
+          "url": "https://github.com/salavii/llm-from-scratch/pull/1"
+        },
+        {
+          "created_at": "2026-07-17T13:51:57Z",
+          "merged_at": "2026-07-20T18:35:06Z",
+          "pull_request": 805,
+          "query_frame": 2,
+          "repository": "vllm-project/speculators",
+          "sample_digest": "470cd67e5a0282cf136c623bd1f59b4d0b38be792f82191c3d7db855b7c92a81",
+          "title": "fix(dspark/metrics): include slot0 in accept_len and confidence metri…",
+          "url": "https://github.com/vllm-project/speculators/pull/805"
+        },
+        {
+          "created_at": "2026-05-22T10:23:42Z",
+          "merged_at": "2026-05-22T10:54:03Z",
+          "pull_request": 449,
+          "query_frame": 2,
+          "repository": "cuioss/plan-marshall",
+          "sample_digest": "47e8aec54e159d09e3c20e97edd0c3ca023fe1a97489593bbfb22c2bdde70380",
+          "title": "fix(manage-metrics): separate Worked / Reported (wall) / Idle in Phase Breakdown",
+          "url": "https://github.com/cuioss/plan-marshall/pull/449"
+        },
+        {
+          "created_at": "2026-06-11T22:16:05Z",
+          "merged_at": "2026-06-15T20:49:44Z",
+          "pull_request": 1131,
+          "query_frame": 2,
+          "repository": "valkey-io/valkey-search",
+          "sample_digest": "49804e50624c6ae81667d153ccfdd97443b724123de630ce929428be342544de",
+          "title": "Fix reclaimable_memory underflow issue",
+          "url": "https://github.com/valkey-io/valkey-search/pull/1131"
+        },
+        {
+          "created_at": "2026-07-04T17:18:20Z",
+          "merged_at": "2026-07-05T21:00:41Z",
+          "pull_request": 24425,
+          "query_frame": 2,
+          "repository": "apache/camel",
+          "sample_digest": "50e784adc9f9db7d9f0bed772129295cf09247201f96888601809ee248267646",
+          "title": "CAMEL-23223: Stabilize flaky ManagedMessageHistoryAutoConfigIT",
+          "url": "https://github.com/apache/camel/pull/24425"
+        },
+        {
+          "created_at": "2026-05-31T04:18:07Z",
+          "merged_at": "2026-06-01T03:23:58Z",
+          "pull_request": 2278,
+          "query_frame": 2,
+          "repository": "kvcache-ai/Mooncake",
+          "sample_digest": "53c4a9a54e9dfac4963068609d98b7642f11f4f3e3ed4a1d294cb4c50ce71e39",
+          "title": "fix(metrics): show actual client-reported SSD capacity instead of infinite",
+          "url": "https://github.com/kvcache-ai/Mooncake/pull/2278"
+        },
+        {
+          "created_at": "2026-06-08T12:36:39Z",
+          "merged_at": "2026-06-30T14:31:38Z",
+          "pull_request": 15,
+          "query_frame": 2,
+          "repository": "Gonza10V/SeqTrainer",
+          "sample_digest": "60a42c8ee849539b87101a1f1faee6bc191cf3efa55e488eff17e9c500a14cdf",
+          "title": "Reproduce and improve the CNN promoter benchmark",
+          "url": "https://github.com/Gonza10V/SeqTrainer/pull/15"
+        },
+        {
+          "created_at": "2026-07-09T18:32:02Z",
+          "merged_at": "2026-07-09T18:44:44Z",
+          "pull_request": 3,
+          "query_frame": 2,
+          "repository": "abehmiel/bounce-house",
+          "sample_digest": "62e9dfcb7984bfc6689417229b56a2cd38c4d185eda32f5060fe85a614fd0679",
+          "title": "Stage 2: make the numbers right — DSP correctness fixes",
+          "url": "https://github.com/abehmiel/bounce-house/pull/3"
+        },
+        {
+          "created_at": "2026-07-03T12:38:18Z",
+          "merged_at": "2026-07-03T13:05:13Z",
+          "pull_request": 99,
+          "query_frame": 2,
+          "repository": "mefenemer/Be-More-Swan",
+          "sample_digest": "63a5332f82c8f6ef2ce866d137ccd91340c0f6da1f37b1893de91aa0882d0f7e",
+          "title": "Fix: issue #95 — assistant-detail",
+          "url": "https://github.com/mefenemer/Be-More-Swan/pull/99"
+        },
+        {
+          "created_at": "2026-07-28T10:22:41Z",
+          "merged_at": "2026-07-28T19:25:43Z",
+          "pull_request": 148,
+          "query_frame": 2,
+          "repository": "gke-labs/in-cluster-observability",
+          "sample_digest": "66f30acb8a00fc0f052bfe5210b40a0a88075769f3895ba4c2aef339dfa70463",
+          "title": "forward: re-emit only allowlisted OBI attributes as labels",
+          "url": "https://github.com/gke-labs/in-cluster-observability/pull/148"
+        },
+        {
+          "created_at": "2026-07-18T19:34:14Z",
+          "merged_at": "2026-07-18T19:36:13Z",
+          "pull_request": 70,
+          "query_frame": 2,
+          "repository": "Goodnight77/TORQ",
+          "sample_digest": "67e6055e6c2367aee401ce44dc8cb9fced753a7506e6b9186b0b740606e533a0",
+          "title": "fix: dashboard metrics, chart endpoints, varied simulate",
+          "url": "https://github.com/Goodnight77/TORQ/pull/70"
+        },
+        {
+          "created_at": "2026-07-27T12:11:09Z",
+          "merged_at": "2026-07-27T12:14:03Z",
+          "pull_request": 4,
+          "query_frame": 2,
+          "repository": "rlsbito90-eng/bitovastgoed",
+          "sample_digest": "68503c891d14b45900da0398fcbf3edeccb6c3adef1d0c5af997201898591472",
+          "title": "fix: align investment yield metrics with reported total",
+          "url": "https://github.com/rlsbito90-eng/bitovastgoed/pull/4"
+        },
+        {
+          "created_at": "2026-06-24T20:49:41Z",
+          "merged_at": "2026-07-09T15:55:21Z",
+          "pull_request": 475,
+          "query_frame": 2,
+          "repository": "decocms/mcps",
+          "sample_digest": "696bb8e1d2ae93f9fc4de3267a2a9b476c9846684412c122e5596239a097136b",
+          "title": "fix(google-analytics): fix input validation and align output schemas",
+          "url": "https://github.com/decocms/mcps/pull/475"
+        },
+        {
+          "created_at": "2026-07-17T05:24:46Z",
+          "merged_at": "2026-07-17T05:59:44Z",
+          "pull_request": 205,
+          "query_frame": 2,
+          "repository": "djensenius/FluxHaus",
+          "sample_digest": "6a365df76b270d9fee062d11c702f3679f116dac90c7f7408bcc3c1da22b09ad",
+          "title": "Refine Kitchener outdoor conditions metrics & air quality explainer",
+          "url": "https://github.com/djensenius/FluxHaus/pull/205"
+        },
+        {
+          "created_at": "2026-07-25T10:58:36Z",
+          "merged_at": "2026-07-25T10:59:52Z",
+          "pull_request": 246,
+          "query_frame": 2,
+          "repository": "muchq/muchq.github.io",
+          "sample_digest": "74508b3830c0cf8b1025254acc7935f1577dfe4e32b84595da633edccb7641a1",
+          "title": "metrics: usability pass on the dashboard pages",
+          "url": "https://github.com/muchq/muchq.github.io/pull/246"
+        },
+        {
+          "created_at": "2026-08-02T19:02:01Z",
+          "merged_at": "2026-08-02T19:02:51Z",
+          "pull_request": 197,
+          "query_frame": 2,
+          "repository": "ahafuaej-alt/PINN-Review",
+          "sample_digest": "74ea34411b78926937090c92517c1b01cbcc5d15398bb8325d0c2d7d90318e1a",
+          "title": "Fix performance chart, global navigation, and reference technical details",
+          "url": "https://github.com/ahafuaej-alt/PINN-Review/pull/197"
+        },
+        {
+          "created_at": "2026-07-22T12:21:51Z",
+          "merged_at": "2026-07-29T17:03:12Z",
+          "pull_request": 12139,
+          "query_frame": 2,
+          "repository": "fluent/fluent-bit",
+          "sample_digest": "7c6f10cb490daeef5b5676874649479b574f4cbbc8e77a5ae8763b1e8a20bd4c",
+          "title": "in_process_exporter_metrics: Fix the reported RSS ram",
+          "url": "https://github.com/fluent/fluent-bit/pull/12139"
+        },
+        {
+          "created_at": "2026-06-17T22:14:22Z",
+          "merged_at": "2026-06-17T22:22:10Z",
+          "pull_request": 336,
+          "query_frame": 2,
+          "repository": "IPS-Stuttgart/NeuRepTrace",
+          "sample_digest": "7e6966dcced7fcbc47981fa19c71276d8906ce609162afc8543f2f3b705123fa",
+          "title": "Validate metric count parameters",
+          "url": "https://github.com/IPS-Stuttgart/NeuRepTrace/pull/336"
+        },
+        {
+          "created_at": "2026-07-17T03:15:14Z",
+          "merged_at": "2026-07-24T03:48:17Z",
+          "pull_request": 239,
+          "query_frame": 2,
+          "repository": "alibaba/tair-kvcache",
+          "sample_digest": "7fe721637d4179921d12b9c5353adeb9b578322a0973d669e6cbc13b7a5fb550",
+          "title": "[metrics] fix prefix_match_len metric counting all returned entries as hits",
+          "url": "https://github.com/alibaba/tair-kvcache/pull/239"
+        },
+        {
+          "created_at": "2026-07-09T13:29:19Z",
+          "merged_at": "2026-07-09T13:33:20Z",
+          "pull_request": 23,
+          "query_frame": 2,
+          "repository": "XGiammyX/freelayer",
+          "sample_digest": "8029938883dabc4ba678b4de2ac62a5ba8877f90245d0e216d465092daa2c7cc",
+          "title": "fix(assets): banner tagline overflow",
+          "url": "https://github.com/XGiammyX/freelayer/pull/23"
+        },
+        {
+          "created_at": "2026-06-09T10:43:59Z",
+          "merged_at": "2026-06-15T08:54:55Z",
+          "pull_request": 268,
+          "query_frame": 2,
+          "repository": "apache/flink-connector-kafka",
+          "sample_digest": "81591681088158073e1e737be8812e7db793bf6df2bc7413bea55b781ade0148",
+          "title": "[FLINK-39892][metrics] Fix incorrect numBytesOut reported delta after producer reset",
+          "url": "https://github.com/apache/flink-connector-kafka/pull/268"
+        },
+        {
+          "created_at": "2026-08-08T17:06:03Z",
+          "merged_at": "2026-08-08T17:37:30Z",
+          "pull_request": 16722,
+          "query_frame": 2,
+          "repository": "neomjs/neo",
+          "sample_digest": "86b9342e8e62136d370ae1e2592422bde9fc174738bb2dc07dfe5df6af6b7b46",
+          "title": "fix: resident card degrades as a declared unit below content height (#16716)",
+          "url": "https://github.com/neomjs/neo/pull/16722"
+        },
+        {
+          "created_at": "2026-07-29T18:37:10Z",
+          "merged_at": "2026-07-29T19:21:26Z",
+          "pull_request": 84,
+          "query_frame": 2,
+          "repository": "ROCm/gpu-agent",
+          "sample_digest": "8841ad1ff1147e31d3ccd16b1df8cfe5e029a12f1363a30ef94eb2e69dc1a785",
+          "title": "release-v1.5.1: cherry-pick #81 and #82 from main",
+          "url": "https://github.com/ROCm/gpu-agent/pull/84"
+        },
+        {
+          "created_at": "2026-07-07T14:18:49Z",
+          "merged_at": "2026-07-09T11:47:39Z",
+          "pull_request": 1775,
+          "query_frame": 2,
+          "repository": "scylladb/scylla-rust-driver",
+          "sample_digest": "8929836f749faf189b212d0d681ae9ecdb4fa8c4a16c3d348a0c96cc0fdb05f0",
+          "title": "execution: Fix paged request metrics",
+          "url": "https://github.com/scylladb/scylla-rust-driver/pull/1775"
+        },
+        {
+          "created_at": "2026-07-17T17:33:42Z",
+          "merged_at": "2026-07-17T17:35:34Z",
+          "pull_request": 8,
+          "query_frame": 2,
+          "repository": "ravisinghrajput95/AI-DevSecOps-Sentinel",
+          "sample_digest": "8949c583addc4ce610ab14d163f2c75ff8d30a47e6a372e3e548ec3cb21e500f",
+          "title": "fix: unblock deploys — nil-safe podMonitor, real deploy failure, reset-then-reuse",
+          "url": "https://github.com/ravisinghrajput95/AI-DevSecOps-Sentinel/pull/8"
+        },
+        {
+          "created_at": "2026-06-30T09:31:44Z",
+          "merged_at": "2026-06-30T12:35:39Z",
+          "pull_request": 4822,
+          "query_frame": 2,
+          "repository": "ArcadeData/arcadedb",
+          "sample_digest": "89513bad3f0c886a28cf0f28880380e7a6abdb8a215944835c05ed7d61e67f74",
+          "title": "fix(#4804): count in-band gRPC executeCommand failures as errors",
+          "url": "https://github.com/ArcadeData/arcadedb/pull/4822"
+        },
+        {
+          "created_at": "2026-07-28T10:19:15Z",
+          "merged_at": "2026-07-28T19:08:32Z",
+          "pull_request": 147,
+          "query_frame": 2,
+          "repository": "gke-labs/in-cluster-observability",
+          "sample_digest": "8b8812bce7bf96bdf6edc1d600bd269d2c466ae3b3da252d6d4f7014bba7e876",
+          "title": "k8s: default-deny ingress NetworkPolicy for agent + controller",
+          "url": "https://github.com/gke-labs/in-cluster-observability/pull/147"
+        },
+        {
+          "created_at": "2026-07-26T02:01:43Z",
+          "merged_at": "2026-07-26T02:37:16Z",
+          "pull_request": 344,
+          "query_frame": 2,
+          "repository": "Pdiamondz1/dragoncandy-v3-d783432b",
+          "sample_digest": "8c6ad26e229eafbb95937bc34af32a1fa056dfdfe00a0c75acaff7adf6598910",
+          "title": "Internal Overview: real-vs-total metrics + synthetic-active banner",
+          "url": "https://github.com/Pdiamondz1/dragoncandy-v3-d783432b/pull/344"
+        },
+        {
+          "created_at": "2026-07-24T23:33:15Z",
+          "merged_at": "2026-07-24T23:37:55Z",
+          "pull_request": 8,
+          "query_frame": 2,
+          "repository": "luislozanogmia/inference_experiments",
+          "sample_digest": "8cb328fbb7a5ceceeaf2687205c454e1d8c976c2aa81a82993e97ffc2538620f",
+          "title": "Document E2B tool-state LoRA results",
+          "url": "https://github.com/luislozanogmia/inference_experiments/pull/8"
+        },
+        {
+          "created_at": "2026-07-22T21:35:49Z",
+          "merged_at": "2026-07-22T21:39:11Z",
+          "pull_request": 122,
+          "query_frame": 2,
+          "repository": "Greyframe-Labs/vault-pdf-history-export",
+          "sample_digest": "8e80a06564c043f5b206c1c1f2dcbf26a3a49a5e8039bfbe8a230a42a7057694",
+          "title": "Restore smooth owned window placement and fast Metrics switching",
+          "url": "https://github.com/Greyframe-Labs/vault-pdf-history-export/pull/122"
+        },
+        {
+          "created_at": "2026-08-05T12:36:37Z",
+          "merged_at": "2026-08-05T12:40:43Z",
+          "pull_request": 232,
+          "query_frame": 2,
+          "repository": "moatazeldebsy/backstage-platform-template",
+          "sample_digest": "8eea8d27cc9fef56efc0e1f559c909f3987728f4c9e93174732a16fe9a30cb2f",
+          "title": "fix: SLO queries were both wrong, and nothing ever applied them",
+          "url": "https://github.com/moatazeldebsy/backstage-platform-template/pull/232"
+        },
+        {
+          "created_at": "2026-08-12T10:23:13Z",
+          "merged_at": "2026-08-12T16:14:18Z",
+          "pull_request": 2742,
+          "query_frame": 2,
+          "repository": "martin-janci/property-management",
+          "sample_digest": "949b676bdb8e99bdca26633f2ce71d969d1dfd469a26d116a925720493567f6a",
+          "title": "code-review-ppt-web-core-perfmetrics-listener-leak: fix usePerformanceMetrics event-listener leak",
+          "url": "https://github.com/martin-janci/property-management/pull/2742"
+        },
+        {
+          "created_at": "2026-08-10T07:34:02Z",
+          "merged_at": "2026-08-12T02:49:18Z",
+          "pull_request": 562,
+          "query_frame": 2,
+          "repository": "burrow-cloud/burrow",
+          "sample_digest": "94ee417084bd21c2f915aad3cc818941d5017a2d51ebf9844eb9f08a13803adf",
+          "title": "cluster: a registered Metrics API is not a serving one",
+          "url": "https://github.com/burrow-cloud/burrow/pull/562"
+        },
+        {
+          "created_at": "2026-07-17T23:33:17Z",
+          "merged_at": "2026-07-17T23:33:26Z",
+          "pull_request": 3,
+          "query_frame": 2,
+          "repository": "shreyvishen/klin",
+          "sample_digest": "95983a685362a4b47ca33f3f24ff201957eef8e555c7736eaed9b08cc7796320",
+          "title": "Lead technical UI with latest Bonsai report",
+          "url": "https://github.com/shreyvishen/klin/pull/3"
+        },
+        {
+          "created_at": "2026-06-03T07:46:46Z",
+          "merged_at": "2026-06-05T09:01:43Z",
+          "pull_request": 140,
+          "query_frame": 2,
+          "repository": "open-mercato/cezar",
+          "sample_digest": "965b69a75f8f553b7a0bb7e0c72aff9a3de01e1d5985f4b079123eb846160e2f",
+          "title": "fix: finalize paused human-gate step record (#29)",
+          "url": "https://github.com/open-mercato/cezar/pull/140"
+        },
+        {
+          "created_at": "2026-07-10T03:46:25Z",
+          "merged_at": "2026-07-10T03:47:04Z",
+          "pull_request": 46,
+          "query_frame": 2,
+          "repository": "ry4nch1n/KAIROS",
+          "sample_digest": "97328756d102199994e29de2d998f73ea22926ed10d0a4840f6d30249a5d4759",
+          "title": "Fix abrupt mid-word truncation on pitch cards (soft fade + expand-to-read)",
+          "url": "https://github.com/ry4nch1n/KAIROS/pull/46"
+        },
+        {
+          "created_at": "2026-07-15T20:03:07Z",
+          "merged_at": "2026-07-15T20:03:16Z",
+          "pull_request": 9,
+          "query_frame": 2,
+          "repository": "jricciardi/labor-market-dashboard",
+          "sample_digest": "9b8428093e9a3963a49a2d2bdc1749303ca88512f5914a83bb8beb40dcd40a65",
+          "title": "Score methodology v2: honest gaps, recalibrated components, switcher-focused metrics",
+          "url": "https://github.com/jricciardi/labor-market-dashboard/pull/9"
+        },
+        {
+          "created_at": "2026-06-03T07:54:53Z",
+          "merged_at": "2026-06-03T07:59:26Z",
+          "pull_request": 153,
+          "query_frame": 2,
+          "repository": "intel-retail/order-accuracy",
+          "sample_digest": "9bebc9f2843804115427637f9bec42e045eb7612aea9267acd6a03cf59da7b8e",
+          "title": "fix: ITEP-91371, ITEP-92935, ITEP-92885 — GPU metrics, compose extens…",
+          "url": "https://github.com/intel-retail/order-accuracy/pull/153"
+        },
+        {
+          "created_at": "2026-07-27T14:51:19Z",
+          "merged_at": "2026-08-02T09:24:39Z",
+          "pull_request": 4314,
+          "query_frame": 2,
+          "repository": "open-telemetry/opentelemetry-cpp",
+          "sample_digest": "a02c1618586b2e019a0581927c219ee9f8a2d82c6201b5f2596f8df88be2c9b5",
+          "title": "[Metrics SDK] Fix histogram views rejected when only aggregation_cardinality_limit is set",
+          "url": "https://github.com/open-telemetry/opentelemetry-cpp/pull/4314"
+        },
+        {
+          "created_at": "2026-06-25T07:52:54Z",
+          "merged_at": "2026-06-25T16:58:18Z",
+          "pull_request": 574,
+          "query_frame": 2,
+          "repository": "PrimeIntellect-ai/prime-envs",
+          "sample_digest": "a0ee0d2398fd5b76a2f5c883280247866a842e7239ad4a95f669d8684f0dc6c3",
+          "title": "[codex] fix judge verdict parsing",
+          "url": "https://github.com/PrimeIntellect-ai/prime-envs/pull/574"
+        },
+        {
+          "created_at": "2026-07-10T16:03:55Z",
+          "merged_at": "2026-07-10T16:04:00Z",
+          "pull_request": 63,
+          "query_frame": 2,
+          "repository": "Jahid11978/clawsweeper",
+          "sample_digest": "a4843e9f592ecb5fc360bd9a2e4cc5427e6f1b08c0d6c74eca8d00613e4cfdeb",
+          "title": "[pull] main from openclaw:main",
+          "url": "https://github.com/Jahid11978/clawsweeper/pull/63"
+        },
+        {
+          "created_at": "2026-08-08T00:29:29Z",
+          "merged_at": "2026-08-11T04:17:15Z",
+          "pull_request": 33,
+          "query_frame": 2,
+          "repository": "cyaris/us_gun_violence_forecasting",
+          "sample_digest": "a62a2c443d2fbdbaf7849af98560c15176a0f2ea6bcf5166d01effa14bbac006",
+          "title": "Merge dev into master",
+          "url": "https://github.com/cyaris/us_gun_violence_forecasting/pull/33"
+        },
+        {
+          "created_at": "2026-06-21T16:37:26Z",
+          "merged_at": "2026-06-22T08:02:29Z",
+          "pull_request": 22,
+          "query_frame": 2,
+          "repository": "ypriverol/quantmsdiann-paper",
+          "sample_digest": "a989b95c3cc6ab4b91b111fe53eae2dd1bede43e3d8ef37380f3fe8d262da078",
+          "title": "Vadim review: new filter rule, One-Tip removal, figure swap, reproducibility",
+          "url": "https://github.com/ypriverol/quantmsdiann-paper/pull/22"
+        },
+        {
+          "created_at": "2026-04-17T17:19:20Z",
+          "merged_at": "2026-04-17T17:19:28Z",
+          "pull_request": 5,
+          "query_frame": 2,
+          "repository": "Vennilay/KernvoxHub",
+          "sample_digest": "ab95a56d88b9f7f44c8a5d350523f77b625eb855f044aeb17ec025d515407324",
+          "title": "Fix CPU calculation and align reported Linux system metrics",
+          "url": "https://github.com/Vennilay/KernvoxHub/pull/5"
+        },
+        {
+          "created_at": "2026-06-22T06:47:32Z",
+          "merged_at": "2026-06-23T05:48:03Z",
+          "pull_request": 11393,
+          "query_frame": 2,
+          "repository": "spiceai/spiceai",
+          "sample_digest": "aba5fd3423d0f191ef4fb640568c3fa8acdcd99c8345ebc545560ed5ce375dec",
+          "title": "fix(status): probe metrics endpoint over https when TLS is enabled",
+          "url": "https://github.com/spiceai/spiceai/pull/11393"
+        },
+        {
+          "created_at": "2026-07-22T09:00:38Z",
+          "merged_at": "2026-07-22T09:14:48Z",
+          "pull_request": 124,
+          "query_frame": 2,
+          "repository": "opendatahub-io/kubeflow-sdk",
+          "sample_digest": "acc5a28c958557cc7a81095e3db1a80e245ea797e3f4ad22b8303853cf9c18c8",
+          "title": "Revert \"fix: import checkpoint instrumentation to avoid 64KB command limit\"",
+          "url": "https://github.com/opendatahub-io/kubeflow-sdk/pull/124"
+        },
+        {
+          "created_at": "2026-08-07T18:58:58Z",
+          "merged_at": "2026-08-07T21:36:05Z",
+          "pull_request": 129,
+          "query_frame": 2,
+          "repository": "Digital-Frontier-LDA/just-akash",
+          "sample_digest": "addde8a3f605fcf444908ff9e3c3ff218233f853a24f7e5dce5e6560c3629ae1",
+          "title": "feat(canary): publish whether a canary exists, so \"none deployed\" can page",
+          "url": "https://github.com/Digital-Frontier-LDA/just-akash/pull/129"
+        },
+        {
+          "created_at": "2026-01-18T16:26:17Z",
+          "merged_at": "2026-04-29T03:39:21Z",
+          "pull_request": 16572,
+          "query_frame": 2,
+          "repository": "kubevirt/kubevirt",
+          "sample_digest": "af12e0d74c8ce8e4236b505d1b381865f943261e8943771f460e8e860017efa6",
+          "title": "[release-1.6] fix migration metrics being reported once per migration",
+          "url": "https://github.com/kubevirt/kubevirt/pull/16572"
+        },
+        {
+          "created_at": "2026-07-16T17:30:26Z",
+          "merged_at": "2026-07-20T15:15:51Z",
+          "pull_request": 65,
+          "query_frame": 2,
+          "repository": "amcheste/pokemon-red-ai",
+          "sample_digest": "afe6ea28866170041781bf3a88347be6e575997c79e30b5c6a16c0f9f9763f62",
+          "title": "fix: decode wPlayerMoney as big-endian BCD in read_money",
+          "url": "https://github.com/amcheste/pokemon-red-ai/pull/65"
+        },
+        {
+          "created_at": "2026-08-06T18:36:40Z",
+          "merged_at": "2026-08-07T23:04:46Z",
+          "pull_request": 2258,
+          "query_frame": 2,
+          "repository": "IPS-Stuttgart/RaFT-UAV",
+          "sample_digest": "b45628d0318356f45baf03fccc028ee2e2a9566b15038166fdb9c4266a8b7082",
+          "title": "Keep anonymous MOT identities index-invariant",
+          "url": "https://github.com/IPS-Stuttgart/RaFT-UAV/pull/2258"
+        },
+        {
+          "created_at": "2026-06-30T20:36:29Z",
+          "merged_at": "2026-06-30T20:45:00Z",
+          "pull_request": 254,
+          "query_frame": 2,
+          "repository": "nitsuah/games",
+          "sample_digest": "ba25ea984d8851ab798c7e2b08d20d48bdad5120384dc55d7008460a46a8028f",
+          "title": "upd",
+          "url": "https://github.com/nitsuah/games/pull/254"
+        },
+        {
+          "created_at": "2026-06-05T15:03:23Z",
+          "merged_at": "2026-06-10T13:22:26Z",
+          "pull_request": 26244,
+          "query_frame": 2,
+          "repository": "Graylog2/graylog2-server",
+          "sample_digest": "bc36156de1cdf3b01de880f40f3d2138caab7f345f828719662f5a0ca1c014af",
+          "title": "Fix Inputs Metrics telemetry not being reported",
+          "url": "https://github.com/Graylog2/graylog2-server/pull/26244"
+        },
+        {
+          "created_at": "2026-03-18T10:18:09Z",
+          "merged_at": "2026-03-18T10:30:11Z",
+          "pull_request": 106,
+          "query_frame": 2,
+          "repository": "pskillen/meshflow-ui",
+          "sample_digest": "beeb0fcae98a5484bc4bcb70ab5cb30b42755e808828c1ee376981bab982e0d0",
+          "title": "fix: discrepancies in last reported position, metrics, etc",
+          "url": "https://github.com/pskillen/meshflow-ui/pull/106"
+        },
+        {
+          "created_at": "2026-07-25T21:10:20Z",
+          "merged_at": "2026-07-27T20:17:11Z",
+          "pull_request": 145,
+          "query_frame": 2,
+          "repository": "super3/llmjob",
+          "sample_digest": "c3bc02fbab6ccd04222c104fb9e7cbb163b38961ea942120d5e686abfab58a20",
+          "title": "Report the served model in gateway responses and logs, not the caller's requested string",
+          "url": "https://github.com/super3/llmjob/pull/145"
+        },
+        {
+          "created_at": "2026-06-02T12:14:23Z",
+          "merged_at": "2026-06-03T15:30:01Z",
+          "pull_request": 215,
+          "query_frame": 2,
+          "repository": "OpenFreeEnergy/cinnabar",
+          "sample_digest": "c444b27625144e984fc6b6d28bbcf860f5b11e9eda59fdd04ebea9c59fa0e482",
+          "title": "Add docs for manual stats calculations outside of plots",
+          "url": "https://github.com/OpenFreeEnergy/cinnabar/pull/215"
+        },
+        {
+          "created_at": "2026-07-24T12:00:12Z",
+          "merged_at": "2026-07-24T15:01:47Z",
+          "pull_request": 144,
+          "query_frame": 2,
+          "repository": "ast-metrics/ast-metrics",
+          "sample_digest": "c83abb1a5d54de0a4d553166dcf2ede4c23bcd71e4390f2e8d1b940874c4da5d",
+          "title": "fix: merge per-method aggregates across analysis chunks, declare comment markers for all languages",
+          "url": "https://github.com/ast-metrics/ast-metrics/pull/144"
+        },
+        {
+          "created_at": "2026-08-12T01:14:07Z",
+          "merged_at": "2026-08-12T04:18:25Z",
+          "pull_request": 72,
+          "query_frame": 2,
+          "repository": "KJ5HST/methodology",
+          "sample_digest": "c8752555d37c7d97c4813c4ee0e655618f2bc867ae21db2924ac5f9df43a06d2",
+          "title": "fix(dashboard): recognize R in Code by Language, Quarto/R Markdown as docs",
+          "url": "https://github.com/KJ5HST/methodology/pull/72"
+        },
+        {
+          "created_at": "2026-05-18T02:01:43Z",
+          "merged_at": "2026-05-23T23:18:58Z",
+          "pull_request": 4088,
+          "query_frame": 2,
+          "repository": "open-telemetry/opentelemetry-cpp",
+          "sample_digest": "c9d2898401541a7747a1e3ab9ac8ef7f903d55d066ea57891a65da292267e69e",
+          "title": "[BUILD] Suppress deprecated warnings in generated semconv metric headers",
+          "url": "https://github.com/open-telemetry/opentelemetry-cpp/pull/4088"
+        },
+        {
+          "created_at": "2026-06-24T10:10:21Z",
+          "merged_at": "2026-06-24T11:12:26Z",
+          "pull_request": 45,
+          "query_frame": 2,
+          "repository": "shakacode/react-on-rails-demo-gumroad-rsc",
+          "sample_digest": "d3ab4e4df4b5aee313964ce11f8e0c6850518e3225d07cb2a46f96527eee41d8",
+          "title": "Publish hosted public buyer benchmark results",
+          "url": "https://github.com/shakacode/react-on-rails-demo-gumroad-rsc/pull/45"
+        },
+        {
+          "created_at": "2026-07-16T13:05:33Z",
+          "merged_at": "2026-07-21T16:07:22Z",
+          "pull_request": 4516,
+          "query_frame": 2,
+          "repository": "intuitem/ciso-assistant-community",
+          "sample_digest": "d86c2dc73583f409138a9e95039592ca565d2f3793ba9b653676a810f00041d6",
+          "title": "feat(ai): give MCP access to maturity scores",
+          "url": "https://github.com/intuitem/ciso-assistant-community/pull/4516"
+        },
+        {
+          "created_at": "2026-07-30T17:36:51Z",
+          "merged_at": "2026-07-30T17:38:52Z",
+          "pull_request": 70,
+          "query_frame": 2,
+          "repository": "VaDi-ai/bender_shop",
+          "sample_digest": "da49603b5a01abf1d1ef76159d1dfd8865d5316c1752172a574dd1ce3e0b2b48",
+          "title": "feat(admin): курс USD на «Сегодня» + аналитика до паритета с ботом",
+          "url": "https://github.com/VaDi-ai/bender_shop/pull/70"
+        },
+        {
+          "created_at": "2026-07-09T22:28:50Z",
+          "merged_at": "2026-07-09T22:33:01Z",
+          "pull_request": 9,
+          "query_frame": 2,
+          "repository": "openclaw/Kova",
+          "sample_digest": "dbdf9d8bdf68f69fd186ef903a61b725e2492cdadfaf3a1bc1a8a42c90f55b4a",
+          "title": "fix: attribute gateway snapshots to resource gates",
+          "url": "https://github.com/openclaw/Kova/pull/9"
+        },
+        {
+          "created_at": "2026-08-11T19:53:58Z",
+          "merged_at": "2026-08-11T20:02:09Z",
+          "pull_request": 81,
+          "query_frame": 2,
+          "repository": "mirceanton/streamarr",
+          "sample_digest": "e29ab4bb4ecb4de502457c956e8d7dd7f7d2e0f6e61161a9fcf76b49466a012a",
+          "title": "fix(metrics): include music tracks in Prometheus collector",
+          "url": "https://github.com/mirceanton/streamarr/pull/81"
+        },
+        {
+          "created_at": "2026-08-12T08:36:17Z",
+          "merged_at": "2026-08-12T09:22:12Z",
+          "pull_request": 479,
+          "query_frame": 2,
+          "repository": "Popoboxxo/ReqogniLoom",
+          "sample_digest": "e94f97b682baf7bdf617c22a1e1cea9cde457990086f2397b6135a6ceff277bd",
+          "title": "fix: unbounded requests left dashboard controls stuck disabled",
+          "url": "https://github.com/Popoboxxo/ReqogniLoom/pull/479"
+        },
+        {
+          "created_at": "2026-06-14T10:04:12Z",
+          "merged_at": "2026-06-14T10:04:38Z",
+          "pull_request": 212,
+          "query_frame": 2,
+          "repository": "circlemax14/cos-app",
+          "sample_digest": "f72c5372807592c2a2fd7a600f7513ce1c37a0ad5077a01a82a0c6ea1a531bb9",
+          "title": "feat(SCRUM-279): Apple Calendar replica — 46 commits, builds 24→51",
+          "url": "https://github.com/circlemax14/cos-app/pull/212"
+        },
+        {
+          "created_at": "2026-06-18T04:17:03Z",
+          "merged_at": "2026-06-18T05:18:59Z",
+          "pull_request": 224,
+          "query_frame": 2,
+          "repository": "bitrix24/b24jssdk",
+          "sample_digest": "f78d93addb49193b13bfc9753046087eb626aa2d6c8deb9dc156973449a3c16f",
+          "title": "fix(http): retry error-code preservation + getStats/headers/query-immutability (#143, #144)",
+          "url": "https://github.com/bitrix24/b24jssdk/pull/224"
+        },
+        {
+          "created_at": "2026-08-10T10:24:41Z",
+          "merged_at": "2026-08-10T10:27:01Z",
+          "pull_request": 20,
+          "query_frame": 2,
+          "repository": "GemovicNemanja/strata-forge",
+          "sample_digest": "f8a598a2ad07d24268a813cc6318c9737eec74dfe1b60806e118de2531a4ede0",
+          "title": "fix(pipelines): fail a run that produced no usable rows",
+          "url": "https://github.com/GemovicNemanja/strata-forge/pull/20"
+        },
+        {
+          "created_at": "2026-07-16T13:29:22Z",
+          "merged_at": "2026-07-16T13:42:05Z",
+          "pull_request": 23,
+          "query_frame": 2,
+          "repository": "Dja-tiger/LexiGo",
+          "sample_digest": "f951dc482068d548ba3eb7503f41456bfa28c6335427dd9c186dd6e458279cfb",
+          "title": "feat: persist technical phrase learning",
+          "url": "https://github.com/Dja-tiger/LexiGo/pull/23"
+        },
+        {
+          "created_at": "2026-07-27T15:35:19Z",
+          "merged_at": "2026-07-27T20:48:40Z",
+          "pull_request": 4,
+          "query_frame": 2,
+          "repository": "omergershonwork-commits/wonderful",
+          "sample_digest": "fbe07347c3d690eebbbc8060a8bd12b11de8b41352c7366e877a41fa24814502",
+          "title": "Phase 5: deterministic airport metrics",
+          "url": "https://github.com/omergershonwork-commits/wonderful/pull/4"
+        },
+        {
+          "created_at": "2026-07-12T16:09:21Z",
+          "merged_at": "2026-07-12T18:33:01Z",
+          "pull_request": 1078,
+          "query_frame": 2,
+          "repository": "hopeengineering83-code/hope-tender-path-b",
+          "sample_digest": "fc68ffb3baf2d7f2c1683aa5db3284233fc918ec5eed3a074d9f1c871d5782df",
+          "title": "fix: report extracted requirement count truthfully",
+          "url": "https://github.com/hopeengineering83-code/hope-tender-path-b/pull/1078"
+        },
+        {
+          "created_at": "2026-04-24T15:09:16Z",
+          "merged_at": "2026-07-14T10:04:49Z",
+          "pull_request": 1158,
+          "query_frame": 2,
+          "repository": "ShipSoft/FairShip",
+          "sample_digest": "fe857fedd6d23dda64b5efa023f32c5749a304cba8f8b7cf111f22eb8d35fafb",
+          "title": "Make particle gun parameters configurable and add tracking scan",
+          "url": "https://github.com/ShipSoft/FairShip/pull/1158"
+        },
+        {
+          "created_at": "2026-07-08T07:33:03Z",
+          "merged_at": "2026-07-08T08:11:30Z",
+          "pull_request": 21,
+          "query_frame": 2,
+          "repository": "zylos-ai/zylos-openmax",
+          "sample_digest": "ff64bd4912cafd8d1ec6fb323f3abc20aa4736b7b2229779ca5d12b0b224910b",
+          "title": "fix: metrics-reporter auth support + kill silent skip on dashboard 401",
+          "url": "https://github.com/zylos-ai/zylos-openmax/pull/21"
+        }
+      ],
+      "duplicate_hits": 0,
+      "owner_cap_hits": 0,
+      "prior_exposure_hits": 1,
+      "query": "\"fix reported metrics\" is:pr is:merged created:>=2024-01-01 in:title,body",
+      "query_frame": 2,
+      "raw_file": "raw/frame-2.json",
+      "raw_sha256": "2ed6ed4f933073e5747fd1531fb1e69965a436bc4d5cb1e3e8c27195ffced446",
+      "repository_cap_hits": 0,
+      "selected_count": 15,
+      "unique_candidates": 99
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 327,
+      "candidates": [
+        {
+          "created_at": "2026-06-06T16:31:38Z",
+          "merged_at": "2026-06-08T15:04:47Z",
+          "pull_request": 7,
+          "query_frame": 3,
+          "repository": "UISB-Dev-Team/everest-v2",
+          "sample_digest": "007a3d731f41b06430a846a09a189726e2c3b0ece1f1c9179b3f731d6aaf5408",
+          "title": "feat: password reset flow, multi-semester re-enrollment, and attendance checklist",
+          "url": "https://github.com/UISB-Dev-Team/everest-v2/pull/7"
+        },
+        {
+          "created_at": "2026-04-11T16:30:33Z",
+          "merged_at": "2026-04-11T16:30:51Z",
+          "pull_request": 10,
+          "query_frame": 3,
+          "repository": "Meeshka/lottery-generator-worker",
+          "sample_digest": "02dbccb3571a981fc5a239b88ec0232b7c485cbb95f4598a640598f99a074d4c",
+          "title": "Fix type mismatch and update README documentation",
+          "url": "https://github.com/Meeshka/lottery-generator-worker/pull/10"
+        },
+        {
+          "created_at": "2026-05-03T03:16:39Z",
+          "merged_at": "2026-05-10T11:50:01Z",
+          "pull_request": 75,
+          "query_frame": 3,
+          "repository": "agentic-development/adev-plugin",
+          "sample_digest": "079c0623a3913cdba8c0413cf09fee31ecc4dbc5126865da91a6f7351cff63a4",
+          "title": "chore(hygiene): fix stale metadata — ADR title, Opus 4.7 model IDs",
+          "url": "https://github.com/agentic-development/adev-plugin/pull/75"
+        },
+        {
+          "created_at": "2026-08-06T16:24:30Z",
+          "merged_at": "2026-08-06T18:29:42Z",
+          "pull_request": 7,
+          "query_frame": 3,
+          "repository": "KelseyRMonson/NRG-GY003_TCR",
+          "sample_digest": "08b5a81217840ac45717fb9461da9aebf213ffdc8d612c74e625e0fdee909aa4",
+          "title": "Clinical correlates: large-clone analyses, age/BMI, survival — and a metadata repair",
+          "url": "https://github.com/KelseyRMonson/NRG-GY003_TCR/pull/7"
+        },
+        {
+          "created_at": "2026-06-15T15:51:45Z",
+          "merged_at": "2026-06-15T15:52:06Z",
+          "pull_request": 24,
+          "query_frame": 3,
+          "repository": "silent-sphinx/snowsky-echo-mini-toolbox",
+          "sample_digest": "1040044913a282b2835449d37462ba654927e1da95ea38c45e3909e71750e3d1",
+          "title": "Mass Compatibility Checker Rewrite",
+          "url": "https://github.com/silent-sphinx/snowsky-echo-mini-toolbox/pull/24"
+        },
+        {
+          "created_at": "2026-08-04T22:06:35Z",
+          "merged_at": "2026-08-04T22:06:41Z",
+          "pull_request": 9,
+          "query_frame": 3,
+          "repository": "artcarver/ShelfPractice",
+          "sample_digest": "12410c182c3c7173bd33790ff5a3c228e75ae743f379c0e7608958f4ad306ad2",
+          "title": "Results navigation, incorrect-only review, and a distinct marked colour",
+          "url": "https://github.com/artcarver/ShelfPractice/pull/9"
+        },
+        {
+          "created_at": "2026-07-06T14:14:54Z",
+          "merged_at": "2026-07-06T14:18:14Z",
+          "pull_request": 2126,
+          "query_frame": 3,
+          "repository": "rackerlabs/understack",
+          "sample_digest": "14e0cbd15fd219d3939cbc6d10afd9a7a9fc682cc2344d9475c59f67b04521e5",
+          "title": "chore(deps): update nautobot to v3.1.6",
+          "url": "https://github.com/rackerlabs/understack/pull/2126"
+        },
+        {
+          "created_at": "2026-03-16T23:28:32Z",
+          "merged_at": "2026-03-16T23:33:24Z",
+          "pull_request": 23792,
+          "query_frame": 3,
+          "repository": "BerriAI/litellm",
+          "sample_digest": "15199287429989bf842d9aaf4a82233e35358c7a06022cf9bdf6faa7021cee04",
+          "title": "[Fix] UI - Logs: Empty Filter Results Show Stale Data",
+          "url": "https://github.com/BerriAI/litellm/pull/23792"
+        },
+        {
+          "created_at": "2026-03-19T10:04:55Z",
+          "merged_at": "2026-03-19T10:05:48Z",
+          "pull_request": 1,
+          "query_frame": 3,
+          "repository": "1TomJones/binance",
+          "sample_digest": "1583abb3ffea9078d85c228edb6a14a9c360ee6a52358d4bfeee4a8ccf8a41e4",
+          "title": "Rebuild backtest engine around historical replay",
+          "url": "https://github.com/1TomJones/binance/pull/1"
+        },
+        {
+          "created_at": "2026-06-19T07:33:48Z",
+          "merged_at": "2026-06-19T08:02:44Z",
+          "pull_request": 118,
+          "query_frame": 3,
+          "repository": "edheltzel/Recall",
+          "sample_digest": "165b889dbde38b6ae692ae9795159ae7e5a739a2bbb669867f5d8cfe8e3b6849",
+          "title": "feat(search): provenance display for default/semantic/hybrid paths",
+          "url": "https://github.com/edheltzel/Recall/pull/118"
+        },
+        {
+          "created_at": "2026-03-23T09:07:13Z",
+          "merged_at": "2026-04-01T05:23:09Z",
+          "pull_request": 44,
+          "query_frame": 3,
+          "repository": "footballinvestmentkft/practice-booking-system",
+          "sample_digest": "1688bd3089e1fe0ec796644d8d39eeef8f92e7da7885811906e627702e162926",
+          "title": "feat: 9 weeks of development — player card, lifecycle, tournaments, enrollment, multi-leg, seed",
+          "url": "https://github.com/footballinvestmentkft/practice-booking-system/pull/44"
+        },
+        {
+          "created_at": "2026-06-25T15:51:56Z",
+          "merged_at": "2026-06-25T15:54:20Z",
+          "pull_request": 427,
+          "query_frame": 3,
+          "repository": "tonitienda/agent-smith",
+          "sample_digest": "18a35bc0a3fe54ed6ff38b9a308f57fe6d970b77f20b8126bd850662e6ec2b68",
+          "title": "[QA] Manual test campaign pass — fix stale entries, add AS-140",
+          "url": "https://github.com/tonitienda/agent-smith/pull/427"
+        },
+        {
+          "created_at": "2026-07-21T16:33:25Z",
+          "merged_at": "2026-07-21T16:35:21Z",
+          "pull_request": 1,
+          "query_frame": 3,
+          "repository": "Bryneholt/Timber",
+          "sample_digest": "19f248bbea8cc9ec65a0058dab0c181a4fd429948fe68d237af05c476a6cab03",
+          "title": "v2.0 Revamp: Modern UI, improved optimizer, and bug fixes",
+          "url": "https://github.com/Bryneholt/Timber/pull/1"
+        },
+        {
+          "created_at": "2026-03-31T04:31:45Z",
+          "merged_at": "2026-03-31T04:32:03Z",
+          "pull_request": 280,
+          "query_frame": 3,
+          "repository": "JonathanMace/brownnote",
+          "sample_digest": "1b59c56c1ec64ff9f1f221725ed36dbec707cb5f18f5f1c6e9a4261d64fe8c05",
+          "title": "[infra] Rewrite README with three-act structure and reviewer feedback",
+          "url": "https://github.com/JonathanMace/brownnote/pull/280"
+        },
+        {
+          "created_at": "2026-01-20T08:00:06Z",
+          "merged_at": "2026-02-20T03:27:49Z",
+          "pull_request": 5,
+          "query_frame": 3,
+          "repository": "taylor-vestal/match-stats-website",
+          "sample_digest": "1e9413d2c2bff6aafadc4f11e650902b65485f59577b57e8c59e696ba6d109ae",
+          "title": "Database Schema Updates",
+          "url": "https://github.com/taylor-vestal/match-stats-website/pull/5"
+        },
+        {
+          "created_at": "2026-05-16T21:33:23Z",
+          "merged_at": "2026-05-16T21:36:06Z",
+          "pull_request": 364,
+          "query_frame": 3,
+          "repository": "lilyxseo/Spreadsheet",
+          "sample_digest": "20014135706d2c9067386c03f7f4e0d7ee5114cef3159717bf412cfb8698f1c5",
+          "title": "Cycle Count: use Kartu Stock `stok akhir` as system qty and surface it in UI",
+          "url": "https://github.com/lilyxseo/Spreadsheet/pull/364"
+        },
+        {
+          "created_at": "2026-06-01T21:36:10Z",
+          "merged_at": "2026-06-02T19:47:28Z",
+          "pull_request": 63,
+          "query_frame": 3,
+          "repository": "jaegertracing/grafana-plugin",
+          "sample_digest": "2110a9da7628a85b6bd49d96c1da64ba82f758c5ec78d7b467a030165605470e",
+          "title": "feat(datasource): switch search to /api/v3/trace-summaries (ADR-010)",
+          "url": "https://github.com/jaegertracing/grafana-plugin/pull/63"
+        },
+        {
+          "created_at": "2026-02-02T17:25:19Z",
+          "merged_at": "2026-02-03T14:16:16Z",
+          "pull_request": 122,
+          "query_frame": 3,
+          "repository": "Neorya/CAPSTONE_PROJECT",
+          "sample_digest": "238e70498a8ac2959563689297fc4dfe363552d311b1a729e34d1bdc83a80582",
+          "title": "CAP-252: resolve nsjail  execution bugs and improve result presentation on UI",
+          "url": "https://github.com/Neorya/CAPSTONE_PROJECT/pull/122"
+        },
+        {
+          "created_at": "2026-05-14T11:25:25Z",
+          "merged_at": "2026-05-15T09:53:08Z",
+          "pull_request": 94,
+          "query_frame": 3,
+          "repository": "parseablehq/pb",
+          "sample_digest": "293d708a7d79d159387d0241ee895e03db69fabea1f23ed39acb0e15f1ee6532",
+          "title": "Feature/promql interactive",
+          "url": "https://github.com/parseablehq/pb/pull/94"
+        },
+        {
+          "created_at": "2026-04-14T23:41:11Z",
+          "merged_at": "2026-04-14T23:41:24Z",
+          "pull_request": 47,
+          "query_frame": 3,
+          "repository": "BurnCan/realestate-mvp",
+          "sample_digest": "2b456da9a943176757ae7be39acb4ae0dee634f8c8f7a4cc9b7f7fc3ffc0b9b6",
+          "title": "Fix Northampton opened-date mapping for dashboard",
+          "url": "https://github.com/BurnCan/realestate-mvp/pull/47"
+        },
+        {
+          "created_at": "2026-07-28T07:59:32Z",
+          "merged_at": "2026-07-30T17:04:34Z",
+          "pull_request": 1615,
+          "query_frame": 3,
+          "repository": "googleapis/cpp-bigquery-odbc",
+          "sample_digest": "2b98982995c6fa508cf165379a3b5e1bd7e3444759e46d4d33f430e24c997729",
+          "title": "fix(bq_driver): Fixing destination table location",
+          "url": "https://github.com/googleapis/cpp-bigquery-odbc/pull/1615"
+        },
+        {
+          "created_at": "2026-01-15T18:48:31Z",
+          "merged_at": "2026-01-16T04:41:19Z",
+          "pull_request": 539,
+          "query_frame": 3,
+          "repository": "cjmalloy/jasper",
+          "sample_digest": "2c68706427dd87e1c206c3ce039779119fba54f1fb2602f7797e3b21c5dc7187",
+          "title": "Fix per-simulation results table rendering in PR comments",
+          "url": "https://github.com/cjmalloy/jasper/pull/539"
+        },
+        {
+          "created_at": "2026-06-28T17:05:15Z",
+          "merged_at": "2026-06-30T21:54:38Z",
+          "pull_request": 458,
+          "query_frame": 3,
+          "repository": "Vatix-Protocol/Swyft",
+          "sample_digest": "2f0bd4ff4ac18ea621fe466398e201a7a15d333746057ee35f0952db857397af",
+          "title": "fix(price): align test mock PriceCandle interface with implementation (#316)",
+          "url": "https://github.com/Vatix-Protocol/Swyft/pull/458"
+        },
+        {
+          "created_at": "2026-06-01T02:24:57Z",
+          "merged_at": "2026-06-01T03:16:59Z",
+          "pull_request": 108,
+          "query_frame": 3,
+          "repository": "openctemio/ui",
+          "sample_digest": "345ff6ee894d02927e7d5f5c211ff2a1d9f799fd1e8155e2e0f9e8a2b8d7fc08",
+          "title": "fix(repositories): server-side branch-scoped findings + remove dead/misleading controls",
+          "url": "https://github.com/openctemio/ui/pull/108"
+        },
+        {
+          "created_at": "2026-06-19T16:42:22Z",
+          "merged_at": "2026-06-19T16:54:52Z",
+          "pull_request": 74,
+          "query_frame": 3,
+          "repository": "chrisdoofer/arc-sql-agent",
+          "sample_digest": "43372c6adc7d69470f20b4f82f7445aea3841b48882debb0626c34f8846b7f30",
+          "title": "Fix BPA Tier 2: workspace discovery, enumeration fallback, and progressive time-window widening",
+          "url": "https://github.com/chrisdoofer/arc-sql-agent/pull/74"
+        },
+        {
+          "created_at": "2026-04-24T10:30:13Z",
+          "merged_at": "2026-04-24T10:30:32Z",
+          "pull_request": 5,
+          "query_frame": 3,
+          "repository": "agent-team-project/kensho",
+          "sample_digest": "44b6258a728453d559c5baf6cdcc698570d519eabd1401fb0edaf83b8c26fd7d",
+          "title": "M1: smoke test passes + resolve Q7",
+          "url": "https://github.com/agent-team-project/kensho/pull/5"
+        },
+        {
+          "created_at": "2026-05-02T23:11:18Z",
+          "merged_at": "2026-05-03T09:21:32Z",
+          "pull_request": 175,
+          "query_frame": 3,
+          "repository": "metanorma/coradoc",
+          "sample_digest": "497bd5124f0112434f170dde8e10c933dd7352c45f5e5bbbd112cc4879a11afe",
+          "title": "refactor: architecture audit cleanups",
+          "url": "https://github.com/metanorma/coradoc/pull/175"
+        },
+        {
+          "created_at": "2026-07-18T06:13:32Z",
+          "merged_at": "2026-07-19T11:10:51Z",
+          "pull_request": 1,
+          "query_frame": 3,
+          "repository": "dook050915/semantic-communication-cuc",
+          "sample_digest": "4cb49f8cb51da045dfd8e4ff54e5929cb3806d2e7fa1403e8e7afe6fc3969dc3",
+          "title": "Clarify Transformer comparison results",
+          "url": "https://github.com/dook050915/semantic-communication-cuc/pull/1"
+        },
+        {
+          "created_at": "2026-05-17T17:39:35Z",
+          "merged_at": "2026-05-17T17:39:42Z",
+          "pull_request": 122,
+          "query_frame": 3,
+          "repository": "famousdavis/spert-forecaster",
+          "sample_digest": "52c4f4a81f84f5dbd269a1d47a40a103ccd44ce89a1c327612b308c5dac35eab",
+          "title": "fix: hide completed milestones from chart dropdowns (v0.32.1)",
+          "url": "https://github.com/famousdavis/spert-forecaster/pull/122"
+        },
+        {
+          "created_at": "2026-06-30T17:58:25Z",
+          "merged_at": "2026-07-17T17:58:14Z",
+          "pull_request": 8341,
+          "query_frame": 3,
+          "repository": "opendatahub-io/odh-dashboard",
+          "sample_digest": "53cb9acfb1c755fe37aeb81caec0190e8eca4212c9413b26386709b6f642fb63",
+          "title": "feat(autox): support leaderboard column reordering + column presets for autorag",
+          "url": "https://github.com/opendatahub-io/odh-dashboard/pull/8341"
+        },
+        {
+          "created_at": "2026-06-10T18:24:56Z",
+          "merged_at": "2026-06-10T18:34:14Z",
+          "pull_request": 57,
+          "query_frame": 3,
+          "repository": "cockroachdb/crlfmt",
+          "sample_digest": "53ec92b8c869d7967c0ea6a42e93f60b5cf952a6c862869fe4d83ba7176d6809",
+          "title": "account for unicode when wrapping",
+          "url": "https://github.com/cockroachdb/crlfmt/pull/57"
+        },
+        {
+          "created_at": "2026-08-07T10:56:04Z",
+          "merged_at": "2026-08-07T10:57:26Z",
+          "pull_request": 105,
+          "query_frame": 3,
+          "repository": "FOSSEE/Chemical-Simulator-GUI",
+          "sample_digest": "5580ec668e8543e0f1fddcc40ff27861091f6c6ebfeda2fe201b171a8e3d38e9",
+          "title": "Fixed UI and UX of phase properties",
+          "url": "https://github.com/FOSSEE/Chemical-Simulator-GUI/pull/105"
+        },
+        {
+          "created_at": "2026-04-01T20:04:37Z",
+          "merged_at": "2026-04-01T20:05:32Z",
+          "pull_request": 111,
+          "query_frame": 3,
+          "repository": "r3st/turnscore",
+          "sample_digest": "564a9ff369ee6f467891ff59333c6b91239699dde5878eec6a9ce12dae75caca",
+          "title": "feat: separate event ratings from table results (#107)",
+          "url": "https://github.com/r3st/turnscore/pull/111"
+        },
+        {
+          "created_at": "2026-05-15T07:03:55Z",
+          "merged_at": "2026-05-15T07:06:57Z",
+          "pull_request": 209,
+          "query_frame": 3,
+          "repository": "SaUgKi1773/data-engineering-demo",
+          "sample_digest": "5a7c655234242c1efa79f8768f7a406e67f11558d83be8200de36e277f7880c0",
+          "title": "perf: batch INSERT rows to fix MotherDuck write latency",
+          "url": "https://github.com/SaUgKi1773/data-engineering-demo/pull/209"
+        },
+        {
+          "created_at": "2026-05-24T21:09:58Z",
+          "merged_at": "2026-05-24T21:25:08Z",
+          "pull_request": 2,
+          "query_frame": 3,
+          "repository": "JKrag/fdkat-chrome-extension",
+          "sample_digest": "5b0ec3a6debf427d0ec3757a99cf45159eee5756d8c23b356bb1419e0eac436d",
+          "title": "Cat details page features (v1.1.0)",
+          "url": "https://github.com/JKrag/fdkat-chrome-extension/pull/2"
+        },
+        {
+          "created_at": "2026-06-29T16:39:40Z",
+          "merged_at": "2026-06-29T16:40:09Z",
+          "pull_request": 10,
+          "query_frame": 3,
+          "repository": "timecino-hub/gaijin-market-analytics",
+          "sample_digest": "685c08c6965ec3d394eb6ca28b672a94cc8bb4b5327eec82e37c6a04980e5ceb",
+          "title": "fix: enforce Gaijin Market price cap",
+          "url": "https://github.com/timecino-hub/gaijin-market-analytics/pull/10"
+        },
+        {
+          "created_at": "2026-04-28T12:52:34Z",
+          "merged_at": "2026-04-28T14:19:18Z",
+          "pull_request": 1857,
+          "query_frame": 3,
+          "repository": "mebezac/home-cluster",
+          "sample_digest": "6d3a121e625758854dbdb136b4f09ef95109a93714d1509614e725a06598856d",
+          "title": "fix(container): update ghcr.io/ozark-connect/speedtest ( 1.15.7 → 1.15.8 )",
+          "url": "https://github.com/mebezac/home-cluster/pull/1857"
+        },
+        {
+          "created_at": "2026-05-18T13:43:43Z",
+          "merged_at": "2026-05-18T14:07:05Z",
+          "pull_request": 1,
+          "query_frame": 3,
+          "repository": "harsh-kr11/behavioral-memory",
+          "sample_digest": "6ebda3639189e358f258fe3985d10399d38965469dd4e2c07d63c80e64c9eef4",
+          "title": "Fix GitHub URLs and correct paper numbers",
+          "url": "https://github.com/harsh-kr11/behavioral-memory/pull/1"
+        },
+        {
+          "created_at": "2026-05-04T04:57:18Z",
+          "merged_at": "2026-05-04T06:12:30Z",
+          "pull_request": 33,
+          "query_frame": 3,
+          "repository": "klutchell/balena-unifi-optimizer",
+          "sample_digest": "70ed7825a8042c7b0fa8a375d11852a37be3c3e40f35e53cfb8d7885cde9e8e4",
+          "title": "Update network-optimizer to v1.15.10 (patch)",
+          "url": "https://github.com/klutchell/balena-unifi-optimizer/pull/33"
+        },
+        {
+          "created_at": "2026-06-21T16:44:06Z",
+          "merged_at": "2026-06-21T16:47:02Z",
+          "pull_request": 367,
+          "query_frame": 3,
+          "repository": "yukikurisu1990-gh/fx-ai-trading",
+          "sample_digest": "73995ca902e4632fecd177de15cfda4da0eb05530c849cc196e53cf77cf1b2c1",
+          "title": "docs(design): post-audit research and development roadmap memo",
+          "url": "https://github.com/yukikurisu1990-gh/fx-ai-trading/pull/367"
+        },
+        {
+          "created_at": "2026-06-22T15:43:01Z",
+          "merged_at": "2026-06-22T19:24:40Z",
+          "pull_request": 9122,
+          "query_frame": 3,
+          "repository": "nautobot/nautobot",
+          "sample_digest": "797bad65c9233ba09541767ba823b4f5b1d7018cc29fa549697dbf90e1d3c001",
+          "title": "Release v3.1.5",
+          "url": "https://github.com/nautobot/nautobot/pull/9122"
+        },
+        {
+          "created_at": "2026-05-05T18:20:20Z",
+          "merged_at": "2026-05-12T15:28:04Z",
+          "pull_request": 795,
+          "query_frame": 3,
+          "repository": "garden-co/jazz",
+          "sample_digest": "7c2605a43eb461cb7d8e76ae74d373b37aa92718b339df858cbe050b7ad4b7fa",
+          "title": "fix: correctly resolve same-column where conditions",
+          "url": "https://github.com/garden-co/jazz/pull/795"
+        },
+        {
+          "created_at": "2026-07-23T05:41:15Z",
+          "merged_at": "2026-07-27T17:57:52Z",
+          "pull_request": 19057,
+          "query_frame": 3,
+          "repository": "apache/pinot",
+          "sample_digest": "7e74f1c6a3ca2bb5c254b8d6ecf92ae4599cbac22879a63c0476f7d1caebc62f",
+          "title": "Block UpsertCompactionTask/UpsertCompactMergeTask when metadataTTL is enabled",
+          "url": "https://github.com/apache/pinot/pull/19057"
+        },
+        {
+          "created_at": "2026-06-07T06:51:46Z",
+          "merged_at": "2026-06-07T06:53:53Z",
+          "pull_request": 130,
+          "query_frame": 3,
+          "repository": "MUSTAQ-AHAMMAD/crm-inventory-missreceipt",
+          "sample_digest": "7edf4e4762aee89f6551227e35d558837b1511f102f6a5d44e54886fb72ab092",
+          "title": "Fix AR invoice unit price calculation, date extraction, and pipeline results display",
+          "url": "https://github.com/MUSTAQ-AHAMMAD/crm-inventory-missreceipt/pull/130"
+        },
+        {
+          "created_at": "2026-03-25T17:37:59Z",
+          "merged_at": "2026-03-25T17:45:11Z",
+          "pull_request": 513,
+          "query_frame": 3,
+          "repository": "strawpot/strawpot",
+          "sample_digest": "88a706a555c7b9eff90ea38b7bed8a97202979039735eb67e5a80c1dfd071a42",
+          "title": "Update CLI demo thumbnail to authentic output",
+          "url": "https://github.com/strawpot/strawpot/pull/513"
+        },
+        {
+          "created_at": "2026-05-22T11:25:49Z",
+          "merged_at": "2026-05-22T11:29:44Z",
+          "pull_request": 60,
+          "query_frame": 3,
+          "repository": "ViktorHD/eurex-api",
+          "sample_digest": "8a1e25b3157d8f27af92349fb5c1cd1badce20706d2df0d34a303debacef78a2",
+          "title": "Fix Date Sorting in Results Table",
+          "url": "https://github.com/ViktorHD/eurex-api/pull/60"
+        },
+        {
+          "created_at": "2026-07-23T03:33:27Z",
+          "merged_at": "2026-07-23T09:03:40Z",
+          "pull_request": 15340,
+          "query_frame": 3,
+          "repository": "langfuse/langfuse",
+          "sample_digest": "8b289acb0b6ffe5af76dba98563793f66d8e72264cabbffe7d0c89fd69fab56a",
+          "title": "chore(pricing): remove invalid cache pricing from gemini-3.5-flash-lite",
+          "url": "https://github.com/langfuse/langfuse/pull/15340"
+        },
+        {
+          "created_at": "2025-08-15T04:42:53Z",
+          "merged_at": "2025-08-15T05:32:52Z",
+          "pull_request": 230,
+          "query_frame": 3,
+          "repository": "arc42/quality.arc42.org-site",
+          "sample_digest": "8b855c55438021f8105e2a38530017e6bd2743bd1f5363e9941efb065863e811",
+          "title": "Fix homepage tag counts showing zero instead of actual collection counts",
+          "url": "https://github.com/arc42/quality.arc42.org-site/pull/230"
+        },
+        {
+          "created_at": "2026-07-24T16:49:15Z",
+          "merged_at": "2026-07-24T16:57:38Z",
+          "pull_request": 1,
+          "query_frame": 3,
+          "repository": "sulaiman10zm/opencv-face-recognition",
+          "sample_digest": "8c2fb8974172629c27a912449b57be272b70bdda182ce7c10ae8f7f94fff9aee",
+          "title": "Correct Nolan validation",
+          "url": "https://github.com/sulaiman10zm/opencv-face-recognition/pull/1"
+        },
+        {
+          "created_at": "2026-07-02T13:40:37Z",
+          "merged_at": "2026-07-02T13:40:46Z",
+          "pull_request": 15,
+          "query_frame": 3,
+          "repository": "nicklasskoglund/wine-quality-ann",
+          "sample_digest": "8f9e89f5ace65c2cfa63ac201191846f535d8975af4ec0cc17dcd036b6a01744",
+          "title": "fix: resolve grid search hyperparameter bugs and update downstream results",
+          "url": "https://github.com/nicklasskoglund/wine-quality-ann/pull/15"
+        },
+        {
+          "created_at": "2026-06-20T12:26:18Z",
+          "merged_at": "2026-06-20T12:27:47Z",
+          "pull_request": 18,
+          "query_frame": 3,
+          "repository": "mlightcad/libredwg-web",
+          "sample_digest": "8ffc3b2be7ef97205bb9ab51f20467eb4772f669a4a2a8a6b4fc07b0329adc23",
+          "title": "fix: correct TABLE cell binding and conversion in JavaScript API",
+          "url": "https://github.com/mlightcad/libredwg-web/pull/18"
+        },
+        {
+          "created_at": "2026-05-28T06:09:39Z",
+          "merged_at": "2026-05-28T06:34:09Z",
+          "pull_request": 1962,
+          "query_frame": 3,
+          "repository": "snissn/gomap",
+          "sample_digest": "94499e42d599615be0c39df9045dd4e4f29df8f431ce79e1e462b1b107780492",
+          "title": "Surface vector search benchmark tiers and reusable buffers",
+          "url": "https://github.com/snissn/gomap/pull/1962"
+        },
+        {
+          "created_at": "2026-07-02T00:12:44Z",
+          "merged_at": "2026-07-02T00:14:31Z",
+          "pull_request": 25,
+          "query_frame": 3,
+          "repository": "SMSSystem/School-Management-Dashboard",
+          "sample_digest": "9612d223b7c55c69cf9b17e2cbd2e6222a08b88c26b3ff268347ad7f59126386",
+          "title": "Docs Reorganisation + Updates",
+          "url": "https://github.com/SMSSystem/School-Management-Dashboard/pull/25"
+        },
+        {
+          "created_at": "2026-02-12T18:55:47Z",
+          "merged_at": "2026-02-12T18:57:47Z",
+          "pull_request": 19,
+          "query_frame": 3,
+          "repository": "diktoapp/dikto",
+          "sample_digest": "969e9f7603a085f06fe3cde9f5ec7e32b876b3a859ce47c4a88c722c3c5b5f72",
+          "title": "Fix SECURITY.md: remove fake email, correct versions, soften timeline",
+          "url": "https://github.com/diktoapp/dikto/pull/19"
+        },
+        {
+          "created_at": "2026-04-28T12:52:28Z",
+          "merged_at": "2026-04-28T14:19:35Z",
+          "pull_request": 1856,
+          "query_frame": 3,
+          "repository": "mebezac/home-cluster",
+          "sample_digest": "96b3d64601cb450552251afc2c6d74d76ddc33a8045ed79abe577eb1e70e771f",
+          "title": "fix(container): update ghcr.io/ozark-connect/network-optimizer ( 1.15.7 → 1.15.8 )",
+          "url": "https://github.com/mebezac/home-cluster/pull/1856"
+        },
+        {
+          "created_at": "2026-05-31T16:54:48Z",
+          "merged_at": "2026-05-31T21:12:58Z",
+          "pull_request": 2,
+          "query_frame": 3,
+          "repository": "urosavurdic/Written-Text-Recognizer",
+          "sample_digest": "96fe60af84231f17ac7776015e014864b8795df805559ff32a381c5ab4e58665",
+          "title": "Fix CircleCI build failures blocking PR merge",
+          "url": "https://github.com/urosavurdic/Written-Text-Recognizer/pull/2"
+        },
+        {
+          "created_at": "2026-05-12T00:48:38Z",
+          "merged_at": "2026-05-12T00:53:03Z",
+          "pull_request": 97,
+          "query_frame": 3,
+          "repository": "davydfontourac/expense-tracker",
+          "sample_digest": "97d7b81f0d871699bbc7bcb1a4f13c139ef54b62d85ab4f6fdbd4ef98f423486",
+          "title": "fix(db): add dashboard summary date type fix migration",
+          "url": "https://github.com/davydfontourac/expense-tracker/pull/97"
+        },
+        {
+          "created_at": "2026-06-14T01:26:43Z",
+          "merged_at": "2026-06-14T18:09:21Z",
+          "pull_request": 5,
+          "query_frame": 3,
+          "repository": "staffreview/staffreview",
+          "sample_digest": "982eebea353914b39d75c8cc522a0b0213969991b008d7f9f5ba525f14205681",
+          "title": "[codex] Add Staff Review skill eval harness",
+          "url": "https://github.com/staffreview/staffreview/pull/5"
+        },
+        {
+          "created_at": "2026-06-17T16:15:36Z",
+          "merged_at": "2026-06-17T16:15:54Z",
+          "pull_request": 6,
+          "query_frame": 3,
+          "repository": "Davide91-Git/monte-carlo-option-pricer",
+          "sample_digest": "9a18558744c09982a81459d1ea5698bf999f1b299f0229c50d0328107f94fab2",
+          "title": "Feature/convergence study",
+          "url": "https://github.com/Davide91-Git/monte-carlo-option-pricer/pull/6"
+        },
+        {
+          "created_at": "2026-07-27T08:54:39Z",
+          "merged_at": "2026-07-27T08:58:53Z",
+          "pull_request": 148,
+          "query_frame": 3,
+          "repository": "skillberry-ai/cap-evolve",
+          "sample_digest": "aa21caef383d1ed0c43bff75a44c19c2c92efd2116bfe8d4b9b80f09641e003d",
+          "title": "fix: correct tau2 held-out split label from 30/10/10 to 30(=val)/20",
+          "url": "https://github.com/skillberry-ai/cap-evolve/pull/148"
+        },
+        {
+          "created_at": "2026-02-15T02:10:41Z",
+          "merged_at": "2026-02-15T03:14:05Z",
+          "pull_request": 251,
+          "query_frame": 3,
+          "repository": "sarchlab/ml-perf-survey",
+          "sample_digest": "ab588535256e68d09d6a7fa980c7de3d38d75f8cdb4f13901465ff8eaae042d6",
+          "title": "Fix VIDUR table data to match CI experiments",
+          "url": "https://github.com/sarchlab/ml-perf-survey/pull/251"
+        },
+        {
+          "created_at": "2026-03-24T09:41:29Z",
+          "merged_at": "2026-03-24T10:14:50Z",
+          "pull_request": 2,
+          "query_frame": 3,
+          "repository": "Ahmed-Ibrahim-KenDox0/KenPub",
+          "sample_digest": "aca71d16d0a98b4173667653fa51736e3f0eadfd7b97e3e87008525ae7567843",
+          "title": "Fix Azure DevOps auth: interactive PAT prompt, actionable 401/403 errors, updated docs",
+          "url": "https://github.com/Ahmed-Ibrahim-KenDox0/KenPub/pull/2"
+        },
+        {
+          "created_at": "2026-04-29T15:37:00Z",
+          "merged_at": "2026-04-29T19:53:34Z",
+          "pull_request": 196,
+          "query_frame": 3,
+          "repository": "Jin-HoMLee/splice-neoepitope-pipeline",
+          "sample_digest": "ad8a71bb234c1c6a7b9184ef6823a646550dfd0ebc35e1fbcab61bae28c562b2",
+          "title": "docs(scientist): patient_001 results in RESULTS.md and lab notebook",
+          "url": "https://github.com/Jin-HoMLee/splice-neoepitope-pipeline/pull/196"
+        },
+        {
+          "created_at": "2026-06-22T18:54:42Z",
+          "merged_at": "2026-06-22T18:57:14Z",
+          "pull_request": 2005,
+          "query_frame": 3,
+          "repository": "useautumn/autumn",
+          "sample_digest": "b059002a28962b80f1181a3cab28b9df0af46adc217c2b9818519191709ead06",
+          "title": "chore: correct event table filtering",
+          "url": "https://github.com/useautumn/autumn/pull/2005"
+        },
+        {
+          "created_at": "2026-04-08T22:56:14Z",
+          "merged_at": "2026-04-25T20:46:29Z",
+          "pull_request": 76171,
+          "query_frame": 3,
+          "repository": "airbytehq/airbyte",
+          "sample_digest": "b380c97d8038ae5ba6808c496ffc2d3e540485c1ba240306c13b03e3ccec48cc",
+          "title": "docs(source-harvest): improve rate limit docs, add concurrency info, fix changelog date",
+          "url": "https://github.com/airbytehq/airbyte/pull/76171"
+        },
+        {
+          "created_at": "2026-07-16T07:12:25Z",
+          "merged_at": "2026-07-16T07:12:57Z",
+          "pull_request": 5,
+          "query_frame": 3,
+          "repository": "HansChucrute14/Hans-GSD-Raw-Calculator",
+          "sample_digest": "b75614f85b2ed8f0c055062f18dc0d0636133b19dc9fe7e203cc89eaefdcefb7",
+          "title": "Phase 2 continued: Ca:P fix, gap reporting, 6 new tests, data correct…",
+          "url": "https://github.com/HansChucrute14/Hans-GSD-Raw-Calculator/pull/5"
+        },
+        {
+          "created_at": "2026-07-18T01:30:52Z",
+          "merged_at": "2026-07-19T11:52:33Z",
+          "pull_request": 4,
+          "query_frame": 3,
+          "repository": "Timwood0x10/CodeScope",
+          "sample_digest": "b9a2513a7c378150c736caa838e1d44336081a6e91b2204cc95be7ee7c10115f",
+          "title": "0.2.1",
+          "url": "https://github.com/Timwood0x10/CodeScope/pull/4"
+        },
+        {
+          "created_at": "2026-06-04T11:24:05Z",
+          "merged_at": "2026-06-17T08:59:46Z",
+          "pull_request": 1,
+          "query_frame": 3,
+          "repository": "keboola/component-wr-premier",
+          "sample_digest": "ba2670c982cf89f11dcd6730b8d3ad00d46fabf755641982d98505de87f26df5",
+          "title": "feat: initial PREMIER writer implementation",
+          "url": "https://github.com/keboola/component-wr-premier/pull/1"
+        },
+        {
+          "created_at": "2026-05-07T06:02:23Z",
+          "merged_at": "2026-05-07T06:02:42Z",
+          "pull_request": 7,
+          "query_frame": 3,
+          "repository": "notjohnless/fooyin-plugins",
+          "sample_digest": "bc4126c5bbd52a0795859261eec63256246d1a07a5a2b28f038f827b2011ad5a",
+          "title": "Fix AccurateRip menu/worker, DR top‑20 rounding, and CDDA decoder registration",
+          "url": "https://github.com/notjohnless/fooyin-plugins/pull/7"
+        },
+        {
+          "created_at": "2026-02-21T15:55:57Z",
+          "merged_at": "2026-02-21T18:12:39Z",
+          "pull_request": 12,
+          "query_frame": 3,
+          "repository": "pixian5/CloudFlareScan",
+          "sample_digest": "bc74486decbf521f82dcfced255d918b445b7c913db783fe6ca531034893fac3",
+          "title": "Fix horizontal scrollbar in speed test results table",
+          "url": "https://github.com/pixian5/CloudFlareScan/pull/12"
+        },
+        {
+          "created_at": "2026-06-03T18:35:07Z",
+          "merged_at": "2026-06-03T18:59:18Z",
+          "pull_request": 546,
+          "query_frame": 3,
+          "repository": "esassoc/neptune",
+          "sample_digest": "beb387adac31ae6fda42d1eaf7c2b4002e28841eb2de1c3f06c32e4e69332e4d",
+          "title": "NPT-1068: Fix Modeled BMP Performance panel on Treatment BMP detail",
+          "url": "https://github.com/esassoc/neptune/pull/546"
+        },
+        {
+          "created_at": "2026-05-26T12:28:45Z",
+          "merged_at": "2026-05-26T12:32:23Z",
+          "pull_request": 7,
+          "query_frame": 3,
+          "repository": "mudasirx/Pair-code",
+          "sample_digest": "c32078c4ca7a09d8f8e7ccb74ba8d93fd8147b12a602be40a77298bc3d6a5669",
+          "title": "feat: full portal commands for WhatsApp bot + /pair + /login",
+          "url": "https://github.com/mudasirx/Pair-code/pull/7"
+        },
+        {
+          "created_at": "2026-02-11T15:50:17Z",
+          "merged_at": "2026-02-11T15:50:59Z",
+          "pull_request": 49,
+          "query_frame": 3,
+          "repository": "Jorch01/TSJ_Filing_online",
+          "sample_digest": "c46803ecdc20bf23db04925a12d7005e67b3debdf8819adb3a134f8d789ba0d1",
+          "title": "fix: Correct tipoasunto IDs and add manual ID override for SISE lookup",
+          "url": "https://github.com/Jorch01/TSJ_Filing_online/pull/49"
+        },
+        {
+          "created_at": "2026-07-29T05:06:04Z",
+          "merged_at": "2026-07-30T04:49:43Z",
+          "pull_request": 8,
+          "query_frame": 3,
+          "repository": "mlsys-io/EventXBench",
+          "sample_digest": "c4bfdbca60b684c497f26350d232927b131cd9f24597d0698bb6de80cb29d229",
+          "title": "T3: align evidence-grading code with T3_Reproducible_Package audit",
+          "url": "https://github.com/mlsys-io/EventXBench/pull/8"
+        },
+        {
+          "created_at": "2026-06-07T23:42:00Z",
+          "merged_at": "2026-06-07T23:50:37Z",
+          "pull_request": 85,
+          "query_frame": 3,
+          "repository": "eliemada/cs552-faithful-rag",
+          "sample_digest": "c58f7d72222b98057288161dcc0c069d62a5a16548f3773b3c3f77bfced6c6c0",
+          "title": "Align notebooks with M3 final report (n=88 RAGAS, CRAG loader fix)",
+          "url": "https://github.com/eliemada/cs552-faithful-rag/pull/85"
+        },
+        {
+          "created_at": "2026-05-06T07:15:31Z",
+          "merged_at": "2026-05-06T07:15:48Z",
+          "pull_request": 58,
+          "query_frame": 3,
+          "repository": "hamanhcuong18112004/smart-lab-management-system-frontend",
+          "sample_digest": "c6541f916d012ca5f71df4c6e0053c9c63f93dd625a10876d74230029d8f636d",
+          "title": "## feat: Firmware OTA UI updates for Digital Ocean Spaces + device restore fix",
+          "url": "https://github.com/hamanhcuong18112004/smart-lab-management-system-frontend/pull/58"
+        },
+        {
+          "created_at": "2026-07-04T16:02:54Z",
+          "merged_at": "2026-07-07T00:14:02Z",
+          "pull_request": 1,
+          "query_frame": 3,
+          "repository": "Briezy2014/StrokeIQ",
+          "sample_digest": "c6d3c0665be45e9a910ce89434afad0dbb23e9a2e9e571cc588a4ae44313376e",
+          "title": "Merge main, remove duplicate app, fix Streamlit schema bugs",
+          "url": "https://github.com/Briezy2014/StrokeIQ/pull/1"
+        },
+        {
+          "created_at": "2026-03-08T01:45:00Z",
+          "merged_at": "2026-03-08T01:45:26Z",
+          "pull_request": 611,
+          "query_frame": 3,
+          "repository": "SINPRF-ES/sinprfes-site-api",
+          "sample_digest": "c7da35482a6bb98df8031547050c4f9fde7084b0a0ea07cc078c8e95ad04fe76",
+          "title": "fix(consulta-processual): refine TRF1 DOM-first parsing and detail movement extraction",
+          "url": "https://github.com/SINPRF-ES/sinprfes-site-api/pull/611"
+        },
+        {
+          "created_at": "2025-11-25T12:03:37Z",
+          "merged_at": "2026-05-07T13:09:43Z",
+          "pull_request": 478,
+          "query_frame": 3,
+          "repository": "apache/atlas",
+          "sample_digest": "c8152a82bcf4e3a67d8fbfa32764bc1c2921fd27c830168af6b567c8c896c218",
+          "title": "ATLAS-5156: Import failure due to missing support for handling multip…",
+          "url": "https://github.com/apache/atlas/pull/478"
+        },
+        {
+          "created_at": "2026-05-05T12:36:43Z",
+          "merged_at": "2026-05-05T12:54:32Z",
+          "pull_request": 52,
+          "query_frame": 3,
+          "repository": "clouatre-labs/prompt-repetition-experiments",
+          "sample_digest": "c86029052b84a7bfb4e2f1da4cc09e4ce1e343c562e4540625b824fef40d36f4",
+          "title": "docs: align README and CITATION.cff with completed paper",
+          "url": "https://github.com/clouatre-labs/prompt-repetition-experiments/pull/52"
+        },
+        {
+          "created_at": "2026-05-27T02:35:37Z",
+          "merged_at": "2026-05-27T02:47:41Z",
+          "pull_request": 60,
+          "query_frame": 3,
+          "repository": "kenjdavidson/golf-club-handicap-committee-app",
+          "sample_digest": "cb1d0e20836ffe392b8fb15deb4fe31d2d4c8d51b250c0bfa25c4e974b2d9d84",
+          "title": "Resolve navbar/menu UX and verification results layout/data mismatches",
+          "url": "https://github.com/kenjdavidson/golf-club-handicap-committee-app/pull/60"
+        },
+        {
+          "created_at": "2026-08-11T20:39:24Z",
+          "merged_at": "2026-08-11T20:53:51Z",
+          "pull_request": 296,
+          "query_frame": 3,
+          "repository": "e6qu/pos3ql",
+          "sample_digest": "cb61902abd0d72f140081656afbdfc99d6a9880d4ae8386e9c87273b6e202cb1",
+          "title": "Execute typed SQL function query programs",
+          "url": "https://github.com/e6qu/pos3ql/pull/296"
+        },
+        {
+          "created_at": "2026-07-21T16:50:22Z",
+          "merged_at": "2026-07-21T19:23:29Z",
+          "pull_request": 340,
+          "query_frame": 3,
+          "repository": "superloglabs/superlog",
+          "sample_digest": "ccc2e3c20b7abcdb9b8a2528e4c8c0ba28bee711060515bd02a9cabccd55e576",
+          "title": "Handle metric temporalities correctly",
+          "url": "https://github.com/superloglabs/superlog/pull/340"
+        },
+        {
+          "created_at": "2026-03-16T11:25:50Z",
+          "merged_at": "2026-03-16T13:44:58Z",
+          "pull_request": 3,
+          "query_frame": 3,
+          "repository": "DanielVallstrom/hardest",
+          "sample_digest": "cce9fb9d60f7c270bd835b1d4cdf3741f5f1a394f31f3ba31cdedb4f61336fc1",
+          "title": "Remove invalid replication info for (2,4,2) and (3,5,3) upper bound entries",
+          "url": "https://github.com/DanielVallstrom/hardest/pull/3"
+        },
+        {
+          "created_at": "2026-04-26T23:45:23Z",
+          "merged_at": "2026-04-26T23:45:45Z",
+          "pull_request": 1,
+          "query_frame": 3,
+          "repository": "Riju-vo/parcial1-sw2",
+          "sample_digest": "d2145b00fa078b2869aaf3a0231a747f97d113258b48bf53af4569df854bf4fc",
+          "title": "feat: mejora visual completa - navbar, animaciones , bug fix del dom",
+          "url": "https://github.com/Riju-vo/parcial1-sw2/pull/1"
+        },
+        {
+          "created_at": "2026-04-05T09:38:10Z",
+          "merged_at": "2026-04-05T13:34:39Z",
+          "pull_request": 84,
+          "query_frame": 3,
+          "repository": "Gitsack/hamster",
+          "sample_digest": "d512dbce87c78701ae4b68454739391e384ce85a10d4b93254f57a528f0aea34",
+          "title": "feat: standardize search page button patterns and empty states",
+          "url": "https://github.com/Gitsack/hamster/pull/84"
+        },
+        {
+          "created_at": "2026-03-01T03:54:35Z",
+          "merged_at": "2026-03-01T03:59:36Z",
+          "pull_request": 224,
+          "query_frame": 3,
+          "repository": "mahalisyarifuddin/PreferenceRank",
+          "sample_digest": "d65c37b13de50f63ff70e5503a87772d6c38a566931041b16e1aa3e7f6e8ad6b",
+          "title": "Improve Bradley-Terry scoring and statistics calculation",
+          "url": "https://github.com/mahalisyarifuddin/PreferenceRank/pull/224"
+        },
+        {
+          "created_at": "2026-06-06T07:51:32Z",
+          "merged_at": "2026-06-09T02:39:26Z",
+          "pull_request": 12177,
+          "query_frame": 3,
+          "repository": "opensearch-project/OpenSearch-Dashboards",
+          "sample_digest": "e0dee0e998cd87d4d2750716971bd35bb7ef936bdb14e0249cb62cda8c59ea79",
+          "title": "fix: hide Ask AI for AnalyticEngine data sources across all visualization types",
+          "url": "https://github.com/opensearch-project/OpenSearch-Dashboards/pull/12177"
+        },
+        {
+          "created_at": "2026-02-17T23:46:15Z",
+          "merged_at": "2026-02-18T09:10:19Z",
+          "pull_request": 13165,
+          "query_frame": 3,
+          "repository": "mastra-ai/mastra",
+          "sample_digest": "e47380893234d82f06bbf50af60e8559b9f4e97c532fe1feb80b742ca2e1c74a",
+          "title": "fix: show correct input/output in experiment results",
+          "url": "https://github.com/mastra-ai/mastra/pull/13165"
+        },
+        {
+          "created_at": "2026-05-20T17:14:57Z",
+          "merged_at": "2026-05-20T17:17:27Z",
+          "pull_request": 65,
+          "query_frame": 3,
+          "repository": "Mr-monmon/Sinnara-Cyber-Awareness-LMS",
+          "sample_digest": "ed334309ac62d8979fb257ec24054bc7b48a8218e9d0590b98f92faad998ff37",
+          "title": "fix(company-admin): resolve all review findings — dashboard, employees, courses, exams, analytics",
+          "url": "https://github.com/Mr-monmon/Sinnara-Cyber-Awareness-LMS/pull/65"
+        },
+        {
+          "created_at": "2026-08-04T22:18:27Z",
+          "merged_at": "2026-08-04T22:18:33Z",
+          "pull_request": 10,
+          "query_frame": 3,
+          "repository": "artcarver/ShelfPractice",
+          "sample_digest": "f214a95f3fddfa0ede137d86d2b7790302811bc7b1d1b3062de0a9219b002c52",
+          "title": "Fix graded-mode navigation and hide controls that do not apply",
+          "url": "https://github.com/artcarver/ShelfPractice/pull/10"
+        },
+        {
+          "created_at": "2026-07-25T15:06:15Z",
+          "merged_at": "2026-07-25T15:10:39Z",
+          "pull_request": 119,
+          "query_frame": 3,
+          "repository": "AB-Copenhagen/ab.dk",
+          "sample_digest": "f38455f10585de3229a9273b0f2fa3207af7be2d6f59541caf8a828b1f158857",
+          "title": "Match page, homepage, and squad fixes",
+          "url": "https://github.com/AB-Copenhagen/ab.dk/pull/119"
+        },
+        {
+          "created_at": "2026-05-16T23:32:43Z",
+          "merged_at": "2026-05-18T18:43:24Z",
+          "pull_request": 548,
+          "query_frame": 3,
+          "repository": "withcoral/coral",
+          "sample_digest": "fb63a7a96d0b47aa3a3b9978e226764b8bac0b50def0a9a23a2c252d5b55ec37",
+          "title": "feat(sources/community/mixpanel): add Mixpanel source",
+          "url": "https://github.com/withcoral/coral/pull/548"
+        },
+        {
+          "created_at": "2026-06-01T04:12:55Z",
+          "merged_at": "2026-06-01T04:13:12Z",
+          "pull_request": 7,
+          "query_frame": 3,
+          "repository": "ALADETAN-IFE/visual-query-builder-hng-stage-8-i14",
+          "sample_digest": "fce0a6d8441b12bda5f25fd3c3877228242692cc5d4e23b9be22605bfafb4d5f",
+          "title": "feat(simulator): implement recursive query simulator engine and dynamic schema-driven ResultsTable",
+          "url": "https://github.com/ALADETAN-IFE/visual-query-builder-hng-stage-8-i14/pull/7"
+        },
+        {
+          "created_at": "2026-05-01T13:24:11Z",
+          "merged_at": "2026-05-01T15:07:22Z",
+          "pull_request": 166,
+          "query_frame": 3,
+          "repository": "muxi-ai/runtime",
+          "sample_digest": "fd2b690f4a9f22b2cc610a2315494d8ec11c3c8e5c0e0b289f826bcccdc05bec",
+          "title": "fix(scheduler): restore job stat persistence + collapse doubled session_id + preserve delivery framing",
+          "url": "https://github.com/muxi-ai/runtime/pull/166"
+        },
+        {
+          "created_at": "2026-06-09T15:14:47Z",
+          "merged_at": "2026-06-10T13:20:13Z",
+          "pull_request": 3,
+          "query_frame": 3,
+          "repository": "ChurchOfDaVinci/AI_DUMP",
+          "sample_digest": "fd47e8efa1dc312ad3862545dd71b3e0c4dce9243e35ae60a9b042768b4fd73f",
+          "title": "Align FEM Battery-Module Floor report with P000010005 (Force-4 = vertical impact load) and condense",
+          "url": "https://github.com/ChurchOfDaVinci/AI_DUMP/pull/3"
+        },
+        {
+          "created_at": "2026-08-04T13:12:11Z",
+          "merged_at": "2026-08-07T12:02:45Z",
+          "pull_request": 20,
+          "query_frame": 3,
+          "repository": "gabelul/bpx-council",
+          "sample_digest": "fdbf073ce32cc3a2c71eb578658de0504e98e0898b27ca5a235970d248525ad5",
+          "title": "docs: restructure the README and correct the backend results",
+          "url": "https://github.com/gabelul/bpx-council/pull/20"
+        },
+        {
+          "created_at": "2026-06-01T22:40:28Z",
+          "merged_at": "2026-06-02T00:05:28Z",
+          "pull_request": 262,
+          "query_frame": 3,
+          "repository": "GoldenStrand-UNAM/neupsipro-Web",
+          "sample_digest": "fe7868f6df8f9db70fbac0cf4f5cc291829d80153b52a181f426bd136c333ea4",
+          "title": "Feat(export): research user pdf",
+          "url": "https://github.com/GoldenStrand-UNAM/neupsipro-Web/pull/262"
+        },
+        {
+          "created_at": "2026-03-06T04:02:00Z",
+          "merged_at": "2026-03-06T04:02:27Z",
+          "pull_request": 12,
+          "query_frame": 3,
+          "repository": "Murathanx12/Improved-Engine",
+          "sample_digest": "ff2e832e9b07680c69b3418560831311c084d11169257c98f263a3a6a900cee4",
+          "title": "Add anomaly detection, multi-horizon predictions, and paper-ready results",
+          "url": "https://github.com/Murathanx12/Improved-Engine/pull/12"
+        }
+      ],
+      "duplicate_hits": 0,
+      "owner_cap_hits": 0,
+      "prior_exposure_hits": 1,
+      "query": "\"results table\" \"was incorrect\" is:pr is:merged created:>=2024-01-01 in:title,body",
+      "query_frame": 3,
+      "raw_file": "raw/frame-3.json",
+      "raw_sha256": "2773b0a66c24d85780062165ab02796ea7edf02d3beb0bc09b798640936bd0a9",
+      "repository_cap_hits": 0,
+      "selected_count": 15,
+      "unique_candidates": 99
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 566,
+      "candidates": [
+        {
+          "created_at": "2026-08-06T14:04:21Z",
+          "merged_at": "2026-08-06T14:05:59Z",
+          "pull_request": 21,
+          "query_frame": 4,
+          "repository": "SFHAJJI/lex",
+          "sample_digest": "02d9284730750a50e68fd3064a1ade06905c8d3b4dfe95edfac4464dafd7b915",
+          "title": "Identify the Data Act correctly in the benchmark",
+          "url": "https://github.com/SFHAJJI/lex/pull/21"
+        },
+        {
+          "created_at": "2026-08-03T07:24:48Z",
+          "merged_at": "2026-08-03T07:27:49Z",
+          "pull_request": 11,
+          "query_frame": 4,
+          "repository": "Donovoi/bstrings",
+          "sample_digest": "039f25ee65fc9e5acf9cd9175d3a8afcd4ae48ba1920aa8ee82157283dd16fb7",
+          "title": "Fix boundary ownership and feed CPU pipeline",
+          "url": "https://github.com/Donovoi/bstrings/pull/11"
+        },
+        {
+          "created_at": "2026-06-24T10:11:10Z",
+          "merged_at": "2026-06-24T12:26:52Z",
+          "pull_request": 85,
+          "query_frame": 4,
+          "repository": "flouzzy/maths-for-ia",
+          "sample_digest": "0459b5bad924c02057ce94775911779396fca99b9f48e58ce30e825d143302ba",
+          "title": "⚡ Optimize clean_filename string replacements with compiled regex",
+          "url": "https://github.com/flouzzy/maths-for-ia/pull/85"
+        },
+        {
+          "created_at": "2026-07-19T17:58:33Z",
+          "merged_at": "2026-07-27T13:35:12Z",
+          "pull_request": 63,
+          "query_frame": 4,
+          "repository": "askmy-stack/py-outlier",
+          "sample_digest": "0864e9c0427b69b2e189f276fa5dc5582366cdca0761a86b8ea6a84de3818f21",
+          "title": "Fix API config path resolution (CWD-relative)",
+          "url": "https://github.com/askmy-stack/py-outlier/pull/63"
+        },
+        {
+          "created_at": "2026-08-12T08:27:21Z",
+          "merged_at": "2026-08-12T08:35:23Z",
+          "pull_request": 420,
+          "query_frame": 4,
+          "repository": "m-shogo/alpha-pon",
+          "sample_digest": "0d68f3ee44b1c401f65c5d4686e2ffbe2c7b9146db0ce5d6d006b4d765fff7a5",
+          "title": "Preserve nanosecond backtest signal chronology",
+          "url": "https://github.com/m-shogo/alpha-pon/pull/420"
+        },
+        {
+          "created_at": "2026-07-06T13:12:32Z",
+          "merged_at": "2026-07-07T01:30:53Z",
+          "pull_request": 75,
+          "query_frame": 4,
+          "repository": "EmNudge/wat-fft",
+          "sample_digest": "139db775012330ccb85eca2a0fa9d89404ca89738ab1b394527728ea90a38e81",
+          "title": "Statistical benchmark harness, noise-aware bench:diff, accuracy diagnostics, and f32 per-bin tests",
+          "url": "https://github.com/EmNudge/wat-fft/pull/75"
+        },
+        {
+          "created_at": "2026-07-23T01:35:56Z",
+          "merged_at": "2026-07-23T02:03:00Z",
+          "pull_request": 363,
+          "query_frame": 4,
+          "repository": "ArdurAI/ardur",
+          "sample_digest": "173e6567471e11e97d1e3cae0c520b1084abb0330d78b2314048c3c946320dea",
+          "title": "fix(release): close v0.2.0 readiness gaps",
+          "url": "https://github.com/ArdurAI/ardur/pull/363"
+        },
+        {
+          "created_at": "2026-05-20T20:53:15Z",
+          "merged_at": "2026-05-20T20:57:55Z",
+          "pull_request": 62,
+          "query_frame": 4,
+          "repository": "Heratiki/locallama-mcp",
+          "sample_digest": "1ad929588193c6c332db475ee04af950dee34bbfbf79d5edab40482dc01e5868",
+          "title": "fix(#50): unify telemetry routing to ModelRegistry and correct preemptive heuristic bias",
+          "url": "https://github.com/Heratiki/locallama-mcp/pull/62"
+        },
+        {
+          "created_at": "2026-07-11T07:24:51Z",
+          "merged_at": "2026-07-11T07:24:59Z",
+          "pull_request": 14,
+          "query_frame": 4,
+          "repository": "common-del/upsssaportal",
+          "sample_digest": "1d983dd2e583999157293dd28c444abbd4762b89ac4ce32eb5421d599d03b9df",
+          "title": "Rehaul official dashboard: State/District/Block/Cluster Analytics, School Directory, Activity Log, Settings",
+          "url": "https://github.com/common-del/upsssaportal/pull/14"
+        },
+        {
+          "created_at": "2026-08-10T04:00:29Z",
+          "merged_at": "2026-08-10T04:02:06Z",
+          "pull_request": 6,
+          "query_frame": 4,
+          "repository": "jcdavis131/vector-hub",
+          "sample_digest": "220663cff4ae3b5bb64874cdbb372d74a38fbbcf21b834ee729ba102e1c01bff",
+          "title": "vector-bench: sync registry status with real-data benchmark outcomes",
+          "url": "https://github.com/jcdavis131/vector-hub/pull/6"
+        },
+        {
+          "created_at": "2026-07-19T02:35:31Z",
+          "merged_at": "2026-07-19T02:38:27Z",
+          "pull_request": 53,
+          "query_frame": 4,
+          "repository": "marmikshah/atelier",
+          "sample_digest": "24433c0d938300aa635e6a36a9d71e156918e8f844457f48f8c677d87cbc902b",
+          "title": "Benchmark kimi-k3 on all ten tasks",
+          "url": "https://github.com/marmikshah/atelier/pull/53"
+        },
+        {
+          "created_at": "2026-08-08T21:53:41Z",
+          "merged_at": "2026-08-11T09:21:59Z",
+          "pull_request": 107,
+          "query_frame": 4,
+          "repository": "bluntmachetti/synthworld",
+          "sample_digest": "2541338d044ac7e4e3e014e0ffb57a5c3afe500036ac948e20938465beebe38a",
+          "title": "docs: add stable journey-led documentation",
+          "url": "https://github.com/bluntmachetti/synthworld/pull/107"
+        },
+        {
+          "created_at": "2026-07-29T20:48:20Z",
+          "merged_at": "2026-07-29T20:48:45Z",
+          "pull_request": 349,
+          "query_frame": 4,
+          "repository": "ame-888/ultimate-bench",
+          "sample_digest": "2801789f3173c4ab8e4c2055aa2d4cc66c916bf01f399112e2c23d631aefe442",
+          "title": "Add canonical release dates, Grok 4.5 Fast DATA results, and two-decimal aggregate score formatting",
+          "url": "https://github.com/ame-888/ultimate-bench/pull/349"
+        },
+        {
+          "created_at": "2026-07-22T07:37:38Z",
+          "merged_at": "2026-07-22T08:19:12Z",
+          "pull_request": 16,
+          "query_frame": 4,
+          "repository": "utooland/site",
+          "sample_digest": "28d25e04e7487d820b6e089a258fae095bba8ec25fc740be8e3281f5a34d854d",
+          "title": "docs: add utoo benchmark comparison",
+          "url": "https://github.com/utooland/site/pull/16"
+        },
+        {
+          "created_at": "2026-08-07T10:34:05Z",
+          "merged_at": "2026-08-11T19:04:02Z",
+          "pull_request": 4542,
+          "query_frame": 4,
+          "repository": "Ayushh-Sharmaa/NexaSphere",
+          "sample_digest": "2927cb2f34559fa1a7b5e9adb4a7a8f29a0d39cf87e1aa32934bbbc035c29817",
+          "title": "ci: add automated performance benchmarking workflow",
+          "url": "https://github.com/Ayushh-Sharmaa/NexaSphere/pull/4542"
+        },
+        {
+          "created_at": "2026-07-12T03:41:11Z",
+          "merged_at": "2026-07-12T03:47:41Z",
+          "pull_request": 122,
+          "query_frame": 4,
+          "repository": "dhruvhaldar/FDR_DATALINK",
+          "sample_digest": "2fcf5ed94d4311e5c81ef05e6ba23b50ea2de563aa42413f972cc20ba3ba3143",
+          "title": "⚡ Bolt: [Performance] Pre-compress cached API responses with Gzip",
+          "url": "https://github.com/dhruvhaldar/FDR_DATALINK/pull/122"
+        },
+        {
+          "created_at": "2026-05-30T17:04:10Z",
+          "merged_at": "2026-05-30T20:08:30Z",
+          "pull_request": 11092,
+          "query_frame": 4,
+          "repository": "spiceai/spiceai",
+          "sample_digest": "2fd29643f22d495f545d60edeeae0f836b6d4210e8502c2b60466b47a11e8ea0",
+          "title": "feat(benchmarks): Add rows-based data-correctness check to CH-benCHmark",
+          "url": "https://github.com/spiceai/spiceai/pull/11092"
+        },
+        {
+          "created_at": "2026-07-26T00:08:59Z",
+          "merged_at": "2026-07-26T00:09:36Z",
+          "pull_request": 279,
+          "query_frame": 4,
+          "repository": "ame-888/ultimate-bench",
+          "sample_digest": "3dbf601c7e99409e09073a2cd26fb642e573ad0a91d198e0b534ad8595d7025d",
+          "title": "Rename Claude 5 Opus to Claude 5 Opus (high)",
+          "url": "https://github.com/ame-888/ultimate-bench/pull/279"
+        },
+        {
+          "created_at": "2026-08-11T09:44:35Z",
+          "merged_at": "2026-08-11T09:49:09Z",
+          "pull_request": 360,
+          "query_frame": 4,
+          "repository": "m-shogo/alpha-pon",
+          "sample_digest": "3eb22339cc0d4df7dedf1279bc94f4f51e6c3d55aee3fa3a8413d53df9f890a8",
+          "title": "fix: preserve Document Diff sub-ms chronology",
+          "url": "https://github.com/m-shogo/alpha-pon/pull/360"
+        },
+        {
+          "created_at": "2026-07-24T21:12:57Z",
+          "merged_at": "2026-07-30T10:21:58Z",
+          "pull_request": 145,
+          "query_frame": 4,
+          "repository": "Henrik-Hung-Pham/playwright-ai-healer",
+          "sample_digest": "3f054ab79f7499b33c6b22de34d015c69a154686fb7ac59badb0e05ca23bc4d8",
+          "title": "test(benchmark): add healing accuracy oracle; fix the parser bug it found",
+          "url": "https://github.com/Henrik-Hung-Pham/playwright-ai-healer/pull/145"
+        },
+        {
+          "created_at": "2026-07-30T21:55:15Z",
+          "merged_at": "2026-07-31T01:18:26Z",
+          "pull_request": 84,
+          "query_frame": 4,
+          "repository": "MarwaBS/nyc-real-estate-predictor",
+          "sample_digest": "441d932f1ee16a9d9b4bfc72401a4085f62c8186745464f0aa3c755b5b7419a7",
+          "title": "build(dev): cap pandas-stubs below the release that broke the type gate",
+          "url": "https://github.com/MarwaBS/nyc-real-estate-predictor/pull/84"
+        },
+        {
+          "created_at": "2026-05-26T17:26:44Z",
+          "merged_at": "2026-06-03T12:56:32Z",
+          "pull_request": 396,
+          "query_frame": 4,
+          "repository": "google/security-research",
+          "sample_digest": "483a2df58932a8d93ed5ef333b937a0409f97f38fbe93556cc5882cd5e0b056a",
+          "title": "Fix swapped performance metrics in RetBleed benchmark table",
+          "url": "https://github.com/google/security-research/pull/396"
+        },
+        {
+          "created_at": "2026-05-26T19:20:58Z",
+          "merged_at": "2026-05-26T22:26:49Z",
+          "pull_request": 151,
+          "query_frame": 4,
+          "repository": "Open-Quantum-Platform/openqp",
+          "sample_digest": "4888aad18908c9ac7412d1db0172aaf8b0669c7985671f672fe3497701ebc16c",
+          "title": "feat: add geomeTRIC NEB workflow scaffold",
+          "url": "https://github.com/Open-Quantum-Platform/openqp/pull/151"
+        },
+        {
+          "created_at": "2026-04-25T21:10:55Z",
+          "merged_at": "2026-04-25T21:36:21Z",
+          "pull_request": 36,
+          "query_frame": 4,
+          "repository": "KevinWu098/codebreaker",
+          "sample_digest": "4ba3e2587f7b508cb44ace61af6b40e0c87fa625dab1c2d986f131e0a64c84d3",
+          "title": "Add curated tasks (curate/batch-1)",
+          "url": "https://github.com/KevinWu098/codebreaker/pull/36"
+        },
+        {
+          "created_at": "2026-07-20T18:55:11Z",
+          "merged_at": "2026-07-20T20:23:30Z",
+          "pull_request": 72,
+          "query_frame": 4,
+          "repository": "jbsiddall/lightning-yaml",
+          "sample_digest": "506c520c1ab81f58b5603a1074c9d8125306ace967d84f595ada570bd901221d",
+          "title": "docs: slim CLAUDE.md's \"What this is\" to identity + goal",
+          "url": "https://github.com/jbsiddall/lightning-yaml/pull/72"
+        },
+        {
+          "created_at": "2026-08-12T22:08:16Z",
+          "merged_at": "2026-08-12T22:16:26Z",
+          "pull_request": 445,
+          "query_frame": 4,
+          "repository": "m-shogo/alpha-pon",
+          "sample_digest": "51b7ae07f63eed4d2a284356147d3a4557518cedc2ce6dc35d6fcc61a724f5f0",
+          "title": "Fix outcome review historical as-of isolation",
+          "url": "https://github.com/m-shogo/alpha-pon/pull/445"
+        },
+        {
+          "created_at": "2026-06-30T00:17:58Z",
+          "merged_at": "2026-07-09T04:44:15Z",
+          "pull_request": 7984,
+          "query_frame": 4,
+          "repository": "ROCm/rocm-systems",
+          "sample_digest": "51d19c69a8a05c361674410a697c6359c681d525867962ab7ab91ba3a30ee2a5",
+          "title": "[rocprofiler-compute] Correct gfx115x benchmarking and --roofline-data-type support",
+          "url": "https://github.com/ROCm/rocm-systems/pull/7984"
+        },
+        {
+          "created_at": "2026-07-25T21:55:07Z",
+          "merged_at": "2026-07-25T22:10:57Z",
+          "pull_request": 1,
+          "query_frame": 4,
+          "repository": "Timorleiderman/ILotto",
+          "sample_digest": "5638abb45cba40d4c887bb961ca2cd1b0c53b62e955a78203d5c15caa336dbc9",
+          "title": "Rebuild the benchmark on correct data, publish report to GitHub Pages",
+          "url": "https://github.com/Timorleiderman/ILotto/pull/1"
+        },
+        {
+          "created_at": "2026-07-21T21:07:06Z",
+          "merged_at": "2026-07-21T21:09:55Z",
+          "pull_request": 155,
+          "query_frame": 4,
+          "repository": "davebream/claude-of-alexandria",
+          "sample_digest": "5ab3ea2a2d4cd7d91e7c2d2b59cb86364ea0c767ef0bca41ede67fec480087f3",
+          "title": "Add Torah gold boundary benchmark",
+          "url": "https://github.com/davebream/claude-of-alexandria/pull/155"
+        },
+        {
+          "created_at": "2026-06-25T07:23:30Z",
+          "merged_at": "2026-06-25T08:08:03Z",
+          "pull_request": 25,
+          "query_frame": 4,
+          "repository": "Inferara/soroban-ret",
+          "sample_digest": "5d7e803493b94d0692a18901f25cbf3f7aa7af39f67f5678dab0ceaf3d06e2d0",
+          "title": "Correctness guard pass",
+          "url": "https://github.com/Inferara/soroban-ret/pull/25"
+        },
+        {
+          "created_at": "2026-07-02T00:47:05Z",
+          "merged_at": "2026-07-02T17:54:27Z",
+          "pull_request": 923,
+          "query_frame": 4,
+          "repository": "akashgit/remote-factory",
+          "sample_digest": "5fe49fc20a7cfe17b3884277ae61de0ec7ea5fbb0902c4b80b3a23cccb983b65",
+          "title": "feat: parallelize 'all' mode and add usage docs to full-eval dashboard",
+          "url": "https://github.com/akashgit/remote-factory/pull/923"
+        },
+        {
+          "created_at": "2026-08-03T16:30:14Z",
+          "merged_at": "2026-08-03T16:31:00Z",
+          "pull_request": 83,
+          "query_frame": 4,
+          "repository": "Glyndor/glyndor.net",
+          "sample_digest": "639b6b823c992dba91d037206ee3ae92c7f39f55e99f83a4e118894415541cb5",
+          "title": "feat: add real comparative benchmark charts to the project page",
+          "url": "https://github.com/Glyndor/glyndor.net/pull/83"
+        },
+        {
+          "created_at": "2026-07-10T00:56:43Z",
+          "merged_at": "2026-07-10T01:01:51Z",
+          "pull_request": 468,
+          "query_frame": 4,
+          "repository": "joewalnes/websocketd",
+          "sample_digest": "64016785f179b2c81cdad35b56886296c3cde2061c8487e3f3d38e59e1a54a0e",
+          "title": "Run each benchmark scenario 3x and report the median; bump alert threshold",
+          "url": "https://github.com/joewalnes/websocketd/pull/468"
+        },
+        {
+          "created_at": "2026-08-13T00:48:25Z",
+          "merged_at": "2026-08-13T00:50:14Z",
+          "pull_request": 23,
+          "query_frame": 4,
+          "repository": "CoreyLeath-code/SentinelAI",
+          "sample_digest": "653da298bacc8027411affa40903ae5b14ebc6ecc1ef3941b3a64a0d1ec7963f",
+          "title": "Document research evidence and drift decision logic",
+          "url": "https://github.com/CoreyLeath-code/SentinelAI/pull/23"
+        },
+        {
+          "created_at": "2026-06-13T23:45:33Z",
+          "merged_at": "2026-06-14T03:18:30Z",
+          "pull_request": 159,
+          "query_frame": 4,
+          "repository": "Agent-Threat-Rule/agent-threat-rules",
+          "sample_digest": "6619b3e140201d2a30fa5ec440a1a0d087031c03530d13673c8626f700d9c02c",
+          "title": "Website sync: every page to current state (651 rules, v3.4.0, honest metrics)",
+          "url": "https://github.com/Agent-Threat-Rule/agent-threat-rules/pull/159"
+        },
+        {
+          "created_at": "2026-07-02T14:32:59Z",
+          "merged_at": "2026-07-09T12:20:25Z",
+          "pull_request": 149,
+          "query_frame": 4,
+          "repository": "instadeepai/mlipaudit",
+          "sample_digest": "6897008394a546e4cedca51a0bdbddae0af0e7215fc9058350e2259df613ddd2",
+          "title": "feat: split molecular liquids into RDF + density benchmarks",
+          "url": "https://github.com/instadeepai/mlipaudit/pull/149"
+        },
+        {
+          "created_at": "2026-07-24T01:16:43Z",
+          "merged_at": "2026-07-24T01:33:32Z",
+          "pull_request": 216,
+          "query_frame": 4,
+          "repository": "RoboFinSystems/robosystems-app",
+          "sample_digest": "696a3b99304e13c3341b778fd0ee8495efd9fe7b47120d2ee7f99892018322f9",
+          "title": "content(platform): refresh landing and platform pages to current product",
+          "url": "https://github.com/RoboFinSystems/robosystems-app/pull/216"
+        },
+        {
+          "created_at": "2026-08-04T16:27:50Z",
+          "merged_at": "2026-08-04T16:34:45Z",
+          "pull_request": 13,
+          "query_frame": 4,
+          "repository": "Youssef-Boussabah/TensorForge",
+          "sample_digest": "6c96a5fdd3df46ac841280e18c9f4ab75ef46a783c9a326cabf2b77ac9ee4c41",
+          "title": "Complete Phase J native data pipeline",
+          "url": "https://github.com/Youssef-Boussabah/TensorForge/pull/13"
+        },
+        {
+          "created_at": "2026-06-28T12:53:18Z",
+          "merged_at": "2026-06-28T12:53:21Z",
+          "pull_request": 75,
+          "query_frame": 4,
+          "repository": "mmcbuildai/mmcbuild-application",
+          "sample_digest": "6d15bb857b2956a2794536157c8f6e226838874eb5e5a2d20957368eb025192e",
+          "title": "feat(quote): finished-price benchmark evidence + corrected data-gap list",
+          "url": "https://github.com/mmcbuildai/mmcbuild-application/pull/75"
+        },
+        {
+          "created_at": "2026-07-13T01:48:21Z",
+          "merged_at": "2026-07-13T01:49:13Z",
+          "pull_request": 5,
+          "query_frame": 4,
+          "repository": "sgtworkman/workman-local-model-field-tests",
+          "sample_digest": "75276cbe3d6833d4df5ab9407dc41ec505ce313e85b7b98a3b38e16dfee5bb92",
+          "title": "Harden v2 admission and publish verified rankings",
+          "url": "https://github.com/sgtworkman/workman-local-model-field-tests/pull/5"
+        },
+        {
+          "created_at": "2026-08-08T00:43:23Z",
+          "merged_at": "2026-08-08T04:12:26Z",
+          "pull_request": 77,
+          "query_frame": 4,
+          "repository": "zuizui0223/eog",
+          "sample_digest": "7e52a0498a4300471cd2302c9063a4fbac3e3da3180987c5f0e0143baedd170c",
+          "title": "Restore published A-Islands list mapping",
+          "url": "https://github.com/zuizui0223/eog/pull/77"
+        },
+        {
+          "created_at": "2026-06-19T18:59:25Z",
+          "merged_at": "2026-06-19T18:59:40Z",
+          "pull_request": 1349,
+          "query_frame": 4,
+          "repository": "fallow-rs/fallow",
+          "sample_digest": "7fe13df9046dfc74ebe7d738bce5b74fb1bd27936c50de615b4b2bb3327f9f2b",
+          "title": "feat(dupes): add private rolling duplicate detector",
+          "url": "https://github.com/fallow-rs/fallow/pull/1349"
+        },
+        {
+          "created_at": "2026-04-29T11:03:44Z",
+          "merged_at": "2026-04-29T11:37:32Z",
+          "pull_request": 54,
+          "query_frame": 4,
+          "repository": "gemmaclaw/gemmaclaw",
+          "sample_digest": "833462f1a72a9be5132d0d910610570a288a2f745afbba24ef0d8e758aa6674b",
+          "title": "feat: add GitHub Pages site with setup, benchmarks, self-hosting guides",
+          "url": "https://github.com/gemmaclaw/gemmaclaw/pull/54"
+        },
+        {
+          "created_at": "2026-08-07T23:44:47Z",
+          "merged_at": "2026-08-10T13:30:14Z",
+          "pull_request": 2172,
+          "query_frame": 4,
+          "repository": "opendatahub-io/opendatahub-tests",
+          "sample_digest": "8a7f13c3876f6ce6ef5b028d52b921f6faacecf4fbe674fb431b4f8d3d10faed",
+          "title": "fix: updates to test_presence_performance_data_on_pod for newly added models",
+          "url": "https://github.com/opendatahub-io/opendatahub-tests/pull/2172"
+        },
+        {
+          "created_at": "2026-07-24T03:43:36Z",
+          "merged_at": "2026-07-24T03:45:22Z",
+          "pull_request": 83,
+          "query_frame": 4,
+          "repository": "surya-koritala/sigbound",
+          "sample_digest": "8ececd0d2ed1569f5399389c20ed8500fce91ada773bd6530c433d651c4e29dd",
+          "title": "Refresh the benchmark table and charts with clean v1.0 numbers",
+          "url": "https://github.com/surya-koritala/sigbound/pull/83"
+        },
+        {
+          "created_at": "2026-07-08T14:07:24Z",
+          "merged_at": "2026-08-09T13:17:10Z",
+          "pull_request": 11,
+          "query_frame": 4,
+          "repository": "epatnerlab/skills",
+          "sample_digest": "8ee36d1152556fe2b1cf411999148c9e9e152114f8ecd408af6d2a8ddac01976",
+          "title": "epatner: add deep-learning-forecasting-models skill",
+          "url": "https://github.com/epatnerlab/skills/pull/11"
+        },
+        {
+          "created_at": "2026-07-08T15:14:25Z",
+          "merged_at": "2026-07-08T15:37:36Z",
+          "pull_request": 111,
+          "query_frame": 4,
+          "repository": "benjholla/pgv",
+          "sample_digest": "94d541d094b97b5d8bb50988220e504c2526aea1f836478798048cf2225509a9",
+          "title": "fix(bench): correct attribute value types in benchmarks",
+          "url": "https://github.com/benjholla/pgv/pull/111"
+        },
+        {
+          "created_at": "2026-07-14T20:51:05Z",
+          "merged_at": "2026-07-15T17:57:40Z",
+          "pull_request": 241,
+          "query_frame": 4,
+          "repository": "zeokin/Cuda-Compute-OSS",
+          "sample_digest": "96a7866f7a8abf35ea6f33bc06015bbdc3b8fd74962ccb344a7b64e41135e4e6",
+          "title": "fix(storage): make --fill iota seed-dependent so eval couples are independent (#104)",
+          "url": "https://github.com/zeokin/Cuda-Compute-OSS/pull/241"
+        },
+        {
+          "created_at": "2026-08-04T13:27:33Z",
+          "merged_at": "2026-08-04T13:32:49Z",
+          "pull_request": 25,
+          "query_frame": 4,
+          "repository": "oriclabs/biolang",
+          "sample_digest": "97c661147de15ededc0b9dbb8a2267f30becb286ebab1ac69fab51d68c9b1f3c",
+          "title": "Give correctness its own section on the home page",
+          "url": "https://github.com/oriclabs/biolang/pull/25"
+        },
+        {
+          "created_at": "2026-05-25T21:45:56Z",
+          "merged_at": "2026-05-25T21:47:11Z",
+          "pull_request": 790,
+          "query_frame": 4,
+          "repository": "DrewThomas09/RCM",
+          "sample_digest": "97e1e31ab696500da45c3ea6d9fa1029405c51352b752a855b1f2efda6a00885",
+          "title": "feat(guide): DOCUMENTED contexts for 13 workflow/Tools pages",
+          "url": "https://github.com/DrewThomas09/RCM/pull/790"
+        },
+        {
+          "created_at": "2026-06-22T19:36:48Z",
+          "merged_at": "2026-06-22T20:19:20Z",
+          "pull_request": 971,
+          "query_frame": 4,
+          "repository": "openxla/tokamax",
+          "sample_digest": "9ca1e849188fbad11e3f006f552ad3a72b4dfa249778bf7e9b02f413971954d4",
+          "title": "Add MLA operator to Benchmarking and Autotuning infrastructure.",
+          "url": "https://github.com/openxla/tokamax/pull/971"
+        },
+        {
+          "created_at": "2026-06-16T03:21:00Z",
+          "merged_at": "2026-06-16T03:34:43Z",
+          "pull_request": 50,
+          "query_frame": 4,
+          "repository": "redhat-performance/chronicler",
+          "sample_digest": "9e5cffdae1f40391f96ad4c2106561e475c3b21a29f3a8ec833631df1cc6930b",
+          "title": "RPOPC-1318: Move FIO benchmark version to test.version",
+          "url": "https://github.com/redhat-performance/chronicler/pull/50"
+        },
+        {
+          "created_at": "2026-07-07T13:35:38Z",
+          "merged_at": "2026-07-07T15:50:35Z",
+          "pull_request": 26,
+          "query_frame": 4,
+          "repository": "lklimek/memcan",
+          "sample_digest": "9f368c9f93b64b7df0b7a056198d11492fc20ccf62712afb34523f742f8dfa56",
+          "title": "feat: switch default LLM model to gemma4:26b-a4b-it-qat",
+          "url": "https://github.com/lklimek/memcan/pull/26"
+        },
+        {
+          "created_at": "2026-07-22T03:07:03Z",
+          "merged_at": "2026-07-22T09:27:27Z",
+          "pull_request": 1503,
+          "query_frame": 4,
+          "repository": "modelscope/evalscope",
+          "sample_digest": "9f8aaa209ed418d4d25027cae4dda5c5232fa324475578e9967bed832ec63ca1",
+          "title": "fix(perf): generate HTML report for open-loop runs with no fixed rate (rate=-1.0)",
+          "url": "https://github.com/modelscope/evalscope/pull/1503"
+        },
+        {
+          "created_at": "2026-07-03T12:34:58Z",
+          "merged_at": "2026-07-03T12:35:20Z",
+          "pull_request": 4,
+          "query_frame": 4,
+          "repository": "BuoyantIO/grpc-mesh-benchmark",
+          "sample_digest": "a2c8d0724dad36beae75c9c5ee08e18b857f30887481bafcd46856999ebbb14c",
+          "title": "Correct the mesh benchmark: real ambient + linkerd, uniform proxy budgets, verified data-plane",
+          "url": "https://github.com/BuoyantIO/grpc-mesh-benchmark/pull/4"
+        },
+        {
+          "created_at": "2026-05-06T09:51:00Z",
+          "merged_at": "2026-05-06T09:55:37Z",
+          "pull_request": 26,
+          "query_frame": 4,
+          "repository": "cryo-zd/fasthnsw",
+          "sample_digest": "a35a7a807d07b8f8136d6336d3ce837799a11a22c4e10af628abbc8c3df35437",
+          "title": "benchmark: correct clustered data generator",
+          "url": "https://github.com/cryo-zd/fasthnsw/pull/26"
+        },
+        {
+          "created_at": "2026-08-06T19:34:30Z",
+          "merged_at": "2026-08-06T19:37:43Z",
+          "pull_request": 65,
+          "query_frame": 4,
+          "repository": "jzluo/firthmodels",
+          "sample_digest": "a5249bca4015af206875d24b25953e9f2cc19f8d83dc6a6d56d293b4b309214a",
+          "title": "Rework benchmarks",
+          "url": "https://github.com/jzluo/firthmodels/pull/65"
+        },
+        {
+          "created_at": "2026-08-08T21:24:12Z",
+          "merged_at": "2026-08-08T23:50:13Z",
+          "pull_request": 10,
+          "query_frame": 4,
+          "repository": "opengeos/geolibre-r",
+          "sample_digest": "a632aaf7659b36490c3d6c1ba88ad1a5430e0b10d4a6986876ad3cf8d584b7f6",
+          "title": "Optimize add_xy_data for data frames",
+          "url": "https://github.com/opengeos/geolibre-r/pull/10"
+        },
+        {
+          "created_at": "2026-06-10T02:35:14Z",
+          "merged_at": "2026-06-10T02:35:47Z",
+          "pull_request": 1,
+          "query_frame": 4,
+          "repository": "dhruvj38/wordChainSolver",
+          "sample_digest": "a8a0c25e7720bafca512dce1b3368aaadbca1d8af10942150effb1e07e49cfb3",
+          "title": "[iter 145] rotate daily game: ftmhgnbaitar → hejoncyhtofi, add benchmarks",
+          "url": "https://github.com/dhruvj38/wordChainSolver/pull/1"
+        },
+        {
+          "created_at": "2026-05-19T07:30:07Z",
+          "merged_at": "2026-05-19T07:46:56Z",
+          "pull_request": 2,
+          "query_frame": 4,
+          "repository": "gacorpoll-ui/bug-bounty",
+          "sample_digest": "a9855f1b807d2a6eddac41b0268d3fb56554b9c7c9a0196fedfe4f85efc5ede8",
+          "title": "feat: Add API benchmark suite + leaderboard updates (#30)",
+          "url": "https://github.com/gacorpoll-ui/bug-bounty/pull/2"
+        },
+        {
+          "created_at": "2026-08-07T08:08:38Z",
+          "merged_at": "2026-08-07T08:12:36Z",
+          "pull_request": 48,
+          "query_frame": 4,
+          "repository": "Cuvara/rpg-mmo-server",
+          "sample_digest": "aa265bcf4ce827b97289ab90e439615681596cd308f1451d3488a3fb036977e5",
+          "title": "docs(benchmark): six-run variance data, correcting a two-run claim",
+          "url": "https://github.com/Cuvara/rpg-mmo-server/pull/48"
+        },
+        {
+          "created_at": "2026-06-29T11:33:41Z",
+          "merged_at": "2026-06-30T11:39:18Z",
+          "pull_request": 1091,
+          "query_frame": 4,
+          "repository": "ritik4ever/stellar-portfolio-rebalancer",
+          "sample_digest": "b140704b0a5fd4680429485b0dcbf0e501fdd58e3540b6858fe9789c3b3d152d",
+          "title": "Feature/997 benchmark comparison",
+          "url": "https://github.com/ritik4ever/stellar-portfolio-rebalancer/pull/1091"
+        },
+        {
+          "created_at": "2026-07-08T03:13:35Z",
+          "merged_at": "2026-07-08T03:15:00Z",
+          "pull_request": 8,
+          "query_frame": 4,
+          "repository": "Wellbek/NASA-Turbofan-Twin",
+          "sample_digest": "b3e829ecefe70efa0e60e2a74f7639bb154c3604a9c9482e2f7fdd3192432066",
+          "title": "Add workflow documentation page with pipeline visualization and industry benchmarks",
+          "url": "https://github.com/Wellbek/NASA-Turbofan-Twin/pull/8"
+        },
+        {
+          "created_at": "2026-06-20T03:00:03Z",
+          "merged_at": "2026-06-20T03:00:21Z",
+          "pull_request": 2489,
+          "query_frame": 4,
+          "repository": "issdandavis/SCBE-AETHERMOORE",
+          "sample_digest": "b7f8ace8bbd7463ff920fb2cb6c5359fc50b3ff73beee76d0ef067ccc66e4cf6",
+          "title": "feat(process_router): the assistant -- correct process injection via context + permissions",
+          "url": "https://github.com/issdandavis/SCBE-AETHERMOORE/pull/2489"
+        },
+        {
+          "created_at": "2026-06-20T09:15:24Z",
+          "merged_at": "2026-06-20T09:15:30Z",
+          "pull_request": 15,
+          "query_frame": 4,
+          "repository": "coderbuzz/benchmarks",
+          "sample_digest": "b824b510d6ec35c169e5a1b962692ebed8aa1ec1a8ca849946c6d30e4104dd23",
+          "title": "fix: update velox static-value results (velox wins back)",
+          "url": "https://github.com/coderbuzz/benchmarks/pull/15"
+        },
+        {
+          "created_at": "2026-07-23T13:38:01Z",
+          "merged_at": "2026-07-23T17:49:10Z",
+          "pull_request": 1,
+          "query_frame": 4,
+          "repository": "denniszielke/foundry-performance",
+          "sample_digest": "bde3c12f2c6330d8faa6f8960dd50841d58b35b74a19df7433dfd98214386fe5",
+          "title": "Implement Foundry performance benchmark scenario",
+          "url": "https://github.com/denniszielke/foundry-performance/pull/1"
+        },
+        {
+          "created_at": "2026-05-10T21:54:50Z",
+          "merged_at": "2026-05-22T12:18:33Z",
+          "pull_request": 126,
+          "query_frame": 4,
+          "repository": "tkadauke/raytracer",
+          "sample_digest": "bf1b58427ad1553eeefae5b205e8b8d795a249513433905734b033029eaed6d2",
+          "title": "Delete Vector3<double> SSE3 specialization (Phase 2.3)",
+          "url": "https://github.com/tkadauke/raytracer/pull/126"
+        },
+        {
+          "created_at": "2026-08-02T11:40:52Z",
+          "merged_at": "2026-08-02T11:51:45Z",
+          "pull_request": 41,
+          "query_frame": 4,
+          "repository": "celiumsai/hyphae",
+          "sample_digest": "c6c249ae0d866031e77bd61a1e4f0336d0c8db8c57877ee05c8d8a51d5eb6049",
+          "title": "Bound manifest recovery to WAL retention anchors",
+          "url": "https://github.com/celiumsai/hyphae/pull/41"
+        },
+        {
+          "created_at": "2026-07-26T01:43:23Z",
+          "merged_at": "2026-07-26T02:54:14Z",
+          "pull_request": 2884,
+          "query_frame": 4,
+          "repository": "kim-em/lean-zip",
+          "sample_digest": "c725e6135177ea0bf51ae0a440e32e3141e94a552f79f0ebd607a4a927824aac",
+          "title": "bench: refresh the README Pareto animation after #2882",
+          "url": "https://github.com/kim-em/lean-zip/pull/2884"
+        },
+        {
+          "created_at": "2026-05-31T16:23:43Z",
+          "merged_at": "2026-05-31T16:25:01Z",
+          "pull_request": 1294,
+          "query_frame": 4,
+          "repository": "DrewThomas09/RCM",
+          "sample_digest": "c816f2487ddd99402628f42fcf7994b3b0e87eb08ec85aa4a3b3bc65d008bc17",
+          "title": "fix(guide): target-screener data_confidence UNKNOWN → PUBLIC_BENCHMARK_DATA",
+          "url": "https://github.com/DrewThomas09/RCM/pull/1294"
+        },
+        {
+          "created_at": "2026-08-09T08:08:52Z",
+          "merged_at": "2026-08-09T11:01:46Z",
+          "pull_request": 4298,
+          "query_frame": 4,
+          "repository": "loopdive/js2wasm",
+          "sample_digest": "d4ff0516ba8dcbd3aadadd179bc9d10cfa1270243e26a2bdf49c759f0629e410",
+          "title": "fix(benchmarks): verify array callback checksums",
+          "url": "https://github.com/loopdive/js2wasm/pull/4298"
+        },
+        {
+          "created_at": "2026-08-07T18:37:32Z",
+          "merged_at": "2026-08-07T19:15:41Z",
+          "pull_request": 355,
+          "query_frame": 4,
+          "repository": "launix-de/memcp",
+          "sample_digest": "d5c09b31fec2eb51ca7102023768dc7db9990872e5e368e7be7421681268f21b",
+          "title": "sql: normalize DECIMAL aggregate output scale",
+          "url": "https://github.com/launix-de/memcp/pull/355"
+        },
+        {
+          "created_at": "2026-06-15T12:26:44Z",
+          "merged_at": "2026-06-15T12:31:56Z",
+          "pull_request": 30,
+          "query_frame": 4,
+          "repository": "mesarikaya/follow-the-money",
+          "sample_digest": "d821a3fd06b33dd964b7afde44bcf5c223b1a7679c7fdd333f254775250c54b8",
+          "title": "fix(backtest): correct SPY benchmark data and auto-reclassify holdings on ticker mapping",
+          "url": "https://github.com/mesarikaya/follow-the-money/pull/30"
+        },
+        {
+          "created_at": "2026-07-22T00:21:56Z",
+          "merged_at": "2026-07-22T00:22:08Z",
+          "pull_request": 2,
+          "query_frame": 4,
+          "repository": "rolffcoelho-bravo/quant-model-risk-lab",
+          "sample_digest": "d915c89b426139ae8d290127320a6b863bacb5be190e09bcd61bba17534e4374",
+          "title": "Remediate FX inputs and add option challenger validation",
+          "url": "https://github.com/rolffcoelho-bravo/quant-model-risk-lab/pull/2"
+        },
+        {
+          "created_at": "2026-06-05T16:47:24Z",
+          "merged_at": "2026-06-05T16:48:29Z",
+          "pull_request": 121,
+          "query_frame": 4,
+          "repository": "mcampa/sparkrun-ui",
+          "sample_digest": "da1beb691135c829cea1ff1034229a2544eab826d709f124f7a6b074f2b4773f",
+          "title": "Facet benchmark charts by context depth",
+          "url": "https://github.com/mcampa/sparkrun-ui/pull/121"
+        },
+        {
+          "created_at": "2026-07-16T11:32:08Z",
+          "merged_at": "2026-07-16T11:42:07Z",
+          "pull_request": 21,
+          "query_frame": 4,
+          "repository": "MaulinShah26/OpportunityOS",
+          "sample_digest": "dc5598805737743acd9032b77cda942a083f98e875ecb6190a6cc84d2ac7d5d5",
+          "title": "Add immutable benchmark label correction revisions",
+          "url": "https://github.com/MaulinShah26/OpportunityOS/pull/21"
+        },
+        {
+          "created_at": "2026-06-30T22:48:10Z",
+          "merged_at": "2026-06-30T22:49:23Z",
+          "pull_request": 7,
+          "query_frame": 4,
+          "repository": "leenabuleil04-ctrl/smartbudget-bi",
+          "sample_digest": "de4afcc747a71d2e3e9fb84c7f444be870ae76181f0a8f810d94fd415c585b00",
+          "title": "Dashboard review: charts, categorizer, and transactions improvements",
+          "url": "https://github.com/leenabuleil04-ctrl/smartbudget-bi/pull/7"
+        },
+        {
+          "created_at": "2026-07-22T07:29:37Z",
+          "merged_at": "2026-07-22T07:29:51Z",
+          "pull_request": 129,
+          "query_frame": 4,
+          "repository": "Essens2022/bizscan",
+          "sample_digest": "deea16bf1d8df1481aaedd640ba08ebcb63664f6e5d6763746f2cc67e5c7f247",
+          "title": "Fix hardcoded profit chart + cost distribution donut, add missing adm…",
+          "url": "https://github.com/Essens2022/bizscan/pull/129"
+        },
+        {
+          "created_at": "2026-07-12T07:53:45Z",
+          "merged_at": "2026-07-13T18:00:25Z",
+          "pull_request": 20,
+          "query_frame": 4,
+          "repository": "pradnyagundu/bharatrag",
+          "sample_digest": "df35487c295496771333888330b9a5ac3e89d9cae87ba00b2b45a59921c9510a",
+          "title": "feat: Extended telugu data",
+          "url": "https://github.com/pradnyagundu/bharatrag/pull/20"
+        },
+        {
+          "created_at": "2026-07-19T14:48:21Z",
+          "merged_at": "2026-07-19T23:09:56Z",
+          "pull_request": 44,
+          "query_frame": 4,
+          "repository": "c2j/grep-excel",
+          "sample_digest": "e1006797a174367099e1d37a233228ba33e04a383d697c88c2928a95ff64247a",
+          "title": "feat(benchmark): add competitor comparison and performance benchmark suite",
+          "url": "https://github.com/c2j/grep-excel/pull/44"
+        },
+        {
+          "created_at": "2026-03-24T12:33:20Z",
+          "merged_at": "2026-03-24T12:38:00Z",
+          "pull_request": 5,
+          "query_frame": 4,
+          "repository": "Daniel-Q-Reis/fuel-route-optimizer",
+          "sample_digest": "e34b76473ee8ef83cf1e3ac9b36745c9267cf5c1b469ccbbac3261b09a444e07",
+          "title": "feat: add RDP geometry simplification and correct benchmark methodology",
+          "url": "https://github.com/Daniel-Q-Reis/fuel-route-optimizer/pull/5"
+        },
+        {
+          "created_at": "2026-06-16T03:30:34Z",
+          "merged_at": "2026-06-16T03:30:53Z",
+          "pull_request": 118,
+          "query_frame": 4,
+          "repository": "mastermindx-market-intelligence/macro",
+          "sample_digest": "e3cd27bfdbbc7661a8a6cd0fef4f007b8dbfed2ed417ef2fd1ad1900c64983df",
+          "title": "feat(hk,canada): Hong Kong + Canada thematic baskets dashboards",
+          "url": "https://github.com/mastermindx-market-intelligence/macro/pull/118"
+        },
+        {
+          "created_at": "2026-07-21T20:11:51Z",
+          "merged_at": "2026-07-21T20:13:03Z",
+          "pull_request": 832,
+          "query_frame": 4,
+          "repository": "GGJJack/modu-bench",
+          "sample_digest": "e88a12e95c20853e61bc9f2a020e1adf8682b08dcaceee76c7b7bf3dab543897",
+          "title": "Create daily report for 2026-07-21 and complete journal for 2026-07-22",
+          "url": "https://github.com/GGJJack/modu-bench/pull/832"
+        },
+        {
+          "created_at": "2026-07-09T19:56:25Z",
+          "merged_at": "2026-07-09T19:58:26Z",
+          "pull_request": 44,
+          "query_frame": 4,
+          "repository": "gold-silver-copper/Slovowiki",
+          "sample_digest": "e9860e1b8945174de5d8581d154274f66915099f9fd218e4cf6687283d9dc064",
+          "title": "Raw single-token Slavic lemma extraction path (#33, PR-1)",
+          "url": "https://github.com/gold-silver-copper/Slovowiki/pull/44"
+        },
+        {
+          "created_at": "2026-04-17T02:24:28Z",
+          "merged_at": "2026-04-17T08:37:20Z",
+          "pull_request": 99,
+          "query_frame": 4,
+          "repository": "seunghunbae-3svs/solo-cto-agent",
+          "sample_digest": "eb52adfbfd7b8af860f4ebf91498c3d47648ec96fcea9a41e14fbfa21dc424a7",
+          "title": "feat: Tier 2 — metrics history, benchmark diff/trend, enhanced validation",
+          "url": "https://github.com/seunghunbae-3svs/solo-cto-agent/pull/99"
+        },
+        {
+          "created_at": "2026-07-20T16:04:07Z",
+          "merged_at": "2026-07-20T16:05:50Z",
+          "pull_request": 40,
+          "query_frame": 4,
+          "repository": "keeleinstituut/leaderboard-data-ui",
+          "sample_digest": "f1ae6e959df61353c95d7f21f6ce481095b40181b24ae70308a55ab956a3a2f9",
+          "title": "Test",
+          "url": "https://github.com/keeleinstituut/leaderboard-data-ui/pull/40"
+        },
+        {
+          "created_at": "2026-05-05T10:13:17Z",
+          "merged_at": "2026-05-05T10:16:39Z",
+          "pull_request": 333,
+          "query_frame": 4,
+          "repository": "RoyalPineapple/TheButtonHeist",
+          "sample_digest": "f2f2ebc8505fe17a83c1e5051a7ba1f29ffd1ee40cc3a4faa159e7a3c5d54d01",
+          "title": "Fix menu option toggle accessibility state",
+          "url": "https://github.com/RoyalPineapple/TheButtonHeist/pull/333"
+        },
+        {
+          "created_at": "2026-07-05T08:05:29Z",
+          "merged_at": "2026-07-05T08:06:58Z",
+          "pull_request": 1,
+          "query_frame": 4,
+          "repository": "subinium/Awesome-Scientific-LLM-Benchmarks",
+          "sample_digest": "fb8a15bebc181e1f6d7d5132912cec28603fc184a190b9874176e1c132730eea",
+          "title": "fix(data): correct 16 fields across 12 benchmarks (primary-source audit)",
+          "url": "https://github.com/subinium/Awesome-Scientific-LLM-Benchmarks/pull/1"
+        },
+        {
+          "created_at": "2026-06-07T10:52:21Z",
+          "merged_at": "2026-06-07T11:09:58Z",
+          "pull_request": 630,
+          "query_frame": 4,
+          "repository": "phaseoteam/Phaseo",
+          "sample_digest": "fc295b4f28d53ee72aaeba9e57582bb51f6ca04e1d369bf67b78419415b15edd",
+          "title": "[codex] clean mythos preview benchmarks and family links",
+          "url": "https://github.com/phaseoteam/Phaseo/pull/630"
+        },
+        {
+          "created_at": "2026-06-16T20:45:24Z",
+          "merged_at": "2026-06-16T20:47:44Z",
+          "pull_request": 11,
+          "query_frame": 4,
+          "repository": "blackdream1234/M-D-T",
+          "sample_digest": "fda97dc66c60f60d8234b7c28923755761a80f63f1a55c970cca0d34d9d6cee2",
+          "title": "Add optional Rust GSNH engine, CI workflow, benchmark/evidence tooling, and theorem-boundary fixes",
+          "url": "https://github.com/blackdream1234/M-D-T/pull/11"
+        },
+        {
+          "created_at": "2026-06-20T10:53:34Z",
+          "merged_at": "2026-06-22T18:57:32Z",
+          "pull_request": 213,
+          "query_frame": 4,
+          "repository": "qumo-dev/gomoqt",
+          "sample_digest": "ff2af8fb34415fd383a03f0edcb49e7c5380d215692fa69b3637f5c38a0f29a4",
+          "title": "⚡ Bolt: Fix OOM DoS in frame decode and benchmark",
+          "url": "https://github.com/qumo-dev/gomoqt/pull/213"
+        }
+      ],
+      "duplicate_hits": 0,
+      "owner_cap_hits": 0,
+      "prior_exposure_hits": 9,
+      "query": "\"correct benchmark data\" is:pr is:merged created:>=2024-01-01 in:title,body",
+      "query_frame": 4,
+      "raw_file": "raw/frame-4.json",
+      "raw_sha256": "e2867f8ecd375076e587ea0642689c1861f3f4a9a35189e296236a29acc26bb8",
+      "repository_cap_hits": 0,
+      "selected_count": 15,
+      "unique_candidates": 91
+    },
+    {
+      "api_returned_count": 7,
+      "api_total_count": 7,
+      "candidates": [
+        {
+          "created_at": "2026-08-03T22:55:04Z",
+          "merged_at": "2026-08-05T12:27:16Z",
+          "pull_request": 2585,
+          "query_frame": 5,
+          "repository": "levismadar80-ship-it/FoodMamkor",
+          "sample_digest": "018e0b42faa2fbc8c815d6f3dac0715eed9d0bd75ed51ae9358f3af38c8f884d",
+          "title": "feat(ci): CLS measurement harness for producer-detail + staged workflow_dispatch job",
+          "url": "https://github.com/levismadar80-ship-it/FoodMamkor/pull/2585"
+        },
+        {
+          "created_at": "2026-08-01T19:16:31Z",
+          "merged_at": "2026-08-01T19:18:18Z",
+          "pull_request": 16,
+          "query_frame": 5,
+          "repository": "TrizenX/agent-pet",
+          "sample_digest": "203d11501d89de044d632f515c654d48e1dab196ca13afc80d3b866381bf9f68",
+          "title": "M2 code review — eight defects, four of them in the harness",
+          "url": "https://github.com/TrizenX/agent-pet/pull/16"
+        },
+        {
+          "created_at": "2026-07-31T22:09:45Z",
+          "merged_at": "2026-08-01T20:08:22Z",
+          "pull_request": 1,
+          "query_frame": 5,
+          "repository": "larry94555/competitive-landscape",
+          "sample_digest": "44504cb6ac2fc74d944113dec9b3df463eb14fce79de5ddea684ed98a3c56baf",
+          "title": "Initial product & engineering roadmap: public-data competitive intelligence (React + Rust + local llama.cpp)",
+          "url": "https://github.com/larry94555/competitive-landscape/pull/1"
+        },
+        {
+          "created_at": "2026-07-03T12:51:15Z",
+          "merged_at": "2026-07-03T13:03:06Z",
+          "pull_request": 707,
+          "query_frame": 5,
+          "repository": "future-agi/docs",
+          "sample_digest": "6f56f6611668f11cc963c07843bd8ca92c1e2d8bbd2e361a50da9dcccb510503",
+          "title": "docs(observe): Reference + Troubleshooting audit — dead-link fixes + findings",
+          "url": "https://github.com/future-agi/docs/pull/707"
+        },
+        {
+          "created_at": "2026-04-17T19:24:50Z",
+          "merged_at": "2026-04-17T19:32:20Z",
+          "pull_request": 38,
+          "query_frame": 5,
+          "repository": "xaedyn/chronoscope",
+          "sample_digest": "9ff31e58a24dad8cb49e1dbe9521cbaa87c0ab8cd5e96bcbf640aa157e13515d",
+          "title": "fix(lane): swap regional probe URLs that hit redirect/image-pipeline detours",
+          "url": "https://github.com/xaedyn/chronoscope/pull/38"
+        },
+        {
+          "created_at": "2026-07-28T18:53:38Z",
+          "merged_at": "2026-07-28T18:57:59Z",
+          "pull_request": 144,
+          "query_frame": 5,
+          "repository": "MongLong0214/commitlore",
+          "sample_digest": "bf06569193a369d4a9a6d2a1ef8ab24b6e032946d895a4faccc77ddcccb0fecf",
+          "title": "Measure irrelevant decision-context exposure",
+          "url": "https://github.com/MongLong0214/commitlore/pull/144"
+        },
+        {
+          "created_at": "2026-04-09T14:24:41Z",
+          "merged_at": "2026-04-09T16:13:20Z",
+          "pull_request": 336,
+          "query_frame": 5,
+          "repository": "llm-d/llm-d-batch-gateway",
+          "sample_digest": "d184740323a3b4b0f2d2b9c82c346d771b9001f5c226d9a366904f4055794d32",
+          "title": "test(e2e): expand batch scenarios and fix comment accuracy",
+          "url": "https://github.com/llm-d/llm-d-batch-gateway/pull/336"
+        }
+      ],
+      "duplicate_hits": 0,
+      "owner_cap_hits": 0,
+      "prior_exposure_hits": 0,
+      "query": "\"wrong latency numbers\" is:pr is:merged created:>=2024-01-01 in:title,body",
+      "query_frame": 5,
+      "raw_file": "raw/frame-5.json",
+      "raw_sha256": "1d37ad032dca0318afaccb3738ff2c08892e6b30fbd5a9a1de71eacae230d27a",
+      "repository_cap_hits": 0,
+      "selected_count": 7,
+      "unique_candidates": 7
+    },
+    {
+      "api_returned_count": 10,
+      "api_total_count": 10,
+      "candidates": [
+        {
+          "created_at": "2024-02-08T14:12:58Z",
+          "merged_at": "2024-02-08T14:39:13Z",
+          "pull_request": 1084,
+          "query_frame": 6,
+          "repository": "palomachain/paloma",
+          "sample_digest": "21a1baf0f39579081385175e3086bcae497b100f769581f54010a287157f96c1",
+          "title": "Feature/update metrics gathering",
+          "url": "https://github.com/palomachain/paloma/pull/1084"
+        },
+        {
+          "created_at": "2025-12-12T16:20:53Z",
+          "merged_at": "2025-12-22T21:17:02Z",
+          "pull_request": 6082,
+          "query_frame": 6,
+          "repository": "greenriver/hmis-warehouse",
+          "sample_digest": "4458ce58dbd5e8b6129343355c5c0e56c5a3de0817a848e54684dd181d3774a7",
+          "title": "CoC Performance Measurement Fixes",
+          "url": "https://github.com/greenriver/hmis-warehouse/pull/6082"
+        },
+        {
+          "created_at": "2025-06-02T14:46:05Z",
+          "merged_at": "2025-06-03T12:32:15Z",
+          "pull_request": 3035,
+          "query_frame": 6,
+          "repository": "EleutherAI/lm-evaluation-harness",
+          "sample_digest": "4c95134398d11e5cc52a665f460ac5154655fd48209e299d598d2a37fbcbdb84",
+          "title": " [Fix] acc_mutual_info metric calculation bug",
+          "url": "https://github.com/EleutherAI/lm-evaluation-harness/pull/3035"
+        },
+        {
+          "created_at": "2025-08-04T08:47:42Z",
+          "merged_at": "2025-08-04T08:54:25Z",
+          "pull_request": 39,
+          "query_frame": 6,
+          "repository": "masteryachty/gpu-charts",
+          "sample_digest": "58d3e98cdbf5b202d616f9167df49313837058e41bf8c38802a8873cab48e82c",
+          "title": "Fix Y range calculation when switching presets",
+          "url": "https://github.com/masteryachty/gpu-charts/pull/39"
+        },
+        {
+          "created_at": "2026-02-04T14:40:48Z",
+          "merged_at": "2026-02-04T16:54:24Z",
+          "pull_request": 797,
+          "query_frame": 6,
+          "repository": "uktrade/redbox",
+          "sample_digest": "636ef5b7d178d427907a5921f46d04f037cfdb57aea851a0b76b439b6cf755ad",
+          "title": "Release v2.2.1",
+          "url": "https://github.com/uktrade/redbox/pull/797"
+        },
+        {
+          "created_at": "2026-01-22T08:27:01Z",
+          "merged_at": "2026-01-22T10:44:10Z",
+          "pull_request": 31,
+          "query_frame": 6,
+          "repository": "streamer45/streamkit",
+          "sample_digest": "7c18cae4ab98414705e931021148b7f2ab9960807c160d4f4ccd8f37dd9dd284",
+          "title": "feat: revamp metrics",
+          "url": "https://github.com/streamer45/streamkit/pull/31"
+        },
+        {
+          "created_at": "2025-07-31T12:34:38Z",
+          "merged_at": "2025-08-18T11:11:46Z",
+          "pull_request": 5860,
+          "query_frame": 6,
+          "repository": "parca-dev/parca",
+          "sample_digest": "8896a4a1f66fa3c8cd20431f94c9a9deea76dc07602f609bbe3d4d1944bb3d55",
+          "title": "Fix objstore operation duration metrics by upgrading thanos-io/objstore",
+          "url": "https://github.com/parca-dev/parca/pull/5860"
+        },
+        {
+          "created_at": "2025-01-04T21:32:19Z",
+          "merged_at": "2025-01-04T21:32:23Z",
+          "pull_request": 590,
+          "query_frame": 6,
+          "repository": "AdJadoon/data",
+          "sample_digest": "b858e665da2002dc6d8a81f1bb00302117c3aee4e096f038a54dba06366f0bc9",
+          "title": "Fix inconsistencies in resource tracking metrics for overlapping projects",
+          "url": "https://github.com/AdJadoon/data/pull/590"
+        },
+        {
+          "created_at": "2026-03-10T13:52:41Z",
+          "merged_at": "2026-03-10T14:06:53Z",
+          "pull_request": 486,
+          "query_frame": 6,
+          "repository": "RodrigoValecred/Valecred2",
+          "sample_digest": "b95b58980c973fcec1270a343e3ce902cc82be2ee1c7d72cca78f23d5df362c7",
+          "title": "Fix prazo_medio calculations for OPERACOES in Relatório Mensal",
+          "url": "https://github.com/RodrigoValecred/Valecred2/pull/486"
+        },
+        {
+          "created_at": "2026-01-16T19:08:01Z",
+          "merged_at": "2026-01-20T19:40:40Z",
+          "pull_request": 60234,
+          "query_frame": 6,
+          "repository": "ray-project/ray",
+          "sample_digest": "f7b0e48a27667a08f6b30828144cb3fe5af38bfd0961e2cfb0ba7edfb30b9a26",
+          "title": "[RLLib] Fix module episode returns metrics accumulation for shared module IDs",
+          "url": "https://github.com/ray-project/ray/pull/60234"
+        }
+      ],
+      "duplicate_hits": 0,
+      "owner_cap_hits": 0,
+      "prior_exposure_hits": 0,
+      "query": "\"metrics were calculated incorrectly\" is:pr is:merged created:>=2024-01-01 in:title,body",
+      "query_frame": 6,
+      "raw_file": "raw/frame-6.json",
+      "raw_sha256": "f901ed6d4b1d61cba15f05ab82e88d87f1f9cd246fb46ef5b3da8d098b18b36e",
+      "repository_cap_hits": 0,
+      "selected_count": 10,
+      "unique_candidates": 10
+    }
+  ],
+  "global_owner_cap": 1,
+  "global_repository_cap": 1,
+  "prior_exposure_count": 3575,
+  "requested_per_query": 100,
+  "retrieved_at": "2026-08-13T15:30:28.171758Z",
+  "schema_version": "reprocheck.upstream-discovery-frames.v4",
+  "seed": "reprocheck-upstream-v6",
+  "selected_per_frame": 15
+}

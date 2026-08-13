@@ -93,6 +93,7 @@ _CONTEXT_HEADERS = {
     "architecture": "model",
     "average": "averaging",
     "averaging": "averaging",
+    "benchmark": "system",
     "dataset": "dataset",
     "experiment": "experiment",
     "model": "model",
@@ -379,7 +380,10 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
         if not headers or not separators or not _is_separator_row(separators, headers):
             index += 1
             continue
-        metrics = [_metric_from_header(header) for header in headers]
+        metrics = [
+            _metric_from_comparison_header(headers, column) or _metric_from_header(header)
+            for column, header in enumerate(headers)
+        ]
         compound_metrics = [_compound_metrics_from_header(header) for header in headers]
         transposed_metric = _nearby_table_metric(lines, index, headers)
         row_index = index + 2
@@ -852,7 +856,10 @@ def _extract_html_table_claims(text: str) -> list[Claim]:
         if len(table) < 2:
             continue
         headers = table[0][0]
-        metrics = [_metric_from_header(header) for header in headers]
+        metrics = [
+            _metric_from_comparison_header(headers, column) or _metric_from_header(header)
+            for column, header in enumerate(headers)
+        ]
         for cells, line in table[1:]:
             context = _table_context(headers, metrics, cells)
             claims.extend(_row_labeled_metric_claims(headers, cells, " | ".join(cells), line))
@@ -899,6 +906,18 @@ def _table_value(metric: str, cell: str) -> float | None:
     match = matches[0]
     value = _parse_number(match.group("value"))
     return _normalize_value(metric, value, percent=bool(match.group("percent")))
+
+
+def _metric_from_comparison_header(headers: list[str], column: int) -> str | None:
+    if column == 0 or not headers:
+        return None
+    first = _plain_cell(headers[0]).casefold()
+    current = _plain_cell(headers[column]).casefold()
+    if first not in {"benchmark", "metric", "measure"}:
+        return None
+    if current in {"old", "new", "before", "after", "previous", "current", "result"}:
+        return "score"
+    return None
 
 
 def _memory_mb(value: str, unit: str) -> float:

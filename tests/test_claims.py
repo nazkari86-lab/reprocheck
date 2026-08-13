@@ -271,6 +271,18 @@ def test_extracts_both_values_from_fitness_score_comparison():
     assert [(c.metric, c.value) for c in claims] == [("score", 0.426), ("score", 0.553)]
 
 
+def test_extracts_scores_from_old_new_benchmark_table():
+    text = """| Benchmark | Old | New | Tokens |
+|---|---|---|---|
+| LoCoMo | 71.4 | **92.5** | 7.0K |
+"""
+    claims = extract_table_claims(text)
+    assert [(c.metric, c.value, c.context) for c in claims] == [
+        ("score", 71.4, {"system": "LoCoMo"}),
+        ("score", 92.5, {"system": "LoCoMo"}),
+    ]
+
+
 def test_normalizes_subsecond_prose_durations_and_rejects_invalid_time_cells():
     text = """Processing time: 250 milliseconds
 Processing time: 40 us

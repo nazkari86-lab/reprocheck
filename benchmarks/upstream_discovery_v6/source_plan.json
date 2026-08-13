@@ -1,0 +1,10 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-source-plan.v6",
+  "cases": [
+    {
+      "id": "mem0-readme-score-sync",
+      "rank": 3,
+      "files": ["README.md"]
+    }
+  ]
+}
