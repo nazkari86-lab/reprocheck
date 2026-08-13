@@ -1,0 +1,18 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-registration.v9",
+  "status": "registered_unretrieved",
+  "registered_at": "2026-08-13T17:24:36Z",
+  "extractor_commit": "2eff4e8",
+  "extractor_version": "0.24.0",
+  "query_frames": 40,
+  "maximum_sample_size": 1000,
+  "global_owner_cap": 1,
+  "sha256": {
+    "protocol.md": "a77026279b6b4b8afeeb1bfa6627963e2dd0825555518cf20aef5ed203501024",
+    "retrieve.py": "70367e4e8b33c0b899c4360ff72cd19ac46a63928a43bf0392c54fe682683c75",
+    "collect_details.py": "5e7c5020ac104ee8f078210d5845ab44191211f4bb6ee82683859c88f65f0203",
+    "build_review_packet.py": "9cb5d69862c65b7a3ac5ba0a18606c63b6fd0f288744c02e73c56c67b5edc007",
+    "../../src/reprocheck/claims.py": "faa43faffb8b2ecb4e054881f440e6c27a108f293845038c295ebdae1799dafc",
+    "../../src/reprocheck/metric_names.py": "3ea660f74c48074467c13c949668a27217ffe6068f87f884bb859ae80d729cb5"
+  }
+}
