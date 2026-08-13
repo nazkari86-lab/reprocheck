@@ -380,6 +380,38 @@ def test_extracts_peak_rss_and_embedded_feature_count_with_context():
     ) in observed
 
 
+def test_extracts_ranked_header_and_metric_text_embedded_in_table_cell():
+    text = """| Model | Recall@5 | Notes |
+|---|---:|---|
+| hybrid | 67.4% | recall@5 0.447 → 0.674; separability Δ0.611 |
+"""
+    claims = extract_table_claims(text)
+    observed = [(claim.metric, claim.value, claim.context) for claim in claims]
+    assert ("recall_5", 0.674, {"model": "hybrid"}) in observed
+    assert ("recall_5", 0.447, {}) in observed
+    assert ("recall_5", 0.674, {}) in observed
+    assert ("separability_delta", 0.611, {}) in observed
+
+
+def test_row_labeled_delta_can_extract_first_number_from_annotated_cell():
+    text = """| Metric | Baseline | Delta |
+|---|---:|---:|
+| Mean tokens | 1000 | down 250 tokens |
+"""
+    claims = extract_table_claims(text)
+    assert ("mean_tokens", 250.0, {"system": "Delta"}) in [
+        (claim.metric, claim.value, claim.context) for claim in claims
+    ]
+
+
+def test_transposed_table_without_nearby_metric_is_not_invented():
+    text = """| Scenario | FTS | Vector |
+|---|---:|---:|
+| UA→EN | n/a | 0.208 |
+"""
+    assert extract_table_claims(text) == []
+
+
 def test_extracts_swebench_structured_score_without_probability_rescaling():
     claims = extract_claims('{"scores": {"swebench": 96}}')
     assert [(claim.metric, claim.value) for claim in claims] == [("swebench", 96.0)]

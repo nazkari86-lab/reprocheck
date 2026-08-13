@@ -135,10 +135,6 @@ def extract_claims(text: str) -> list[Claim]:
                 )
         for match in _RANKED_PROSE_RE.finditer(line):
             family = match.group("family").casefold()
-            if family == "mar":
-                family = "mar"
-            elif family == "mndcg":
-                family = "mndcg"
             metric = f"{family}_{match.group('k')}"
             value = _normalize_value(
                 metric,
