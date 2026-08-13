@@ -1,0 +1,364 @@
+{
+  "schema_version": "reprocheck.cross-project-labels.v12",
+  "review_order": "ascending_sample_rank",
+  "reviewed_through_rank": 62,
+  "sample_exhausted": true,
+  "eligible_documents": 20,
+  "labels": [
+    {"rank": 1, "repository": "dbc-utokyoiis/4mbench", "eligible": false, "reason": "dataset release dates rather than quantitative empirical outcomes", "claims": []},
+    {"rank": 2, "repository": "cloudyuga/kubecon18-china", "eligible": false, "reason": "conference resource index without project outcomes", "claims": []},
+    {"rank": 3, "repository": "JBZoo/CSV-Blueprint", "eligible": false, "reason": "first result table contains more than 20 quantitative outcomes", "claims": []},
+    {"rank": 4, "repository": "marketcalls/emacrossover-autoresearch", "eligible": false, "reason": "planned benchmark workflow without reported run outcomes", "claims": []},
+    {
+      "rank": 5,
+      "repository": "antarys-ai/python",
+      "eligible": true,
+      "reason": "first write-performance table reports seven measured comparison outcomes",
+      "block_lines": [76, 81],
+      "claims": [
+        {"line": 78, "metric": "vectors_per_second", "value": 2017},
+        {"line": 79, "metric": "vectors_per_second", "value": 1234},
+        {"line": 79, "metric": "slowdown", "value": 1.6},
+        {"line": 80, "metric": "vectors_per_second", "value": 892},
+        {"line": 80, "metric": "slowdown", "value": 2.3},
+        {"line": 81, "metric": "vectors_per_second", "value": 445},
+        {"line": 81, "metric": "slowdown", "value": 4.5}
+      ]
+    },
+    {
+      "rank": 6,
+      "repository": "BADBADBADBOY/CardDetectRotate",
+      "eligible": true,
+      "reason": "first speed comparison table reports three measured runtimes",
+      "block_lines": [50, 54],
+      "claims": [
+        {"line": 52, "metric": "runtime_seconds", "value": 0.04027719497680664},
+        {"line": 53, "metric": "runtime_seconds", "value": 0.5020792007446289},
+        {"line": 54, "metric": "runtime_seconds", "value": 0.13443317413330078}
+      ]
+    },
+    {
+      "rank": 7,
+      "repository": "TechnoKhamis/vision-track",
+      "eligible": true,
+      "reason": "performance table reports six achieved outcomes separate from target thresholds",
+      "block_lines": [188, 195],
+      "claims": [
+        {"line": 190, "metric": "precision", "value": 0.92},
+        {"line": 191, "metric": "recall", "value": 0.90},
+        {"line": 192, "metric": "f1", "value": 0.91},
+        {"line": 193, "metric": "frames_per_second", "value": 35.5},
+        {"line": 194, "metric": "frames_per_second", "value": 13.8},
+        {"line": 195, "metric": "avg_latency_seconds", "value": 0.028}
+      ]
+    },
+    {
+      "rank": 8,
+      "repository": "nazmiefearmutcu/awareness",
+      "eligible": true,
+      "reason": "contiguous result-summary bullets report fourteen benchmark outcomes",
+      "block_lines": [43, 56],
+      "claims": [
+        {"line": 43, "metric": "speedup", "value": 2.4},
+        {"line": 43, "metric": "speedup", "value": 16.0},
+        {"line": 44, "metric": "speedup", "value": 3.3},
+        {"line": 44, "metric": "memory_reduction", "value": 64.0},
+        {"line": 45, "metric": "precision", "value": 1.0},
+        {"line": 47, "metric": "f1", "value": 0.998},
+        {"line": 47, "metric": "f1", "value": 0.84},
+        {"line": 47, "metric": "f1", "value": 0.96},
+        {"line": 55, "metric": "recall", "value": 0.02},
+        {"line": 55, "metric": "recall", "value": 0.73},
+        {"line": 55, "metric": "recall", "value": 0.93},
+        {"line": 55, "metric": "precision", "value": 1.0},
+        {"line": 56, "metric": "speedup", "value": 5.6},
+        {"line": 56, "metric": "speedup", "value": 8.5}
+      ]
+    },
+    {
+      "rank": 9,
+      "repository": "connor4312/blake3",
+      "eligible": true,
+      "reason": "first size-specific console subsection reports ten throughput and relative-speed outcomes",
+      "block_lines": [321, 325],
+      "claims": [
+        {"line": 321, "metric": "throughput_ops_per_second", "value": 276000},
+        {"line": 321, "metric": "speedup", "value": 4240},
+        {"line": 322, "metric": "throughput_ops_per_second", "value": 263000},
+        {"line": 322, "metric": "speedup", "value": 4040},
+        {"line": 323, "metric": "throughput_ops_per_second", "value": 271000},
+        {"line": 323, "metric": "speedup", "value": 4160},
+        {"line": 324, "metric": "throughput_ops_per_second", "value": 1040000},
+        {"line": 324, "metric": "speedup", "value": 15900},
+        {"line": 325, "metric": "throughput_ops_per_second", "value": 625000},
+        {"line": 325, "metric": "speedup", "value": 9590}
+      ]
+    },
+    {
+      "rank": 10,
+      "repository": "colinmollenhour/magento-cache-benchmark",
+      "eligible": true,
+      "reason": "first console result line reports count runtime and data size",
+      "block_lines": [35, 35],
+      "claims": [
+        {"line": 35, "metric": "record_count", "value": 10000},
+        {"line": 35, "metric": "runtime_seconds", "value": 16.9125},
+        {"line": 35, "metric": "data_size_kb", "value": 5009.0}
+      ]
+    },
+    {"rank": 11, "repository": "murrdb/murr-benchmark", "eligible": false, "reason": "first result table contains more than 20 outcomes", "claims": []},
+    {
+      "rank": 12,
+      "repository": "uucico/poc-presto",
+      "eligible": true,
+      "reason": "first completed Presto test-run output reports ten execution outcomes",
+      "block_lines": [38, 42],
+      "claims": [
+        {"line": 38, "metric": "inserted_row_count", "value": 9},
+        {"line": 40, "metric": "node_count", "value": 1},
+        {"line": 41, "metric": "total_split_count", "value": 35},
+        {"line": 41, "metric": "completed_split_count", "value": 35},
+        {"line": 41, "metric": "completion_ratio", "value": 1.0},
+        {"line": 42, "metric": "runtime_seconds", "value": 2.0},
+        {"line": 42, "metric": "returned_row_count", "value": 0},
+        {"line": 42, "metric": "data_read_bytes", "value": 0},
+        {"line": 42, "metric": "rows_per_second", "value": 0},
+        {"line": 42, "metric": "bytes_per_second", "value": 0}
+      ]
+    },
+    {"rank": 13, "repository": "kryvokhyzha/vllm-tuner", "eligible": false, "reason": "tool and configuration documentation without reported run outcomes", "claims": []},
+    {"rank": 14, "repository": "sjtu-Cort-Lee/NLP-HW-Personal-Part", "eligible": false, "reason": "first result table contains more than 20 outcomes", "claims": []},
+    {"rank": 15, "repository": "pragnyanramtha/Synapse-Graph", "eligible": false, "reason": "only one quantitative empirical outcome", "claims": []},
+    {"rank": 16, "repository": "data-tamer2410/ds-handwritten-digit-recognition", "eligible": false, "reason": "only two distinct quantitative outcomes", "claims": []},
+    {"rank": 17, "repository": "InquietoPartho/adv_kernel", "eligible": false, "reason": "benchmark methodology and pseudocode without numeric run outcomes", "claims": []},
+    {
+      "rank": 18,
+      "repository": "sbhakim/ansr-dt",
+      "eligible": true,
+      "reason": "reported-results table contains six quantitative synthetic scalability and real outcomes",
+      "block_lines": [30, 35],
+      "claims": [
+        {"line": 32, "metric": "f1", "value": 0.966},
+        {"line": 32, "metric": "auroc", "value": 0.955},
+        {"line": 33, "metric": "rule_count", "value": 100},
+        {"line": 33, "metric": "avg_latency_seconds", "value": 0.006},
+        {"line": 34, "metric": "f1", "value": 0.755},
+        {"line": 34, "metric": "auroc", "value": 0.859}
+      ]
+    },
+    {"rank": 19, "repository": "jgyy/data-science-4", "eligible": false, "reason": "assignment example output rather than reported project outcomes", "claims": []},
+    {
+      "rank": 20,
+      "repository": "akashkam559/Covid19-Face-Mask-Detector",
+      "eligible": true,
+      "reason": "first detailed training-result block contains six measured outcomes",
+      "block_lines": [146, 147],
+      "claims": [
+        {"line": 146, "metric": "runtime_seconds", "value": 30.0},
+        {"line": 146, "metric": "step_latency_seconds", "value": 0.885},
+        {"line": 146, "metric": "loss", "value": 0.6431},
+        {"line": 146, "metric": "accuracy", "value": 0.6676},
+        {"line": 147, "metric": "validation_loss", "value": 0.3696},
+        {"line": 147, "metric": "validation_accuracy", "value": 0.8242}
+      ]
+    },
+    {
+      "rank": 21,
+      "repository": "filaPro/fcaf3d",
+      "eligible": true,
+      "reason": "first model table reports best and average detection outcomes for four datasets",
+      "block_lines": [80, 85],
+      "claims": [
+        {"line": 82, "metric": "map25", "value": 0.715},
+        {"line": 82, "metric": "map25", "value": 0.707},
+        {"line": 82, "metric": "map50", "value": 0.573},
+        {"line": 82, "metric": "map50", "value": 0.560},
+        {"line": 83, "metric": "map25", "value": 0.642},
+        {"line": 83, "metric": "map25", "value": 0.638},
+        {"line": 83, "metric": "map50", "value": 0.489},
+        {"line": 83, "metric": "map50", "value": 0.482},
+        {"line": 84, "metric": "map25", "value": 0.667},
+        {"line": 84, "metric": "map25", "value": 0.649},
+        {"line": 84, "metric": "map50", "value": 0.459},
+        {"line": 84, "metric": "map50", "value": 0.438},
+        {"line": 85, "metric": "map25", "value": 0.757},
+        {"line": 85, "metric": "map25", "value": 0.741},
+        {"line": 85, "metric": "map50", "value": 0.582},
+        {"line": 85, "metric": "map50", "value": 0.561}
+      ]
+    },
+    {"rank": 22, "repository": "msohaildanish/DivAlign", "eligible": false, "reason": "first quantitative HTML table contains more than 20 outcomes", "claims": []},
+    {"rank": 23, "repository": "PanqiYang1/MUSE", "eligible": false, "reason": "first tokenizer-comparison table contains 21 outcomes", "claims": []},
+    {"rank": 24, "repository": "BITszwang/DPT", "eligible": false, "reason": "quantitative results are image-only", "claims": []},
+    {"rank": 25, "repository": "shengqiangzhang/transformer-pointer-generator-for-english-dataset", "eligible": false, "reason": "evaluation instructions without reported numeric outcomes", "claims": []},
+    {
+      "rank": 26,
+      "repository": "Vikas120203/Image-Caption-Generation-using-CNN---GRU",
+      "eligible": true,
+      "reason": "principal model-performance table reports eighteen captioning outcomes",
+      "block_lines": [47, 50],
+      "claims": [
+        {"line": 48, "metric": "bleu_1", "value": 0.743}, {"line": 48, "metric": "bleu_2", "value": 0.614}, {"line": 48, "metric": "bleu_3", "value": 0.506}, {"line": 48, "metric": "bleu_4", "value": 0.421}, {"line": 48, "metric": "meteor", "value": 0.332}, {"line": 48, "metric": "cider", "value": 0.652},
+        {"line": 49, "metric": "bleu_1", "value": 0.714}, {"line": 49, "metric": "bleu_2", "value": 0.585}, {"line": 49, "metric": "bleu_3", "value": 0.473}, {"line": 49, "metric": "bleu_4", "value": 0.391}, {"line": 49, "metric": "meteor", "value": 0.312}, {"line": 49, "metric": "cider", "value": 0.603},
+        {"line": 50, "metric": "bleu_1", "value": 0.682}, {"line": 50, "metric": "bleu_2", "value": 0.558}, {"line": 50, "metric": "bleu_3", "value": 0.432}, {"line": 50, "metric": "bleu_4", "value": 0.347}, {"line": 50, "metric": "meteor", "value": 0.274}, {"line": 50, "metric": "cider", "value": 0.536}
+      ]
+    },
+    {
+      "rank": 27,
+      "repository": "hidasib/GRU4Rec",
+      "eligible": true,
+      "reason": "first performance paragraph reports four measured throughput and device-time outcomes",
+      "block_lines": [7, 7],
+      "claims": [
+        {"line": 7, "metric": "minibatches_per_second", "value": 1500},
+        {"line": 7, "metric": "gpu_time_ratio", "value": 0.975},
+        {"line": 7, "metric": "cpu_time_ratio", "value": 0.005},
+        {"line": 7, "metric": "transfer_time_ratio", "value": 0.02}
+      ]
+    },
+    {
+      "rank": 28,
+      "repository": "Alibaba-NLP/Multi-CPR",
+      "eligible": true,
+      "reason": "first dense-retrieval result table contains eighteen outcomes",
+      "block_lines": [41, 46],
+      "claims": [
+        {"line": 44, "metric": "mrr_10", "value": 0.2106}, {"line": 44, "metric": "recall_1000", "value": 0.7750}, {"line": 44, "metric": "mrr_10", "value": 0.1950}, {"line": 44, "metric": "recall_1000", "value": 0.7710}, {"line": 44, "metric": "mrr_10", "value": 0.2133}, {"line": 44, "metric": "recall_1000", "value": 0.5220},
+        {"line": 45, "metric": "mrr_10", "value": 0.2704}, {"line": 45, "metric": "recall_1000", "value": 0.9210}, {"line": 45, "metric": "mrr_10", "value": 0.2537}, {"line": 45, "metric": "recall_1000", "value": 0.9340}, {"line": 45, "metric": "mrr_10", "value": 0.3270}, {"line": 45, "metric": "recall_1000", "value": 0.7470},
+        {"line": 46, "metric": "mrr_10", "value": 0.2894}, {"line": 46, "metric": "recall_1000", "value": 0.9260}, {"line": 46, "metric": "mrr_10", "value": 0.2627}, {"line": 46, "metric": "recall_1000", "value": 0.9350}, {"line": 46, "metric": "mrr_10", "value": 0.3388}, {"line": 46, "metric": "recall_1000", "value": 0.7690}
+      ]
+    },
+    {"rank": 29, "repository": "QinHsiu/ICSRec", "eligible": false, "reason": "installation documentation without reported outcomes", "claims": []},
+    {
+      "rank": 30,
+      "repository": "thanhdtran/SDMR",
+      "eligible": true,
+      "reason": "first result console block reports three optimization outcomes",
+      "block_lines": [35, 35],
+      "claims": [
+        {"line": 35, "metric": "hits_10", "value": 0.428},
+        {"line": 35, "metric": "ndcg_10", "value": 0.267},
+        {"line": 35, "metric": "best_epoch", "value": 48}
+      ]
+    },
+    {
+      "rank": 31,
+      "repository": "jackycwwang/lighthouse_lab_midterm_project",
+      "eligible": true,
+      "reason": "principal model-comparison result list reports seventeen outcomes",
+      "block_lines": [55, 73],
+      "claims": [
+        {"line": 55, "metric": "r2", "value": 0.078}, {"line": 55, "metric": "mse", "value": 271.24}, {"line": 55, "metric": "mae", "value": 12.83},
+        {"line": 62, "metric": "r2", "value": 0.138}, {"line": 62, "metric": "mse", "value": 256.00}, {"line": 62, "metric": "mae", "value": 12.37},
+        {"line": 65, "metric": "mae", "value": 12.65}, {"line": 65, "metric": "r2", "value": 0.10},
+        {"line": 69, "metric": "r2", "value": -0.016}, {"line": 69, "metric": "mse", "value": 299.2}, {"line": 69, "metric": "mae", "value": 14.059},
+        {"line": 71, "metric": "r2", "value": 0.075}, {"line": 71, "metric": "mse", "value": 272.46}, {"line": 71, "metric": "mae", "value": 12.85},
+        {"line": 73, "metric": "r2", "value": -0.0142}, {"line": 73, "metric": "mse", "value": 336.25}, {"line": 73, "metric": "mae", "value": 14.11}
+      ]
+    },
+    {"rank": 32, "repository": "chesterheng/machinelearning-datascience", "eligible": false, "reason": "course notes and examples rather than project result evidence", "claims": []},
+    {"rank": 33, "repository": "shaadclt/Home-Price-Prediction-Economic-Indicators", "eligible": false, "reason": "results are described without numeric outcome values", "claims": []},
+    {"rank": 34, "repository": "shakilapr/hybrid-lstm-anfis-maglev-control", "eligible": false, "reason": "methods and target ranges without measured outcomes", "claims": []},
+    {"rank": 35, "repository": "DKU-StarLab/leveldb-study", "eligible": false, "reason": "benchmark assignment plan without inline outcomes", "claims": []},
+    {
+      "rank": 36,
+      "repository": "UCHI-DB/DoubleCompression",
+      "eligible": true,
+      "reason": "first results paragraph reports seven compression and throughput outcomes",
+      "block_lines": [17, 17],
+      "claims": [
+        {"line": 17, "metric": "compression_ratio", "value": 0.54},
+        {"line": 17, "metric": "compression_ratio", "value": 0.67},
+        {"line": 17, "metric": "compression_ratio", "value": 0.39},
+        {"line": 17, "metric": "compression_throughput_mb_per_second", "value": 85},
+        {"line": 17, "metric": "compression_throughput_mb_per_second", "value": 1},
+        {"line": 17, "metric": "compression_ratio", "value": 0.39},
+        {"line": 17, "metric": "compression_throughput_mb_per_second", "value": 20}
+      ]
+    },
+    {"rank": 37, "repository": "definelicht/sdaccel_memory_benchmark", "eligible": false, "reason": "benchmark instructions without reported results", "claims": []},
+    {"rank": 38, "repository": "Pangu-Immortal/MagicWX", "eligible": false, "reason": "status documentation has fewer than three outcomes in its first empirical block", "claims": []},
+    {"rank": 39, "repository": "ymilky/franzy", "eligible": false, "reason": "qualitative performance guidance without quantitative results", "claims": []},
+    {
+      "rank": 40,
+      "repository": "carldata/timeseries",
+      "eligible": true,
+      "reason": "benchmark console block reports nine measured runtimes",
+      "block_lines": [12, 33],
+      "claims": [
+        {"line": 13, "metric": "runtime_seconds", "value": 0.067943919},
+        {"line": 16, "metric": "runtime_seconds", "value": 0.135562344},
+        {"line": 19, "metric": "runtime_seconds", "value": 0.247156599},
+        {"line": 20, "metric": "runtime_seconds", "value": 3.027655978},
+        {"line": 23, "metric": "runtime_seconds", "value": 0.055898174},
+        {"line": 24, "metric": "runtime_seconds", "value": 0.567447768},
+        {"line": 27, "metric": "runtime_seconds", "value": 0.143223433},
+        {"line": 30, "metric": "runtime_seconds", "value": 0.496940703},
+        {"line": 33, "metric": "runtime_seconds", "value": 0.124038921}
+      ]
+    },
+    {
+      "rank": 41,
+      "repository": "marekzmyslowski/libfiowrapper",
+      "eligible": true,
+      "reason": "first results table reports eight execution path and crash outcomes",
+      "block_lines": [61, 65],
+      "claims": [
+        {"line": 63, "metric": "total_execution_count", "value": 76500000}, {"line": 63, "metric": "total_execution_count", "value": 140000000},
+        {"line": 64, "metric": "total_path_count", "value": 1860}, {"line": 64, "metric": "total_path_count", "value": 1940},
+        {"line": 65, "metric": "total_crash_count", "value": 1}, {"line": 65, "metric": "unique_crash_count", "value": 1},
+        {"line": 65, "metric": "total_crash_count", "value": 1}, {"line": 65, "metric": "unique_crash_count", "value": 1}
+      ]
+    },
+    {"rank": 42, "repository": "pixelib/Meteor", "eligible": false, "reason": "benchmark results are image-only", "claims": []},
+    {"rank": 43, "repository": "urbanyl/GPU-Passthrough-for-KVM-QEMU-on-Linux", "eligible": false, "reason": "performance tuning guide without measured project outcomes", "claims": []},
+    {"rank": 44, "repository": "kunstmusik/pink", "eligible": false, "reason": "design calculations and qualitative guidance without a qualifying first result block", "claims": []},
+    {"rank": 45, "repository": "mfreiholz/humblelogging", "eligible": false, "reason": "first independent benchmark block contains only two outcome metrics", "claims": []},
+    {
+      "rank": 46,
+      "repository": "xKDR/TSFrames.jl",
+      "eligible": true,
+      "reason": "first Julia benchmark block reports ten timing and GC outcomes",
+      "block_lines": [34, 36],
+      "claims": [
+        {"line": 34, "metric": "min_latency_seconds", "value": 0.000020400},
+        {"line": 34, "metric": "max_latency_seconds", "value": 0.000059300},
+        {"line": 34, "metric": "gc_min_ratio", "value": 0.0},
+        {"line": 34, "metric": "gc_max_ratio", "value": 0.0},
+        {"line": 35, "metric": "median_latency_seconds", "value": 0.000022050},
+        {"line": 35, "metric": "gc_median_ratio", "value": 0.0},
+        {"line": 36, "metric": "avg_latency_seconds", "value": 0.000026760},
+        {"line": 36, "metric": "latency_stdev_seconds", "value": 0.000011856},
+        {"line": 36, "metric": "gc_mean_ratio", "value": 0.0},
+        {"line": 36, "metric": "gc_stdev_ratio", "value": 0.0}
+      ]
+    },
+    {"rank": 47, "repository": "jindongwang/transferlearning", "eligible": false, "reason": "first benchmark table contains more than 20 outcomes", "claims": []},
+    {"rank": 48, "repository": "datamllab/autovideo", "eligible": false, "reason": "first result table contains 24 outcomes", "claims": []},
+    {"rank": 49, "repository": "juicedata/juicefs", "eligible": false, "reason": "numeric benchmark detail is image-only and prose has fewer than three outcomes", "claims": []},
+    {
+      "rank": 50,
+      "repository": "Alphyn44/prompt-bloat-talk",
+      "eligible": true,
+      "reason": "first throughput table contains fifteen measured and derived outcomes",
+      "block_lines": [16, 20],
+      "claims": [
+        {"line": 18, "metric": "requests_per_second", "value": 22.25}, {"line": 18, "metric": "decisions_per_second", "value": 22.25}, {"line": 18, "metric": "decisions_per_hour", "value": 80100}, {"line": 18, "metric": "cost_per_1000_decisions", "value": 0.025}, {"line": 18, "metric": "speedup", "value": 1.0},
+        {"line": 19, "metric": "requests_per_second", "value": 51.09}, {"line": 19, "metric": "decisions_per_second", "value": 51.09}, {"line": 19, "metric": "decisions_per_hour", "value": 183900}, {"line": 19, "metric": "cost_per_1000_decisions", "value": 0.011}, {"line": 19, "metric": "speedup", "value": 2.3},
+        {"line": 20, "metric": "requests_per_second", "value": 176.72}, {"line": 20, "metric": "decisions_per_second", "value": 44.18}, {"line": 20, "metric": "decisions_per_hour", "value": 159000}, {"line": 20, "metric": "cost_per_1000_decisions", "value": 0.013}, {"line": 20, "metric": "speedup", "value": 2.0}
+      ]
+    },
+    {"rank": 51, "repository": "data2health/ehr2HPO.prj", "eligible": false, "reason": "evaluation plan without reported quantitative outcomes", "claims": []},
+    {"rank": 52, "repository": "Uwami-Mgxekwa/ScreenshotToCode", "eligible": false, "reason": "product instructions without empirical outcomes", "claims": []},
+    {"rank": 53, "repository": "alem-world/alem-env", "eligible": false, "reason": "evaluation settings without submitted result outcomes", "claims": []},
+    {"rank": 54, "repository": "anuragsirish/GPT4o-mini-fine-tuning", "eligible": false, "reason": "graph-only qualitative evaluation without textual numeric outcomes", "claims": []},
+    {"rank": 55, "repository": "kablorp/blorp", "eligible": false, "reason": "documentation index without inline benchmark outcomes", "claims": []},
+    {"rank": 56, "repository": "astral-sh/ty", "eligible": false, "reason": "benchmark results are image-only", "claims": []},
+    {"rank": 57, "repository": "martinkoutecky/tine", "eligible": false, "reason": "CI policy documentation without run outcomes", "claims": []},
+    {"rank": 58, "repository": "bigtreetech/docs", "eligible": false, "reason": "qualitative comparison with graph-only numeric evidence", "claims": []},
+    {"rank": 59, "repository": "nabeel-oz/qlik-py-tools", "eligible": false, "reason": "training tutorial without textual measured result values", "claims": []},
+    {"rank": 60, "repository": "HorizonRobotics/RoboOrchardLab", "eligible": false, "reason": "framework overview without reported outcomes", "claims": []},
+    {"rank": 61, "repository": "Nathandela/compound-agent", "eligible": false, "reason": "migration guide without empirical results", "claims": []},
+    {"rank": 62, "repository": "jeffcaldwellca/mkcertWeb", "eligible": false, "reason": "test procedure and expected checks without executed outcomes", "claims": []}
+  ]
+}
