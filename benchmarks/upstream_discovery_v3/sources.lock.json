@@ -1,0 +1,21 @@
+{
+  "files": {
+    "emotional-memory-esmemeval-correction--benchmarks__esmemeval__results.md.after.md": {
+      "sha256": "75d3baa5ef2577d01cab4317afb79c48d0fb125e06c5be5352c42f17b59b558d",
+      "url": "https://raw.githubusercontent.com/gianlucamazza/emotional-memory/1810587e5c2d2fa016319605f7ee376f1509a9f5/benchmarks/esmemeval/results.md"
+    },
+    "emotional-memory-esmemeval-correction--benchmarks__esmemeval__results.md.before.md": {
+      "sha256": "3bd8654b8ffa7d3c298dbb83bf3811d72a23f3fa203f545a4a8f36b0ca2a8787",
+      "url": "https://raw.githubusercontent.com/gianlucamazza/emotional-memory/bc37703baa84d22f2b6c10497aaf3bad3ecad51f/benchmarks/esmemeval/results.md"
+    },
+    "llmcompare-opus5-swebench--data__models.json.after.json": {
+      "sha256": "6d8a409bee342e5e5199708eab32627e3815bd60fcb218478779563e74cffb87",
+      "url": "https://raw.githubusercontent.com/gurunave/llmcompare/6c0149425bce29186601e23ad56202f962309cd7/data/models.json"
+    },
+    "llmcompare-opus5-swebench--data__models.json.before.json": {
+      "sha256": "52dbf2b57d11bf562ec644cda41c142c9b8f7ed351ccecae7c3781647e7acbeb",
+      "url": "https://raw.githubusercontent.com/gurunave/llmcompare/b37cb1574c197d1d8a198e4afdd1230086ffc913/data/models.json"
+    }
+  },
+  "schema_version": "reprocheck.upstream-discovery-sources-lock.v1"
+}

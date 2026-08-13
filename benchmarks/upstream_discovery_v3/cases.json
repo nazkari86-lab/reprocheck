@@ -1,0 +1,286 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-cases.v1",
+  "evaluator_commit": "7e5a6c087fc6f5e5df14ccde1c8436049c39c5b7",
+  "cases": [
+    {
+      "id": "emotional-memory-esmemeval-correction",
+      "repository": "gianlucamazza/emotional-memory",
+      "pull_request": 112,
+      "parent_commit": "bc37703baa84d22f2b6c10497aaf3bad3ecad51f",
+      "merge_commit": "1810587e5c2d2fa016319605f7ee376f1509a9f5",
+      "files": [
+        "benchmarks/esmemeval/results.md"
+      ],
+      "claims": [
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| map@1 | 0.378 | 0.142 |",
+          "after_snippet": "| map@1 | 0.378 | 0.151 |",
+          "metric": "map_1",
+          "before_value": 0.142,
+          "after_value": 0.151
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| map@10 | 0.478 | 0.216 |",
+          "after_snippet": "| map@10 | 0.478 | 0.236 |",
+          "metric": "map_10",
+          "before_value": 0.216,
+          "after_value": 0.236
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| map@3 | 0.426 | 0.159 |",
+          "after_snippet": "| map@3 | 0.426 | 0.175 |",
+          "metric": "map_3",
+          "before_value": 0.159,
+          "after_value": 0.175
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| map@4 | 0.443 | 0.170 |",
+          "after_snippet": "| map@4 | 0.443 | 0.187 |",
+          "metric": "map_4",
+          "before_value": 0.17,
+          "after_value": 0.187
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| map@5 | 0.453 | 0.182 |",
+          "after_snippet": "| map@5 | 0.453 | 0.199 |",
+          "metric": "map_5",
+          "before_value": 0.182,
+          "after_value": 0.199
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| mrr@1 | 0.378 | 0.142 |",
+          "after_snippet": "| mrr@1 | 0.378 | 0.151 |",
+          "metric": "mrr_1",
+          "before_value": 0.142,
+          "after_value": 0.151
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| mrr@10 | 0.514 | 0.249 |",
+          "after_snippet": "| mrr@10 | 0.514 | 0.265 |",
+          "metric": "mrr_10",
+          "before_value": 0.249,
+          "after_value": 0.265
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| mrr@3 | 0.474 | 0.192 |",
+          "after_snippet": "| mrr@3 | 0.474 | 0.206 |",
+          "metric": "mrr_3",
+          "before_value": 0.192,
+          "after_value": 0.206
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| mrr@4 | 0.488 | 0.204 |",
+          "after_snippet": "| mrr@4 | 0.488 | 0.221 |",
+          "metric": "mrr_4",
+          "before_value": 0.204,
+          "after_value": 0.221
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| mrr@5 | 0.496 | 0.217 |",
+          "after_snippet": "| mrr@5 | 0.496 | 0.233 |",
+          "metric": "mrr_5",
+          "before_value": 0.217,
+          "after_value": 0.233
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| ndcg@1 | 0.378 | 0.142 |",
+          "after_snippet": "| ndcg@1 | 0.378 | 0.151 |",
+          "metric": "ndcg_1",
+          "before_value": 0.142,
+          "after_value": 0.151
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| ndcg@10 | 0.585 | 0.329 |",
+          "after_snippet": "| ndcg@10 | 0.585 | 0.352 |",
+          "metric": "ndcg_10",
+          "before_value": 0.329,
+          "after_value": 0.352
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| ndcg@3 | 0.505 | 0.209 |",
+          "after_snippet": "| ndcg@3 | 0.505 | 0.225 |",
+          "metric": "ndcg_3",
+          "before_value": 0.209,
+          "after_value": 0.225
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| ndcg@4 | 0.528 | 0.229 |",
+          "after_snippet": "| ndcg@4 | 0.528 | 0.250 |",
+          "metric": "ndcg_4",
+          "before_value": 0.229,
+          "after_value": 0.25
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| ndcg@5 | 0.545 | 0.254 |",
+          "after_snippet": "| ndcg@5 | 0.545 | 0.273 |",
+          "metric": "ndcg_5",
+          "before_value": 0.254,
+          "after_value": 0.273
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| precision@1 | 0.378 | 0.142 |",
+          "after_snippet": "| precision@1 | 0.378 | 0.151 |",
+          "metric": "precision_1",
+          "before_value": 0.142,
+          "after_value": 0.151
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| precision@10 | 0.101 | 0.072 |",
+          "after_snippet": "| precision@10 | 0.101 | 0.077 |",
+          "metric": "precision_10",
+          "before_value": 0.072,
+          "after_value": 0.077
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| precision@3 | 0.215 | 0.090 |",
+          "after_snippet": "| precision@3 | 0.215 | 0.100 |",
+          "metric": "precision_3",
+          "before_value": 0.09,
+          "after_value": 0.1
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| precision@4 | 0.184 | 0.082 |",
+          "after_snippet": "| precision@4 | 0.184 | 0.092 |",
+          "metric": "precision_4",
+          "before_value": 0.082,
+          "after_value": 0.092
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| precision@5 | 0.159 | 0.080 |",
+          "after_snippet": "| precision@5 | 0.159 | 0.087 |",
+          "metric": "precision_5",
+          "before_value": 0.08,
+          "after_value": 0.087
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| recall@1 | 0.327 | 0.114 |",
+          "after_snippet": "| recall@1 | 0.327 | 0.123 |",
+          "metric": "recall_1",
+          "before_value": 0.114,
+          "after_value": 0.123
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| recall@10 | 0.785 | 0.548 |",
+          "after_snippet": "| recall@10 | 0.785 | 0.589 |",
+          "metric": "recall_10",
+          "before_value": 0.548,
+          "after_value": 0.589
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| recall@3 | 0.535 | 0.212 |",
+          "after_snippet": "| recall@3 | 0.535 | 0.238 |",
+          "metric": "recall_3",
+          "before_value": 0.212,
+          "after_value": 0.238
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| recall@4 | 0.595 | 0.255 |",
+          "after_snippet": "| recall@4 | 0.595 | 0.285 |",
+          "metric": "recall_4",
+          "before_value": 0.255,
+          "after_value": 0.285
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| recall@5 | 0.637 | 0.312 |",
+          "after_snippet": "| recall@5 | 0.637 | 0.340 |",
+          "metric": "recall_5",
+          "before_value": 0.312,
+          "after_value": 0.34
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| u_ndcg@2 | 0.227 | 0.088 |",
+          "after_snippet": "| u_ndcg@2 | 0.227 | 0.095 |",
+          "metric": "u_ndcg_2",
+          "before_value": 0.088,
+          "after_value": 0.095
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| u_ndcg@4 | 0.284 | 0.120 |",
+          "after_snippet": "| u_ndcg@4 | 0.284 | 0.133 |",
+          "metric": "u_ndcg_4",
+          "before_value": 0.12,
+          "after_value": 0.133
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| u_ndcg@6 | 0.314 | 0.155 |",
+          "after_snippet": "| u_ndcg@6 | 0.314 | 0.168 |",
+          "metric": "u_ndcg_6",
+          "before_value": 0.155,
+          "after_value": 0.168
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| u_recall@2 | 0.444 | 0.169 |",
+          "after_snippet": "| u_recall@2 | 0.444 | 0.184 |",
+          "metric": "u_recall_2",
+          "before_value": 0.169,
+          "after_value": 0.184
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| u_recall@4 | 0.595 | 0.255 |",
+          "after_snippet": "| u_recall@4 | 0.595 | 0.285 |",
+          "metric": "u_recall_4",
+          "before_value": 0.255,
+          "after_value": 0.285
+        },
+        {
+          "file": "benchmarks/esmemeval/results.md",
+          "before_snippet": "| u_recall@6 | 0.684 | 0.357 |",
+          "after_snippet": "| u_recall@6 | 0.684 | 0.386 |",
+          "metric": "u_recall_6",
+          "before_value": 0.357,
+          "after_value": 0.386
+        }
+      ]
+    },
+    {
+      "id": "llmcompare-opus5-swebench",
+      "repository": "gurunave/llmcompare",
+      "pull_request": 18,
+      "parent_commit": "b37cb1574c197d1d8a198e4afdd1230086ffc913",
+      "merge_commit": "6c0149425bce29186601e23ad56202f962309cd7",
+      "files": [
+        "data/models.json"
+      ],
+      "claims": [
+        {
+          "file": "data/models.json",
+          "before_snippet": "\"swebench\": 80,",
+          "after_snippet": "\"swebench\": 96,",
+          "metric": "swebench",
+          "before_value": 80.0,
+          "after_value": 96.0
+        }
+      ]
+    }
+  ]
+}

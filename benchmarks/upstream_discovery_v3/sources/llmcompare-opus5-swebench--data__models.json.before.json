@@ -1,0 +1,4555 @@
+{
+  "meta": {
+    "lastReviewed": "2026-08-04",
+    "priceUnit": "USD per 1M tokens",
+    "disclaimer": "Figures are approximate and community-reported. Pricing and benchmark scores change constantly - verify against the provider's own documentation before making a purchasing decision. An absent score means 'not published or not comparably measured', not zero, and benchmark coverage is far thinner on the newer evaluations than on the retired ones.",
+    "benchmarks": [
+      {
+        "id": "gdpval",
+        "label": "GDPval (GDPval-AA v2)",
+        "short": "GDPval",
+        "blurb": "1,320 paid-work tasks across 44 occupations, blind-graded against human professionals",
+        "category": "agentic",
+        "scale": "elo",
+        "tier": "headline",
+        "range": [
+          1000,
+          1900
+        ],
+        "inIndex": true,
+        "source": "Artificial Analysis GDPval-AA v2, Elo re-baselined so human work scores 1000"
+      },
+      {
+        "id": "terminalBench2",
+        "label": "Terminal-Bench 2.1",
+        "short": "Terminal-B",
+        "blurb": "89 tasks in a real shell — software engineering, sysadmin, data and security",
+        "category": "agentic",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          10,
+          90
+        ],
+        "inIndex": true,
+        "source": "Terminal-Bench 2.1 leaderboard - a harder revision of the 89-task 2.0 set, and not directly comparable to it"
+      },
+      {
+        "id": "osworld",
+        "label": "OSWorld-Verified",
+        "short": "OSWorld",
+        "blurb": "Live desktop control across real applications, graded on the resulting machine state. Nearing saturation at the frontier",
+        "category": "agentic",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          5,
+          90
+        ],
+        "inIndex": true,
+        "source": "OSWorld-Verified leaderboard"
+      },
+      {
+        "id": "tauBench",
+        "label": "τ-bench",
+        "short": "τ-bench",
+        "blurb": "Multi-step tool calls against an unstructured knowledge base, retail and airline domains",
+        "category": "agentic",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          20,
+          95
+        ],
+        "inIndex": true,
+        "source": "Sierra tau-bench, mean of the retail and airline pass^1 rates; the original task set is frozen and superseded by tau2/tau3"
+      },
+      {
+        "id": "tau3Banking",
+        "label": "τ³-Banking",
+        "short": "τ³-Bank",
+        "blurb": "The banking domain of τ³, with adversarial users and a policy the agent must hold to",
+        "category": "agentic",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          5,
+          40
+        ],
+        "inIndex": true,
+        "source": "Sierra τ³-bench, banking domain"
+      },
+      {
+        "id": "enterpriseOps",
+        "label": "EnterpriseOps-Gym",
+        "short": "EntOps",
+        "blurb": "Stateful business workflows, graded on the final database state rather than the transcript",
+        "category": "agentic",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          5,
+          60
+        ],
+        "inIndex": true,
+        "source": "EnterpriseOps-Gym-AA, the Artificial Analysis leaderboard for ServiceNow EnterpriseOps-Gym, oracle tool mode"
+      },
+      {
+        "id": "swebenchPro",
+        "label": "SWE-bench Pro",
+        "short": "SWE-Pro",
+        "blurb": "Harder repository issues on a held-out split, so a fix cannot be recalled from training",
+        "category": "coding",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          10,
+          85
+        ],
+        "inIndex": true,
+        "source": "Scale AI SWE-bench Pro. Figures here are drawn from both the public split and vendor tables and are not one controlled run - the public and commercial splits differ by more than the spread of this column, so read a gap of a few points as noise"
+      },
+      {
+        "id": "livecodebench",
+        "label": "LiveCodeBench",
+        "short": "LiveCode",
+        "blurb": "Competitive-programming problems published after each model's training cutoff",
+        "category": "coding",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          10,
+          95
+        ],
+        "inIndex": true,
+        "source": "LiveCodeBench rolling window, contamination-free split"
+      },
+      {
+        "id": "scicode",
+        "label": "SciCode",
+        "short": "SciCode",
+        "blurb": "Research-grade scientific programming drawn from published computational papers",
+        "category": "coding",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          0,
+          65
+        ],
+        "inIndex": true,
+        "source": "SciCode main problem accuracy"
+      },
+      {
+        "id": "swebench",
+        "label": "SWE-bench Verified",
+        "short": "SWE-b V",
+        "blurb": "Human-validated GitHub issues. Near its ceiling at the frontier — read it as a floor",
+        "category": "coding",
+        "scale": "pct",
+        "tier": "floor",
+        "range": [
+          0,
+          120
+        ],
+        "inIndex": true,
+        "source": "Provider-reported, SWE-bench Verified 500-issue split"
+      },
+      {
+        "id": "hle",
+        "label": "Humanity's Last Exam",
+        "short": "HLE",
+        "blurb": "Expert-written questions across every discipline; top models sit near 35%, humans near 90%",
+        "category": "reasoning",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          2,
+          60
+        ],
+        "inIndex": true,
+        "source": "CAIS / Scale AI Humanity's Last Exam, text-only subset, no tools"
+      },
+      {
+        "id": "arcAgi2",
+        "label": "ARC-AGI-2",
+        "short": "ARC-2",
+        "blurb": "Abstraction puzzles built to resist memorization. Sat near 3% through 2025; the frontier cleared 90% during 2026",
+        "category": "reasoning",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          0,
+          95
+        ],
+        "inIndex": true,
+        "source": "ARC Prize semi-private evaluation set, as reported by the public aggregators"
+      },
+      {
+        "id": "arcAgi3",
+        "label": "ARC-AGI-3",
+        "short": "ARC-3",
+        "blurb": "Interactive games with hidden rules the agent has to infer by playing. Launched with every frontier model under 1%",
+        "category": "reasoning",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          0,
+          35
+        ],
+        "inIndex": true,
+        "source": "ARC Prize interactive-reasoning leaderboard, July 2026 snapshot of 4 evaluated models"
+      },
+      {
+        "id": "gpqa",
+        "label": "GPQA Diamond",
+        "short": "GPQA",
+        "blurb": "Graduate-level science questions. Nearing its ceiling — a floor rather than a ranking",
+        "category": "reasoning",
+        "scale": "pct",
+        "tier": "floor",
+        "range": [
+          20,
+          110
+        ],
+        "inIndex": true,
+        "source": "Provider-reported, GPQA Diamond 198-question split"
+      },
+      {
+        "id": "frontierMath",
+        "label": "FrontierMath Tier 4 (v2)",
+        "short": "FrontierM",
+        "blurb": "Unpublished research-level problems, held back specifically to resist contamination. Tier 4 is the hardest of the four",
+        "category": "math",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          0,
+          95
+        ],
+        "inIndex": true,
+        "source": "Epoch AI FrontierMath Tier 4, v2 - the June 2026 revision that corrected errors in 42% of the original problems"
+      },
+      {
+        "id": "aime",
+        "label": "AIME-class math",
+        "short": "AIME",
+        "blurb": "Competition math. Saturated at the frontier once tools are allowed",
+        "category": "math",
+        "scale": "pct",
+        "tier": "floor",
+        "range": [
+          5,
+          120
+        ],
+        "inIndex": true,
+        "source": "Provider-reported, AIME-class competition sets"
+      },
+      {
+        "id": "mmluPro",
+        "label": "MMLU-Pro",
+        "short": "MMLU-Pro",
+        "blurb": "Broad multiple-choice knowledge. Retired as a differentiator; useful as a floor",
+        "category": "knowledge",
+        "scale": "pct",
+        "tier": "floor",
+        "range": [
+          15,
+          105
+        ],
+        "inIndex": true,
+        "source": "Provider-reported and TIGER-Lab MMLU-Pro leaderboard"
+      },
+      {
+        "id": "bfclV4",
+        "label": "BFCL v4",
+        "short": "BFCL v4",
+        "blurb": "Function calling scored end-to-end, including the agentic and multi-turn tracks",
+        "category": "tooluse",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          20,
+          90
+        ],
+        "inIndex": true,
+        "source": "Berkeley Function-Calling Leaderboard v4, overall accuracy"
+      },
+      {
+        "id": "mmmu",
+        "label": "MMMU",
+        "short": "MMMU",
+        "blurb": "College-level understanding across images, diagrams and documents",
+        "category": "multimodal",
+        "scale": "pct",
+        "tier": "floor",
+        "range": [
+          25,
+          100
+        ],
+        "inIndex": true,
+        "source": "Provider-reported, MMMU validation split"
+      },
+      {
+        "id": "aaIndex",
+        "label": "Artificial Analysis Intelligence Index v4.1",
+        "short": "AA Index",
+        "blurb": "Weighted composite — agents 34%, coding 24%, scientific reasoning 24%, general 18%",
+        "category": "composite",
+        "scale": "pct",
+        "tier": "headline",
+        "range": [
+          10,
+          70
+        ],
+        "inIndex": false,
+        "source": "Artificial Analysis Intelligence Index v4.1"
+      },
+      {
+        "id": "metrHorizon",
+        "label": "METR time horizon",
+        "short": "METR",
+        "blurb": "The task length, in human-hours, a model completes with 50% reliability",
+        "category": "scale",
+        "scale": "hours",
+        "tier": "headline",
+        "range": [
+          0.02,
+          40
+        ],
+        "inIndex": false,
+        "source": "METR time-horizon evaluations, 50% success threshold"
+      },
+      {
+        "id": "lmarenaElo",
+        "label": "LMArena Elo",
+        "short": "Arena",
+        "blurb": "Human preference in blind pairwise votes. Measures what people like, not what is correct",
+        "category": "scale",
+        "scale": "elo",
+        "tier": "headline",
+        "range": [
+          1000,
+          1600
+        ],
+        "inIndex": false,
+        "source": "LMArena text leaderboard, overall Elo"
+      }
+    ]
+  },
+  "models": [
+    {
+      "id": "qwen3-8-max",
+      "name": "Qwen3.8-Max",
+      "provider": "Alibaba",
+      "released": "2026-08",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1048576,
+      "maxOutput": 131072,
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 2,
+        "output": 6
+      },
+      "cutoff": "2026-05",
+      "speed": 85,
+      "scores": {
+        "osworld": 86.1,
+        "terminalBench2": 86.6,
+        "swebenchPro": 67.7,
+        "gpqa": 92.6,
+        "mmluPro": 82.3
+      },
+      "tags": [
+        "frontier",
+        "multimodal",
+        "long-context"
+      ],
+      "url": "https://www.qwencloud.com/models/qwen3.8-max"
+    },
+    {
+      "id": "gemini-3-6-flash",
+      "name": "Gemini 3.6 Flash",
+      "provider": "Google",
+      "released": "2026-07",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1048576,
+      "maxOutput": 65536,
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 1.5,
+        "output": 7.5
+      },
+      "cutoff": "2026-03",
+      "speed": 260,
+      "scores": {
+        "mmluPro": 47,
+        "gpqa": 93,
+        "swebench": 73,
+        "aime": 93,
+        "mmmu": 65,
+        "aaIndex": 50
+      },
+      "tags": [
+        "fast",
+        "cheap",
+        "multimodal"
+      ],
+      "url": "https://ai.google.dev/gemini-api/docs/models"
+    },
+    {
+      "id": "laguna-s-2-1",
+      "name": "Laguna S 2.1",
+      "provider": "Poolside",
+      "released": "2026-07",
+      "license": "open",
+      "params": 118,
+      "localTier": "server",
+      "arch": {
+        "layers": 48,
+        "kvLayers": 48,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 8,
+        "slidingWindow": 512,
+        "globalEvery": 4,
+        "source": "config"
+      },
+      "context": 1048576,
+      "maxOutput": 131072,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.2
+      },
+      "cutoff": "2025-11",
+      "speed": 140,
+      "scores": {
+        "terminalBench2": 70.2,
+        "swebenchPro": 59.4
+      },
+      "tags": [
+        "open-weights",
+        "self-host",
+        "agentic-coding",
+        "long-horizon",
+        "long-context",
+        "reasoning",
+        "cheap"
+      ],
+      "url": "https://huggingface.co/poolside/Laguna-S-2.1"
+    },
+    {
+      "id": "laguna-xs-2-1",
+      "name": "Laguna XS 2.1",
+      "provider": "Poolside",
+      "released": "2026-07",
+      "license": "open",
+      "params": 33,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 3,
+        "slidingWindow": 512,
+        "globalEvery": 4,
+        "source": "estimated"
+      },
+      "context": 262144,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.06,
+        "output": 0.12
+      },
+      "cutoff": "2025-11",
+      "speed": 180,
+      "scores": {
+        "swebench": 71
+      },
+      "tags": [
+        "open-weights",
+        "self-host",
+        "agentic-coding",
+        "long-context",
+        "reasoning",
+        "cheap",
+        "fast"
+      ],
+      "url": "https://huggingface.co/poolside/Laguna-XS-2.1"
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek-V4-Flash-0731",
+      "provider": "DeepSeek",
+      "released": "2026-07",
+      "license": "open",
+      "params": 284,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 48,
+        "kvLayers": 48,
+        "kvHeads": null,
+        "headDim": null,
+        "attn": "mla",
+        "kvLatentDim": 576,
+        "activeParams": 24,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "estimated"
+      },
+      "context": 1048576,
+      "maxOutput": 65536,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.14,
+        "output": 0.28
+      },
+      "cutoff": "2026-04",
+      "speed": 150,
+      "scores": {
+        "mmluPro": 86,
+        "gpqa": 91,
+        "swebench": 74,
+        "aime": 97
+      },
+      "tags": [
+        "open-weights",
+        "agentic-coding",
+        "reasoning",
+        "cheap",
+        "long-context"
+      ],
+      "url": "https://api-docs.deepseek.com/"
+    },
+    {
+      "id": "claude-opus-5",
+      "name": "Claude Opus 5",
+      "provider": "Anthropic",
+      "released": "2026-05",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 200000,
+      "maxOutput": 64000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 5,
+        "output": 25
+      },
+      "cutoff": "2026-05",
+      "speed": 60,
+      "scores": {
+        "mmluPro": 89,
+        "gpqa": 84,
+        "swebench": 80,
+        "aime": 94,
+        "mmmu": 80,
+        "aaIndex": 61,
+        "gdpval": 1858,
+        "terminalBench2": 84.6,
+        "hle": 52.6,
+        "swebenchPro": 79.2,
+        "arcAgi2": 90.4,
+        "arcAgi3": 30.2
+      },
+      "tags": [
+        "frontier",
+        "agentic-coding",
+        "long-horizon"
+      ],
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+    },
+    {
+      "id": "claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "provider": "Anthropic",
+      "released": "2026-05",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 200000,
+      "maxOutput": 64000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 3,
+        "output": 15
+      },
+      "cutoff": "2026-05",
+      "speed": 85,
+      "scores": {
+        "mmluPro": 87,
+        "gpqa": 81,
+        "swebench": 77,
+        "aime": 91,
+        "mmmu": 77,
+        "aaIndex": 53,
+        "gdpval": 1607,
+        "terminalBench2": 74.5
+      },
+      "tags": [
+        "workhorse",
+        "agentic-coding"
+      ],
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+    },
+    {
+      "id": "claude-fable-5",
+      "name": "Claude Fable 5",
+      "provider": "Anthropic",
+      "released": "2026-06",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1000000,
+      "maxOutput": 128000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 10,
+        "output": 50
+      },
+      "cutoff": "2026-01",
+      "speed": 63,
+      "scores": {
+        "mmluPro": 82,
+        "gpqa": 93,
+        "swebench": 95,
+        "aime": 90,
+        "mmmu": 89,
+        "aaIndex": 60,
+        "gdpval": 1760,
+        "terminalBench2": 80.5,
+        "hle": 53.3,
+        "scicode": 60.2,
+        "swebenchPro": 80.3,
+        "lmarenaElo": 1509,
+        "frontierMath": 88,
+        "osworld": 85,
+        "enterpriseOps": 51.1
+      },
+      "tags": [
+        "frontier",
+        "agentic-coding",
+        "long-horizon",
+        "flagship"
+      ],
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+    },
+    {
+      "id": "qwen3-7-flash",
+      "name": "Qwen3.7 Flash",
+      "provider": "Alibaba",
+      "released": "2026-07",
+      "license": "open",
+      "params": 20,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 4,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 3,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "estimated"
+      },
+      "context": 1000000,
+      "maxOutput": 32768,
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.03,
+        "output": 0.13
+      },
+      "cutoff": "2026-04",
+      "speed": 190,
+      "scores": {},
+      "tags": [
+        "open-weights",
+        "cheap",
+        "multimodal",
+        "fast"
+      ],
+      "url": "https://qwenlm.github.io/"
+    },
+    {
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "provider": "Moonshot",
+      "released": "2026-07",
+      "license": "open",
+      "params": 2800,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 72,
+        "kvLayers": 72,
+        "kvHeads": null,
+        "headDim": null,
+        "attn": "mla",
+        "kvLatentDim": 576,
+        "activeParams": 48,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "estimated"
+      },
+      "context": 1048576,
+      "maxOutput": 65536,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 3,
+        "output": 15
+      },
+      "cutoff": "2026-04",
+      "speed": 45,
+      "scores": {
+        "mmluPro": 78,
+        "gpqa": 94,
+        "aaIndex": 57,
+        "gdpval": 1684,
+        "terminalBench2": 80.9,
+        "scicode": 58.7,
+        "tau3Banking": 33.4,
+        "swebench": 93.4
+      },
+      "tags": [
+        "open-weights",
+        "agentic-coding",
+        "multimodal",
+        "reasoning"
+      ],
+      "url": "https://platform.moonshot.ai/"
+    },
+    {
+      "id": "gpt-5-6-sol",
+      "name": "GPT-5.6 Sol",
+      "provider": "OpenAI",
+      "released": "2026-07",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1000000,
+      "maxOutput": 128000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 5,
+        "output": 30
+      },
+      "cutoff": "2026-02",
+      "speed": 55,
+      "scores": {
+        "gpqa": 94,
+        "aaIndex": 59,
+        "gdpval": 1743,
+        "terminalBench2": 85.8,
+        "hle": 47.2,
+        "tau3Banking": 33,
+        "arcAgi2": 92.5,
+        "arcAgi3": 7.8,
+        "frontierMath": 83
+      },
+      "tags": [
+        "frontier",
+        "agentic-coding",
+        "reasoning"
+      ],
+      "url": "https://platform.openai.com/docs/models"
+    },
+    {
+      "id": "gpt-5-6-terra",
+      "name": "GPT-5.6 Terra",
+      "provider": "OpenAI",
+      "released": "2026-07",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1000000,
+      "maxOutput": 128000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 2.5,
+        "output": 15
+      },
+      "cutoff": "2026-02",
+      "speed": 90,
+      "scores": {
+        "gdpval": 1593,
+        "frontierMath": 68.3
+      },
+      "tags": [
+        "workhorse",
+        "agentic-coding"
+      ],
+      "url": "https://platform.openai.com/docs/models"
+    },
+    {
+      "id": "gpt-5-6-luna",
+      "name": "GPT-5.6 Luna",
+      "provider": "OpenAI",
+      "released": "2026-07",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1000000,
+      "maxOutput": 128000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 1,
+        "output": 6
+      },
+      "cutoff": "2026-02",
+      "speed": 180,
+      "scores": {
+        "swebench": 93,
+        "aaIndex": 51,
+        "gdpval": 1592,
+        "terminalBench2": 79,
+        "frontierMath": 58.5
+      },
+      "tags": [
+        "cheap",
+        "fast",
+        "agentic-coding"
+      ],
+      "url": "https://platform.openai.com/docs/models"
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "provider": "DeepSeek",
+      "released": "2026-04",
+      "license": "open",
+      "params": 1600,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 64,
+        "kvLayers": 64,
+        "kvHeads": null,
+        "headDim": null,
+        "attn": "mla",
+        "kvLatentDim": 576,
+        "activeParams": 60,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "estimated"
+      },
+      "context": 1048576,
+      "maxOutput": 384000,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.435,
+        "output": 0.87
+      },
+      "cutoff": "2026-03",
+      "speed": 45,
+      "scores": {
+        "mmluPro": 88,
+        "gpqa": 90,
+        "swebench": 81,
+        "aaIndex": 44
+      },
+      "tags": [
+        "open-weights",
+        "frontier",
+        "reasoning"
+      ],
+      "url": "https://api-docs.deepseek.com/"
+    },
+    {
+      "id": "muse-spark-1-1",
+      "name": "Muse Spark 1.1",
+      "provider": "Meta",
+      "released": "2026-07",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1048576,
+      "maxOutput": 65536,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 1.25,
+        "output": 4.25
+      },
+      "cutoff": "2026-05",
+      "speed": 55,
+      "scores": {
+        "terminalBench2": 80,
+        "swebenchPro": 61.5
+      },
+      "tags": [
+        "agentic-coding",
+        "multimodal"
+      ],
+      "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/"
+    },
+    {
+      "id": "inkling",
+      "name": "Inkling",
+      "provider": "Thinking Machines",
+      "released": "2026-07",
+      "license": "open",
+      "params": 975,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 80,
+        "kvLayers": 80,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 60,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "estimated"
+      },
+      "context": 1048576,
+      "maxOutput": 32768,
+      "modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 1.87,
+        "output": 4.68
+      },
+      "cutoff": "2026-05",
+      "speed": 55,
+      "scores": {
+        "mmluPro": 74,
+        "gpqa": 87,
+        "swebench": 78,
+        "aime": 97
+      },
+      "tags": [
+        "open-weights",
+        "multimodal",
+        "frontier"
+      ],
+      "url": "https://thinkingmachines.ai/model-card/inkling/"
+    },
+    {
+      "id": "gemini-3-1-pro",
+      "name": "Gemini 3.1 Pro",
+      "provider": "Google",
+      "released": "2026-02",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1048576,
+      "maxOutput": 65536,
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 2,
+        "output": 12
+      },
+      "cutoff": "2025-01",
+      "speed": 72,
+      "scores": {
+        "mmluPro": 91,
+        "gpqa": 94,
+        "swebench": 81,
+        "aime": 91,
+        "aaIndex": 46.5,
+        "hle": 46.4,
+        "scicode": 58.9,
+        "lmarenaElo": 1500
+      },
+      "tags": [
+        "frontier",
+        "multimodal",
+        "long-context"
+      ],
+      "url": "https://ai.google.dev/gemini-api/docs/models"
+    },
+    {
+      "id": "grok-4-5",
+      "name": "Grok 4.5",
+      "provider": "xAI",
+      "released": "2026-07",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 500000,
+      "maxOutput": 64000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 2,
+        "output": 6
+      },
+      "cutoff": "2025-09",
+      "speed": 75,
+      "scores": {
+        "gpqa": 93,
+        "aaIndex": 54,
+        "gdpval": 1535
+      },
+      "tags": [
+        "agentic-coding",
+        "reasoning"
+      ],
+      "url": "https://docs.x.ai/docs/models"
+    },
+    {
+      "id": "claude-opus-4-5",
+      "name": "Claude Opus 4.5",
+      "provider": "Anthropic",
+      "released": "2025-11",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 200000,
+      "maxOutput": 64000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 5,
+        "output": 25
+      },
+      "cutoff": "2025-08",
+      "speed": 60,
+      "scores": {
+        "mmluPro": 88,
+        "gpqa": 81,
+        "swebench": 77,
+        "aime": 90,
+        "mmmu": 78
+      },
+      "tags": [
+        "frontier",
+        "agentic-coding"
+      ],
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+    },
+    {
+      "id": "claude-sonnet-4-5",
+      "name": "Claude Sonnet 4.5",
+      "provider": "Anthropic",
+      "released": "2025-09",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 200000,
+      "maxOutput": 64000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 3,
+        "output": 15
+      },
+      "cutoff": "2025-07",
+      "speed": 90,
+      "scores": {
+        "mmluPro": 87,
+        "gpqa": 79,
+        "swebench": 77,
+        "aime": 88,
+        "mmmu": 76,
+        "tauBench": 78.1
+      },
+      "tags": [
+        "workhorse",
+        "agentic-coding"
+      ],
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+    },
+    {
+      "id": "claude-haiku-4-5",
+      "name": "Claude Haiku 4.5",
+      "provider": "Anthropic",
+      "released": "2025-10",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 200000,
+      "maxOutput": 64000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 1,
+        "output": 5
+      },
+      "cutoff": "2025-02",
+      "speed": 180,
+      "scores": {
+        "mmluPro": 80,
+        "gpqa": 68,
+        "swebench": 73,
+        "aime": 82,
+        "mmmu": 69
+      },
+      "tags": [
+        "fast",
+        "cheap"
+      ],
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+    },
+    {
+      "id": "gpt-5",
+      "name": "GPT-5",
+      "provider": "OpenAI",
+      "released": "2025-08",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 400000,
+      "maxOutput": 128000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 1.25,
+        "output": 10
+      },
+      "cutoff": "2024-10",
+      "speed": 70,
+      "scores": {
+        "mmluPro": 87,
+        "gpqa": 85,
+        "swebench": 75,
+        "aime": 94,
+        "mmmu": 84
+      },
+      "tags": [
+        "frontier",
+        "reasoning"
+      ],
+      "url": "https://platform.openai.com/docs/models"
+    },
+    {
+      "id": "gpt-5-mini",
+      "name": "GPT-5 mini",
+      "provider": "OpenAI",
+      "released": "2025-08",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 400000,
+      "maxOutput": 128000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.25,
+        "output": 2
+      },
+      "cutoff": "2024-06",
+      "speed": 130,
+      "scores": {
+        "mmluPro": 80,
+        "gpqa": 72,
+        "swebench": 60,
+        "aime": 86,
+        "mmmu": 74
+      },
+      "tags": [
+        "cheap",
+        "fast"
+      ],
+      "url": "https://platform.openai.com/docs/models"
+    },
+    {
+      "id": "gpt-5-nano",
+      "name": "GPT-5 nano",
+      "provider": "OpenAI",
+      "released": "2025-08",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 400000,
+      "maxOutput": 128000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.05,
+        "output": 0.4
+      },
+      "cutoff": "2024-06",
+      "speed": 250,
+      "scores": {
+        "mmluPro": 68,
+        "gpqa": 55,
+        "swebench": 35,
+        "aime": 70,
+        "mmmu": 62
+      },
+      "tags": [
+        "cheap",
+        "fast",
+        "high-volume"
+      ],
+      "url": "https://platform.openai.com/docs/models"
+    },
+    {
+      "id": "o3",
+      "name": "o3",
+      "provider": "OpenAI",
+      "released": "2025-04",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 200000,
+      "maxOutput": 100000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 2,
+        "output": 8
+      },
+      "cutoff": "2024-06",
+      "speed": 50,
+      "scores": {
+        "mmluPro": 85,
+        "gpqa": 83,
+        "swebench": 69,
+        "aime": 92,
+        "mmmu": 82
+      },
+      "tags": [
+        "reasoning"
+      ],
+      "url": "https://platform.openai.com/docs/models"
+    },
+    {
+      "id": "o4-mini",
+      "name": "o4-mini",
+      "provider": "OpenAI",
+      "released": "2025-04",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 200000,
+      "maxOutput": 100000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 1.1,
+        "output": 4.4
+      },
+      "cutoff": "2024-06",
+      "speed": 120,
+      "scores": {
+        "mmluPro": 79,
+        "gpqa": 78,
+        "swebench": 68,
+        "aime": 93,
+        "mmmu": 81
+      },
+      "tags": [
+        "reasoning",
+        "cheap"
+      ],
+      "url": "https://platform.openai.com/docs/models"
+    },
+    {
+      "id": "gpt-4-1",
+      "name": "GPT-4.1",
+      "provider": "OpenAI",
+      "released": "2025-04",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1047576,
+      "maxOutput": 32768,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 2,
+        "output": 8
+      },
+      "cutoff": "2024-06",
+      "speed": 100,
+      "scores": {
+        "mmluPro": 81,
+        "gpqa": 67,
+        "swebench": 55,
+        "aime": 48,
+        "mmmu": 75
+      },
+      "tags": [
+        "long-context"
+      ],
+      "url": "https://platform.openai.com/docs/models"
+    },
+    {
+      "id": "gpt-4-1-mini",
+      "name": "GPT-4.1 mini",
+      "provider": "OpenAI",
+      "released": "2025-04",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1047576,
+      "maxOutput": 32768,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.4,
+        "output": 1.6
+      },
+      "cutoff": "2024-06",
+      "speed": 160,
+      "scores": {
+        "mmluPro": 73,
+        "gpqa": 60,
+        "swebench": 44,
+        "aime": 42,
+        "mmmu": 72
+      },
+      "tags": [
+        "long-context",
+        "cheap"
+      ],
+      "url": "https://platform.openai.com/docs/models"
+    },
+    {
+      "id": "gpt-oss-120b",
+      "name": "gpt-oss-120b",
+      "provider": "OpenAI",
+      "released": "2025-08",
+      "license": "open",
+      "params": 120,
+      "localTier": "server",
+      "arch": {
+        "layers": 36,
+        "kvLayers": 36,
+        "kvHeads": 8,
+        "headDim": 64,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 5.1,
+        "slidingWindow": 128,
+        "globalEvery": 2,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.5
+      },
+      "cutoff": "2024-06",
+      "speed": 120,
+      "scores": {
+        "mmluPro": 76,
+        "gpqa": 72,
+        "swebench": 55,
+        "aime": 88
+      },
+      "tags": [
+        "open-weights",
+        "reasoning",
+        "self-host"
+      ],
+      "url": "https://openai.com/open-models"
+    },
+    {
+      "id": "gpt-oss-20b",
+      "name": "gpt-oss-20b",
+      "provider": "OpenAI",
+      "released": "2025-08",
+      "license": "open",
+      "params": 21,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 24,
+        "kvLayers": 24,
+        "kvHeads": 8,
+        "headDim": 64,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 3.6,
+        "slidingWindow": 128,
+        "globalEvery": 2,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.05,
+        "output": 0.2
+      },
+      "cutoff": "2024-06",
+      "speed": 200,
+      "scores": {
+        "mmluPro": 66,
+        "gpqa": 62,
+        "swebench": 40,
+        "aime": 80
+      },
+      "tags": [
+        "open-weights",
+        "self-host"
+      ],
+      "url": "https://openai.com/open-models"
+    },
+    {
+      "id": "gemini-3-pro",
+      "name": "Gemini 3 Pro",
+      "provider": "Google",
+      "released": "2025-11",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1048576,
+      "maxOutput": 65536,
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 2,
+        "output": 12
+      },
+      "cutoff": "2025-01",
+      "speed": 70,
+      "scores": {
+        "mmluPro": 88,
+        "gpqa": 88,
+        "swebench": 76,
+        "aime": 95,
+        "mmmu": 81,
+        "livecodebench": 91.7
+      },
+      "tags": [
+        "frontier",
+        "multimodal",
+        "long-context"
+      ],
+      "url": "https://ai.google.dev/gemini-api/docs/models"
+    },
+    {
+      "id": "gemini-3-flash",
+      "name": "Gemini 3 Flash",
+      "provider": "Google",
+      "released": "2026-01",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1048576,
+      "maxOutput": 65536,
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.3,
+        "output": 2.5
+      },
+      "cutoff": "2025-01",
+      "speed": 200,
+      "scores": {
+        "mmluPro": 83,
+        "gpqa": 78,
+        "swebench": 62,
+        "aime": 90,
+        "mmmu": 76,
+        "livecodebench": 90.8
+      },
+      "tags": [
+        "fast",
+        "cheap",
+        "multimodal"
+      ],
+      "url": "https://ai.google.dev/gemini-api/docs/models"
+    },
+    {
+      "id": "gemini-2-5-pro",
+      "name": "Gemini 2.5 Pro",
+      "provider": "Google",
+      "released": "2025-03",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1048576,
+      "maxOutput": 65536,
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 1.25,
+        "output": 10
+      },
+      "cutoff": "2025-01",
+      "speed": 65,
+      "scores": {
+        "mmluPro": 86,
+        "gpqa": 84,
+        "swebench": 64,
+        "aime": 88,
+        "mmmu": 82
+      },
+      "tags": [
+        "multimodal",
+        "long-context"
+      ],
+      "url": "https://ai.google.dev/gemini-api/docs/models"
+    },
+    {
+      "id": "gemini-2-5-flash",
+      "name": "Gemini 2.5 Flash",
+      "provider": "Google",
+      "released": "2025-04",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1048576,
+      "maxOutput": 65536,
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.3,
+        "output": 2.5
+      },
+      "cutoff": "2025-01",
+      "speed": 190,
+      "scores": {
+        "mmluPro": 80,
+        "gpqa": 72,
+        "swebench": 54,
+        "aime": 84,
+        "mmmu": 74
+      },
+      "tags": [
+        "fast",
+        "cheap",
+        "multimodal"
+      ],
+      "url": "https://ai.google.dev/gemini-api/docs/models"
+    },
+    {
+      "id": "gemini-2-5-flash-lite",
+      "name": "Gemini 2.5 Flash-Lite",
+      "provider": "Google",
+      "released": "2025-06",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 1048576,
+      "maxOutput": 65536,
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.4
+      },
+      "cutoff": "2025-01",
+      "speed": 350,
+      "scores": {
+        "mmluPro": 70,
+        "gpqa": 58,
+        "swebench": 32,
+        "aime": 64,
+        "mmmu": 66
+      },
+      "tags": [
+        "fast",
+        "cheap",
+        "high-volume"
+      ],
+      "url": "https://ai.google.dev/gemini-api/docs/models"
+    },
+    {
+      "id": "gemma-3-27b",
+      "name": "Gemma 3 27B",
+      "provider": "Google",
+      "released": "2025-03",
+      "license": "open",
+      "params": 27,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 62,
+        "kvLayers": 62,
+        "kvHeads": 16,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": 1024,
+        "globalEvery": 6,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 8192,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.07,
+        "output": 0.07
+      },
+      "cutoff": "2024-08",
+      "speed": 90,
+      "scores": {
+        "mmluPro": 60,
+        "gpqa": 42,
+        "swebench": 15,
+        "aime": 30,
+        "mmmu": 58
+      },
+      "tags": [
+        "open-weights",
+        "self-host",
+        "multimodal"
+      ],
+      "url": "https://ai.google.dev/gemma"
+    },
+    {
+      "id": "gemma-3-12b",
+      "name": "Gemma 3 12B",
+      "provider": "Google",
+      "released": "2025-03",
+      "license": "open",
+      "params": 12,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 48,
+        "kvLayers": 48,
+        "kvHeads": 8,
+        "headDim": 256,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": 1024,
+        "globalEvery": 6,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 8192,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.04,
+        "output": 0.04
+      },
+      "cutoff": "2024-08",
+      "speed": 130,
+      "scores": {
+        "mmluPro": 54,
+        "gpqa": 36,
+        "swebench": 10,
+        "aime": 24,
+        "mmmu": 52
+      },
+      "tags": [
+        "open-weights",
+        "self-host"
+      ],
+      "url": "https://ai.google.dev/gemma"
+    },
+    {
+      "id": "gemma-3-4b",
+      "name": "Gemma 3 4B",
+      "provider": "Google",
+      "released": "2025-03",
+      "license": "open",
+      "params": 4,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 34,
+        "kvLayers": 34,
+        "kvHeads": 4,
+        "headDim": 256,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": 1024,
+        "globalEvery": 6,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 8192,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.02,
+        "output": 0.02
+      },
+      "cutoff": "2024-08",
+      "speed": 220,
+      "scores": {
+        "mmluPro": 44,
+        "gpqa": 29,
+        "swebench": 5,
+        "aime": 15,
+        "mmmu": 44
+      },
+      "tags": [
+        "open-weights",
+        "laptop",
+        "edge"
+      ],
+      "url": "https://ai.google.dev/gemma"
+    },
+    {
+      "id": "gemma-3n-e4b",
+      "name": "Gemma 3n E4B",
+      "provider": "Google",
+      "released": "2025-06",
+      "license": "open",
+      "params": 8,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 35,
+        "kvLayers": 35,
+        "kvHeads": 2,
+        "headDim": 256,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 4,
+        "slidingWindow": 512,
+        "globalEvery": 5,
+        "source": "config"
+      },
+      "context": 32768,
+      "maxOutput": 8192,
+      "modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.02,
+        "output": 0.04
+      },
+      "cutoff": "2024-06",
+      "speed": 200,
+      "scores": {
+        "mmluPro": 40,
+        "gpqa": 30,
+        "mmmu": 45
+      },
+      "tags": [
+        "open-weights",
+        "laptop",
+        "edge",
+        "multimodal",
+        "on-device"
+      ],
+      "url": "https://ai.google.dev/gemma/docs"
+    },
+    {
+      "id": "gemma-3-1b",
+      "name": "Gemma 3 1B",
+      "provider": "Google",
+      "released": "2025-03",
+      "license": "open",
+      "params": 1,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 26,
+        "kvLayers": 26,
+        "kvHeads": 1,
+        "headDim": 256,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": 512,
+        "globalEvery": 6,
+        "source": "config"
+      },
+      "context": 32768,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.01,
+        "output": 0.02
+      },
+      "cutoff": "2024-08",
+      "speed": 300,
+      "scores": {
+        "mmluPro": 20,
+        "gpqa": 22
+      },
+      "tags": [
+        "open-weights",
+        "laptop",
+        "edge",
+        "tiny"
+      ],
+      "url": "https://ai.google.dev/gemma/docs"
+    },
+    {
+      "id": "llama-4-maverick",
+      "name": "Llama 4 Maverick",
+      "provider": "Meta",
+      "released": "2025-04",
+      "license": "open",
+      "params": 400,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 48,
+        "kvLayers": 48,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 17,
+        "slidingWindow": 8192,
+        "globalEvery": 4,
+        "source": "config"
+      },
+      "context": 1048576,
+      "maxOutput": 8192,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.2,
+        "output": 0.6
+      },
+      "cutoff": "2024-08",
+      "speed": 120,
+      "scores": {
+        "mmluPro": 72,
+        "gpqa": 60,
+        "swebench": 30,
+        "aime": 40,
+        "mmmu": 73
+      },
+      "tags": [
+        "open-weights",
+        "multimodal",
+        "long-context"
+      ],
+      "url": "https://www.llama.com/models/"
+    },
+    {
+      "id": "llama-4-scout",
+      "name": "Llama 4 Scout",
+      "provider": "Meta",
+      "released": "2025-04",
+      "license": "open",
+      "params": 109,
+      "localTier": "server",
+      "arch": {
+        "layers": 48,
+        "kvLayers": 48,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 17,
+        "slidingWindow": 8192,
+        "globalEvery": 4,
+        "source": "config"
+      },
+      "context": 10485760,
+      "maxOutput": 8192,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.11,
+        "output": 0.34
+      },
+      "cutoff": "2024-08",
+      "speed": 150,
+      "scores": {
+        "mmluPro": 66,
+        "gpqa": 54,
+        "swebench": 22,
+        "aime": 32,
+        "mmmu": 69
+      },
+      "tags": [
+        "open-weights",
+        "long-context"
+      ],
+      "url": "https://www.llama.com/models/"
+    },
+    {
+      "id": "llama-3-3-70b",
+      "name": "Llama 3.3 70B",
+      "provider": "Meta",
+      "released": "2024-12",
+      "license": "open",
+      "params": 70,
+      "localTier": "server",
+      "arch": {
+        "layers": 80,
+        "kvLayers": 80,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.2,
+        "output": 0.6
+      },
+      "cutoff": "2023-12",
+      "speed": 90,
+      "scores": {
+        "mmluPro": 63,
+        "gpqa": 48,
+        "swebench": 20,
+        "aime": 28
+      },
+      "tags": [
+        "open-weights",
+        "self-host"
+      ],
+      "url": "https://www.llama.com/models/"
+    },
+    {
+      "id": "llama-3-1-8b",
+      "name": "Llama 3.1 8B",
+      "provider": "Meta",
+      "released": "2024-07",
+      "license": "open",
+      "params": 8,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 32,
+        "kvLayers": 32,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.03,
+        "output": 0.05
+      },
+      "cutoff": "2023-12",
+      "speed": 250,
+      "scores": {
+        "mmluPro": 44,
+        "gpqa": 28,
+        "swebench": 4,
+        "aime": 10
+      },
+      "tags": [
+        "open-weights",
+        "laptop",
+        "edge"
+      ],
+      "url": "https://www.llama.com/models/"
+    },
+    {
+      "id": "llama-3-2-11b-vision",
+      "name": "Llama 3.2 11B Vision",
+      "provider": "Meta",
+      "released": "2024-09",
+      "license": "open",
+      "params": 11,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 8192,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.055,
+        "output": 0.055
+      },
+      "cutoff": "2023-12",
+      "speed": 140,
+      "scores": {
+        "mmluPro": 40,
+        "gpqa": 33,
+        "mmmu": 50
+      },
+      "tags": [
+        "open-weights",
+        "multimodal",
+        "self-host"
+      ],
+      "url": "https://www.llama.com/docs/model-cards-and-prompt-formats/"
+    },
+    {
+      "id": "llama-3-2-3b",
+      "name": "Llama 3.2 3B",
+      "provider": "Meta",
+      "released": "2024-09",
+      "license": "open",
+      "params": 3,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 28,
+        "kvLayers": 28,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.015,
+        "output": 0.025
+      },
+      "cutoff": "2023-12",
+      "speed": 250,
+      "scores": {
+        "mmluPro": 33,
+        "gpqa": 28
+      },
+      "tags": [
+        "open-weights",
+        "laptop",
+        "edge"
+      ],
+      "url": "https://www.llama.com/docs/model-cards-and-prompt-formats/"
+    },
+    {
+      "id": "mistral-large-3",
+      "name": "Mistral Large 3",
+      "provider": "Mistral",
+      "released": "2025-12",
+      "license": "open",
+      "params": 675,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 88,
+        "kvLayers": 88,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 41,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "estimated"
+      },
+      "context": 256000,
+      "maxOutput": 32000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.5,
+        "output": 1.5
+      },
+      "cutoff": "2025-06",
+      "speed": 110,
+      "scores": {
+        "mmluPro": 78,
+        "gpqa": 68,
+        "swebench": 52,
+        "aime": 82,
+        "mmmu": 72
+      },
+      "tags": [
+        "open-weights",
+        "european"
+      ],
+      "url": "https://mistral.ai/models"
+    },
+    {
+      "id": "mistral-medium-3",
+      "name": "Mistral Medium 3",
+      "provider": "Mistral",
+      "released": "2025-05",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 128000,
+      "maxOutput": 32000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.4,
+        "output": 2
+      },
+      "cutoff": "2024-12",
+      "speed": 130,
+      "scores": {
+        "mmluPro": 70,
+        "gpqa": 56,
+        "swebench": 32,
+        "aime": 45,
+        "mmmu": 68
+      },
+      "tags": [
+        "cheap",
+        "european"
+      ],
+      "url": "https://mistral.ai/models"
+    },
+    {
+      "id": "magistral-medium",
+      "name": "Magistral Medium",
+      "provider": "Mistral",
+      "released": "2025-06",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 128000,
+      "maxOutput": 40000,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 2,
+        "output": 5
+      },
+      "cutoff": "2024-12",
+      "speed": 100,
+      "scores": {
+        "mmluPro": 72,
+        "gpqa": 62,
+        "swebench": 40,
+        "aime": 73
+      },
+      "tags": [
+        "reasoning",
+        "european"
+      ],
+      "url": "https://mistral.ai/models"
+    },
+    {
+      "id": "mistral-small-3-2",
+      "name": "Mistral Small 3.2 24B",
+      "provider": "Mistral",
+      "released": "2025-06",
+      "license": "open",
+      "params": 24,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 128000,
+      "maxOutput": 32000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.3
+      },
+      "cutoff": "2024-10",
+      "speed": 160,
+      "scores": {
+        "mmluPro": 60,
+        "gpqa": 44,
+        "swebench": 18,
+        "aime": 30,
+        "mmmu": 57
+      },
+      "tags": [
+        "open-weights",
+        "self-host"
+      ],
+      "url": "https://mistral.ai/models"
+    },
+    {
+      "id": "devstral-medium",
+      "name": "Devstral Medium",
+      "provider": "Mistral",
+      "released": "2025-07",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 256000,
+      "maxOutput": 32000,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.4,
+        "output": 2
+      },
+      "cutoff": "2024-12",
+      "speed": 130,
+      "scores": {
+        "swebench": 62
+      },
+      "tags": [
+        "coding",
+        "agentic-coding"
+      ],
+      "url": "https://mistral.ai/models"
+    },
+    {
+      "id": "ministral-8b",
+      "name": "Ministral 8B",
+      "provider": "Mistral",
+      "released": "2024-10",
+      "license": "open",
+      "params": 8,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 36,
+        "kvLayers": 36,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": 32768,
+        "globalEvery": 2,
+        "source": "config"
+      },
+      "context": 128000,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.1
+      },
+      "cutoff": "2024-06",
+      "speed": 240,
+      "scores": {
+        "mmluPro": 45,
+        "gpqa": 29,
+        "swebench": 4,
+        "aime": 10
+      },
+      "tags": [
+        "open-weights",
+        "laptop",
+        "edge"
+      ],
+      "url": "https://mistral.ai/models"
+    },
+    {
+      "id": "magistral-small",
+      "name": "Magistral Small 1.2",
+      "provider": "Mistral",
+      "released": "2025-09",
+      "license": "open",
+      "params": 24,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 128000,
+      "maxOutput": 40000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.3
+      },
+      "cutoff": "2024-10",
+      "speed": 130,
+      "scores": {
+        "mmluPro": 66,
+        "gpqa": 62,
+        "aime": 86,
+        "mmmu": 62
+      },
+      "tags": [
+        "open-weights",
+        "reasoning",
+        "self-host",
+        "european"
+      ],
+      "url": "https://docs.mistral.ai/getting-started/models/models_overview/"
+    },
+    {
+      "id": "devstral-small",
+      "name": "Devstral Small 1.1",
+      "provider": "Mistral",
+      "released": "2025-07",
+      "license": "open",
+      "params": 24,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 128000,
+      "maxOutput": 32000,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.3
+      },
+      "cutoff": "2024-10",
+      "speed": 130,
+      "scores": {
+        "mmluPro": 58,
+        "gpqa": 42,
+        "swebench": 53
+      },
+      "tags": [
+        "open-weights",
+        "coding",
+        "agentic-coding",
+        "self-host"
+      ],
+      "url": "https://docs.mistral.ai/getting-started/models/models_overview/"
+    },
+    {
+      "id": "pixtral-12b",
+      "name": "Pixtral 12B",
+      "provider": "Mistral",
+      "released": "2024-09",
+      "license": "open",
+      "params": 12,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 128000,
+      "maxOutput": 8192,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.1
+      },
+      "cutoff": "2024-04",
+      "speed": 140,
+      "scores": {
+        "mmluPro": 45,
+        "gpqa": 35,
+        "mmmu": 52
+      },
+      "tags": [
+        "open-weights",
+        "multimodal",
+        "self-host",
+        "european"
+      ],
+      "url": "https://docs.mistral.ai/getting-started/models/models_overview/"
+    },
+    {
+      "id": "mistral-nemo-12b",
+      "name": "Mistral NeMo 12B",
+      "provider": "Mistral",
+      "released": "2024-07",
+      "license": "open",
+      "params": 12,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 128000,
+      "maxOutput": 16000,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.04,
+        "output": 0.1
+      },
+      "cutoff": "2024-04",
+      "speed": 150,
+      "scores": {
+        "mmluPro": 44,
+        "gpqa": 32
+      },
+      "tags": [
+        "open-weights",
+        "self-host",
+        "european"
+      ],
+      "url": "https://docs.mistral.ai/getting-started/models/models_overview/"
+    },
+    {
+      "id": "deepseek-v3-2",
+      "name": "DeepSeek-V3.2",
+      "provider": "DeepSeek",
+      "released": "2025-12",
+      "license": "open",
+      "params": 685,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 61,
+        "kvLayers": 61,
+        "kvHeads": null,
+        "headDim": null,
+        "attn": "mla",
+        "kvLatentDim": 576,
+        "activeParams": 37,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 163840,
+      "maxOutput": 65536,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.28,
+        "output": 0.42
+      },
+      "cutoff": "2025-06",
+      "speed": 60,
+      "scores": {
+        "mmluPro": 82,
+        "gpqa": 76,
+        "swebench": 66,
+        "aime": 89,
+        "livecodebench": 89.6
+      },
+      "tags": [
+        "open-weights",
+        "cheap",
+        "reasoning"
+      ],
+      "url": "https://api-docs.deepseek.com/"
+    },
+    {
+      "id": "deepseek-r1",
+      "name": "DeepSeek-R1-0528",
+      "provider": "DeepSeek",
+      "released": "2025-05",
+      "license": "open",
+      "params": 685,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 61,
+        "kvLayers": 61,
+        "kvHeads": null,
+        "headDim": null,
+        "attn": "mla",
+        "kvLatentDim": 576,
+        "activeParams": 37,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 163840,
+      "maxOutput": 65536,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.55,
+        "output": 2.19
+      },
+      "cutoff": "2024-10",
+      "speed": 40,
+      "scores": {
+        "mmluPro": 81,
+        "gpqa": 71,
+        "swebench": 57,
+        "aime": 87
+      },
+      "tags": [
+        "open-weights",
+        "reasoning"
+      ],
+      "url": "https://api-docs.deepseek.com/"
+    },
+    {
+      "id": "deepseek-v3-1",
+      "name": "DeepSeek-V3.1",
+      "provider": "DeepSeek",
+      "released": "2025-08",
+      "license": "open",
+      "params": 685,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 61,
+        "kvLayers": 61,
+        "kvHeads": null,
+        "headDim": null,
+        "attn": "mla",
+        "kvLatentDim": 576,
+        "activeParams": 37,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.27,
+        "output": 1.1
+      },
+      "cutoff": "2024-12",
+      "speed": 60,
+      "scores": {
+        "mmluPro": 80,
+        "gpqa": 74,
+        "swebench": 62,
+        "aime": 88
+      },
+      "tags": [
+        "open-weights",
+        "cheap"
+      ],
+      "url": "https://api-docs.deepseek.com/"
+    },
+    {
+      "id": "deepseek-r1-distill-70b",
+      "name": "DeepSeek-R1 Distill Llama 70B",
+      "provider": "DeepSeek",
+      "released": "2025-01",
+      "license": "open",
+      "params": 70,
+      "localTier": "server",
+      "arch": {
+        "layers": 80,
+        "kvLayers": 80,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.4
+      },
+      "cutoff": "2024-07",
+      "speed": 90,
+      "scores": {
+        "mmluPro": 68,
+        "gpqa": 65,
+        "swebench": 20,
+        "aime": 70
+      },
+      "tags": [
+        "open-weights",
+        "reasoning",
+        "distilled",
+        "self-host"
+      ],
+      "url": "https://api-docs.deepseek.com/"
+    },
+    {
+      "id": "qwen3-235b",
+      "name": "Qwen3-235B-A22B",
+      "provider": "Alibaba",
+      "released": "2025-07",
+      "license": "open",
+      "params": 235,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 94,
+        "kvLayers": 94,
+        "kvHeads": 4,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 22,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 262144,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.2,
+        "output": 0.6
+      },
+      "cutoff": "2024-12",
+      "speed": 80,
+      "scores": {
+        "mmluPro": 80,
+        "gpqa": 71,
+        "swebench": 55,
+        "aime": 87
+      },
+      "tags": [
+        "open-weights",
+        "reasoning",
+        "cheap"
+      ],
+      "url": "https://qwenlm.github.io/"
+    },
+    {
+      "id": "qwen3-coder-480b",
+      "name": "Qwen3-Coder-480B",
+      "provider": "Alibaba",
+      "released": "2025-07",
+      "license": "open",
+      "params": 480,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 62,
+        "kvLayers": 62,
+        "kvHeads": 4,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 35,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 262144,
+      "maxOutput": 65536,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.3,
+        "output": 1.2
+      },
+      "cutoff": "2024-12",
+      "speed": 65,
+      "scores": {
+        "mmluPro": 76,
+        "gpqa": 63,
+        "swebench": 68,
+        "aime": 60
+      },
+      "tags": [
+        "open-weights",
+        "coding",
+        "agentic-coding"
+      ],
+      "url": "https://qwenlm.github.io/"
+    },
+    {
+      "id": "qwen3-32b",
+      "name": "Qwen3-32B",
+      "provider": "Alibaba",
+      "released": "2025-04",
+      "license": "open",
+      "params": 32,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 64,
+        "kvLayers": 64,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.3
+      },
+      "cutoff": "2024-12",
+      "speed": 120,
+      "scores": {
+        "mmluPro": 70,
+        "gpqa": 56,
+        "swebench": 30,
+        "aime": 72
+      },
+      "tags": [
+        "open-weights",
+        "self-host",
+        "reasoning"
+      ],
+      "url": "https://qwenlm.github.io/"
+    },
+    {
+      "id": "qwen3-8b",
+      "name": "Qwen3-8B",
+      "provider": "Alibaba",
+      "released": "2025-04",
+      "license": "open",
+      "params": 8,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 36,
+        "kvLayers": 36,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.04,
+        "output": 0.12
+      },
+      "cutoff": "2024-12",
+      "speed": 220,
+      "scores": {
+        "mmluPro": 56,
+        "gpqa": 42,
+        "swebench": 15,
+        "aime": 55
+      },
+      "tags": [
+        "open-weights",
+        "laptop",
+        "edge"
+      ],
+      "url": "https://qwenlm.github.io/"
+    },
+    {
+      "id": "qwen3-vl-30b",
+      "name": "Qwen3-VL-30B-A3B",
+      "provider": "Alibaba",
+      "released": "2025-10",
+      "license": "open",
+      "params": 30,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 48,
+        "kvLayers": 48,
+        "kvHeads": 4,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 3,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 262144,
+      "maxOutput": 32768,
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.3
+      },
+      "cutoff": "2025-01",
+      "speed": 150,
+      "scores": {
+        "mmluPro": 68,
+        "gpqa": 54,
+        "swebench": 28,
+        "aime": 68,
+        "mmmu": 68
+      },
+      "tags": [
+        "open-weights",
+        "multimodal",
+        "self-host"
+      ],
+      "url": "https://qwenlm.github.io/"
+    },
+    {
+      "id": "qwen3-next-80b",
+      "name": "Qwen3-Next 80B A3B",
+      "provider": "Alibaba",
+      "released": "2025-09",
+      "license": "open",
+      "params": 80,
+      "localTier": "server",
+      "arch": {
+        "layers": 48,
+        "kvLayers": 12,
+        "kvHeads": 2,
+        "headDim": 256,
+        "attn": "hybrid",
+        "kvLatentDim": null,
+        "activeParams": 3,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 262144,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.14,
+        "output": 1.4
+      },
+      "cutoff": "2025-04",
+      "speed": 200,
+      "scores": {
+        "mmluPro": 80,
+        "gpqa": 72,
+        "swebench": 40,
+        "aime": 87
+      },
+      "tags": [
+        "open-weights",
+        "efficient",
+        "long-context",
+        "self-host"
+      ],
+      "url": "https://qwen.readthedocs.io/en/latest/"
+    },
+    {
+      "id": "qwen3-30b-a3b",
+      "name": "Qwen3 30B A3B",
+      "provider": "Alibaba",
+      "released": "2025-07",
+      "license": "open",
+      "params": 30,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 48,
+        "kvLayers": 48,
+        "kvHeads": 4,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 3,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 262144,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.09,
+        "output": 0.45
+      },
+      "cutoff": "2025-03",
+      "speed": 180,
+      "scores": {
+        "mmluPro": 78,
+        "gpqa": 68,
+        "swebench": 35,
+        "aime": 85
+      },
+      "tags": [
+        "open-weights",
+        "efficient",
+        "self-host"
+      ],
+      "url": "https://qwen.readthedocs.io/en/latest/"
+    },
+    {
+      "id": "qwen3-14b",
+      "name": "Qwen3 14B",
+      "provider": "Alibaba",
+      "released": "2025-04",
+      "license": "open",
+      "params": 14,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 16384,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.06,
+        "output": 0.24
+      },
+      "cutoff": "2024-12",
+      "speed": 130,
+      "scores": {
+        "mmluPro": 71,
+        "gpqa": 60,
+        "swebench": 25,
+        "aime": 79
+      },
+      "tags": [
+        "open-weights",
+        "self-host"
+      ],
+      "url": "https://qwen.readthedocs.io/en/latest/"
+    },
+    {
+      "id": "qwen3-4b",
+      "name": "Qwen3 4B",
+      "provider": "Alibaba",
+      "released": "2025-08",
+      "license": "open",
+      "params": 4,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 36,
+        "kvLayers": 36,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 262144,
+      "maxOutput": 16384,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.03,
+        "output": 0.12
+      },
+      "cutoff": "2025-03",
+      "speed": 200,
+      "scores": {
+        "mmluPro": 65,
+        "gpqa": 52,
+        "swebench": 15,
+        "aime": 70
+      },
+      "tags": [
+        "open-weights",
+        "laptop",
+        "edge"
+      ],
+      "url": "https://qwen.readthedocs.io/en/latest/"
+    },
+    {
+      "id": "qwen3-vl-235b",
+      "name": "Qwen3-VL 235B A22B",
+      "provider": "Alibaba",
+      "released": "2025-09",
+      "license": "open",
+      "params": 235,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 94,
+        "kvLayers": 94,
+        "kvHeads": 4,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 22,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 262144,
+      "maxOutput": 32768,
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.3,
+        "output": 1.2
+      },
+      "cutoff": "2025-04",
+      "speed": 90,
+      "scores": {
+        "mmluPro": 82,
+        "gpqa": 74,
+        "swebench": 44,
+        "aime": 90,
+        "mmmu": 76
+      },
+      "tags": [
+        "open-weights",
+        "multimodal",
+        "long-context",
+        "reasoning"
+      ],
+      "url": "https://qwen.readthedocs.io/en/latest/"
+    },
+    {
+      "id": "qwen2-5-coder-32b",
+      "name": "Qwen2.5-Coder 32B",
+      "provider": "Alibaba",
+      "released": "2024-11",
+      "license": "open",
+      "params": 32,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 64,
+        "kvLayers": 64,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.07,
+        "output": 0.16
+      },
+      "cutoff": "2024-09",
+      "speed": 110,
+      "scores": {
+        "mmluPro": 55,
+        "gpqa": 40,
+        "swebench": 31
+      },
+      "tags": [
+        "open-weights",
+        "coding",
+        "self-host"
+      ],
+      "url": "https://qwen.readthedocs.io/en/latest/"
+    },
+    {
+      "id": "grok-4",
+      "name": "Grok 4",
+      "provider": "xAI",
+      "released": "2025-07",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 256000,
+      "maxOutput": 64000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 3,
+        "output": 15
+      },
+      "cutoff": "2024-11",
+      "speed": 60,
+      "scores": {
+        "mmluPro": 86,
+        "gpqa": 87,
+        "swebench": 72,
+        "aime": 93
+      },
+      "tags": [
+        "frontier",
+        "reasoning"
+      ],
+      "url": "https://docs.x.ai/docs/models"
+    },
+    {
+      "id": "grok-4-fast",
+      "name": "Grok 4 Fast",
+      "provider": "xAI",
+      "released": "2025-09",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 2000000,
+      "maxOutput": 64000,
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.2,
+        "output": 0.5
+      },
+      "cutoff": "2024-11",
+      "speed": 180,
+      "scores": {
+        "mmluPro": 82,
+        "gpqa": 80,
+        "swebench": 60,
+        "aime": 90
+      },
+      "tags": [
+        "fast",
+        "cheap",
+        "long-context"
+      ],
+      "url": "https://docs.x.ai/docs/models"
+    },
+    {
+      "id": "grok-3-mini",
+      "name": "Grok 3 Mini",
+      "provider": "xAI",
+      "released": "2025-02",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 131072,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.3,
+        "output": 0.5
+      },
+      "cutoff": "2024-11",
+      "speed": 160,
+      "scores": {
+        "mmluPro": 72,
+        "gpqa": 66,
+        "swebench": 40,
+        "aime": 80
+      },
+      "tags": [
+        "cheap",
+        "reasoning"
+      ],
+      "url": "https://docs.x.ai/docs/models"
+    },
+    {
+      "id": "kimi-k2",
+      "name": "Kimi K2 Thinking",
+      "provider": "Moonshot",
+      "released": "2025-11",
+      "license": "open",
+      "params": 1000,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 61,
+        "kvLayers": 61,
+        "kvHeads": null,
+        "headDim": null,
+        "attn": "mla",
+        "kvLatentDim": 576,
+        "activeParams": 32,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 262144,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.6,
+        "output": 2.5
+      },
+      "cutoff": "2025-04",
+      "speed": 50,
+      "scores": {
+        "mmluPro": 83,
+        "gpqa": 78,
+        "swebench": 71,
+        "aime": 90
+      },
+      "tags": [
+        "open-weights",
+        "agentic-coding",
+        "reasoning"
+      ],
+      "url": "https://platform.moonshot.ai/"
+    },
+    {
+      "id": "kimi-k2-thinking",
+      "name": "Kimi K2 Thinking",
+      "provider": "Moonshot",
+      "released": "2025-11",
+      "license": "open",
+      "params": 1000,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 61,
+        "kvLayers": 61,
+        "kvHeads": null,
+        "headDim": null,
+        "attn": "mla",
+        "kvLatentDim": 576,
+        "activeParams": 32,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 262144,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.6,
+        "output": 2.5
+      },
+      "cutoff": "2025-04",
+      "speed": 60,
+      "scores": {
+        "mmluPro": 84,
+        "gpqa": 78,
+        "swebench": 71,
+        "aime": 94
+      },
+      "tags": [
+        "open-weights",
+        "reasoning",
+        "agentic-coding",
+        "long-horizon"
+      ],
+      "url": "https://platform.moonshot.ai/docs"
+    },
+    {
+      "id": "glm-4-6",
+      "name": "GLM-4.6",
+      "provider": "Zhipu",
+      "released": "2025-09",
+      "license": "open",
+      "params": 357,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 92,
+        "kvLayers": 92,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 32,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 204800,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.6,
+        "output": 2.2
+      },
+      "cutoff": "2025-03",
+      "speed": 70,
+      "scores": {
+        "mmluPro": 79,
+        "gpqa": 72,
+        "swebench": 68,
+        "aime": 85
+      },
+      "tags": [
+        "open-weights",
+        "agentic-coding",
+        "cheap"
+      ],
+      "url": "https://docs.z.ai/"
+    },
+    {
+      "id": "glm-4-5-air",
+      "name": "GLM-4.5-Air",
+      "provider": "Zhipu",
+      "released": "2025-07",
+      "license": "open",
+      "params": 106,
+      "localTier": "server",
+      "arch": {
+        "layers": 46,
+        "kvLayers": 46,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 12,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.2,
+        "output": 1.1
+      },
+      "cutoff": "2025-03",
+      "speed": 110,
+      "scores": {
+        "mmluPro": 78,
+        "gpqa": 70,
+        "swebench": 57,
+        "aime": 85
+      },
+      "tags": [
+        "open-weights",
+        "agentic-coding",
+        "cheap",
+        "self-host"
+      ],
+      "url": "https://docs.z.ai/guides/llm/glm-4.5"
+    },
+    {
+      "id": "minimax-m2",
+      "name": "MiniMax-M2",
+      "provider": "MiniMax",
+      "released": "2025-10",
+      "license": "open",
+      "params": 230,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 62,
+        "kvLayers": 62,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 10,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 204800,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.3,
+        "output": 1.2
+      },
+      "cutoff": "2025-03",
+      "speed": 90,
+      "scores": {
+        "mmluPro": 78,
+        "gpqa": 70,
+        "swebench": 65,
+        "aime": 84
+      },
+      "tags": [
+        "open-weights",
+        "agentic-coding",
+        "cheap"
+      ],
+      "url": "https://www.minimax.io/"
+    },
+    {
+      "id": "command-a",
+      "name": "Command A",
+      "provider": "Cohere",
+      "released": "2025-03",
+      "license": "open",
+      "params": 111,
+      "localTier": "server",
+      "arch": {
+        "layers": 64,
+        "kvLayers": 64,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": 4096,
+        "globalEvery": 4,
+        "source": "config"
+      },
+      "context": 256000,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 2.5,
+        "output": 10
+      },
+      "cutoff": "2024-06",
+      "speed": 150,
+      "scores": {
+        "mmluPro": 65,
+        "gpqa": 50,
+        "swebench": 22,
+        "aime": 30
+      },
+      "tags": [
+        "open-weights",
+        "enterprise",
+        "rag"
+      ],
+      "url": "https://docs.cohere.com/docs/models"
+    },
+    {
+      "id": "command-a-reasoning",
+      "name": "Command A Reasoning",
+      "provider": "Cohere",
+      "released": "2025-08",
+      "license": "open",
+      "params": 111,
+      "localTier": "server",
+      "arch": {
+        "layers": 64,
+        "kvLayers": 64,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": 4096,
+        "globalEvery": 4,
+        "source": "config"
+      },
+      "context": 262144,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.25,
+        "output": 1
+      },
+      "cutoff": "2025-01",
+      "speed": 90,
+      "scores": {
+        "mmluPro": 72,
+        "gpqa": 62,
+        "swebench": 30,
+        "aime": 80
+      },
+      "tags": [
+        "open-weights",
+        "reasoning",
+        "enterprise"
+      ],
+      "url": "https://docs.cohere.com/docs/models"
+    },
+    {
+      "id": "command-r7b",
+      "name": "Command R7B",
+      "provider": "Cohere",
+      "released": "2024-12",
+      "license": "open",
+      "params": 7,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 32,
+        "kvLayers": 32,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": 4096,
+        "globalEvery": 4,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 4096,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.0375,
+        "output": 0.15
+      },
+      "cutoff": "2024-06",
+      "speed": 200,
+      "scores": {
+        "mmluPro": 40,
+        "gpqa": 30
+      },
+      "tags": [
+        "open-weights",
+        "rag",
+        "laptop",
+        "edge"
+      ],
+      "url": "https://docs.cohere.com/docs/models"
+    },
+    {
+      "id": "nova-pro",
+      "name": "Amazon Nova Pro",
+      "provider": "Amazon",
+      "released": "2024-12",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 300000,
+      "maxOutput": 10000,
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.8,
+        "output": 3.2
+      },
+      "cutoff": "2024-08",
+      "speed": 120,
+      "scores": {
+        "mmluPro": 63,
+        "gpqa": 47,
+        "swebench": 20,
+        "aime": 25,
+        "mmmu": 62
+      },
+      "tags": [
+        "multimodal",
+        "enterprise"
+      ],
+      "url": "https://docs.aws.amazon.com/nova/"
+    },
+    {
+      "id": "nova-lite",
+      "name": "Amazon Nova Lite",
+      "provider": "Amazon",
+      "released": "2024-12",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 300000,
+      "maxOutput": 5000,
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.06,
+        "output": 0.24
+      },
+      "cutoff": "2024-06",
+      "speed": 200,
+      "scores": {
+        "mmluPro": 45,
+        "gpqa": 42,
+        "mmmu": 52
+      },
+      "tags": [
+        "cheap",
+        "multimodal",
+        "high-volume"
+      ],
+      "url": "https://docs.aws.amazon.com/nova/latest/userguide/"
+    },
+    {
+      "id": "nova-micro",
+      "name": "Amazon Nova Micro",
+      "provider": "Amazon",
+      "released": "2024-12",
+      "license": "proprietary",
+      "params": null,
+      "localTier": null,
+      "context": 128000,
+      "maxOutput": 5000,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.035,
+        "output": 0.14
+      },
+      "cutoff": "2024-06",
+      "speed": 250,
+      "scores": {
+        "mmluPro": 40,
+        "gpqa": 35
+      },
+      "tags": [
+        "cheap",
+        "fast",
+        "high-volume"
+      ],
+      "url": "https://docs.aws.amazon.com/nova/latest/userguide/"
+    },
+    {
+      "id": "phi-4",
+      "name": "Phi-4 14B",
+      "provider": "Microsoft",
+      "released": "2024-12",
+      "license": "open",
+      "params": 14,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 10,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 16000,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.07,
+        "output": 0.14
+      },
+      "cutoff": "2024-06",
+      "speed": 170,
+      "scores": {
+        "mmluPro": 56,
+        "gpqa": 42,
+        "swebench": 12,
+        "aime": 25
+      },
+      "tags": [
+        "open-weights",
+        "self-host",
+        "small"
+      ],
+      "url": "https://azure.microsoft.com/en-us/products/phi"
+    },
+    {
+      "id": "phi-4-mini",
+      "name": "Phi-4-mini 3.8B",
+      "provider": "Microsoft",
+      "released": "2025-02",
+      "license": "open",
+      "params": 4,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 32,
+        "kvLayers": 32,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 128000,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.02,
+        "output": 0.05
+      },
+      "cutoff": "2024-06",
+      "speed": 260,
+      "scores": {
+        "mmluPro": 45,
+        "gpqa": 30,
+        "swebench": 6,
+        "aime": 12
+      },
+      "tags": [
+        "open-weights",
+        "laptop",
+        "edge"
+      ],
+      "url": "https://azure.microsoft.com/en-us/products/phi"
+    },
+    {
+      "id": "phi-4-reasoning-plus",
+      "name": "Phi-4-reasoning-plus",
+      "provider": "Microsoft",
+      "released": "2025-04",
+      "license": "open",
+      "params": 14,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 10,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 32768,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.07,
+        "output": 0.35
+      },
+      "cutoff": "2024-06",
+      "speed": 120,
+      "scores": {
+        "mmluPro": 62,
+        "gpqa": 68,
+        "aime": 81
+      },
+      "tags": [
+        "open-weights",
+        "reasoning",
+        "self-host",
+        "small"
+      ],
+      "url": "https://huggingface.co/microsoft/Phi-4-reasoning-plus"
+    },
+    {
+      "id": "nemotron-super-49b",
+      "name": "Llama 3.3 Nemotron Super 49B",
+      "provider": "NVIDIA",
+      "released": "2025-08",
+      "license": "open",
+      "params": 49,
+      "localTier": "server",
+      "arch": {
+        "layers": 80,
+        "kvLayers": 64,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "estimated"
+      },
+      "context": 131072,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.4
+      },
+      "cutoff": "2024-12",
+      "speed": 120,
+      "scores": {
+        "mmluPro": 70,
+        "gpqa": 64,
+        "swebench": 25,
+        "aime": 82
+      },
+      "tags": [
+        "open-weights",
+        "reasoning",
+        "efficient",
+        "self-host"
+      ],
+      "url": "https://build.nvidia.com/nvidia"
+    },
+    {
+      "id": "nemotron-nano-9b",
+      "name": "Nemotron Nano 9B V2",
+      "provider": "NVIDIA",
+      "released": "2025-08",
+      "license": "open",
+      "params": 9,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 56,
+        "kvLayers": 4,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "hybrid",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 16384,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.04,
+        "output": 0.16
+      },
+      "cutoff": "2024-09",
+      "speed": 220,
+      "scores": {
+        "mmluPro": 62,
+        "gpqa": 55,
+        "aime": 72
+      },
+      "tags": [
+        "open-weights",
+        "reasoning",
+        "laptop",
+        "edge"
+      ],
+      "url": "https://build.nvidia.com/nvidia"
+    },
+    {
+      "id": "olmo-3-32b",
+      "name": "OLMo 3 32B Think",
+      "provider": "Allen AI",
+      "released": "2025-11",
+      "license": "open",
+      "params": 32,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 64,
+        "kvLayers": 64,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 65536,
+      "maxOutput": 16384,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.2,
+        "output": 0.6
+      },
+      "cutoff": "2024-12",
+      "speed": 90,
+      "scores": {
+        "mmluPro": 60,
+        "gpqa": 50,
+        "aime": 68
+      },
+      "tags": [
+        "open-weights",
+        "fully-open",
+        "research",
+        "self-host"
+      ],
+      "url": "https://allenai.org/olmo"
+    },
+    {
+      "id": "olmo-3-7b",
+      "name": "OLMo 3 7B Instruct",
+      "provider": "Allen AI",
+      "released": "2025-11",
+      "license": "open",
+      "params": 7,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 32,
+        "kvLayers": 32,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 65536,
+      "maxOutput": 16384,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.06,
+        "output": 0.18
+      },
+      "cutoff": "2024-12",
+      "speed": 180,
+      "scores": {
+        "mmluPro": 48,
+        "gpqa": 38,
+        "aime": 52
+      },
+      "tags": [
+        "open-weights",
+        "fully-open",
+        "research",
+        "laptop"
+      ],
+      "url": "https://allenai.org/olmo"
+    },
+    {
+      "id": "granite-4-h-small",
+      "name": "Granite 4.0 H Small",
+      "provider": "IBM",
+      "released": "2025-10",
+      "license": "open",
+      "params": 32,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 8,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "hybrid",
+        "kvLatentDim": null,
+        "activeParams": 9,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 16384,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.06,
+        "output": 0.25
+      },
+      "cutoff": "2024-12",
+      "speed": 150,
+      "scores": {
+        "mmluPro": 55,
+        "gpqa": 42,
+        "swebench": 20
+      },
+      "tags": [
+        "open-weights",
+        "enterprise",
+        "efficient",
+        "self-host"
+      ],
+      "url": "https://www.ibm.com/granite/docs/"
+    },
+    {
+      "id": "granite-4-micro",
+      "name": "Granite 4.0 Micro",
+      "provider": "IBM",
+      "released": "2025-10",
+      "license": "open",
+      "params": 3,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.02,
+        "output": 0.06
+      },
+      "cutoff": "2024-12",
+      "speed": 260,
+      "scores": {
+        "mmluPro": 38,
+        "gpqa": 28
+      },
+      "tags": [
+        "open-weights",
+        "enterprise",
+        "laptop",
+        "edge"
+      ],
+      "url": "https://www.ibm.com/granite/docs/"
+    },
+    {
+      "id": "hunyuan-a13b",
+      "name": "Hunyuan A13B",
+      "provider": "Tencent",
+      "released": "2025-06",
+      "license": "open",
+      "params": 80,
+      "localTier": "server",
+      "arch": {
+        "layers": 32,
+        "kvLayers": 32,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 13,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 262144,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.4
+      },
+      "cutoff": "2024-12",
+      "speed": 160,
+      "scores": {
+        "mmluPro": 65,
+        "gpqa": 60,
+        "aime": 78
+      },
+      "tags": [
+        "open-weights",
+        "efficient",
+        "self-host"
+      ],
+      "url": "https://huggingface.co/tencent/Hunyuan-A13B-Instruct"
+    },
+    {
+      "id": "ernie-4-5-300b",
+      "name": "ERNIE 4.5 300B A47B",
+      "provider": "Baidu",
+      "released": "2025-06",
+      "license": "open",
+      "params": 300,
+      "localTier": "cluster",
+      "arch": {
+        "layers": 54,
+        "kvLayers": 54,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": 47,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 16384,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.28,
+        "output": 1.1
+      },
+      "cutoff": "2024-12",
+      "speed": 80,
+      "scores": {
+        "mmluPro": 72,
+        "gpqa": 62
+      },
+      "tags": [
+        "open-weights",
+        "multilingual"
+      ],
+      "url": "https://ernie.baidu.com/"
+    },
+    {
+      "id": "seed-oss-36b",
+      "name": "Seed-OSS 36B Instruct",
+      "provider": "ByteDance",
+      "released": "2025-08",
+      "license": "open",
+      "params": 36,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 64,
+        "kvLayers": 64,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 524288,
+      "maxOutput": 32768,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.1,
+        "output": 0.4
+      },
+      "cutoff": "2024-12",
+      "speed": 110,
+      "scores": {
+        "mmluPro": 68,
+        "gpqa": 62,
+        "swebench": 56,
+        "aime": 80
+      },
+      "tags": [
+        "open-weights",
+        "long-context",
+        "reasoning",
+        "self-host"
+      ],
+      "url": "https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct"
+    },
+    {
+      "id": "falcon-3-10b",
+      "name": "Falcon 3 10B Instruct",
+      "provider": "TII",
+      "released": "2024-12",
+      "license": "open",
+      "params": 10,
+      "localTier": "workstation",
+      "arch": {
+        "layers": 40,
+        "kvLayers": 40,
+        "kvHeads": 4,
+        "headDim": 256,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 32768,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.05,
+        "output": 0.1
+      },
+      "cutoff": "2024-06",
+      "speed": 150,
+      "scores": {
+        "mmluPro": 42,
+        "gpqa": 33
+      },
+      "tags": [
+        "open-weights",
+        "self-host"
+      ],
+      "url": "https://huggingface.co/tiiuae/Falcon3-10B-Instruct"
+    },
+    {
+      "id": "smollm3-3b",
+      "name": "SmolLM3 3B",
+      "provider": "Hugging Face",
+      "released": "2025-07",
+      "license": "open",
+      "params": 3,
+      "localTier": "laptop",
+      "arch": {
+        "layers": 36,
+        "kvLayers": 36,
+        "kvHeads": 4,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 131072,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": true,
+      "pricing": {
+        "input": 0.02,
+        "output": 0.05
+      },
+      "cutoff": "2025-01",
+      "speed": 260,
+      "scores": {
+        "mmluPro": 38,
+        "gpqa": 30
+      },
+      "tags": [
+        "open-weights",
+        "fully-open",
+        "laptop",
+        "edge"
+      ],
+      "url": "https://huggingface.co/HuggingFaceTB/SmolLM3-3B"
+    },
+    {
+      "id": "jamba-mini-1-7",
+      "name": "Jamba Mini 1.7",
+      "provider": "AI21",
+      "released": "2025-07",
+      "license": "open",
+      "params": 52,
+      "localTier": "server",
+      "arch": {
+        "layers": 32,
+        "kvLayers": 4,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "hybrid",
+        "kvLatentDim": null,
+        "activeParams": 12,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 262144,
+      "maxOutput": 4096,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.2,
+        "output": 0.4
+      },
+      "cutoff": "2024-08",
+      "speed": 150,
+      "scores": {
+        "mmluPro": 45,
+        "gpqa": 35
+      },
+      "tags": [
+        "open-weights",
+        "long-context",
+        "efficient"
+      ],
+      "url": "https://docs.ai21.com/docs/jamba-models"
+    },
+    {
+      "id": "apertus-70b",
+      "name": "Apertus 70B Instruct",
+      "provider": "Swiss AI",
+      "released": "2025-09",
+      "license": "open",
+      "params": 70,
+      "localTier": "server",
+      "arch": {
+        "layers": 80,
+        "kvLayers": 80,
+        "kvHeads": 8,
+        "headDim": 128,
+        "attn": "gqa",
+        "kvLatentDim": null,
+        "activeParams": null,
+        "slidingWindow": null,
+        "globalEvery": null,
+        "source": "config"
+      },
+      "context": 65536,
+      "maxOutput": 8192,
+      "modalities": [
+        "text"
+      ],
+      "reasoning": false,
+      "pricing": {
+        "input": 0.2,
+        "output": 0.6
+      },
+      "cutoff": "2024-12",
+      "speed": 80,
+      "scores": {
+        "mmluPro": 45,
+        "gpqa": 33
+      },
+      "tags": [
+        "open-weights",
+        "fully-open",
+        "multilingual",
+        "european"
+      ],
+      "url": "https://huggingface.co/swiss-ai/Apertus-70B-Instruct-2509"
+    }
+  ]
+}

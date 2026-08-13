@@ -1,0 +1,1060 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-labels.v1",
+  "eligibility_blinded_to_parser_output": true,
+  "sample_size": 150,
+  "labels": [
+    {
+      "rank": 1,
+      "repository": "adaptiveliquidity/Nexus",
+      "pull_request": 23,
+      "eligible": false,
+      "reason": "dashboard_visibility_fix_without_corrected_claim_pair"
+    },
+    {
+      "rank": 2,
+      "repository": "AIwork4me/MinerU-ROCm",
+      "pull_request": 22,
+      "eligible": false,
+      "reason": "new_benchmark_claims_without_preexisting_numeric_pair"
+    },
+    {
+      "rank": 3,
+      "repository": "SemiAnalysisAI/InferenceX-app",
+      "pull_request": 685,
+      "eligible": false,
+      "reason": "metric_storage_fix_without_corrected_published_claim_pair"
+    },
+    {
+      "rank": 4,
+      "repository": "a11to1n3/AMBER",
+      "pull_request": 6,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 5,
+      "repository": "eaftan/safere",
+      "pull_request": 670,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 6,
+      "repository": "tile-ai/TileOPs",
+      "pull_request": 1745,
+      "eligible": false,
+      "reason": "benchmark_harness_reliability_fix_without_claim_pair"
+    },
+    {
+      "rank": 7,
+      "repository": "Coldwings/Elio",
+      "pull_request": 594,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 8,
+      "repository": "raveeshupahuja/sapientpriors",
+      "pull_request": 1,
+      "eligible": false,
+      "reason": "new_benchmark_claims_without_preexisting_numeric_pair"
+    },
+    {
+      "rank": 9,
+      "repository": "php-debugger/php-debugger",
+      "pull_request": 58,
+      "eligible": false,
+      "reason": "benchmark_calculation_code_fix_without_published_claim_pair"
+    },
+    {
+      "rank": 10,
+      "repository": "sigure-0424/Decision-Process-order-driven",
+      "pull_request": 2,
+      "eligible": false,
+      "reason": "incorrect_or_stale_claim_removed_without_corrected_numeric_value"
+    },
+    {
+      "rank": 11,
+      "repository": "eaftan/safere",
+      "pull_request": 666,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 12,
+      "repository": "apache/datafusion-comet",
+      "pull_request": 5284,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 13,
+      "repository": "kreasof-ai/atma",
+      "pull_request": 25,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 14,
+      "repository": "de-Boer-Lab/Genomic-API-for-Model-Evaluation",
+      "pull_request": 84,
+      "eligible": false,
+      "reason": "job_submission_documentation_without_result_correction"
+    },
+    {
+      "rank": 15,
+      "repository": "elizaOS/eliza",
+      "pull_request": 10686,
+      "eligible": false,
+      "reason": "review_packaging_feature_without_result_correction"
+    },
+    {
+      "rank": 16,
+      "repository": "Charliesj0129/subhft",
+      "pull_request": 387,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 17,
+      "repository": "kent-tokyo/renkin",
+      "pull_request": 111,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 18,
+      "repository": "anvai-labs/victor",
+      "pull_request": 718,
+      "eligible": false,
+      "reason": "benchmark_recording_code_fix_without_published_claim_pair"
+    },
+    {
+      "rank": 19,
+      "repository": "neogeek/onlybuild",
+      "pull_request": 44,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 20,
+      "repository": "hunterhhunter/ML-HW-Benchmark-Framework",
+      "pull_request": 13,
+      "eligible": false,
+      "reason": "benchmark_row_deduplication_without_published_claim_pair"
+    },
+    {
+      "rank": 21,
+      "repository": "vicaroai/tokens-per-second",
+      "pull_request": 7,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 22,
+      "repository": "cuioss/TokenSheriff",
+      "pull_request": 528,
+      "eligible": false,
+      "reason": "benchmark_integrity_code_changes_without_immutable_old_new_claim_pair"
+    },
+    {
+      "rank": 23,
+      "repository": "SpareCores/sc-crawler",
+      "pull_request": 119,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 24,
+      "repository": "gianlucamazza/emotional-memory",
+      "pull_request": 112,
+      "eligible": true,
+      "reason": "same_intended_x2_evaluation_corrected_after_harness_bug",
+      "case_id": "emotional-memory-esmemeval-correction"
+    },
+    {
+      "rank": 25,
+      "repository": "physiomelinks/circulatory_autogen",
+      "pull_request": 285,
+      "eligible": false,
+      "reason": "publication_pipeline_fix_without_corrected_numeric_pair"
+    },
+    {
+      "rank": 26,
+      "repository": "CloudlyIO/torchbridge",
+      "pull_request": 103,
+      "eligible": false,
+      "reason": "new_benchmark_claims_without_preexisting_numeric_pair"
+    },
+    {
+      "rank": 27,
+      "repository": "google-ml-infra/bap",
+      "pull_request": 34,
+      "eligible": false,
+      "reason": "branch_metadata_fix_without_numeric_result_correction"
+    },
+    {
+      "rank": 28,
+      "repository": "Smart-AI-Memory/attune-ai",
+      "pull_request": 1319,
+      "eligible": false,
+      "reason": "first_valid_results_added_after_harness_bug_fix_without_prior_valid_pair"
+    },
+    {
+      "rank": 29,
+      "repository": "LearningCircuit/local-deep-research",
+      "pull_request": 5376,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 30,
+      "repository": "wellwelwel/poku",
+      "pull_request": 1137,
+      "eligible": false,
+      "reason": "implementation_change_without_corrected_report_claim"
+    },
+    {
+      "rank": 31,
+      "repository": "nirmaljingar/enterprise-ai-decision-systems",
+      "pull_request": 26,
+      "eligible": false,
+      "reason": "new_benchmark_claims_without_preexisting_numeric_pair"
+    },
+    {
+      "rank": 32,
+      "repository": "esphome-libs/micro-mp3",
+      "pull_request": 53,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 33,
+      "repository": "wickra-lib/wickra-genome",
+      "pull_request": 15,
+      "eligible": false,
+      "reason": "new_benchmark_claims_without_preexisting_numeric_pair"
+    },
+    {
+      "rank": 34,
+      "repository": "v-sekai-multiplayer-fabric/interactor-weft",
+      "pull_request": 58,
+      "eligible": false,
+      "reason": "old_and_new_numbers_measure_different_store_implementations"
+    },
+    {
+      "rank": 35,
+      "repository": "sidick/amiauth",
+      "pull_request": 87,
+      "eligible": false,
+      "reason": "new_benchmark_claims_without_preexisting_numeric_pair"
+    },
+    {
+      "rank": 36,
+      "repository": "gokern/werr",
+      "pull_request": 6,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 37,
+      "repository": "graphistry/pygraphistry",
+      "pull_request": 1813,
+      "eligible": false,
+      "reason": "incorrect_or_stale_claim_removed_without_corrected_numeric_value"
+    },
+    {
+      "rank": 38,
+      "repository": "kmatzen/s3lfs",
+      "pull_request": 130,
+      "eligible": false,
+      "reason": "new_real_s3_measurement_after_implementation_fix"
+    },
+    {
+      "rank": 39,
+      "repository": "Zennoxa/shield",
+      "pull_request": 4,
+      "eligible": false,
+      "reason": "incorrect_or_stale_claim_removed_without_corrected_numeric_value"
+    },
+    {
+      "rank": 40,
+      "repository": "nubo-db/dynoxide",
+      "pull_request": 88,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 41,
+      "repository": "aurelianware/cloudhealthoffice",
+      "pull_request": 986,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 42,
+      "repository": "codecoradev/uteke",
+      "pull_request": 847,
+      "eligible": false,
+      "reason": "new_benchmark_claims_without_preexisting_numeric_pair"
+    },
+    {
+      "rank": 43,
+      "repository": "ubugeeei-prod/ox-content",
+      "pull_request": 526,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 44,
+      "repository": "entireio/entire-graph",
+      "pull_request": 58,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 45,
+      "repository": "nubo-db/dynoxide",
+      "pull_request": 114,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 46,
+      "repository": "timasoft/hypervox",
+      "pull_request": 26,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 47,
+      "repository": "baldawarishi/quamina-rs",
+      "pull_request": 192,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 48,
+      "repository": "rnabioco/fqxv",
+      "pull_request": 214,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 49,
+      "repository": "SponsioLabs/Sponsio",
+      "pull_request": 120,
+      "eligible": false,
+      "reason": "new_benchmark_claims_without_preexisting_numeric_pair"
+    },
+    {
+      "rank": 50,
+      "repository": "priyanshup/Quor",
+      "pull_request": 91,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 51,
+      "repository": "Krako-Labs/KORA",
+      "pull_request": 285,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 52,
+      "repository": "kubb-labs/docs",
+      "pull_request": 172,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 53,
+      "repository": "Ulzuhan/private-ai-stack",
+      "pull_request": 7,
+      "eligible": false,
+      "reason": "new_benchmark_claims_without_preexisting_numeric_pair"
+    },
+    {
+      "rank": 54,
+      "repository": "ray-di/Ray.Compiler",
+      "pull_request": 142,
+      "eligible": false,
+      "reason": "new_benchmark_claims_without_preexisting_numeric_pair"
+    },
+    {
+      "rank": 55,
+      "repository": "vshulcz/deja-vu",
+      "pull_request": 326,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 56,
+      "repository": "wickra-lib/wickra-proof",
+      "pull_request": 28,
+      "eligible": false,
+      "reason": "new_benchmark_claims_without_preexisting_numeric_pair"
+    },
+    {
+      "rank": 57,
+      "repository": "nubo-db/dynoxide",
+      "pull_request": 165,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 58,
+      "repository": "foyzulkarim/claude-lens",
+      "pull_request": 117,
+      "eligible": false,
+      "reason": "new_benchmark_claims_without_preexisting_numeric_pair"
+    },
+    {
+      "rank": 59,
+      "repository": "triple-mu/fast-ulysses",
+      "pull_request": 7,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 60,
+      "repository": "aralroca/Janux",
+      "pull_request": 94,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 61,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 1128,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 62,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 827,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 63,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 1223,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 64,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 1129,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 65,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 849,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 66,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 746,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 67,
+      "repository": "shaqmughal/seekstone.dev",
+      "pull_request": 38,
+      "eligible": false,
+      "reason": "comparison_set_expanded_from_six_to_eight_systems"
+    },
+    {
+      "rank": 68,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 1125,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 69,
+      "repository": "ditto-assistant/ditto-platform",
+      "pull_request": 205,
+      "eligible": false,
+      "reason": "stale_contract_recovery_feature_not_numeric_claim_correction"
+    },
+    {
+      "rank": 70,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 353,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 71,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 906,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 72,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 805,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 73,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 830,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 74,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 912,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 75,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 950,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 76,
+      "repository": "ditto-assistant/ditto-platform",
+      "pull_request": 241,
+      "eligible": false,
+      "reason": "benchmark_ticket_lifecycle_fix_not_numeric_claim_correction"
+    },
+    {
+      "rank": 77,
+      "repository": "fryingjy/interactive-agent-blender",
+      "pull_request": 14,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 78,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 811,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 79,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 1132,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 80,
+      "repository": "repowise-dev/repowise",
+      "pull_request": 1338,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 81,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 212,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 82,
+      "repository": "1bit-systems/1bit-systems",
+      "pull_request": 896,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 83,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 1119,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 84,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 767,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 85,
+      "repository": "smith-horn/skillsmith",
+      "pull_request": 1816,
+      "eligible": false,
+      "reason": "incorrect_or_stale_claim_removed_without_corrected_numeric_value"
+    },
+    {
+      "rank": 86,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 1170,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 87,
+      "repository": "yimwoo/codex-agenteam",
+      "pull_request": 52,
+      "eligible": false,
+      "reason": "stale_state_rejection_fix_without_corrected_result_pair"
+    },
+    {
+      "rank": 88,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 616,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 89,
+      "repository": "otenim/bagwiz",
+      "pull_request": 8,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 90,
+      "repository": "agonza1/rtc-asr",
+      "pull_request": 1121,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 91,
+      "repository": "MnemOnicE/credon-core",
+      "pull_request": 36,
+      "eligible": false,
+      "reason": "benchmark_related_typo_or_label_fix_not_numeric_result_claim"
+    },
+    {
+      "rank": 92,
+      "repository": "iscar-ucm/xdevs_no_std.rs",
+      "pull_request": 27,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 93,
+      "repository": "sx4im/skillcheck",
+      "pull_request": 32,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 94,
+      "repository": "Jamie05351/SiphonDSP_J",
+      "pull_request": 94,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 95,
+      "repository": "zeddo123/mlsolid",
+      "pull_request": 55,
+      "eligible": false,
+      "reason": "benchmark_related_typo_or_label_fix_not_numeric_result_claim"
+    },
+    {
+      "rank": 96,
+      "repository": "baidu/vLLM-Kunlun",
+      "pull_request": 341,
+      "eligible": false,
+      "reason": "benchmark_related_typo_or_label_fix_not_numeric_result_claim"
+    },
+    {
+      "rank": 97,
+      "repository": "jx-wang-s-group/JAX-AMG",
+      "pull_request": 10,
+      "eligible": false,
+      "reason": "implementation_optimization_and_baseline_fix_without_published_pair"
+    },
+    {
+      "rank": 98,
+      "repository": "alpacfer/danote",
+      "pull_request": 3,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 99,
+      "repository": "tangle-network/agent-runtime",
+      "pull_request": 420,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 100,
+      "repository": "remal-github-actions/bump-repository-activity",
+      "pull_request": 2878,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 101,
+      "repository": "pytorch/ao",
+      "pull_request": 4547,
+      "eligible": false,
+      "reason": "benchmark_related_typo_or_label_fix_not_numeric_result_claim"
+    },
+    {
+      "rank": 102,
+      "repository": "tasshi-me/configs",
+      "pull_request": 5,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 103,
+      "repository": "Washi1337/AsmResolver",
+      "pull_request": 761,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 104,
+      "repository": "aio-libs/multidict",
+      "pull_request": 1335,
+      "eligible": false,
+      "reason": "benchmark_related_typo_or_label_fix_not_numeric_result_claim"
+    },
+    {
+      "rank": 105,
+      "repository": "JuliaQUBO/QUBONotebooks",
+      "pull_request": 82,
+      "eligible": false,
+      "reason": "mathematical_notebook_correction_not_benchmark_result_claim"
+    },
+    {
+      "rank": 106,
+      "repository": "gurunave/llmcompare",
+      "pull_request": 18,
+      "eligible": true,
+      "reason": "same_model_and_swebench_metric_catalog_value_corrected",
+      "case_id": "llmcompare-opus5-swebench"
+    },
+    {
+      "rank": 107,
+      "repository": "SciML/ModelingToolkit.jl",
+      "pull_request": 4945,
+      "eligible": false,
+      "reason": "benchmark_dependency_import_fix_without_result_pair"
+    },
+    {
+      "rank": 108,
+      "repository": "DragonSecurity/buddy-mcp",
+      "pull_request": 13,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 109,
+      "repository": "SciML/ParallelParticleSwarms.jl",
+      "pull_request": 95,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 110,
+      "repository": "spacemit-com/model-zoo-llm",
+      "pull_request": 4,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 111,
+      "repository": "WebKit/WebKit",
+      "pull_request": 61164,
+      "eligible": false,
+      "reason": "benchmark_related_typo_or_label_fix_not_numeric_result_claim"
+    },
+    {
+      "rank": 112,
+      "repository": "ai-dynamo/nixl",
+      "pull_request": 2068,
+      "eligible": false,
+      "reason": "benchmark_argument_validation_without_result_pair"
+    },
+    {
+      "rank": 113,
+      "repository": "corretto/amazon-corretto-crypto-provider",
+      "pull_request": 520,
+      "eligible": false,
+      "reason": "benchmark_related_typo_or_label_fix_not_numeric_result_claim"
+    },
+    {
+      "rank": 114,
+      "repository": "WilliamFontaine/portfolio",
+      "pull_request": 61,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 115,
+      "repository": "yuribodo/zksettle",
+      "pull_request": 189,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 116,
+      "repository": "geodynamics/aspect",
+      "pull_request": 7125,
+      "eligible": false,
+      "reason": "benchmark_related_typo_or_label_fix_not_numeric_result_claim"
+    },
+    {
+      "rank": 117,
+      "repository": "fallow-rs/fallow",
+      "pull_request": 1807,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 118,
+      "repository": "milvus-io/talon",
+      "pull_request": 456,
+      "eligible": false,
+      "reason": "performance_implementation_change_without_corrected_claim_pair"
+    },
+    {
+      "rank": 119,
+      "repository": "halide/Halide",
+      "pull_request": 9183,
+      "eligible": false,
+      "reason": "schedule_optimization_without_corrected_published_pair"
+    },
+    {
+      "rank": 120,
+      "repository": "skillberry-ai/cap-evolve",
+      "pull_request": 232,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 121,
+      "repository": "PerryTS/perry",
+      "pull_request": 7237,
+      "eligible": false,
+      "reason": "codegen_correctness_fix_not_benchmark_claim_correction"
+    },
+    {
+      "rank": 122,
+      "repository": "SemiAnalysisAI/InferenceX-app",
+      "pull_request": 662,
+      "eligible": false,
+      "reason": "incorrect_or_stale_claim_removed_without_corrected_numeric_value"
+    },
+    {
+      "rank": 123,
+      "repository": "TalkingComputers/seagrep",
+      "pull_request": 48,
+      "eligible": false,
+      "reason": "ci_threshold_policy_change_without_result_correction"
+    },
+    {
+      "rank": 124,
+      "repository": "mlcommons/storage",
+      "pull_request": 559,
+      "eligible": false,
+      "reason": "integration_test_setup_fix_without_result_correction"
+    },
+    {
+      "rank": 125,
+      "repository": "UKGovernmentBEIS/inspect_evals",
+      "pull_request": 1734,
+      "eligible": false,
+      "reason": "evaluation_scorer_behavior_change_without_published_result_pair"
+    },
+    {
+      "rank": 126,
+      "repository": "InfiniTensor/InfiniOps",
+      "pull_request": 733,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 127,
+      "repository": "GuitarAlchemist/ix",
+      "pull_request": 110,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 128,
+      "repository": "Altinity/ClickHouse",
+      "pull_request": 2065,
+      "eligible": false,
+      "reason": "query_correctness_fix_not_benchmark_claim_correction"
+    },
+    {
+      "rank": 129,
+      "repository": "olxver2025/llmcompare",
+      "pull_request": 5,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 130,
+      "repository": "vllm-project/ci-infra",
+      "pull_request": 374,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 131,
+      "repository": "dcapal/dcapal",
+      "pull_request": 726,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 132,
+      "repository": "tetherto/qvac",
+      "pull_request": 3437,
+      "eligible": false,
+      "reason": "benchmark_label_aggregation_fix_without_published_numeric_pair"
+    },
+    {
+      "rank": 133,
+      "repository": "phicdy/toto-anticipation",
+      "pull_request": 457,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 134,
+      "repository": "powersync-ja/powersync-service",
+      "pull_request": 678,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 135,
+      "repository": "OpenVoiceOS/ovos-plugin-arena",
+      "pull_request": 73,
+      "eligible": false,
+      "reason": "evaluation_assembly_and_sorting_fix_without_published_pair"
+    },
+    {
+      "rank": 136,
+      "repository": "iprashantraj/RepoPilot",
+      "pull_request": 4,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 137,
+      "repository": "NVIDIA-BioNeMo/nvMolKit",
+      "pull_request": 248,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 138,
+      "repository": "jamestjsp/controlsys",
+      "pull_request": 163,
+      "eligible": false,
+      "reason": "numerical_contract_repair_without_same_setting_result_pair"
+    },
+    {
+      "rank": 139,
+      "repository": "gianlucamazza/xllama",
+      "pull_request": 101,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 140,
+      "repository": "bytedance/bolt",
+      "pull_request": 786,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 141,
+      "repository": "youknowone/pyre",
+      "pull_request": 737,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 142,
+      "repository": "BCSS-Lakshmi-Narayana/AP.Blura.Saga",
+      "pull_request": 29,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 143,
+      "repository": "saulshanabrook/egglog-encoding",
+      "pull_request": 27,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 144,
+      "repository": "3rdIteration/btcrecover",
+      "pull_request": 744,
+      "eligible": false,
+      "reason": "result_refresh_after_code_data_version_or_configuration_change"
+    },
+    {
+      "rank": 145,
+      "repository": "SRI-CSL/yices2",
+      "pull_request": 654,
+      "eligible": false,
+      "reason": "new_regression_benchmark_without_prior_numeric_claim"
+    },
+    {
+      "rank": 146,
+      "repository": "PerryTS/perry",
+      "pull_request": 6909,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 147,
+      "repository": "ROCm/rocm-libraries",
+      "pull_request": 8952,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 148,
+      "repository": "kkanupriyaphd21-dev/spatialdb-engine",
+      "pull_request": 706,
+      "eligible": false,
+      "reason": "database_correctness_bug_not_benchmark_result_claim"
+    },
+    {
+      "rank": 149,
+      "repository": "databendlabs/databend",
+      "pull_request": 20105,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    },
+    {
+      "rank": 150,
+      "repository": "rokku-app/rokku",
+      "pull_request": 52,
+      "eligible": false,
+      "reason": "no_corrected_preexisting_human_readable_numeric_claim_pair"
+    }
+  ],
+  "scientific_boundary": "Eligibility was assigned from immutable GitHub metadata and diffs without running either ReproCheck 0.19.0 or the development parser."
+}
