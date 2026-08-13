@@ -1,0 +1,10 @@
+{
+  "cases_sha256": "850844dfcef68410f40a1d9f159dbab7b8fe72fb172a4ef4035f7373ce6ecb9d",
+  "labels_sha256": "fa6c039965fee068ac56654766ce422cc48a44882cc73db61cccbcedefb95302",
+  "protocol_sha256": "f652c40241dce41e5dcc58d2bed8b5ec5101f6cb2e084e02ebd9c86252d17e33",
+  "result": "results/zero-shot-0.21.0.json",
+  "sample_sha256": "4f63094dfb607665375dae4366db79fbff5bda9ea23fa3c3e3736ad6762adb26",
+  "schema_version": "reprocheck.upstream-discovery-result-lock.v5",
+  "sha256": "99d6d339f0b5f21bf858ac258e27d62faf262f84c4b28dd4ac83a64b6ffa908e",
+  "sources_lock_sha256": "9ccc0501203d6cfb28811711bc95772c93c09480e6e1f1fe973b801902cba5b9"
+}
