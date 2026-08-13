@@ -150,13 +150,20 @@ def evaluate(output: Path, phase: str) -> dict[str, Any]:
     if phase.startswith("development"):
         result["evaluation_role"] = "post_inspection_development"
         result["implementation_binding"] = "source tree committed with this result"
-        result["development_implementation_commit"] = subprocess.run(
-            ["git", "rev-parse", "HEAD"],
-            cwd=ROOT,
-            check=True,
-            capture_output=True,
-            text=True,
-        ).stdout.strip()
+        development_lock = ROOT / "development.lock.json"
+        if development_lock.exists():
+            implementation_commit = json.loads(development_lock.read_text(encoding="utf-8"))[
+                "implementation_commit"
+            ]
+        else:
+            implementation_commit = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=ROOT,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout.strip()
+        result["development_implementation_commit"] = implementation_commit
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2) + "\n")
     return result
