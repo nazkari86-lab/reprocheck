@@ -1,0 +1,230 @@
+# wumw — Why Use Many Words
+
+A shell command wrapper that compresses tool output before it enters LLM context, reducing token churn in agentic coding sessions.
+
+The model opts in by prefixing commands with `wumw`. Output is compressed and a `# wumw: N → M lines` header is prepended when reduction occurs.
+
+In a representative coding session, `wumw` cut tool output by about 54% overall, roughly halving token spend. The biggest savings came from large file reads and noisy searches; `git diff` usually changed much less because the hunks are still preserved.
+
+## What it does
+
+| Command | Compression strategy |
+|---|---|
+| `wumw cat file.py` | Python files: emit class/def outline with line numbers; other files: first 100 lines + `tail` hint |
+| `wumw rg pattern src/` | Cap 5 matches/file, deduplicate, limit context lines |
+| `wumw git diff` | Strip index metadata lines |
+| `wumw git log` | Cap at 20 entries |
+| anything else | Collapse repeated lines, truncate at 200 lines |
+
+`wumw --full <cmd>` bypasses compression and logs the bypass.
+The built-in thresholds are runtime-configurable via env vars such as `WUMW_RG_CAP`, `WUMW_CAT_LINES`, `WUMW_GIT_LOG_ENTRIES`, `WUMW_LISTING_MAX_ENTRIES`, `WUMW_GENERIC_LINES`, and `WUMW_HEADER_MIN_SAVED`.
+
+When running under Codex, `wumw` uses `CODEX_THREAD_ID` automatically so each Codex thread gets its own savings bucket. Outside Codex, it auto-rotates its session id after 30 minutes of inactivity so reports map more closely to distinct coding sessions. Override either mode with `WUMW_SESSION`, or tune the fallback idle split with `WUMW_SESSION_IDLE_TIMEOUT_SECONDS`.
+
+## Install
+
+```bash
+git clone git@github.com:edcuba/wumw.git
+cd wumw
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e .
+```
+
+## Usage
+
+```bash
+# use wumw for commands that tend to produce noisy output
+wumw cat src/main.py
+wumw rg "TODO" src/
+wumw git log --oneline
+wumw git diff HEAD~1
+
+# bypass compression when you need the full output
+wumw --full cat src/bigfile.py
+
+# analyze session logs
+wumw-analyze
+
+# estimate token savings from those logs
+wumw-savings
+wumw-savings --by-session --by-day
+
+# benchmark compression ratio on a codebase
+wumw-bench
+```
+
+Use `wumw` selectively, not as a blanket prefix for every command.
+
+- Prefer `wumw cat`, `wumw rg`, `wumw git diff`, and `wumw git log` when output may be large, repetitive, or mostly navigational.
+- Skip `wumw` for short exact reads where compression adds no value.
+- For Python files, start with `wumw cat file.py`, then jump to exact sections with `sed -n 'START,ENDp' file.py`.
+- If compression hides needed detail, rerun the same command with `wumw --full ...`.
+- In sandboxes or read-only environments, set `WUMW_HOME` to a writable directory such as `/tmp/wumw`.
+
+### Usage example: wumw rg multi-file search
+
+```
+$ wumw rg "connect" src/ -n
+```
+
+Compressed output (cap 5 matches/file, duplicates deduplicated):
+
+```
+src/signals.py:5:post_save.connect(on_user_save, sender=User)
+src/signals.py:6-    # user registration hook
+src/signals.py:20:post_delete.connect(on_user_delete, sender=User)
+--
+src/signals.py:31:pre_save.connect(on_profile_save, sender=Profile)
+src/signals.py:45:m2m_changed.connect(on_tags_changed, sender=Tag)
+src/signals.py:60:post_migrate.connect(create_defaults, sender=AppConfig)
+# wumw: src/signals.py kept 5/9 matches; 4 more matches omitted (4 over cap at lines 75, 90, 105, 120)
+src/utils.py:11:    return hash_password(raw)
+src/utils.py:22:    verify_token(token, secret)
+src/utils.py:33:    check_expiry(ts)
+src/utils.py:44:    rotate_key(user_id)
+src/utils.py:55:    audit_log(action, user)
+# wumw: src/utils.py kept 5/7 matches; 2 more matches omitted (2 duplicate)
+```
+
+Key behaviours:
+
+- Each file is capped independently at `WUMW_RG_CAP` (default 5) match lines.
+- Omission hints list the capped line numbers so you can jump directly with `sed -n 'N,Mp' file`.
+- Duplicate match content within the same file is collapsed (but the same content in different files is kept).
+- `--` group separators are only emitted when a kept match follows; no dangling separators appear.
+- Use `wumw --full rg ...` to bypass compression when you need every match.
+
+Threshold overrides are read from the environment on each invocation, for example:
+
+```bash
+WUMW_RG_CAP=8 WUMW_RG_CONTEXT_LINES=1 wumw rg TODO src/
+WUMW_CAT_LINES=60 wumw cat src/main.py
+WUMW_GIT_LOG_ENTRIES=50 wumw git log --oneline
+```
+
+### Environment variables
+
+| Variable | Default | Description |
+|---|---|---|
+| `WUMW_HEADER_MIN_SAVED` | `5` | Minimum lines saved before the `# wumw: N → M lines` header is emitted. Set to `0` to always show it. |
+| `WUMW_RG_CAP` | `5` | Max grep/rg matches shown per file. |
+| `WUMW_RG_CONTEXT_LINES` | `2` | Context lines kept around each match. |
+| `WUMW_CAT_LINES` | `100` | Lines shown for non-Python files before the `tail` pagination hint. |
+| `WUMW_CAT_OUTLINE_THRESHOLD` | `100` | Python file line count above which the outline compressor is used instead of raw content. |
+| `WUMW_GIT_LOG_ENTRIES` | `20` | Max git log entries shown. |
+| `WUMW_GIT_DIFF_MIN_HUNK_LINES` | `20` | Unchanged hunk spans longer than this are compressed. |
+| `WUMW_GIT_DIFF_CONTEXT_LINES` | `3` | Context lines kept around changes in compressed hunks. |
+| `WUMW_GIT_DIFF_MULTIFILE_THRESHOLD` | `3` | File count above which per-file diff header blocks are summarised. |
+| `WUMW_LISTING_MAX_ENTRIES` | `40` | Directory listing entries above which output is grouped by extension. |
+| `WUMW_GENERIC_LINES` | `200` | Truncation limit for the generic fallback compressor. |
+| `WUMW_GENERIC_REPEAT_THRESHOLD` | `3` | Consecutive identical lines collapsed when the run exceeds this count. |
+| `WUMW_SESSION` | — | Override the session id written to logs. |
+| `WUMW_SESSION_IDLE_TIMEOUT_SECONDS` | `1800` | Idle gap (seconds) that triggers a new auto session id. |
+| `WUMW_HOME` | — | Override the state directory root (useful in sandboxes where the repo root is read-only). |
+
+## Use with Claude Code
+
+Add to your project's `.claude/settings.json` to let Claude use wumw automatically:
+
+```json
+{
+  "env": {
+    "PATH": "/path/to/wumw/.venv/bin:${PATH}"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(wumw:*)"
+    ]
+  }
+}
+```
+
+Then instruct Claude in `CLAUDE.md`:
+
+```markdown
+Prefer `wumw cat`, `wumw rg`, and `wumw git diff` / `wumw git log` when output is likely to be large.
+Do not force `wumw` onto every command; skip it for short exact reads.
+For Python files, start with `wumw cat file.py`, then use `sed -n 'START,ENDp' file.py` for exact sections.
+If compression hides needed detail, rerun with `wumw --full ...`.
+```
+
+Claude will prefix commands with `wumw` and navigate Python files via `sed -n 'N,Mp'` using the outline hints.
+
+## Use with Codex (OpenAI)
+
+Add to your repo's `AGENTS.md`:
+
+```markdown
+## Tool usage
+Use `wumw` selectively for large file reads and searches:
+- `wumw cat file.py` when a file may be long
+- `wumw rg pattern src/` when search output may be noisy
+- `wumw git diff` / `wumw git log` when git output may be large
+
+Do not force `wumw` onto every command; skip it for short exact reads.
+
+For Python files, `wumw cat` returns a class/method outline with line numbers.
+Use `sed -n 'START,ENDp' file.py` to read specific sections.
+If compression hides needed detail, rerun with `wumw --full ...`.
+If `wumw` cannot write session state in a sandbox, set `WUMW_HOME` to a writable directory such as `/tmp/wumw`.
+```
+
+## Session logs
+
+wumw logs every invocation to `.wumw/sessions/<session_id>.jsonl` (gitignored).
+Each entry includes the session id, session start time, cwd, and repo context so savings can be grouped later without timestamp forensics.
+
+```bash
+wumw-analyze              # summary: bytes by command, re-read rate, --full rate
+wumw-savings              # estimated lines/bytes/tokens saved from logged sessions
+wumw-savings --session X  # same estimate, filtered to one session
+wumw-savings --by-session --by-day
+wumw-savings --since 2026-03-25T00:00:00+00:00 --by-session
+```
+
+## Benchmark
+
+```bash
+wumw-bench                # runs commands with/without wumw, prints compression ratio table
+```
+
+Repeated A/B notes for a real-world PR review task are in `pr_review_benchmark.md`.
+
+## Codex Task Loop
+
+Use the task loop when you want Codex to pick exactly one backlog item from `tasklist.md`, implement it, commit it, and then stop so the next loop iteration can reassess repo state.
+
+Prerequisites:
+
+- `codex` CLI installed and authenticated
+- repo dependencies installed if the selected task needs them
+- clean working tree before starting the loop
+
+Run a few iterations like this:
+
+```bash
+./run_task_loop.sh 5
+```
+
+What it does:
+
+- reads the agent instructions from `loop.md`
+- checks `git status` first for partial work recovery
+- picks the highest-priority incomplete task from `tasklist.md`
+- runs one task per Codex invocation, then stops when all tasks are done or the iteration cap is reached
+
+Useful overrides:
+
+```bash
+WUMW_MODEL=gpt-5.4 ./run_task_loop.sh 5
+LOOP_PROMPT=loop.md ./run_task_loop.sh 5
+LOG_DIR=/tmp/wumw-loop ./run_task_loop.sh 5
+```
+
+To inspect the next queued task without starting Codex:
+
+```bash
+wumw-task-status tasklist.md
+```
+
+Each run writes a timestamped log to `logs/task_loop_*.log`, plus per-iteration JSONL and final-message snapshots that make it easier to inspect failures or interrupted work.
