@@ -1,0 +1,159 @@
+{
+  "eligible_documents": 20,
+  "extractor_commit": "734a3d5b4ec421bcccacede69df4f86f7c1900fe",
+  "extractor_version": "0.24.0",
+  "schema_version": "reprocheck.cross-project-study-lock.v10",
+  "selected_claims": 155,
+  "sha256": {
+    "../../src/reprocheck/claims.py": "faa43faffb8b2ecb4e054881f440e6c27a108f293845038c295ebdae1799dafc",
+    "../../src/reprocheck/metric_names.py": "3ea660f74c48074467c13c949668a27217ffe6068f87f884bb859ae80d729cb5",
+    "finalize_labels.py": "7cb84126d50dfbfd51e854b7b1cd6f65d1b85cf336b3f1b5b46c91341bc29b29",
+    "frames.json": "6a93987399c6bf6e5abaef88ddeb9c36865cfac924b98b8925857648480bec3a",
+    "labels.json": "274e79e7e89f785bd26d8fa41bb0ab5e66c490eb4bdfa8315c581437957a87e2",
+    "protocol.md": "10fdc915a906aa09e2280d3e889cdd4a7f720f0de9fbb29ed5345a3703379c13",
+    "registration.json": "812d7f438d6d6740f37587e0212476665742033a0f58fe97b83dd4ca16ce26cf",
+    "sample.json": "e754399c76d51c3b7cb9cdaf206d7ae9963b5bfdd7fe3a09ee3d53cfe19b3d44"
+  },
+  "sources": [
+    {
+      "blob_sha": "fd60c9beaab68c1ac06d159c0a63e7a6a0fc501b",
+      "file": "sources/sample-02.md",
+      "rank": 2,
+      "repository": "yksz/c-logger",
+      "sha256": "ef753dbea0e3d1722469bd8ddf041ff34ba1b3a248dacaa75a5054bdd9bea957"
+    },
+    {
+      "blob_sha": "e9e4b9cf92d0716470fd8dca59972c8c16db7d89",
+      "file": "sources/sample-03.md",
+      "rank": 3,
+      "repository": "efeslab/Nanoflow",
+      "sha256": "917f182bea20499695930b71cd9c8cf6ba296f99df321c4887064aad8369c0c5"
+    },
+    {
+      "blob_sha": "a9967a33f7513791d1a71abc0dce0beee3ec8391",
+      "file": "sources/sample-06.md",
+      "rank": 6,
+      "repository": "samuelcolvin/cloudflare-worker-speed-test",
+      "sha256": "cb7604ff4d16df46a3ef875f6d9de05c653ec05e4a84cae0a332a878d088e683"
+    },
+    {
+      "blob_sha": "bd9f0f10f5ac3ad3a578294b0682dd97d5e51fb1",
+      "file": "sources/sample-09.md",
+      "rank": 9,
+      "repository": "sevenold/bert_sequence_label",
+      "sha256": "3668e4349d4d6237a37a6c459368eecb77c3081af5fc3f37dd37366c6346cce5"
+    },
+    {
+      "blob_sha": "9d5a5aab26296dea8739967e579c8ec8960ce4e8",
+      "file": "sources/sample-10.md",
+      "rank": 10,
+      "repository": "Tanishq665/Fraud_detection",
+      "sha256": "c11f0cc6967856178bd4b02ac7424cdd6c0a3c7aa7514b9ee4f364467043f212"
+    },
+    {
+      "blob_sha": "645c78d199abd30ee7afc9128a7ae396bc49235a",
+      "file": "sources/sample-11.md",
+      "rank": 11,
+      "repository": "VTTI/Segmentation-and-detection-of-work-zone-scenes",
+      "sha256": "f0bb2b1e267ec6710a69f2df151c0bc2b23340982cb314ddb6e8c13839c00c13"
+    },
+    {
+      "blob_sha": "333545548ed1d3a2d0f23c046d5eb2ac94bd2948",
+      "file": "sources/sample-12.md",
+      "rank": 12,
+      "repository": "EmorZz1G/PatchAD",
+      "sha256": "09f27e42c7622221161cdb1eda4c2e31e6c5cbf8e1e53b0dd9c418b1349f0535"
+    },
+    {
+      "blob_sha": "ccac4798fbb7d4ffca84d1b7c20c9217ddacbf5b",
+      "file": "sources/sample-14.md",
+      "rank": 14,
+      "repository": "Chillu1/ModiBuff",
+      "sha256": "396ef8a4ea3ec9ea01a709a9e2ae15f0b7ec2980f89b7424ee23b6e68d59626e"
+    },
+    {
+      "blob_sha": "70ca629b06a8dd0d20c03fb31743d0edd80bf078",
+      "file": "sources/sample-15.md",
+      "rank": 15,
+      "repository": "tspeterkim/paged-attention-minimal",
+      "sha256": "30adb56352e3da9b420b16c6c23461d0f4ff06b04207b4c64129561937755ab0"
+    },
+    {
+      "blob_sha": "8360628b70ca2935d85b0581a133a92575b2a12e",
+      "file": "sources/sample-17.md",
+      "rank": 17,
+      "repository": "VISHAL-Nk/Titan",
+      "sha256": "bf312c9d3c5c2af0611f45766a14216ee53ea5d9dfa27b9a255af02d01e4ca4e"
+    },
+    {
+      "blob_sha": "cff22328cc736f55dbe423f96931041f8319dbe5",
+      "file": "sources/sample-18.md",
+      "rank": 18,
+      "repository": "devhands-io/wrkx",
+      "sha256": "2b3b705140d8616fe1269551ca56861aa790bbe9f98bd07684dbb3976c5fa39f"
+    },
+    {
+      "blob_sha": "0d8c98a87c5012f2eb86cb821c3b9268ff0d7966",
+      "file": "sources/sample-20.md",
+      "rank": 20,
+      "repository": "jianzhnie/ScaleTorch",
+      "sha256": "00bb65041fafa62c932073a902f103fd37de9f6e6b684dc6947d0d826476fb35"
+    },
+    {
+      "blob_sha": "a9f85834d4519b8b65ba221f60ddeb46e00647e9",
+      "file": "sources/sample-24.md",
+      "rank": 24,
+      "repository": "ovsoil/leetcode",
+      "sha256": "417760f4d7a1ae24e971fe1c60af64dd627298899d2c39a28dc8652b9257dc5b"
+    },
+    {
+      "blob_sha": "6f9dd79739382b5abfd38e69aca7d923b9458cb9",
+      "file": "sources/sample-28.md",
+      "rank": 28,
+      "repository": "phenixace/MolReGPT",
+      "sha256": "e25b4ffd7f5b1462ec0850cf6ca391fe39f39432cfec7a4982f5561090d17723"
+    },
+    {
+      "blob_sha": "51301335b3188e2c4b9888a1635b71eb3cfee0e5",
+      "file": "sources/sample-31.md",
+      "rank": 31,
+      "repository": "abdanhafidz/DawetAI",
+      "sha256": "87c5dc05587b825484d9fa4df82dbb65b1982ebcf220f5eb67b7d6150076f082"
+    },
+    {
+      "blob_sha": "a80dd636aa7c095b4052a1c5eb1a0bf6a98efe08",
+      "file": "sources/sample-32.md",
+      "rank": 32,
+      "repository": "OpenDataBox/ST-Raptor",
+      "sha256": "fe2a8c7df7b38c14cb01484ee4687e5582de94871b9fcbe7598c711904778b1b"
+    },
+    {
+      "blob_sha": "60c850f758f78dd398c7445bf75f7637cb6747ca",
+      "file": "sources/sample-33.md",
+      "rank": 33,
+      "repository": "Gautier9d/chocolate-recognition-deep-learning",
+      "sha256": "83e44a4c6c41180f5f3dff052a3ec5b7ce276d2dd988e47ae9584fc82cf48a94"
+    },
+    {
+      "blob_sha": "b679b94155f222ba58b4004760a930b98b44c8c6",
+      "file": "sources/sample-34.md",
+      "rank": 34,
+      "repository": "CoboAr/Lung-Mask-Segmentation-with-U-Net",
+      "sha256": "cd7d55967d0b4c09b13caeb0282df762ce15df20dc8dba50264da3e4a5ca07c1"
+    },
+    {
+      "blob_sha": "512337d397c01bc5d8d2ad2e76b782d5b53403bb",
+      "file": "sources/sample-35.md",
+      "rank": 35,
+      "repository": "caoyunkang/CPMF",
+      "sha256": "2bb589ee22b3e574f7074f8a30220f85a5f09b8ad0f483e84f7c2275b24fc0c1"
+    },
+    {
+      "blob_sha": "59853c1223328929e2305ff5261c8fa90204fa35",
+      "file": "sources/sample-38.md",
+      "rank": 38,
+      "repository": "mathieusharp/mmore-colvision-benchmark",
+      "sha256": "e1c2828834a665b23744c873c9442a41f9f34d0690c392816ae90d45eaf1dcf3"
+    }
+  ]
+}

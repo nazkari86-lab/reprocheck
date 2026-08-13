@@ -1,0 +1,1787 @@
+{
+  "annotation_without_extractor": true,
+  "eligible_documents": 20,
+  "labels": [
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 1,
+      "reason": "no empirical numeric result in sampled README",
+      "repository": "ion-design/ditto.site",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "system": "c-logger",
+            "threads": "1"
+          },
+          "line": 58,
+          "metric": "runtime_seconds",
+          "snippet": "| 1 | 0.832s | 1.267s |",
+          "value": 0.832
+        },
+        {
+          "context": {
+            "system": "glog",
+            "threads": "1"
+          },
+          "line": 58,
+          "metric": "runtime_seconds",
+          "snippet": "| 1 | 0.832s | 1.267s |",
+          "value": 1.267
+        },
+        {
+          "context": {
+            "system": "c-logger",
+            "threads": "10"
+          },
+          "line": 59,
+          "metric": "runtime_seconds",
+          "snippet": "| 10 | 1.386s | 1.183s |",
+          "value": 1.386
+        },
+        {
+          "context": {
+            "system": "glog",
+            "threads": "10"
+          },
+          "line": 59,
+          "metric": "runtime_seconds",
+          "snippet": "| 10 | 1.386s | 1.183s |",
+          "value": 1.183
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 2,
+      "repository": "yksz/c-logger",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {},
+          "line": 80,
+          "metric": "optimal_throughput_ratio",
+          "snippet": "NanoFlow achieves 68.5% of optimal throughput",
+          "value": 0.685
+        },
+        {
+          "context": {},
+          "line": 80,
+          "metric": "speedup",
+          "snippet": "provides 1.91× throughput boost",
+          "value": 1.91
+        },
+        {
+          "context": {
+            "bound": "lower"
+          },
+          "line": 80,
+          "metric": "optimal_throughput_ratio",
+          "snippet": "achieving 59% to 72% of optimal throughput",
+          "value": 0.59
+        },
+        {
+          "context": {
+            "bound": "upper"
+          },
+          "line": 80,
+          "metric": "optimal_throughput_ratio",
+          "snippet": "achieving 59% to 72% of optimal throughput",
+          "value": 0.72
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 3,
+      "repository": "efeslab/Nanoflow",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 4,
+      "reason": "reproduction instructions but no numeric result in sampled README",
+      "repository": "coinse/droidagent",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 5,
+      "reason": "results are only linked externally",
+      "repository": "mn416/wildfire",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "system": "javascript"
+          },
+          "line": 32,
+          "metric": "artifact_size_kb",
+          "snippet": "| javascript | 0 | 84 | 8 |",
+          "value": 0
+        },
+        {
+          "context": {
+            "system": "javascript"
+          },
+          "line": 32,
+          "metric": "avg_latency_seconds",
+          "snippet": "| javascript | 0 | 84 | 8 |",
+          "value": 0.084
+        },
+        {
+          "context": {
+            "system": "javascript"
+          },
+          "line": 32,
+          "metric": "latency_stdev_seconds",
+          "snippet": "| javascript | 0 | 84 | 8 |",
+          "value": 0.008
+        },
+        {
+          "context": {
+            "system": "simple replace wee_alloc"
+          },
+          "line": 33,
+          "metric": "artifact_size_kb",
+          "snippet": "| simple replace, wee_alloc | 20 | 127 | 26 |",
+          "value": 20
+        },
+        {
+          "context": {
+            "system": "simple replace wee_alloc"
+          },
+          "line": 33,
+          "metric": "avg_latency_seconds",
+          "snippet": "| simple replace, wee_alloc | 20 | 127 | 26 |",
+          "value": 0.127
+        },
+        {
+          "context": {
+            "system": "simple replace wee_alloc"
+          },
+          "line": 33,
+          "metric": "latency_stdev_seconds",
+          "snippet": "| simple replace, wee_alloc | 20 | 127 | 26 |",
+          "value": 0.026
+        },
+        {
+          "context": {
+            "system": "simple replace no wee_alloc"
+          },
+          "line": 34,
+          "metric": "artifact_size_kb",
+          "snippet": "| simple replace, no wee_alloc | 25 | 133 | 30 |",
+          "value": 25
+        },
+        {
+          "context": {
+            "system": "simple replace no wee_alloc"
+          },
+          "line": 34,
+          "metric": "avg_latency_seconds",
+          "snippet": "| simple replace, no wee_alloc | 25 | 133 | 30 |",
+          "value": 0.133
+        },
+        {
+          "context": {
+            "system": "simple replace no wee_alloc"
+          },
+          "line": 34,
+          "metric": "latency_stdev_seconds",
+          "snippet": "| simple replace, no wee_alloc | 25 | 133 | 30 |",
+          "value": 0.03
+        },
+        {
+          "context": {
+            "system": "regex minimal"
+          },
+          "line": 35,
+          "metric": "artifact_size_kb",
+          "snippet": "| regex, wee_alloc, default-features off | 193 | 540 | 235 |",
+          "value": 193
+        },
+        {
+          "context": {
+            "system": "regex minimal"
+          },
+          "line": 35,
+          "metric": "avg_latency_seconds",
+          "snippet": "| regex, wee_alloc, default-features off | 193 | 540 | 235 |",
+          "value": 0.54
+        },
+        {
+          "context": {
+            "system": "regex minimal"
+          },
+          "line": 35,
+          "metric": "latency_stdev_seconds",
+          "snippet": "| regex, wee_alloc, default-features off | 193 | 540 | 235 |",
+          "value": 0.235
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 6,
+      "repository": "samuelcolvin/cloudflare-worker-speed-test",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 7,
+      "reason": "reproduction repository description without numeric result",
+      "repository": "dawenl/cofactor",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 8,
+      "reason": "results are images or external links without human-readable numeric claims",
+      "repository": "gistvision/DIP-denosing",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "split": "dev"
+          },
+          "line": 161,
+          "metric": "processed_token_count",
+          "snippet": "processed 6788 tokens with 3818 phrases",
+          "value": 6788
+        },
+        {
+          "context": {
+            "split": "dev"
+          },
+          "line": 161,
+          "metric": "phrase_count",
+          "snippet": "processed 6788 tokens with 3818 phrases",
+          "value": 3818
+        },
+        {
+          "context": {
+            "split": "dev"
+          },
+          "line": 161,
+          "metric": "found_phrase_count",
+          "snippet": "found: 3798 phrases",
+          "value": 3798
+        },
+        {
+          "context": {
+            "split": "dev"
+          },
+          "line": 161,
+          "metric": "correct_phrase_count",
+          "snippet": "correct: 3384",
+          "value": 3384
+        },
+        {
+          "context": {
+            "split": "dev"
+          },
+          "line": 163,
+          "metric": "accuracy",
+          "snippet": "accuracy: 91.28%",
+          "value": 0.9128
+        },
+        {
+          "context": {
+            "split": "dev"
+          },
+          "line": 163,
+          "metric": "precision",
+          "snippet": "precision: 89.10%",
+          "value": 0.891
+        },
+        {
+          "context": {
+            "split": "dev"
+          },
+          "line": 163,
+          "metric": "recall",
+          "snippet": "recall: 88.63%",
+          "value": 0.8863
+        },
+        {
+          "context": {
+            "split": "dev"
+          },
+          "line": 163,
+          "metric": "f1",
+          "snippet": "FB1: 88.87",
+          "value": 0.8887
+        },
+        {
+          "context": {
+            "split": "dev_detail"
+          },
+          "line": 165,
+          "metric": "precision",
+          "snippet": "precision: 89.10%",
+          "value": 0.891
+        },
+        {
+          "context": {
+            "split": "dev_detail"
+          },
+          "line": 165,
+          "metric": "recall",
+          "snippet": "recall: 88.63%",
+          "value": 0.8863
+        },
+        {
+          "context": {
+            "split": "dev_detail"
+          },
+          "line": 165,
+          "metric": "f1",
+          "snippet": "FB1: 88.87",
+          "value": 0.8887
+        },
+        {
+          "context": {
+            "split": "dev_detail"
+          },
+          "line": 165,
+          "metric": "found_phrase_count",
+          "snippet": "FB1: 88.87 3798",
+          "value": 3798
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 9,
+      "repository": "sevenold/bert_sequence_label",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "system": "Random Forest"
+          },
+          "line": 46,
+          "metric": "precision",
+          "snippet": "Random Forest showed superior precision (96%)",
+          "value": 0.96
+        },
+        {
+          "context": {
+            "system": "Decision Tree"
+          },
+          "line": 46,
+          "metric": "precision",
+          "snippet": "Decision Tree (70%)",
+          "value": 0.7
+        },
+        {
+          "context": {
+            "system": "XGBoost"
+          },
+          "line": 46,
+          "metric": "precision",
+          "snippet": "XGBoost (97%)",
+          "value": 0.97
+        },
+        {
+          "context": {
+            "approximate": "true",
+            "system": "models"
+          },
+          "line": 47,
+          "metric": "accuracy",
+          "snippet": "similar overall accuracy (~100%)",
+          "value": 1.0
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 10,
+      "repository": "Tanishq665/Fraud_detection",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "system": "Model 1"
+          },
+          "line": 166,
+          "metric": "f1",
+          "snippet": "best F1 score achieved on testing set of 173 images: 0.5869",
+          "value": 0.5869
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 11,
+      "repository": "VTTI/Segmentation-and-detection-of-work-zone-scenes",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {},
+          "line": 11,
+          "metric": "artifact_size_mb",
+          "snippet": "requiring only 3.2MB",
+          "value": 3.2
+        },
+        {
+          "context": {},
+          "line": 11,
+          "metric": "f1_improvement",
+          "snippet": "improves the classical F1 score by 50.5%",
+          "value": 0.505
+        },
+        {
+          "context": {},
+          "line": 11,
+          "metric": "aff_f1_improvement",
+          "snippet": "Aff-F1 score by 7.8%",
+          "value": 0.078
+        },
+        {
+          "context": {},
+          "line": 11,
+          "metric": "auc_improvement",
+          "snippet": "AUC by 10.0%",
+          "value": 0.1
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 12,
+      "repository": "EmorZz1G/PatchAD",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "readme.md",
+      "rank": 13,
+      "reason": "benchmark roadmap without numeric result",
+      "repository": "feuersteiner/contextrie",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "operation": "NoOp",
+            "system": "ModiBuff"
+          },
+          "line": 199,
+          "metric": "runtime_seconds",
+          "snippet": "0.18ms, 0 B",
+          "value": 0.00018
+        },
+        {
+          "context": {
+            "operation": "NoOp",
+            "system": "ModiBuff"
+          },
+          "line": 199,
+          "metric": "memory_bytes",
+          "snippet": "0.18ms, 0 B",
+          "value": 0
+        },
+        {
+          "context": {
+            "operation": "Apply InitDmg",
+            "system": "ModiBuff"
+          },
+          "line": 199,
+          "metric": "runtime_seconds",
+          "snippet": "0.26ms, 0 B",
+          "value": 0.00026
+        },
+        {
+          "context": {
+            "operation": "Apply InitDmg",
+            "system": "ModiBuff"
+          },
+          "line": 199,
+          "metric": "memory_bytes",
+          "snippet": "0.26ms, 0 B",
+          "value": 0
+        },
+        {
+          "context": {
+            "operation": "Apply InitStackDmg",
+            "system": "ModiBuff"
+          },
+          "line": 199,
+          "metric": "runtime_seconds",
+          "snippet": "0.44ms, 0 B",
+          "value": 0.00044
+        },
+        {
+          "context": {
+            "operation": "Apply InitStackDmg",
+            "system": "ModiBuff"
+          },
+          "line": 199,
+          "metric": "memory_bytes",
+          "snippet": "0.44ms, 0 B",
+          "value": 0
+        },
+        {
+          "context": {
+            "operation": "Apply Multi instance DoT",
+            "system": "ModiBuff"
+          },
+          "line": 199,
+          "metric": "runtime_seconds",
+          "snippet": "1.01ms, 0 B",
+          "value": 0.00101
+        },
+        {
+          "context": {
+            "operation": "Apply Multi instance DoT",
+            "system": "ModiBuff"
+          },
+          "line": 199,
+          "metric": "memory_bytes",
+          "snippet": "1.01ms, 0 B",
+          "value": 0
+        },
+        {
+          "context": {
+            "operation": "Apply InitDmg",
+            "system": "ModiBuffEcs"
+          },
+          "line": 200,
+          "metric": "runtime_seconds",
+          "snippet": "1.02ms, 0 GC",
+          "value": 0.00102
+        },
+        {
+          "context": {
+            "operation": "Apply InitDmg",
+            "system": "ModiBuffEcs"
+          },
+          "line": 200,
+          "metric": "allocation_count",
+          "snippet": "1.02ms, 0 GC",
+          "value": 0
+        },
+        {
+          "context": {
+            "operation": "Apply InitDmg",
+            "system": "Old"
+          },
+          "line": 201,
+          "metric": "runtime_seconds",
+          "snippet": "21.4ms, 24 GC",
+          "value": 0.0214
+        },
+        {
+          "context": {
+            "operation": "Apply InitDmg",
+            "system": "Old"
+          },
+          "line": 201,
+          "metric": "allocation_count",
+          "snippet": "21.4ms, 24 GC",
+          "value": 24
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 14,
+      "repository": "Chillu1/ModiBuff",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "system": "naive"
+          },
+          "line": 47,
+          "metric": "max_batch_size",
+          "snippet": "maximum batch size is 7",
+          "value": 7
+        },
+        {
+          "context": {
+            "system": "naive"
+          },
+          "line": 47,
+          "metric": "oom_batch_size",
+          "snippet": "I get an OOM with 8",
+          "value": 8
+        },
+        {
+          "context": {
+            "system": "naive"
+          },
+          "line": 52,
+          "metric": "memory_mb",
+          "snippet": "Fragmented Memory: 7.23 GB",
+          "value": 7403.52
+        },
+        {
+          "context": {
+            "system": "naive"
+          },
+          "line": 52,
+          "metric": "fragmentation_ratio",
+          "snippet": "Fragmented Memory: 7.23 GB (28.46%)",
+          "value": 0.2846
+        },
+        {
+          "context": {
+            "comparator": "lt",
+            "system": "paged"
+          },
+          "line": 60,
+          "metric": "fragmentation_ratio",
+          "snippet": "decreases fragmentation to <1%",
+          "value": 0.01
+        },
+        {
+          "context": {
+            "system": "paged"
+          },
+          "line": 60,
+          "metric": "speedup",
+          "snippet": "increases maximum batch size by 7X",
+          "value": 7
+        },
+        {
+          "context": {
+            "system": "paged"
+          },
+          "line": 62,
+          "metric": "max_batch_size",
+          "snippet": "python llama3-paged.py 49",
+          "value": 49
+        },
+        {
+          "context": {
+            "system": "paged"
+          },
+          "line": 65,
+          "metric": "memory_mb",
+          "snippet": "Fragmented Memory: 0.14 GB",
+          "value": 143.36
+        },
+        {
+          "context": {
+            "system": "paged"
+          },
+          "line": 65,
+          "metric": "fragmentation_ratio",
+          "snippet": "Fragmented Memory: 0.14 GB (0.57%)",
+          "value": 0.0057
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 15,
+      "repository": "tspeterkim/paged-attention-minimal",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 16,
+      "reason": "metric definitions without observed values",
+      "repository": "kinneygroup/itsi-netscaler",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "system": "Titan"
+          },
+          "line": 104,
+          "metric": "avg_latency_seconds",
+          "snippet": "Latency 0.94ms 2.47ms 206.34ms 99.64%",
+          "value": 0.00094
+        },
+        {
+          "context": {
+            "system": "Titan"
+          },
+          "line": 104,
+          "metric": "latency_stdev_seconds",
+          "snippet": "Latency 0.94ms 2.47ms 206.34ms 99.64%",
+          "value": 0.00247
+        },
+        {
+          "context": {
+            "system": "Titan"
+          },
+          "line": 104,
+          "metric": "max_latency_seconds",
+          "snippet": "Latency 0.94ms 2.47ms 206.34ms 99.64%",
+          "value": 0.20634
+        },
+        {
+          "context": {
+            "system": "Titan"
+          },
+          "line": 104,
+          "metric": "within_stdev_ratio",
+          "snippet": "Latency 0.94ms 2.47ms 206.34ms 99.64%",
+          "value": 0.9964
+        },
+        {
+          "context": {
+            "statistic": "avg",
+            "system": "Titan"
+          },
+          "line": 105,
+          "metric": "requests_per_second",
+          "snippet": "Req/Sec 19.59k 1.53k 22.74k 75.00%",
+          "value": 19590
+        },
+        {
+          "context": {
+            "statistic": "stdev",
+            "system": "Titan"
+          },
+          "line": 105,
+          "metric": "requests_per_second",
+          "snippet": "Req/Sec 19.59k 1.53k 22.74k 75.00%",
+          "value": 1530
+        },
+        {
+          "context": {
+            "statistic": "max",
+            "system": "Titan"
+          },
+          "line": 105,
+          "metric": "requests_per_second",
+          "snippet": "Req/Sec 19.59k 1.53k 22.74k 75.00%",
+          "value": 22740
+        },
+        {
+          "context": {
+            "system": "Titan"
+          },
+          "line": 105,
+          "metric": "within_stdev_ratio",
+          "snippet": "Req/Sec 19.59k 1.53k 22.74k 75.00%",
+          "value": 0.75
+        },
+        {
+          "context": {
+            "system": "Titan"
+          },
+          "line": 106,
+          "metric": "request_count",
+          "snippet": "780113 requests in 10.03s, 826.55MB read",
+          "value": 780113
+        },
+        {
+          "context": {
+            "system": "Titan"
+          },
+          "line": 106,
+          "metric": "runtime_seconds",
+          "snippet": "780113 requests in 10.03s, 826.55MB read",
+          "value": 10.03
+        },
+        {
+          "context": {
+            "system": "Titan"
+          },
+          "line": 106,
+          "metric": "data_read_mb",
+          "snippet": "780113 requests in 10.03s, 826.55MB read",
+          "value": 826.55
+        },
+        {
+          "context": {
+            "system": "Titan"
+          },
+          "line": 107,
+          "metric": "requests_per_second",
+          "snippet": "Requests/sec: 77770.10",
+          "value": 77770.1
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 17,
+      "repository": "VISHAL-Nk/Titan",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "thread": "1"
+          },
+          "line": 96,
+          "metric": "avg_latency_seconds",
+          "snippet": "Thread calibration: mean lat.: 9747 usec",
+          "value": 0.009747
+        },
+        {
+          "context": {
+            "thread": "1"
+          },
+          "line": 96,
+          "metric": "sampling_interval_seconds",
+          "snippet": "rate sampling interval: 21 msec",
+          "value": 0.021
+        },
+        {
+          "context": {
+            "thread": "2"
+          },
+          "line": 97,
+          "metric": "avg_latency_seconds",
+          "snippet": "Thread calibration: mean lat.: 9631 usec",
+          "value": 0.009631
+        },
+        {
+          "context": {
+            "thread": "2"
+          },
+          "line": 97,
+          "metric": "sampling_interval_seconds",
+          "snippet": "rate sampling interval: 21 msec",
+          "value": 0.021
+        },
+        {
+          "context": {},
+          "line": 99,
+          "metric": "avg_latency_seconds",
+          "snippet": "Latency 6.46ms 1.93ms 12.34ms 67.66%",
+          "value": 0.00646
+        },
+        {
+          "context": {},
+          "line": 99,
+          "metric": "latency_stdev_seconds",
+          "snippet": "Latency 6.46ms 1.93ms 12.34ms 67.66%",
+          "value": 0.00193
+        },
+        {
+          "context": {},
+          "line": 99,
+          "metric": "max_latency_seconds",
+          "snippet": "Latency 6.46ms 1.93ms 12.34ms 67.66%",
+          "value": 0.01234
+        },
+        {
+          "context": {},
+          "line": 99,
+          "metric": "within_stdev_ratio",
+          "snippet": "Latency 6.46ms 1.93ms 12.34ms 67.66%",
+          "value": 0.6766
+        },
+        {
+          "context": {
+            "statistic": "avg"
+          },
+          "line": 100,
+          "metric": "requests_per_second",
+          "snippet": "Req/Sec 1.05k 1.12k 2.50k 64.84%",
+          "value": 1050
+        },
+        {
+          "context": {
+            "statistic": "stdev"
+          },
+          "line": 100,
+          "metric": "requests_per_second",
+          "snippet": "Req/Sec 1.05k 1.12k 2.50k 64.84%",
+          "value": 1120
+        },
+        {
+          "context": {
+            "statistic": "max"
+          },
+          "line": 100,
+          "metric": "requests_per_second",
+          "snippet": "Req/Sec 1.05k 1.12k 2.50k 64.84%",
+          "value": 2500
+        },
+        {
+          "context": {},
+          "line": 100,
+          "metric": "within_stdev_ratio",
+          "snippet": "Req/Sec 1.05k 1.12k 2.50k 64.84%",
+          "value": 0.6484
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 18,
+      "repository": "devhands-io/wrkx",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 19,
+      "reason": "README explicitly states the benchmark is missing",
+      "repository": "vjrivmon/agente-rag-gti",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "row": "1"
+          },
+          "line": 30,
+          "metric": "tokens_per_second_gpu",
+          "snippet": "Qwen3-0.6B | 2048 | 2 | - | 9,731",
+          "value": 9731
+        },
+        {
+          "context": {
+            "row": "1"
+          },
+          "line": 30,
+          "metric": "tflops_per_second_gpu",
+          "snippet": "57.6 | 22.5% | 22.2 GB",
+          "value": 57.6
+        },
+        {
+          "context": {
+            "row": "1"
+          },
+          "line": 30,
+          "metric": "mfu",
+          "snippet": "57.6 | 22.5% | 22.2 GB",
+          "value": 0.225
+        },
+        {
+          "context": {
+            "row": "1"
+          },
+          "line": 30,
+          "metric": "memory_mb",
+          "snippet": "22.2 GB",
+          "value": 22732.8
+        },
+        {
+          "context": {
+            "row": "2"
+          },
+          "line": 31,
+          "metric": "tokens_per_second_gpu",
+          "snippet": "Qwen3-0.6B | 8192 | 1 | Yes | 9,834",
+          "value": 9834
+        },
+        {
+          "context": {
+            "row": "2"
+          },
+          "line": 31,
+          "metric": "tflops_per_second_gpu",
+          "snippet": "99.8 | 39.0% | 21.4 GB",
+          "value": 99.8
+        },
+        {
+          "context": {
+            "row": "2"
+          },
+          "line": 31,
+          "metric": "mfu",
+          "snippet": "99.8 | 39.0% | 21.4 GB",
+          "value": 0.39
+        },
+        {
+          "context": {
+            "row": "2"
+          },
+          "line": 31,
+          "metric": "memory_mb",
+          "snippet": "21.4 GB",
+          "value": 21913.6
+        },
+        {
+          "context": {
+            "row": "3"
+          },
+          "line": 32,
+          "metric": "tokens_per_second_gpu",
+          "snippet": "Qwen3-0.6B | 16384 | 1 | Yes | 9,079",
+          "value": 9079
+        },
+        {
+          "context": {
+            "row": "3"
+          },
+          "line": 32,
+          "metric": "tflops_per_second_gpu",
+          "snippet": "143.3 | 56.0% | 39.2 GB",
+          "value": 143.3
+        },
+        {
+          "context": {
+            "row": "3"
+          },
+          "line": 32,
+          "metric": "mfu",
+          "snippet": "143.3 | 56.0% | 39.2 GB",
+          "value": 0.56
+        },
+        {
+          "context": {
+            "row": "3"
+          },
+          "line": 32,
+          "metric": "memory_mb",
+          "snippet": "39.2 GB",
+          "value": 40140.8
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 20,
+      "repository": "jianzhnie/ScaleTorch",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 21,
+      "reason": "educational reference values, not repository evaluation results",
+      "repository": "donnemartin/system-design-primer",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 22,
+      "reason": "benchmark instructions without observed values",
+      "repository": "irobot-ros/ros2-performance",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 23,
+      "reason": "test tooling documentation without an observed numeric result region",
+      "repository": "zzo/JUTE",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {},
+          "line": 62,
+          "metric": "assertion_count",
+          "snippet": "All tests passed (1 assertions in 1 test case)",
+          "value": 1
+        },
+        {
+          "context": {},
+          "line": 62,
+          "metric": "test_count",
+          "snippet": "All tests passed (1 assertions in 1 test case)",
+          "value": 1
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 24,
+      "repository": "ovsoil/leetcode",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 25,
+      "reason": "evaluation instructions without observed numeric results",
+      "repository": "cytan17726/UAQ_Fact",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 26,
+      "reason": "feature and configuration counts, not observed evaluation outcomes",
+      "repository": "alireza1989/grampus",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 27,
+      "reason": "results are external notebook/paper only",
+      "repository": "llSourcell/How_to_make_a_language_translator",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "system": "Transformer"
+          },
+          "line": 69,
+          "metric": "bleu_2",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.061
+        },
+        {
+          "context": {
+            "system": "Transformer"
+          },
+          "line": 69,
+          "metric": "bleu_4",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.027
+        },
+        {
+          "context": {
+            "system": "Transformer"
+          },
+          "line": 69,
+          "metric": "rouge_l_1",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.204
+        },
+        {
+          "context": {
+            "system": "Transformer"
+          },
+          "line": 69,
+          "metric": "rouge_l_2",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.087
+        },
+        {
+          "context": {
+            "system": "Transformer"
+          },
+          "line": 69,
+          "metric": "rouge_l",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.186
+        },
+        {
+          "context": {
+            "system": "Transformer"
+          },
+          "line": 69,
+          "metric": "meteor",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.114
+        },
+        {
+          "context": {
+            "system": "Transformer"
+          },
+          "line": 69,
+          "metric": "text2mol",
+          "snippet": "Transformer | 0.061 | 0.027 | 0.204 | 0.087 | 0.186 | 0.114 | 0.057",
+          "value": 0.057
+        },
+        {
+          "context": {
+            "system": "GPT-3.5 zero-shot"
+          },
+          "line": 70,
+          "metric": "bleu_2",
+          "snippet": "GPT-3.5-turbo (zero_shot) | 0.103 | 0.050 | 0.261 | 0.088 | 0.204",
+          "value": 0.103
+        },
+        {
+          "context": {
+            "system": "GPT-3.5 zero-shot"
+          },
+          "line": 70,
+          "metric": "bleu_4",
+          "snippet": "GPT-3.5-turbo (zero_shot) | 0.103 | 0.050 | 0.261 | 0.088 | 0.204",
+          "value": 0.05
+        },
+        {
+          "context": {
+            "system": "GPT-3.5 zero-shot"
+          },
+          "line": 70,
+          "metric": "rouge_l_1",
+          "snippet": "GPT-3.5-turbo (zero_shot) | 0.103 | 0.050 | 0.261 | 0.088 | 0.204",
+          "value": 0.261
+        },
+        {
+          "context": {
+            "system": "GPT-3.5 zero-shot"
+          },
+          "line": 70,
+          "metric": "rouge_l_2",
+          "snippet": "GPT-3.5-turbo (zero_shot) | 0.103 | 0.050 | 0.261 | 0.088 | 0.204",
+          "value": 0.088
+        },
+        {
+          "context": {
+            "system": "GPT-3.5 zero-shot"
+          },
+          "line": 70,
+          "metric": "rouge_l",
+          "snippet": "GPT-3.5-turbo (zero_shot) | 0.103 | 0.050 | 0.261 | 0.088 | 0.204",
+          "value": 0.204
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 28,
+      "repository": "phenixace/MolReGPT",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 29,
+      "reason": "results are qualitative images without human-readable numeric claims",
+      "repository": "franckfotso/cbir_binary_code",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 30,
+      "reason": "configuration values and architecture description only",
+      "repository": "LyzrCore/perplexity_oss",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {},
+          "line": 4,
+          "metric": "bleu_improvement",
+          "snippet": "improvements of 112% in BLEU scores",
+          "value": 1.12
+        },
+        {
+          "context": {},
+          "line": 4,
+          "metric": "rouge_l_improvement",
+          "snippet": "21.7% in ROUGE-L scores",
+          "value": 0.217
+        },
+        {
+          "context": {
+            "metric_scope": "BLEU"
+          },
+          "line": 4,
+          "metric": "bleu_stdev",
+          "snippet": "standard deviations of 3.72 and 0.00075",
+          "value": 3.72
+        },
+        {
+          "context": {
+            "metric_scope": "ROUGE-L"
+          },
+          "line": 4,
+          "metric": "rouge_l_stdev",
+          "snippet": "standard deviations of 3.72 and 0.00075",
+          "value": 0.00075
+        },
+        {
+          "context": {},
+          "line": 4,
+          "metric": "weighted_f1_decline",
+          "snippet": "Weighted F1 scores showed an expected decline of 13%",
+          "value": 0.13
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 31,
+      "repository": "abdanhafidz/DawetAI",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "system": "OpenSearch-SQL"
+          },
+          "line": 89,
+          "metric": "wikitq_accuracy",
+          "snippet": "OpenSearch-SQL | 38.89 | 4.76 | 24.00 | 23.87",
+          "value": 0.3889
+        },
+        {
+          "context": {
+            "system": "OpenSearch-SQL"
+          },
+          "line": 89,
+          "metric": "temptabqa_accuracy",
+          "snippet": "OpenSearch-SQL | 38.89 | 4.76 | 24.00 | 23.87",
+          "value": 0.047599999999999996
+        },
+        {
+          "context": {
+            "system": "OpenSearch-SQL"
+          },
+          "line": 89,
+          "metric": "sstqa_accuracy",
+          "snippet": "OpenSearch-SQL | 38.89 | 4.76 | 24.00 | 23.87",
+          "value": 0.24
+        },
+        {
+          "context": {
+            "system": "OpenSearch-SQL"
+          },
+          "line": 89,
+          "metric": "sstqa_rouge_l",
+          "snippet": "OpenSearch-SQL | 38.89 | 4.76 | 24.00 | 23.87",
+          "value": 0.23870000000000002
+        },
+        {
+          "context": {
+            "system": "TableLLaMA"
+          },
+          "line": 91,
+          "metric": "wikitq_accuracy",
+          "snippet": "TableLLaMA | 35.01 | 32.70 | 40.39 | 26.71",
+          "value": 0.35009999999999997
+        },
+        {
+          "context": {
+            "system": "TableLLaMA"
+          },
+          "line": 91,
+          "metric": "temptabqa_accuracy",
+          "snippet": "TableLLaMA | 35.01 | 32.70 | 40.39 | 26.71",
+          "value": 0.327
+        },
+        {
+          "context": {
+            "system": "TableLLaMA"
+          },
+          "line": 91,
+          "metric": "sstqa_accuracy",
+          "snippet": "TableLLaMA | 35.01 | 32.70 | 40.39 | 26.71",
+          "value": 0.4039
+        },
+        {
+          "context": {
+            "system": "TableLLaMA"
+          },
+          "line": 91,
+          "metric": "sstqa_rouge_l",
+          "snippet": "TableLLaMA | 35.01 | 32.70 | 40.39 | 26.71",
+          "value": 0.2671
+        },
+        {
+          "context": {
+            "system": "TableLLM"
+          },
+          "line": 92,
+          "metric": "wikitq_accuracy",
+          "snippet": "TableLLM | 62.40 | 9.13 | 7.84 | 2.93",
+          "value": 0.624
+        },
+        {
+          "context": {
+            "system": "TableLLM"
+          },
+          "line": 92,
+          "metric": "temptabqa_accuracy",
+          "snippet": "TableLLM | 62.40 | 9.13 | 7.84 | 2.93",
+          "value": 0.0913
+        },
+        {
+          "context": {
+            "system": "TableLLM"
+          },
+          "line": 92,
+          "metric": "sstqa_accuracy",
+          "snippet": "TableLLM | 62.40 | 9.13 | 7.84 | 2.93",
+          "value": 0.0784
+        },
+        {
+          "context": {
+            "system": "TableLLM"
+          },
+          "line": 92,
+          "metric": "sstqa_rouge_l",
+          "snippet": "TableLLM | 62.40 | 9.13 | 7.84 | 2.93",
+          "value": 0.029300000000000003
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 32,
+      "repository": "OpenDataBox/ST-Raptor",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "system": "U-Net"
+          },
+          "line": 149,
+          "metric": "iou",
+          "snippet": "| IoU | 0.90 |",
+          "value": 0.9
+        },
+        {
+          "context": {
+            "system": "U-Net"
+          },
+          "line": 150,
+          "metric": "dice",
+          "snippet": "| Dice | 0.95 |",
+          "value": 0.95
+        },
+        {
+          "context": {
+            "system": "U-Net"
+          },
+          "line": 151,
+          "metric": "precision",
+          "snippet": "| Precision | 0.92 |",
+          "value": 0.92
+        },
+        {
+          "context": {
+            "system": "U-Net"
+          },
+          "line": 152,
+          "metric": "recall",
+          "snippet": "| Recall | 0.97 |",
+          "value": 0.97
+        },
+        {
+          "context": {
+            "system": "U-Net"
+          },
+          "line": 153,
+          "metric": "auroc",
+          "snippet": "| ROC AUC | 0.99 |",
+          "value": 0.99
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 33,
+      "repository": "Gautier9d/chocolate-recognition-deep-learning",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "split": "test"
+          },
+          "line": 178,
+          "metric": "precision",
+          "snippet": "Precision: 0.974872",
+          "value": 0.974872
+        },
+        {
+          "context": {
+            "split": "test"
+          },
+          "line": 179,
+          "metric": "recall",
+          "snippet": "Recall: 0.982158",
+          "value": 0.982158
+        },
+        {
+          "context": {
+            "split": "test"
+          },
+          "line": 180,
+          "metric": "f1",
+          "snippet": "F1 Score: 0.978501",
+          "value": 0.978501
+        },
+        {
+          "context": {
+            "split": "test"
+          },
+          "line": 181,
+          "metric": "specificity",
+          "snippet": "Specificity: 0.991546",
+          "value": 0.991546
+        },
+        {
+          "context": {
+            "split": "test"
+          },
+          "line": 182,
+          "metric": "auroc",
+          "snippet": "AUC: 0.986852",
+          "value": 0.986852
+        },
+        {
+          "context": {
+            "split": "test"
+          },
+          "line": 183,
+          "metric": "iou",
+          "snippet": "IoU: 0.957907",
+          "value": 0.957907
+        },
+        {
+          "context": {
+            "split": "test"
+          },
+          "line": 184,
+          "metric": "dice",
+          "snippet": "Dice Coefficient: 0.978501",
+          "value": 0.978501
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 34,
+      "repository": "CoboAr/Lung-Mask-Segmentation-with-U-Net",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "level": "image"
+          },
+          "line": 28,
+          "metric": "auroc",
+          "snippet": "95.15% image-level AU-ROC",
+          "value": 0.9515
+        },
+        {
+          "context": {
+            "level": "pixel"
+          },
+          "line": 28,
+          "metric": "pro",
+          "snippet": "92.93% pixel-level PRO",
+          "value": 0.9293
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 35,
+      "repository": "caoyunkang/CPMF",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 36,
+      "reason": "experiment code without committed observed numeric results",
+      "repository": "raghavchalapathy/oc-nn",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": false,
+      "path": "README.md",
+      "rank": 37,
+      "reason": "evaluation capabilities without committed observed numeric results",
+      "repository": "liuhe37186/he-wiki-rag",
+      "review_status": "reviewed"
+    },
+    {
+      "claims": [
+        {
+          "context": {
+            "system": "ColQwen2.5"
+          },
+          "line": 60,
+          "metric": "ndcg_5",
+          "snippet": "ColQwen2.5 | 0.630 | 0.666 | 0.717 | 0.766 | 0.573",
+          "value": 0.63
+        },
+        {
+          "context": {
+            "system": "ColQwen2.5"
+          },
+          "line": 60,
+          "metric": "ndcg_10",
+          "snippet": "ColQwen2.5 | 0.630 | 0.666 | 0.717 | 0.766 | 0.573",
+          "value": 0.666
+        },
+        {
+          "context": {
+            "system": "ColQwen2.5"
+          },
+          "line": 60,
+          "metric": "mrr",
+          "snippet": "ColQwen2.5 | 0.630 | 0.666 | 0.717 | 0.766 | 0.573",
+          "value": 0.717
+        },
+        {
+          "context": {
+            "system": "ColQwen2.5"
+          },
+          "line": 60,
+          "metric": "recall_10",
+          "snippet": "ColQwen2.5 | 0.630 | 0.666 | 0.717 | 0.766 | 0.573",
+          "value": 0.766
+        },
+        {
+          "context": {
+            "system": "ColQwen2.5"
+          },
+          "line": 60,
+          "metric": "map_10",
+          "snippet": "ColQwen2.5 | 0.630 | 0.666 | 0.717 | 0.766 | 0.573",
+          "value": 0.573
+        },
+        {
+          "context": {
+            "system": "ColGemma3"
+          },
+          "line": 61,
+          "metric": "ndcg_5",
+          "snippet": "ColGemma3 | 0.626 | 0.660 | 0.709 | 0.767 | 0.564",
+          "value": 0.626
+        },
+        {
+          "context": {
+            "system": "ColGemma3"
+          },
+          "line": 61,
+          "metric": "ndcg_10",
+          "snippet": "ColGemma3 | 0.626 | 0.660 | 0.709 | 0.767 | 0.564",
+          "value": 0.66
+        },
+        {
+          "context": {
+            "system": "ColGemma3"
+          },
+          "line": 61,
+          "metric": "mrr",
+          "snippet": "ColGemma3 | 0.626 | 0.660 | 0.709 | 0.767 | 0.564",
+          "value": 0.709
+        },
+        {
+          "context": {
+            "system": "ColGemma3"
+          },
+          "line": 61,
+          "metric": "recall_10",
+          "snippet": "ColGemma3 | 0.626 | 0.660 | 0.709 | 0.767 | 0.564",
+          "value": 0.767
+        },
+        {
+          "context": {
+            "system": "ColGemma3"
+          },
+          "line": 61,
+          "metric": "map_10",
+          "snippet": "ColGemma3 | 0.626 | 0.660 | 0.709 | 0.767 | 0.564",
+          "value": 0.564
+        },
+        {
+          "context": {
+            "system": "ColQwen2"
+          },
+          "line": 62,
+          "metric": "ndcg_5",
+          "snippet": "ColQwen2 | 0.624 | 0.657",
+          "value": 0.624
+        },
+        {
+          "context": {
+            "system": "ColQwen2"
+          },
+          "line": 62,
+          "metric": "ndcg_10",
+          "snippet": "ColQwen2 | 0.624 | 0.657",
+          "value": 0.657
+        }
+      ],
+      "eligible": true,
+      "path": "README.md",
+      "rank": 38,
+      "repository": "mathieusharp/mmore-colvision-benchmark",
+      "review_status": "reviewed"
+    },
+    {
+      "eligible": null,
+      "path": "README.md",
+      "rank": 39,
+      "repository": "b-faye/uniproj-det",
+      "review_status": "not_reviewed_target_reached"
+    },
+    {
+      "eligible": null,
+      "path": "docs/scorecards/README.md",
+      "rank": 40,
+      "repository": "thomasjumper/agentbay",
+      "review_status": "not_reviewed_target_reached"
+    },
+    {
+      "eligible": null,
+      "path": "README.md",
+      "rank": 41,
+      "repository": "ssilverman/TeensyDMX",
+      "review_status": "not_reviewed_target_reached"
+    },
+    {
+      "eligible": null,
+      "path": "README.md",
+      "rank": 42,
+      "repository": "RamanujanMachine/RamanujanMachine",
+      "review_status": "not_reviewed_target_reached"
+    },
+    {
+      "eligible": null,
+      "path": "README.md",
+      "rank": 43,
+      "repository": "turbolytics/sql-flow",
+      "review_status": "not_reviewed_target_reached"
+    },
+    {
+      "eligible": null,
+      "path": "README.md",
+      "rank": 44,
+      "repository": "mkazhdan/PoissonRecon",
+      "review_status": "not_reviewed_target_reached"
+    },
+    {
+      "eligible": null,
+      "path": "README.md",
+      "rank": 45,
+      "repository": "AgibotTech/genie_sim",
+      "review_status": "not_reviewed_target_reached"
+    },
+    {
+      "eligible": null,
+      "path": "README.md",
+      "rank": 46,
+      "repository": "AIGeeksGroup/EvoVLA",
+      "review_status": "not_reviewed_target_reached"
+    },
+    {
+      "eligible": null,
+      "path": "README.md",
+      "rank": 47,
+      "repository": "neurocollective/go_chainable",
+      "review_status": "not_reviewed_target_reached"
+    },
+    {
+      "eligible": null,
+      "path": "README.md",
+      "rank": 48,
+      "repository": "dkaslovsky/GraphRole",
+      "review_status": "not_reviewed_target_reached"
+    }
+  ],
+  "schema_version": "reprocheck.cross-project-labels.v10",
+  "selected_claims": 155,
+  "sequential_stop_rank": 38
+}
