@@ -1,0 +1,77 @@
+{
+  "cases": {
+    "lore-esbuild-ground-truth-correction": {
+      "deltas": {
+        "answer_coverage_delta_pp": 3.00061050061049,
+        "correctness_delta_pp": 3.544005140158979,
+        "fail_rate_delta_pp": -2.564102564102564,
+        "mean_tokens_delta": -2770.707692307693,
+        "mean_tool_calls_delta": -12.346153846153847,
+        "mean_wall_time_seconds_delta": -8.596743589743596,
+        "partial_rate_delta_pp": -3.076923076923076,
+        "success_rate_delta_pp": 5.641025641025632
+      },
+      "independent_runs_per_arm": 390,
+      "recomputed": {
+        "answer_coverage_control": 0.889920634920635,
+        "answer_coverage_lore": 0.9199267399267399,
+        "correctness_control": 0.8727785248939095,
+        "correctness_lore": 0.9082185762954993,
+        "fail_rate_control": 0.035897435897435895,
+        "fail_rate_lore": 0.010256410256410256,
+        "mean_tokens_control": 8952.325641025642,
+        "mean_tokens_lore": 6181.617948717949,
+        "mean_tool_calls_control": 30.735897435897435,
+        "mean_tool_calls_lore": 18.38974358974359,
+        "mean_wall_time_seconds_control": 110.29660769230769,
+        "mean_wall_time_seconds_lore": 101.69986410256409,
+        "partial_rate_control": 0.07179487179487179,
+        "partial_rate_lore": 0.041025641025641026,
+        "success_rate_control": 0.8923076923076924,
+        "success_rate_lore": 0.9487179487179487
+      },
+      "repositories": 6,
+      "status": "pass"
+    },
+    "popoto-locomo-gold-blind-scoring": {
+      "independent_rows": 1986,
+      "recomputed": {
+        "mrr": 0.40050596139472144,
+        "recall_at_1": 0.2980866062437059,
+        "recall_at_10": 0.6017119838872105,
+        "recall_at_5": 0.5302114803625377
+      },
+      "reported": {
+        "mrr": 0.4005,
+        "recall_at_1": 0.2981,
+        "recall_at_10": 0.6017,
+        "recall_at_5": 0.5302
+      },
+      "status": "pass"
+    },
+    "sestrav-feature-count-label-correction": {
+      "feature_modes": [
+        "31"
+      ],
+      "independent_prediction_rows": 35555,
+      "status": "pass",
+      "tier_a_metrics": {
+        "auc_pr": 0.8277665710862102,
+        "auc_roc": 0.7255054358191875,
+        "issr_10": 0.8428571428571429,
+        "n_scored": 704
+      }
+    }
+  },
+  "integrity": {
+    "files": 9,
+    "status": "pass"
+  },
+  "schema_version": "reprocheck.upstream-discovery-raw-evidence-verification.v1",
+  "summary": {
+    "agreement_rate": 1.0,
+    "cases_verified": 3,
+    "cases_with_raw_evidence": 3
+  },
+  "uses_reprocheck_parser": false
+}

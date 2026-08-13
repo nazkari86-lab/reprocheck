@@ -1,0 +1,77 @@
+{
+  "files": {
+    "lore-esbuild-ground-truth-correction--docs__benchmark-results__esbuild.json": {
+      "case_id": "lore-esbuild-ground-truth-correction",
+      "commit": "4c09f48c1d79713666f03ef77330cf2f821cee00",
+      "path": "docs/benchmark-results/esbuild.json",
+      "repository": "jafreck/Lore",
+      "sha256": "203546e2d0d5ef7c84559dea4e918525c4840680d5d4bcc28cb56dc303aedd4d",
+      "url": "https://raw.githubusercontent.com/jafreck/Lore/4c09f48c1d79713666f03ef77330cf2f821cee00/docs/benchmark-results/esbuild.json"
+    },
+    "lore-esbuild-ground-truth-correction--docs__benchmark-results__fastapi.json": {
+      "case_id": "lore-esbuild-ground-truth-correction",
+      "commit": "4c09f48c1d79713666f03ef77330cf2f821cee00",
+      "path": "docs/benchmark-results/fastapi.json",
+      "repository": "jafreck/Lore",
+      "sha256": "230173865c9e33d1a5106f01b9f305e15633a8cf4db1008ed200147d5c060b10",
+      "url": "https://raw.githubusercontent.com/jafreck/Lore/4c09f48c1d79713666f03ef77330cf2f821cee00/docs/benchmark-results/fastapi.json"
+    },
+    "lore-esbuild-ground-truth-correction--docs__benchmark-results__jackson-databind.json": {
+      "case_id": "lore-esbuild-ground-truth-correction",
+      "commit": "4c09f48c1d79713666f03ef77330cf2f821cee00",
+      "path": "docs/benchmark-results/jackson-databind.json",
+      "repository": "jafreck/Lore",
+      "sha256": "75c7db55266099e7f6fccfdbe8a2995e6cbeb71b6af65b233671dd462b0d6119",
+      "url": "https://raw.githubusercontent.com/jafreck/Lore/4c09f48c1d79713666f03ef77330cf2f821cee00/docs/benchmark-results/jackson-databind.json"
+    },
+    "lore-esbuild-ground-truth-correction--docs__benchmark-results__lore-self.json": {
+      "case_id": "lore-esbuild-ground-truth-correction",
+      "commit": "4c09f48c1d79713666f03ef77330cf2f821cee00",
+      "path": "docs/benchmark-results/lore-self.json",
+      "repository": "jafreck/Lore",
+      "sha256": "be354738965199210f7621266e7d1e908034015dd81b476d4e9f1f70635178af",
+      "url": "https://raw.githubusercontent.com/jafreck/Lore/4c09f48c1d79713666f03ef77330cf2f821cee00/docs/benchmark-results/lore-self.json"
+    },
+    "lore-esbuild-ground-truth-correction--docs__benchmark-results__postgres.json": {
+      "case_id": "lore-esbuild-ground-truth-correction",
+      "commit": "4c09f48c1d79713666f03ef77330cf2f821cee00",
+      "path": "docs/benchmark-results/postgres.json",
+      "repository": "jafreck/Lore",
+      "sha256": "9525c23ea715477f0fb93fc44676d7cb72cb7a549622020b9daa70178dc8d315",
+      "url": "https://raw.githubusercontent.com/jafreck/Lore/4c09f48c1d79713666f03ef77330cf2f821cee00/docs/benchmark-results/postgres.json"
+    },
+    "lore-esbuild-ground-truth-correction--docs__benchmark-results__zod.json": {
+      "case_id": "lore-esbuild-ground-truth-correction",
+      "commit": "4c09f48c1d79713666f03ef77330cf2f821cee00",
+      "path": "docs/benchmark-results/zod.json",
+      "repository": "jafreck/Lore",
+      "sha256": "f6fd7baf9c7f2f12529cccfe3e2a2154e8bb89e50ea8a6d2cf62feab03cfaa63",
+      "url": "https://raw.githubusercontent.com/jafreck/Lore/4c09f48c1d79713666f03ef77330cf2f821cee00/docs/benchmark-results/zod.json"
+    },
+    "popoto-locomo-gold-blind-scoring--tests__benchmarks__results__external__locomo_20260807.json": {
+      "case_id": "popoto-locomo-gold-blind-scoring",
+      "commit": "592e24136a89f87d6160131e1096c83a81a303e0",
+      "path": "tests/benchmarks/results/external/locomo_20260807.json",
+      "repository": "tomcounsell/popoto",
+      "sha256": "90d839c02913583cfcbf544f1ba76519352dbd9faf67be7e30698b6fe92435ce",
+      "url": "https://raw.githubusercontent.com/tomcounsell/popoto/592e24136a89f87d6160131e1096c83a81a303e0/tests/benchmarks/results/external/locomo_20260807.json"
+    },
+    "sestrav-feature-count-label-correction--models__rf_oof_predictions.csv": {
+      "case_id": "sestrav-feature-count-label-correction",
+      "commit": "ffd36db3be168f1d76cafe10760fe53ed9c83662",
+      "path": "models/rf_oof_predictions.csv",
+      "repository": "Gavin-Borges/SESTRAV",
+      "sha256": "b82fc17fee11556cb15e80bb7ef10e6f92ff807fa6d7d79b7d0bf9f35c900be2",
+      "url": "https://raw.githubusercontent.com/Gavin-Borges/SESTRAV/ffd36db3be168f1d76cafe10760fe53ed9c83662/models/rf_oof_predictions.csv"
+    },
+    "sestrav-feature-count-label-correction--results__table3_tier_a_metrics.csv": {
+      "case_id": "sestrav-feature-count-label-correction",
+      "commit": "ffd36db3be168f1d76cafe10760fe53ed9c83662",
+      "path": "results/table3_tier_a_metrics.csv",
+      "repository": "Gavin-Borges/SESTRAV",
+      "sha256": "93829af6359ccac5db9cd8910fbae5a95a7c7df1c75c2a1daefcb2b34801cced",
+      "url": "https://raw.githubusercontent.com/Gavin-Borges/SESTRAV/ffd36db3be168f1d76cafe10760fe53ed9c83662/results/table3_tier_a_metrics.csv"
+    }
+  },
+  "schema_version": "reprocheck.upstream-discovery-raw-evidence-lock.v1"
+}

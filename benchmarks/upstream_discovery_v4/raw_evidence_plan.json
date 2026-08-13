@@ -1,0 +1,31 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-raw-evidence-plan.v1",
+  "selected_without_parser_output": true,
+  "cases": [
+    {
+      "case_id": "popoto-locomo-gold-blind-scoring",
+      "rank": 17,
+      "files": ["tests/benchmarks/results/external/locomo_20260807.json"]
+    },
+    {
+      "case_id": "lore-esbuild-ground-truth-correction",
+      "rank": 37,
+      "files": [
+        "docs/benchmark-results/esbuild.json",
+        "docs/benchmark-results/fastapi.json",
+        "docs/benchmark-results/jackson-databind.json",
+        "docs/benchmark-results/lore-self.json",
+        "docs/benchmark-results/postgres.json",
+        "docs/benchmark-results/zod.json"
+      ]
+    },
+    {
+      "case_id": "sestrav-feature-count-label-correction",
+      "rank": 119,
+      "files": [
+        "models/rf_oof_predictions.csv",
+        "results/table3_tier_a_metrics.csv"
+      ]
+    }
+  ]
+}
