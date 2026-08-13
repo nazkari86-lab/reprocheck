@@ -51,6 +51,7 @@ witness-source-benchmark:
 	python3 benchmarks/witness_source/check_baseline.py --result outputs/witness-source-benchmark.json
 
 upstream-corrections:
+	python3 benchmarks/upstream_corrections/verify_discovery.py
 	python3 benchmarks/upstream_corrections/fetch_sources.py
 	python3 benchmarks/upstream_corrections/run_benchmark.py --output outputs/upstream-corrections.json
 

@@ -1,5 +1,25 @@
 {
   "files": {
+    "alley-exec-speedups.after.md": {
+      "sha256": "37f80872fc721760752f209e4bed898c09825f83892421e28b8647808b7656cd",
+      "url": "https://raw.githubusercontent.com/alleyos/alley/5d3f155e036d147cf419b04df06c97d4c9251903/docs/benchmark.md"
+    },
+    "alley-exec-speedups.before.md": {
+      "sha256": "0ba1590c99e4aca186d3787e339f29435092ce116980fc78144e9f6378d82415",
+      "url": "https://raw.githubusercontent.com/alleyos/alley/aa81651250609a31933e94361477e3ffa0d717c7/docs/benchmark.md"
+    },
+    "envio-hyperindex-benchmark.after.md": {
+      "sha256": "a0de0079db7d81a210a36721057c48052c72689eb82fe0215ac341a762c40189",
+      "url": "https://raw.githubusercontent.com/enviodev/docs/74139ba7b2515e7fd87cfb713014487cd72006cb/blog/2026-04-30-what-is-hypersync.md"
+    },
+    "envio-hyperindex-benchmark.before.md": {
+      "sha256": "236ed28b41f69c607234e2fbd24c56105e084c3bd9978fba7c5b69184474d902",
+      "url": "https://raw.githubusercontent.com/enviodev/docs/56810fa8e04f3aef7a08a8409e267647998d8714/blog/2026-04-30-what-is-hypersync.md"
+    },
+    "envio-hyperindex-benchmark.evidence.md": {
+      "sha256": "365ffc81e4dab179107484accd74cbfb7a1af275db3d348abb387b1c3c9ac22f",
+      "url": "https://raw.githubusercontent.com/enviodev/open-indexer-benchmark/3ba9dbf9ba159aaaa01db09372abd5f0b28df294/sentio-benchmarks-may-2025/case_6_template/README.md"
+    },
     "google-toxic-comments-results.after.md": {
       "sha256": "ab47a2bf3887b82f07fd93d1fb2d5d89248411bdba2e98bd8badffb9aba0b80d",
       "url": "https://raw.githubusercontent.com/google/uncertainty-baselines/df7508baeb94b82b9d3f935a6b4a22b0409f3c26/baselines/toxic_comments/README.md"
@@ -107,6 +127,30 @@
     "openvino-person-attributes-f1.before.md": {
       "sha256": "e1e11684411b51fa6bc2403d5b511ecd9cb73a9a6f4ba5ee8eaf5305f832f828",
       "url": "https://raw.githubusercontent.com/openvinotoolkit/open_model_zoo/372487879a068c83153009638052bb783889b758/intel_models/person-attributes-recognition-crossroad-0230/description/person-attributes-recognition-crossroad-0230.md"
+    },
+    "ponder-sync-times.after.md": {
+      "sha256": "4185bdf4533e2a141af33d3b809be75a59ae34abf5d77200ee0a5ef4962b3ca2",
+      "url": "https://raw.githubusercontent.com/ponder-sh/ponder/bfe72db5730d7df2220a36222e1c818dfcca0a5c/benchmarks/README.md"
+    },
+    "ponder-sync-times.before.md": {
+      "sha256": "c62f15c9164eb070ab4b9286a4f1743777d5373478c346260127926389879ea9",
+      "url": "https://raw.githubusercontent.com/ponder-sh/ponder/4a4e7cfcbb37a98b6d85025862826f68d19fc303/benchmarks/README.md"
+    },
+    "pytorch-frame-embedding-accuracy.after.md": {
+      "sha256": "9a8eb0c1211fb6baf57b949ca43e82cdb5c6cb0eb66f565277c6e4f258e9a9b8",
+      "url": "https://raw.githubusercontent.com/pyg-team/pytorch-frame/e8a11d43746d6b69b97e1d3646451d8a88a9ab88/README.md"
+    },
+    "pytorch-frame-embedding-accuracy.before.md": {
+      "sha256": "b74cbb8f426fb5030fc1f9b978b171dd46d29c558b42a5ac1335bebd61ea7e76",
+      "url": "https://raw.githubusercontent.com/pyg-team/pytorch-frame/9ad8e4eff35342e6a70b787c31ebfe28b6cc1ce2/README.md"
+    },
+    "sigstore-model-signing-times.after.md": {
+      "sha256": "fc5e17dec4a75308b502106c527384f6351af42acc8034c8e4ec22dfdaf3554f",
+      "url": "https://raw.githubusercontent.com/sigstore/model-transparency/4b5b324661c680b6c2c0ee363ed743a078096447/model_signing/README.md"
+    },
+    "sigstore-model-signing-times.before.md": {
+      "sha256": "a5ff3bae95f38f36a3c973bc32f39a34b7005a13da4167d0ca31bc8b466f5ca7",
+      "url": "https://raw.githubusercontent.com/sigstore/model-transparency/40b6bf53bae67e5dfefaf62c1d38cc56420e6375/model_signing/README.md"
     },
     "transformers-object-detection-results.after.md": {
       "sha256": "d52107e18c10e0163fa00a10bf80ab2db0870ea4e803755d38292fd6390312c5",

@@ -40,6 +40,8 @@ def _raw_evidence_value(path: Path, key: str) -> float:
 def run(output: Path) -> dict[str, Any]:
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
     lock = json.loads((ROOT / "sources.lock.json").read_text(encoding="utf-8"))
+    discovery_path = ROOT / "discovery_snapshot.json"
+    discovery = json.loads(discovery_path.read_text(encoding="utf-8"))
     cases: list[dict[str, Any]] = []
     for correction in manifest["corrections"]:
         before_path = (
@@ -48,7 +50,8 @@ def run(output: Path) -> dict[str, Any]:
         after_path = ROOT / "sources" / f"{correction['id']}.after{Path(correction['path']).suffix}"
         source_paths = [before_path, after_path]
         evidence_descriptor = correction.get("raw_evidence")
-        evidence_path = ROOT / "sources" / f"{correction['id']}.evidence.jsonl"
+        evidence_suffix = evidence_descriptor.get("suffix", ".jsonl") if evidence_descriptor else ""
+        evidence_path = ROOT / "sources" / f"{correction['id']}.evidence{evidence_suffix}"
         if evidence_descriptor:
             source_paths.append(evidence_path)
         integrity = all(
@@ -87,7 +90,19 @@ def run(output: Path) -> dict[str, Any]:
         evidence_verified: bool | None = None
         evidence_value: float | None = None
         if evidence_descriptor:
-            evidence_value = _raw_evidence_value(evidence_path, evidence_descriptor["json_key"])
+            if evidence_descriptor.get("format", "jsonl") == "claim":
+                evidence_claims = _matching_claims(
+                    evidence_path.read_text(encoding="utf-8"),
+                    evidence_descriptor["snippet"],
+                    evidence_descriptor["claim"],
+                )
+                if len(evidence_claims) != 1:
+                    raise ValueError(
+                        f"raw evidence claim count is {len(evidence_claims)}: {evidence_path.name}"
+                    )
+                evidence_value = float(evidence_claims[0].value)
+            else:
+                evidence_value = _raw_evidence_value(evidence_path, evidence_descriptor["json_key"])
             expected_value = float(evidence_descriptor["expected_value"])
             corrected_claim_value = float(
                 evidence_descriptor.get("corrected_claim_value", expected_value)
@@ -122,6 +137,12 @@ def run(output: Path) -> dict[str, Any]:
     result = {
         "schema_version": "reprocheck.upstream-corrections-result.v1",
         "manifest_sha256": _sha256(ROOT / "manifest.json"),
+        "discovery_snapshot_sha256": _sha256(discovery_path),
+        "discovery_cohort": {
+            "results": len(discovery["results"]),
+            "included": sum(item["decision"] == "include" for item in discovery["results"]),
+            "excluded": sum(item["decision"] == "exclude" for item in discovery["results"]),
+        },
         "independent_corrections": len(cases),
         "repositories": len({case["repository"] for case in cases}),
         "organizations": len({case["repository"].split("/", 1)[0] for case in cases}),

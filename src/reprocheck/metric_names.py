@@ -76,6 +76,14 @@ METRIC_ALIASES = {
     "log_loss": "log_loss",
     "brier score": "brier_score",
     "brier_score": "brier_score",
+    "runtime": "runtime_seconds",
+    "runtime seconds": "runtime_seconds",
+    "processing time": "runtime_seconds",
+    "sign time": "sign_time_seconds",
+    "verify time": "verify_time_seconds",
+    "sync time (w/o cache)": "sync_time_without_cache_seconds",
+    "sync time (w/ cache)": "sync_time_with_cache_seconds",
+    "speedup": "speedup",
 }
 
 UNIT_INTERVAL_METRICS = {
@@ -104,7 +112,20 @@ UNIT_INTERVAL_METRICS = {
     "brier_score",
 }
 
-NONNEGATIVE_METRICS = {"hausdorff95", "assd", "rmse", "mae", "mse", "log_loss"}
+NONNEGATIVE_METRICS = {
+    "hausdorff95",
+    "assd",
+    "rmse",
+    "mae",
+    "mse",
+    "log_loss",
+    "runtime_seconds",
+    "sign_time_seconds",
+    "verify_time_seconds",
+    "sync_time_without_cache_seconds",
+    "sync_time_with_cache_seconds",
+    "speedup",
+}
 
 _CANONICAL_METRICS = set(METRIC_ALIASES.values())
 

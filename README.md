@@ -89,13 +89,14 @@ make rknp-demo
 make gate
 ```
 
-The primary natural-error evidence is `make upstream-corrections`: 12
-independent merged upstream corrections containing 38 selected corrected claims
-from seven repositories and four organizations. Every before/after file is
-frozen at an immutable commit and all 38 claims are visible to ReproCheck's
-parser. Five cases are additionally checked against immutable raw evaluation
-logs. This is a curated historical correction corpus, not a random sample or an
-estimate of recall over every repository defect.
+The primary natural-error evidence is `make upstream-corrections`: 17
+independent merged upstream corrections containing 56 selected corrected claims
+from 12 repositories and nine organizations. Every before/after file is frozen
+at an immutable commit and all 56 claims are visible to ReproCheck's parser. Six
+cases are additionally checked against immutable raw evidence. The first 12
+cases are retrospective; five more are the complete accepted subset of a frozen
+25-result GitHub search cohort, with a recorded reason for every exclusion. This
+is not a random sample or an estimate of recall over every repository defect.
 
 The 12-case witness benchmark is controlled capability evidence. The separate
 30-case source-derived benchmark contains 27 deterministic mutations of three

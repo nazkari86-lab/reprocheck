@@ -46,7 +46,8 @@ def main() -> int:
                 check=True,
                 capture_output=True,
             )
-            destination = sources / f"{correction['id']}.evidence.jsonl"
+            evidence_suffix = evidence.get("suffix", ".jsonl")
+            destination = sources / f"{correction['id']}.evidence{evidence_suffix}"
             destination.write_bytes(completed.stdout)
             lock["files"][destination.name] = {
                 "sha256": _sha256(completed.stdout),

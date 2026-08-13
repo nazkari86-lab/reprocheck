@@ -205,7 +205,89 @@
         {"before": "| Deterministic       | 0.971/0.790/0.925 |", "after": "| Deterministic       | 0.972/0.782/0.922 |", "before_claim": {"metric": "auprc", "value": 0.79}, "after_claim": {"metric": "auprc", "value": 0.782}, "count": 1},
         {"before": "| Deterministic       | 0.971/0.790/0.925 |", "after": "| Deterministic       | 0.972/0.782/0.922 |", "before_claim": {"metric": "accuracy", "value": 0.925}, "after_claim": {"metric": "accuracy", "value": 0.922}, "count": 1}
       ]
+    },
+    {
+      "id": "pytorch-frame-embedding-accuracy",
+      "repository": "pyg-team/pytorch-frame",
+      "pull_request": "https://github.com/pyg-team/pytorch-frame/pull/214",
+      "merge_commit": "e8a11d43746d6b69b97e1d3646451d8a88a9ab88",
+      "parent_commit": "9ad8e4eff35342e6a70b787c31ebfe28b6cc1ce2",
+      "path": "README.md",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "| 0.8116    | Pre-trained     | text-embedding-ada-002 (dimension size: 1536)        | OpenAI       |", "after": "| 0.8102    | Pre-trained     | text-embedding-ada-002 (dimension size: 1536)        | OpenAI       |", "before_claim": {"metric": "accuracy", "value": 0.8116}, "after_claim": {"metric": "accuracy", "value": 0.8102}, "count": 1},
+        {"before": "| 0.8030    | Pre-trained     | embed-english-v3.0 (dimension size: 1024)            | Cohere       |", "after": "| 0.7998    | Pre-trained     | embed-english-v3.0 (dimension size: 1024)            | Cohere       |", "before_claim": {"metric": "accuracy", "value": 0.803}, "after_claim": {"metric": "accuracy", "value": 0.7998}, "count": 1}
+      ]
+    },
+    {
+      "id": "sigstore-model-signing-times",
+      "repository": "sigstore/model-transparency",
+      "pull_request": "https://github.com/sigstore/model-transparency/pull/18",
+      "merge_commit": "4b5b324661c680b6c2c0ee363ed743a078096447",
+      "parent_commit": "40b6bf53bae67e5dfefaf62c1d38cc56420e6375",
+      "path": "model_signing/README.md",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "| M2 | roberta-base-11 | 8K | 58.5s | 58.2s |", "after": "| M2 | roberta-base-11 | 8K | 1.4s | 0.7s |", "before_claim": {"metric": "sign_time_seconds", "value": 58.5}, "after_claim": {"metric": "sign_time_seconds", "value": 1.4}, "count": 1},
+        {"before": "| M2 | roberta-base-11 | 8K | 58.5s | 58.2s |", "after": "| M2 | roberta-base-11 | 8K | 1.4s | 0.7s |", "before_claim": {"metric": "verify_time_seconds", "value": 58.2}, "after_claim": {"metric": "verify_time_seconds", "value": 0.7}, "count": 1},
+        {"before": "| M2 | bert-base-uncased |  6.5G | 9.8s | 9.4s |", "after": "| M2 | bert-base-uncased |  6.5G | 1m1s | 57s |", "before_claim": {"metric": "sign_time_seconds", "value": 9.8}, "after_claim": {"metric": "sign_time_seconds", "value": 61.0}, "count": 1},
+        {"before": "| M2 | bert-base-uncased |  6.5G | 9.8s | 9.4s |", "after": "| M2 | bert-base-uncased |  6.5G | 1m1s | 57s |", "before_claim": {"metric": "verify_time_seconds", "value": 9.4}, "after_claim": {"metric": "verify_time_seconds", "value": 57.0}, "count": 1}
+      ]
+    },
+    {
+      "id": "ponder-sync-times",
+      "repository": "ponder-sh/ponder",
+      "pull_request": "https://github.com/ponder-sh/ponder/pull/523",
+      "merge_commit": "bfe72db5730d7df2220a36222e1c818dfcca0a5c",
+      "parent_commit": "4a4e7cfcbb37a98b6d85025862826f68d19fc303",
+      "path": "benchmarks/README.md",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "| Ponder     | 31.1s                 | 18.2s                | 31 mB         | 107,668    |", "after": "| Ponder     | 37s                   | 5s                   | 31 mB         | 107,668    |", "before_claim": {"metric": "sync_time_without_cache_seconds", "value": 31.1}, "after_claim": {"metric": "sync_time_without_cache_seconds", "value": 37.0}, "count": 1},
+        {"before": "| Ponder     | 31.1s                 | 18.2s                | 31 mB         | 107,668    |", "after": "| Ponder     | 37s                   | 5s                   | 31 mB         | 107,668    |", "before_claim": {"metric": "sync_time_with_cache_seconds", "value": 18.2}, "after_claim": {"metric": "sync_time_with_cache_seconds", "value": 5.0}, "count": 1},
+        {"before": "| The Graph  | 328s                  | 75.0s                | 1107 mB       | 166,918    |", "after": "| The Graph  | 400s                  | 75s                  | 1107 mB       | 166,918    |", "before_claim": {"metric": "sync_time_without_cache_seconds", "value": 328.0}, "after_claim": {"metric": "sync_time_without_cache_seconds", "value": 400.0}, "count": 1}
+      ]
+    },
+    {
+      "id": "alley-exec-speedups",
+      "repository": "alleyos/alley",
+      "pull_request": "https://github.com/alleyos/alley/pull/324",
+      "merge_commit": "5d3f155e036d147cf419b04df06c97d4c9251903",
+      "parent_commit": "aa81651250609a31933e94361477e3ffa0d717c7",
+      "path": "docs/benchmark.md",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "| fib | 408 us | 411 us | 1.01x |", "after": "| fib | 408 us | 409 us | 1.00x |", "before_claim": {"metric": "speedup", "value": 1.01}, "after_claim": {"metric": "speedup", "value": 1.0}, "count": 1},
+        {"before": "| hostcall | 792 us | 4,052 us | 5.12x |", "after": "| hostcall | 816 us | 3,213 us | 3.94x |", "before_claim": {"metric": "speedup", "value": 5.12}, "after_claim": {"metric": "speedup", "value": 3.94}, "count": 1},
+        {"before": "| sort | 403 us | 435 us | 1.08x |", "after": "| sort | 398 us | 436 us | 1.10x |", "before_claim": {"metric": "speedup", "value": 1.08}, "after_claim": {"metric": "speedup", "value": 1.1}, "count": 1},
+        {"before": "| sieve | 299 us | 317 us | 1.06x |", "after": "| sieve | 304 us | 320 us | 1.05x |", "before_claim": {"metric": "speedup", "value": 1.06}, "after_claim": {"metric": "speedup", "value": 1.05}, "count": 1},
+        {"before": "| blake2b | 13.5 us | 25.9 us | 1.92x |", "after": "| blake2b | 13.2 us | 27.0 us | 2.05x |", "before_claim": {"metric": "speedup", "value": 1.92}, "after_claim": {"metric": "speedup", "value": 2.05}, "count": 1},
+        {"before": "| keccak | 15.5 us | 31.9 us | 2.06x |", "after": "| keccak | 18.1 us | 35.9 us | 1.98x |", "before_claim": {"metric": "speedup", "value": 2.06}, "after_claim": {"metric": "speedup", "value": 1.98}, "count": 1},
+        {"before": "| ed25519 | 139 us | 156 us | 1.12x |", "after": "| ed25519 | 140 us | 158 us | 1.13x |", "before_claim": {"metric": "speedup", "value": 1.12}, "after_claim": {"metric": "speedup", "value": 1.13}, "count": 1}
+      ]
+    },
+    {
+      "id": "envio-hyperindex-benchmark",
+      "repository": "enviodev/docs",
+      "pull_request": "https://github.com/enviodev/docs/pull/944",
+      "merge_commit": "74139ba7b2515e7fd87cfb713014487cd72006cb",
+      "parent_commit": "56810fa8e04f3aef7a08a8409e267647998d8714",
+      "path": "blog/2026-04-30-what-is-hypersync.md",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "HyperSync is also the data layer powering HyperIndex, the fastest blockchain indexer available. Sentio's independent Uniswap V2 Factory benchmark (May 2025) measured HyperIndex completing the test in 1 minute, 143x faster than The Graph and 15x faster than the nearest competitor (Subsquid).", "after": "HyperSync is also the data layer powering HyperIndex, the fastest blockchain indexer available. Sentio's independent Uniswap V2 Factory benchmark (May 2025) measured HyperIndex completing the test in 8 seconds, 142x faster than The Graph and 15x faster than the nearest competitor (Subsquid).", "before_claim": {"metric": "runtime_seconds", "value": 60.0}, "after_claim": {"metric": "runtime_seconds", "value": 8.0}, "count": 1},
+        {"before": "HyperSync is also the data layer powering HyperIndex, the fastest blockchain indexer available. Sentio's independent Uniswap V2 Factory benchmark (May 2025) measured HyperIndex completing the test in 1 minute, 143x faster than The Graph and 15x faster than the nearest competitor (Subsquid).", "after": "HyperSync is also the data layer powering HyperIndex, the fastest blockchain indexer available. Sentio's independent Uniswap V2 Factory benchmark (May 2025) measured HyperIndex completing the test in 8 seconds, 142x faster than The Graph and 15x faster than the nearest competitor (Subsquid).", "before_claim": {"metric": "speedup", "value": 143.0}, "after_claim": {"metric": "speedup", "value": 142.0}, "count": 1}
+      ],
+      "raw_evidence": {
+        "url": "https://raw.githubusercontent.com/enviodev/open-indexer-benchmark/3ba9dbf9ba159aaaa01db09372abd5f0b28df294/sentio-benchmarks-may-2025/case_6_template/README.md",
+        "format": "claim",
+        "suffix": ".md",
+        "snippet": "Processing time: 8 seconds",
+        "claim": {"metric": "runtime_seconds", "value": 8.0},
+        "expected_value": 8.0,
+        "corrected_claim_value": 8.0
+      }
     }
   ],
-  "scientific_boundary": "This curated corpus contains 12 independent merged upstream corrections and 38 selected corrected claims from 7 repositories in 4 organizations. Multiple records changed by one PR count as one correction. Selection is explicit and non-random, so this does not estimate recall over all real repository defects."
+  "scientific_boundary": "This corpus contains 17 independent merged upstream corrections and 56 selected corrected claims from 12 repositories in 9 organizations. The first 12 cases were curated retrospectively. The five added cases were selected by applying the frozen discovery protocol to every result of one exact GitHub query. Multiple records changed by one PR count as one correction. This is not a random sample and does not estimate recall over all real repository defects."
 }

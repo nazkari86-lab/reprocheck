@@ -164,6 +164,57 @@ def test_extracts_coco_summary_metrics_without_misreading_iou_parameters():
     ]
 
 
+def test_extracts_real_benchmark_duration_claims_and_normalizes_units():
+    text = """Processing time: 8 seconds
+The benchmark measured HyperIndex completing the test in 1 minute, 143x faster.
+"""
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("runtime_seconds", 8.0),
+        ("runtime_seconds", 60.0),
+        ("speedup", 143.0),
+    ]
+
+
+def test_normalizes_subsecond_prose_durations_and_rejects_invalid_time_cells():
+    text = """Processing time: 250 milliseconds
+Processing time: 40 us
+| Model | Runtime |
+| --- | ---: |
+| broken | unavailable |
+"""
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("runtime_seconds", 0.25),
+        ("runtime_seconds", 0.00004),
+    ]
+
+
+def test_extracts_scoped_benchmark_times_and_speedup_from_tables():
+    text = """| Model | Sign Time | Verify Time | Speedup |
+| --- | ---: | ---: | ---: |
+| small | 1.4s | 0.7s | 3.94x |
+| large | 1m1s | 57s | 1.10x |
+"""
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("sign_time_seconds", 1.4),
+        ("verify_time_seconds", 0.7),
+        ("speedup", 3.94),
+        ("sign_time_seconds", 61.0),
+        ("verify_time_seconds", 57.0),
+        ("speedup", 1.1),
+    ]
+
+
+def test_extracts_cached_and_uncached_sync_times_without_unit_confusion():
+    text = """| Benchmarks | Sync time (w/o cache) | Sync time (w/ cache) |
+| --- | ---: | ---: |
+| Ponder | 31.1s | 18.2s |
+"""
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("sync_time_without_cache_seconds", 31.1),
+        ("sync_time_with_cache_seconds", 18.2),
+    ]
+
+
 def test_extracts_compound_metric_table_cells():
     text = """| Method | AUROC/AUPRC/Acc |
 | --- | --- |

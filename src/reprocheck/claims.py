@@ -34,6 +34,12 @@ _COCO_SUMMARY_RE = re.compile(
     rf"(?P<value>{_NUMBER})",
     flags=re.IGNORECASE,
 )
+_DURATION_CLAIM_RE = re.compile(
+    rf"(?:processing\s+time\s*[:=]|complet(?:e|ed|ing)(?:\s+the\s+(?:test|run))?\s+in)\s*"
+    rf"(?P<value>{_NUMBER})\s*(?P<unit>microseconds?|µs|us|milliseconds?|ms|seconds?|secs?|s|minutes?|mins?|m)\b",
+    flags=re.IGNORECASE,
+)
+_SPEEDUP_CLAIM_RE = re.compile(rf"(?P<value>{_NUMBER})\s*[x×]\s+faster\b", flags=re.IGNORECASE)
 _PARAMETER_TOKENS = {"threshold", "thresh", "cutoff", "nms", "weight", "loss"}
 _CONTEXT_HEADERS = {
     "architecture": "model",
@@ -75,6 +81,28 @@ def extract_claims(text: str) -> list[Claim]:
                     Claim(metric=metric, value=value, raw_text=line.strip(), line=line_number)
                 )
             continue
+        duration_matches = list(_DURATION_CLAIM_RE.finditer(line))
+        for match in duration_matches:
+            value = _duration_seconds(match.group("value"), match.group("unit"))
+            key = (line_number, "runtime_seconds", value)
+            if key not in text_seen:
+                text_seen.add(key)
+                claims.append(
+                    Claim(
+                        metric="runtime_seconds",
+                        value=value,
+                        raw_text=line.strip(),
+                        line=line_number,
+                    )
+                )
+        for match in _SPEEDUP_CLAIM_RE.finditer(line):
+            value = float(match.group("value").replace(",", "."))
+            key = (line_number, "speedup", value)
+            if key not in text_seen:
+                text_seen.add(key)
+                claims.append(
+                    Claim(metric="speedup", value=value, raw_text=line.strip(), line=line_number)
+                )
         for match in _STRUCTURED_KEY_RE.finditer(line):
             metric = _structured_metric_name(match.group("metric"))
             if metric is None:
@@ -93,6 +121,8 @@ def extract_claims(text: str) -> list[Claim]:
         for match in _CLAIM_RE.finditer(line):
             alias = match.group("metric").lower()
             metric = METRIC_ALIASES[alias]
+            if metric.endswith("_seconds") and duration_matches:
+                continue
             if metric in {"iou", "hard_iou"} and _is_nms_parameter(line, match.start()):
                 continue
             value = _normalize_value(
@@ -438,12 +468,40 @@ def _extract_html_table_claims(text: str) -> list[Claim]:
 
 
 def _table_value(metric: str, cell: str) -> float | None:
+    if metric.endswith("_seconds"):
+        return _duration_cell_seconds(cell)
     matches = list(_NUMBER_RE.finditer(_plain_cell(cell)))
     if len(matches) != 1:
         return None
     match = matches[0]
     value = float(match.group("value").replace(",", "."))
     return _normalize_value(metric, value, percent=bool(match.group("percent")))
+
+
+def _duration_seconds(value: str, unit: str) -> float:
+    number = float(value.replace(",", "."))
+    normalized = unit.casefold()
+    if normalized in {"microsecond", "microseconds", "µs", "us"}:
+        return number / 1_000_000
+    if normalized in {"millisecond", "milliseconds", "ms"}:
+        return number / 1_000
+    if normalized in {"minute", "minutes", "min", "mins", "m"}:
+        return number * 60
+    return number
+
+
+def _duration_cell_seconds(cell: str) -> float | None:
+    plain = _plain_cell(cell).casefold().replace(" ", "")
+    match = re.fullmatch(
+        rf"(?:(?P<minutes>{_NUMBER})(?:m|min|mins|minute|minutes))?"
+        rf"(?:(?P<seconds>{_NUMBER})(?:s|sec|secs|second|seconds)?)?",
+        plain,
+    )
+    if match is None or not (match.group("minutes") or match.group("seconds")):
+        return None
+    minutes = float((match.group("minutes") or "0").replace(",", "."))
+    seconds = float((match.group("seconds") or "0").replace(",", "."))
+    return minutes * 60 + seconds
 
 
 def _table_context(
