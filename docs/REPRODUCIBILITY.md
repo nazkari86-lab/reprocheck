@@ -66,7 +66,7 @@ independently supplied identity-to-key binding is correct.
 | v0.16 expanded suite | controlled integrity, corruption, representation, and scaling studies | `make expanded-experiments` |
 | external dual review | ready, not executed | `reprocheck review-prepare` |
 | three-rule minimal witness | 12 controlled cases, exact verifier | `make witness-benchmark` |
-| natural upstream corrections | 3 independent merged corrections, 14 affected records | `make upstream-corrections` |
+| natural upstream corrections | 12 independent merged corrections, 38 selected claims across 7 repositories; 5 cases checked against raw logs | `make upstream-corrections` |
 | source-derived witness mechanism evidence | 27 controlled mutations + 3 controls; 0 natural cases | `make witness-source-benchmark` |
 | source-unseen 0.17 holdout | protocol ready, not executed | `reprocheck holdout-verify-registration` |
 | randomized crossover human study | master ready, not executed | `reprocheck human-study-prepare` |

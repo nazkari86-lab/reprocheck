@@ -38,6 +38,20 @@ def main() -> int:
             destination = sources / f"{correction['id']}.{phase}{Path(path).suffix}"
             destination.write_bytes(data)
             lock["files"][destination.name] = {"sha256": _sha256(data), "url": url}
+        evidence = correction.get("raw_evidence")
+        if evidence:
+            url = evidence["url"]
+            completed = subprocess.run(
+                ["/usr/bin/curl", "--fail", "--location", "--silent", "--show-error", url],
+                check=True,
+                capture_output=True,
+            )
+            destination = sources / f"{correction['id']}.evidence.jsonl"
+            destination.write_bytes(completed.stdout)
+            lock["files"][destination.name] = {
+                "sha256": _sha256(completed.stdout),
+                "url": url,
+            }
     (ROOT / "sources.lock.json").write_text(
         json.dumps(lock, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8"
     )

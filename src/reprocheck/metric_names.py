@@ -129,6 +129,8 @@ def metric_family(name: object) -> str | None:
             return "map75"
         if re.search(r"\b50\b", readable):
             return "map50"
+    if re.search(r"\bmaph?\b", readable) and re.search(r"\bl[12]\b", readable):
+        return "ap"
     for alias in sorted(METRIC_ALIASES, key=len, reverse=True):
         normalized_alias = re.sub(
             r"[^\w²]+", " ", alias.casefold().replace("_", " "), flags=re.UNICODE

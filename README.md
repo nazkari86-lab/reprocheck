@@ -89,11 +89,13 @@ make rknp-demo
 make gate
 ```
 
-The primary natural-error evidence is `make upstream-corrections`: three
-independent merged upstream corrections affecting fourteen real metadata
-records, frozen at immutable commits and visible to ReproCheck's claim parser.
-This is a historical correction corpus, not an estimate of recall over every
-repository defect.
+The primary natural-error evidence is `make upstream-corrections`: 12
+independent merged upstream corrections containing 38 selected corrected claims
+from seven repositories and four organizations. Every before/after file is
+frozen at an immutable commit and all 38 claims are visible to ReproCheck's
+parser. Five cases are additionally checked against immutable raw evaluation
+logs. This is a curated historical correction corpus, not a random sample or an
+estimate of recall over every repository defect.
 
 The 12-case witness benchmark is controlled capability evidence. The separate
 30-case source-derived benchmark contains 27 deterministic mutations of three
@@ -357,7 +359,9 @@ evidence, AST data flow, and supply-chain changes are documented in
 its integrity construction are documented in
 [`docs/EVIDENCE_GRAPH.md`](docs/EVIDENCE_GRAPH.md) and
 [`docs/RELEASE_0.14.md`](docs/RELEASE_0.14.md), and all reproduction commands
-are indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md). The direct
+are indexed in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md). The separate
+engineering and scientific evidence gates are stated in
+[`docs/SCIENTIFIC_SCORECARD.md`](docs/SCIENTIFIC_SCORECARD.md). The direct
 information ablation is reported in
 [`docs/EVIDENCE_ABLATION.md`](docs/EVIDENCE_ABLATION.md), and the novelty boundary
 against established reproducibility systems is summarized in

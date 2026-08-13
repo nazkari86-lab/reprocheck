@@ -1,6 +1,6 @@
 {
-  "schema_version": "reprocheck.upstream-corrections.v1",
-  "evidence_policy": "Only merged upstream corrections whose PR explicitly identifies the prior value or metric label as erroneous are eligible.",
+  "schema_version": "reprocheck.upstream-corrections.v2",
+  "evidence_policy": "Only merged upstream corrections whose PR explicitly identifies the prior value or metric label as erroneous are eligible. Each PR counts once, even when it changes many records.",
   "corrections": [
     {
       "id": "mmdet-fpg-box-ap",
@@ -10,12 +10,20 @@
       "parent_commit": "a249dfe8d6e1939e346398aa7c6f712ce4d47e68",
       "path": "configs/fpg/README.md",
       "kind": "numeric_metric_value",
-      "metric": "box AP",
-      "expected_before_claim": {"metric": "box_ap", "value": 0.496},
-      "expected_after_claim": {"metric": "box_ap", "value": 0.396},
-      "before": "|  Mask R-CNN  |    FPN     |   50e   |   23.2   |       -        |  49.6  |  35.6",
-      "after": "|  Mask R-CNN  |    FPN     |   50e   |   23.2   |       -        |  39.6  |  35.6",
-      "affected_records": 1
+      "changes": [
+        {
+          "before": "|  Mask R-CNN  |    FPN     |   50e   |   23.2   |       -        |  49.6  |  35.6",
+          "after": "|  Mask R-CNN  |    FPN     |   50e   |   23.2   |       -        |  39.6  |  35.6",
+          "before_claim": {"metric": "box_ap", "value": 0.496},
+          "after_claim": {"metric": "box_ap", "value": 0.396},
+          "count": 1
+        }
+      ],
+      "raw_evidence": {
+        "url": "https://download.openmmlab.com/mmdetection/v2.0/fpg/mask_rcnn_r50_fpn_crop640_50e_coco/mask_rcnn_r50_fpn_crop640_50e_coco_20220311_011855.log.json",
+        "json_key": "bbox_mAP",
+        "expected_value": 0.396
+      }
     },
     {
       "id": "mmdet-conditional-detr-box-ap",
@@ -25,12 +33,20 @@
       "parent_commit": "1d06209db5a1d147800e669e86c962f776360ceb",
       "path": "configs/conditional_detr/README.md",
       "kind": "numeric_metric_value",
-      "metric": "box AP",
-      "expected_before_claim": {"metric": "box_ap", "value": 0.409},
-      "expected_after_claim": {"metric": "box_ap", "value": 0.411},
-      "before": "|   R-50   | Conditional DETR |   50e   |          |                |  40.9  |",
-      "after": "|   R-50   | Conditional DETR |   50e   |          |                |  41.1  |",
-      "affected_records": 1
+      "changes": [
+        {
+          "before": "|   R-50   | Conditional DETR |   50e   |          |                |  40.9  |",
+          "after": "|   R-50   | Conditional DETR |   50e   |          |                |  41.1  |",
+          "before_claim": {"metric": "box_ap", "value": 0.409},
+          "after_claim": {"metric": "box_ap", "value": 0.411},
+          "count": 1
+        }
+      ],
+      "raw_evidence": {
+        "url": "https://download.openmmlab.com/mmdetection/v3.0/conditional_detr/conditional-detr_r50_8xb2-50e_coco/conditional-detr_r50_8xb2-50e_coco_20221121_180202.log.json",
+        "json_key": "coco/bbox_mAP",
+        "expected_value": 0.411
+      }
     },
     {
       "id": "mmseg-unet-dice-label",
@@ -40,13 +56,156 @@
       "parent_commit": "6b3e5506c56fa6a04a5d2bde086919d62310884f",
       "path": "configs/unet/unet.yml",
       "kind": "metric_name",
-      "metric": "Dice",
-      "expected_before_claim": {"metric": "miou"},
-      "expected_after_claim": {"metric": "dice"},
-      "before": "      mIoU:",
-      "after": "      Dice:",
-      "affected_records": 12
+      "changes": [
+        {
+          "before": "      mIoU:",
+          "after": "      Dice:",
+          "before_claim": {"metric": "miou"},
+          "after_claim": {"metric": "dice"},
+          "count": 12
+        }
+      ]
+    },
+    {
+      "id": "mmseg-segmenter-results",
+      "repository": "open-mmlab/mmsegmentation",
+      "pull_request": "https://github.com/open-mmlab/mmsegmentation/pull/1695",
+      "merge_commit": "733ad9ef6e959933ae61c48a17cf2f8a1d145de2",
+      "parent_commit": "e8dfa3f26ba041ddcc5a8f13c15bc8b829ce72e7",
+      "path": "configs/segmenter/segmenter.yml",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "      mIoU: 52.16", "after": "      mIoU: 51.65", "before_claim": {"metric": "miou", "value": 0.5216}, "after_claim": {"metric": "miou", "value": 0.5165}, "count": 1},
+        {"before": "      mIoU(ms+flip): 53.65", "after": "      mIoU(ms+flip): 53.58", "before_claim": {"metric": "miou_ms_flip", "value": 0.5365}, "after_claim": {"metric": "miou_ms_flip", "value": 0.5358}, "count": 1}
+      ],
+      "raw_evidence": {
+        "url": "https://download.openmmlab.com/mmsegmentation/v0.5/segmenter/segmenter_vit-l_mask_8x1_640x640_160k_ade20k/segmenter_vit-l_mask_8x1_640x640_160k_ade20k_20220614_024513.log.json",
+        "json_key": "mIoU",
+        "expected_value": 0.5165
+      }
+    },
+    {
+      "id": "mmseg-poolformer-results",
+      "repository": "open-mmlab/mmsegmentation",
+      "pull_request": "https://github.com/open-mmlab/mmsegmentation/pull/2190",
+      "merge_commit": "a68e7c2823f6c9c79eb2fea68ecbf626aebd2b85",
+      "parent_commit": "04afdb3f271c64386317f34e9276997fdf732725",
+      "path": "configs/poolformer/poolformer.yml",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "      mIoU: 36.0", "after": "      mIoU: 36.68", "before_claim": {"metric": "miou", "value": 0.36}, "after_claim": {"metric": "miou", "value": 0.3668}, "count": 1},
+        {"before": "      mIoU: 39.35", "after": "      mIoU: 40.12", "before_claim": {"metric": "miou", "value": 0.3935}, "after_claim": {"metric": "miou", "value": 0.4012}, "count": 1},
+        {"before": "      mIoU: 40.64", "after": "      mIoU: 41.61", "before_claim": {"metric": "miou", "value": 0.4064}, "after_claim": {"metric": "miou", "value": 0.4161}, "count": 1},
+        {"before": "      mIoU: 40.91", "after": "      mIoU: 41.95", "before_claim": {"metric": "miou", "value": 0.4091}, "after_claim": {"metric": "miou", "value": 0.4195}, "count": 1},
+        {"before": "      mIoU: 41.82", "after": "      mIoU: 42.43", "before_claim": {"metric": "miou", "value": 0.4182}, "after_claim": {"metric": "miou", "value": 0.4243}, "count": 1}
+      ]
+    },
+    {
+      "id": "mmseg-swin-result",
+      "repository": "open-mmlab/mmsegmentation",
+      "pull_request": "https://github.com/open-mmlab/mmsegmentation/pull/2113",
+      "merge_commit": "a6a5a50518a13123eb80334696d90c50321c4303",
+      "parent_commit": "3d8fd35e2662b9e6f0717428da26037b8e51a203",
+      "path": "configs/swin/swin.yml",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "      mIoU: 50.31", "after": "      mIoU: 50.13", "before_claim": {"metric": "miou", "value": 0.5031}, "after_claim": {"metric": "miou", "value": 0.5013}, "count": 1}
+      ],
+      "raw_evidence": {
+        "url": "https://download.openmmlab.com/mmsegmentation/v0.5/swin/upernet_swin_base_patch4_window7_512x512_160k_ade20k_pretrain_224x224_22K/upernet_swin_base_patch4_window7_512x512_160k_ade20k_pretrain_224x224_22K_20210526_211650.log.json",
+        "json_key": "mIoU",
+        "expected_value": 0.5013
+      }
+    },
+    {
+      "id": "mmaction-activitynet-results",
+      "repository": "open-mmlab/mmaction2",
+      "pull_request": "https://github.com/open-mmlab/mmaction2/pull/589",
+      "merge_commit": "6cb1c9d0c0beebbab6f00c4191c3258fb161eb1f",
+      "parent_commit": "02e9d18d647a34f83b873e3c8eae0491b463bf3b",
+      "path": "configs/recognition/tsn/README.md",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "|  73.97   |  93.46   |", "after": "|  71.99   |  92.83   |", "before_claim": {"metric": "top1_accuracy", "value": 0.7397}, "after_claim": {"metric": "top1_accuracy", "value": 0.7199}, "count": 1},
+        {"before": "|  73.97   |  93.46   |", "after": "|  71.99   |  92.83   |", "before_claim": {"metric": "top5_accuracy", "value": 0.9346}, "after_claim": {"metric": "top5_accuracy", "value": 0.9283}, "count": 1}
+      ]
+    },
+    {
+      "id": "mmaction-slowonly-results",
+      "repository": "open-mmlab/mmaction2",
+      "pull_request": "https://github.com/open-mmlab/mmaction2/pull/2006",
+      "merge_commit": "9c23a07055c464cdcc1e8cfb3c3710894082f0f5",
+      "parent_commit": "976179e461dc71d0eec844f028c93361625f121f",
+      "path": "configs/recognition/slowonly/README.md",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "|  72.68   |  90.68   |", "after": "|  72.97   |  90.88   |", "before_claim": {"metric": "top1_accuracy", "value": 0.7268}, "after_claim": {"metric": "top1_accuracy", "value": 0.7297}, "count": 1},
+        {"before": "|  72.68   |  90.68   |", "after": "|  72.97   |  90.88   |", "before_claim": {"metric": "top5_accuracy", "value": 0.9068}, "after_claim": {"metric": "top5_accuracy", "value": 0.9088}, "count": 1}
+      ]
+    },
+    {
+      "id": "transformers-object-detection-results",
+      "repository": "huggingface/transformers",
+      "pull_request": "https://github.com/huggingface/transformers/pull/24609",
+      "merge_commit": "3df3b9d4bf006ab193b3c1257f3436b9fdb91759",
+      "parent_commit": "050ef1451682a64a70394f372021572c59dc4c28",
+      "path": "docs/source/en/tasks/object_detection.md",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.150", "after": "Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.352", "before_claim": {"metric": "map50_95", "value": 0.15}, "after_claim": {"metric": "map50_95", "value": 0.352}, "count": 1},
+        {"before": "Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.280", "after": "Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.681", "before_claim": {"metric": "map50", "value": 0.28}, "after_claim": {"metric": "map50", "value": 0.681}, "count": 1},
+        {"before": "Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.130", "after": "Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.292", "before_claim": {"metric": "map75", "value": 0.13}, "after_claim": {"metric": "map75", "value": 0.292}, "count": 1},
+        {"before": "Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.335", "after": "Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.501", "before_claim": {"metric": "ar", "value": 0.335}, "after_claim": {"metric": "ar", "value": 0.501}, "count": 1}
+      ]
+    },
+    {
+      "id": "openvino-person-attributes-f1",
+      "repository": "openvinotoolkit/open_model_zoo",
+      "pull_request": "https://github.com/openvinotoolkit/open_model_zoo/pull/58",
+      "merge_commit": "bf58d76aec662205df3a4a8c9c5229f5f2289f76",
+      "parent_commit": "372487879a068c83153009638052bb783889b758",
+      "path": "intel_models/person-attributes-recognition-crossroad-0230/description/person-attributes-recognition-crossroad-0230.md",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "| `has_longsleeves` | 0.22  |", "after": "| `has_longsleeves` | 0.21  |", "before_claim": {"metric": "f1", "value": 0.22}, "after_claim": {"metric": "f1", "value": 0.21}, "count": 1}
+      ]
+    },
+    {
+      "id": "mmdet3d-second-waymo-results",
+      "repository": "open-mmlab/mmdetection3d",
+      "pull_request": "https://github.com/open-mmlab/mmdetection3d/pull/363",
+      "merge_commit": "22c47ac75781b4a256cdde1074b7c2bb207b2479",
+      "parent_commit": "dad7506a44419b6d2bd6b53a281b73739e759669",
+      "path": "configs/second/README.md",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "||58.0|53.5|51.5|48.3|", "after": "||65.3|61.7|58.9|55.7|", "before_claim": {"metric": "map_l1", "value": 0.58}, "after_claim": {"metric": "map_l1", "value": 0.653}, "count": 1},
+        {"before": "||58.0|53.5|51.5|48.3|", "after": "||65.3|61.7|58.9|55.7|", "before_claim": {"metric": "maph_l1", "value": 0.535}, "after_claim": {"metric": "maph_l1", "value": 0.617}, "count": 1},
+        {"before": "||58.0|53.5|51.5|48.3|", "after": "||65.3|61.7|58.9|55.7|", "before_claim": {"metric": "map_l2", "value": 0.515}, "after_claim": {"metric": "map_l2", "value": 0.589}, "count": 1},
+        {"before": "||58.0|53.5|51.5|48.3|", "after": "||65.3|61.7|58.9|55.7|", "before_claim": {"metric": "maph_l2", "value": 0.483}, "after_claim": {"metric": "maph_l2", "value": 0.557}, "count": 1}
+      ],
+      "raw_evidence": {
+        "url": "https://download.openmmlab.com/mmdetection3d/v0.1.0_models/second/hv_second_secfpn_sbn_4x8_2x_waymoD5-3d-3class/hv_second_secfpn_sbn_4x8_2x_waymoD5-3d-3class_20201115_112448.log.json",
+        "json_key": "Overall/L1 mAP",
+        "expected_value": 0.65301,
+        "corrected_claim_value": 0.653,
+        "tolerance": 0.0001
+      }
+    },
+    {
+      "id": "google-toxic-comments-results",
+      "repository": "google/uncertainty-baselines",
+      "pull_request": "https://github.com/google/uncertainty-baselines/pull/203",
+      "merge_commit": "df7508baeb94b82b9d3f935a6b4a22b0409f3c26",
+      "parent_commit": "78f6c0036b8394e1e7c91f7a96f7ed6fe23b9433",
+      "path": "baselines/toxic_comments/README.md",
+      "kind": "numeric_metric_value",
+      "changes": [
+        {"before": "| Deterministic       | 0.971/0.790/0.925 |", "after": "| Deterministic       | 0.972/0.782/0.922 |", "before_claim": {"metric": "auroc", "value": 0.971}, "after_claim": {"metric": "auroc", "value": 0.972}, "count": 1},
+        {"before": "| Deterministic       | 0.971/0.790/0.925 |", "after": "| Deterministic       | 0.972/0.782/0.922 |", "before_claim": {"metric": "auprc", "value": 0.79}, "after_claim": {"metric": "auprc", "value": 0.782}, "count": 1},
+        {"before": "| Deterministic       | 0.971/0.790/0.925 |", "after": "| Deterministic       | 0.972/0.782/0.922 |", "before_claim": {"metric": "accuracy", "value": 0.925}, "after_claim": {"metric": "accuracy", "value": 0.922}, "count": 1}
+      ]
     }
   ],
-  "scientific_boundary": "This corpus contains 3 independent upstream corrections and 14 affected records. Records changed by one PR are not counted as independent projects. It does not measure recall over all real repository defects."
+  "scientific_boundary": "This curated corpus contains 12 independent merged upstream corrections and 38 selected corrected claims from 7 repositories in 4 organizations. Multiple records changed by one PR count as one correction. Selection is explicit and non-random, so this does not estimate recall over all real repository defects."
 }

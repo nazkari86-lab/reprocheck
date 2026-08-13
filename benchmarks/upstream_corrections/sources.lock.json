@@ -1,5 +1,29 @@
 {
   "files": {
+    "google-toxic-comments-results.after.md": {
+      "sha256": "ab47a2bf3887b82f07fd93d1fb2d5d89248411bdba2e98bd8badffb9aba0b80d",
+      "url": "https://raw.githubusercontent.com/google/uncertainty-baselines/df7508baeb94b82b9d3f935a6b4a22b0409f3c26/baselines/toxic_comments/README.md"
+    },
+    "google-toxic-comments-results.before.md": {
+      "sha256": "769124f55c62e34834fb7b463a17295720e3f53c8f9b7121a158be760177eb8e",
+      "url": "https://raw.githubusercontent.com/google/uncertainty-baselines/78f6c0036b8394e1e7c91f7a96f7ed6fe23b9433/baselines/toxic_comments/README.md"
+    },
+    "mmaction-activitynet-results.after.md": {
+      "sha256": "9ae00100a7a653b00e8d9fefd5539a57eb9ef76ec74bcc6b49b3088bb5ea3d06",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmaction2/6cb1c9d0c0beebbab6f00c4191c3258fb161eb1f/configs/recognition/tsn/README.md"
+    },
+    "mmaction-activitynet-results.before.md": {
+      "sha256": "aeeeec935e2f3d02ef2754f5d9f9a669b2c0c46bf33ada16c9cf67338c4154cf",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmaction2/02e9d18d647a34f83b873e3c8eae0491b463bf3b/configs/recognition/tsn/README.md"
+    },
+    "mmaction-slowonly-results.after.md": {
+      "sha256": "1192a8032072db7a6f55c5e4f1d9739f8b6c243d44845b31083ad55f97b85c7c",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmaction2/9c23a07055c464cdcc1e8cfb3c3710894082f0f5/configs/recognition/slowonly/README.md"
+    },
+    "mmaction-slowonly-results.before.md": {
+      "sha256": "b70ed87067928613f236918f242480ff6a8374d3ddb2c029a705028e57e64bd8",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmaction2/976179e461dc71d0eec844f028c93361625f121f/configs/recognition/slowonly/README.md"
+    },
     "mmdet-conditional-detr-box-ap.after.md": {
       "sha256": "036b73f39c2626c058b2829109a1959cb8f2185bd3b5a9fc7c8b09b9e79ff794",
       "url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/a4c94134f0bcb82686184dbb69f7f9011ef87d72/configs/conditional_detr/README.md"
@@ -7,6 +31,10 @@
     "mmdet-conditional-detr-box-ap.before.md": {
       "sha256": "9bef352100f069cca4797140796345ac1a8f000bdd61c957a8ec8bbbb8eb7822",
       "url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/1d06209db5a1d147800e669e86c962f776360ceb/configs/conditional_detr/README.md"
+    },
+    "mmdet-conditional-detr-box-ap.evidence.jsonl": {
+      "sha256": "eacc60bb4b1ad8906120f7980e281494039a60b191f52f1de613f3071e56f52b",
+      "url": "https://download.openmmlab.com/mmdetection/v3.0/conditional_detr/conditional-detr_r50_8xb2-50e_coco/conditional-detr_r50_8xb2-50e_coco_20221121_180202.log.json"
     },
     "mmdet-fpg-box-ap.after.md": {
       "sha256": "3fa80f6fbd8a7e3eb4e31494ba9a36c8a7f43cb6393baf7396252fbf5e2fd76e",
@@ -16,6 +44,54 @@
       "sha256": "4748728075af4c44d35bd9409f6ede66e1c8bf6ff645adf7660bebccad0607ca",
       "url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/a249dfe8d6e1939e346398aa7c6f712ce4d47e68/configs/fpg/README.md"
     },
+    "mmdet-fpg-box-ap.evidence.jsonl": {
+      "sha256": "9c2221e36049a88112c1d84486db36d92396c162361007255435184f9de560c0",
+      "url": "https://download.openmmlab.com/mmdetection/v2.0/fpg/mask_rcnn_r50_fpn_crop640_50e_coco/mask_rcnn_r50_fpn_crop640_50e_coco_20220311_011855.log.json"
+    },
+    "mmdet3d-second-waymo-results.after.md": {
+      "sha256": "2ea202d5878caea56d71be689a0079770bcbfef778818d37c714b370f4ee70b5",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmdetection3d/22c47ac75781b4a256cdde1074b7c2bb207b2479/configs/second/README.md"
+    },
+    "mmdet3d-second-waymo-results.before.md": {
+      "sha256": "009df07add260cde379e240f6d8c896f4335d6fc11afd2f015aee69b22b0350d",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmdetection3d/dad7506a44419b6d2bd6b53a281b73739e759669/configs/second/README.md"
+    },
+    "mmdet3d-second-waymo-results.evidence.jsonl": {
+      "sha256": "56a6374a35e581e25a73b269186f073940af0de41a977ee0f84e06be05ce4794",
+      "url": "https://download.openmmlab.com/mmdetection3d/v0.1.0_models/second/hv_second_secfpn_sbn_4x8_2x_waymoD5-3d-3class/hv_second_secfpn_sbn_4x8_2x_waymoD5-3d-3class_20201115_112448.log.json"
+    },
+    "mmseg-poolformer-results.after.yml": {
+      "sha256": "dcc37da738062b79e6bda2b18a60db0e04ad2af7845bf112e1b32f9de47df3e1",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmsegmentation/a68e7c2823f6c9c79eb2fea68ecbf626aebd2b85/configs/poolformer/poolformer.yml"
+    },
+    "mmseg-poolformer-results.before.yml": {
+      "sha256": "d3fe8c6cbfdceadbb31c223d774f0896291a73aa66ca5ecf04bf6b840b4734f9",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmsegmentation/04afdb3f271c64386317f34e9276997fdf732725/configs/poolformer/poolformer.yml"
+    },
+    "mmseg-segmenter-results.after.yml": {
+      "sha256": "5f4e00fbc11b20454ef3fa709b9659dd74212f5fc42c297e07aa49782dbfc327",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmsegmentation/733ad9ef6e959933ae61c48a17cf2f8a1d145de2/configs/segmenter/segmenter.yml"
+    },
+    "mmseg-segmenter-results.before.yml": {
+      "sha256": "4aa3d415bf2b081617cc1cac4453b50a7b01c2db08e13d7c4eefb63e6484df20",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmsegmentation/e8dfa3f26ba041ddcc5a8f13c15bc8b829ce72e7/configs/segmenter/segmenter.yml"
+    },
+    "mmseg-segmenter-results.evidence.jsonl": {
+      "sha256": "e908dc084edc3020bfe61d47356e3b618404fa24539ddd1c5b5f881875a1c061",
+      "url": "https://download.openmmlab.com/mmsegmentation/v0.5/segmenter/segmenter_vit-l_mask_8x1_640x640_160k_ade20k/segmenter_vit-l_mask_8x1_640x640_160k_ade20k_20220614_024513.log.json"
+    },
+    "mmseg-swin-result.after.yml": {
+      "sha256": "80fda6e1b6e2046d11dcddf0c75173fd9be524232ec36b03698d503a21810893",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmsegmentation/a6a5a50518a13123eb80334696d90c50321c4303/configs/swin/swin.yml"
+    },
+    "mmseg-swin-result.before.yml": {
+      "sha256": "840ecb19f1cbee6a2f15f991e487ba624080a7d07d3580ede7cc0d1b43ebd5a2",
+      "url": "https://raw.githubusercontent.com/open-mmlab/mmsegmentation/3d8fd35e2662b9e6f0717428da26037b8e51a203/configs/swin/swin.yml"
+    },
+    "mmseg-swin-result.evidence.jsonl": {
+      "sha256": "59b259646279b957567359555ebcd069f08b16bcbe85779bd62e2d94714017ab",
+      "url": "https://download.openmmlab.com/mmsegmentation/v0.5/swin/upernet_swin_base_patch4_window7_512x512_160k_ade20k_pretrain_224x224_22K/upernet_swin_base_patch4_window7_512x512_160k_ade20k_pretrain_224x224_22K_20210526_211650.log.json"
+    },
     "mmseg-unet-dice-label.after.yml": {
       "sha256": "7cf4777ddc16ca66baba29dd0fc176c9699aa5d3cadc2419774ab53f52b3f0f3",
       "url": "https://raw.githubusercontent.com/open-mmlab/mmsegmentation/97f9670c5a4a2a3b4cfb411bcc26db16b23745f7/configs/unet/unet.yml"
@@ -23,6 +99,22 @@
     "mmseg-unet-dice-label.before.yml": {
       "sha256": "79cbf69a9a57f7e1b05b72730ca8eb901d9dbc6889209192565047b770df4b71",
       "url": "https://raw.githubusercontent.com/open-mmlab/mmsegmentation/6b3e5506c56fa6a04a5d2bde086919d62310884f/configs/unet/unet.yml"
+    },
+    "openvino-person-attributes-f1.after.md": {
+      "sha256": "93124fea17ed361a184a043d96afc3c765cc8f8c511cfa361b282d7f6cbd9f39",
+      "url": "https://raw.githubusercontent.com/openvinotoolkit/open_model_zoo/bf58d76aec662205df3a4a8c9c5229f5f2289f76/intel_models/person-attributes-recognition-crossroad-0230/description/person-attributes-recognition-crossroad-0230.md"
+    },
+    "openvino-person-attributes-f1.before.md": {
+      "sha256": "e1e11684411b51fa6bc2403d5b511ecd9cb73a9a6f4ba5ee8eaf5305f832f828",
+      "url": "https://raw.githubusercontent.com/openvinotoolkit/open_model_zoo/372487879a068c83153009638052bb783889b758/intel_models/person-attributes-recognition-crossroad-0230/description/person-attributes-recognition-crossroad-0230.md"
+    },
+    "transformers-object-detection-results.after.md": {
+      "sha256": "d52107e18c10e0163fa00a10bf80ab2db0870ea4e803755d38292fd6390312c5",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/3df3b9d4bf006ab193b3c1257f3436b9fdb91759/docs/source/en/tasks/object_detection.md"
+    },
+    "transformers-object-detection-results.before.md": {
+      "sha256": "d5b87978419b8b067ba893b2604a14bcfc0c995480238788b55dd6c2b723ecb9",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/050ef1451682a64a70394f372021572c59dc4c28/docs/source/en/tasks/object_detection.md"
     }
   },
   "schema_version": "reprocheck.upstream-corrections-lock.v1"

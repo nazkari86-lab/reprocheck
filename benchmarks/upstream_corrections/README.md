@@ -1,15 +1,46 @@
 # Natural upstream correction corpus
 
-This benchmark freezes files immediately before and after three merged corrections in public upstream repositories. Each pull request explicitly calls the prior value or metric label erroneous. No defect is injected by ReproCheck.
+This benchmark freezes files immediately before and after 12 merged corrections
+in public upstream repositories. Each pull request identifies a prior metric
+value or label as wrong. ReproCheck does not inject any defect into this corpus.
 
-The corpus contains three independent corrections affecting fourteen records:
+The corpus contains 12 independent corrections and 38 selected corrected claims
+from seven repositories maintained by four organizations:
 
-- MMDetection FPG box AP: `49.6` corrected to `39.6` ([PR 9041](https://github.com/open-mmlab/mmdetection/pull/9041)).
-- MMDetection Conditional DETR box AP: `40.9` corrected to `41.1` ([PR 9889](https://github.com/open-mmlab/mmdetection/pull/9889)).
-- MMSegmentation UNet metadata: twelve `mIoU` labels corrected to `Dice` ([PR 1041](https://github.com/open-mmlab/mmsegmentation/pull/1041)).
+- OpenMMLab: MMDetection, MMSegmentation, MMAction2, and MMDetection3D.
+- Hugging Face: Transformers.
+- OpenVINO: Open Model Zoo.
+- Google: Uncertainty Baselines.
 
-Run `make upstream-corrections`. The fetch step uses immutable commit URLs; `sources.lock.json` records the resulting SHA-256 hashes. The benchmark rejects a changed source, a missing pre-fix defect, a missing post-fix correction, or a correction that ReproCheck's claim parser cannot extract with the expected metric name and value.
+The cases cover AP/AR, mIoU, Dice, AUC, F1, top-k accuracy, Waymo L1/L2 mAP and
+mAPH, and compound AUROC/AUPRC/accuracy fields in Markdown, YAML, and standard
+COCO console output. The exact pull requests, immutable file URLs, expected
+before/after values, and selected records are declared in `manifest.json`.
+
+Five corrections also reference immutable raw evaluation logs. The benchmark
+parses the log's evidence key and verifies that it agrees with the corrected
+claim, allowing only the declared display rounding. A sixth candidate log was
+rejected because its recorded value did not support the corrected table value;
+it was not silently counted as evidence.
+
+Run `make upstream-corrections`. The fetch step uses immutable commit URLs;
+`sources.lock.json` records every URL and SHA-256 hash. The benchmark fails on:
+
+- changed or missing source material;
+- absence of the defect in the pre-fix file;
+- absence of the correction in the post-fix file;
+- failure of ReproCheck's parser to recover the expected metric and value; or
+- disagreement between a corrected claim and its declared raw log evidence.
 
 ## Boundary
 
-This is a real historical-correction corpus, not an estimate of recall on all software-repository defects. The twelve records changed by PR 1041 are correlated and count as one independent correction. Controlled mutations remain useful only as mechanism tests elsewhere in the repository and must not be described as natural evidence.
+This is a curated historical-correction corpus, not a random sample and not an
+estimate of recall across all software-repository defects. Multiple records
+changed by one pull request are correlated and count as one independent
+correction. Only five cases have usable immutable raw logs; the other seven prove
+the existence and parser coverage of real merged corrections, not independent
+recomputation from predictions.
+
+Controlled mutations remain useful as mechanism and negative-control tests
+elsewhere in the repository. They are reported separately and must not be
+described as natural-error evidence.

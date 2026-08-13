@@ -138,6 +138,57 @@ def test_extracts_standalone_topk_table_headers_but_not_topk_error():
     ]
 
 
+def test_extracts_openmmlab_two_dash_table_separators():
+    text = """| model | top1 acc | top5 acc |
+| :--: | :--: | :--: |
+| SlowOnly | 72.97 | 90.88 |
+"""
+    assert [(claim.metric, round(claim.value, 12)) for claim in extract_claims(text)] == [
+        ("top1_accuracy", 0.7297),
+        ("top5_accuracy", 0.9088),
+    ]
+
+
+def test_extracts_coco_summary_metrics_without_misreading_iou_parameters():
+    text = """ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.352
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.681
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.292
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.168
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.501
+"""
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("map50_95", 0.352),
+        ("map50", 0.681),
+        ("map75", 0.292),
+        ("ar", 0.501),
+    ]
+
+
+def test_extracts_compound_metric_table_cells():
+    text = """| Method | AUROC/AUPRC/Acc |
+| --- | --- |
+| Deterministic | 0.972/0.782/0.922 |
+"""
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("auroc", 0.972),
+        ("auprc", 0.782),
+        ("accuracy", 0.922),
+    ]
+
+
+def test_extracts_waymo_level_scoped_metrics():
+    text = """| Model | mAP@L1 | mAPH@L1 | mAP@L2 | mAPH@L2 |
+| --- | ---: | ---: | ---: | ---: |
+| SECOND | 65.3 | 61.7 | 58.9 | 55.7 |
+"""
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("map_l1", 0.653),
+        ("maph_l1", 0.617),
+        ("map_l2", 0.589),
+        ("maph_l2", 0.557),
+    ]
+
+
 def test_extracts_standalone_topk_headers_from_html():
     text = """<table>
 <tr><th>Model</th><th>top1</th><th>Top-5 (%)</th></tr>
@@ -164,6 +215,13 @@ def test_preserves_scoped_json_metric_ids_and_rejects_parameter_keys():
     assert [(claim.metric, round(claim.value, 4)) for claim in claims] == [
         ("val_mean_dice_tc", 0.8559),
         ("validation_accuracy", 0.945),
+    ]
+
+
+def test_extracts_structured_metric_names_with_evaluation_suffixes():
+    claims = extract_claims("mIoU(ms+flip): 53.58")
+    assert [(claim.metric, round(claim.value, 12)) for claim in claims] == [
+        ("miou_ms_flip", 0.5358)
     ]
 
 

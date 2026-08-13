@@ -24,8 +24,14 @@ _CLAIM_RE = re.compile(
 )
 _NUMBER_RE = re.compile(rf"(?P<value>{_NUMBER})\s*(?P<percent>%)?")
 _STRUCTURED_KEY_RE = re.compile(
-    rf"(?<![\w])(?P<metric>[\w²][\w².-]*)\s*:\s*"
+    rf"(?<![\w])(?P<metric>[\w²][\w².()+-]*)\s*:\s*"
     rf"(?P<value>{_NUMBER})\s*(?P<percent>%)?",
+    flags=re.IGNORECASE,
+)
+_COCO_SUMMARY_RE = re.compile(
+    rf"Average\s+(?P<kind>Precision|Recall)\s+\((?:AP|AR)\)\s+@\[\s*"
+    rf"IoU=(?P<iou>[0-9.:]+)\s*\|\s*area=\s*(?P<area>\w+)\s*\|[^]]*\]\s*=\s*"
+    rf"(?P<value>{_NUMBER})",
     flags=re.IGNORECASE,
 )
 _PARAMETER_TOKENS = {"threshold", "thresh", "cutoff", "nms", "weight", "loss"}
@@ -54,6 +60,20 @@ def extract_claims(text: str) -> list[Claim]:
     prose_lines = _mask_html_tables(text).splitlines()
     for line_number, line in enumerate(prose_lines, start=1):
         if line_number in table_lines:
+            continue
+        coco_match = _COCO_SUMMARY_RE.search(line)
+        if coco_match is not None:
+            metric = _coco_summary_metric(coco_match)
+            if metric is not None:
+                value = _normalize_value(
+                    metric,
+                    float(coco_match.group("value").replace(",", ".")),
+                    percent=False,
+                )
+                text_seen.add((line_number, metric, value))
+                claims.append(
+                    Claim(metric=metric, value=value, raw_text=line.strip(), line=line_number)
+                )
             continue
         for match in _STRUCTURED_KEY_RE.finditer(line):
             metric = _structured_metric_name(match.group("metric"))
@@ -111,7 +131,7 @@ def _markdown_table_line_numbers(lines: list[str]) -> set[int]:
     while index + 1 < len(lines):
         headers = _split_table_row(lines[index])
         separators = _split_table_row(lines[index + 1])
-        if not headers or not separators or not _is_separator_row(separators):
+        if not headers or not separators or not _is_separator_row(separators, headers):
             index += 1
             continue
         table_lines.update({index + 1, index + 2})
@@ -147,10 +167,11 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
     while index + 1 < len(lines):
         headers = _split_table_row(lines[index])
         separators = _split_table_row(lines[index + 1])
-        if not headers or not separators or not _is_separator_row(separators):
+        if not headers or not separators or not _is_separator_row(separators, headers):
             index += 1
             continue
         metrics = [_metric_from_header(header) for header in headers]
+        compound_metrics = [_compound_metrics_from_header(header) for header in headers]
         row_index = index + 2
         while row_index < len(lines):
             cells = _split_table_row(lines[row_index])
@@ -162,6 +183,22 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
                     continue
                 value = _table_value(metric, cells[column])
                 if value is not None:
+                    claims.append(
+                        Claim(
+                            metric=metric,
+                            value=value,
+                            raw_text=lines[row_index].strip(),
+                            line=row_index + 1,
+                            context=context,
+                        )
+                    )
+            for column, compound in enumerate(compound_metrics):
+                if not compound or column >= len(cells):
+                    continue
+                values = _compound_table_values(compound, cells[column])
+                if len(values) != len(compound):
+                    continue
+                for metric, value in zip(compound, values, strict=True):
                     claims.append(
                         Claim(
                             metric=metric,
@@ -189,8 +226,30 @@ def _split_table_row(line: str) -> list[str] | None:
     return cells if len(cells) >= 2 else None
 
 
-def _is_separator_row(cells: list[str]) -> bool:
-    return bool(cells) and all(re.fullmatch(r":?-{3,}:?", cell.replace(" ", "")) for cell in cells)
+def _is_separator_row(cells: list[str], headers: list[str]) -> bool:
+    normalized = [cell.replace(" ", "") for cell in cells]
+    standard = all(re.fullmatch(r":?-{3,}:?", cell) for cell in normalized)
+    openmmlab_accuracy = (
+        all(re.fullmatch(r":?-{2,}:?", cell) for cell in normalized)
+        and any("top1" in _plain_cell(header).casefold().replace(" ", "") for header in headers)
+        and any("top5" in _plain_cell(header).casefold().replace(" ", "") for header in headers)
+    )
+    return bool(cells) and (standard or openmmlab_accuracy)
+
+
+def _coco_summary_metric(match: re.Match[str]) -> str | None:
+    if match.group("area").casefold() != "all":
+        return None
+    if match.group("kind").casefold() == "recall":
+        return "ar"
+    iou = match.group("iou")
+    if iou == "0.50:0.95":
+        return "map50_95"
+    if iou == "0.50":
+        return "map50"
+    if iou == "0.75":
+        return "map75"
+    return "ap"
 
 
 def _plain_cell(value: str) -> str:
@@ -204,6 +263,9 @@ def _plain_cell(value: str) -> str:
 def _metric_from_header(header: str) -> str | None:
     plain = _plain_cell(header).casefold().replace("_", " ")
     compact = re.sub(r"[^\w²]+", " ", plain, flags=re.UNICODE).strip()
+    waymo = re.search(r"\b(maph|map)\s*l([12])\b", compact)
+    if waymo:
+        return f"{waymo.group(1)}_l{waymo.group(2)}"
     if re.search(r"\b(?:m\s*)?ap\b", compact) and _is_size_specific_ap(compact.split()):
         return None
     detection_metric = _detection_metric_from_header(compact)
@@ -220,6 +282,33 @@ def _metric_from_header(header: str) -> str | None:
         if normalized_alias and re.search(rf"(?<!\w){re.escape(normalized_alias)}(?!\w)", compact):
             return METRIC_ALIASES[alias]
     return None
+
+
+def _compound_metrics_from_header(header: str) -> list[str] | None:
+    plain = _plain_cell(header)
+    if "/" not in plain:
+        return None
+    metrics: list[str] = []
+    for part in plain.split("/"):
+        canonical = canonical_metric(part)
+        if metric_family(canonical) is None:
+            return None
+        metrics.append(canonical)
+    return metrics if len(metrics) > 1 else None
+
+
+def _compound_table_values(metrics: list[str], cell: str) -> list[float]:
+    parts = [part.strip() for part in _plain_cell(cell).split("/")]
+    if len(parts) != len(metrics):
+        return []
+    values: list[float] = []
+    for metric, part in zip(metrics, parts, strict=True):
+        match = _NUMBER_RE.fullmatch(part)
+        if match is None:
+            return []
+        value = float(match.group("value").replace(",", "."))
+        values.append(_normalize_value(metric, value, percent=bool(match.group("percent"))))
+    return values
 
 
 def _detection_metric_from_header(compact: str) -> str | None:
