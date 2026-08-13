@@ -65,7 +65,6 @@ upstream-discovery-v3-registration:
 	python3 benchmarks/upstream_discovery_v3/verify_registration.py
 
 upstream-discovery-v3: upstream-discovery-v3-registration
-	python3 benchmarks/upstream_discovery_v3/evaluate.py --phase development-current --output benchmarks/upstream_discovery_v3/results/development-current.json
 	python3 benchmarks/upstream_discovery_v3/verify_study.py
 
 upstream-discovery-v4-registration:
