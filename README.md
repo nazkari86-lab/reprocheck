@@ -59,7 +59,7 @@ Install the published wheel directly from the immutable GitHub release:
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install \
-  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.27.0/reprocheck-0.27.0-py3-none-any.whl
+  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.28.0/reprocheck-0.28.0-py3-none-any.whl
 reprocheck demo
 ```
 
@@ -147,6 +147,16 @@ inspecting v12, 0.27.0 exactly matches all 190 selected outcomes in all 20 block
 without extra predictions. That 20/20 replay is regression coverage, not fresh
 generalization evidence. A separately preregistered unseen holdout is required
 before claiming that the external-generalization target has been reached.
+
+V13 preserved a preregistered null sample: all candidates in its repeated
+README-oriented search frames were already in the exclusion corpus, so no
+extractor score was produced. V14 moved to previously unseen result-file spaces
+and froze 25 eligible documents from 25 new owners with 218 manually annotated
+outcomes. Frozen 0.27.0 achieved 1/25 exact documents, 28/218 recall, and 28/58
+block precision. This negative result is immutable. It also exposed a protocol
+issue: several v14 gold names used a bespoke millisecond ontology rather than
+ReproCheck's published duration-in-seconds contract. Later studies must freeze
+the public supported ontology before retrieval; v14 is not relabeled or rescored.
 
 The 12-case witness benchmark is controlled capability evidence. The separate
 30-case source-derived benchmark contains 27 deterministic mutations of three

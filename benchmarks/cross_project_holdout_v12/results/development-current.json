@@ -299,7 +299,7 @@
   "gold_claims": 190,
   "phase": "post-inspection-development-current",
   "predicted_claims": 190,
-  "runtime_evaluator_version": "0.27.0",
+  "runtime_evaluator_version": "0.28.0",
   "schema_version": "reprocheck.cross-project-development-result.v12",
   "scientific_boundary": "This score was produced after inspecting v12 failures. It measures development coverage only and must not be reported as zero-shot or external validation.",
   "source_integrity": true,

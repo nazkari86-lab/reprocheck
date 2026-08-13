@@ -548,6 +548,23 @@ def extract_claims(text: str) -> list[Claim]:
         extended_counts[key] += 1
         if extended_counts[key] > existing_counts[key]:
             claims.append(claim)
+    portable_counts: Counter[tuple[int, str, float]] = Counter()
+    combined_counts = Counter(
+        (
+            claim.line,
+            "avg_latency_seconds"
+            if claim.metric == "runtime_seconds"
+            and "latency" in _plain_cell(claim.raw_text).casefold()
+            else claim.metric,
+            claim.value,
+        )
+        for claim in claims
+    )
+    for claim in _extract_portable_result_claims(text):
+        key = (claim.line, claim.metric, claim.value)
+        portable_counts[key] += 1
+        if portable_counts[key] > combined_counts[key]:
+            claims.append(claim)
     suppressed = _suppressed_benchmark_claims(text)
     header_lines = _markdown_table_header_lines(text.splitlines()) | _delimited_table_header_lines(
         text.splitlines()
@@ -623,6 +640,172 @@ def _extract_extended_benchmark_claims(text: str) -> list[Claim]:
     claims.extend(_extract_embedded_delimited_tables(lines))
     claims.extend(_extract_extended_console_claims(lines))
     claims.extend(_extract_extended_result_prose(lines))
+    return claims
+
+
+def _portable_header_metric(header: str) -> str | None:
+    """Map common result-table headers to the stable public metric ontology."""
+    plain = _plain_cell(header).casefold()
+    compact = re.sub(r"[^a-z0-9]+", " ", plain).strip()
+    if any(word in compact for word in ("expected", "target", "threshold", "status")):
+        return None
+    if re.search(r"\btop\s*[15]\b", compact) or "/" in plain:
+        return None
+    if re.search(r"\b(?:prec|precision)\b", compact):
+        return "precision"
+    if re.search(r"\b(?:rec|recall|sensitivity)\b", compact):
+        return "recall"
+    if re.search(r"\bf1\b", compact):
+        return "f1"
+    if "accuracy" in compact or re.search(r"\bacc\b", compact):
+        return "accuracy"
+    if "avg response length" in compact and "token" in compact:
+        return "mean_tokens"
+    if "avg response length" in compact and "char" in compact:
+        return "mean_chars"
+    if re.search(r"\b(?:fps|frames per second)\b", compact):
+        return "frames_per_second"
+    if "requests" in compact and re.search(r"\b(?:sec|second)\b", compact):
+        return "requests_per_second"
+    if compact in {"mean ms", "mean_ms"}:
+        return "avg_latency_seconds"
+    if compact in {"p50 ms", "p50_ms"}:
+        return "p50_latency_seconds"
+    if compact in {"p95 ms", "p95_ms"}:
+        return "p95_latency_seconds"
+    if compact in {"p99 ms", "p99_ms"}:
+        return "p99_latency_seconds"
+    if "latency" in compact or "time request" in compact:
+        return "avg_latency_seconds"
+    if compact in {"measured time", "time", "duration", "runtime"}:
+        return "runtime_seconds"
+    if "validation loss" in compact or compact in {"val loss", "val_loss"}:
+        return "validation_loss"
+    if compact == "loss":
+        return "loss"
+    return None
+
+
+def _portable_cell_values(metric: str, header: str, cell: str) -> list[tuple[str, float]]:
+    plain = _plain_cell(cell)
+    if not plain or plain.casefold() in {"n/a", "na", "baseline", "-", "—"}:
+        return []
+    if metric.endswith("_seconds"):
+        duration_match = _UNIT_DURATION_RE.search(plain)
+        if duration_match is not None:
+            return [
+                (
+                    metric,
+                    _duration_seconds(duration_match.group("value"), duration_match.group("unit")),
+                )
+            ]
+        unit_match = re.search(
+            r"(?:^|[^a-z])(ns|us|µs|ms|s|sec|seconds?)(?:$|[^a-z])", header, re.I
+        )
+        if unit_match is not None:
+            unit = unit_match.group(1)
+        elif re.search(r"(?:^|_)ms(?:$|_)", header, re.I):
+            unit = "ms"
+        else:
+            return []
+        values = [_parse_number(match.group("value")) for match in _NUMBER_RE.finditer(plain)]
+        return [(metric, _duration_seconds(str(value), unit)) for value in values[:1]]
+    values = [_parse_number(match.group("value")) for match in _NUMBER_RE.finditer(plain)]
+    if not values:
+        return []
+    normalized = [_normalize_value(metric, value, percent="%" in plain) for value in values]
+    if "±" in plain and len(normalized) >= 2 and metric in {"loss", "validation_loss"}:
+        return [(metric, normalized[0]), (f"{metric}_stdev", normalized[1])]
+    return [(metric, normalized[0])]
+
+
+def _extract_portable_result_claims(text: str) -> list[Claim]:
+    """Parse common result formats using only stable, evidence-matchable metrics."""
+    lines = text.splitlines()
+    table_lines = _markdown_table_line_numbers(lines)
+    claims: list[Claim] = []
+    index = 0
+    while index + 1 < len(lines):
+        headers = _split_table_row(lines[index])
+        separators = _split_table_row(lines[index + 1])
+        if not headers or not separators or not _is_separator_row(separators, headers):
+            index += 1
+            continue
+        metrics = [_portable_header_metric(header) for header in headers]
+        row = index + 2
+        while row < len(lines):
+            cells = _split_table_row(lines[row])
+            if not cells or len(cells) != len(headers):
+                break
+            row_metric = _portable_header_metric(cells[0]) if cells else None
+            if row_metric is not None and sum(metric is not None for metric in metrics[1:]) == 0:
+                for column in range(1, len(cells)):
+                    for metric, value in _portable_cell_values(row_metric, cells[0], cells[column]):
+                        claims.append(Claim(metric, value, lines[row], row + 1))
+            else:
+                for column, metric in enumerate(metrics):
+                    if metric is None:
+                        if re.search(
+                            r"\bspeed\b", _plain_cell(headers[column]), re.I
+                        ) and re.search(r"\bFPS\b", _plain_cell(cells[column]), re.I):
+                            values = list(_NUMBER_RE.finditer(_plain_cell(cells[column])))
+                            if values:
+                                claims.append(
+                                    Claim(
+                                        "frames_per_second",
+                                        _parse_number(values[0].group("value")),
+                                        lines[row],
+                                        row + 1,
+                                    )
+                                )
+                        continue
+                    for resolved_metric, value in _portable_cell_values(
+                        metric, headers[column], cells[column]
+                    ):
+                        claims.append(Claim(resolved_metric, value, lines[row], row + 1))
+            row += 1
+        index = max(index + 1, row)
+    for line_number, raw in enumerate(lines, start=1):
+        if line_number in table_lines:
+            continue
+        plain = _plain_cell(raw)
+        fps = re.search(rf"(?P<value>{_NUMBER})\s*(?P<scale>[kKmM]?)\s*FPS\b", plain, re.I)
+        if fps is not None:
+            claims.append(
+                Claim(
+                    "frames_per_second",
+                    _scaled_result_number(f"{fps.group('value')}{fps.group('scale')}"),
+                    raw,
+                    line_number,
+                )
+            )
+        tokens = re.search(
+            rf"(?P<value>{_NUMBER})\s*(?:tokens?|tok)\s*/\s*s(?:ec(?:ond)?)?\b",
+            plain,
+            re.I,
+        )
+        if tokens is not None:
+            claims.append(
+                Claim("tokens_per_second", _parse_number(tokens.group("value")), raw, line_number)
+            )
+        console = {
+            "user_time_seconds": r"User time \(seconds\):",
+            "system_time_seconds": r"System time \(seconds\):",
+            "cpu_percent": r"Percent of CPU this job got:",
+            "memory_kb": r"Maximum resident set size \(kbytes\):",
+        }
+        for metric, prefix in console.items():
+            match = re.search(rf"{prefix}\s*(?P<value>{_NUMBER})\s*%?", plain, re.I)
+            if match is not None:
+                claims.append(Claim(metric, _parse_number(match.group("value")), raw, line_number))
+        elapsed = re.search(
+            r"Elapsed \(wall clock\) time .*?:\s*(?P<minutes>\d+):(?P<seconds>\d+(?:\.\d+)?)",
+            plain,
+            re.I,
+        )
+        if elapsed is not None:
+            value = float(elapsed.group("minutes")) * 60 + float(elapsed.group("seconds"))
+            claims.append(Claim("elapsed_time_seconds", value, raw, line_number))
     return claims
 
 
@@ -1229,6 +1412,37 @@ def _suppressed_benchmark_claims(text: str) -> set[tuple[int, str, float]]:
         if not headers or not separators or not _is_separator_row(separators, headers):
             continue
         normalized = [_plain_cell(header).casefold() for header in headers]
+        excluded_columns = [
+            column
+            for column, header in enumerate(normalized)
+            if any(word in header for word in ("expected", "target", "threshold", "goal"))
+        ]
+        if excluded_columns:
+            row = index + 2
+            while row < len(lines):
+                cells = _split_table_row(lines[row])
+                if not cells or len(cells) != len(headers):
+                    break
+                for column in excluded_columns:
+                    metric = _portable_header_metric(headers[column])
+                    if metric is None:
+                        metric = next(
+                            (
+                                _portable_header_metric(header)
+                                for candidate, header in enumerate(headers)
+                                if candidate != column
+                                and _portable_header_metric(header) is not None
+                                and "measured" in normalized[candidate]
+                            ),
+                            None,
+                        )
+                    if metric is None:
+                        continue
+                    for resolved_metric, value in _portable_cell_values(
+                        metric, headers[column], cells[column]
+                    ):
+                        suppressed.add((row + 1, resolved_metric, round(value, 12)))
+                row += 1
         if (
             "threshold" not in normalized
             or "achieved" not in normalized

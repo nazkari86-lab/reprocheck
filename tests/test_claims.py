@@ -1021,3 +1021,84 @@ PQ 41.3
         ("ar", 0.58, 2),
         ("pq", 0.413, 3),
     ]
+
+
+def test_portable_result_table_handles_abbreviated_metrics_and_fps():
+    text = """| Model | Acc. | Prec. | Rec. | F1 | Speed |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| A | 94.6% | 99.0% | 95.7% | 97.3% | 156.9 FPS |
+"""
+    assert [(claim.metric, round(claim.value, 6)) for claim in extract_claims(text)] == [
+        ("accuracy", 0.946),
+        ("precision", 0.99),
+        ("recall", 0.957),
+        ("f1", 0.973),
+        ("frames_per_second", 156.9),
+    ]
+
+
+def test_portable_row_metric_table_normalizes_milliseconds_to_seconds():
+    text = """| metric | value |
+| --- | ---: |
+| mean_ms | 5519.4 |
+| p50_ms | 4200.5 |
+| p95_ms | 14470.2 |
+| p99_ms | 49487.6 |
+"""
+    assert [(claim.metric, round(claim.value, 6)) for claim in extract_claims(text)] == [
+        ("avg_latency_seconds", 5.5194),
+        ("p50_latency_seconds", 4.2005),
+        ("p95_latency_seconds", 14.4702),
+        ("p99_latency_seconds", 49.4876),
+    ]
+
+
+def test_portable_time_console_and_scaled_fps_are_visible():
+    text = """no driver: 9k FPS
+User time (seconds): 3.83
+System time (seconds): 0.48
+Percent of CPU this job got: 540%
+Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.80
+Maximum resident set size (kbytes): 485672
+"""
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("frames_per_second", 9000),
+        ("user_time_seconds", 3.83),
+        ("system_time_seconds", 0.48),
+        ("cpu_percent", 540),
+        ("elapsed_time_seconds", 0.8),
+        ("memory_kb", 485672),
+    ]
+
+
+def test_expected_duration_column_is_not_reported_as_an_outcome():
+    text = """| Test | Measured Time | Expected |
+| --- | ---: | ---: |
+| render | 17.94ms | <=100ms |
+"""
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("runtime_seconds", 0.01794),
+    ]
+
+
+def test_validation_loss_table_preserves_mean_and_standard_deviation():
+    text = """| Benchmark | AdamW validation loss | Kenian validation loss |
+| --- | ---: | ---: |
+| vision | 3.135 ± 0.023 | 3.067 ± 0.013 |
+"""
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("validation_loss", 3.135),
+        ("validation_loss_stdev", 0.023),
+        ("validation_loss", 3.067),
+        ("validation_loss_stdev", 0.013),
+    ]
+
+
+def test_portable_latency_does_not_duplicate_specialized_latency():
+    text = """| Metric | Threshold | Achieved | Status |
+|---|---:|---:|---|
+| Latency (GPU) | — | 28 ms | — |
+"""
+    assert [(claim.metric, claim.value) for claim in extract_claims(text)] == [
+        ("avg_latency_seconds", 0.028),
+    ]
