@@ -259,6 +259,9 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
             if not cells:
                 break
             context = _table_context(headers, metrics, cells)
+            claims.extend(
+                _row_labeled_metric_claims(headers, cells, lines[row_index].strip(), row_index + 1)
+            )
             for column, metric in enumerate(metrics):
                 if metric is None or column >= len(cells):
                     continue
@@ -363,6 +366,45 @@ def _metric_from_header(header: str) -> str | None:
         if normalized_alias and re.search(rf"(?<!\w){re.escape(normalized_alias)}(?!\w)", compact):
             return METRIC_ALIASES[alias]
     return None
+
+
+def _metric_from_row_label(header: str, cell: str) -> str | None:
+    normalized_header = re.sub(
+        r"[^\w]+", " ", _plain_cell(header).casefold(), flags=re.UNICODE
+    ).strip()
+    if normalized_header not in {"metric", "measure"}:
+        return None
+    label = html.unescape(cell).casefold().strip()
+    label = re.sub(r"<[^>]+>", "", label)
+    label = label.replace("`", "").replace("*", "").replace(" ", "_")
+    match = re.fullmatch(
+        r"(?P<family>map|mrr|ndcg|precision|recall|u_ndcg|u_recall)@(?P<k>[1-9]\d*)",
+        label,
+    )
+    if match is None:
+        return None
+    return canonical_metric(f"{match.group('family')}_{match.group('k')}")
+
+
+def _row_labeled_metric_claims(
+    headers: list[str], cells: list[str], raw_text: str, line: int
+) -> list[Claim]:
+    if not headers or not cells:
+        return []
+    metric = _metric_from_row_label(headers[0], cells[0])
+    if metric is None:
+        return []
+    claims: list[Claim] = []
+    for column in range(1, min(len(headers), len(cells))):
+        value = _table_value(metric, cells[column])
+        if value is None:
+            continue
+        system = _plain_cell(headers[column])
+        context = {"system": system} if system else {}
+        claims.append(
+            Claim(metric=metric, value=value, raw_text=raw_text, line=line, context=context)
+        )
+    return claims
 
 
 def _compound_metrics_from_header(header: str) -> list[str] | None:
@@ -501,6 +543,7 @@ def _extract_html_table_claims(text: str) -> list[Claim]:
         metrics = [_metric_from_header(header) for header in headers]
         for cells, line in table[1:]:
             context = _table_context(headers, metrics, cells)
+            claims.extend(_row_labeled_metric_claims(headers, cells, " | ".join(cells), line))
             for column, metric in enumerate(metrics):
                 if metric is None or column >= len(cells):
                     continue

@@ -5,6 +5,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+import subprocess
 from typing import Any
 
 from reprocheck.claims import extract_claims
@@ -25,9 +26,7 @@ def source_name(case_id: str, path: str, phase: str) -> str:
 
 def matching_claim_count(text: str, snippet: str, metric: str, value: float) -> int:
     return sum(
-        snippet in claim.raw_text
-        and claim.metric == metric
-        and abs(claim.value - value) < 1e-12
+        snippet in claim.raw_text and claim.metric == metric and abs(claim.value - value) < 1e-12
         for claim in extract_claims(text)
     )
 
@@ -151,6 +150,13 @@ def evaluate(output: Path, phase: str) -> dict[str, Any]:
     if phase.startswith("development"):
         result["evaluation_role"] = "post_inspection_development"
         result["implementation_binding"] = "source tree committed with this result"
+        result["development_implementation_commit"] = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2) + "\n")
     return result

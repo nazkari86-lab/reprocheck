@@ -76,6 +76,14 @@ METRIC_ALIASES = {
     "log_loss": "log_loss",
     "brier score": "brier_score",
     "brier_score": "brier_score",
+    "mrr": "mrr",
+    "ndcg": "ndcg",
+    "u_ndcg": "u_ndcg",
+    "u recall": "u_recall",
+    "u_recall": "u_recall",
+    "swebench": "swebench",
+    "swe bench": "swebench",
+    "swe-bench": "swebench",
     "runtime": "runtime_seconds",
     "runtime seconds": "runtime_seconds",
     "processing time": "runtime_seconds",
@@ -111,6 +119,10 @@ UNIT_INTERVAL_METRICS = {
     "auroc",
     "auprc",
     "brier_score",
+    "mrr",
+    "ndcg",
+    "u_ndcg",
+    "u_recall",
 }
 
 NONNEGATIVE_METRICS = {

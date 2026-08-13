@@ -30,8 +30,17 @@ def main() -> int:
                 url = f"https://raw.githubusercontent.com/{case['repository']}/{commit}/{path}"
                 completed = subprocess.run(
                     [
-                        "/usr/bin/curl", "--fail", "--location", "--silent", "--show-error",
-                        "--retry", "5", "--retry-all-errors", "--connect-timeout", "20", url,
+                        "/usr/bin/curl",
+                        "--fail",
+                        "--location",
+                        "--silent",
+                        "--show-error",
+                        "--retry",
+                        "5",
+                        "--retry-all-errors",
+                        "--connect-timeout",
+                        "20",
+                        url,
                     ],
                     check=True,
                     capture_output=True,

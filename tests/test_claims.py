@@ -251,6 +251,55 @@ def test_extracts_standalone_topk_headers_from_html():
     ]
 
 
+def test_extracts_row_labeled_retrieval_metrics_from_markdown_tables():
+    text = """| Metric | baseline | proposed |
+|---|---|---|
+| map@1 | 0.378 | 0.151 |
+| mrr@10 | 0.514 | 0.265 |
+| ndcg@4 | 0.528 | 0.250 |
+| precision@5 | 0.159 | 0.087 |
+| recall@10 | 0.785 | 0.589 |
+| u_ndcg@4 | 0.284 | 0.133 |
+| u_recall@6 | 0.684 | 0.386 |
+"""
+    claims = extract_table_claims(text)
+    assert [(claim.metric, claim.value) for claim in claims] == [
+        ("map_1", 0.378),
+        ("map_1", 0.151),
+        ("mrr_10", 0.514),
+        ("mrr_10", 0.265),
+        ("ndcg_4", 0.528),
+        ("ndcg_4", 0.250),
+        ("precision_5", 0.159),
+        ("precision_5", 0.087),
+        ("recall_10", 0.785),
+        ("recall_10", 0.589),
+        ("u_ndcg_4", 0.284),
+        ("u_ndcg_4", 0.133),
+        ("u_recall_6", 0.684),
+        ("u_recall_6", 0.386),
+    ]
+    assert claims[0].context == {"system": "baseline"}
+    assert claims[1].context == {"system": "proposed"}
+
+
+def test_row_labeled_metrics_require_explicit_metric_header_and_known_family():
+    text = """| Name | baseline | proposed |
+|---|---|---|
+| ndcg@4 | 0.2 | 0.3 |
+
+| Metric | baseline | proposed |
+|---|---|---|
+| learning_rate@4 | 0.2 | 0.3 |
+"""
+    assert extract_table_claims(text) == []
+
+
+def test_extracts_swebench_structured_score_without_probability_rescaling():
+    claims = extract_claims('{"scores": {"swebench": 96}}')
+    assert [(claim.metric, claim.value) for claim in claims] == [("swebench", 96.0)]
+
+
 def test_normalizes_unmarked_percentage_scale_for_bounded_metrics():
     claims = extract_claims("Accuracy: 95\nRMSE: 42.5")
     assert [(claim.metric, claim.value) for claim in claims] == [
