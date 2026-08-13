@@ -124,20 +124,35 @@ def verify_lore() -> dict[str, Any]:
     }
     for metric, expected in reported.items():
         decimals = 0 if metric.startswith("mean_tokens") else 1
-        scaled_expected = expected * 100 if "_rate_" in metric or metric.startswith(("success_", "partial_", "fail_", "correctness_", "answer_")) else expected
-        scaled_observed = observed[metric] * 100 if scaled_expected != expected else observed[metric]
+        scaled_expected = (
+            expected * 100
+            if "_rate_" in metric
+            or metric.startswith(("success_", "partial_", "fail_", "correctness_", "answer_"))
+            else expected
+        )
+        scaled_observed = (
+            observed[metric] * 100 if scaled_expected != expected else observed[metric]
+        )
         if round(scaled_observed, decimals) != round(scaled_expected, decimals):
             raise AssertionError(f"Lore report mismatch for {metric}")
 
     deltas = {
-        "success_rate_delta_pp": (observed["success_rate_lore"] - observed["success_rate_control"]) * 100,
-        "partial_rate_delta_pp": (observed["partial_rate_lore"] - observed["partial_rate_control"]) * 100,
+        "success_rate_delta_pp": (observed["success_rate_lore"] - observed["success_rate_control"])
+        * 100,
+        "partial_rate_delta_pp": (observed["partial_rate_lore"] - observed["partial_rate_control"])
+        * 100,
         "fail_rate_delta_pp": (observed["fail_rate_lore"] - observed["fail_rate_control"]) * 100,
-        "correctness_delta_pp": (observed["correctness_lore"] - observed["correctness_control"]) * 100,
-        "answer_coverage_delta_pp": (observed["answer_coverage_lore"] - observed["answer_coverage_control"]) * 100,
-        "mean_tool_calls_delta": observed["mean_tool_calls_lore"] - observed["mean_tool_calls_control"],
+        "correctness_delta_pp": (observed["correctness_lore"] - observed["correctness_control"])
+        * 100,
+        "answer_coverage_delta_pp": (
+            observed["answer_coverage_lore"] - observed["answer_coverage_control"]
+        )
+        * 100,
+        "mean_tool_calls_delta": observed["mean_tool_calls_lore"]
+        - observed["mean_tool_calls_control"],
         "mean_tokens_delta": observed["mean_tokens_lore"] - observed["mean_tokens_control"],
-        "mean_wall_time_seconds_delta": observed["mean_wall_time_seconds_lore"] - observed["mean_wall_time_seconds_control"],
+        "mean_wall_time_seconds_delta": observed["mean_wall_time_seconds_lore"]
+        - observed["mean_wall_time_seconds_control"],
     }
     expected_deltas = {
         "success_rate_delta_pp": 5.6,
