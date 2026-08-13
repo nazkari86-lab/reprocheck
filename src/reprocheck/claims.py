@@ -16,7 +16,7 @@ from .models import Claim, ClaimCheck
 _ALIASES = "|".join(
     sorted((re.escape(k) for k in METRIC_ALIASES if k != "score"), key=len, reverse=True)
 )
-_NUMBER = r"[+-]?(?:\d+(?:[.,]\d*)?|[.,]\d+)(?:[eE][+-]?\d+)?"
+_NUMBER = r"[+\-−]?(?:\d+(?:[.,]\d*)?|[.,]\d+)(?:[eE][+\-−]?\d+)?"
 _CLAIM_RE = re.compile(
     rf"(?<![\w])(?P<metric>{_ALIASES})(?![\w])\s*(?:score|метрика)?\s*"
     rf"(?:=|:|of|at|составил[аи]?|достигл[аи]?|равна?|на\s+уровне)?"
@@ -54,6 +54,21 @@ _DURATION_CLAIM_RE = re.compile(
     flags=re.IGNORECASE,
 )
 _SPEEDUP_CLAIM_RE = re.compile(rf"(?P<value>{_NUMBER})\s*[x×]\s+faster\b", flags=re.IGNORECASE)
+_RANKED_PROSE_RE = re.compile(
+    rf"(?<![\w])(?P<family>map|mar|mrr|mndcg|ndcg|precision|recall)\s*@\s*"
+    rf"(?P<k>[1-9]\d*)(?:\s*(?:=|:)\s*|\s+)(?P<value>{_NUMBER})\s*(?P<percent>%)?",
+    flags=re.IGNORECASE,
+)
+_SEPARABILITY_RE = re.compile(
+    rf"\b(?:embedding\s+)?separability\s*(?:delta|[Δδ])?\s*(?:=|:)?\s*"
+    rf"(?P<value>{_NUMBER})",
+    flags=re.IGNORECASE,
+)
+_RANKED_ARROW_RE = re.compile(
+    rf"(?<![\w])(?P<family>map|mar|mrr|mndcg|ndcg|precision|recall)\s*@\s*"
+    rf"(?P<k>[1-9]\d*)[^\n|]*?[→➜]\s*(?P<value>{_NUMBER})\s*(?P<percent>%)?",
+    flags=re.IGNORECASE,
+)
 _PARAMETER_TOKENS = {"threshold", "thresh", "cutoff", "nms", "weight", "loss"}
 _CONTEXT_HEADERS = {
     "architecture": "model",
@@ -65,6 +80,7 @@ _CONTEXT_HEADERS = {
     "model name": "model",
     "name": "model",
     "run": "run",
+    "runtime": "system",
     "split": "split",
     "task": "task",
     "threshold": "threshold",
@@ -116,6 +132,50 @@ def extract_claims(text: str) -> list[Claim]:
                 text_seen.add(key)
                 claims.append(
                     Claim(metric="speedup", value=value, raw_text=line.strip(), line=line_number)
+                )
+        for match in _RANKED_PROSE_RE.finditer(line):
+            family = match.group("family").casefold()
+            if family == "mar":
+                family = "mar"
+            elif family == "mndcg":
+                family = "mndcg"
+            metric = f"{family}_{match.group('k')}"
+            value = _normalize_value(
+                metric,
+                float(match.group("value").replace(",", ".")),
+                percent=bool(match.group("percent")),
+            )
+            key = (line_number, metric, value)
+            if key not in text_seen:
+                text_seen.add(key)
+                claims.append(
+                    Claim(metric=metric, value=value, raw_text=line.strip(), line=line_number)
+                )
+        for match in _RANKED_ARROW_RE.finditer(line):
+            metric = f"{match.group('family').casefold()}_{match.group('k')}"
+            value = _normalize_value(
+                metric,
+                _parse_number(match.group("value")),
+                percent=bool(match.group("percent")),
+            )
+            key = (line_number, metric, value)
+            if key not in text_seen:
+                text_seen.add(key)
+                claims.append(
+                    Claim(metric=metric, value=value, raw_text=line.strip(), line=line_number)
+                )
+        for match in _SEPARABILITY_RE.finditer(line):
+            value = float(match.group("value").replace(",", "."))
+            key = (line_number, "separability_delta", value)
+            if key not in text_seen:
+                text_seen.add(key)
+                claims.append(
+                    Claim(
+                        metric="separability_delta",
+                        value=value,
+                        raw_text=line.strip(),
+                        line=line_number,
+                    )
                 )
         for match in _VALIDATOR_COUNT_RE.finditer(line):
             value = _count_value(match.group("count"))
@@ -253,6 +313,7 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
             continue
         metrics = [_metric_from_header(header) for header in headers]
         compound_metrics = [_compound_metrics_from_header(header) for header in headers]
+        transposed_metric = _nearby_table_metric(lines, index, headers)
         row_index = index + 2
         while row_index < len(lines):
             cells = _split_table_row(lines[row_index])
@@ -261,6 +322,19 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
             context = _table_context(headers, metrics, cells)
             claims.extend(
                 _row_labeled_metric_claims(headers, cells, lines[row_index].strip(), row_index + 1)
+            )
+            claims.extend(
+                _embedded_context_claims(headers, cells, lines[row_index].strip(), row_index + 1)
+            )
+            claims.extend(_embedded_text_claims(cells, lines[row_index].strip(), row_index + 1))
+            claims.extend(
+                _transposed_metric_claims(
+                    headers,
+                    cells,
+                    lines[row_index].strip(),
+                    row_index + 1,
+                    transposed_metric,
+                )
             )
             for column, metric in enumerate(metrics):
                 if metric is None or column >= len(cells):
@@ -347,6 +421,13 @@ def _plain_cell(value: str) -> str:
 def _metric_from_header(header: str) -> str | None:
     plain = _plain_cell(header).casefold().replace("_", " ")
     compact = re.sub(r"[^\w²]+", " ", plain, flags=re.UNICODE).strip()
+    ranked = re.search(
+        r"\b(?P<family>map|mar|mrr|mndcg|ndcg|precision|recall)\s*@\s*"
+        r"(?P<k>[1-9]\d*)\b",
+        plain,
+    )
+    if ranked:
+        return f"{ranked.group('family')}_{ranked.group('k')}"
     waymo = re.search(r"\b(maph|map)\s*l([12])\b", compact)
     if waymo:
         return f"{waymo.group(1)}_l{waymo.group(2)}"
@@ -372,18 +453,96 @@ def _metric_from_row_label(header: str, cell: str) -> str | None:
     normalized_header = re.sub(
         r"[^\w]+", " ", _plain_cell(header).casefold(), flags=re.UNICODE
     ).strip()
-    if normalized_header not in {"metric", "measure"}:
+    if normalized_header not in {"metric", "measure", "метрика"}:
         return None
     label = html.unescape(cell).casefold().strip()
     label = re.sub(r"<[^>]+>", "", label)
     label = label.replace("`", "").replace("*", "").replace(" ", "_")
     match = re.fullmatch(
-        r"(?P<family>map|mrr|ndcg|precision|recall|u_ndcg|u_recall)@(?P<k>[1-9]\d*)",
+        r"(?P<family>map|mar|mrr|mndcg|ndcg|precision|recall|u_ndcg|u_recall)"
+        r"@(?P<k>[1-9]\d*)(?:_\(s\))?",
         label,
     )
-    if match is None:
-        return None
-    return canonical_metric(f"{match.group('family')}_{match.group('k')}")
+    if match is not None:
+        return canonical_metric(f"{match.group('family')}_{match.group('k')}")
+    direct = {
+        "mrr": "mrr",
+        "success_rate": "success_rate",
+        "partial_rate": "partial_rate",
+        "fail_rate": "fail_rate",
+        "correctness": "correctness",
+        "answer_coverage": "answer_coverage",
+        "mean_tool_calls": "mean_tool_calls",
+        "mean_tokens": "mean_tokens",
+        "mean_wall_time": "mean_wall_time_seconds",
+        "avg_latency": "avg_latency_seconds",
+        "avg_latency_(s)": "avg_latency_seconds",
+        "p95_latency": "p95_latency_seconds",
+        "p95_latency_(s)": "p95_latency_seconds",
+    }
+    return direct.get(label)
+
+
+def _embedded_context_claims(
+    headers: list[str], cells: list[str], raw_text: str, line: int
+) -> list[Claim]:
+    claims: list[Claim] = []
+    for column, header in enumerate(headers):
+        if column >= len(cells):
+            continue
+        normalized_header = re.sub(
+            r"[^\w]+", " ", _plain_cell(header).casefold(), flags=re.UNICODE
+        ).strip()
+        if normalized_header not in {"tool", "model", "name"}:
+            continue
+        label = _plain_cell(cells[column])
+        match = re.search(r"\b(?P<count>[1-9]\d*)\s*[- ]?feat(?:ure)?s?\b", label, re.I)
+        if match is not None:
+            claims.append(
+                Claim(
+                    metric="feature_count",
+                    value=float(match.group("count")),
+                    raw_text=raw_text,
+                    line=line,
+                    context={"model": label},
+                )
+            )
+    return claims
+
+
+def _embedded_text_claims(cells: list[str], raw_text: str, line: int) -> list[Claim]:
+    claims: list[Claim] = []
+    seen: set[tuple[str, float]] = set()
+    for cell in cells:
+        plain = _plain_cell(cell)
+        for match in _RANKED_PROSE_RE.finditer(plain):
+            metric = f"{match.group('family').casefold()}_{match.group('k')}"
+            value = _normalize_value(
+                metric,
+                _parse_number(match.group("value")),
+                percent=bool(match.group("percent")),
+            )
+            if (metric, value) not in seen:
+                seen.add((metric, value))
+                claims.append(Claim(metric=metric, value=value, raw_text=raw_text, line=line))
+        for match in _RANKED_ARROW_RE.finditer(plain):
+            metric = f"{match.group('family').casefold()}_{match.group('k')}"
+            value = _normalize_value(
+                metric,
+                _parse_number(match.group("value")),
+                percent=bool(match.group("percent")),
+            )
+            if (metric, value) not in seen:
+                seen.add((metric, value))
+                claims.append(Claim(metric=metric, value=value, raw_text=raw_text, line=line))
+        for match in _SEPARABILITY_RE.finditer(plain):
+            value = _parse_number(match.group("value"))
+            if ("separability_delta", value) not in seen:
+                seen.add(("separability_delta", value))
+                claims.append(
+                    Claim(metric="separability_delta", value=value, raw_text=raw_text, line=line)
+                )
+    return claims
 
 
 def _row_labeled_metric_claims(
@@ -396,13 +555,77 @@ def _row_labeled_metric_claims(
         return []
     claims: list[Claim] = []
     for column in range(1, min(len(headers), len(cells))):
+        system = _plain_cell(headers[column])
         value = _table_value(metric, cells[column])
+        numbers = list(_NUMBER_RE.finditer(_plain_cell(cells[column])))
+        if system.casefold() == "delta" and numbers and "pp" in _plain_cell(cells[column]):
+            value = _parse_number(numbers[0].group("value")) / 100
+        if value is None and system.casefold() == "delta" and numbers:
+            value = _normalize_value(
+                metric,
+                _parse_number(numbers[0].group("value")),
+                percent=bool(numbers[0].group("percent")) or "pp" in _plain_cell(cells[column]),
+            )
         if value is None:
             continue
-        system = _plain_cell(headers[column])
         context = {"system": system} if system else {}
         claims.append(
             Claim(metric=metric, value=value, raw_text=raw_text, line=line, context=context)
+        )
+        if system.casefold() == "delta":
+            if len(numbers) >= 2:
+                percent_value = _parse_number(numbers[1].group("value"))
+                claims.append(
+                    Claim(
+                        metric=f"{metric}_delta_percent",
+                        value=percent_value,
+                        raw_text=raw_text,
+                        line=line,
+                        context=context,
+                    )
+                )
+    return claims
+
+
+def _nearby_table_metric(lines: list[str], table_index: int, headers: list[str]) -> str | None:
+    first = re.sub(r"[^\w]+", " ", _plain_cell(headers[0]).casefold(), flags=re.UNICODE).strip()
+    if first not in {"scenario", "сценарій"}:
+        return None
+    prefix = " ".join(lines[max(0, table_index - 5) : table_index])
+    match = re.search(
+        r"(?<![\w])(?P<family>map|mar|mrr|mndcg|ndcg|precision|recall)\s*@\s*"
+        r"(?P<k>[1-9]\d*)",
+        _plain_cell(prefix),
+        flags=re.IGNORECASE,
+    )
+    if match is None:
+        return None
+    return f"{match.group('family').casefold()}_{match.group('k')}"
+
+
+def _transposed_metric_claims(
+    headers: list[str],
+    cells: list[str],
+    raw_text: str,
+    line: int,
+    metric: str | None,
+) -> list[Claim]:
+    if metric is None or not cells:
+        return []
+    scenario = _plain_cell(cells[0])
+    claims: list[Claim] = []
+    for column in range(1, min(len(headers), len(cells))):
+        value = _table_value(metric, cells[column])
+        if value is None:
+            continue
+        claims.append(
+            Claim(
+                metric=metric,
+                value=value,
+                raw_text=raw_text,
+                line=line,
+                context={"scenario": scenario, "system": _plain_cell(headers[column])},
+            )
         )
     return claims
 
@@ -544,6 +767,8 @@ def _extract_html_table_claims(text: str) -> list[Claim]:
         for cells, line in table[1:]:
             context = _table_context(headers, metrics, cells)
             claims.extend(_row_labeled_metric_claims(headers, cells, " | ".join(cells), line))
+            claims.extend(_embedded_context_claims(headers, cells, " | ".join(cells), line))
+            claims.extend(_embedded_text_claims(cells, " | ".join(cells), line))
             for column, metric in enumerate(metrics):
                 if metric is None or column >= len(cells):
                     continue
@@ -568,7 +793,7 @@ def _table_value(metric: str, cell: str) -> float | None:
     if len(matches) != 1:
         return None
     match = matches[0]
-    value = float(match.group("value").replace(",", "."))
+    value = _parse_number(match.group("value"))
     return _normalize_value(metric, value, percent=bool(match.group("percent")))
 
 
@@ -603,7 +828,7 @@ def _table_context(
 ) -> dict[str, str]:
     context: dict[str, str] = {}
     for index, header in enumerate(headers):
-        if metrics[index] is not None or index >= len(cells):
+        if index >= len(cells):
             continue
         normalized_header = re.sub(
             r"[^\w]+", " ", _plain_cell(header).casefold(), flags=re.UNICODE
@@ -612,13 +837,23 @@ def _table_context(
         value = _plain_cell(cells[index])
         if key and value and len(value) <= 200:
             context[key] = value
+            continue
+        if metrics[index] is not None:
+            continue
     return context
 
 
 def _normalize_value(metric: str, value: float, *, percent: bool) -> float:
-    if percent or (is_unit_interval_metric(metric) and 1 < value <= 100):
+    if percent or (is_unit_interval_metric(metric) and 1 < abs(value) <= 100):
         return value / 100.0
     return value
+
+
+def _parse_number(raw: str) -> float:
+    raw = raw.replace("−", "-")
+    if re.fullmatch(r"[+-]?[1-9]\d{0,2},\d{3}", raw):
+        return float(raw.replace(",", ""))
+    return float(raw.replace(",", "."))
 
 
 def _is_nms_parameter(line: str, metric_start: int) -> bool:

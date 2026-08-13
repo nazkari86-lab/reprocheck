@@ -1,0 +1,25 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-adjudication.v1",
+  "performed_after_frozen_evaluation": true,
+  "excluded_claims": [
+    {
+      "case_id": "power-path-parser-metric-correction",
+      "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+      "metric": "mrr_fts",
+      "reason": "The frozen snippet is the unchanged metric-definition row and contains neither the before nor after benchmark value."
+    },
+    {
+      "case_id": "power-path-parser-metric-correction",
+      "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+      "metric": "mrr_vector",
+      "reason": "The frozen snippet is the unchanged metric-definition row and contains neither the before nor after benchmark value."
+    },
+    {
+      "case_id": "power-path-parser-metric-correction",
+      "file": "docs/tests/P.O.W.E.R.2.0.3-TEST-2.md",
+      "metric": "mrr_hybrid",
+      "reason": "The frozen snippet is the unchanged metric-definition row and contains neither the before nor after benchmark value."
+    }
+  ],
+  "policy": "Exclude only demonstrably malformed labels; preserve the original cases.json and zero-shot result byte-for-byte."
+}

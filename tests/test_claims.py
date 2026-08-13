@@ -1,3 +1,5 @@
+import pytest
+
 from reprocheck import extract_claims as public_extract_claims
 from reprocheck import extract_table_claims as public_extract_table_claims
 from reprocheck.claims import check_claims, extract_claims, extract_table_claims
@@ -293,6 +295,89 @@ def test_row_labeled_metrics_require_explicit_metric_header_and_known_family():
 | learning_rate@4 | 0.2 | 0.3 |
 """
     assert extract_table_claims(text) == []
+
+
+def test_extracts_multilingual_row_labeled_metrics_with_system_context():
+    text = """| Метрика | FTS (BM25) | Vector | Hybrid | Delta |
+|---|---:|---:|---:|---:|
+| MRR | 0.619 | 0.750 | 0.754 | +0.135 |
+| MAR@10 | 0.467 | 1.133 | 1.044 | +0.577 |
+| Avg Latency (s) | 0.559 | 2.208 | 2.270 | +1.711 |
+"""
+    claims = extract_table_claims(text)
+    assert ("mrr", 0.619, {"system": "FTS (BM25)"}) in [
+        (claim.metric, claim.value, claim.context) for claim in claims
+    ]
+    assert ("mar_10", 1.133, {"system": "Vector"}) in [
+        (claim.metric, claim.value, claim.context) for claim in claims
+    ]
+    assert ("avg_latency_seconds", 2.27, {"system": "Hybrid"}) in [
+        (claim.metric, claim.value, claim.context) for claim in claims
+    ]
+
+
+def test_extracts_rate_and_efficiency_rows_without_losing_sign_or_thousands():
+    text = """| Metric | Control | Lore-enabled | Delta |
+|---|---:|---:|---:|
+| Fail rate | 3.6% | 1.0% | -2.6pp |
+| Mean tokens | 8,952 | 6,182 | -2,771 (−30.9%) |
+"""
+    claims = extract_table_claims(text)
+    observed = [(claim.metric, claim.value, claim.context) for claim in claims]
+    fail_delta = next(
+        value
+        for metric, value, context in observed
+        if metric == "fail_rate" and context == {"system": "Delta"}
+    )
+    assert fail_delta == pytest.approx(-0.026)
+    assert ("mean_tokens", 8952.0, {"system": "Control"}) in observed
+    assert ("mean_tokens", -2771.0, {"system": "Delta"}) in observed
+    assert ("mean_tokens_delta_percent", -30.9, {"system": "Delta"}) in observed
+
+
+def test_extracts_ranked_prose_arrow_target_and_separability():
+    claims = extract_claims(
+        "Hybrid improves recall@5 0.447 → 0.632. Embedding separability Δ0.611."
+    )
+    assert [(claim.metric, claim.value) for claim in claims] == [
+        ("recall_5", 0.447),
+        ("recall_5", 0.632),
+        ("separability_delta", 0.611),
+    ]
+
+
+def test_extracts_transposed_metric_table_from_nearby_heading():
+    text = """### MAR@5 by scenario
+
+| Scenario | FTS | Vector | Hybrid |
+|---|---:|---:|---:|
+| UA→EN | 0.000 | 0.208 | 0.208 |
+"""
+    claims = extract_table_claims(text)
+    assert [(claim.metric, claim.value, claim.context) for claim in claims] == [
+        ("mar_5", 0.0, {"scenario": "UA→EN", "system": "FTS"}),
+        ("mar_5", 0.208, {"scenario": "UA→EN", "system": "Vector"}),
+        ("mar_5", 0.208, {"scenario": "UA→EN", "system": "Hybrid"}),
+    ]
+
+
+def test_extracts_peak_rss_and_embedded_feature_count_with_context():
+    text = """| Runtime | Peak RSS |
+|---|---:|
+| C# Native | ~1637.2 MB |
+
+| tool | auc_roc |
+|---|---:|
+| SESTRAV RF (31-feat) | 0.7255 |
+"""
+    claims = extract_table_claims(text)
+    observed = [(claim.metric, claim.value, claim.context) for claim in claims]
+    assert ("peak_rss_mb", 1637.2, {"system": "C# Native"}) in observed
+    assert (
+        "feature_count",
+        31.0,
+        {"model": "SESTRAV RF (31-feat)"},
+    ) in observed
 
 
 def test_extracts_swebench_structured_score_without_probability_rescaling():

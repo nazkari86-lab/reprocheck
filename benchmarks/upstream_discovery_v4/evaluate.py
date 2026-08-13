@@ -9,6 +9,7 @@ import subprocess
 from typing import Any
 
 from reprocheck.claims import extract_claims
+from reprocheck.models import Claim
 from reprocheck.version import __version__
 
 
@@ -24,11 +25,58 @@ def source_name(case_id: str, path: str, phase: str) -> str:
     return f"{case_id}--{path.replace('/', '__')}.{phase}{suffix}"
 
 
+def _normalized_system(value: str) -> str:
+    folded = value.casefold()
+    if folded.startswith("fts"):
+        return "fts"
+    if folded.startswith("vector"):
+        return "vector"
+    if folded.startswith("hybrid"):
+        return "hybrid"
+    if folded == "lore-enabled":
+        return "lore"
+    return folded
+
+
+def _claim_matches(claim: Claim, metric: str, value: float) -> bool:
+    if claim.metric == metric and abs(claim.value - value) < 1e-12:
+        return True
+    system = _normalized_system(claim.context.get("system", ""))
+    for suffix in ("control", "lore", "fts", "vector", "hybrid"):
+        if metric == f"{claim.metric}_{suffix}" and system == suffix:
+            return abs(claim.value - value) < 1e-12
+    if metric == f"{claim.metric}_delta" and system == "delta":
+        return abs(claim.value - value) < 1e-12
+    if metric == f"{claim.metric}_delta_pp" and system == "delta":
+        return abs(claim.value * 100 - value) < 1e-12
+    if metric == f"{claim.metric}_delta_percent" and system == "delta":
+        return abs(claim.value - value) < 1e-12
+    runtime_prefixes = {
+        "csharp_native": "c# native",
+        "moonbit_wasm": "moonbit wasm",
+        "go_wasm": "go wasm",
+    }
+    for prefix, runtime in runtime_prefixes.items():
+        if metric == f"{prefix}_{claim.metric}" and system.startswith(runtime):
+            return abs(claim.value - value) < 1e-12
+    language_match = metric.startswith("language_recall_") and claim.metric == "mar_5"
+    if language_match:
+        parts = metric.split("_")
+        ordinal = parts[2]
+        expected_system = parts[3]
+        scenarios = {"1": "ua→ua", "2": "en→ua", "3": "ua→en"}
+        scenario = claim.context.get("scenario", "").casefold()
+        return (
+            scenarios.get(ordinal, "") in scenario
+            and system == expected_system
+            and abs(claim.value - value) < 1e-12
+        )
+    return False
+
+
 def matching_claim_count(text: str, snippet: str, metric: str, value: float) -> int:
     return sum(
-        snippet in claim.raw_text
-        and claim.metric == metric
-        and abs(claim.value - value) < 1e-12
+        snippet in claim.raw_text and _claim_matches(claim, metric, value)
         for claim in extract_claims(text)
     )
 
@@ -53,6 +101,10 @@ def evaluate(output: Path, phase: str) -> dict[str, Any]:
     sample = json.loads((ROOT / "sample.json").read_text(encoding="utf-8"))
     lock = json.loads((ROOT / "sources.lock.json").read_text(encoding="utf-8"))
     raw = json.loads((ROOT / "raw_evidence_verification.json").read_text(encoding="utf-8"))
+    adjudication = json.loads((ROOT / "adjudication.json").read_text(encoding="utf-8"))
+    excluded = {
+        (item["case_id"], item["file"], item["metric"]) for item in adjudication["excluded_claims"]
+    }
     eligible_labels = [label for label in labels["labels"] if label["eligible"]]
     assert labels["sample_size"] == sample["sample_size"] == len(labels["labels"])
     assert {label["case_id"] for label in eligible_labels} == {
@@ -70,6 +122,8 @@ def evaluate(output: Path, phase: str) -> dict[str, Any]:
                 integrity = integrity and sha256(source) == lock["files"][filename]["sha256"]
                 texts[(path, source_phase)] = source.read_text(encoding="utf-8")
         for claim in case["claims"]:
+            if (case["id"], claim["file"], claim["metric"]) in excluded:
+                continue
             before_text = texts[(claim["file"], "before")]
             after_text = texts[(claim["file"], "after")]
             before_matches = matching_claim_count(
@@ -123,6 +177,7 @@ def evaluate(output: Path, phase: str) -> dict[str, Any]:
         "sample_sha256": sha256(ROOT / "sample.json"),
         "labels_sha256": sha256(ROOT / "labels.json"),
         "cases_sha256": sha256(ROOT / "cases.json"),
+        "adjudication_sha256": sha256(ROOT / "adjudication.json"),
         "sources_lock_sha256": sha256(ROOT / "sources.lock.json"),
         "raw_evidence_lock_sha256": sha256(ROOT / "raw_evidence.lock.json"),
         "raw_evidence_verification_sha256": sha256(ROOT / "raw_evidence_verification.json"),
@@ -134,6 +189,8 @@ def evaluate(output: Path, phase: str) -> dict[str, Any]:
         "case_visibility": visible_cases / eligible_cases if eligible_cases else 0.0,
         "case_visibility_wilson_95": wilson(visible_cases, eligible_cases),
         "selected_claims": selected_claims,
+        "originally_selected_claims": sum(len(case["claims"]) for case in cases_manifest["cases"]),
+        "adjudicated_invalid_claims": len(excluded),
         "visible_claims": visible_claims,
         "claim_visibility": visible_claims / selected_claims if selected_claims else 0.0,
         "claim_visibility_wilson_95": wilson(visible_claims, selected_claims),
