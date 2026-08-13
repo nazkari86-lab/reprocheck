@@ -75,7 +75,32 @@ _UNIT_DURATION_RE = re.compile(
 )
 _TEST_COUNT_RE = re.compile(
     r"(?<![\w.,])(?P<value>(?:[1-9]\d{0,2}(?:,\d{3})+|[1-9]\d*))\s+"
-    r"(?:(?P<scope>Python|TypeScript)(?:\s+[Tt]ests)?|[Tt]ests)\b",
+    r"(?:(?P<scope>Python|TypeScript)(?:\s+[Tt]ests)?|"
+    r"(?:(?:passing|successful)\s+)?(?:unit\s+)?[Tt]ests)\b",
+)
+_MULTILINE_TEST_COUNT_RE = re.compile(
+    r"(?<![\w.,])(?P<value>(?:[1-9]\d{0,2}(?:,\d{3})+|[1-9]\d*))\s+"
+    r"(?:(?:passing|successful)\s+)?(?:unit\s+)?tests\b",
+    flags=re.IGNORECASE,
+)
+_TOTAL_TEST_COUNT_RE = re.compile(
+    r"\btests\b.{0,120}?\bthere\s+are\s+"
+    r"(?P<value>(?:[1-9]\d{0,2}(?:,\d{3})+|[1-9]\d*))\s+in\s+total\b",
+    flags=re.IGNORECASE | re.DOTALL,
+)
+_PASSED_TEST_COUNT_RE = re.compile(
+    r"(?<![\w.,])(?P<value>(?:[1-9]\d{0,2}(?:,\d{3})+|[1-9]\d*))\s+passed\b"
+    r"[^\n]{0,40}\b(?:skipped|failed)\b",
+    flags=re.IGNORECASE,
+)
+_KOREAN_TEST_COUNT_RE = re.compile(
+    r"(?<![\w.,])(?P<value>(?:[1-9]\d{0,2}(?:,\d{3})+|[1-9]\d*))\s*개\s*"
+    r"(?:자동\s*)?테스트"
+)
+_VRAM_USAGE_RE = re.compile(
+    rf"(?:peak(?:\s+(?:GPU|device))?\s+(?:memory|VRAM)|peak\s+of)\D{{0,24}}?"
+    rf"(?P<value>{_NUMBER})\s*(?P<unit>kb|mb|gb)\s+(?:GPU\s+)?VRAM\b",
+    flags=re.IGNORECASE,
 )
 _ARTIFACT_SIZE_COMPARISON_RE = re.compile(
     rf"\b(?:hashfile|artifact|file)\b[^\n()]*\([^\n)]*?"
@@ -124,6 +149,37 @@ def extract_claims(text: str) -> list[Claim]:
     claims: list[Claim] = []
     text_seen: set[tuple[int, str, float]] = set()
     lines = text.splitlines()
+    for match in _MULTILINE_TEST_COUNT_RE.finditer(text):
+        if "\n" not in match.group():
+            continue
+        value = _parse_number(match.group("value"))
+        line_number = text.count("\n", 0, match.start()) + 1
+        raw_text = " ".join(match.group().split())
+        text_seen.add((line_number, "test_count", value))
+        claims.append(
+            Claim(
+                metric="test_count",
+                value=value,
+                raw_text=raw_text,
+                line=line_number,
+                context={"scope": "total"},
+            )
+        )
+    for match in _TOTAL_TEST_COUNT_RE.finditer(text):
+        value = _parse_number(match.group("value"))
+        line_number = text.count("\n", 0, match.start("value")) + 1
+        key = (line_number, "test_count", value)
+        if key not in text_seen:
+            text_seen.add(key)
+            claims.append(
+                Claim(
+                    metric="test_count",
+                    value=value,
+                    raw_text=" ".join(match.group().split()),
+                    line=line_number,
+                    context={"scope": "total"},
+                )
+            )
     table_lines = _markdown_table_line_numbers(lines)
     prose_lines = _mask_html_tables(text).splitlines()
     for line_number, raw_line in enumerate(prose_lines, start=1):
@@ -225,6 +281,31 @@ def extract_claims(text: str) -> list[Claim]:
                         raw_text=raw_line.strip(),
                         line=line_number,
                         context=context,
+                    )
+                )
+        for count_pattern in (_PASSED_TEST_COUNT_RE, _KOREAN_TEST_COUNT_RE):
+            for match in count_pattern.finditer(line):
+                value = _parse_number(match.group("value"))
+                key = (line_number, "test_count", value)
+                if key not in text_seen:
+                    text_seen.add(key)
+                    claims.append(
+                        Claim(
+                            metric="test_count",
+                            value=value,
+                            raw_text=raw_line.strip(),
+                            line=line_number,
+                            context={"scope": "total"},
+                        )
+                    )
+        for match in _VRAM_USAGE_RE.finditer(line):
+            value = _memory_mb(match.group("value"), match.group("unit"))
+            key = (line_number, "memory_mb", value)
+            if key not in text_seen:
+                text_seen.add(key)
+                claims.append(
+                    Claim(
+                        metric="memory_mb", value=value, raw_text=raw_line.strip(), line=line_number
                     )
                 )
         for match in _ARTIFACT_SIZE_COMPARISON_RE.finditer(line):
@@ -447,6 +528,10 @@ def _extract_markdown_table_claims(lines: list[str]) -> list[Claim]:
             if not cells:
                 break
             context = _table_context(headers, metrics, cells)
+            if "runtime_seconds" in metrics and context.get("system", "").casefold().endswith(
+                " speed"
+            ):
+                context["system"] = context["system"][: -len(" speed")].strip()
             claims.extend(
                 _row_labeled_metric_claims(headers, cells, lines[row_index].strip(), row_index + 1)
             )
@@ -564,12 +649,15 @@ def _metric_from_header(header: str) -> str | None:
     plain = _plain_cell(header).casefold().replace("_", " ")
     compact = re.sub(r"[^\w²]+", " ", plain, flags=re.UNICODE).strip()
     ranked = re.search(
-        r"\b(?P<family>map|mar|mrr|mndcg|ndcg|precision|recall)\s*@\s*"
+        r"\b(?P<family>map|mar|mrr|mndcg|ndcg|precision|recall|p|r)\s*@\s*"
         r"(?P<k>[1-9]\d*)\b",
         plain,
     )
     if ranked:
-        return f"{ranked.group('family')}_{ranked.group('k')}"
+        family = {"p": "precision", "r": "recall"}.get(
+            ranked.group("family"), ranked.group("family")
+        )
+        return f"{family}_{ranked.group('k')}"
     waymo = re.search(r"\b(maph|map)\s*l([12])\b", compact)
     if waymo:
         return f"{waymo.group(1)}_l{waymo.group(2)}"
@@ -586,6 +674,8 @@ def _metric_from_header(header: str) -> str | None:
         return "top1_accuracy"
     if re.search(r"\btop\s*5\b", compact) and not re.search(r"\berr(?:or)?\b", compact):
         return "top5_accuracy"
+    if re.search(r"\brecall\s+speed\b", compact):
+        return "runtime_seconds"
     for alias in sorted(METRIC_ALIASES, key=len, reverse=True):
         normalized_alias = re.sub(r"[^\w²]+", " ", alias.casefold(), flags=re.UNICODE).strip()
         if normalized_alias and re.search(rf"(?<!\w){re.escape(normalized_alias)}(?!\w)", compact):
@@ -600,6 +690,12 @@ def _metric_from_row_label(header: str, cell: str) -> str | None:
     label = html.unescape(cell).casefold().strip()
     label = re.sub(r"<[^>]+>", "", label)
     label = label.replace("`", "").replace("*", "").replace(" ", "_")
+    if normalized_header in {"metric", "measure", "метрика"}:
+        embedded = re.findall(r"\b[\w]+_(?:pct|count|score)\b", label)
+        if embedded:
+            return canonical_metric(embedded[-1])
+        if label in {"test", "tests", "test_count"}:
+            return "test_count"
     if label.startswith("success_rate"):
         return "success_rate"
     if label == "recall" or label == "authored_pairs_merged" or label.startswith("recall_—_"):
@@ -1054,6 +1150,8 @@ def _embedded_duration_table_claims(
     if len(cells) < 2:
         return []
     system = re.split(r"\s*\(", _context_label(cells[0]), maxsplit=1)[0].strip()
+    if system.casefold().endswith(" speed"):
+        system = system[: -len(" speed")].strip()
     claims: list[Claim] = []
     for column in range(1, min(len(headers), len(cells))):
         if _metric_from_header(headers[column]) is not None:
@@ -1129,7 +1227,7 @@ def _duration_seconds(value: str, unit: str) -> float:
 
 
 def _duration_cell_seconds(cell: str) -> float | None:
-    readable = _plain_cell(cell).casefold()
+    readable = _plain_cell(cell).casefold().lstrip("~≈ ")
     unit_match = _UNIT_DURATION_RE.fullmatch(readable)
     if unit_match is not None:
         return _duration_seconds(unit_match.group("value"), unit_match.group("unit"))

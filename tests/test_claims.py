@@ -311,6 +311,57 @@ def test_test_count_does_not_treat_version_tail_as_count():
     assert not [claim for claim in claims if claim.metric == "test_count"]
 
 
+def test_extracts_wrapped_total_passed_and_multilingual_test_counts():
+    text = """Measured baseline: 4,321 passing unit
+tests in 88 files.
+All tests run with JUnit. There are 57 in total.
+pytest: 612 passed, 3 skipped.
+현재 144개 자동 테스트를 실행합니다.
+"""
+    assert [(c.metric, c.value, c.context) for c in extract_claims(text)] == [
+        ("test_count", 4321.0, {"scope": "total"}),
+        ("test_count", 57.0, {"scope": "total"}),
+        ("test_count", 612.0, {"scope": "total"}),
+        ("test_count", 144.0, {"scope": "total"}),
+    ]
+
+
+def test_extracts_unit_test_qualifier_and_vram_peak():
+    claims = extract_claims(
+        "The suite has 206 unit tests. Peak of ~11.5 GB GPU VRAM during model loading."
+    )
+    assert [(c.metric, c.value) for c in claims] == [
+        ("test_count", 206.0),
+        ("memory_mb", 11776.0),
+    ]
+
+
+def test_extracts_abbreviated_ranked_headers_and_duration_speed_header():
+    text = """| Adapter | P@5 | R@5 | Recall speed |
+|---|---:|---:|---:|
+| hybrid | 0.31 | 0.84 | ~42ms |
+"""
+    assert [(c.metric, c.value) for c in extract_table_claims(text)] == [
+        ("precision_5", 0.31),
+        ("recall_5", 0.84),
+        ("runtime_seconds", 0.042),
+    ]
+
+
+def test_extracts_machine_metric_and_test_count_rows():
+    text = """| Metric | Value |
+|---|---:|
+| Hub ratio (`hub_pct`) | 8.4% |
+| Dead code (`dead_code_pct`) | 3.1% |
+| Tests | 712 |
+"""
+    assert [(c.metric, c.value) for c in extract_table_claims(text)] == [
+        ("hub_pct", 0.084),
+        ("dead_code_pct", 0.031),
+        ("test_count", 712.0),
+    ]
+
+
 def test_extracts_artifact_size_comparison_without_calling_it_memory():
     claims = extract_claims("Smaller hashfile (**39.7 vs 70.9 MiB** on the tree)")
     assert [(c.metric, c.value) for c in claims] == [

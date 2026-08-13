@@ -1,0 +1,7 @@
+{
+  "schema_version": "reprocheck.upstream-discovery-results-lock.v8",
+  "results": {
+    "results/development-current.json": "771c31563ef1a445c9b441c3057f7b840dd7fcc329f16a16cb70af9fe7952f33",
+    "results/zero-shot-0.23.0.json": "d37f7568297959e379acc9cc0451a40a949b49a65880a24496228255a4f8e7f2"
+  }
+}

@@ -59,7 +59,7 @@ Install the published wheel directly from the immutable GitHub release:
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install \
-  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.23.0/reprocheck-0.23.0-py3-none-any.whl
+  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.24.0/reprocheck-0.24.0-py3-none-any.whl
 reprocheck demo
 ```
 

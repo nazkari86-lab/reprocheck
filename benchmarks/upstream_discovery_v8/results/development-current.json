@@ -1,0 +1,562 @@
+{
+  "breadth": {
+    "independent_repository_owners": 16,
+    "metric_families": [
+      "dead_code_pct",
+      "edge_coverage_pct",
+      "high_complexity_pct",
+      "hub_pct",
+      "memory_mb",
+      "precision_5",
+      "recall_5",
+      "runtime_seconds",
+      "speedup",
+      "test_count"
+    ],
+    "repositories": 16,
+    "source_formats": [
+      "md"
+    ],
+    "source_structures": [
+      "markdown_prose",
+      "markdown_table"
+    ]
+  },
+  "case_visibility": 1.0,
+  "case_visibility_wilson_95": [
+    0.8063923194655637,
+    1.0000000000000002
+  ],
+  "cases": [
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 2.3,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 1.1,
+          "context": {
+            "system": "Vite build"
+          },
+          "file": "README.md",
+          "metric": "speedup",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 1.1,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.9,
+          "context": {
+            "system": "Nuxt build"
+          },
+          "file": "README.md",
+          "metric": "speedup",
+          "passed": true
+        }
+      ],
+      "id": "vize-benchmark-snapshot-reconciliation",
+      "passed": true,
+      "pull_request": 3422,
+      "repository": "ubugeeei-prod/vize",
+      "selected_claims": 2,
+      "source_integrity": true,
+      "visible_claims": 2
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 3010,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 2874,
+          "context": {
+            "scope": "total"
+          },
+          "file": "docs/Testing_and_Gym.md",
+          "metric": "test_count",
+          "passed": true
+        }
+      ],
+      "id": "navsentinel-stale-test-count",
+      "passed": true,
+      "pull_request": 527,
+      "repository": "Chris0Jeky/NavSentinel",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 11980.8,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 13721.6,
+          "context": {
+            "system": "Qwen3-14B bf16"
+          },
+          "file": "wiki/en/concepts/offload-mechanism.md",
+          "metric": "memory_mb",
+          "passed": true
+        }
+      ],
+      "id": "trusta-offload-attribution",
+      "passed": true,
+      "pull_request": 10,
+      "repository": "ADATA-TRUSTA/AI-Scaler-Toolkit",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.24,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.578,
+          "context": {
+            "model": "agentmemory hybrid"
+          },
+          "file": "README.md",
+          "metric": "precision_5",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 1.0,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.967,
+          "context": {
+            "model": "agentmemory hybrid"
+          },
+          "file": "README.md",
+          "metric": "recall_5",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.227,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.267,
+          "context": {
+            "model": "grep baseline"
+          },
+          "file": "README.md",
+          "metric": "precision_5",
+          "passed": true
+        }
+      ],
+      "id": "agentmemory-p-at-five-correction",
+      "passed": true,
+      "pull_request": 807,
+      "repository": "rohitg00/agentmemory",
+      "selected_claims": 3,
+      "source_integrity": true,
+      "visible_claims": 3
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 48,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 34,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": true
+        }
+      ],
+      "id": "ace-tracker-stale-test-count",
+      "passed": true,
+      "pull_request": 90,
+      "repository": "jeremypfi/ace-tracker",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 39,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 29,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": true
+        }
+      ],
+      "id": "coursework-wrapper-test-count",
+      "passed": true,
+      "pull_request": 5,
+      "repository": "MichaelSchenkDe/coursework-group-csm100",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 1864,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 1729,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": true
+        }
+      ],
+      "id": "trading-agent-stale-test-count",
+      "passed": true,
+      "pull_request": 94,
+      "repository": "connorshibley/trading-agent",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 475,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 370,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": true
+        }
+      ],
+      "id": "chatapp-test-coverage-count",
+      "passed": true,
+      "pull_request": 58,
+      "repository": "AJRPachon/ChatApp",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 416,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 410,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": true
+        }
+      ],
+      "id": "edith-stale-test-count",
+      "passed": true,
+      "pull_request": 36,
+      "repository": "GSAPify/EDITH",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 124,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 121,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": true
+        }
+      ],
+      "id": "coffergate-test-count",
+      "passed": true,
+      "pull_request": 72,
+      "repository": "CofferGate/CofferGate_backend",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 770,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 769,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": true
+        }
+      ],
+      "id": "sealrail-test-count",
+      "passed": true,
+      "pull_request": 48,
+      "repository": "mystiquemide/sealrail",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.076,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.075,
+          "context": {},
+          "file": "README.md",
+          "metric": "hub_pct",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.056,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.05,
+          "context": {},
+          "file": "README.md",
+          "metric": "dead_code_pct",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.701,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.749,
+          "context": {},
+          "file": "README.md",
+          "metric": "edge_coverage_pct",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.028,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.029,
+          "context": {},
+          "file": "README.md",
+          "metric": "high_complexity_pct",
+          "passed": true
+        }
+      ],
+      "id": "calm-measured-summary-refresh",
+      "passed": true,
+      "pull_request": 49,
+      "repository": "Eilodon/CALM",
+      "selected_claims": 4,
+      "source_integrity": true,
+      "visible_claims": 4
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 877,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 629,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": true
+        }
+      ],
+      "id": "ai-architect-test-count",
+      "passed": true,
+      "pull_request": 25,
+      "repository": "cdeust/ai-architect-mcp-spec",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 992,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 983,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 765,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 756,
+          "context": {
+            "scope": "Python"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": true
+        }
+      ],
+      "id": "clickllm-published-counts",
+      "passed": true,
+      "pull_request": 89,
+      "repository": "dshakes/clickllm",
+      "selected_claims": 2,
+      "source_integrity": true,
+      "visible_claims": 2
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 0.045,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 0.03,
+          "context": {
+            "system": "recall"
+          },
+          "file": "README.md",
+          "metric": "runtime_seconds",
+          "passed": true
+        },
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 206,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 327,
+          "context": {
+            "scope": "total"
+          },
+          "file": "README.md",
+          "metric": "test_count",
+          "passed": true
+        }
+      ],
+      "id": "uteke-readme-fact-check",
+      "passed": true,
+      "pull_request": 643,
+      "repository": "codecoradev/uteke",
+      "selected_claims": 2,
+      "source_integrity": true,
+      "visible_claims": 2
+    },
+    {
+      "claims": [
+        {
+          "after_parser_matches": 1,
+          "after_source_count": 1,
+          "after_value": 504,
+          "before_parser_matches": 1,
+          "before_source_count": 1,
+          "before_value": 500,
+          "context": {
+            "scope": "total"
+          },
+          "file": "STATUS.md",
+          "metric": "test_count",
+          "passed": true
+        }
+      ],
+      "id": "topogeoml-test-count",
+      "passed": true,
+      "pull_request": 59,
+      "repository": "smaniches/TopoGeoML",
+      "selected_claims": 1,
+      "source_integrity": true,
+      "visible_claims": 1
+    }
+  ],
+  "cases_sha256": "7c62ae2b0c2642eea6728188bd3b89be43a501af98c5f7865b5101688d66c519",
+  "claim_visibility": 1.0,
+  "claim_visibility_wilson_95": [
+    0.8620237953250198,
+    1.0
+  ],
+  "eligible_cases": 16,
+  "eligible_yield": 0.01609657947686117,
+  "eligible_yield_wilson_95": [
+    0.009931974915648054,
+    0.02598701652719459
+  ],
+  "evaluator_commit": "6238f2c",
+  "labels_sha256": "b2dff215b3fe2a74d848d0839b5fefd70467d2e3dc8cc595043a0402ec3ab3ee",
+  "phase": "development-post-v8-inspection-0.24.0",
+  "protocol_sha256": "9f925ceb8f582b6d89c4ed8887b7058d3312fe3866835460722e088c578c6a69",
+  "runtime_evaluator_version": "0.24.0",
+  "sample_sha256": "11cd819274f1289a22c1b2a5e2bfdeae0238c8b9ce0956123a51d8c2928b9506",
+  "sampled_pull_requests": 994,
+  "schema_version": "reprocheck.upstream-discovery-result.v8",
+  "scientific_boundary": "The deterministic one-owner sample estimates visibility only in 40 frozen, query-conditioned GitHub correction frames. It is not a population estimate. All 994 sampled pull requests were labeled before the frozen parser's first run; any later development score is post-inspection evidence and cannot replace this result.",
+  "selected_claims": 24,
+  "source_integrity": true,
+  "sources_lock_sha256": "e1382c7aabf51dc7990792f05653d2394fd9b9a1301c156e19b4c2b2e79aaf64",
+  "visible_cases": 16,
+  "visible_claims": 24
+}
