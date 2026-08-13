@@ -1,0 +1,16 @@
+{
+  "schema_version": "reprocheck.supported-ontology.v1",
+  "frozen_before_retrieval": true,
+  "extractor_version": "0.28.0",
+  "scope": "Canonical metric identifiers publicly supported by ReproCheck 0.28.0.",
+  "normalization": {
+    "unit_interval": "Percent notation is divided by 100 only for metrics normalized by the public extractor contract.",
+    "duration": "All explicit duration units are normalized to seconds.",
+    "memory": "Memory is normalized to the canonical unit named by the metric identifier.",
+    "scaled_numbers": "Explicit k, M, and G suffixes are expanded by powers of 1000.",
+    "matching": "Source line, canonical identifier, and numeric value rounded to 12 decimal places must all match."
+  },
+  "canonical_metrics": [
+    "accuracy", "aff_f1_improvement", "allocation_count", "answer_coverage", "ap", "ap50", "ap75", "ar", "artifact_size_kb", "artifact_size_mb", "assd", "assertion_count", "auc_improvement", "auprc", "auroc", "avg_latency_seconds", "bleu", "bleu_1", "bleu_2", "bleu_3", "bleu_4", "bleu_improvement", "boundary_f1", "brier_score", "cider", "compression_ratio", "correctness", "data_read_mb", "dice", "f1", "f1_improvement", "fail_rate", "feature_count", "finalize_time_seconds", "flop_count", "fragmentation_ratio", "frames_per_second", "hard_dice", "hard_iou", "hausdorff95", "hit_count", "hit_rate", "iou", "latency_score_seconds", "latency_stdev_seconds", "log_loss", "macro_f1", "macro_precision", "macro_recall", "mae", "map25", "map50", "map50_95", "map75", "mar", "math_accuracy", "max_latency_seconds", "mean_tokens", "mean_tool_calls", "mean_wall_time_seconds", "memory_mb", "meteor", "mfu", "miou", "miss_count", "mndcg", "mrr", "mse", "ndcg", "negative_accuracy", "no_target_count", "optimal_throughput_ratio", "p95_latency_seconds", "partial_rate", "pcc", "peak_heap_used_mb", "peak_rss_mb", "perplexity", "positions_per_second", "pq", "precision", "pro", "queries_per_second", "r2", "recall", "requests_per_second", "rmse", "rouge_l", "rouge_l_1", "rouge_l_2", "rouge_l_improvement", "rows_per_second", "runtime_seconds", "rx_dut_gbps", "rx_dut_mpps", "rx_tester_gbps", "rx_tester_mpps", "sample_count", "samples_per_second", "score", "search_accuracy", "separability_delta", "sign_time_seconds", "specificity", "speedup", "success_rate", "swebench", "sync_time_with_cache_seconds", "sync_time_without_cache_seconds", "test_count", "text2mol", "tflops", "tflops_per_second_gpu", "throughput_ops_per_second", "tokens_per_second_gpu", "tokens_per_second_long", "tokens_per_second_medium", "top1_accuracy", "top5_accuracy", "u_ndcg", "u_recall", "verify_time_seconds", "weighted_f1", "weighted_f1_decline"
+  ]
+}
