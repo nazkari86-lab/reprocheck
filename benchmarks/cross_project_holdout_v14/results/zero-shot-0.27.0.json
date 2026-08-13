@@ -1,0 +1,379 @@
+{
+  "block_precision": 0.4827586206896552,
+  "block_precision_wilson_95": [
+    0.3592818542405501,
+    0.6083773821659054
+  ],
+  "cases": [
+    {
+      "block_lines": [
+        11,
+        15
+      ],
+      "exact": false,
+      "false_negative": 5,
+      "false_positive": 3,
+      "gold_claims": 8,
+      "predicted_claims": 6,
+      "rank": 2,
+      "repository": "supratim1609/rivet",
+      "true_positive": 3
+    },
+    {
+      "block_lines": [
+        15,
+        19
+      ],
+      "exact": false,
+      "false_negative": 3,
+      "false_positive": 6,
+      "gold_claims": 3,
+      "predicted_claims": 6,
+      "rank": 4,
+      "repository": "mehdi-nasiri-jahroodi/react-calendar-datetime-picker",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        14,
+        21
+      ],
+      "exact": false,
+      "false_negative": 20,
+      "false_positive": 4,
+      "gold_claims": 20,
+      "predicted_claims": 4,
+      "rank": 5,
+      "repository": "niloydebbarma-code/zervepulse",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        9,
+        13
+      ],
+      "exact": false,
+      "false_negative": 4,
+      "false_positive": 0,
+      "gold_claims": 4,
+      "predicted_claims": 0,
+      "rank": 6,
+      "repository": "maderix/SimpLang",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        5,
+        11
+      ],
+      "exact": false,
+      "false_negative": 16,
+      "false_positive": 0,
+      "gold_claims": 16,
+      "predicted_claims": 0,
+      "rank": 7,
+      "repository": "pegainfer-project/pegainfer",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        11,
+        17
+      ],
+      "exact": false,
+      "false_negative": 6,
+      "false_positive": 0,
+      "gold_claims": 6,
+      "predicted_claims": 0,
+      "rank": 8,
+      "repository": "DonaldMurillo/gofastr",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        5,
+        10
+      ],
+      "exact": false,
+      "false_negative": 8,
+      "false_positive": 0,
+      "gold_claims": 12,
+      "predicted_claims": 4,
+      "rank": 9,
+      "repository": "Fzkuji/Ensemble-Hub",
+      "true_positive": 4
+    },
+    {
+      "block_lines": [
+        10,
+        15
+      ],
+      "exact": false,
+      "false_negative": 2,
+      "false_positive": 0,
+      "gold_claims": 3,
+      "predicted_claims": 1,
+      "rank": 10,
+      "repository": "Vedantdev777/legal-rag-system",
+      "true_positive": 1
+    },
+    {
+      "block_lines": [
+        17,
+        24
+      ],
+      "exact": false,
+      "false_negative": 6,
+      "false_positive": 0,
+      "gold_claims": 6,
+      "predicted_claims": 0,
+      "rank": 11,
+      "repository": "devharsh/municipal-cyber-policy-analytics",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        24,
+        29
+      ],
+      "exact": false,
+      "false_negative": 12,
+      "false_positive": 0,
+      "gold_claims": 12,
+      "predicted_claims": 0,
+      "rank": 12,
+      "repository": "shisa-ai/MELT",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        21,
+        25
+      ],
+      "exact": false,
+      "false_negative": 4,
+      "false_positive": 9,
+      "gold_claims": 4,
+      "predicted_claims": 9,
+      "rank": 13,
+      "repository": "Mikedan37/BlazeDB",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        7,
+        13
+      ],
+      "exact": false,
+      "false_negative": 12,
+      "false_positive": 1,
+      "gold_claims": 12,
+      "predicted_claims": 1,
+      "rank": 15,
+      "repository": "riktaHQ/rikta.js",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        11,
+        18
+      ],
+      "exact": false,
+      "false_negative": 5,
+      "false_positive": 0,
+      "gold_claims": 5,
+      "predicted_claims": 0,
+      "rank": 17,
+      "repository": "NickRoz1/gbam",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        55,
+        62
+      ],
+      "exact": false,
+      "false_negative": 18,
+      "false_positive": 0,
+      "gold_claims": 18,
+      "predicted_claims": 0,
+      "rank": 18,
+      "repository": "jun-0411/hankkeut-analysis",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        7,
+        11
+      ],
+      "exact": false,
+      "false_negative": 6,
+      "false_positive": 0,
+      "gold_claims": 9,
+      "predicted_claims": 3,
+      "rank": 21,
+      "repository": "lithegreat/systolic-array-AI-accelerator",
+      "true_positive": 3
+    },
+    {
+      "block_lines": [
+        11,
+        20
+      ],
+      "exact": true,
+      "false_negative": 0,
+      "false_positive": 0,
+      "gold_claims": 8,
+      "predicted_claims": 8,
+      "rank": 23,
+      "repository": "shsridhar-beep/svgap",
+      "true_positive": 8
+    },
+    {
+      "block_lines": [
+        12,
+        15
+      ],
+      "exact": false,
+      "false_negative": 16,
+      "false_positive": 0,
+      "gold_claims": 20,
+      "predicted_claims": 4,
+      "rank": 24,
+      "repository": "TrackNetV4/TrackNetV4",
+      "true_positive": 4
+    },
+    {
+      "block_lines": [
+        7,
+        12
+      ],
+      "exact": false,
+      "false_negative": 8,
+      "false_positive": 7,
+      "gold_claims": 13,
+      "predicted_claims": 12,
+      "rank": 25,
+      "repository": "co-rs/cdbc",
+      "true_positive": 5
+    },
+    {
+      "block_lines": [
+        6,
+        12
+      ],
+      "exact": false,
+      "false_negative": 6,
+      "false_positive": 0,
+      "gold_claims": 6,
+      "predicted_claims": 0,
+      "rank": 27,
+      "repository": "Dogacel/auto-gpu-kernel",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        253,
+        259
+      ],
+      "exact": false,
+      "false_negative": 9,
+      "false_positive": 0,
+      "gold_claims": 9,
+      "predicted_claims": 0,
+      "rank": 31,
+      "repository": "dco-dev/ordered-collections",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        16,
+        22
+      ],
+      "exact": false,
+      "false_negative": 4,
+      "false_positive": 0,
+      "gold_claims": 4,
+      "predicted_claims": 0,
+      "rank": 34,
+      "repository": "CodingCodingK/mas-pipeline",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        3,
+        11
+      ],
+      "exact": false,
+      "false_negative": 3,
+      "false_positive": 0,
+      "gold_claims": 3,
+      "predicted_claims": 0,
+      "rank": 36,
+      "repository": "cirosantilli/notes",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        3,
+        7
+      ],
+      "exact": false,
+      "false_negative": 6,
+      "false_positive": 0,
+      "gold_claims": 6,
+      "predicted_claims": 0,
+      "rank": 44,
+      "repository": "Ansh086/cuad-contract-analyzer",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        35,
+        38
+      ],
+      "exact": false,
+      "false_negative": 3,
+      "false_positive": 0,
+      "gold_claims": 3,
+      "predicted_claims": 0,
+      "rank": 45,
+      "repository": "rishimehta04/NAS-concept-evolution-gemini",
+      "true_positive": 0
+    },
+    {
+      "block_lines": [
+        43,
+        46
+      ],
+      "exact": false,
+      "false_negative": 8,
+      "false_positive": 0,
+      "gold_claims": 8,
+      "predicted_claims": 0,
+      "rank": 47,
+      "repository": "tasmaikeni13/Kenian",
+      "true_positive": 0
+    }
+  ],
+  "claim_recall": 0.12844036697247707,
+  "claim_recall_wilson_95": [
+    0.0903790392451527,
+    0.17936972250033176
+  ],
+  "eligible_documents": 25,
+  "evaluator_commit": "f7fe35a20d55fa48ab35c388645557ac4804efaa",
+  "exact_document_rate": 0.04,
+  "exact_documents": 1,
+  "false_negative": 190,
+  "false_positive": 30,
+  "gold_claims": 218,
+  "phase": "zero-shot-v14-frozen-0.27.0",
+  "predicted_claims": 58,
+  "runtime_evaluator_version": "0.27.0",
+  "schema_version": "reprocheck.cross-project-zero-shot-result.v14",
+  "scientific_boundary": "First and only evaluation of the preregistered v14 sources and labels with the frozen 0.27.0 extractor.",
+  "source_integrity": true,
+  "success": false,
+  "true_positive": 28
+}
