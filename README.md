@@ -59,7 +59,7 @@ Install the published wheel directly from the immutable GitHub release:
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install \
-  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.26.0/reprocheck-0.26.0-py3-none-any.whl
+  https://github.com/nazkari86-lab/reprocheck/releases/download/v0.27.0/reprocheck-0.27.0-py3-none-any.whl
 reprocheck demo
 ```
 
@@ -138,6 +138,15 @@ Four cases with 11 claims were eligible. Zero-shot recovery was 1/4 complete cas
 the external score. Post-inspection 0.23.0 recovers 3/4 and 9/11; the remaining
 hashfile-size case uses a distinct artifact-size metric instead of being mislabeled as
 memory. The accidentally unblinded v6 attempt is explicitly invalidated and unscored.
+
+Three later cross-project studies deliberately increased format diversity and
+claim density. Their immutable zero-shot results remain negative: v10 recovered
+2/20 complete documents and 32/155 claims; v11 recovered 1/25 and 38/237; v12
+recovered 1/20 and 26/190, with 26/41 block-level predictions correct. After
+inspecting v12, 0.27.0 exactly matches all 190 selected outcomes in all 20 blocks
+without extra predictions. That 20/20 replay is regression coverage, not fresh
+generalization evidence. A separately preregistered unseen holdout is required
+before claiming that the external-generalization target has been reached.
 
 The 12-case witness benchmark is controlled capability evidence. The separate
 30-case source-derived benchmark contains 27 deterministic mutations of three

@@ -3,7 +3,7 @@ from reprocheck.benchmark import run_controlled_benchmark
 
 def test_controlled_benchmark_is_fully_detected():
     result = run_controlled_benchmark()
-    assert result["tool_version"] == "0.26.0"
+    assert result["tool_version"] == "0.27.0"
     assert result["case_pass_rate"] == 1.0
     assert result["expected_finding_recall"] == 1.0
     assert result["expected_finding_precision"] == 1.0
