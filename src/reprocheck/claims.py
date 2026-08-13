@@ -556,10 +556,7 @@ def extract_claims(text: str) -> list[Claim]:
     combined_counts = Counter(
         (
             claim.line,
-            (
-                _portable_duration_metric(claim.raw_text, claim.raw_text)
-                or "avg_latency_seconds"
-            )
+            (_portable_duration_metric(claim.raw_text, claim.raw_text) or "avg_latency_seconds")
             if claim.metric == "runtime_seconds"
             and "latency" in _plain_cell(claim.raw_text).casefold()
             else claim.metric,
@@ -626,10 +623,7 @@ def extract_claims(text: str) -> list[Claim]:
     ]
     claims = [
         Claim(
-            (
-                _portable_duration_metric(claim.raw_text, claim.raw_text)
-                or "avg_latency_seconds"
-            )
+            (_portable_duration_metric(claim.raw_text, claim.raw_text) or "avg_latency_seconds")
             if claim.metric == "runtime_seconds"
             and "latency" in _plain_cell(claim.raw_text).casefold()
             else claim.metric,
@@ -699,12 +693,6 @@ def extract_claims(text: str) -> list[Claim]:
         and not (
             claim.metric == "throughput_ops_per_second"
             and (claim.line, "tokens_per_second", round(claim.value, 12)) in specialized
-        )
-        and not (
-            is_unit_interval_metric(claim.metric)
-            and not claim.metric.endswith("_stdev")
-            and not claim.metric.endswith(("_improvement", "_decline"))
-            and not 0 <= claim.value <= 1
         )
         and not (
             is_unit_interval_metric(claim.metric)
@@ -893,8 +881,16 @@ def _portable_cell_values(metric: str, header: str, cell: str) -> list[tuple[str
         if interval is not None:
             percent = "%" in plain
             return [
-                (metric, _normalize_value(metric, _parse_number(interval.group("low")), percent=percent)),
-                (metric, _normalize_value(metric, _parse_number(interval.group("high")), percent=percent)),
+                (
+                    metric,
+                    _normalize_value(metric, _parse_number(interval.group("low")), percent=percent),
+                ),
+                (
+                    metric,
+                    _normalize_value(
+                        metric, _parse_number(interval.group("high")), percent=percent
+                    ),
+                ),
             ]
     if metric.endswith("_seconds"):
         duration_match = _UNIT_DURATION_RE.search(plain)
@@ -1047,9 +1043,7 @@ def _portable_inline_outcomes(plain: str, nearby: str) -> list[tuple[str, float]
     ):
         metric = _portable_duration_metric(match.group("label"), nearby)
         if metric is not None:
-            outcomes.append(
-                (metric, _duration_seconds(match.group("value"), match.group("unit")))
-            )
+            outcomes.append((metric, _duration_seconds(match.group("value"), match.group("unit"))))
     for match in re.finditer(
         rf"(?P<value>{_NUMBER})\s*(?P<unit>ns|µs|us|ms|s|sec(?:ond)?s?|min(?:ute)?s?)\s*"
         r"(?P<label>p(?:50|90|95|99)|median|min(?:imum)?|mean|average|avg|"
@@ -1059,9 +1053,7 @@ def _portable_inline_outcomes(plain: str, nearby: str) -> list[tuple[str, float]
     ):
         metric = _portable_duration_metric(match.group("label"), f"{nearby} {plain}")
         if metric is not None:
-            outcomes.append(
-                (metric, _duration_seconds(match.group("value"), match.group("unit")))
-            )
+            outcomes.append((metric, _duration_seconds(match.group("value"), match.group("unit"))))
     for match in re.finditer(rf"(?P<value>{_NUMBER})\s*[x×]\s+faster\b", plain, re.I):
         outcomes.append(("speedup", _parse_number(match.group("value"))))
     throughput = re.search(
@@ -1083,7 +1075,9 @@ def _portable_inline_outcomes(plain: str, nearby: str) -> list[tuple[str, float]
         scale = {"": 1.0, "k": 1_000.0, "m": 1_000_000.0, "g": 1_000_000_000.0}[
             throughput.group("scale").casefold()
         ]
-        outcomes.append(("throughput_ops_per_second", _parse_number(throughput.group("value")) * scale))
+        outcomes.append(
+            ("throughput_ops_per_second", _parse_number(throughput.group("value")) * scale)
+        )
     return outcomes
 
 
