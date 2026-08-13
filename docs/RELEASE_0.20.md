@@ -23,6 +23,10 @@ Negative tests reject unknown row metrics and tables without an explicit metric
 header. The implementation generalizes by format; it contains no repository,
 PR, filename, or expected-value special cases.
 
+The gate also stops regenerating v2's checksum-locked historical 0.19.0 result
+with a newer package version. It now verifies that immutable record in place;
+the current parser is regenerated and locked only by v3.
+
 ## Boundary
 
 The 0.20.0 result is development evidence on failures already inspected, not a

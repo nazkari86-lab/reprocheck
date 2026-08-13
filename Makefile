@@ -59,7 +59,6 @@ upstream-discovery-v2-registration:
 	python3 benchmarks/upstream_discovery_v2/verify_registration.py
 
 upstream-discovery-v2: upstream-discovery-v2-registration
-	python3 benchmarks/upstream_discovery_v2/evaluate.py --phase development_after_zero_shot --output benchmarks/upstream_discovery_v2/results/development-current.json
 	python3 benchmarks/upstream_discovery_v2/verify_study.py
 
 upstream-discovery-v3-registration:
