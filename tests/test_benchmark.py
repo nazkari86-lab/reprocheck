@@ -1,9 +1,10 @@
 from reprocheck.benchmark import run_controlled_benchmark
+from reprocheck.version import __version__
 
 
 def test_controlled_benchmark_is_fully_detected():
     result = run_controlled_benchmark()
-    assert result["tool_version"] == "0.28.0"
+    assert result["tool_version"] == __version__
     assert result["case_pass_rate"] == 1.0
     assert result["expected_finding_recall"] == 1.0
     assert result["expected_finding_precision"] == 1.0

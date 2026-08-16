@@ -7,6 +7,7 @@ import pytest
 from reprocheck.audit import run_audit
 from reprocheck.certificate import digest_payload
 from reprocheck.cli import main
+from reprocheck.version import __version__
 
 
 def test_cli_prints_version(capsys):
@@ -14,7 +15,7 @@ def test_cli_prints_version(capsys):
         main(["--version"])
 
     assert exit_info.value.code == 0
-    assert capsys.readouterr().out == "reprocheck 0.28.0\n"
+    assert capsys.readouterr().out == f"reprocheck {__version__}\n"
 
 
 def test_cli_audit_writes_json_and_html(tmp_path: Path):
@@ -264,6 +265,11 @@ def test_cli_demo_benchmark_and_serve_dispatch(tmp_path: Path, monkeypatch):
 def test_cli_runs_real_artifact_study(tmp_path: Path):
     corpus = Path(__file__).parents[1] / "benchmarks" / "real_artifacts"
     output = tmp_path / "study.json"
+    # This historical corpus labels only a narrow subset of claims in several
+    # documents.  The command must preserve its fail-closed result instead of
+    # reporting a successful study merely because all labelled claims were
+    # recovered.  It remains useful as a recall and mutation-regression check,
+    # not as the current extractor's external-precision gate.
     assert (
         main(
             [
@@ -278,6 +284,9 @@ def test_cli_runs_real_artifact_study(tmp_path: Path):
                 "20",
             ]
         )
-        == 0
+        == 1
     )
-    assert json.loads(output.read_text(encoding="utf-8"))["corpus"]["artifacts"] == 60
+    result = json.loads(output.read_text(encoding="utf-8"))
+    assert result["corpus"]["artifacts"] == 60
+    assert result["reprocheck"]["recall"] == 1.0
+    assert result["reprocheck"]["precision"] < 1.0
