@@ -1,0 +1,27 @@
+{
+  "schema_version": "reprocheck.cross-project-registration.v18",
+  "status": "registered_unretrieved",
+  "registered_at": "2026-08-16T00:00:00Z",
+  "extractor_commit": "00e14dd2d8b646dd12ed77e5833e891fb3ca634b",
+  "extractor_version": "0.29.0",
+  "query_frames": 30,
+  "maximum_sample_size": 90,
+  "target_eligible_documents": 30,
+  "minimum_eligible_documents": 20,
+  "global_owner_cap": 1,
+  "success_thresholds": {
+    "claim_recall": 0.85,
+    "claim_recall_wilson_95_lower": 0.7,
+    "block_precision": 0.95,
+    "block_precision_wilson_95_lower": 0.9,
+    "exact_document_rate": 0.75
+  },
+  "sha256": {
+    "protocol.md": "19fb931d3ca42f0f34840d1eb1b8b38f83e8aadf63f77aa30612bbdc65efa6a9",
+    "retrieve.py": "819713aee56b8a6d49fe45302686e042237f3a9187d3188409c13e9137df250c",
+    "verify_registration.py": "f2cf4a8f9102c57390b2f4a9ebcec4bbbce9c106261e24569a6da47270b35923",
+    "../cross_project_holdout_v15/supported-ontology.json": "efd47ac81eaccfda10e206f56b1faa36c37c2297b83893d9ec0cd15adc7ca428",
+    "../../src/reprocheck/claims.py": "2792c9372beba1b933ec76dd17dc410d1ef3b2fad20b80d6159d869c07f914a9",
+    "../../src/reprocheck/metric_names.py": "04d40f8480892d7b91ec5d5fa0ace3d97d7e89a89e0e317f7dba916f930f8d68"
+  }
+}
