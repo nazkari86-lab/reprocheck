@@ -1,0 +1,46 @@
+{
+  "schema_version": "reprocheck.evidence-trial-operator-tooling-status.v1",
+  "registration_generation": 5,
+  "registered_artifacts_unchanged": true,
+  "registration": {
+    "filename": "registration.json",
+    "sha256": "a7896c80c72be24d247800835b9c3a260db828ad6ad7a756a658edaf24aa5c54",
+    "size_bytes": 1313
+  },
+  "curation_packet": {
+    "filename": "curation-packet.json",
+    "sha256": "9823f58c1ea76c0da6340aed25b31009d601073d926398a808567cc5bbb6351a",
+    "size_bytes": 37953
+  },
+  "tools": [
+    {
+      "role": "source_only_curator",
+      "filename": "curation_app.py",
+      "sha256": "202ea2aec2f00b3d5957f9ab90fb49228d1c8290497215ab66572a2a0df51416",
+      "size_bytes": 25031,
+      "loopback_only": true,
+      "server_persists_labels": false,
+      "evaluator_outputs_exposed": false
+    },
+    {
+      "role": "blinded_reviewer",
+      "filename": "review_app.py",
+      "sha256": "7431c70a58302e46950aa11813ecc4f4bce72fca7eaff08ae6c27fc7cd0f6252",
+      "size_bytes": 18722,
+      "loopback_only": true,
+      "server_persists_labels": false,
+      "evaluator_outputs_exposed": false
+    },
+    {
+      "role": "disagreement_adjudicator",
+      "filename": "adjudication_app.py",
+      "sha256": "d9a0a61ec6f0fc465dbbd853c27d0bb6e1a2c20941bb445cba81d782d4d256e3",
+      "size_bytes": 20599,
+      "loopback_only": true,
+      "server_persists_labels": false,
+      "evaluator_outputs_exposed": false
+    }
+  ],
+  "independent_human_status": "pending",
+  "scored_external_result_status": "not_started"
+}

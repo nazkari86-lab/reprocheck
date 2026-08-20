@@ -136,8 +136,11 @@ def _candidate_enrollment(tmp_path: Path) -> tuple[Path, Path, Path]:
                 "commit": "a" * 40,
                 "blob_sha": "b" * 40,
                 "indexed_blob_sha": "d" * 40,
-                "immutable_url": "https://github.com/new-owner/repo/blob/" + "a" * 40 + "/RESULTS.md",
-                "api_url": "https://api.github.com/repos/new-owner/repo/contents/RESULTS.md?ref=" + "a" * 40,
+                "immutable_url": "https://github.com/new-owner/repo/blob/"
+                + "a" * 40
+                + "/RESULTS.md",
+                "api_url": "https://api.github.com/repos/new-owner/repo/contents/RESULTS.md?ref="
+                + "a" * 40,
                 "source_file": "sources/candidate-001.txt",
                 "source_sha256": hashlib.sha256(source_bytes).hexdigest(),
                 "source_bytes": len(source_bytes),

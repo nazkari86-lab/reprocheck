@@ -26,7 +26,8 @@ test:
 	python3 -m pytest
 
 lint:
-	python3 -m ruff format --check . --exclude benchmarks/upstream_discovery_v8 --exclude benchmarks/upstream_discovery_v9 --exclude benchmarks/cross_project_holdout_v10
+	# Preserve the byte-frozen v19 acquisition script and its registered wheel source.
+	python3 -m ruff format --check . --exclude benchmarks/upstream_discovery_v8 --exclude benchmarks/upstream_discovery_v9 --exclude benchmarks/cross_project_holdout_v10 --exclude benchmarks/evidence_trial_v19/acquire.py --exclude src/reprocheck/evidence_trial.py
 	python3 -m ruff check .
 
 type:

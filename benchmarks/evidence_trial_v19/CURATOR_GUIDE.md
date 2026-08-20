@@ -31,6 +31,17 @@ Write one `enrollment.json` object conforming to
   `supplied_metrics`, or `raw_recomputation`.
 
 The curator should record ambiguities separately, without assigning a trial outcome.
+For the guarded local interface, run:
+
+```bash
+uv run python benchmarks/evidence_trial_v19/curation_app.py
+```
+
+The interface verifies all 60 frozen source hashes before starting, requires every
+candidate to be marked inspected, validates exact source-line text server-side, and
+exports `enrollment.json` plus a separate curation attestation. Unfinished work remains
+only in browser `localStorage`; the local server does not persist labels.
+
 After delivery, run:
 
 ```bash
