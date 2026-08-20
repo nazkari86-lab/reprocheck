@@ -3,7 +3,7 @@ UV_VERSION ?= 0.12.1
 LOCKED_DEV_REQUIREMENTS ?= /tmp/reprocheck-dev-lock.txt
 LOCKED_RUNTIME_REQUIREMENTS ?= /tmp/reprocheck-runtime-lock.txt
 
-.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation witness-benchmark witness-source-benchmark upstream-corrections upstream-discovery-v2 upstream-discovery-v2-registration upstream-discovery-v3 upstream-discovery-v3-registration upstream-discovery-v4 upstream-discovery-v4-registration upstream-discovery-v5 upstream-discovery-v7 upstream-discovery-v8 cross-project-holdout-v10-development cross-project-holdout-v11-development cross-project-holdout-v12-development external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development evidence-trial-v19-local evidence-trial-v19-registration evidence-trial-v19-replay external external-regenerate build gate demo rknp-demo serve
+.PHONY: install lock-check dependency-audit runtime-sbom test lint type coverage benchmark evidence-ablation witness-benchmark witness-source-benchmark upstream-corrections upstream-discovery-v2 upstream-discovery-v2-registration upstream-discovery-v3 upstream-discovery-v3-registration upstream-discovery-v4 upstream-discovery-v4-registration upstream-discovery-v5 upstream-discovery-v7 upstream-discovery-v8 cross-project-holdout-v10-development cross-project-holdout-v11-development cross-project-holdout-v12-development external-holdout-registration human-study-master expanded-experiments near-duplicate-benchmark text-index-benchmark paws-study study challenge challenge-replay holdout holdout-replay holdout-development holdout-v07 holdout-v08-development evidence-trial-v19-local evidence-trial-v19-registration evidence-trial-v19-replay evidence-trial-v19-curator-handoff external external-regenerate build gate demo rknp-demo serve
 
 install:
 	python3 -m pip install --quiet uv==$(UV_VERSION)
@@ -192,6 +192,9 @@ evidence-trial-v19-registration:
 
 evidence-trial-v19-replay: evidence-trial-v19-registration
 	python3 benchmarks/evidence_trial_v19/analyze.py --frozen-inputs benchmarks/evidence_trial_v19/scored-inputs.json --output outputs/evidence-trial-v19-replay.json
+
+evidence-trial-v19-curator-handoff:
+	python3 benchmarks/evidence_trial_v19/build_curator_handoff.py
 
 demo:
 	python3 -m reprocheck.cli demo

@@ -16,6 +16,17 @@ PACKET_SCHEMA = "reprocheck.evidence-trial-curation-packet.v1"
 ENROLLMENT_SCHEMA = "reprocheck.evidence-trial-enrollment.v1"
 TIERS = {"report_only", "supplied_metrics", "raw_recomputation"}
 CLAIM_ID = re.compile(r"^claim-[0-9]{3,}$")
+PRIVATE_FIELDS = {
+    "gold_status",
+    "gold_metric",
+    "gold_value",
+    "gold_rationale",
+    "gold_evidence_refs",
+    "prediction",
+    "predictions",
+    "evaluator_output",
+    "evaluator_outputs",
+}
 
 
 def _sha256(data: bytes) -> str:
@@ -28,10 +39,22 @@ def _canonical_json(payload: dict[str, Any]) -> bytes:
     ).encode("utf-8")
 
 
+def _contains_private_field(value: object) -> bool:
+    if isinstance(value, dict):
+        return bool(PRIVATE_FIELDS.intersection(value)) or any(
+            _contains_private_field(item) for item in value.values()
+        )
+    if isinstance(value, list):
+        return any(_contains_private_field(item) for item in value)
+    return False
+
+
 def load_packet(packet_path: Path) -> dict[str, Any]:
     payload = json.loads(packet_path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict) or payload.get("schema_version") != PACKET_SCHEMA:
         raise ValueError("unsupported curation packet")
+    if payload.get("blind_to_outcome_labels") is not True or _contains_private_field(payload):
+        raise ValueError("curation packet is not structurally outcome-blind")
     candidates = payload.get("candidates")
     if not isinstance(candidates, list) or not candidates:
         raise ValueError("curation packet contains no candidates")

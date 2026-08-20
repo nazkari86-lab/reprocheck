@@ -16,8 +16,8 @@
     {
       "role": "source_only_curator",
       "filename": "curation_app.py",
-      "sha256": "202ea2aec2f00b3d5957f9ab90fb49228d1c8290497215ab66572a2a0df51416",
-      "size_bytes": 25031,
+      "sha256": "d96c3c6bc60305b6946bc8989b3e4392d91bc912b555bf12f0616efacf8e60d4",
+      "size_bytes": 25761,
       "loopback_only": true,
       "server_persists_labels": false,
       "evaluator_outputs_exposed": false

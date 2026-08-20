@@ -27,6 +27,17 @@ Start source-only curation:
 uv run python benchmarks/evidence_trial_v19/curation_app.py
 ```
 
+For a curator who should not receive the repository, build the deterministic offline
+handoff instead:
+
+```bash
+make evidence-trial-v19-curator-handoff
+```
+
+The ZIP contains only the source-only app, guide, outcome-blind packet, and 60 verified
+frozen source files. It contains its own SHA-256 manifest and runs with plain Python
+3.11+; no package installation or network access is required.
+
 After the independent curator exports `enrollment.json`, build and gate the sample:
 
 ```bash

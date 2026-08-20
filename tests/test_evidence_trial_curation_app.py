@@ -68,6 +68,16 @@ def test_curation_packet_rejects_unsafe_source_link(tmp_path: Path):
         module.load_packet(packet)
 
 
+def test_curation_packet_rejects_private_outcome_fields(tmp_path: Path):
+    module = _module()
+    payload = json.loads((ROOT / "curation-packet.json").read_text(encoding="utf-8"))
+    payload["candidates"][0]["nested"] = {"gold_status": "supported"}
+    packet = tmp_path / "packet.json"
+    packet.write_text(json.dumps(payload), encoding="utf-8")
+    with pytest.raises(ValueError, match="structurally outcome-blind"):
+        module.load_packet(packet)
+
+
 def test_enrollment_validation_and_complete_attestation():
     module = _module()
     packet, sources, enrollment = _fixture(module)
