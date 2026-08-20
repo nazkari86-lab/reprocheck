@@ -18,7 +18,7 @@ def test_trial_verify_registration_cli(tmp_path: Path, capsys):
         str(protocol),
     ]
     for name, path in artifacts.items():
-        args.extend([f"--{name}", str(path)])
+        args.extend([f"--{name.replace('_', '-')}", str(path)])
     assert main(args) == 0
     assert "PASS: evidence trial registration" in capsys.readouterr().out
 

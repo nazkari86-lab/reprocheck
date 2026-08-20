@@ -135,7 +135,7 @@ def test_trial_registration_binds_every_executable_input(tmp_path: Path):
     output = tmp_path / "registration.json"
     registration = register_evidence_trial(protocol=protocol, output=output, **files)
     assert registration["status"] == "registered_not_retrieved"
-    assert set(registration["artifacts"]) == {"evaluator", "acquisition", "analysis", "exclusions"}
+    assert set(registration["artifacts"]) == {"evaluator", "acquisition", "source_config", "analysis", "exclusions"}
     assert verify_evidence_trial_registration(output, protocol=protocol, **files) == []
 
 
@@ -165,7 +165,8 @@ REGISTRATION_SCHEMA = "reprocheck.evidence-trial-registration.v1"
 
 
 def register_evidence_trial(*, protocol: Path, evaluator: Path, acquisition: Path,
-                            analysis: Path, exclusions: Path, output: Path) -> dict[str, Any]:
+                            source_config: Path, analysis: Path, exclusions: Path,
+                            output: Path) -> dict[str, Any]:
     if output.exists():
         raise ValueError("trial registration output already exists; registrations are immutable")
     load_trial_protocol(protocol)
@@ -174,6 +175,7 @@ def register_evidence_trial(*, protocol: Path, evaluator: Path, acquisition: Pat
         for name, path in {
             "evaluator": evaluator,
             "acquisition": acquisition,
+            "source_config": source_config,
             "analysis": analysis,
             "exclusions": exclusions,
         }.items()
@@ -892,7 +894,7 @@ Expected: PASS.
 
 Run: `python3 benchmarks/evidence_trial_v19/acquire.py --registration benchmarks/evidence_trial_v19/registration.json --output benchmarks/evidence_trial_v19/acquisition`
 
-Expected: deterministic state/sample artifacts or a preserved failure manifest. Do not edit the evaluator, acquisition script, analysis script, protocol, or exclusions after this command.
+Expected: deterministic state/sample artifacts or a preserved failure manifest. Do not edit the evaluator, acquisition script, source configuration, analysis script, protocol, or exclusions after this command.
 
 - [ ] **Step 3: Validate the information gate without scoring**
 

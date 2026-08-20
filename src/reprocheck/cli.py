@@ -174,6 +174,7 @@ def build_parser() -> argparse.ArgumentParser:
     trial_register.add_argument("--protocol", type=Path, required=True)
     trial_register.add_argument("--evaluator", type=Path, required=True)
     trial_register.add_argument("--acquisition", type=Path, required=True)
+    trial_register.add_argument("--source-config", type=Path, required=True)
     trial_register.add_argument("--analysis", type=Path, required=True)
     trial_register.add_argument("--exclusions", type=Path, required=True)
     trial_register.add_argument("--output", type=Path, required=True)
@@ -185,6 +186,7 @@ def build_parser() -> argparse.ArgumentParser:
     trial_verify.add_argument("--protocol", type=Path, required=True)
     trial_verify.add_argument("--evaluator", type=Path, required=True)
     trial_verify.add_argument("--acquisition", type=Path, required=True)
+    trial_verify.add_argument("--source-config", type=Path, required=True)
     trial_verify.add_argument("--analysis", type=Path, required=True)
     trial_verify.add_argument("--exclusions", type=Path, required=True)
 
@@ -314,6 +316,7 @@ def main(argv: list[str] | None = None) -> int:
                 protocol=args.protocol,
                 evaluator=args.evaluator,
                 acquisition=args.acquisition,
+                source_config=args.source_config,
                 analysis=args.analysis,
                 exclusions=args.exclusions,
                 output=args.output,
@@ -329,6 +332,7 @@ def main(argv: list[str] | None = None) -> int:
             protocol=args.protocol,
             evaluator=args.evaluator,
             acquisition=args.acquisition,
+            source_config=args.source_config,
             analysis=args.analysis,
             exclusions=args.exclusions,
         )

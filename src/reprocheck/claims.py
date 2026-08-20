@@ -1022,7 +1022,10 @@ def _portable_inline_outcomes(plain: str, nearby: str) -> list[tuple[str, float]
         plain,
         re.I,
     ):
-        metric = _portable_header_metric(match.group("label"))
+        label = match.group("label")
+        if re.search(r"\b(?:tuned|threshold|target)\s+at\b", label, re.I):
+            continue
+        metric = _portable_header_metric(label)
         if metric is not None:
             outcomes.append(
                 (
@@ -2237,7 +2240,14 @@ def _extract_generic_benchmark_claims(text: str) -> list[Claim]:
             )
         jmh = re.search(rf"\b(?P<value>{_NUMBER})\s+(?P<unit>ops/s|ns/op)\s*$", plain, re.I)
         if jmh is not None:
-            value = _parse_number(jmh.group("value"))
+            raw_value = jmh.group("value")
+            # JMH follows the process locale, so a lone comma is a decimal separator
+            # even when exactly three digits follow it (for example ``2,475 ns/op``).
+            value = (
+                float(raw_value.replace(",", "."))
+                if "," in raw_value and "." not in raw_value
+                else _parse_number(raw_value)
+            )
             metric = "throughput_ops_per_second"
             if jmh.group("unit").casefold() == "ns/op":
                 metric = "avg_latency_seconds"

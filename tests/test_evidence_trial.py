@@ -95,7 +95,7 @@ def _sample(path: Path) -> Path:
 
 def _registration(tmp_path: Path, protocol: Path) -> tuple[Path, dict[str, Path]]:
     artifacts = {}
-    for name in ("evaluator", "acquisition", "analysis", "exclusions"):
+    for name in ("evaluator", "acquisition", "source_config", "analysis", "exclusions"):
         artifacts[name] = tmp_path / name
         artifacts[name].write_text(name, encoding="utf-8")
     output = tmp_path / "registration.json"

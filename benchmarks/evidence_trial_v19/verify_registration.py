@@ -12,6 +12,7 @@ def main() -> int:
         protocol=root / "protocol.json",
         evaluator=root / "evaluator" / "reprocheck-0.30.0-py3-none-any.whl",
         acquisition=root / "acquire.py",
+        source_config=root / "sources.json",
         analysis=root / "analyze.py",
         exclusions=root / "exclusions.json",
     )

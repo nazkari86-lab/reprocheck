@@ -22,7 +22,11 @@ class _NoRedirect(urllib.request.HTTPRedirectHandler):
 def network_fetch(url: str, *, timeout_seconds: float, maximum_bytes: int) -> bytes:
     if not url.startswith("https://"):
         raise ValueError("acquisition permits HTTPS URLs only")
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    headers = {"User-Agent": USER_AGENT, "Accept": "application/vnd.github+json"}
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    request = urllib.request.Request(url, headers=headers)
     with urllib.request.build_opener(_NoRedirect()).open(
         request, timeout=timeout_seconds
     ) as response:

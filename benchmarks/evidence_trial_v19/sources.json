@@ -6,5 +6,26 @@
     "global_bytes": 134217728,
     "timeout_seconds": 20
   },
-  "events": []
+  "events": [
+    {"event_id":"search-01","url":"https://api.github.com/search/code?q=%22accuracy%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-02","url":"https://api.github.com/search/code?q=%22precision%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-03","url":"https://api.github.com/search/code?q=%22recall%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-04","url":"https://api.github.com/search/code?q=%22f1%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-05","url":"https://api.github.com/search/code?q=%22rmse%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-06","url":"https://api.github.com/search/code?q=%22mae%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-07","url":"https://api.github.com/search/code?q=%22mAP%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-08","url":"https://api.github.com/search/code?q=%22AUROC%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-09","url":"https://api.github.com/search/code?q=%22accuracy%22+filename%3ABENCHMARK.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-10","url":"https://api.github.com/search/code?q=%22f1%22+filename%3ABENCHMARK.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-11","url":"https://api.github.com/search/code?q=%22latency%22+filename%3ABENCHMARK.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-12","url":"https://api.github.com/search/code?q=%22throughput%22+filename%3ABENCHMARK.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-13","url":"https://api.github.com/search/code?q=%22accuracy%22+filename%3AEVALUATION.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-14","url":"https://api.github.com/search/code?q=%22precision%22+filename%3AEVALUATION.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-15","url":"https://api.github.com/search/code?q=%22recall%22+filename%3AEVALUATION.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-16","url":"https://api.github.com/search/code?q=%22f1%22+filename%3AEVALUATION.md+extension%3Amd&per_page=100"},
+    {"event_id":"search-17","url":"https://api.github.com/search/code?q=%22accuracy%22+path%3Aresults+extension%3Amd&per_page=100"},
+    {"event_id":"search-18","url":"https://api.github.com/search/code?q=%22rmse%22+path%3Aresults+extension%3Amd&per_page=100"},
+    {"event_id":"search-19","url":"https://api.github.com/search/code?q=%22mAP%22+path%3Aresults+extension%3Amd&per_page=100"},
+    {"event_id":"search-20","url":"https://api.github.com/search/code?q=%22AUROC%22+path%3Aresults+extension%3Amd&per_page=100"}
+  ]
 }

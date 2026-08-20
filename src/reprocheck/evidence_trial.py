@@ -94,6 +94,7 @@ def register_evidence_trial(
     protocol: Path,
     evaluator: Path,
     acquisition: Path,
+    source_config: Path,
     analysis: Path,
     exclusions: Path,
     output: Path,
@@ -106,6 +107,7 @@ def register_evidence_trial(
         for name, path in {
             "evaluator": evaluator,
             "acquisition": acquisition,
+            "source_config": source_config,
             "analysis": analysis,
             "exclusions": exclusions,
         }.items()
@@ -129,6 +131,7 @@ def verify_evidence_trial_registration(
     protocol: Path,
     evaluator: Path,
     acquisition: Path,
+    source_config: Path,
     analysis: Path,
     exclusions: Path,
 ) -> list[str]:
@@ -160,6 +163,7 @@ def verify_evidence_trial_registration(
     for name, path in {
         "evaluator": evaluator,
         "acquisition": acquisition,
+        "source_config": source_config,
         "analysis": analysis,
         "exclusions": exclusions,
     }.items():
