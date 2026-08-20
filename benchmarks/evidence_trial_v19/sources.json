@@ -1,0 +1,10 @@
+{
+  "schema_version": "reprocheck.evidence-trial-source-config.v1",
+  "salt": "reprocheck-evidence-trial-v19",
+  "limits": {
+    "per_response_bytes": 2097152,
+    "global_bytes": 134217728,
+    "timeout_seconds": 20
+  },
+  "events": []
+}

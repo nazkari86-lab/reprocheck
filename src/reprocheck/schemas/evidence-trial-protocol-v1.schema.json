@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "title", "research_question", "hypotheses", "arms", "minimum_information", "source_frame", "annotation", "primary_outcomes", "secondary_outcomes", "analysis", "success_gate", "scientific_boundary"],
+  "properties": {
+    "schema_version": {"const": "reprocheck.evidence-trial-protocol.v1"},
+    "title": {"type": "string", "minLength": 1},
+    "research_question": {"type": "string", "minLength": 1},
+    "hypotheses": {"type": "object", "minProperties": 1},
+    "arms": {"const": ["report_only", "supplied_metrics", "raw_recomputation"]},
+    "minimum_information": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository_owners", "claims", "contradicted_claims", "not_verifiable_claims", "supported_evidence_claims"],
+      "properties": {
+        "repository_owners": {"type": "integer", "minimum": 1},
+        "claims": {"type": "integer", "minimum": 1},
+        "contradicted_claims": {"type": "integer", "minimum": 1},
+        "not_verifiable_claims": {"type": "integer", "minimum": 1},
+        "supported_evidence_claims": {"type": "integer", "minimum": 1}
+      }
+    },
+    "source_frame": {"type": "object", "minProperties": 1},
+    "annotation": {"type": "object", "minProperties": 1},
+    "primary_outcomes": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "secondary_outcomes": {"type": "array", "items": {"type": "string"}},
+    "analysis": {"type": "object", "minProperties": 1},
+    "success_gate": {
+      "type": "object", "additionalProperties": false,
+      "required": ["minimum_contradiction_recall_delta", "maximum_false_accusation_rate"],
+      "properties": {
+        "minimum_contradiction_recall_delta": {"type": "number", "minimum": 0, "maximum": 1},
+        "maximum_false_accusation_rate": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "scientific_boundary": {"type": "string", "minLength": 1}
+  }
+}

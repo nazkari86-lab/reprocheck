@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "claims"],
+  "properties": {
+    "schema_version": {"const": "reprocheck.evidence-trial-sample.v1"},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": true,
+        "required": ["claim_id", "owner", "repository", "url", "commit", "path", "sha256", "block", "stratum", "evidence_tier"],
+        "properties": {
+          "claim_id": {"type": "string", "minLength": 1},
+          "owner": {"type": "string", "minLength": 1},
+          "repository": {"type": "string", "minLength": 1},
+          "url": {"type": "string", "pattern": "^https://"},
+          "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "block": {"type": "object", "required": ["start", "end"], "properties": {"start": {"type": "integer", "minimum": 1}, "end": {"type": "integer", "minimum": 1}}},
+          "stratum": {"enum": ["natural_correction", "natural_supported_control", "natural_not_verifiable", "unchanged_negative_control", "controlled_mutation"]},
+          "evidence_tier": {"enum": ["report_only", "supplied_metrics", "raw_recomputation"]},
+          "gold_status": {"enum": ["supported", "contradicted", "not_verifiable"]}
+        }
+      }
+    }
+  }
+}

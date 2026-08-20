@@ -12,6 +12,14 @@ from .batch import run_project_check
 from .benchmark import run_controlled_benchmark
 from .certificate import verify_certificate_file
 from .evidence_graph import render_mermaid
+from .evidence_trial import (
+    lock_trial_gold,
+    prepare_trial_review,
+    register_evidence_trial,
+    score_evidence_trial,
+    validate_trial_sample,
+    verify_evidence_trial_registration,
+)
 from .external_review import prepare_external_review, score_external_review
 from .holdout_registration import (
     register_external_holdout,
@@ -160,6 +168,57 @@ def build_parser() -> argparse.ArgumentParser:
     holdout_verify.add_argument("--protocol", type=Path, required=True)
     holdout_verify.add_argument("--evaluator", type=Path, required=True)
 
+    trial_register = subparsers.add_parser(
+        "trial-register", help="immutably register an evidence trial"
+    )
+    trial_register.add_argument("--protocol", type=Path, required=True)
+    trial_register.add_argument("--evaluator", type=Path, required=True)
+    trial_register.add_argument("--acquisition", type=Path, required=True)
+    trial_register.add_argument("--analysis", type=Path, required=True)
+    trial_register.add_argument("--exclusions", type=Path, required=True)
+    trial_register.add_argument("--output", type=Path, required=True)
+
+    trial_verify = subparsers.add_parser(
+        "trial-verify-registration", help="verify every frozen evidence-trial artifact"
+    )
+    trial_verify.add_argument("--registration", type=Path, required=True)
+    trial_verify.add_argument("--protocol", type=Path, required=True)
+    trial_verify.add_argument("--evaluator", type=Path, required=True)
+    trial_verify.add_argument("--acquisition", type=Path, required=True)
+    trial_verify.add_argument("--analysis", type=Path, required=True)
+    trial_verify.add_argument("--exclusions", type=Path, required=True)
+
+    trial_sample = subparsers.add_parser(
+        "trial-validate-sample", help="apply the preregistered evidence-trial sample gate"
+    )
+    trial_sample.add_argument("--protocol", type=Path, required=True)
+    trial_sample.add_argument("--sample", type=Path, required=True)
+    trial_sample.add_argument("--exclusions", type=Path, required=True)
+
+    trial_review = subparsers.add_parser(
+        "trial-prepare-review", help="prepare a label-hidden evidence-trial packet"
+    )
+    trial_review.add_argument("--sample", type=Path, required=True)
+    trial_review.add_argument("--output-dir", type=Path, required=True)
+
+    trial_gold = subparsers.add_parser(
+        "trial-lock-gold", help="lock two independent reviews and adjudication"
+    )
+    trial_gold.add_argument("--review-dir", type=Path, required=True)
+    trial_gold.add_argument("--reviewer", type=Path, action="append", required=True)
+    trial_gold.add_argument("--adjudication", type=Path)
+    trial_gold.add_argument("--output", type=Path, required=True)
+
+    trial_score = subparsers.add_parser("trial-score", help="score one frozen evidence trial")
+    trial_score.add_argument("--protocol", type=Path, required=True)
+    trial_score.add_argument("--registration", type=Path, required=True)
+    trial_score.add_argument("--gold", type=Path, required=True)
+    trial_score.add_argument(
+        "--arm", action="append", type=_named_path, required=True, metavar="NAME=PATH"
+    )
+    trial_score.add_argument("--bootstrap-samples", type=int, default=5_000)
+    trial_score.add_argument("--output", type=Path, required=True)
+
     human_prepare = subparsers.add_parser(
         "human-study-prepare", help="prepare an immutable unexecuted crossover master kit"
     )
@@ -249,6 +308,78 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    if args.command == "trial-register":
+        try:
+            registration = register_evidence_trial(
+                protocol=args.protocol,
+                evaluator=args.evaluator,
+                acquisition=args.acquisition,
+                analysis=args.analysis,
+                exclusions=args.exclusions,
+                output=args.output,
+            )
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(f"status={registration['status']} output={args.output.resolve()}")
+        return 0
+    if args.command == "trial-verify-registration":
+        errors = verify_evidence_trial_registration(
+            args.registration,
+            protocol=args.protocol,
+            evaluator=args.evaluator,
+            acquisition=args.acquisition,
+            analysis=args.analysis,
+            exclusions=args.exclusions,
+        )
+        if errors:
+            for error in errors:
+                print(f"FAIL: {error}")
+            return 1
+        print("PASS: evidence trial registration matches every frozen artifact")
+        return 0
+    if args.command == "trial-validate-sample":
+        try:
+            result = validate_trial_sample(args.sample, args.protocol, exclusions=args.exclusions)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(json.dumps(result, ensure_ascii=False, sort_keys=True))
+        return 0
+    if args.command == "trial-prepare-review":
+        try:
+            result = prepare_trial_review(args.sample, args.output_dir)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(f"reviewers_completed={result['reviewers_completed']} output={args.output_dir}")
+        return 0
+    if args.command == "trial-lock-gold":
+        try:
+            result = lock_trial_gold(args.review_dir, args.reviewer, args.adjudication, args.output)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(f"reviewers={result['reviewer_count']} output={args.output.resolve()}")
+        return 0
+    if args.command == "trial-score":
+        try:
+            arms = dict(args.arm)
+            if len(arms) != len(args.arm):
+                raise ValueError("trial arm names must be unique")
+            result = score_evidence_trial(
+                gold_path=args.gold,
+                arm_paths=arms,
+                protocol_path=args.protocol,
+                registration_path=args.registration,
+                output=args.output,
+                bootstrap_samples=args.bootstrap_samples,
+            )
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(f"h1={result['primary_analysis']['h1_status']} output={args.output.resolve()}")
+        return 0
     if args.command == "keygen":
         from .signing import generate_keypair, password_from_environment
 
@@ -660,6 +791,15 @@ def _artifact_spec(value: str) -> tuple[str, Path]:
     if not role or not raw_path:
         raise argparse.ArgumentTypeError("artifact must use non-empty ROLE=PATH")
     return role, Path(raw_path)
+
+
+def _named_path(value: str) -> tuple[str, Path]:
+    if "=" not in value:
+        raise argparse.ArgumentTypeError("value must use NAME=PATH")
+    name, raw_path = (part.strip() for part in value.split("=", 1))
+    if not name or not raw_path:
+        raise argparse.ArgumentTypeError("value must use non-empty NAME=PATH")
+    return name, Path(raw_path)
 
 
 def _loopback_host(host: str) -> bool:

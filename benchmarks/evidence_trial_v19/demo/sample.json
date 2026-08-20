@@ -1,0 +1,8 @@
+{
+  "schema_version": "reprocheck.evidence-trial-sample.v1",
+  "claims": [
+    {"claim_id":"demo-supported","owner":"demo-owner-a","repository":"demo-supported","url":"https://example.org/demo-supported","commit":"1111111111111111111111111111111111111111","path":"results.json","sha256":"1111111111111111111111111111111111111111111111111111111111111111","block":{"start":1,"end":1},"stratum":"natural_supported_control","evidence_tier":"raw_recomputation","gold_status":"supported"},
+    {"claim_id":"demo-contradicted","owner":"demo-owner-b","repository":"demo-contradicted","url":"https://example.org/demo-contradicted","commit":"2222222222222222222222222222222222222222","path":"metrics.json","sha256":"2222222222222222222222222222222222222222222222222222222222222222","block":{"start":1,"end":1},"stratum":"natural_correction","evidence_tier":"raw_recomputation","gold_status":"contradicted"},
+    {"claim_id":"demo-not-verifiable","owner":"demo-owner-c","repository":"demo-not-verifiable","url":"https://example.org/demo-not-verifiable","commit":"3333333333333333333333333333333333333333","path":"report.md","sha256":"3333333333333333333333333333333333333333333333333333333333333333","block":{"start":1,"end":1},"stratum":"natural_not_verifiable","evidence_tier":"report_only","gold_status":"not_verifiable"}
+  ]
+}

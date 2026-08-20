@@ -5,6 +5,10 @@ cannot substitute for representative scientific evidence, and a strong
 benchmark cannot substitute for a reproducible package. Each dimension is
 reported against an explicit gate.
 
+v19 status: protocol/scaffold only; no scored external result. The registered
+trial is designed to test whether raw-artifact recomputation improves contradiction
+recall at a <=5% false-accusation gate. It does not yet establish that claim.
+
 ## Local engineering readiness
 
 | Gate | Requirement | Current evidence | Status |

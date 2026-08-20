@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "reviewer_id", "independent", "reviews"],
+  "properties": {
+    "schema_version": {"const": "reprocheck.evidence-trial-review.v1"},
+    "reviewer_id": {"type": "string", "minLength": 1},
+    "independent": {"const": true},
+    "reviews": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["claim_id", "status"], "properties": {"claim_id": {"type": "string", "minLength": 1}, "status": {"enum": ["supported", "contradicted", "not_verifiable"]}}}}
+  }
+}

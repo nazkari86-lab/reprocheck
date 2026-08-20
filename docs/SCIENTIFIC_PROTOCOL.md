@@ -1,5 +1,14 @@
 # ReproCheck scientific protocol
 
+## Evidence Trial v19
+
+The v19 protocol adds a prospective three-arm comparison on unseen public ML
+claims. Two independent, label-hidden reviewers and complete adjudication define
+the gold lock. Primary inference uses natural claims only, owner-cluster bootstrap,
+exact McNemar tests, and Holm correction. Controlled mutations and minimal-witness
+certificates remain secondary tracks. Until real acquisition, review, and scoring
+finish, v19 is a protocol/scaffold and not an external result.
+
 ## Research questions
 
 1. Under controlled paired cases, which inconsistency families become

@@ -1,0 +1,48 @@
+{
+  "schema_version": "reprocheck.evidence-trial-protocol.v1",
+  "title": "ReproCheck Evidence Trial v19",
+  "research_question": "On unseen public ML result claims, does access to raw artifacts and deterministic recomputation improve contradiction recall over report-only and supplied-metric review without exceeding a 5% false-accusation rate?",
+  "hypotheses": {
+    "h1": "Raw recomputation improves contradiction recall over report-only review by at least 10 percentage points with a positive owner-cluster bootstrap lower bound.",
+    "h2": "Raw recomputation preserves a false-accusation rate at or below 5%.",
+    "certificate_track": "Minimal witnesses preserve verdicts, reduce bytes, and reject registered tampering."
+  },
+  "arms": ["report_only", "supplied_metrics", "raw_recomputation"],
+  "minimum_information": {
+    "repository_owners": 20,
+    "claims": 150,
+    "contradicted_claims": 20,
+    "not_verifiable_claims": 30,
+    "supported_evidence_claims": 30
+  },
+  "source_frame": {
+    "population": "Public GitHub ML result claims with immutable commits and retrievable evidence",
+    "selection": "Deterministic salted ordering, one included repository per owner, preregistered exclusions",
+    "natural_strata": ["natural_correction", "natural_supported_control", "natural_not_verifiable", "unchanged_negative_control"],
+    "controlled_mutations_secondary_only": true
+  },
+  "annotation": {
+    "reviewers": 2,
+    "independent": true,
+    "labels": ["supported", "contradicted", "not_verifiable"],
+    "adjudicate_every_disagreement": true,
+    "gold_hidden_until_reviews_frozen": true
+  },
+  "primary_outcomes": ["contradiction_recall", "false_accusation_rate", "owner_cluster_bootstrap_delta"],
+  "secondary_outcomes": ["macro_f1", "per_class_precision_recall_f1", "exact_mcnemar_holm", "certificate_track"],
+  "analysis": {
+    "unit": "claim",
+    "cluster": "repository_owner",
+    "bootstrap_samples": 5000,
+    "bootstrap_seed": 19,
+    "confidence_interval": 0.95,
+    "paired_test": "exact_mcnemar",
+    "multiple_testing": "holm",
+    "controlled_mutations_in_primary_analysis": false
+  },
+  "success_gate": {
+    "minimum_contradiction_recall_delta": 0.1,
+    "maximum_false_accusation_rate": 0.05
+  },
+  "scientific_boundary": "This preregistered trial can support a bounded claim about one frozen public-source frame. It cannot prove universal ML reproducibility, causality, or performance on private and non-GitHub research artifacts."
+}

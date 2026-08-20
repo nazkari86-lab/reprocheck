@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "status", "protocol", "registration", "gold", "arms", "comparisons", "controlled_mutation", "minimum_information", "primary_analysis", "scientific_boundary", "result_sha256"],
+  "properties": {
+    "schema_version": {"const": "reprocheck.evidence-trial-result.v1"},
+    "status": {"const": "scored"},
+    "protocol": {"type": "object"}, "registration": {"type": "object"}, "gold": {"type": "object"},
+    "arms": {"type": "object"}, "comparisons": {"type": "object"}, "controlled_mutation": {"type": "object"},
+    "minimum_information": {"type": "object"}, "primary_analysis": {"type": "object"},
+    "scientific_boundary": {"type": "string"},
+    "result_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

@@ -8,6 +8,11 @@ ReproCheck traces numerical claims in a research report to deterministic metric
 calculations, notebook risks, and dataset-split evidence. It intentionally does
 not execute uploaded Python or notebook code.
 
+Evidence Trial v19 is a preregistered, three-arm external validation workflow.
+Current status: protocol/scaffold only; no scored external result. The trial is
+designed to test whether raw-artifact recomputation improves contradiction recall
+at a maximum 5% false-accusation rate; it does not yet establish that claim.
+
 ## What ReproCheck verifies
 
 - Extracts classification, segmentation, and detection metric claims from
