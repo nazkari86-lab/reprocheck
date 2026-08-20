@@ -1,0 +1,173 @@
+# OCR Pipeline Benchmark
+
+Generated: 2026-06-06T11:53:19.356447+00:00
+Commit: `e991a16` | Images: 296 (synthetic=216, sroie=80)
+Metric: mean per-sample CER/WER, whitespace-normalized (case preserved). Lower is better.
+
+## Overall accuracy
+
+| Variant | CER | WER |
+|---|---|---|
+| Tesseract only | 0.451 | 0.767 |
+| EasyOCR only | 0.282 | 0.480 |
+| Ensemble merge | 0.344 | 0.636 |
+| Ensemble + SymSpell | 0.344 | — |
+
+
+## Synthetic (domain-matched screen text)
+
+| Variant | CER | WER |
+|---|---|---|
+| Tesseract only | 0.482 | 0.809 |
+| EasyOCR only | 0.161 | 0.372 |
+| Ensemble merge | 0.300 | 0.615 |
+| Ensemble + SymSpell | 0.298 | — |
+
+
+### By difficulty
+
+| Difficulty | n | CER Tesseract | CER Ensemble |
+|---|---|---|---|
+| clean | 72 | 0.002 | 0.045 |
+| medium | 72 | 0.195 | 0.117 |
+| heavy | 72 | 1.248 | 0.738 |
+
+### By theme
+
+| Theme | n | CER Tesseract | CER Ensemble |
+|---|---|---|---|
+| light | 108 | 0.263 | 0.114 |
+| dark | 108 | 0.701 | 0.486 |
+
+## SROIE (hard real-world receipts)
+
+| Variant | CER | WER |
+|---|---|---|
+| Tesseract only | 0.369 | 0.654 |
+| EasyOCR only | 0.609 | 0.774 |
+| Ensemble merge | 0.464 | 0.693 |
+| Ensemble + SymSpell | 0.467 | — |
+
+
+## Ensemble — conditional gain
+
+On the 75 images where the ensemble beats the fast path, it
+reduces CER from 0.849 to 0.245
+(**71.2% relative reduction**). On easy/clean inputs the
+selector routes to the fast path, so the ensemble cost is avoided.
+
+## Confidence-weighted merge
+
+Both merges run on identical engine outputs; the only difference is how
+word-level disagreements are resolved (engine confidence vs text heuristic).
+
+- Output changed on 134/296 images (where engines disagreed and both
+  sides carried confidence).
+- On those images: CER 0.560 → 0.329
+  (**41.2% relative reduction**, +0.231 absolute).
+- Corpus-wide: +0.104 absolute CER change.
+
+| Source | changed | CER heuristic | CER conf | rel |
+|---|---|---|---|---|
+| synthetic | 60 | 0.689 | 0.128 | +81.4% |
+| sroie | 74 | 0.455 | 0.492 | -8.2% |
+
+The aggregate is dominated by SROIE receipts, where engine confidence is poorly
+calibrated and the merge is near-neutral. On domain-matched screen text the
+confidence signal is reliable and the reduction is large, concentrated on
+degraded inputs where the two engines genuinely disagree.
+
+## Confidence calibration
+
+Per-word reliability of raw engine confidence vs empirical word accuracy
+(correctness from aligning recognized words to ground truth). ECE is the
+population-weighted gap between confidence and accuracy across 10 bins; lower is
+better. "ECE calibrated" refits a per-domain isotonic regression on a held-out
+split, measured on the same held-out words.
+
+| Domain | words | accuracy | mean conf | conf − acc | ECE raw | ECE calibrated |
+|---|---|---|---|---|---|---|
+| synthetic | 4688 | 0.608 | 0.702 | +0.094 | 0.096 | 0.016 |
+| sroie | 14316 | 0.441 | 0.760 | +0.320 | 0.325 | 0.028 |
+| all | 19004 | 0.482 | 0.746 | +0.264 | 0.262 | 0.017 |
+
+The "conf − acc" gap exposes the failure mode behind the merge result: on
+out-of-domain receipts the engines are over-confident (positive gap, high raw
+ECE), so confidence-weighted disagreement handling trusts the wrong side. A
+per-domain isotonic refit collapses the ECE, which is the prerequisite for the
+confidence merge to transfer beyond screen text.
+
+### Calibrated merge (held-out images)
+
+Replaying the confidence-weighted merge on a held-out image split with three
+confidence sources — text heuristic, raw engine confidence, and a per-engine
+isotonic calibration fit on the train split. The calibrator is wrapped around
+the same word confidences the merge already consumes; no OCR is re-run. The
+calibrator is fit per engine on purpose: the merge picks between engines by
+comparing their confidences, so it is invariant to a shared monotone rescaling
+and only an engine-specific map can re-rank one engine against the other.
+
+| Domain | test img | CER heuristic | CER raw conf | CER calibrated | calib − raw |
+|---|---|---|---|---|---|
+| synthetic | 65 | 0.255 | 0.178 | 0.180 | +0.002 |
+| sroie | 24 | 0.449 | 0.515 | 0.480 | -0.035 |
+| all | 89 | 0.307 | 0.269 | 0.261 | -0.008 |
+
+"calib − raw" is the CER change from feeding calibrated instead of raw
+confidence into the merge. Raw confidence is a large win on domain-matched
+screen text but a regression on out-of-domain receipts; calibration keeps the
+screen-text win essentially intact while recovering about half of the receipt
+regression, giving the best aggregate CER of the three sources. It does not by
+itself beat the pure text heuristic on receipts — engine confidence there is too
+degraded — but it removes most of the penalty for using one global merge policy.
+
+## SymSpell correction
+
+- On prose: +0.004 absolute CER change (negative = improvement).
+- Overall: +0.000 absolute CER change.
+
+## Strategy selector (GradientBoosting, trained on oracle labels)
+
+- Samples: 216 (fast=147, ensemble=69)
+- **Macro F1 (held-out 20%): 0.722**
+- CV macro-F1: 0.709 ± 0.077
+- Confusion matrix [rows=true fast/ensemble, cols=pred]: [[19, 11], [1, 13]]
+- Top features: [('sharpness', 0.40710405628186813), ('brightness', 0.18827666818105018), ('text_density', 0.1732758860213452)]
+
+### Vs label-only baselines (cross-validated, same folds)
+
+| Policy | CV Macro F1 |
+|---|---|
+| always fast | 0.405 |
+| always ensemble | 0.242 |
+| majority | 0.405 |
+| stratified random | 0.516 |
+| **selector (GB)** | **0.709** |
+
+The learned router beats the best static policy (stratified random,
+CV macro F1 0.516) — routing on image features adds real signal over
+always picking one mode or the class prior.
+
+### Feature ablation (leave-one-out, same folds)
+
+| Feature dropped | CV Macro F1 | Δ vs full |
+|---|---|---|
+| sharpness | 0.631 | +0.078 |
+| noise_level | 0.641 | +0.068 |
+| text_density | 0.695 | +0.014 |
+| brightness | 0.707 | +0.002 |
+| has_color | 0.709 | +0.000 |
+| contrast | 0.738 | -0.029 |
+| size_ratio | 0.742 | -0.033 |
+
+Δ is the CV macro-F1 lost when the feature is removed. Positive = the feature
+carries routing signal the rest can't recover; near-zero or negative = redundant
+given the others. This is a stronger test than impurity importance, which can
+rank a feature highly without it adding predictive value.
+
+## Reproduce
+
+```bash
+venv/bin/python benchmarks/run_eval.py --source both
+venv/bin/python benchmarks/report.py
+```

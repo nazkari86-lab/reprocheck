@@ -4,6 +4,9 @@
   "required": ["schema_version", "claims"],
   "properties": {
     "schema_version": {"const": "reprocheck.evidence-trial-sample.v1"},
+    "candidate_manifest": {"type": "object"},
+    "enrollment": {"type": "object"},
+    "sample_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "claims": {
       "type": "array",
       "items": {
@@ -18,7 +21,7 @@
           "path": {"type": "string", "minLength": 1},
           "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
           "block": {"type": "object", "required": ["start", "end"], "properties": {"start": {"type": "integer", "minimum": 1}, "end": {"type": "integer", "minimum": 1}}},
-          "stratum": {"enum": ["natural_correction", "natural_supported_control", "natural_not_verifiable", "unchanged_negative_control", "controlled_mutation"]},
+          "stratum": {"enum": ["natural_unadjudicated", "natural_correction", "natural_supported_control", "natural_not_verifiable", "unchanged_negative_control", "controlled_mutation"]},
           "evidence_tier": {"enum": ["report_only", "supplied_metrics", "raw_recomputation"]},
           "gold_status": {"enum": ["supported", "contradicted", "not_verifiable"]}
         }

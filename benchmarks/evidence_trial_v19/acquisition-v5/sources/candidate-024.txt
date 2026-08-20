@@ -1,0 +1,71 @@
+# Model comparison and ablations
+
+Use this page to document your **ablation results** (backbone × fusion) and to compare against YouTubePD and Figshare turning baselines.
+
+## How to run ablations
+
+From the project root:
+
+```bash
+# Face PD: 3 backbones × 2 fusion = 6 runs (~same data/split, seed=42)
+python scripts/run_ablations.py --task face_pd --num_epochs 20
+
+# Turning (video + audio + IMU): 6 runs
+python scripts/run_ablations.py --task turning --num_epochs 20
+
+# Both tasks
+python scripts/run_ablations.py --task face_pd,turning --num_epochs 20
+```
+
+Results are written to:
+
+- `results/ablation_face_pd.csv`
+- `results/ablation_turning.csv`
+
+Each row: `task`, `backbone`, `fusion`, `checkpoint`, `val_acc`, `val_f1`, `val_auroc`.
+
+## Face PD (YouTube-style) comparison
+
+| Model (backbone + fusion) | Val accuracy | Val F1 | Val AUROC | Status |
+|---------------------------|--------------|--------|-----------|--------|
+| ResNet18 + concat         | 0.6087       | 0.5714 | 0.8250    | OK (20 epochs, seed=42) |
+| ResNet18 + attention      | 0.6522       | 0.6667 | **0.9000** | OK (20 epochs, seed=42) |
+| EfficientNet-B0 + concat  | 0.74        | —      | 0.7417    | Partial (1 epoch only; OOM) |
+| EfficientNet-B0 + attention | 0.74       | —      | 0.7667    | Partial (1 epoch only; OOM) |
+| EfficientNet-B2 + concat  | 0.70        | —      | 0.6250    | Partial (1 epoch only; OOM) |
+| EfficientNet-B2 + attention | 0.70       | —      | 0.7667    | Partial (1 epoch only; OOM) |
+
+**Best (ours):** ResNet18 + attention — Val AUROC **0.90**, Val F1 0.67 (best checkpoint by AUROC).
+
+**YouTubePD (NeurIPS 2023) baseline:** Multimodal fusion improves over unimodal; exact numbers depend on their split. Compare your best to their reported multimodal results on the same task.
+
+### Observations (Face PD)
+
+- **Attention fusion outperforms concat** for ResNet18 on this split: Val AUROC 0.90 vs 0.83.
+- **ResNet18** completed all 20 epochs; metrics above are from the best checkpoint (saved by AUROC), not necessarily the final epoch.
+- **EfficientNet (B0, B2)** runs **failed with OOM** even with batch_size=2: either killed with exit code -9 (SIGKILL) after epoch 1, or failed in epoch 2 with “DataLoader worker is killed by signal: Killed”. So on this machine (limited RAM/GPU), EfficientNet ablations could not be completed; consider running them on a machine with more memory or with batch_size=1 and num_workers=0.
+- All runs use the same train/val split (seed=42) for fair comparison.
+- Summary: among completed runs, **ResNet18 + attention** is the best Face PD model (Val AUROC 0.90).
+
+## Turning (Figshare-style) comparison
+
+| Model (backbone + fusion) | Val accuracy | Val F1 | Val AUROC | Notes |
+|---------------------------|--------------|--------|-----------|-------|
+| ResNet18 + concat         | 0.68         | 0.72   | 0.58      | Dummy (replace after run_ablations) |
+| ResNet18 + attention      | 0.71         | 0.80   | 0.62      | Dummy (replace after run_ablations) |
+| EfficientNet-B0 + concat  | 0.66         | 0.70   | 0.55      | Dummy (replace after run_ablations) |
+| EfficientNet-B0 + attention | 0.72       | 0.78   | 0.64      | Dummy (replace after run_ablations) |
+| EfficientNet-B2 + concat  | 0.67         | 0.71   | 0.56      | Dummy (replace after run_ablations) |
+| EfficientNet-B2 + attention | 0.70       | 0.76   | 0.61      | Dummy (replace after run_ablations) |
+
+**Best (ours):** _Placeholder — ResNet18 + attention Val F1 0.80 (dummy; replace with actual best after running turning ablations)._
+
+**Figshare turning dataset:** Video + IMU (acceleration, angular velocity). Compare your best video+IMU fusion to prior work or to your own video-only / IMU-only baselines.
+
+## Notes (general)
+
+- **Face PD:** ResNet18 + attention achieved the highest Val AUROC (0.90) in the completed runs. All four EfficientNet (B0, B2) runs failed with OOM even at batch_size=2 on this machine; only ResNet18 + concat and ResNet18 + attention completed.
+- **Turning:** Ablations not yet run; run `python scripts/run_ablations.py --task turning --num_epochs 20` (use `--batch_size 2` if OOM).
+- All ablation runs use the same **random split** (seed=42) for fair comparison.
+- Checkpoints are saved as `checkpoints/{task}_{backbone}_{fusion}.pt` (e.g. `face_pd_resnet18_attention.pt`) so you can load the best model in the app or for evaluation.
+- To add a “vs baseline” row: train one run with e.g. `--video_backbone resnet18 --fusion concat` and compare to your best config in the table above.

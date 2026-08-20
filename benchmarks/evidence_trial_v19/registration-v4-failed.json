@@ -1,0 +1,38 @@
+{
+  "artifacts": {
+    "acquisition": {
+      "filename": "acquire.py",
+      "sha256": "7a68d55b71ade4973497f8679fa0fbbf0fa4e5bb919304de9d4073b6c7aee55f",
+      "size_bytes": 21119
+    },
+    "analysis": {
+      "filename": "analyze.py",
+      "sha256": "1cb403c2046be15cd9266453db2d39e026e75326f38c5a8d5d35fe80c5c191ee",
+      "size_bytes": 932
+    },
+    "evaluator": {
+      "filename": "reprocheck-0.30.3-py3-none-any.whl",
+      "sha256": "98ab93115f5451cec14c67a497a7f9f5154c559e5352c88de38549e0bef316bf",
+      "size_bytes": 194655
+    },
+    "exclusions": {
+      "filename": "exclusions.json",
+      "sha256": "0fd27ff85264eaef3e1184589c05f2c0cdba20aef210d9472587d130ed51f769",
+      "size_bytes": 57606
+    },
+    "source_config": {
+      "filename": "sources.json",
+      "sha256": "8382e1e0f6d9d276a29aa17642dc87dc43b37a49168dd4f8a521390f3a7f7e32",
+      "size_bytes": 3134
+    }
+  },
+  "protocol": {
+    "filename": "protocol.json",
+    "sha256": "a94eb69490142723d26e5fed502178990e439c763e386e65f2bd871f00288d53",
+    "size_bytes": 2629
+  },
+  "registration_sha256": "f0fb85f389e87b31ec32bfe61cb0dfb82026607d6ba28dab442108370b253992",
+  "schema_version": "reprocheck.evidence-trial-registration.v4",
+  "source_contents_inspected_after_registration": false,
+  "status": "registered_not_retrieved"
+}

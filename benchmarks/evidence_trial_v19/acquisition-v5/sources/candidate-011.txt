@@ -1,0 +1,74 @@
+# Results and interpretation
+
+## Evaluation contract
+
+- Dataset: public vEpiSet only.
+- Test partition: 13 held-out subjects, 3,908 windows.
+- Test prevalence: 11.11% (434 IED / 3,474 non-IED).
+- Window length: 4 seconds.
+- Every threshold below was selected on validation and frozen before test use.
+
+## Base models
+
+| Model | Params | Threshold | AUROC | AUPRC | F1 | Precision | Sensitivity | Specificity | FP/min |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| IEDNet-Lite | 245,260 | 0.6004 | 0.8793 | 0.6848 | 0.6372 | 0.6432 | 0.6313 | 0.9562 | 0.6563 |
+| ResNet-Attention | 4,989,538 | 0.6944 | 0.8998 | 0.7018 | 0.6667 | 0.7374 | 0.6083 | 0.9729 | 0.4059 |
+| EEGPT temporal head | 25,589,507 | 0.8916 | 0.8641 | 0.6532 | 0.6139 | 0.6631 | 0.5714 | 0.9637 | 0.5440 |
+| EEG-DINO Medium | 34,445,250 | 0.6191 | **0.9363** | **0.8020** | **0.7415** | 0.7095 | **0.7765** | 0.9603 | 0.5959 |
+
+The EEGPT linear probe achieved AUROC 0.7519, AUPRC 0.3722, and F1 0.3227. It
+is included for reproducibility and ablation only.
+
+## Ensembles
+
+| Ensemble | Threshold | AUROC | AUPRC | F1 | Precision | Sensitivity | Specificity | FP/min |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| IEDNet + ResNet | 0.5132 | 0.8996 | 0.7211 | 0.6784 | 0.6940 | 0.6636 | 0.9634 | 0.5484 |
+| + EEGPT | 0.5291 | 0.9004 | 0.7451 | 0.7031 | 0.7255 | 0.6820 | 0.9678 | 0.4836 |
+| + EEG-DINO | 0.5275 | 0.9262 | 0.7896 | 0.7400 | 0.7597 | 0.7212 | 0.9715 | 0.4275 |
+| Four-model | 0.5274 | 0.9201 | 0.7888 | **0.7624** | **0.7788** | **0.7465** | **0.9735** | **0.3972** |
+
+EEG-DINO is the best individual ranking model. The four-model ensemble has the
+best thresholded F1, precision, specificity, and false-positive rate in this
+held-out split. The three-model EEG-DINO ensemble is the practical default when
+avoiding EEGPT's additional memory and dependency cost.
+
+## Calibration and uncertainty
+
+For EEG-DINO Medium on the test set:
+
+- Brier score: 0.0521
+- Negative log-likelihood: 0.1891
+- ECE (10 bins): 0.0530
+- Subject-cluster bootstrap 95% CI for AUROC: 0.8513-0.9906
+- Subject-cluster bootstrap 95% CI for AUPRC: 0.5949-0.9274
+- Subject-cluster bootstrap 95% CI for F1: 0.5483-0.8169
+
+The wide subject-clustered intervals are important: 13 test subjects are not a
+large prospective validation cohort. Pooled window metrics should not be read
+as certainty about a new hospital population.
+
+## Interpretation limits
+
+1. This is an internal held-out split of a single public dataset, not external
+   multi-center or prospective validation.
+2. Metrics describe four-second windows. Candidate grouping on continuous EEG
+   changes the effective event-level operating characteristics.
+3. False positives per minute are normalized using negative labeled windows;
+   they are not a substitute for a full clinical reading-time study.
+4. vEpiSet channel layout, annotation practice, hardware, patient mix, and IED
+   prevalence may differ from a deployment site.
+5. Thresholds may require a prospectively defined local validation protocol,
+   but must never be tuned on a final evaluation cohort.
+6. Automated outputs remain screening candidates requiring expert review.
+
+## Artifacts
+
+- `results/benchmark_results.csv`: complete machine-readable comparison.
+- `results/figures/model_comparison.png`: aggregate comparison chart.
+- `results/figures/<model>/`: training/PR curves and test confusion matrices.
+- `results/histories/<model>/training_history.csv`: epoch-level histories.
+- `results/histories/eegdino_medium/`: calibration, operating points, and
+  subject-cluster bootstrap intervals.
+

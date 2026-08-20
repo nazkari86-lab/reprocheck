@@ -12,10 +12,17 @@ At least two independent reviewers label every claim without access to internal 
 Every disagreement is adjudicated before an immutable gold lock is created. Natural
 claims determine the primary result; controlled mutations are reported separately.
 
+Acquisition first freezes commit-pinned candidate source bytes. A curator independent
+from the evaluator then enrolls exact source-line blocks without assigning outcome
+labels. Owner and claim-count gates run before blinded review; class-balance information
+gates run only after two reviews and complete adjudication. This prevents selecting
+claims to fit desired gold classes.
+
 The minimum-information gate is 20 repository owners, 150 natural claims, 20
 contradictions, 30 not-verifiable claims, and 30 supported claims with evidence beyond
-the report. A shortfall is a valid `insufficient_sample` result and must not be converted
-into a success claim.
+the report. An owner or claim-count shortfall is `insufficient_sample`; a post-gold class
+shortfall is `insufficient_information`. Both are valid fail-closed outcomes and neither
+may be converted into a success claim.
 
 The certificate track is separate from the three-arm accuracy comparison. It measures
 verdict preservation, serialized byte reduction, and rejection of registered tampering.

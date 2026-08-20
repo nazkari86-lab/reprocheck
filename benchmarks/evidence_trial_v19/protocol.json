@@ -17,8 +17,8 @@
   },
   "source_frame": {
     "population": "Public GitHub ML result claims with immutable commits and retrievable evidence",
-    "selection": "Deterministic salted ordering, one included repository per owner, preregistered exclusions",
-    "natural_strata": ["natural_correction", "natural_supported_control", "natural_not_verifiable", "unchanged_negative_control"],
+    "selection": "Deterministic salted ordering, one included repository per owner, preregistered exclusions, then independent source-only claim enrollment before any gold labels exist",
+    "natural_strata": ["natural_unadjudicated", "natural_correction", "natural_supported_control", "natural_not_verifiable", "unchanged_negative_control"],
     "controlled_mutations_secondary_only": true
   },
   "annotation": {
@@ -26,7 +26,8 @@
     "independent": true,
     "labels": ["supported", "contradicted", "not_verifiable"],
     "adjudicate_every_disagreement": true,
-    "gold_hidden_until_reviews_frozen": true
+    "gold_hidden_until_reviews_frozen": true,
+    "enrollment_independent_from_evaluator": true
   },
   "primary_outcomes": ["contradiction_recall", "false_accusation_rate", "owner_cluster_bootstrap_delta"],
   "secondary_outcomes": ["macro_f1", "per_class_precision_recall_f1", "exact_mcnemar_holm", "certificate_track"],

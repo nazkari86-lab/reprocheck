@@ -1,0 +1,22 @@
+{
+  "candidate_count": 0,
+  "completed_event_ids": [
+    "search-01",
+    "search-02",
+    "search-03",
+    "search-04",
+    "search-05",
+    "search-06",
+    "search-07",
+    "search-08",
+    "search-09",
+    "search-10"
+  ],
+  "config_sha256": "2861b48f01b0da628f300ed4863cc7c0b0cc9014883ce6428c82090f34f8bb08",
+  "error": "HTTP Error 403: Forbidden",
+  "error_type": "HTTPError",
+  "failure_index": 1,
+  "retry_permitted": true,
+  "schema_version": "reprocheck.evidence-trial-acquisition-failure.v1",
+  "state_sha256": "e757d439090cf9d2b29fb568b21d2fab24919abff15aa5c254833c8c427a5f8f"
+}

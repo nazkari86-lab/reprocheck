@@ -13,6 +13,7 @@ from .benchmark import run_controlled_benchmark
 from .certificate import verify_certificate_file
 from .evidence_graph import render_mermaid
 from .evidence_trial import (
+    build_trial_sample,
     lock_trial_gold,
     prepare_trial_review,
     register_evidence_trial,
@@ -197,6 +198,13 @@ def build_parser() -> argparse.ArgumentParser:
     trial_sample.add_argument("--sample", type=Path, required=True)
     trial_sample.add_argument("--exclusions", type=Path, required=True)
 
+    trial_build_sample = subparsers.add_parser(
+        "trial-build-sample", help="bind independent source-only claim enrollment to candidates"
+    )
+    trial_build_sample.add_argument("--candidates", type=Path, required=True)
+    trial_build_sample.add_argument("--enrollment", type=Path, required=True)
+    trial_build_sample.add_argument("--output", type=Path, required=True)
+
     trial_review = subparsers.add_parser(
         "trial-prepare-review", help="prepare a label-hidden evidence-trial packet"
     )
@@ -349,6 +357,14 @@ def main(argv: list[str] | None = None) -> int:
             print(f"ERROR: {error}", file=sys.stderr)
             return 2
         print(json.dumps(result, ensure_ascii=False, sort_keys=True))
+        return 0
+    if args.command == "trial-build-sample":
+        try:
+            result = build_trial_sample(args.candidates, args.enrollment, args.output)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(f"claims={len(result['claims'])} output={args.output.resolve()}")
         return 0
     if args.command == "trial-prepare-review":
         try:

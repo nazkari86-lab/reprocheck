@@ -2,20 +2,26 @@ from __future__ import annotations
 
 import json
 import importlib.util
+import base64
+import hashlib
 from pathlib import Path
 
 import pytest
 
 from reprocheck.evidence_trial import (
+    build_trial_sample,
     canonical_digest,
     load_trial_protocol,
     lock_trial_gold,
     prepare_trial_review,
     register_evidence_trial,
     score_evidence_trial,
+    score_certificate_track,
     validate_trial_sample,
     verify_evidence_trial_registration,
 )
+from reprocheck.audit import run_audit
+from reprocheck.witness import build_witness_file
 
 
 def _dump(path: Path, payload: dict) -> Path:
@@ -103,6 +109,93 @@ def _registration(tmp_path: Path, protocol: Path) -> tuple[Path, dict[str, Path]
     return output, artifacts
 
 
+def _candidate_enrollment(tmp_path: Path) -> tuple[Path, Path, Path]:
+    source = tmp_path / "sources" / "candidate-001.txt"
+    source.parent.mkdir(parents=True)
+    source.write_text("Accuracy: 90%\n", encoding="utf-8")
+    source_bytes = source.read_bytes()
+    manifest = {
+        "schema_version": "reprocheck.evidence-trial-candidates.v1",
+        "status": "acquired_unreviewed",
+        "config_sha256": "c" * 64,
+        "completed_event_ids": ["search-01"],
+        "frame_count": 1,
+        "candidate_count": 1,
+        "independent_owner_count": 1,
+        "owner_cap": 1,
+        "frames": [{"event_id": "search-01"}],
+        "response_descriptors": [],
+        "candidates": [
+            {
+                "candidate_id": "candidate-001",
+                "frame": "search-01",
+                "owner": "new-owner",
+                "repository": "new-owner/repo",
+                "default_branch": "main",
+                "path": "RESULTS.md",
+                "commit": "a" * 40,
+                "blob_sha": "b" * 40,
+                "indexed_blob_sha": "d" * 40,
+                "immutable_url": "https://github.com/new-owner/repo/blob/" + "a" * 40 + "/RESULTS.md",
+                "api_url": "https://api.github.com/repos/new-owner/repo/contents/RESULTS.md?ref=" + "a" * 40,
+                "source_file": "sources/candidate-001.txt",
+                "source_sha256": hashlib.sha256(source_bytes).hexdigest(),
+                "source_bytes": len(source_bytes),
+                "selection_digest": "e" * 64,
+            }
+        ],
+        "candidate_manifest_sha256": "",
+    }
+    manifest["candidate_manifest_sha256"] = canonical_digest(
+        manifest, blank_field="candidate_manifest_sha256"
+    )
+    manifest_path = _dump(tmp_path / "candidates.json", manifest)
+    enrollment = {
+        "schema_version": "reprocheck.evidence-trial-enrollment.v1",
+        "curator_id": "independent-curator-1",
+        "independent_from_evaluator": True,
+        "candidate_manifest_sha256": hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
+        "claims": [
+            {
+                "claim_id": "claim-001",
+                "candidate_id": "candidate-001",
+                "block": {"start": 1, "end": 1},
+                "claim_text": "Accuracy: 90%",
+                "declared_metric": "accuracy",
+                "declared_value": 0.9,
+                "stratum": "natural_unadjudicated",
+                "evidence_tier": "report_only",
+            }
+        ],
+    }
+    enrollment_path = _dump(tmp_path / "enrollment.json", enrollment)
+    return manifest_path, enrollment_path, source
+
+
+def test_build_trial_sample_binds_source_only_enrollment(tmp_path: Path):
+    manifest, enrollment, _ = _candidate_enrollment(tmp_path)
+    output = tmp_path / "sample.json"
+    result = build_trial_sample(manifest, enrollment, output)
+    assert result["claims"][0]["stratum"] == "natural_unadjudicated"
+    assert "gold_status" not in result["claims"][0]
+    assert result["sample_sha256"] == canonical_digest(result, blank_field="sample_sha256")
+    with pytest.raises(ValueError, match="immutable"):
+        build_trial_sample(manifest, enrollment, output)
+
+
+def test_build_trial_sample_rejects_tampering_and_unknown_candidates(tmp_path: Path):
+    manifest, enrollment, source = _candidate_enrollment(tmp_path)
+    source.write_text("Accuracy: 99%\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="source bytes"):
+        build_trial_sample(manifest, enrollment, tmp_path / "tampered.json")
+    source.write_text("Accuracy: 90%\n", encoding="utf-8")
+    payload = json.loads(enrollment.read_text(encoding="utf-8"))
+    payload["claims"][0]["candidate_id"] = "candidate-999"
+    _dump(enrollment, payload)
+    with pytest.raises(ValueError, match="unknown candidate"):
+        build_trial_sample(manifest, enrollment, tmp_path / "unknown.json")
+
+
 def test_trial_protocol_is_strict_and_rejects_placeholders(tmp_path: Path):
     path = _protocol(tmp_path / "protocol.json")
     assert load_trial_protocol(path)["minimum_information"]["repository_owners"] == 2
@@ -140,15 +233,46 @@ def test_sample_gate_uses_natural_claims_and_fails_closed(tmp_path: Path):
         validate_trial_sample(sample, protocol, exclusions={"owners": ["owner-a"], "files": []})
 
 
-def _review(path: Path, reviewer: str, statuses: list[str]) -> Path:
+def test_sample_gate_separates_enrollment_from_post_gold_information(tmp_path: Path):
+    protocol = _protocol(
+        tmp_path / "protocol.json",
+        {
+            "repository_owners": 2,
+            "claims": 4,
+            "contradicted_claims": 2,
+            "not_verifiable_claims": 2,
+            "supported_evidence_claims": 2,
+        },
+    )
+    claims = _claims()
+    for claim in claims:
+        claim.pop("gold_status", None)
+        claim.pop("gold_rationale", None)
+    sample = _dump(
+        tmp_path / "sample.json",
+        {"schema_version": "reprocheck.evidence-trial-sample.v1", "claims": claims},
+    )
+    result = validate_trial_sample(sample, protocol, exclusions={"owners": [], "files": []})
+    assert result["status"] == "eligible_for_blinded_review"
+    assert result["gold_status_available"] is False
+    assert result["information_shortfalls"] == {}
+
+
+def _review(path: Path, reviewer: str, statuses: list[str], packet: Path) -> Path:
     return _dump(
         path,
         {
             "schema_version": "reprocheck.evidence-trial-review.v1",
             "reviewer_id": reviewer,
             "independent": True,
+            "packet_sha256": hashlib.sha256(packet.read_bytes()).hexdigest(),
             "reviews": [
-                {"claim_id": f"claim-{index}", "status": status}
+                {
+                    "claim_id": f"claim-{index}",
+                    "status": status,
+                    "rationale": f"review evidence for claim {index}",
+                    "evidence_refs": [f"source:line-{index}"],
+                }
                 for index, status in enumerate(statuses, start=1)
             ],
         },
@@ -162,16 +286,27 @@ def test_blinded_packet_and_adjudicated_gold_lock(tmp_path: Path):
     packet = json.loads((review_dir / "public" / "packet.json").read_text())
     assert manifest["reviewers_completed"] == 0
     assert all("gold_status" not in item for item in packet["claims"])
+    assert not (review_dir / "private").exists()
     statuses = [item["gold_status"] for item in _claims()]
-    first = _review(tmp_path / "r1.json", "r1", statuses)
+    packet_path = review_dir / "public" / "packet.json"
+    first = _review(tmp_path / "r1.json", "r1", statuses, packet_path)
     second_statuses = statuses.copy()
     second_statuses[0] = "supported"
-    second = _review(tmp_path / "r2.json", "r2", second_statuses)
+    second = _review(tmp_path / "r2.json", "r2", second_statuses, packet_path)
     with pytest.raises(ValueError, match="adjudication"):
         lock_trial_gold(review_dir, [first, second], None, tmp_path / "gold.json")
     adjudication = _dump(
         tmp_path / "adjudication.json",
-        {"adjudications": [{"claim_id": "claim-1", "status": "contradicted"}]},
+        {
+            "adjudications": [
+                {
+                    "claim_id": "claim-1",
+                    "status": "contradicted",
+                    "rationale": "raw metric conflicts with report",
+                    "evidence_refs": ["metrics.json:accuracy"],
+                }
+            ]
+        },
     )
     locked = lock_trial_gold(review_dir, [first, second], adjudication, tmp_path / "gold.json")
     assert locked["reviewer_count"] == 2
@@ -208,8 +343,9 @@ def test_trial_scoring_is_deterministic_and_separates_controlled_mutations(tmp_p
     review_dir = tmp_path / "review"
     prepare_trial_review(sample, review_dir)
     statuses = [item["gold_status"] for item in _claims()]
-    first = _review(tmp_path / "r1.json", "r1", statuses)
-    second = _review(tmp_path / "r2.json", "r2", statuses)
+    packet_path = review_dir / "public" / "packet.json"
+    first = _review(tmp_path / "r1.json", "r1", statuses, packet_path)
+    second = _review(tmp_path / "r2.json", "r2", statuses, packet_path)
     gold = tmp_path / "gold.json"
     lock_trial_gold(review_dir, [first, second], None, gold)
     report = ["supported", "supported", "supported", "supported", "supported"]
@@ -268,14 +404,208 @@ def test_v19_acquisition_resume_is_deterministic_without_network(tmp_path: Path)
     assert spec is not None and spec.loader is not None
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
+    search_url = "https://api.example.org/search"
+    repository_url = "https://api.example.org/repos/new-owner/repo"
+    commit_url = f"{repository_url}/commits/main"
+    content_url = f"{repository_url}/contents/RESULTS.md?ref={'a' * 40}"
     config = {
-        "limits": {"per_response_bytes": 100, "global_bytes": 200},
-        "events": [
-            {"event_id": "b", "url": "https://example.org/b"},
-            {"event_id": "a", "url": "https://example.org/a"},
-        ],
+        "schema_version": "reprocheck.evidence-trial-source-config.v2",
+        "salt": "fixture",
+        "limits": {
+            "per_response_bytes": 10_000,
+            "global_bytes": 100_000,
+            "maximum_source_bytes": 1_000,
+            "timeout_seconds": 1,
+        },
+        "selection": {"selected_per_frame": 1, "maximum_candidates": 1, "owner_cap": 1},
+        "events": [{"event_id": "search-01", "url": search_url}],
     }
-    first = module.acquire(config, tmp_path / "first", lambda url: url.encode())
-    second = module.acquire(config, tmp_path / "second", lambda url: url.encode())
+    responses = {
+        search_url: json.dumps(
+            {
+                "total_count": 1,
+                "items": [
+                    {
+                        "path": "RESULTS.md",
+                        "sha": "b" * 40,
+                        "repository": {
+                            "full_name": "new-owner/repo",
+                            "url": repository_url,
+                            "default_branch": "main",
+                        },
+                    }
+                ],
+            }
+        ).encode(),
+        repository_url: json.dumps({"default_branch": "main"}).encode(),
+        commit_url: json.dumps({"sha": "a" * 40}).encode(),
+        content_url: json.dumps(
+            {
+                "sha": "c" * 40,
+                "content": base64.b64encode(b"Accuracy: 90%\n").decode()[:8]
+                + "\n"
+                + base64.b64encode(b"Accuracy: 90%\n").decode()[8:],
+            }
+        ).encode(),
+    }
+    calls: list[str] = []
+
+    def fetch(url: str) -> bytes:
+        calls.append(url)
+        return responses[url]
+
+    first = module.acquire(config, tmp_path / "first", fetch)
+    assert len(calls) == 4
+    assert module.acquire(config, tmp_path / "first", fetch) == first
+    assert len(calls) == 4
+    second = module.acquire(config, tmp_path / "second", fetch)
     assert first.read_bytes() == second.read_bytes()
-    assert module.acquire(config, tmp_path / "first", lambda url: url.encode()) == first
+    manifest = json.loads(first.read_text(encoding="utf-8"))
+    assert manifest["candidate_count"] == 1
+    assert manifest["independent_owner_count"] == 1
+    assert manifest["candidates"][0]["commit"] == "a" * 40
+    assert manifest["candidates"][0]["source_sha256"]
+
+
+def test_v19_acquisition_preserves_failure_and_reuses_frozen_search(tmp_path: Path):
+    path = Path("benchmarks/evidence_trial_v19/acquire.py")
+    spec = importlib.util.spec_from_file_location("evidence_trial_v19_failure", path)
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    search_url = "https://api.example.org/search"
+    repository_url = "https://api.example.org/repos/new-owner/repo"
+    config = {
+        "schema_version": "reprocheck.evidence-trial-source-config.v2",
+        "salt": "fixture",
+        "limits": {
+            "per_response_bytes": 10_000,
+            "global_bytes": 100_000,
+            "maximum_source_bytes": 1_000,
+            "timeout_seconds": 1,
+        },
+        "selection": {"selected_per_frame": 1, "maximum_candidates": 1, "owner_cap": 1},
+        "events": [{"event_id": "search-01", "url": search_url}],
+    }
+    search = json.dumps(
+        {
+            "total_count": 1,
+            "items": [
+                {
+                    "path": "RESULTS.md",
+                    "sha": "b" * 40,
+                    "repository": {
+                        "full_name": "new-owner/repo",
+                        "url": repository_url,
+                        "default_branch": "main",
+                    },
+                }
+            ],
+        }
+    ).encode()
+    search_calls = 0
+
+    def fail_after_search(url: str) -> bytes:
+        nonlocal search_calls
+        if url == search_url:
+            search_calls += 1
+            return search
+        raise RuntimeError("fixture outage")
+
+    with pytest.raises(RuntimeError, match="fixture outage"):
+        module.acquire(config, tmp_path / "failed", fail_after_search)
+    failure = json.loads(
+        (tmp_path / "failed" / "failures" / "failure-001.json").read_text(encoding="utf-8")
+    )
+    assert failure["error_type"] == "RuntimeError"
+    assert failure["retry_permitted"] is True
+    with pytest.raises(RuntimeError, match="fixture outage"):
+        module.acquire(config, tmp_path / "failed", fail_after_search)
+    assert search_calls == 1
+    assert (tmp_path / "failed" / "failures" / "failure-002.json").is_file()
+
+
+def test_v19_transport_validation_rejects_truncation_and_malformed_json():
+    path = Path("benchmarks/evidence_trial_v19/acquire.py")
+    spec = importlib.util.spec_from_file_location("evidence_trial_v19_transport", path)
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    module._validate_transport_json(b'{"ok":true}', 100, "11")
+    with pytest.raises(ValueError, match="shorter"):
+        module._validate_transport_json(b'{"ok":true}', 100, "12")
+    with pytest.raises(ValueError, match="complete UTF-8 JSON"):
+        module._validate_transport_json(b'{"cut":', 100)
+    with pytest.raises(ValueError, match="must be an object"):
+        module._validate_transport_json(b"[]", 100)
+
+
+def _certificate_track_cases(tmp_path: Path) -> list[dict]:
+    cases = []
+    tamper_classes = [
+        "node",
+        "edge",
+        "numeric_value",
+        "artifact_byte",
+        "context",
+        "tolerance",
+        "mandatory_relation",
+        "non_minimal",
+        "cross_case_swap",
+    ]
+    for index in range(2):
+        root = tmp_path / f"case-{index}"
+        root.mkdir()
+        report = root / "report.md"
+        metrics = root / "metrics.json"
+        certificate = root / "certificate.json"
+        witness = root / "witness.json"
+        report.write_text(f"Accuracy: {80 + index}%\n", encoding="utf-8")
+        metrics.write_text('{"accuracy": 0.9}\n', encoding="utf-8")
+        audit = run_audit(report_path=report, metrics_path=metrics)
+        certificate.write_text(json.dumps(audit.to_dict()), encoding="utf-8")
+        build_witness_file(certificate, 0, witness, root)
+        tampered = root / "tampered.json"
+        payload = json.loads(witness.read_text(encoding="utf-8"))
+        payload["rule_inputs"]["observed"] = 0.1
+        tampered.write_text(json.dumps(payload), encoding="utf-8")
+        cases.append(
+            {
+                "case_id": f"case-{index}",
+                "certificate": str(certificate),
+                "certificate_sha256": hashlib.sha256(certificate.read_bytes()).hexdigest(),
+                "witness": str(witness),
+                "artifact_dir": str(root),
+                "certificate_verdict": "contradicted",
+                "witness_verdict": "contradicted",
+                "tampered": [
+                    {"path": str(tampered), "kind": "witness", "tamper_class": name}
+                    for name in (tamper_classes if index == 0 else [])
+                ],
+            }
+        )
+    return cases
+
+
+def test_certificate_track_binds_verdicts_and_all_registered_tamper_classes(tmp_path: Path):
+    result = score_certificate_track(_certificate_track_cases(tmp_path))
+    assert result["verdict_preservation_rate"] == 1.0
+    assert result["tamper_rejection_rate"] == 1.0
+    assert set(result["tamper_by_class"]) == {
+        "node",
+        "edge",
+        "numeric_value",
+        "artifact_byte",
+        "context",
+        "tolerance",
+        "mandatory_relation",
+        "non_minimal",
+        "cross_case_swap",
+    }
+
+
+def test_certificate_track_rejects_cross_case_witness_swap(tmp_path: Path):
+    cases = _certificate_track_cases(tmp_path)
+    cases[0]["witness"], cases[1]["witness"] = cases[1]["witness"], cases[0]["witness"]
+    with pytest.raises(ValueError, match="binding"):
+        score_certificate_track(cases)

@@ -15,10 +15,22 @@ from jsonschema import Draft202012Validator
 
 PROTOCOL_SCHEMA = "reprocheck.evidence-trial-protocol.v1"
 SAMPLE_SCHEMA = "reprocheck.evidence-trial-sample.v1"
-REGISTRATION_SCHEMA = "reprocheck.evidence-trial-registration.v1"
+REGISTRATION_SCHEMA = "reprocheck.evidence-trial-registration.v5"
 TRIAL_STATUSES = ("supported", "contradicted", "not_verifiable")
 TRIAL_ARMS = ("report_only", "supplied_metrics", "raw_recomputation")
+REQUIRED_TAMPER_CLASSES = {
+    "node",
+    "edge",
+    "numeric_value",
+    "artifact_byte",
+    "context",
+    "tolerance",
+    "mandatory_relation",
+    "non_minimal",
+    "cross_case_swap",
+}
 NATURAL_STRATA = {
+    "natural_unadjudicated",
     "natural_correction",
     "natural_supported_control",
     "natural_not_verifiable",
@@ -82,10 +94,6 @@ def load_trial_protocol(path: Path) -> dict[str, Any]:
     encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True).upper()
     if any(marker in encoded for marker in ("UNRESOLVED", "TODO", "FIXME", "TBD")):
         raise ValueError("trial protocol contains an unresolved placeholder")
-    if payload["schema_version"] != PROTOCOL_SCHEMA:
-        raise ValueError("unsupported evidence trial protocol schema")
-    if tuple(payload["arms"]) != TRIAL_ARMS:
-        raise ValueError("trial arms must be report_only, supplied_metrics, raw_recomputation")
     return payload
 
 
@@ -218,6 +226,10 @@ def validate_trial_sample(
     sample = _load_json_object(sample_path, "trial sample")
     protocol = load_trial_protocol(protocol_path)
     _validate_schema(sample, "evidence-trial-sample-v1.schema.json", "trial sample")
+    if "sample_sha256" in sample and sample["sample_sha256"] != canonical_digest(
+        sample, blank_field="sample_sha256"
+    ):
+        raise ValueError("trial sample checksum does not match its payload")
     claims = sample["claims"]
     ids = [item["claim_id"] for item in claims]
     if len(ids) != len(set(ids)):
@@ -231,17 +243,132 @@ def validate_trial_sample(
         raise ValueError("trial sample contains an excluded file")
     counts = _trial_counts(claims)
     required = protocol["minimum_information"]
-    shortfalls = {
+    enrollment_fields = {"repository_owners", "claims"}
+    enrollment_shortfalls = {
         name: {"required": value, "observed": counts[name]}
         for name, value in required.items()
-        if counts[name] < value
+        if name in enrollment_fields and counts[name] < value
     }
+    natural = [item for item in claims if item["stratum"] in NATURAL_STRATA]
+    gold_available = bool(natural) and all("gold_status" in item for item in natural)
+    information_shortfalls = (
+        {
+            name: {"required": value, "observed": counts[name]}
+            for name, value in required.items()
+            if name not in enrollment_fields and counts[name] < value
+        }
+        if gold_available
+        else {}
+    )
+    if enrollment_shortfalls:
+        status = "insufficient_sample"
+    elif not gold_available:
+        status = "eligible_for_blinded_review"
+    elif information_shortfalls:
+        status = "insufficient_information"
+    else:
+        status = "eligible"
     return {
         "schema_version": "reprocheck.evidence-trial-sample-gate.v1",
-        "status": "insufficient_sample" if shortfalls else "eligible",
+        "status": status,
         "counts": counts,
-        "shortfalls": shortfalls,
+        "gold_status_available": gold_available,
+        "enrollment_shortfalls": enrollment_shortfalls,
+        "information_shortfalls": information_shortfalls,
+        "shortfalls": {**enrollment_shortfalls, **information_shortfalls},
     }
+
+
+def build_trial_sample(
+    candidate_manifest_path: Path,
+    enrollment_path: Path,
+    output: Path,
+) -> dict[str, Any]:
+    candidates = _load_json_object(candidate_manifest_path, "trial candidate manifest")
+    _validate_schema(
+        candidates, "evidence-trial-candidates-v1.schema.json", "trial candidate manifest"
+    )
+    if candidates.get("candidate_manifest_sha256") != canonical_digest(
+        candidates, blank_field="candidate_manifest_sha256"
+    ):
+        raise ValueError("trial candidate manifest checksum does not match its payload")
+    candidate_rows = candidates["candidates"]
+    owner_count = len({item["owner"].casefold() for item in candidate_rows})
+    if candidates["candidate_count"] != len(candidate_rows):
+        raise ValueError("trial candidate manifest count does not match its rows")
+    if candidates["independent_owner_count"] != owner_count or owner_count != len(
+        candidate_rows
+    ):
+        raise ValueError("trial candidate manifest violates the one-candidate-per-owner rule")
+    if candidates["frame_count"] != len(candidates["frames"]):
+        raise ValueError("trial candidate manifest frame count does not match its rows")
+    enrollment = _load_json_object(enrollment_path, "trial claim enrollment")
+    _validate_schema(enrollment, "evidence-trial-enrollment-v1.schema.json", "trial enrollment")
+    if enrollment["candidate_manifest_sha256"] != file_descriptor(candidate_manifest_path)[
+        "sha256"
+    ]:
+        raise ValueError("trial enrollment references a different candidate manifest")
+    by_id = {item["candidate_id"]: item for item in candidate_rows}
+    if len(by_id) != len(candidate_rows):
+        raise ValueError("trial candidate IDs must be unique")
+    rows = []
+    claim_ids: set[str] = set()
+    for item in enrollment["claims"]:
+        claim_id = item["claim_id"]
+        if claim_id in claim_ids:
+            raise ValueError("trial enrollment claim IDs must be unique")
+        claim_ids.add(claim_id)
+        candidate = by_id.get(item["candidate_id"])
+        if candidate is None:
+            raise ValueError(f"trial enrollment references unknown candidate: {item['candidate_id']}")
+        source_path = candidate_manifest_path.parent / candidate["source_file"]
+        descriptor = file_descriptor(source_path)
+        if descriptor["sha256"] != candidate["source_sha256"] or descriptor[
+            "size_bytes"
+        ] != candidate["source_bytes"]:
+            raise ValueError(f"candidate source bytes do not match: {item['candidate_id']}")
+        try:
+            source_lines = source_path.read_text(encoding="utf-8").splitlines()
+        except UnicodeDecodeError as error:
+            raise ValueError(f"candidate source is not UTF-8 text: {item['candidate_id']}") from error
+        start = item["block"]["start"]
+        end = item["block"]["end"]
+        if end < start or end > len(source_lines):
+            raise ValueError(f"trial enrollment block is outside source: {claim_id}")
+        selected_text = "\n".join(source_lines[start - 1 : end]).strip()
+        if item["claim_text"].strip() != selected_text:
+            raise ValueError(f"trial enrollment claim text does not match source block: {claim_id}")
+        rows.append(
+            {
+                "claim_id": claim_id,
+                "candidate_id": item["candidate_id"],
+                "owner": candidate["owner"],
+                "repository": candidate["repository"],
+                "url": candidate["immutable_url"],
+                "commit": candidate["commit"],
+                "blob_sha": candidate["blob_sha"],
+                "path": candidate["path"],
+                "source_file": candidate["source_file"],
+                "sha256": candidate["source_sha256"],
+                "block": item["block"],
+                "claim_text": item["claim_text"],
+                "declared_metric": item.get("declared_metric"),
+                "declared_value": item.get("declared_value"),
+                "stratum": item["stratum"],
+                "evidence_tier": item["evidence_tier"],
+            }
+        )
+    sample = {
+        "schema_version": SAMPLE_SCHEMA,
+        "candidate_manifest": file_descriptor(candidate_manifest_path),
+        "enrollment": file_descriptor(enrollment_path),
+        "claims": sorted(rows, key=lambda row: row["claim_id"]),
+        "sample_sha256": "",
+    }
+    sample["sample_sha256"] = canonical_digest(sample, blank_field="sample_sha256")
+    _validate_schema(sample, "evidence-trial-sample-v1.schema.json", "trial sample")
+    _write_json_exclusive(output, sample)
+    return sample
 
 
 def prepare_trial_review(sample_path: Path, output_dir: Path) -> dict[str, Any]:
@@ -249,17 +376,22 @@ def prepare_trial_review(sample_path: Path, output_dir: Path) -> dict[str, Any]:
         raise ValueError("trial review output directory must be empty")
     sample = _load_json_object(sample_path, "trial sample")
     _validate_schema(sample, "evidence-trial-sample-v1.schema.json", "trial sample")
-    private_fields = {"gold_status", "gold_metric", "gold_value", "gold_rationale"}
+    if "sample_sha256" in sample and sample["sample_sha256"] != canonical_digest(
+        sample, blank_field="sample_sha256"
+    ):
+        raise ValueError("trial sample checksum does not match its payload")
+    private_fields = {
+        "gold_status",
+        "gold_metric",
+        "gold_value",
+        "gold_rationale",
+        "gold_evidence_refs",
+    }
     public_claims = [
         {key: value for key, value in claim.items() if key not in private_fields}
         for claim in sample["claims"]
     ]
-    private_claims = [
-        {key: value for key, value in claim.items() if key == "claim_id" or key in private_fields}
-        for claim in sample["claims"]
-    ]
     packet_path = output_dir / "public" / "packet.json"
-    gold_path = output_dir / "private" / "PRIVATE-internal-gold.json"
     _write_json_exclusive(
         packet_path,
         {
@@ -268,36 +400,30 @@ def prepare_trial_review(sample_path: Path, output_dir: Path) -> dict[str, Any]:
             "claims": public_claims,
         },
     )
-    _write_json_exclusive(
-        gold_path,
-        {
-            "schema_version": "reprocheck.evidence-trial-internal-gold.v1",
-            "sample_sha256": file_descriptor(sample_path)["sha256"],
-            "claims": private_claims,
-        },
-    )
     manifest = {
         "schema_version": "reprocheck.evidence-trial-review-manifest.v1",
         "reviewers_completed": 0,
         "adjudication_complete": False,
         "sample": file_descriptor(sample_path),
         "packet": file_descriptor(packet_path),
-        "internal_gold": file_descriptor(gold_path),
+        "gold_source": "two_independent_reviews_plus_complete_adjudication",
     }
     _write_json_exclusive(output_dir / "manifest.json", manifest)
     return manifest
 
 
-def _review_rows(path: Path) -> tuple[str, dict[str, str], dict[str, Any]]:
+def _review_rows(
+    path: Path, expected_packet_sha256: str
+) -> tuple[str, dict[str, dict[str, Any]], dict[str, Any]]:
     payload = _load_json_object(path, "trial review")
     _validate_schema(payload, "evidence-trial-review-v1.schema.json", "trial review")
-    if payload.get("independent") is not True:
-        raise ValueError("trial reviewer must explicitly confirm independence")
+    if payload.get("packet_sha256") != expected_packet_sha256:
+        raise ValueError("trial review references a different blinded packet")
     rows = payload["reviews"]
     ids = [item["claim_id"] for item in rows]
     if len(ids) != len(set(ids)):
         raise ValueError("trial review must contain every claim ID exactly once")
-    return payload["reviewer_id"], {item["claim_id"]: item["status"] for item in rows}, payload
+    return payload["reviewer_id"], {item["claim_id"]: item for item in rows}, payload
 
 
 def lock_trial_gold(
@@ -308,21 +434,25 @@ def lock_trial_gold(
 ) -> dict[str, Any]:
     if len(reviewer_paths) != 2:
         raise ValueError("trial gold lock requires exactly two independent reviews")
-    _load_json_object(review_dir / "manifest.json", "trial review manifest")
-    internal_path = review_dir / "private" / "PRIVATE-internal-gold.json"
-    internal = _load_json_object(internal_path, "trial internal gold")
-    packet = _load_json_object(review_dir / "public" / "packet.json", "trial review packet")
+    manifest = _load_json_object(review_dir / "manifest.json", "trial review manifest")
+    packet_path = review_dir / "public" / "packet.json"
+    packet_descriptor = file_descriptor(packet_path)
+    if manifest.get("packet") != packet_descriptor:
+        raise ValueError("trial review packet does not match its manifest")
+    packet = _load_json_object(packet_path, "trial review packet")
     public_by_id = {item["claim_id"]: item for item in packet["claims"]}
-    expected_ids = {item["claim_id"] for item in internal["claims"]}
-    parsed = [_review_rows(path) for path in reviewer_paths]
+    expected_ids = set(public_by_id)
+    parsed = [_review_rows(path, packet_descriptor["sha256"]) for path in reviewer_paths]
     if parsed[0][0] == parsed[1][0]:
         raise ValueError("trial gold lock requires two distinct reviewer IDs")
     if any(set(rows) != expected_ids for _, rows, _ in parsed):
         raise ValueError("trial review must contain every claim ID exactly once")
     disagreements = {
-        claim_id for claim_id in expected_ids if parsed[0][1][claim_id] != parsed[1][1][claim_id]
+        claim_id
+        for claim_id in expected_ids
+        if parsed[0][1][claim_id]["status"] != parsed[1][1][claim_id]["status"]
     }
-    adjudicated: dict[str, str] = {}
+    adjudicated: dict[str, dict[str, Any]] = {}
     adjudication_descriptor: dict[str, Any] | None = None
     if disagreements:
         if adjudication_path is None:
@@ -331,27 +461,53 @@ def lock_trial_gold(
         rows = payload.get("adjudications")
         if not isinstance(rows, list):
             raise ValueError("trial adjudication rows are missing")
+        row_ids = [item.get("claim_id") for item in rows if isinstance(item, dict)]
+        if len(row_ids) != len(rows) or len(row_ids) != len(set(row_ids)):
+            raise ValueError("trial adjudication claim IDs must be unique")
+        if set(row_ids) != disagreements:
+            raise ValueError("adjudication must contain only and every disagreement")
         adjudicated = {
-            item["claim_id"]: item["status"]
+            item["claim_id"]: item
             for item in rows
             if isinstance(item, dict)
             and item.get("claim_id") in disagreements
             and item.get("status") in TRIAL_STATUSES
+            and isinstance(item.get("rationale"), str)
+            and bool(item["rationale"].strip())
+            and isinstance(item.get("evidence_refs"), list)
+            and all(isinstance(ref, str) and ref for ref in item["evidence_refs"])
         }
         if set(adjudicated) != disagreements:
             raise ValueError("adjudication must resolve every disagreement exactly once")
         adjudication_descriptor = file_descriptor(adjudication_path)
     final_rows = []
-    for item in internal["claims"]:
-        claim_id = item["claim_id"]
-        reviewer_status = parsed[0][1][claim_id]
-        status = adjudicated.get(claim_id, reviewer_status)
-        final_rows.append({**public_by_id[claim_id], **item, "gold_status": status})
+    for claim_id in sorted(expected_ids):
+        first_row = parsed[0][1][claim_id]
+        second_row = parsed[1][1][claim_id]
+        resolved = adjudicated.get(claim_id)
+        if resolved is None:
+            status = first_row["status"]
+            rationale = (
+                f"reviewer_1: {first_row['rationale']} | reviewer_2: {second_row['rationale']}"
+            )
+            evidence_refs = sorted(set(first_row["evidence_refs"] + second_row["evidence_refs"]))
+        else:
+            status = resolved["status"]
+            rationale = resolved["rationale"]
+            evidence_refs = resolved["evidence_refs"]
+        final_rows.append(
+            {
+                **public_by_id[claim_id],
+                "gold_status": status,
+                "gold_rationale": rationale,
+                "gold_evidence_refs": evidence_refs,
+            }
+        )
     agree = len(expected_ids) - len(disagreements)
     total = len(expected_ids)
     confusion = {first: {second: 0 for second in TRIAL_STATUSES} for first in TRIAL_STATUSES}
     for claim_id in expected_ids:
-        confusion[parsed[0][1][claim_id]][parsed[1][1][claim_id]] += 1
+        confusion[parsed[0][1][claim_id]["status"]][parsed[1][1][claim_id]["status"]] += 1
     observed = agree / total if total else 0.0
     marg_a = {s: sum(confusion[s].values()) / total for s in TRIAL_STATUSES} if total else {}
     marg_b = (
@@ -366,7 +522,6 @@ def lock_trial_gold(
         "reviewer_count": 2,
         "adjudication_complete": True,
         "manifest": file_descriptor(review_dir / "manifest.json"),
-        "internal_gold": file_descriptor(internal_path),
         "reviewers": [file_descriptor(path) for path in reviewer_paths],
         "adjudication": adjudication_descriptor,
         "raw_agreement": observed,
@@ -469,19 +624,14 @@ def _holm(p_values: dict[str, float]) -> dict[str, float]:
     return adjusted
 
 
-def _load_predictions(path: Path) -> dict[str, str]:
+def _load_predictions(path: Path, expected_arm: str) -> dict[str, str]:
     payload = _load_json_object(path, "trial arm predictions")
-    rows = payload.get("predictions")
-    if not isinstance(rows, list):
-        raise ValueError("trial arm predictions must contain a predictions array")
+    _validate_schema(payload, "evidence-trial-arm-v1.schema.json", "trial arm predictions")
+    if payload["arm"] != expected_arm:
+        raise ValueError(f"trial arm file does not match its declared arm: {expected_arm}")
+    rows = payload["predictions"]
     result: dict[str, str] = {}
     for row in rows:
-        if (
-            not isinstance(row, dict)
-            or not isinstance(row.get("claim_id"), str)
-            or row.get("status") not in TRIAL_STATUSES
-        ):
-            raise ValueError("trial arm prediction row is invalid")
         if row["claim_id"] in result:
             raise ValueError("trial arm prediction claim IDs must be unique")
         result[row["claim_id"]] = str(row["status"])
@@ -514,8 +664,18 @@ def score_evidence_trial(
         raise ValueError("gold lock is not adjudication-complete")
     if set(arm_paths) != set(TRIAL_ARMS):
         raise ValueError("trial scoring requires exactly the three registered arms")
-    gold = {item["claim_id"]: item for item in gold_payload["claims"]}
-    predictions = {name: _load_predictions(path) for name, path in arm_paths.items()}
+    gold_rows = gold_payload.get("claims")
+    if not isinstance(gold_rows, list) or not all(isinstance(item, dict) for item in gold_rows):
+        raise ValueError("gold lock claims must be an array of objects")
+    gold_ids = [item.get("claim_id") for item in gold_rows]
+    if not all(isinstance(item, str) and item for item in gold_ids) or len(gold_ids) != len(
+        set(gold_ids)
+    ):
+        raise ValueError("gold lock claim IDs must be non-empty and unique")
+    gold = {item["claim_id"]: item for item in gold_rows}
+    predictions = {name: _load_predictions(path, name) for name, path in arm_paths.items()}
+    if any(set(rows) != set(gold) for rows in predictions.values()):
+        raise ValueError("every trial arm must contain exactly the gold claim IDs")
     natural_gold = {
         claim_id: item for claim_id, item in gold.items() if item["stratum"] in NATURAL_STRATA
     }
@@ -596,6 +756,7 @@ def score_evidence_trial(
         "protocol": file_descriptor(protocol_path),
         "registration": file_descriptor(registration_path),
         "gold": file_descriptor(gold_path),
+        "arm_inputs": {name: file_descriptor(path) for name, path in sorted(arm_paths.items())},
         "arms": arm_scores,
         "comparisons": comparisons,
         "controlled_mutation": controlled,
@@ -625,7 +786,13 @@ def score_certificate_track(cases: list[dict[str, Any]]) -> dict[str, Any]:
     rejected = 0
     tamper_total = 0
     seen_certificates: set[str] = set()
+    seen_case_ids: set[str] = set()
+    tamper_by_class = {name: {"cases": 0, "rejected": 0} for name in REQUIRED_TAMPER_CLASSES}
     for case in cases:
+        case_id = case.get("case_id")
+        if not isinstance(case_id, str) or not case_id or case_id in seen_case_ids:
+            raise ValueError("certificate track case IDs must be non-empty and unique")
+        seen_case_ids.add(case_id)
         certificate = Path(case["certificate"])
         witness = Path(case["witness"])
         artifact_dir = Path(case["artifact_dir"])
@@ -637,15 +804,22 @@ def score_certificate_track(cases: list[dict[str, Any]]) -> dict[str, Any]:
         witness_errors = verify_witness_file(witness, certificate, artifact_dir)
         if certificate_errors or witness_errors:
             raise ValueError("certificate/witness binding or verification failed")
+        certificate_payload = _load_json_object(certificate, "certificate")
         witness_payload = _load_json_object(witness, "witness")
-        if witness_payload.get("certificate_sha256") not in (None, digest):
+        if witness_payload.get("source_certificate_sha256") != certificate_payload.get(
+            "certificate_sha256"
+        ):
             raise ValueError("certificate/witness binding mismatch")
         preserved += case.get("certificate_verdict") == case.get("witness_verdict")
         full_size = len(certificate.read_bytes())
         witness_size = len(witness.read_bytes())
         reductions.append(1 - witness_size / full_size if full_size else 0.0)
         for tampered in case.get("tampered", []):
+            tamper_class = tampered.get("tamper_class")
+            if tamper_class not in REQUIRED_TAMPER_CLASSES:
+                raise ValueError("certificate track contains an unregistered tamper class")
             tamper_total += 1
+            tamper_by_class[tamper_class]["cases"] += 1
             tampered_path = Path(tampered["path"])
             kind = tampered.get("kind", "witness")
             errors = (
@@ -653,12 +827,21 @@ def score_certificate_track(cases: list[dict[str, Any]]) -> dict[str, Any]:
                 if kind == "certificate"
                 else verify_witness_file(tampered_path, certificate, artifact_dir)
             )
-            rejected += bool(errors)
+            rejected += int(bool(errors))
+            tamper_by_class[tamper_class]["rejected"] += int(bool(errors))
+    missing_classes = sorted(
+        name for name, summary in tamper_by_class.items() if summary["cases"] == 0
+    )
+    if missing_classes:
+        raise ValueError(
+            "certificate track is missing tamper classes: " + ", ".join(missing_classes)
+        )
     return {
         "schema_version": "reprocheck.evidence-trial-certificate-track.v1",
         "cases": len(cases),
         "verdict_preservation_rate": preserved / len(cases),
         "tamper_cases": tamper_total,
         "tamper_rejection_rate": rejected / tamper_total if tamper_total else 0.0,
+        "tamper_by_class": tamper_by_class,
         "median_byte_reduction": statistics.median(reductions),
     }

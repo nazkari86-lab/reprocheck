@@ -1,0 +1,172 @@
+{
+  "candidates": [],
+  "completed_event_ids": [
+    "search-01",
+    "search-02",
+    "search-03",
+    "search-04",
+    "search-05",
+    "search-06",
+    "search-07",
+    "search-08",
+    "search-09",
+    "search-10"
+  ],
+  "config_sha256": "2861b48f01b0da628f300ed4863cc7c0b0cc9014883ce6428c82090f34f8bb08",
+  "frames": [
+    {
+      "api_returned_count": 100,
+      "api_total_count": 16800,
+      "eligible_candidate_count": 0,
+      "event_id": "search-01",
+      "query_url": "https://api.github.com/search/code?q=%22accuracy%22+filename%3ARESULTS.md+extension%3Amd&per_page=100",
+      "selected_count": 0
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 10656,
+      "eligible_candidate_count": 0,
+      "event_id": "search-02",
+      "query_url": "https://api.github.com/search/code?q=%22precision%22+filename%3ARESULTS.md+extension%3Amd&per_page=100",
+      "selected_count": 0
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 8512,
+      "eligible_candidate_count": 0,
+      "event_id": "search-03",
+      "query_url": "https://api.github.com/search/code?q=%22recall%22+filename%3ARESULTS.md+extension%3Amd&per_page=100",
+      "selected_count": 0
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 13440,
+      "eligible_candidate_count": 0,
+      "event_id": "search-04",
+      "query_url": "https://api.github.com/search/code?q=%22f1%22+filename%3ARESULTS.md+extension%3Amd&per_page=100",
+      "selected_count": 0
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 2148,
+      "eligible_candidate_count": 0,
+      "event_id": "search-05",
+      "query_url": "https://api.github.com/search/code?q=%22rmse%22+filename%3ARESULTS.md+extension%3Amd&per_page=100",
+      "selected_count": 0
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 2344,
+      "eligible_candidate_count": 0,
+      "event_id": "search-06",
+      "query_url": "https://api.github.com/search/code?q=%22mae%22+filename%3ARESULTS.md+extension%3Amd&per_page=100",
+      "selected_count": 0
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 30528,
+      "eligible_candidate_count": 0,
+      "event_id": "search-07",
+      "query_url": "https://api.github.com/search/code?q=%22mAP%22+filename%3ARESULTS.md+extension%3Amd&per_page=100",
+      "selected_count": 0
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 542,
+      "eligible_candidate_count": 0,
+      "event_id": "search-08",
+      "query_url": "https://api.github.com/search/code?q=%22AUROC%22+filename%3ARESULTS.md+extension%3Amd&per_page=100",
+      "selected_count": 0
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 8896,
+      "eligible_candidate_count": 0,
+      "event_id": "search-09",
+      "query_url": "https://api.github.com/search/code?q=%22accuracy%22+filename%3ABENCHMARK.md+extension%3Amd&per_page=100",
+      "selected_count": 0
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 2988,
+      "eligible_candidate_count": 0,
+      "event_id": "search-10",
+      "query_url": "https://api.github.com/search/code?q=%22f1%22+filename%3ABENCHMARK.md+extension%3Amd&per_page=100",
+      "selected_count": 0
+    }
+  ],
+  "responses": [
+    {
+      "event_id": "search-01",
+      "raw_file": "raw/search-01.bin",
+      "sha256": "89562bb925d13076ce503903e520f0973160a9135212275153cec39775dcf780",
+      "size_bytes": 506235,
+      "url": "https://api.github.com/search/code?q=%22accuracy%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"
+    },
+    {
+      "event_id": "search-02",
+      "raw_file": "raw/search-02.bin",
+      "sha256": "b6487391445df104fd633a0c796d0487ba5139b3ec2928643bf6dea017ad8533",
+      "size_bytes": 499508,
+      "url": "https://api.github.com/search/code?q=%22precision%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"
+    },
+    {
+      "event_id": "search-03",
+      "raw_file": "raw/search-03.bin",
+      "sha256": "72643c885043ee6ff1a5f655781a109e7f1113245054af86f0f1a0c598a7f0ba",
+      "size_bytes": 496284,
+      "url": "https://api.github.com/search/code?q=%22recall%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"
+    },
+    {
+      "event_id": "search-04",
+      "raw_file": "raw/search-04.bin",
+      "sha256": "bbcb12af7454958198a02fe7ab75a02c68220689949697ced601ea033357d900",
+      "size_bytes": 507377,
+      "url": "https://api.github.com/search/code?q=%22f1%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"
+    },
+    {
+      "event_id": "search-05",
+      "raw_file": "raw/search-05.bin",
+      "sha256": "c95595c003425736cfc4af9e82b4d2857d5b5cd85b72ea71a83f6809a4c4ffbf",
+      "size_bytes": 508856,
+      "url": "https://api.github.com/search/code?q=%22rmse%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"
+    },
+    {
+      "event_id": "search-06",
+      "raw_file": "raw/search-06.bin",
+      "sha256": "f25837b36ac46346b3ff26e6dea8f59d1df27ccaf80d008625197389e177d170",
+      "size_bytes": 508099,
+      "url": "https://api.github.com/search/code?q=%22mae%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"
+    },
+    {
+      "event_id": "search-07",
+      "raw_file": "raw/search-07.bin",
+      "sha256": "9f26785eb6ef62c85c0a70f57ebcfff0224b7e5615dcf40212052551cf75712d",
+      "size_bytes": 509773,
+      "url": "https://api.github.com/search/code?q=%22mAP%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"
+    },
+    {
+      "event_id": "search-08",
+      "raw_file": "raw/search-08.bin",
+      "sha256": "7a638a406712e569bddafe37765e831873ec5426ba2b3d24d408e2ffb2f1dabe",
+      "size_bytes": 511354,
+      "url": "https://api.github.com/search/code?q=%22AUROC%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"
+    },
+    {
+      "event_id": "search-09",
+      "raw_file": "raw/search-09.bin",
+      "sha256": "cff7a7baccd69d3d207bbe1fb783f060a884a1361988bf82ff71e8ae028cbd72",
+      "size_bytes": 484125,
+      "url": "https://api.github.com/search/code?q=%22accuracy%22+filename%3ABENCHMARK.md+extension%3Amd&per_page=100"
+    },
+    {
+      "event_id": "search-10",
+      "raw_file": "raw/search-10.bin",
+      "sha256": "35fae9395719bdecf6bef531fd4a2e9385fc722a2c651b5baf7c5d61a3d6ab51",
+      "size_bytes": 488133,
+      "url": "https://api.github.com/search/code?q=%22f1%22+filename%3ABENCHMARK.md+extension%3Amd&per_page=100"
+    }
+  ],
+  "schema_version": "reprocheck.evidence-trial-acquisition-state.v2",
+  "total_bytes": 5019744
+}

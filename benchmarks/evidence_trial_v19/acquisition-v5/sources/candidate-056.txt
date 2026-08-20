@@ -1,0 +1,78 @@
+<!-- section: dataset -->
+| Split | Images | Boxes | Boxes/img | Empty | Median box | P5 box | P95 box |
+|---|---|---|---|---|---|---|---|
+| train | 2463 | 3334 | 1.354 | 676 | 134.7 px | 21.6 px | 334.7 px |
+| valid | 274 | 448 | 1.635 | 42 | 119.2 px | 27.4 px | 286.3 px |
+| test | 274 | 463 | 1.69 | 59 | 100.0 px | 21.0 px | 279.5 px |
+
+| Detection head | Receptive band | Share of train boxes |
+|---|---|---|
+| P3 (stride 8) | < 64 px | 28.4% |
+| P4 (stride 16) | 64-128 px | 20.1% |
+| P5 (stride 32) | > 128 px | 51.6% |
+
+<!-- section: architecture -->
+| Variant | Params | vs V0 | GFLOPs @640 | GFLOPs @512 | Pretrained tensors inherited |
+|---|---|---|---|---|---|
+| `yolo11n-face-v0` | 2,590,035 | 100% | 6.5 | 4.146 | 448/499 (89.8%) |
+| `yolo11n-face-v1` | 1,564,599 | 60% | 4.241 | 2.703 | 120/499 (24.0%) |
+| `yolo11n-face-v2` | 2,340,307 | 90% | 6.236 | 3.991 | 406/457 (88.8%) |
+| `yolo11n-face-v3` | 1,423,383 | 55% | 4.08 | 2.611 | 113/457 (24.7%) |
+
+<!-- section: accuracy -->
+| Variant | Format | Split | mAP@0.5 | mAP@0.5:0.95 | Precision | Recall |
+|---|---|---|---|---|---|---|
+| `yolo11n-face-v0` | TORCH | test | 0.9517 ✅ | 0.6981 | 0.9292 | 0.8942 |
+| `yolo11n-face-v0` | TORCH | val | 0.9574 | 0.7211 | 0.9532 | 0.9099 |
+| `yolo11n-face-v0` | FP32 | test | 0.9468 ❌ | 0.6819 | 0.9073 | 0.9006 |
+| `yolo11n-face-v0` | FP32 | val | 0.9498 | 0.7047 | 0.9661 | 0.8896 |
+| `yolo11n-face-v0` | FP16 | test | 0.9468 ❌ | 0.6819 | 0.9084 | 0.8994 |
+| `yolo11n-face-v0` | FP16 | val | 0.9497 | 0.7041 | 0.9660 | 0.8884 |
+| `yolo11n-face-v0` | INT8 | test | 0.9461 ❌ | 0.6796 | 0.9052 | 0.9076 |
+| `yolo11n-face-v0` | INT8 | val | 0.9488 | 0.6985 | 0.9631 | 0.8929 |
+| `yolo11n-face-v1` | TORCH | test | 0.9362 ❌ | 0.6440 | 0.9227 | 0.8855 |
+| `yolo11n-face-v1` | TORCH | val | 0.9480 | 0.6799 | 0.9411 | 0.8909 |
+| `yolo11n-face-v1` | FP32 | test | 0.9357 ❌ | 0.6253 | 0.9181 | 0.8963 |
+| `yolo11n-face-v1` | FP32 | val | 0.9382 | 0.6605 | 0.9225 | 0.8951 |
+| `yolo11n-face-v1` | FP16 | test | 0.9357 ❌ | 0.6250 | 0.9183 | 0.8980 |
+| `yolo11n-face-v1` | FP16 | val | 0.9382 | 0.6595 | 0.9241 | 0.8973 |
+| `yolo11n-face-v1` | INT8 | test | 0.9343 ❌ | 0.6254 | 0.9212 | 0.8836 |
+| `yolo11n-face-v1` | INT8 | val | 0.9368 | 0.6579 | 0.9062 | 0.9130 |
+| `yolo11n-face-v2` | TORCH | test | 0.9539 ✅ | 0.6911 | 0.9155 | 0.9128 |
+| `yolo11n-face-v2` | TORCH | val | 0.9585 | 0.7023 | 0.9668 | 0.9099 |
+| `yolo11n-face-v2` | FP32 | test | 0.9484 ❌ | 0.6783 | 0.9342 | 0.8855 |
+| `yolo11n-face-v2` | FP32 | val | 0.9526 | 0.6849 | 0.9578 | 0.9219 |
+| `yolo11n-face-v2` | FP16 | test | 0.9485 ❌ | 0.6784 | 0.9341 | 0.8855 |
+| `yolo11n-face-v2` | FP16 | val | 0.9526 | 0.6847 | 0.9574 | 0.9219 |
+| `yolo11n-face-v2` | INT8 | test | 0.9494 ❌ | 0.6779 | 0.9262 | 0.8938 |
+| `yolo11n-face-v2` | INT8 | val | 0.9511 | 0.6833 | 0.9566 | 0.9174 |
+
+<!-- section: size -->
+| Variant | FP32 | FP16 | INT8 |
+|---|---|---|---|
+| `yolo11n-face-v0` | 10.43 MB | 5.21 MB | 2.74 MB |
+| `yolo11n-face-v1` | 6.34 MB | 3.17 MB | 1.70 MB |
+| `yolo11n-face-v2` | 9.44 MB | 4.72 MB | 2.48 MB |
+
+<!-- section: benchmark -->
+| Model | CPUs | Infer p50 | Infer p95 | End-to-end p50 | FPS (e2e) | Peak RSS | CPU% | Budget |
+|---|---|---|---|---|---|---|---|---|
+| `yolo11n-face-v0/fp16_openvino_model/cpus0,1` | 0,1 | 31.762 ms | 33.278 ms | 32.961 ms | 30.23 | 246.24 MB | 190.5% | ✅ |
+| `yolo11n-face-v0/fp16_openvino_model/cpus10,11` | 10,11 | 32.108 ms | 35.861 ms | 33.323 ms | 29.53 | 246.51 MB | 190.4% | ✅ |
+| `yolo11n-face-v0/fp32_openvino_model/cpus0,1` | 0,1 | 31.87 ms | 34.533 ms | 33.142 ms | 29.83 | 250.59 MB | 190.4% | ✅ |
+| `yolo11n-face-v0/fp32_openvino_model/cpus10,11` | 10,11 | 31.793 ms | 35.576 ms | 32.988 ms | 29.64 | 250.4 MB | 190.3% | ✅ |
+| `yolo11n-face-v0/int8_openvino_model/cpus0,1` | 0,1 | 13.785 ms | 14.489 ms | 14.92 ms | 66.75 | 240.49 MB | 188.9% | ✅ |
+| `yolo11n-face-v0/int8_openvino_model/cpus10,11` | 10,11 | 14.03 ms | 14.887 ms | 15.22 ms | 65.29 | 240.35 MB | 188.0% | ✅ |
+| `yolo11n-face-v1/fp16_openvino_model/cpus0,1` | 0,1 | 22.371 ms | 23.378 ms | 23.568 ms | 42.28 | 237.53 MB | 189.7% | ✅ |
+| `yolo11n-face-v1/fp16_openvino_model/cpus10,11` | 10,11 | 22.456 ms | 23.958 ms | 23.699 ms | 41.73 | 237.45 MB | 189.5% | ✅ |
+| `yolo11n-face-v1/fp32_openvino_model/cpus0,1` | 0,1 | 22.674 ms | 24.033 ms | 23.916 ms | 41.62 | 239.22 MB | 189.5% | ✅ |
+| `yolo11n-face-v1/fp32_openvino_model/cpus10,11` | 10,11 | 22.566 ms | 25.246 ms | 23.76 ms | 41.5 | 239.34 MB | 189.5% | ✅ |
+| `yolo11n-face-v1/int8_openvino_model/cpus0,1` | 0,1 | 10.832 ms | 11.64 ms | 12.004 ms | 82.78 | 238.43 MB | 187.5% | ✅ |
+| `yolo11n-face-v1/int8_openvino_model/cpus10,11` | 10,11 | 10.948 ms | 12.113 ms | 12.125 ms | 81.6 | 238.64 MB | 187.3% | ✅ |
+| `yolo11n-face-v2/fp16_openvino_model/cpus0,1` | 0,1 | 30.701 ms | 31.856 ms | 31.924 ms | 31.26 | 240.01 MB | 190.4% | ✅ |
+| `yolo11n-face-v2/fp16_openvino_model/cpus10,11` | 10,11 | 30.775 ms | 31.967 ms | 31.953 ms | 31.21 | 240.07 MB | 190.6% | ✅ |
+| `yolo11n-face-v2/fp32_openvino_model/cpus0,1` | 0,1 | 30.606 ms | 32.211 ms | 31.816 ms | 31.26 | 243.71 MB | 190.3% | ✅ |
+| `yolo11n-face-v2/fp32_openvino_model/cpus10,11` | 10,11 | 30.707 ms | 33.302 ms | 31.935 ms | 30.9 | 243.56 MB | 190.1% | ✅ |
+| `yolo11n-face-v2/int8_openvino_model/cpus0,1` | 0,1 | 13.18 ms | 15.009 ms | 14.366 ms | 68.27 | 233.65 MB | 187.9% | ✅ |
+| `yolo11n-face-v2/int8_openvino_model/cpus10,11` | 10,11 | 13.198 ms | 14.808 ms | 14.377 ms | 68.78 | 233.3 MB | 187.7% | ✅ |
+| `NEGATIVE-CONTROL/8-threads-in-2-cpu-cgroup` | 0,1 | 14.157 ms | 17.221 ms | 15.384 ms | 63.1 | 240.52 MB | 187.9% | ✅ |

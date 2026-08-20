@@ -1454,7 +1454,7 @@ wheels = [
 
 [[package]]
 name = "reprocheck"
-version = "0.30.0"
+version = "0.30.4"
 source = { editable = "." }
 dependencies = [
     { name = "cryptography" },

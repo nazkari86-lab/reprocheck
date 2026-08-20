@@ -1,0 +1,410 @@
+{
+  "candidates": [
+    {
+      "api_url": "https://api.github.com/repos/serre-lab/neural_harmonizer/contents/docs/results.md?ref=0c310cb0c3fdc8353ae9ff6aa48eddcc68c0d5e4",
+      "blob_sha": "245469f19418a1288907bad7bf5f6a63df366d33",
+      "candidate_id": "candidate-001",
+      "commit": "0c310cb0c3fdc8353ae9ff6aa48eddcc68c0d5e4",
+      "default_branch": "main",
+      "frame": "search-01",
+      "immutable_url": "https://github.com/serre-lab/neural_harmonizer/blob/0c310cb0c3fdc8353ae9ff6aa48eddcc68c0d5e4/docs/results.md",
+      "indexed_blob_sha": "245469f19418a1288907bad7bf5f6a63df366d33",
+      "owner": "serre-lab",
+      "path": "docs/results.md",
+      "repository": "serre-lab/neural_harmonizer",
+      "selection_digest": "019e2449edccb79ca5630b9a58ed5e665e084357d4079ceeaa54683b756878dc",
+      "source_bytes": 1106,
+      "source_file": "sources/candidate-001.txt",
+      "source_sha256": "d2bb82f26c261c615714dfb9fb89de3276ed688337ffe47a600c3df640e6ffdc"
+    },
+    {
+      "api_url": "https://api.github.com/repos/Laksh718/DNA-Sequence-Classifier/contents/RESULTS.md?ref=0ee4f591ddcd285c3cca848d39028fea7f63b778",
+      "blob_sha": "c97355ceeac2003c86b72ff50f4c7863d24af63f",
+      "candidate_id": "candidate-002",
+      "commit": "0ee4f591ddcd285c3cca848d39028fea7f63b778",
+      "default_branch": "main",
+      "frame": "search-01",
+      "immutable_url": "https://github.com/Laksh718/DNA-Sequence-Classifier/blob/0ee4f591ddcd285c3cca848d39028fea7f63b778/RESULTS.md",
+      "indexed_blob_sha": "c97355ceeac2003c86b72ff50f4c7863d24af63f",
+      "owner": "Laksh718",
+      "path": "RESULTS.md",
+      "repository": "Laksh718/DNA-Sequence-Classifier",
+      "selection_digest": "087950e28156040681ad8592510f97ee80628b91d98a447d909cb17783cb7d36",
+      "source_bytes": 4627,
+      "source_file": "sources/candidate-002.txt",
+      "source_sha256": "9ea171224ef53f9da9eabf5dd6290ec9dccfccc8354e1783d3f14acbede22e23"
+    },
+    {
+      "api_url": "https://api.github.com/repos/mechramc/Orion/contents/RESULTS.md?ref=65372ff3e1874db15cccc21938d7228c53514619",
+      "blob_sha": "7d9dd60b2dd15ba43fe4ca65cbe69df38ece9ea0",
+      "candidate_id": "candidate-003",
+      "commit": "65372ff3e1874db15cccc21938d7228c53514619",
+      "default_branch": "main",
+      "frame": "search-01",
+      "immutable_url": "https://github.com/mechramc/Orion/blob/65372ff3e1874db15cccc21938d7228c53514619/RESULTS.md",
+      "indexed_blob_sha": "7d9dd60b2dd15ba43fe4ca65cbe69df38ece9ea0",
+      "owner": "mechramc",
+      "path": "RESULTS.md",
+      "repository": "mechramc/Orion",
+      "selection_digest": "092f55e67c8a25c92c9279eafe7b87c6ab97ca3d56b3f9dbe705355b7d242ac5",
+      "source_bytes": 9387,
+      "source_file": "sources/candidate-003.txt",
+      "source_sha256": "a6dab0ca8adfb14b08ee82b8472f7554c99fa78efb68a464b1281f699e4a6f25"
+    },
+    {
+      "api_url": "https://api.github.com/repos/GioiaZheng/msmarco-genqa/contents/RESULTS.md?ref=4572da75131a2370cd7c49e67c47725979160c78",
+      "blob_sha": "92fc89181ad5d7ef149d9541598d4fa6db1c24a2",
+      "candidate_id": "candidate-004",
+      "commit": "4572da75131a2370cd7c49e67c47725979160c78",
+      "default_branch": "main",
+      "frame": "search-02",
+      "immutable_url": "https://github.com/GioiaZheng/msmarco-genqa/blob/4572da75131a2370cd7c49e67c47725979160c78/RESULTS.md",
+      "indexed_blob_sha": "92fc89181ad5d7ef149d9541598d4fa6db1c24a2",
+      "owner": "GioiaZheng",
+      "path": "RESULTS.md",
+      "repository": "GioiaZheng/msmarco-genqa",
+      "selection_digest": "007b216a346cadae0c56e469f4870f65cd8db8043c97108dbe3ba525986f0eb8",
+      "source_bytes": 14722,
+      "source_file": "sources/candidate-004.txt",
+      "source_sha256": "0d740e7bd24cc417ffa1ea9323be775650f55c0e550895543c267472331c112a"
+    },
+    {
+      "api_url": "https://api.github.com/repos/BrenoFariasdaSilva/DDoS-Detector/contents/RESULTS.md?ref=3e988a23ce7f8d792b000c048a1059680b9f801a",
+      "blob_sha": "87561fa2e9c3e6a3cecdaac54a93fe4305d61fb0",
+      "candidate_id": "candidate-005",
+      "commit": "3e988a23ce7f8d792b000c048a1059680b9f801a",
+      "default_branch": "main",
+      "frame": "search-02",
+      "immutable_url": "https://github.com/BrenoFariasdaSilva/DDoS-Detector/blob/3e988a23ce7f8d792b000c048a1059680b9f801a/RESULTS.md",
+      "indexed_blob_sha": "87561fa2e9c3e6a3cecdaac54a93fe4305d61fb0",
+      "owner": "BrenoFariasdaSilva",
+      "path": "RESULTS.md",
+      "repository": "BrenoFariasdaSilva/DDoS-Detector",
+      "selection_digest": "0180c13e9c89fd93a35699817049cc0ee8949baff49eae9502fecf245174fcfe",
+      "source_bytes": 19195,
+      "source_file": "sources/candidate-005.txt",
+      "source_sha256": "83af926c44f7dd03f84c57d7055e1ab3d1cc916c2cd826c830ed8969c39afd1a"
+    },
+    {
+      "api_url": "https://api.github.com/repos/JiveOff/bs-map-classifier/contents/docs/RESULTS.md?ref=e2f0f1fd69ddbfbf384e984a7db4d2c272674448",
+      "blob_sha": "7b793d2f49b25816a2a373f278df764e3f9be609",
+      "candidate_id": "candidate-006",
+      "commit": "e2f0f1fd69ddbfbf384e984a7db4d2c272674448",
+      "default_branch": "main",
+      "frame": "search-02",
+      "immutable_url": "https://github.com/JiveOff/bs-map-classifier/blob/e2f0f1fd69ddbfbf384e984a7db4d2c272674448/docs/RESULTS.md",
+      "indexed_blob_sha": "7b793d2f49b25816a2a373f278df764e3f9be609",
+      "owner": "JiveOff",
+      "path": "docs/RESULTS.md",
+      "repository": "JiveOff/bs-map-classifier",
+      "selection_digest": "0428e43f1f4ae250736bcbed93921cd63bdf7ec8a46723784fc815728f3c6f60",
+      "source_bytes": 6651,
+      "source_file": "sources/candidate-006.txt",
+      "source_sha256": "413d6e1f64b2c758fb20a50082994165b0357fdbf39f320a29f483ae9c66db53"
+    },
+    {
+      "api_url": "https://api.github.com/repos/ravadashreyas/Lore/contents/eval/RESULTS.md?ref=c75a27c561401d40cfd27d89fe479195e0cf649b",
+      "blob_sha": "c057aeccc393ff4ccf667fb2b353c9a5cdaacd80",
+      "candidate_id": "candidate-007",
+      "commit": "c75a27c561401d40cfd27d89fe479195e0cf649b",
+      "default_branch": "main",
+      "frame": "search-03",
+      "immutable_url": "https://github.com/ravadashreyas/Lore/blob/c75a27c561401d40cfd27d89fe479195e0cf649b/eval/RESULTS.md",
+      "indexed_blob_sha": "c057aeccc393ff4ccf667fb2b353c9a5cdaacd80",
+      "owner": "ravadashreyas",
+      "path": "eval/RESULTS.md",
+      "repository": "ravadashreyas/Lore",
+      "selection_digest": "0358c456a6275753f90ffe063eb29a05892898ff084c4a01a1a4fdcc524eb992",
+      "source_bytes": 6501,
+      "source_file": "sources/candidate-007.txt",
+      "source_sha256": "666d9ede7f590cb267353c34cf4c2601ff5279569fefe8e9a30fe4f61a35729c"
+    },
+    {
+      "api_url": "https://api.github.com/repos/wellcometrust/grants_tagger/contents/docs/mesh_results.md?ref=d1f28133553c7e14e1e99666ace00916b22736c5",
+      "blob_sha": "4318510cd2fc275c5ad453bdd776420943b22164",
+      "candidate_id": "candidate-008",
+      "commit": "d1f28133553c7e14e1e99666ace00916b22736c5",
+      "default_branch": "main",
+      "frame": "search-03",
+      "immutable_url": "https://github.com/wellcometrust/grants_tagger/blob/d1f28133553c7e14e1e99666ace00916b22736c5/docs/mesh_results.md",
+      "indexed_blob_sha": "4318510cd2fc275c5ad453bdd776420943b22164",
+      "owner": "wellcometrust",
+      "path": "docs/mesh_results.md",
+      "repository": "wellcometrust/grants_tagger",
+      "selection_digest": "095397f3bba7ab7240227f47c2bfea8910605e9200e577e3d10430d4763e5d4a",
+      "source_bytes": 4598,
+      "source_file": "sources/candidate-008.txt",
+      "source_sha256": "1a959aae56fa3953e01ceb743ad30dba8eab1e1a881c97dcdbcb395a9860bf85"
+    },
+    {
+      "api_url": "https://api.github.com/repos/kaist-ina/RUN-DVC/contents/docs/results.md?ref=e7c97f8f7d444192b04746622353f005f2ec4a3c",
+      "blob_sha": "a7970b25a2c192c973d53da09fb32d783f723882",
+      "candidate_id": "candidate-009",
+      "commit": "e7c97f8f7d444192b04746622353f005f2ec4a3c",
+      "default_branch": "main",
+      "frame": "search-03",
+      "immutable_url": "https://github.com/kaist-ina/RUN-DVC/blob/e7c97f8f7d444192b04746622353f005f2ec4a3c/docs/results.md",
+      "indexed_blob_sha": "a7970b25a2c192c973d53da09fb32d783f723882",
+      "owner": "kaist-ina",
+      "path": "docs/results.md",
+      "repository": "kaist-ina/RUN-DVC",
+      "selection_digest": "0a6de215effbb6d5b31afcb88f4531a13d3bf0c3e432d277a22642d832d7a5c0",
+      "source_bytes": 7435,
+      "source_file": "sources/candidate-009.txt",
+      "source_sha256": "ac0c2a49445ecd85077b960777af2588ce3905eeca982f60fc21f2ba67702ec0"
+    }
+  ],
+  "completed_event_ids": [
+    "search-01",
+    "search-02",
+    "search-03"
+  ],
+  "config_sha256": "67a4922c271d0298c7340eece8a46704a69df608bd9e483ccb654dd71e578eae",
+  "frames": [
+    {
+      "api_returned_count": 100,
+      "api_total_count": 16800,
+      "eligible_candidate_count": 100,
+      "event_id": "search-01",
+      "query_url": "https://api.github.com/search/code?q=%22accuracy%22+filename%3ARESULTS.md+extension%3Amd&per_page=100",
+      "selected_count": 3
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 10656,
+      "eligible_candidate_count": 100,
+      "event_id": "search-02",
+      "query_url": "https://api.github.com/search/code?q=%22precision%22+filename%3ARESULTS.md+extension%3Amd&per_page=100",
+      "selected_count": 3
+    },
+    {
+      "api_returned_count": 100,
+      "api_total_count": 8512,
+      "eligible_candidate_count": 100,
+      "event_id": "search-03",
+      "query_url": "https://api.github.com/search/code?q=%22recall%22+filename%3ARESULTS.md+extension%3Amd&per_page=100",
+      "selected_count": 3
+    }
+  ],
+  "responses": [
+    {
+      "event_id": "search-01",
+      "raw_file": "raw/search-01.bin",
+      "sha256": "89562bb925d13076ce503903e520f0973160a9135212275153cec39775dcf780",
+      "size_bytes": 506235,
+      "url": "https://api.github.com/search/code?q=%22accuracy%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"
+    },
+    {
+      "event_id": "search-01-candidate-001-commit",
+      "raw_file": "raw/search-01-candidate-001-commit.bin",
+      "sha256": "6273411ff7df292625762372367ebf1dca09f3ea940d4dcdf1c03ec5c906e676",
+      "size_bytes": 44363,
+      "url": "https://api.github.com/repos/serre-lab/neural_harmonizer/commits/main"
+    },
+    {
+      "event_id": "search-01-candidate-001-content",
+      "raw_file": "raw/search-01-candidate-001-content.bin",
+      "sha256": "ce0298bae69f7b039f9c4c49fa5847e3277eebb802621071824706ed93219492",
+      "size_bytes": 2574,
+      "url": "https://api.github.com/repos/serre-lab/neural_harmonizer/contents/docs/results.md?ref=0c310cb0c3fdc8353ae9ff6aa48eddcc68c0d5e4"
+    },
+    {
+      "event_id": "search-01-candidate-001-repository",
+      "raw_file": "raw/search-01-candidate-001-repository.bin",
+      "sha256": "8a7dcb53da6519f4239964230649273ed8e5749762069216ed5d0c712d78718f",
+      "size_bytes": 6849,
+      "url": "https://api.github.com/repos/serre-lab/neural_harmonizer"
+    },
+    {
+      "event_id": "search-01-candidate-002-commit",
+      "raw_file": "raw/search-01-candidate-002-commit.bin",
+      "sha256": "df4ce77bdd7b6422884faa61ba2069f21daac0eac184c92890c8e2678b2384b6",
+      "size_bytes": 19270,
+      "url": "https://api.github.com/repos/Laksh718/DNA-Sequence-Classifier/commits/main"
+    },
+    {
+      "event_id": "search-01-candidate-002-content",
+      "raw_file": "raw/search-01-candidate-002-content.bin",
+      "sha256": "f44ad32adb133eb54adbc6d4f3895565d3b8533099529deea9aefeb78426860b",
+      "size_bytes": 7431,
+      "url": "https://api.github.com/repos/Laksh718/DNA-Sequence-Classifier/contents/RESULTS.md?ref=0ee4f591ddcd285c3cca848d39028fea7f63b778"
+    },
+    {
+      "event_id": "search-01-candidate-002-repository",
+      "raw_file": "raw/search-01-candidate-002-repository.bin",
+      "sha256": "1a2e9c4785711685d9953ddf77df6d99ff49bde9c8292bc9f3b0c7a6c0b155b3",
+      "size_bytes": 6025,
+      "url": "https://api.github.com/repos/Laksh718/DNA-Sequence-Classifier"
+    },
+    {
+      "event_id": "search-01-candidate-003-commit",
+      "raw_file": "raw/search-01-candidate-003-commit.bin",
+      "sha256": "03c1490e5c1915b4ae5a6a89ee5167889657da04f519c05e33b021be211d5a4d",
+      "size_bytes": 10176,
+      "url": "https://api.github.com/repos/mechramc/Orion/commits/main"
+    },
+    {
+      "event_id": "search-01-candidate-003-content",
+      "raw_file": "raw/search-01-candidate-003-content.bin",
+      "sha256": "1153e9405751c0b2df60bf13ce67cb4e499029ef2933d38780eab66f987a5c31",
+      "size_bytes": 13861,
+      "url": "https://api.github.com/repos/mechramc/Orion/contents/RESULTS.md?ref=65372ff3e1874db15cccc21938d7228c53514619"
+    },
+    {
+      "event_id": "search-01-candidate-003-repository",
+      "raw_file": "raw/search-01-candidate-003-repository.bin",
+      "sha256": "5defebb971b55955d480bf583d1ccfe012b2bf3759d76890f69af5def8903f00",
+      "size_bytes": 5316,
+      "url": "https://api.github.com/repos/mechramc/Orion"
+    },
+    {
+      "event_id": "search-02",
+      "raw_file": "raw/search-02.bin",
+      "sha256": "b6487391445df104fd633a0c796d0487ba5139b3ec2928643bf6dea017ad8533",
+      "size_bytes": 499508,
+      "url": "https://api.github.com/search/code?q=%22precision%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"
+    },
+    {
+      "event_id": "search-02-candidate-001-commit",
+      "raw_file": "raw/search-02-candidate-001-commit.bin",
+      "sha256": "d345c49d06133e40e4a175f65de9412a0c3ab2eb44b1a9bdfc1cc040df853658",
+      "size_bytes": 143468,
+      "url": "https://api.github.com/repos/GioiaZheng/msmarco-genqa/commits/main"
+    },
+    {
+      "event_id": "search-02-candidate-001-content",
+      "raw_file": "raw/search-02-candidate-001-content.bin",
+      "sha256": "d0fc8a224b69d75db21bef553ca3b0da553c226f60faefa85af2777b1b2344a6",
+      "size_bytes": 21286,
+      "url": "https://api.github.com/repos/GioiaZheng/msmarco-genqa/contents/RESULTS.md?ref=4572da75131a2370cd7c49e67c47725979160c78"
+    },
+    {
+      "event_id": "search-02-candidate-001-repository",
+      "raw_file": "raw/search-02-candidate-001-repository.bin",
+      "sha256": "096fe05dc36ef73b4cfee0298d043faa9bc753d9e968a82e44c885969824d1f2",
+      "size_bytes": 5690,
+      "url": "https://api.github.com/repos/GioiaZheng/msmarco-genqa"
+    },
+    {
+      "event_id": "search-02-candidate-002-commit",
+      "raw_file": "raw/search-02-candidate-002-commit.bin",
+      "sha256": "b4e3818aa124507652753efa16b695e63dfc9dfc957fe99caf349ef00e72ccb3",
+      "size_bytes": 5483,
+      "url": "https://api.github.com/repos/BrenoFariasdaSilva/DDoS-Detector/commits/main"
+    },
+    {
+      "event_id": "search-02-candidate-002-content",
+      "raw_file": "raw/search-02-candidate-002-content.bin",
+      "sha256": "66b5a2e4058ba3b57982aa05fa41ce2fef839b11d2bee521276c46d62ea551ae",
+      "size_bytes": 27504,
+      "url": "https://api.github.com/repos/BrenoFariasdaSilva/DDoS-Detector/contents/RESULTS.md?ref=3e988a23ce7f8d792b000c048a1059680b9f801a"
+    },
+    {
+      "event_id": "search-02-candidate-002-repository",
+      "raw_file": "raw/search-02-candidate-002-repository.bin",
+      "sha256": "842861a657ad3e4b07d813d5599ddd80d93961e59ebdfd7511b6b65931ff2c0a",
+      "size_bytes": 12645,
+      "url": "https://api.github.com/repos/BrenoFariasdaSilva/DDoS-Detector"
+    },
+    {
+      "event_id": "search-02-candidate-003-commit",
+      "raw_file": "raw/search-02-candidate-003-commit.bin",
+      "sha256": "11e9ed8c02bb7e3a3201c4ebc1325244091d10470bacdec0a2511cc6ec4c1a02",
+      "size_bytes": 32307,
+      "url": "https://api.github.com/repos/JiveOff/bs-map-classifier/commits/main"
+    },
+    {
+      "event_id": "search-02-candidate-003-content",
+      "raw_file": "raw/search-02-candidate-003-content.bin",
+      "sha256": "2696cc9107a2649d42a2f95244ac7ed7ad58b121d7d8228d3e0a063c5a81c0e5",
+      "size_bytes": 10198,
+      "url": "https://api.github.com/repos/JiveOff/bs-map-classifier/contents/docs/RESULTS.md?ref=e2f0f1fd69ddbfbf384e984a7db4d2c272674448"
+    },
+    {
+      "event_id": "search-02-candidate-003-repository",
+      "raw_file": "raw/search-02-candidate-003-repository.bin",
+      "sha256": "16b423e556f76cc8255f2efe41652a72186f2ae7929bd2496950c9c1379c8549",
+      "size_bytes": 5741,
+      "url": "https://api.github.com/repos/JiveOff/bs-map-classifier"
+    },
+    {
+      "event_id": "search-03",
+      "raw_file": "raw/search-03.bin",
+      "sha256": "72643c885043ee6ff1a5f655781a109e7f1113245054af86f0f1a0c598a7f0ba",
+      "size_bytes": 496284,
+      "url": "https://api.github.com/search/code?q=%22recall%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"
+    },
+    {
+      "event_id": "search-03-candidate-003-commit",
+      "raw_file": "raw/search-03-candidate-003-commit.bin",
+      "sha256": "3aed516d1e6445ea723f05d1219b1c2d19a5b39d90dd79d53471cae2f4815d32",
+      "size_bytes": 10123,
+      "url": "https://api.github.com/repos/ravadashreyas/Lore/commits/main"
+    },
+    {
+      "event_id": "search-03-candidate-003-content",
+      "raw_file": "raw/search-03-candidate-003-content.bin",
+      "sha256": "ffcf047856d8ecc4bede72f0790be649a0b6143a53516115d88c58e60e8a9d09",
+      "size_bytes": 9943,
+      "url": "https://api.github.com/repos/ravadashreyas/Lore/contents/eval/RESULTS.md?ref=c75a27c561401d40cfd27d89fe479195e0cf649b"
+    },
+    {
+      "event_id": "search-03-candidate-003-repository",
+      "raw_file": "raw/search-03-candidate-003-repository.bin",
+      "sha256": "2c6a3520c4e18195c9572fdc29ebe2f078b2d24e577de747e96201d1cb73f338",
+      "size_bytes": 5491,
+      "url": "https://api.github.com/repos/ravadashreyas/Lore"
+    },
+    {
+      "event_id": "search-03-candidate-005-commit",
+      "raw_file": "raw/search-03-candidate-005-commit.bin",
+      "sha256": "1af6a3364578ef1a027fbc53633007bbaa941668692f03056eab1f4130518021",
+      "size_bytes": 11245,
+      "url": "https://api.github.com/repos/wellcometrust/grants_tagger/commits/main"
+    },
+    {
+      "event_id": "search-03-candidate-005-content",
+      "raw_file": "raw/search-03-candidate-005-content.bin",
+      "sha256": "a57ecc2aaa0923fd2be900320bed36dafea873854df77ea07345492695a828a4",
+      "size_bytes": 7421,
+      "url": "https://api.github.com/repos/wellcometrust/grants_tagger/contents/docs/mesh_results.md?ref=d1f28133553c7e14e1e99666ace00916b22736c5"
+    },
+    {
+      "event_id": "search-03-candidate-005-repository",
+      "raw_file": "raw/search-03-candidate-005-repository.bin",
+      "sha256": "bd61979b68d7c6e233845f7b832cc44639a163ad8f7c7fb2ac315b91fe155514",
+      "size_bytes": 6900,
+      "url": "https://api.github.com/repos/wellcometrust/grants_tagger"
+    },
+    {
+      "event_id": "search-03-candidate-006-commit",
+      "raw_file": "raw/search-03-candidate-006-commit.bin",
+      "sha256": "3a60cc3ee109be69de6658b32f5231b7dbefa70ce5e37860059aa2f739152c4a",
+      "size_bytes": 5641,
+      "url": "https://api.github.com/repos/kaist-ina/RUN-DVC/commits/main"
+    },
+    {
+      "event_id": "search-03-candidate-006-content",
+      "raw_file": "raw/search-03-candidate-006-content.bin",
+      "sha256": "e214bfd69980bb87e351f1b44b6568b9c2068f63d423c14185c5b80301b23a03",
+      "size_bytes": 11226,
+      "url": "https://api.github.com/repos/kaist-ina/RUN-DVC/contents/docs/results.md?ref=e7c97f8f7d444192b04746622353f005f2ec4a3c"
+    },
+    {
+      "event_id": "search-03-candidate-006-repository",
+      "raw_file": "raw/search-03-candidate-006-repository.bin",
+      "sha256": "1753655f5cb0a3f1329eec1445ba7a80cf15798ca58672930adcdfe8dc95c0be",
+      "size_bytes": 6557,
+      "url": "https://api.github.com/repos/kaist-ina/RUN-DVC"
+    },
+    {
+      "event_id": "search-04",
+      "raw_file": "raw/search-04.bin",
+      "sha256": "a97d5bfb9f41c754ec35d12749815b4c5e3b81910a7939f38096d704ab71734f",
+      "size_bytes": 460213,
+      "url": "https://api.github.com/search/code?q=%22f1%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"
+    }
+  ],
+  "schema_version": "reprocheck.evidence-trial-acquisition-state.v2",
+  "total_bytes": 2416974
+}

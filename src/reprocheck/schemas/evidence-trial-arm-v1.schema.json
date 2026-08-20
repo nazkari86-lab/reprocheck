@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "arm", "predictions"],
+  "properties": {
+    "schema_version": {"const": "reprocheck.evidence-trial-arm.v1"},
+    "arm": {"enum": ["report_only", "supplied_metrics", "raw_recomputation"]},
+    "predictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim_id", "status"],
+        "properties": {
+          "claim_id": {"type": "string", "minLength": 1},
+          "status": {"enum": ["supported", "contradicted", "not_verifiable"]}
+        }
+      }
+    }
+  }
+}

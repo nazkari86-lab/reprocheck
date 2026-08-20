@@ -1,10 +1,16 @@
 {
-  "schema_version": "reprocheck.evidence-trial-source-config.v1",
-  "salt": "reprocheck-evidence-trial-v19",
+  "schema_version": "reprocheck.evidence-trial-source-config.v2",
+  "salt": "reprocheck-evidence-trial-v19-generation-5",
   "limits": {
     "per_response_bytes": 2097152,
     "global_bytes": 134217728,
+    "maximum_source_bytes": 250000,
     "timeout_seconds": 20
+  },
+  "selection": {
+    "selected_per_frame": 3,
+    "maximum_candidates": 60,
+    "owner_cap": 1
   },
   "events": [
     {"event_id":"search-01","url":"https://api.github.com/search/code?q=%22accuracy%22+filename%3ARESULTS.md+extension%3Amd&per_page=100"},

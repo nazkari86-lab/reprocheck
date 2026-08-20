@@ -65,6 +65,26 @@ def test_extracts_textual_notebook_outputs_without_executing_code(tmp_path: Path
     assert extract_document_text(path) == "Accuracy: 91%\n\nF1: 0.88"
 
 
+def test_notebook_extraction_ignores_malformed_and_nontext_outputs(tmp_path: Path):
+    path = tmp_path / "mixed.ipynb"
+    path.write_text(
+        json.dumps(
+            {
+                "cells": [
+                    "bad-cell",
+                    {"cell_type": "raw", "outputs": []},
+                    {
+                        "cell_type": "code",
+                        "outputs": ["bad-output", {"output_type": "display_data", "data": []}],
+                    },
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    assert extract_document_text(path) == ""
+
+
 def test_rejects_malformed_notebook_report_contract(tmp_path: Path):
     path = tmp_path / "bad.ipynb"
     path.write_text('{"cells": "not-an-array"}', encoding="utf-8")

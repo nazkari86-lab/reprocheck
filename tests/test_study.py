@@ -29,7 +29,7 @@ PROJECT_ROOT = Path(__file__).parents[1]
 CORPUS = PROJECT_ROOT / "benchmarks" / "real_artifacts"
 
 
-def test_real_artifact_study_matches_strong_baseline_and_validates_schema(tmp_path: Path):
+def test_real_artifact_study_fails_closed_on_incomplete_historical_labels(tmp_path: Path):
     output = tmp_path / "study.json"
     result = run_real_artifact_study(
         CORPUS,
@@ -37,7 +37,7 @@ def test_real_artifact_study_matches_strong_baseline_and_validates_schema(tmp_pa
         repeats=1,
         bootstrap_samples=200,
     )
-    assert study_passed(result)
+    assert not study_passed(result)
     assert result["corpus"] == {
         "artifacts": 60,
         "repositories": 3,
@@ -67,7 +67,9 @@ def test_real_artifact_study_matches_strong_baseline_and_validates_schema(tmp_pa
         ],
     }
     assert result["reprocheck"]["tp"] == 40
-    assert result["reprocheck"]["fp"] == result["reprocheck"]["fn"] == 0
+    assert result["reprocheck"]["fp"] == 58
+    assert result["reprocheck"]["fn"] == 0
+    assert result["reprocheck"]["precision"] == pytest.approx(40 / 98)
     assert result["naive_inline_baseline"]["recall"] == 0.2
     assert result["format_aware_baseline"]["recall"] == 1.0
     assert result["paired_claim_recall_delta"]["paired_bootstrap_95"][0] > 0

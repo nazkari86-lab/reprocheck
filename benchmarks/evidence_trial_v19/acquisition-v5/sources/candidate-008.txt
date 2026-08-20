@@ -1,0 +1,578 @@
+# Eval: abyss call-graph resolution vs SCIP ground truth
+
+Published whatever the numbers say. Reproduce with `eval/run.sh`.
+
+> **2026-07-05 — hono gate decision: per-corpus floor override, not a code
+> hack.** Resolves the open release-blocker flagged in the 2026-07-03c entry
+> below. Decision (made by the project owner, not picked unilaterally, per
+> that entry's explicit ask): carve out hono's diagnosed, structurally-
+> permanent dynamic-dispatch blind spot rather than either (a) leaving every
+> release blocked on a gap no heuristic extractor can close, or (b) hard-
+> coding Hono's specific `this[method] = ...` idiom into the TS extractor —
+> a one-corpus hack that wouldn't generalize to other frameworks' dynamic-
+> dispatch patterns and would misrepresent what the extractor can actually
+> see. `eval/compare.py`'s `enforce_gate()` now supports a
+> `CORPUS_GATE_FLOOR` override map; hono's floor is set to 98.0% (vs. the
+> global 98.5%), documented inline with the same reasoning as here. This is
+> a floor *lower* than the honest 98.45% ceiling measured in 2026-07-03d —
+> intentional headroom so incidental corpus-refresh noise doesn't re-trip
+> the gate, while still catching any further regression beyond the known
+> gap. Every other corpus keeps the unmodified 98.5% floor; an override
+> requires a RESULTS.md entry diagnosing why the gap is permanent, not just
+> a number someone lowered to make CI green.
+
+> **2026-07-03c — GATE FAILING on hono: line-attribution fix (below) exposed
+> a pre-existing symbol-extraction gap, not a new bug.** Extending the
+> 2026-07-03b line-attribution fix from Rust to Go/TS/Python/Java/C++
+> (same root cause, same shape, all five previously safe from the
+> name-corruption bug but not the line one — see below) dropped hono's
+> `gated@0.7` precision to **98.45%, below the 98.5% release-blocking
+> floor**. Root cause, confirmed by direct inspection, is NOT a defect in
+> today's fix: `.get()`/`.post()`/etc. chained after `new Hono()` (e.g.
+> `src/client/client.test.ts:50-51`) are dynamically assigned at runtime —
+> `hono-base.ts:129`: `this[method] = (args1, ...) => {...}` inside a loop
+> over the `METHODS` array — so tree-sitter never sees a literal `get`
+> method declaration in `hono-base.ts` and abyss never indexes a symbol
+> there for it. SCIP's ground truth still resolves these calls to
+> `hono-base.ts` because scip-typescript runs through tsc's real type
+> checker, which sees the statically-declared TYPE signature regardless of
+> the dynamic runtime assignment. No static tree-sitter extractor can
+> close this gap without either special-casing Hono's exact
+> loop-over-computed-property idiom or doing real type inference.
+>
+> These calls were NOT invisible-but-correct before this pass — they were
+> invisible-but-UNSCORED: the pre-fix line bug (chain's opening line,
+> not each link's own line) meant they never joined against SCIP ground
+> truth at all, so this resolution gap has existed since before this
+> session and was simply never counted. Fixing the line bug is what makes
+> the count honest; hono's TRUE gated precision was already ~98.45%, not
+> the previously-published 98.9%.
+>
+> Not reverting the line-attribution fix — it is unambiguously correct
+> (verified against SCIP's own occurrence positions for the exact same
+> call sites; see the 2026-07-03b/line-attribution work below) and
+> reverting it would mean going back to silently miscounting reference
+> positions to keep a metric green. This is an open, unresolved
+> release-blocker as of this entry: ship blocked on hono until either (a)
+> the gate is revisited to account for known dynamic-dispatch blind spots,
+> or (b) the resolver/extractor gains a way to recognize Hono's specific
+> `this[method] = ...` pattern (or dynamic method assignment generally) as
+> an implicit symbol declaration. Flagging for a decision rather than
+> picking one unilaterally — this changes release policy, not just code.
+
+> **2026-07-03d — line attribution fixed for Go/TypeScript/Python/Java/
+> C-C++ too (same bug class as Rust, name-corruption absent elsewhere).**
+> Audited every other language extractor for the Rust name-corruption bug
+> (text-flatten + rfind) fixed in 2026-07-03b: NONE of them have it — Go
+> (`selector_expression`: `operand`/`field`), TS (`member_expression`:
+> `object`/`property`), Python (`attribute`: `object`/`attribute`), Java
+> (`method_invocation`: direct `name`/`object` fields), C/C++
+> (`field_expression`: `field`/`argument`, C++ `template_function` peels
+> its own wrapper) all already dispatched on AST node kind from the start.
+> Rust was the one language whose grammar makes `::`-qualified paths and
+> `.`-field-access two different node kinds, and the original code took a
+> text-flatten shortcut instead of dispatching on kind like every other
+> extractor already did.
+>
+> But all five share the OTHER Rust bug: `let line = node.start_position()
+> .row` computed once per recursive call, which for any chained/nested
+> call is the position of the chain's FIRST token, not the specific link's
+> own token. Confirmed empirically (not just by code inspection) on real
+> hono source: `.then()`/`.catch()` at `hono-base.ts:427`/`431` were both
+> stored at line 425 pre-fix; post-fix they land at 426/430 — exactly
+> matching SCIP's own occurrence rows for `Promise#then()`/`Promise#catch()`
+> at those exact lines. All five extractors now derive `line` from the
+> callee-name token (`field`/`property`/`attribute`/`name` — whichever the
+> language's grammar calls it) instead of the enclosing call node. Six new
+> regression tests pin one multi-line chain per language in
+> `tests/extractors.rs`.
+>
+> Aggregate impact is real but modest and uneven — proportional to how
+> much multi-line chaining a corpus's style actually uses AND how many of
+> those chains resolve to in-repo (not stdlib/generic-type) symbols: gin
+> extraction recall 84.3% -> 84.5%, resolution-conditional gated recall
+> 83.0% -> 82.8% (both within noise). click and cmark: unchanged (style
+> didn't exercise the bug in ways the corpus's ground truth could see).
+> hono: see the 2026-07-03c entry above — this is where the fix mattered
+> most, and not in the direction hoped for.
+
+> **2026-07-03b — Rust extractor: AST-walk call targets instead of
+> text-flatten + rfind.** Root cause of most of the "true recall" gap
+> flagged in the entry below, isolated by dumping ripgrep's independent
+> extraction misses with source context: `collect_refs`'s `call_expression`
+> handling took the WHOLE `function` field's raw text and split it with
+> `name.rfind("::")` / `name.rfind('.')`. That's correct only for the
+> innermost call. For a chain (`Builder::new().with_flag(x).build()`) each
+> outer link's text spans the whole receiver expression, so `.build()`
+> extracted target_name = `"new().with_flag(x).build"` — permanently
+> unresolvable. Turbofish (`x.method::<T>()`) fared worse: the `::` before
+> the type argument won the rfind, extracting target_name = `"<T>"` and
+> losing the method name outright. Measured: 16.5% of ripgrep's 10,545 call
+> refs had a literal `(`, `)`, `<`, or embedded newline in `target_name`
+> (5.4% on abyss's own dogfood corpus; 0% on Go/Python/C/TS — Rust-only).
+> A second, compounding bug: `line` used the call_expression's own start
+> row, which for a chain is the position of the FIRST token of the whole
+> expression — so a multi-line builder chain (rustfmt's default once a
+> chain gets long) attributed every link to the line the chain *opened*
+> on, not each method's own line. Fixing target_name alone barely moved
+> recall because the (file, line, name) join still missed on the line.
+> `rust_lang.rs` now walks `field_expression` (`value`/`field`),
+> `scoped_identifier` (`path`/`name`), and `generic_function`
+> (peels `type_arguments`, recurses) directly, and every ref's `line` is
+> the callee-name token's own row. ripgrep extraction recall: 47.2% ->
+> **60.8%** (+13.6pp); true gated recall 35.9% -> 39.7%. abyss dogfood
+> (much less chain-heavy) 80.2% -> 80.6%. Zero regression on Go/TS/Python/C
+> (bug never applied there) — all six corpora's `--json` output byte-for-
+> byte unchanged outside the Rust rows. Gate still passes but ripgrep sits
+> at 98.51% — only 0.01pp above the 98.5% release-blocking floor. Treat
+> that as thin margin, not headroom, before touching the demoted resolver
+> tiers again (see the side-effect note right below).
+>
+> Side effect worth flagging, not yet acted on: fixing extraction feeds
+> MANY more genuine (correctly-named) calls into the resolver, and a
+> larger share of those land in the already-known-noisy 0.5/0.6 demoted
+> tiers (see the 2026-07-03a entry's `is_call_symbol` note and CLAUDE.md's
+> resolver-tier table) — ripgrep's "all precision" dropped 86.8% -> 79.7%
+> as a direct consequence. The demoted tiers were never trustworthy; there
+> are just more real refs reaching them now. Confidence-calibration work
+> (per the outstanding review note) gets more valuable, not less, after
+> this fix.
+
+> **2026-07-03a — compare.py now reports "true recall", independent of abyss's
+> own extraction.** Every "recall" number below the `true_recall` block is
+> *resolution-conditional*: its denominator is built by walking abyss's own
+> extracted refs and asking whether SCIP has a matching ground-truth pair —
+> so a call site the tree-sitter extractor never emitted a ref for (an
+> extraction miss, not a resolution miss) was invisible to the metric
+> entirely. `true_recall` instead walks every SCIP call-shaped, in-repo
+> occurrence independently, decomposing end-to-end recall into
+> `extraction_recall x resolution_recall`. Measured on the six cached
+> corpora (extraction recall — how much of the real call graph abyss even
+> attempts): gin 84.3%, abyss (dogfood) 80.2%, click 71.9%, cmark 69.4%,
+> hono 56.6%, **ripgrep 47.2%**. True gated recall (what an agent actually
+> gets back) is meaningfully lower than the previously-published
+> resolution-conditional numbers across the board — e.g. ripgrep 75.5% ->
+> 35.9%, click 94.6% -> 70.2%, hono 64.6% -> 52.1%. Resolution itself stays
+> strong (86.7%-98.8% given extraction succeeded) — the gap is almost
+> entirely in extraction, concentrated in Rust/TS where trait dispatch,
+> closures, and generic call sites are the likely blind spots. Reproduce
+> per-corpus with `python3 eval/compare.py eval/corpus/<name>`.
+
+> **2026-06-27 — same-file priority for qualified calls + Python/TS resolver upgrades.**
+> L0/L0c/L0d now skip cross-file resolution when self/cls/super calls
+> have a same-file match. L2 skips qualified calls entirely when the
+> method exists in the source file. Eliminates the dominant false-positive
+> class on Click (polymorphic methods like `to_info_dict`/`invoke` defined
+> in both caller and candidate files — 11 wrong → 4). Python builtin guard
+> (56 names) on L4/L4b/L5. TS non-relative import resolution. Schema v7
+> with 4 performance indices. compare.py exit gate enforced.
+
+## Results — 2026-06-27, abyss v0.5.27 (same-file priority + Python/TS resolvers)
+
+| Corpus | Lang | Truth pairs | Gated precision | Gated recall | All precision | All recall |
+|--------|------|------------:|----------------:|-------------:|--------------:|-----------:|
+| gin v1.10.0 | Go | 2,968 | **99.4%** | **83.0%** | 89.2% | 88.0% |
+| hono v4.6.14 | TypeScript | 5,780 | **98.9%** | **64.6%** | 81.5% | 79.4% |
+| click 8.1.8 | Python | 589 | **99.3%** | **94.6%** | 98.5% | 96.9% |
+| ripgrep 14.1.1 | Rust | 4,283 | **98.5%** | **75.5%** | 86.8% | 86.8% |
+| abyss @8099aeb | Rust (dogfood) | 450 | **100.0%** | **76.0%** | 98.2% | 83.6% |
+| cmark 0.31.1 | C | 1,383 | **99.1%** | **74.8%** | 99.1% | 74.8% |
+
+All six corpora ≥ 98.5% gated precision — gate PASS. Click up from 97.9% → 99.3%
+(+1.4pp) after same-file priority fix. Gin +0.1pp precision, +0.4pp recall.
+Abyss dogfood recall lower (90.9% → 76.0%) because the corpus is pinned at
+@8099aeb (pre-`src/commands/` split) while the binary has new shared
+`build_scope_map` — scope attribution changes affect a stale snapshot.
+
+> Captured against: scip v0.8.1, scip-go v0.2.7 (scip-code/scip-go), scip-typescript 0.4.0, scip-python 0.6.6, scip-clang v0.3.2, rust-analyzer 1.95.0.
+
+> **2026-06-17 — same-language-family filter on the demoted tiers.**
+> Cross-file resolution tiers L2/L3/L4/L4b/L5 now require the candidate's
+> `files.lang_family` to equal the source file's. Found by dogfooding: a
+> Rust `target()` call (petgraph edge endpoint) was claimed by an
+> unrelated JS `function target()` because L5 ran a pure name match
+> across the whole `symbols` table. Families: rust, go, python, ts
+> (typescript+tsx+javascript), c (c+cpp), java, bash. Single-corpus eval
+> impact should be ~zero — every corpus is single-language — but the
+> demoted tiers on polyglot repos (Go/JS, Rust/JS, …) get noticeably
+
+## Results — 2026-06-17, abyss v0.4.0 (cross-language filter + L0 architecture coordinates)
+
+| Corpus | Lang | Truth pairs | Gated precision | Gated recall | All precision | All recall |
+|--------|------|------------:|----------------:|-------------:|--------------:|-----------:|
+| gin v1.10.0 | Go | 2,968 | **99.3%** | **82.6%** | 89.2% | 88.0% |
+| hono v4.6.14 | TypeScript | 5,612 | **98.8%** | **63.8%** | (n/a) | (n/a) |
+| click 8.1.8 | Python | 589 | **97.9%** | **93.0%** | 96.9% | 95.6% |
+| ripgrep 14.1.1 | Rust | 4,283 | **98.5%** | **75.3%** | 86.9% | 86.8% |
+| abyss @8099aeb | Rust (dogfood) | 450 | **100.0%** | **90.9%** | 98.4% | 98.4% |
+| cmark 0.31.1 | C | 1,383 | **99.1%** | **74.8%** | 99.1% | 74.8% |
+
+Five corpora unchanged vs the v0.3.5-dev baseline. Click corrected to 97.9 / 93.0 after a SCIP ground-truth refresh (truth pairs 573 → 589); see eval/notes/click-microregression-2026-06-17.md.
+
+> Captured against: scip v0.8.1, scip-go v0.2.7, scip-typescript 0.4.0, scip-python 0.6.6, scip-clang v0.3.2, rust-analyzer 1.95.0. Pins live in `eval/setup-indexers.sh`; bumping any of them requires updating these baselines in the same commit (see eval/README.md "Reproducibility").
+
+
+
+
+
+> cleaner. Binding-driven tiers (L0/L0b/L0c/L0d) and same-file tiers
+> (L1/L4a) are unchanged.
+
+## Method
+
+For every call reference abyss extracts, SCIP (compiler-grade indexing) tells
+us where the called symbol is actually defined. abyss's prediction is correct
+iff it resolved the call to the same file. Join key: `(file, line, symbol name)`;
+only in-repo symbols count (abyss does not resolve into dependencies).
+
+- **precision** — when abyss commits to an answer, how often is it right
+- **recall** — how much of the SCIP-known call graph abyss resolves correctly
+
+## Results — 2026-06-16, abyss v0.3.4-dev (five languages, six corpora)
+
+| Corpus | Language | Truth pairs | Gated precision | Gated recall | All precision | All recall |
+|--------|----------|------------:|----------------:|-------------:|--------------:|-----------:|
+| gin v1.10.0 | Go | 2,968 | **99.3%** | **82.6%** | 89.2% | 88.0% |
+| hono v4.6.14 | TypeScript | 5,611 | **98.8%** | **63.8%** | 77.7% | 76.3% |
+| click 8.1.8 | Python | 573 | **98.7%** | **94.6%** | 97.5% | 96.2% |
+| ripgrep 14.1.1 | Rust | 4,283 | **98.5%** | **75.3%** | 86.9% | 86.8% |
+| abyss @8099aeb | Rust (dogfood) | 450 | **100.0%** | **90.9%** | 98.4% | 98.4% |
+| cmark 0.31.1 | C | 1,383 | **99.1%** | **74.8%** | 99.1% | 74.8% |
+
+Gated = `--min-confidence 0.7` (the default). abyss index time per corpus:
+~150–900ms; the SCIP indexers take 40s–4min on the same machines.
+
+### gin (Go) — scip-go
+
+| Tier | Strategy | Correct | Wrong | Precision |
+|------|----------|--------:|------:|----------:|
+| 1.0 | same file (bare + self-like calls) | 656 | 0 | **100%** |
+| 0.95 | receiver-type match + same-package unique | 1,788 | 16 | 99.1% |
+| 0.9 | import qualifier, unique candidate | 1 | 0 | 100% |
+| 0.8 | global unique | 6 | 3 | 66.7% |
+| 0.6 / 0.5 | demoted / ambiguous | 138 | 299 | 31.6% |
+
+### hono (TypeScript) — scip-typescript
+
+| Tier | Strategy | Correct | Wrong | Precision |
+|------|----------|--------:|------:|----------:|
+| 1.0 | same file (bare + self-like calls) | 494 | 2 | **99.6%** |
+| 0.95 | receiver-type (scope/binding/type-file) + import binding + same-package unique | 2,910 | 30 | 99.0% |
+| 0.9 | import qualifier, unique candidate | 1 | 0 | 100% |
+| 0.8 | global unique (member-shaped for qualified calls) | 175 | 10 | 94.6% |
+| 0.6 / 0.5 | demoted / ambiguous | 704 | 1,186 | 37.2% |
+
+### click (Python) — scip-python
+
+| Tier | Strategy | Correct | Wrong | Precision |
+|------|----------|--------:|------:|----------:|
+| 1.0 | same file (bare + self-like calls) | 189 | 1 | **99.5%** |
+| 0.95 | receiver-type + named-import binding + same-package unique | 333 | 6 | 98.2% |
+| 0.8 | global unique | 18 | 0 | 100% |
+| 0.6 / 0.5 | demoted / ambiguous | 9 | 7 | 56.3% |
+
+### ripgrep (Rust, third-party) — rust-analyzer scip
+
+| Tier | Strategy | Correct | Wrong | Precision |
+|------|----------|--------:|------:|----------:|
+| 1.0 | same file (bare + self-like calls) | 561 | 0 | **100%** |
+| 0.95 | receiver-type (scope/binding/type-file) + use-binding | 2,397 | 19 | 99.2% |
+| 0.8 | global unique | 269 | 29 | 90.3% |
+| 0.6 / 0.5 | demoted / ambiguous | 492 | 515 | 48.9% |
+
+### abyss (Rust, dogfood) — rust-analyzer scip
+
+| Tier | Strategy | Correct | Wrong | Precision |
+|------|----------|--------:|------:|----------:|
+| 1.0 | same file (bare + self-like calls) | 165 | 0 | **100%** |
+| 0.95 | receiver-type (scope/binding/type-file) + use-binding | 154 | 0 | **100%** |
+| 0.8 | global unique | 90 | 0 | **100%** |
+| 0.6 / 0.5 | demoted / ambiguous | 34 | 7 | 82.9% |
+
+### cmark (C) — scip-clang
+
+| Tier | Strategy | Correct | Wrong | Precision |
+|------|----------|--------:|------:|----------:|
+| 1.0 | same file (bare + self-like calls) | 373 | 9 | **97.6%** |
+| 0.95 | receiver-type + include-binding + same-dir unique | 526 | 0 | **100%** |
+| 0.8 | global unique | 135 | 0 | **100%** |
+
+## How the eval drove the resolver (chronicle)
+
+### Round 10 — 2026-06-16: C/C++ caller tracing — first C corpus
+
+New `CExtractor` / `CppExtractor` sharing `c_cpp.rs`: direct calls, `.`/`->`
+method calls, C++ `qualified_identifier` (`ns::func()`), `new` expressions,
+`#include "..."` imports, `this` receiver inference, typed parameter/local
+inference, `std::` namespace filtering, `base_class_clause` inheritance.
+
+Chunker additions: `class_specifier`, `struct_specifier`, `namespace_definition`,
+`type_definition`, `enum_specifier` as chunk boundaries + scope nodes. Fixed
+`extract_node_name` for C/C++ `function_definition` (return type was winning
+the fallback race over the function name inside `function_declarator`).
+
+The `compare.py` SCIP name extractor needed a `cxx` scheme handler: scip-clang
+symbols use `cxx . . $ descriptor` format (space-delimited prefix, no `/`
+in simple descriptors), overload hashes in parens, and backtick-quoted macro
+identifiers that must be skipped.
+
+First run on cmark 0.31.1 (CommonMark reference parser, pure C, 38 source files,
+1,383 truth pairs): **99.1% gated precision / 74.8% recall**. The 0.95 tier
+(same-dir unique + receiver-type) is 100% — C's flat file structure makes
+directory-based resolution very effective. The 340 unresolved calls are mostly
+`static` helper functions in `.h` headers that SCIP defines in the header but
+abyss resolves to the `.c` file that includes it — a "wrong file" by strict
+join semantics but functionally correct. 85 tests, zero regression on existing
+five corpora.
+
+### Round 9 — 2026-06-12: the recall round — type-grade evidence beyond exact scope
+
+TS and Rust recall were the laggards (58.7% / 67.8%). Dissecting everything
+below the gate found the correct answers clustering in three places, each
+with recoverable evidence:
+
+1. **Non-exported function consts were invisible** (TS): bare
+   `const splitRule = (...) => ...` at module level was only a symbol when
+   wrapped in an `export_statement` (the only boundary). 187 unresolved
+   bare calls in hono had same-file truth. `lexical_declaration` /
+   `variable_declaration` are now chunk boundaries; hono unresolved
+   dropped 286 → 99 and the 1.0 tier grew 301 → 494 correct.
+2. **L0's exact-scope match was too rigid** (both): the receiver type was
+   correctly inferred, but type aliases (`use X as Separator`), impls split
+   across files, and trait-scoped methods never matched `symbols.scope`.
+   Two new tiers turn the inferred type itself into file evidence:
+   **L0c** — the source file imports the receiver type; the binding's
+   target file carries the method name. **L0d** — the type symbol
+   (class/struct/interface/enum) has a unique defining file and that file
+   carries the method name.
+3. **`impl Trait for Type` scoped methods to the trait** (Rust): the
+   chunker's owner extraction grabbed the first type_identifier — the
+   trait — so `impl Sink for StandardSink` methods got scope `Sink` and L0
+   receiver matching never fired. Owner (and the oversized-impl scope
+   stack) now use the impl's `type` field.
+
+Net: hono **98.8% / 63.8%** (+5.1pp recall), ripgrep **98.5% / 75.3%**
+(+7.5pp), dogfood **100.0% / 90.9%** (un-gated 98.4/98.4); gin and click
+unchanged to the decimal. 74 tests.
+
+### Round 8 — 2026-06-12: ripgrep — the third-party Rust verdict
+
+The dogfood corpus was friendly; ripgrep 14.1.1 (13-crate workspace, 4,283
+truth pairs) was the real exam. First run: 94.3%/68.4%. Three findings:
+
+1. **Workspace crate roots** — `crate::` resolved against a hardcoded
+   `src/`; workspace members live in `crates/<name>/src` (and ripgrep's
+   core crate has NO src dir — `crates/core/main.rs` is a path-overridden
+   root). `crate::` now walks the importing file's ancestors for a
+   `Cargo.toml`, trying `<member>/src` then `<member>` itself.
+2. **`super` inside an inline `mod tests`** is the file itself, not the
+   parent dir — `use super::escape` in escape.rs's test module bound to
+   lib.rs and made calls to `escape` *in its own file* wrong at 0.95. If
+   the source file defines the item, a `super::` binding now resolves to
+   the source file before any dir logic.
+3. **Rust receiver lite inference** (the big one): typed parameters,
+   `let x = T::new()` / `T { .. }` / annotated lets, and `self` → enclosing
+   impl type. The 0.95 sub-tier audit after the fix: receiver-typed
+   1,224/3, use-bindings 588/0 — but same-dir-unique qualified calls were
+   **76%** (229/72). A Rust dir is not a namespace (files in one dir are
+   separate modules needing `use`), unlike Go where the same slice measures
+   98%. L2 now excludes qualified calls for Rust sources only; they fall to
+   the 0.6 possibles.
+
+Net: ripgrep 94.3/68.4 → **98.9% / 67.8%** (un-gated recall 85.3% — the
+information is there, below the gate). The receiver inference also moved
+the dogfood corpus from 86.7% to 84.2% recall (the L2 guard) at a flat
+100.0% precision; gin/hono/click unchanged to the decimal.
+
+### Round 7 — 2026-06-12: Rust corpus (dogfood) + the oversized-symbol bug
+
+First Rust ground truth, via `rust-analyzer scip` on abyss itself. The
+first run (96.7%/78.4%) exposed three gaps; fixing them took the corpus to
+**100.0% gated precision / 86.7% recall, zero unresolved refs**:
+
+1. **Oversized functions vanished from the symbols table** — the chunker's
+   descend branch for >max_lines nodes emitted no symbol for the node
+   itself, so a 120-line function was invisible to every resolver tier:
+   bare same-file calls to `collect_refs` fell to the ambiguous tier and
+   lost. The fix (a header chunk carrying the node's symbol) is
+   language-agnostic — gin/hono/click each gained a few tenths from it.
+2. **`T::new()` receiver type** — the path qualifier's last segment IS the
+   receiver type. Every type has `new`; name tiers alone picked
+   `Config::new` for eight different types. Now an associated-function call
+   feeds L0 like any typed receiver.
+3. **Rust `use` bindings** — `use crate::storage::Repository` (incl.
+   `{A, B as C}` lists, `super::`/`self::` prefixes) now produce import
+   bindings; module paths resolve against the files table
+   (`x.rs` / `x/mod.rs`, crate root → `src/`). `pub use` re-exports look
+   identical to imports, so the existing barrel chase follows
+   `pub use repo::Repository` in `mod.rs` to the defining file for free.
+
+Caveats stated plainly: the corpus is abyss itself (~76 files, 450 truth
+pairs — small, and written by the people tuning the resolver); rust-analyzer
+emits no occurrences for some macro-generated code. The numbers are real
+but the corpus is friendly; a third-party Rust corpus is the obvious next
+step before bragging.
+
+### Round 6 — 2026-06-11: bindings for Python and Java
+
+The TS binding tier (round 5) ported in one sitting:
+
+- **Python**: `from .mod import a, b as c` → per-name bindings; relative
+  modules resolve against the importing file's package (one leading dot =
+  current package, each extra dot = one level up), absolute dotted paths
+  match exactly or by *unique* path suffix (src-layouts). Candidates:
+  `<base>.py`, `<base>/__init__.py`.
+- **Java**: `import com.foo.Bar` binds the simple name `Bar` to the unique
+  file ending `/com/foo/Bar.java` — disambiguates same-named classes across
+  packages for constructor calls and type refs.
+
+click: gated 98.1/90.8 → **98.7% / 94.2%** (both up; recall now above the
+pre-round-4 92.8 with precision +0.9pp on top), all-metrics 97.5/95.8,
+unresolved 18 → 10, tier 1.0 at 99.5%. gin/hono: zero change. Java has no
+SCIP ground truth yet — bindings there are covered by contract tests only.
+
+### Round 5 — 2026-06-11: named-import bindings (TypeScript)
+
+The 0.8 global-unique tier was hono's worst gated tier (84.5%, 98 wrong).
+Dissection found two distinct lies:
+
+1. **47× `app.use()` → the JSX `use` hook.** hono-base assigns router verbs
+   at runtime, so the only *static* `use` in the repo is the unrelated hook —
+   "globally unique" picked it confidently. Measured: a qualified call
+   resolving to an unscoped free function was 6% precision, vs 96.7% for
+   member-shaped candidates. L4 now requires qualified calls to take only
+   method/owner-scoped candidates.
+2. **45× bare calls that were *named imports*.** `import { css } from
+   '../helper/css'` then `css(...)` — the definition shape
+   (`export const css = defaultContext.css`) is invisible to the chunker, so
+   the name looked globally unique elsewhere. The extractor recorded the
+   module path but threw the bindings away; `resolve_import` was dead code.
+
+The fix is the new **L0b named-import binding tier**: the TS extractor
+records `import { a, b as c } from './x'` (and `export { y } from './z'`
+re-exports) as binding refs; the pipeline resolves module paths against the
+files table (extension + index-file candidates, ESM `.js`→`.ts` rewrites, no
+disk probing) and chases barrel chains to the defining file; bare calls
+matching a binding resolve at 0.95, *before* the same-file tier. A partial
+index (`refs(source_file_id, target_name) WHERE kind='import_binding'`)
+keeps resolve time at ~600ms on hono's 41k refs.
+
+Net (hono): gated 95.3/51.3 → **98.5% / 58.5%** — the binding tier absorbed
+~750 correct resolutions at 98.9% precision, unresolved dropped 417 → 286,
+and all-recall rose 66.0 → 73.1%. gin and click: zero change (no TS
+bindings), zero regression. 62 tests.
+
+### Round 4 — 2026-06-11: the 1.0 tier earns its name
+
+The 1.0 tier was the *least* precise confident tier on hono (81.9%) — worse
+than 0.95 and 0.9. Dissection by receiver shape across all three corpora
+showed exactly where the lies lived:
+
+| Call shape at 1.0 | Correct | Wrong | Precision |
+|-------------------|--------:|------:|----------:|
+| bare `foo()` | 1,086 | 4 | 99.6% |
+| self-like `this/self/cls/super()` | 185 | 3 | 98.4% |
+| qualified `x.foo()`, globally-unique name | 39 | 1 | 97.5% |
+| qualified `x.foo()`, common name | 31 | 101 | **23.5%** |
+
+Common-name qualified calls were being claimed by unrelated same-file
+symbols: hono's `app.get()` matched a `new Proxy(...)` trap method named
+`get`; gin's `x.Foo()` matched same-file free functions. Three fixes,
+each verified on all corpora:
+
+1. **L1 qualifier guard** — same-file 1.0 now only for bare calls and
+   self-like receivers. Qualified leftovers fall to the qualifier/global
+   tiers; a new L4a same-file fallback at 0.6 keeps them visible as
+   possibles. Globally-unique names re-resolve via L4 at 0.8 — no loss.
+2. **Python receiver lite inference** (mirror of Go/TS): annotated
+   parameters (`ctx: Context`, incl. `"Context"` forward refs), `x = Type()`
+   CapWord constructor assignments, `x: Type = ...`, and `self`/`cls` →
+   enclosing class.
+3. **Methods in small classes kept their owner** — a function nested in a
+   class-like node is now a Method symbol with `scope` = the class. Before,
+   Python/Rust methods only got a scope when the class was big enough to be
+   split into per-method chunks (the chunk-scope backfill), so L0 was blind
+   to every class that fit in one chunk.
+
+The self-like exemption matters for inheritance: `self.fail()` inside
+click's `Choice` has an inferred receiver type but no `Choice`-owned `fail`
+(it lives on the base class `ParamType`, same file) — same-file 1.0 is the
+right call, measured 98.4%.
+
+Net: tier 1.0 is now 97.9–100% everywhere (was 81.9% on hono). Gated:
+gin 98.2→**99.2%** P; hono 93.4→**95.3%** P, recall +0.3pp; click
+97.8→**98.1%** P, recall 92.8→90.8% — the 2pp recall trade is calls whose
+receiver genuinely cannot be typed statically (loop variables, factory
+returns); they now sit at 0.6 as possibles instead of posing as facts.
+
+### Round 3 — 2026-06-11: TypeScript corpus exposed two structural gaps
+
+The first hono run scored a catastrophic **39.5% gated precision / 15.2%
+recall**. Diagnosis and fixes, each verified by re-running all three corpora:
+
+1. **Method-as-class-field symbols** — hono's `Context.text` etc. are arrow
+   functions assigned to class fields (`text: TextRespond = (...) => ...`),
+   not `method_definition` nodes. The chunker never made them symbols, so
+   `c.text()` resolved "globally unique" to the wrong file 394×. Fixed:
+   function-valued `public_field_definition` / `field_definition` /
+   module-level `variable_declarator` (e.g. `export const useState = ...`)
+   are now Method/Function symbols. Unresolved refs dropped 2,759 → 417.
+2. **TS receiver inference** (mirror of the Go lite rules): typed parameters
+   (`(c: Context)`), `const x = new T()`, and `this` → enclosing class.
+   L0 resolves 921 hono calls.
+3. **Typed receiver ⇒ type-consistent evidence only** — hono's `app.get()`
+   is assigned at runtime (no static definition), and the same-file tier
+   "resolved" it to the test file itself 185×. Name-only tiers (same-file /
+   same-package / global-unique) now skip refs whose receiver type is known;
+   if L0 finds no owned symbol, the ref demotes instead of gambling.
+   This also pushed gin's 0.95 tier to 99.3% (was 98.3%).
+
+Net: hono 39.5%/15.2% → **93.4%/51.0%**; gin precision +0.8pp (recall
+−0.8pp from the stricter guard); click unchanged.
+
+### Round 2 — 2026-06-11: receiver-type lite inference (Go)
+
+L0 receiver-type tier runs before everything else: the extractor infers
+static receiver types (`x.M()` where `x` is a method receiver, function
+parameter, or local declared with a literal / `NewT()` constructor — no
+data-flow, no interface resolution), and method definitions record their
+owner type (`symbols.scope` = Go receiver / enclosing class). When exactly
+one file defines a same-named symbol owned by that type, resolve at 0.95.
+
+Effect on gin: gated recall **79.1% → 83.5%** while precision also rose —
+the recall the round-1 demotion had sacrificed, bought back with type
+evidence instead of gambling.
+
+### Round 1 — 2026-06-10: demotion + GLOB fixes (Go)
+
+First-ever run scored 85.6% gated precision. Three fixes: same-package
+multi-candidate demotion (interface-method collisions `Bind`×86 resolved by
+first-candidate guess), qualifier-tier uniqueness (build-tag variants), and
+LIKE→GLOB (SQLite LIKE is ASCII case-insensitive: the *variable* `JSON`
+matched the *file* `json.go`). Net: 85.6% → 97.2% gated precision.
+
+## Known weaknesses (current)
+
+1. **Dynamic/metaprogrammed methods** (TS): hono assigns router verbs
+   (`app.get/post/use`) in a constructor loop — no static definition exists.
+   These stay unresolved or demoted; they are the bulk of hono's recall gap
+   (51%). Correctly unresolvable by static naming; an agent sees them in
+   `possible_callers`.
+2. **Interface dispatch** (Go): interface-typed receivers stay demoted at
+   0.6 by design (`tier0_unknown_receiver_stays_demoted`). Resolving them
+   needs interface-satisfaction analysis — compiler territory.
+3. **JSX/general TS noise**: hono's 0.5 tier is still large (1,161 joined
+   pairs); JSX runtime calls and non-imported common names dilute global
+   tiers. Named-import bindings (round 5) cleared the re-export/barrel slice.
+4. Java ground truth: TODO (scip-java needs a build; planned).
+
+## Corpus
+
+| Repo | Ref | Language | Indexer |
+|------|-----|----------|---------|
+| gin-gonic/gin | v1.10.0 | Go | scip-go |
+| honojs/hono | v4.6.14 | TypeScript | scip-typescript |
+| pallets/click | 8.1.8 | Python | scip-python |
+| BurntSushi/ripgrep | 14.1.1 | Rust | rust-analyzer scip |
+| telagod/abyss | 8099aeb | Rust | rust-analyzer scip |
+| commonmark/cmark | 0.31.1 | C | scip-clang |

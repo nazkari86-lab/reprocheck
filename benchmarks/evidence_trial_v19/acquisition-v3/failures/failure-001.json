@@ -1,0 +1,11 @@
+{
+  "candidate_count": 0,
+  "completed_event_ids": [],
+  "config_sha256": "cb8ad890137cb8b6b8da8c270e3df2b5312b96d3046c789cb1a6fb137eb55705",
+  "error": "search-01-candidate-001 content is not valid base64",
+  "error_type": "ValueError",
+  "failure_index": 1,
+  "retry_permitted": true,
+  "schema_version": "reprocheck.evidence-trial-acquisition-failure.v1",
+  "state_sha256": "4a12efef8b5884e5ffd522e9f1a3f964403dd915f9495064341dadfc6df48928"
+}

@@ -241,3 +241,16 @@ def test_run_audit_remains_available_from_public_package_api():
     import reprocheck
 
     assert reprocheck.run_audit is run_audit
+
+
+def test_audit_rejects_incomplete_splits_negative_tolerance_and_duplicate_artifact(tmp_path: Path):
+    report = tmp_path / "report.md"
+    report.write_text("No metric claim.\n", encoding="utf-8")
+    train = tmp_path / "train.csv"
+    train.write_text("id,label\n1,yes\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="supplied together"):
+        run_audit(report_path=report, train_path=train)
+    with pytest.raises(ValueError, match="non-negative"):
+        run_audit(report_path=report, tolerance=-0.1)
+    with pytest.raises(ValueError, match="unique"):
+        run_audit(report_path=report, extra_artifacts=[("report", report)])

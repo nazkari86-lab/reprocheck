@@ -1,0 +1,288 @@
+# Random Code Synthesis
+Query `Detect wine outliers using isolation forest.`
+## Script Variables
+- y:<br>
+>y is the dependent variable in the script. It is the target variable that is being predicted by the
+- X:<br>
+>X is a dataframe containing the data from the electricity dataset. It contains 17_760 rows and
+- scorer:<br>
+>Scorer is a function that calculates the score of a model. In this case, the root mean
+- hgbt_no_cst:<br>
+>hgbt_no_cst is a HistGradientBoostingRegressor object that has been trained on the
+- print:<br>
+>The variable print is used to print the values of the variables X_train, X_test, y_train
+- root_mean_squared_error:<br>
+>The root_mean_squared_error function is used to calculate the root mean squared error of the predicted values and
+- cross_validate:<br>
+>Cross-validation is a method of evaluating a model's performance on a dataset by splitting the dataset into multiple
+- rmse:<br>
+>The root mean squared error (RMSE) is a measure of the difference between a forecast and observed
+- TimeSeriesSplit:<br>
+>The TimeSeriesSplit class is used to split a time series into training and test sets. It can
+- ts_cv:<br>
+>The variable ts_cv is a TimeSeriesSplit object that splits the time series data into 5 folds
+- cv_results:<br>
+>cv_results is a dictionary that contains the results of the cross-validation process. It has the following structure
+- make_scorer:<br>
+>The make_scorer function is used to create a scorer object that can be used to evaluate the
+- train_errors_without:<br>
+>train_errors_without is a variable that stores the training error of the model without early stopping. It is
+- val_errors_with:<br>
+>The variable val_errors_with is a list of the mean squared error values for the validation data for the
+- zip:<br>
+>The zip() function in Python is used to create an iterator that aggregates elements from
+- X_val:<br>
+>X_val is a variable that stores the California housing dataset that is used for validation. It is a
+- X_train:<br>
+>X_train is a 2D numpy array of shape (n_samples, n_features) where n
+- train_errors_with:<br>
+>train_errors_with is a list of the mean squared error of the predicted values of the training set and
+- y_val:<br>
+>y_val is a variable that represents the target variable of the dataset. It is a vector of size
+- mean_squared_error:<br>
+>Mean squared error is a measure of the average of the squares of the differences between the values predicted by
+- i:<br>
+>i is the index of the current iteration of the loop. It is used to keep track of the
+- gbm_early_stopping:<br>
+>Variable gbm_early_stopping is a Gradient Boosting Classifier model that is used to predict
+- y_train:<br>
+>y_train is the training data for the Gradient Boosting Regressor. It is a numpy array
+- gbm_full:<br>
+>gbm_full is a GradientBoostingRegressor object that is used to fit the training data. It
+- val_errors_without:<br>
+>The variable val_errors_without contains the mean squared error values of the predictions made by the model on the
+- val_pred:<br>
+>val_pred is a variable that stores the predictions made by the model on the validation set. It is
+- train_pred:<br>
+>It is a variable that stores the predictions of the model for the training data. It is used to
+- enumerate:<br>
+>enumerate() is a built-in function in Python that returns a sequence of tuples, where each tuple contains
+- minibatch_size:<br>
+>The minibatch_size variable is used to specify the size of the mini-batches that will be used
+- stream_reuters_documents:<br>
+>This variable is a stream of documents that are generated from the Reuters news database. The stream is generated
+- data_stream:<br>
+>It is a stream of Reuters documents. The data_stream is a list of dictionaries, where each dictionary
+- CalibratedClassifierCV:<br>
+>CalibratedClassifierCV is a wrapper around a classifier that uses calibration to improve the performance of the classifier
+- X_test:<br>
+>X_test is a pandas dataframe that contains the test data. It has 1000 rows and
+- prob_pos_isotonic:<br>
+>Prob_pos_isotonic is a variable that is used to plot the predicted probabilities of the Gaussian naive
+- sample_weight:<br>
+>The variable sample_weight is a weight given to each sample in the training set. It is used to
+- sw_train:<br>
+>sw_train is a variable that is used to weight the samples in the training set. It is a
+- clf:<br>
+>clf is a classifier that is used to predict the probability of a given observation belonging to a particular class
+- clf_isotonic:<br>
+>It is a classifier that uses isotonic regression to calibrate the predictions of a classifier. It is
+- search_05p:<br>
+>Searches for the 5% of the data that is most likely to be misclassified by
+- dict:<br>
+>The variable dict is a dictionary that stores the parameters of the Gradient Boosting Regressor model.
+- alpha:<br>
+>Alpha is a parameter that controls the amount of regularization in the model. It is used to control the
+- neg_mean_pinball_loss_05p_scorer:<br>
+>The neg_mean_pinball_loss_05p_scorer is a scoring function that is used to
+- gbr:<br>
+>gbr is a GradientBoostingRegressor object that is used to fit the training data. The variable
+- mean_pinball_loss:<br>
+>The mean_pinball_loss function calculates the mean pinball loss of the predictions of the model on the
+- pprint:<br>
+>The pprint module provides a function named pprint() that takes a Python object and prints it in a formatted
+- HalvingRandomSearchCV:<br>
+>HalvingRandomSearchCV is a class that implements a randomized search algorithm for hyperparameter optimization. It
+- GradientBoostingRegressor:<br>
+>GradientBoostingRegressor is a machine learning algorithm that is used for regression problems. It is a type
+- metrics:<br>
+>The variable metrics is a list of dictionaries that contain the model name, the mean pinball loss,
+- param_grid:<br>
+>Param_grid is a dictionary that contains the parameters that will be searched for the Gradient Boosting Regress
+- n_features:<br>
+>n_features is a variable that represents the number of features in the dataset. It is used to determine
+## Synthesis Blocks
+### notebooks/dataset2/ensemble_methods/plot_hgbt_regression.ipynb
+CONTEXT: Observe that `nswdemand` and `vicdemand` seem already monotonic without constraint. This is a good example to show that the model with
+monotonicity constraints is "overconstraining".  Additionally, we can verify that the predictive quality of the model is not significantly degraded by
+introducing the monotonic constraints. For such purpose we use :class:`~sklearn.model_selection.TimeSeriesSplit` cross-validation to estimate the
+variance of the test score. By doing so we guarantee that the training data does not succeed the testing data, which is crucial when dealing with data
+that have a temporal relationship.   COMMENT:
+```python
+from sklearn.metrics import make_scorer, root_mean_squared_error
+from sklearn.model_selection import TimeSeriesSplit, cross_validate
+ts_cv = TimeSeriesSplit(n_splits=5, gap=48, test_size=336)  # a week has 336 samples
+scorer = make_scorer(root_mean_squared_error)
+cv_results = cross_validate(hgbt_no_cst, X, y, cv=ts_cv, scoring=scorer)
+rmse = cv_results["test_score"]
+print(f"RMSE without constraints = {rmse.mean():.3f} +/- {rmse.std():.3f}")
+cv_results = cross_validate(hgbt_no_cst, X, y, cv=ts_cv, scoring=scorer)
+rmse = cv_results["test_score"]
+print(f"RMSE with constraints    = {rmse.mean():.3f} +/- {rmse.std():.3f}")
+```
+
+### notebooks/dataset2/ensemble_methods/plot_gradient_boosting_quantile.ipynb
+CONTEXT: On the test set, the estimated confidence interval is slightly too narrow. Note, however, that we would need to wrap those metrics in a
+cross-validation loop to assess their variability under data resampling.   Tuning the hyper-parameters of the quantile regressors  In the plot above,
+we observed that the 5th percentile regressor seems to underfit and could not adapt to sinusoidal shape of the signal.  The hyper-parameters of the
+model were approximately hand-tuned for the median regressor and there is no reason that the same hyper-parameters are suitable for the 5th percentile
+regressor.  To confirm this hypothesis, we tune the hyper-parameters of a new regressor of the 5th percentile by selecting the best model parameters
+by cross-validation on the pinball loss with alpha=0.05:   COMMENT:
+```python
+from pprint import pprint
+from sklearn.experimental import enable_halving_search_cv  # noqa: F401
+from sklearn.metrics import make_scorer
+from sklearn.model_selection import HalvingRandomSearchCV
+param_grid = dict(
+    learning_rate=[0.05, 0.1, 0.2],
+    max_depth=[2, 5, 10],
+    min_samples_leaf=[1, 5, 10, 20],
+    min_samples_split=[5, 10, 20, 30, 50],
+)
+alpha = 0.05
+neg_mean_pinball_loss_05p_scorer = make_scorer(
+    mean_pinball_loss,
+    alpha=alpha,
+    greater_is_better=False,  # maximize the negative loss
+)
+gbr = GradientBoostingRegressor(loss="quantile", alpha=alpha, random_state=0)
+search_05p = HalvingRandomSearchCV(
+    gbr,
+    param_grid,
+    resource="n_estimators",
+    max_resources=250,
+    min_resources=50,
+    scoring=neg_mean_pinball_loss_05p_scorer,
+    n_jobs=2,
+    random_state=0,
+).fit(X_train, y_train)
+pprint(search_05p.best_params_)
+```
+
+### notebooks/dataset2/examples_based_on_real_world_datasets/plot_out_of_core_classification.ipynb
+CONTEXT:  Main  Create the vectorizer and limit the number of features to a reasonable maximum   COMMENT: Discard test set We will feed the classifier
+with mini-batches of 1000 documents; this means we have at most 1000 docs in memory at any time.  The smaller the document batch, the bigger the
+relative overhead of the partial fit methods.
+```python
+minibatch_size = 1000
+```
+
+### notebooks/dataset2/covariance_estimation/plot_lw_vs_oas.ipynb
+CONTEXT:   Ledoit-Wolf vs OAS estimation  The usual covariance maximum likelihood estimate can be regularized using shrinkage. Ledoit and Wolf
+proposed a close formula to compute the asymptotically optimal shrinkage parameter (minimizing a MSE criterion), yielding the Ledoit-Wolf covariance
+estimate.  Chen et al. proposed an improvement of the Ledoit-Wolf shrinkage parameter, the OAS coefficient, whose convergence is significantly better
+under the assumption that the data are Gaussian.  This example, inspired from Chen's publication [1], shows a comparison of the estimated MSE of the
+LW and OAS methods, using Gaussian distributed data.  [1] "Shrinkage Algorithms for MMSE Covariance Estimation" Chen et al., IEEE Trans. on Sign.
+Proc., Volume 58, Issue 10, October 2010.  COMMENT:
+```python
+n_features = 100
+```
+
+### notebooks/dataset2/examples_based_on_real_world_datasets/plot_out_of_core_classification.ipynb
+CONTEXT:  Main  Create the vectorizer and limit the number of features to a reasonable maximum   COMMENT: Iterator over parsed Reuters SGML files.
+```python
+data_stream = stream_reuters_documents()
+```
+
+### notebooks/dataset2/calibration/plot_calibration.ipynb
+CONTEXT:  Gaussian Naive-Bayes   COMMENT: With isotonic calibration
+```python
+clf_isotonic = CalibratedClassifierCV(clf, cv=2, method="isotonic")
+clf_isotonic.fit(X_train, y_train, sample_weight=sw_train)
+prob_pos_isotonic = clf_isotonic.predict_proba(X_test)[:, 1]
+```
+
+### notebooks/dataset2/ensemble_methods/plot_gradient_boosting_early_stopping.ipynb
+CONTEXT:  Error Calculation The code calculates the :func:`~sklearn.metrics.mean_squared_error` for both training and validation datasets for the
+models trained in the previous section. It computes the errors for each boosting iteration. The purpose is to assess the performance and convergence
+of the models.   COMMENT:
+```python
+train_errors_without = []
+val_errors_without = []
+train_errors_with = []
+val_errors_with = []
+for i, (train_pred, val_pred) in enumerate(
+    zip(
+        gbm_full.staged_predict(X_train),
+        gbm_full.staged_predict(X_val),
+    )
+):
+    train_errors_without.append(mean_squared_error(y_train, train_pred))
+    val_errors_without.append(mean_squared_error(y_val, val_pred))
+for i, (train_pred, val_pred) in enumerate(
+    zip(
+        gbm_early_stopping.staged_predict(X_train),
+        gbm_early_stopping.staged_predict(X_val),
+    )
+):
+    train_errors_with.append(mean_squared_error(y_train, train_pred))
+    val_errors_with.append(mean_squared_error(y_val, val_pred))
+```
+
+## Code Concatenation
+```python
+from sklearn.metrics import make_scorer, root_mean_squared_error
+from sklearn.model_selection import TimeSeriesSplit, cross_validate
+ts_cv = TimeSeriesSplit(n_splits=5, gap=48, test_size=336)  # a week has 336 samples
+scorer = make_scorer(root_mean_squared_error)
+cv_results = cross_validate(hgbt_no_cst, X, y, cv=ts_cv, scoring=scorer)
+rmse = cv_results["test_score"]
+print(f"RMSE without constraints = {rmse.mean():.3f} +/- {rmse.std():.3f}")
+cv_results = cross_validate(hgbt_no_cst, X, y, cv=ts_cv, scoring=scorer)
+rmse = cv_results["test_score"]
+print(f"RMSE with constraints    = {rmse.mean():.3f} +/- {rmse.std():.3f}")
+from pprint import pprint
+from sklearn.experimental import enable_halving_search_cv  # noqa: F401
+from sklearn.metrics import make_scorer
+from sklearn.model_selection import HalvingRandomSearchCV
+param_grid = dict(
+    learning_rate=[0.05, 0.1, 0.2],
+    max_depth=[2, 5, 10],
+    min_samples_leaf=[1, 5, 10, 20],
+    min_samples_split=[5, 10, 20, 30, 50],
+)
+alpha = 0.05
+neg_mean_pinball_loss_05p_scorer = make_scorer(
+    mean_pinball_loss,
+    alpha=alpha,
+    greater_is_better=False,  # maximize the negative loss
+)
+gbr = GradientBoostingRegressor(loss="quantile", alpha=alpha, random_state=0)
+search_05p = HalvingRandomSearchCV(
+    gbr,
+    param_grid,
+    resource="n_estimators",
+    max_resources=250,
+    min_resources=50,
+    scoring=neg_mean_pinball_loss_05p_scorer,
+    n_jobs=2,
+    random_state=0,
+).fit(X_train, y_train)
+pprint(search_05p.best_params_)
+minibatch_size = 1000
+n_features = 100
+data_stream = stream_reuters_documents()
+clf_isotonic = CalibratedClassifierCV(clf, cv=2, method="isotonic")
+clf_isotonic.fit(X_train, y_train, sample_weight=sw_train)
+prob_pos_isotonic = clf_isotonic.predict_proba(X_test)[:, 1]
+train_errors_without = []
+val_errors_without = []
+train_errors_with = []
+val_errors_with = []
+for i, (train_pred, val_pred) in enumerate(
+    zip(
+        gbm_full.staged_predict(X_train),
+        gbm_full.staged_predict(X_val),
+    )
+):
+    train_errors_without.append(mean_squared_error(y_train, train_pred))
+    val_errors_without.append(mean_squared_error(y_val, val_pred))
+for i, (train_pred, val_pred) in enumerate(
+    zip(
+        gbm_early_stopping.staged_predict(X_train),
+        gbm_early_stopping.staged_predict(X_val),
+    )
+):
+    train_errors_with.append(mean_squared_error(y_train, train_pred))
+    val_errors_with.append(mean_squared_error(y_val, val_pred))
+```

@@ -1,0 +1,15 @@
+{
+  "candidate_count": 9,
+  "completed_event_ids": [
+    "search-01",
+    "search-02",
+    "search-03"
+  ],
+  "config_sha256": "67a4922c271d0298c7340eece8a46704a69df608bd9e483ccb654dd71e578eae",
+  "error": "search-04 response is not valid UTF-8 JSON",
+  "error_type": "ValueError",
+  "failure_index": 1,
+  "retry_permitted": true,
+  "schema_version": "reprocheck.evidence-trial-acquisition-failure.v1",
+  "state_sha256": "60080703d8a6de02bb0e66b04b6795084b4cd65b0025c21799005380f0db618d"
+}

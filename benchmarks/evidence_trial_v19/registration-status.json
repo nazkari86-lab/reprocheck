@@ -1,0 +1,78 @@
+{
+  "schema_version": "reprocheck.evidence-trial-registration-status.v1",
+  "current_registration": {
+    "filename": "registration.json",
+    "sha256": "a7896c80c72be24d247800835b9c3a260db828ad6ad7a756a658edaf24aa5c54",
+    "size_bytes": 1313,
+    "generation": 5,
+    "status": "registered_not_retrieved",
+    "execution_status": "acquired_unreviewed",
+    "candidate_manifest": {
+      "filename": "acquisition-v5/candidates.json",
+      "sha256": "bf3165d5a2f9fbece966307ab731ae355869bd4a78f76d9f32f0fc87d26d33de",
+      "size_bytes": 131792,
+      "self_sha256": "b26a90a50ef50e0fa827315683ce7fdd98c89cc84e985229e04df17e2e7536bf",
+      "candidates": 60,
+      "independent_owners": 60,
+      "completed_frames": 20,
+      "response_descriptors": 200,
+      "source_bytes": 419601,
+      "evidence_tree_sha256": "a1597467d828542a523ed092b14bb1bbdf9314cb600afa1a08f375c5ba81d8a8"
+    },
+    "curation_packet": {
+      "filename": "curation-packet.json",
+      "sha256": "9823f58c1ea76c0da6340aed25b31009d601073d926398a808567cc5bbb6351a",
+      "size_bytes": 37953,
+      "contains_gold_labels": false
+    },
+    "automated_extractor_diagnostic_not_enrollment": {
+      "potential_claims": 2223,
+      "files_with_at_least_one": 43,
+      "files_with_at_least_three": 38,
+      "zero_claim_files": 17,
+      "purpose": "sample-size feasibility only; an independent curator must decide enrollment"
+    }
+  },
+  "superseded_registration": {
+    "filename": "registration-v1-superseded.json",
+    "sha256": "9d7fdff7d473f70b655b3cdc72588803a5ee9796e345b45901748bc5783e212c",
+    "size_bytes": 1312,
+    "generation": 1,
+    "status": "superseded_before_retrieval"
+  },
+  "failed_registrations": [
+    {
+      "filename": "registration-v2-failed.json",
+      "sha256": "4182f460a5e4d6e52d2aea361ab42ea7ea49be3dc757bec12138b8504c0f133c",
+      "size_bytes": 1313,
+      "generation": 2,
+      "status": "failed_closed_during_retrieval",
+      "failure_manifest": "acquisition-v2/failures/failure-001.json",
+      "evidence_tree_sha256": "1a1b109a77773975ffa1266e3dfd2b3a04672969933c1a73b179528f0fa404f3"
+    },
+    {
+      "filename": "registration-v3-failed.json",
+      "sha256": "3aaa8c2ba64ba0ece32eb8796ac18fa758eab8fdc3883173b2ed9a4b8d2bcf86",
+      "size_bytes": 1313,
+      "generation": 3,
+      "status": "failed_closed_during_retrieval",
+      "failure_manifest": "acquisition-v3/failures/failure-001.json",
+      "evidence_tree_sha256": "0626927cf409c5640c9fa81f31f15ded60006a66644fbe6a89b2e8f34ba9fadf"
+    },
+    {
+      "filename": "registration-v4-failed.json",
+      "sha256": "7680e07154a8efa32319aaf959bc820262a8494821fbd58a343ac2e65eb1e5fe",
+      "size_bytes": 1313,
+      "generation": 4,
+      "status": "failed_closed_during_retrieval",
+      "failure_manifest": "acquisition-v4/failures/failure-001.json",
+      "evidence_tree_sha256": "b0d57f842c59ccc5e4b7391bb6111bffb77b4c33a34b7e47cbe561701c4524e3"
+    }
+  ],
+  "reason": "Generation 1 lacked commit-pinned sources and source-only enrollment. Generation 2 exposed missing GitHub default_branch metadata. Generation 3 rejected GitHub base64 line wrapping. Generation 4 materialized nine candidates, then froze a truncated search JSON response before validation. Generation 5 validates Content-Length and complete JSON with up to three transport retries before freezing bytes. Every generation uses a new selection salt; prior registrations and failure evidence remain byte-identical.",
+  "external_source_retrieval_started_under_generation_1": false,
+  "external_source_retrieval_started_under_generation_2": true,
+  "external_source_retrieval_started_under_generation_3": true,
+  "external_source_retrieval_started_under_generation_4": true,
+  "external_source_retrieval_started_under_generation_5": true
+}

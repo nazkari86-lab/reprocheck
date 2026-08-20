@@ -10,7 +10,7 @@ def main() -> int:
     errors = verify_evidence_trial_registration(
         root / "registration.json",
         protocol=root / "protocol.json",
-        evaluator=root / "evaluator" / "reprocheck-0.30.0-py3-none-any.whl",
+        evaluator=root / "evaluator" / "reprocheck-0.30.4-py3-none-any.whl",
         acquisition=root / "acquire.py",
         source_config=root / "sources.json",
         analysis=root / "analyze.py",
