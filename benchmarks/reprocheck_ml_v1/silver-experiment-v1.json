@@ -1,0 +1,13 @@
+{
+  "schema_version": "reprocheck.ml-silver-experiment-protocol.v1",
+  "status": "registered_not_executed",
+  "seed": 20260821,
+  "task": "distinguish a claim paired with its source evidence block from the same claim paired with another owner's evidence block in the same domain and split",
+  "labels": "automatically constructed silver labels, not human gold labels",
+  "split": "owner-disjoint, domain-stratified 60/20/20",
+  "models": ["lexical_overlap", "claim_only_sparse_logistic", "evidence_only_sparse_logistic", "full_pair_sparse_logistic"],
+  "calibration": "threshold selected on validation by maximum F1, ties resolved toward the higher threshold",
+  "test_policy": "test is evaluated once after code and protocol registration",
+  "uncertainty": "1000-sample owner-level bootstrap 95% interval for full-pair F1 and AUROC",
+  "prohibited_claim": "results may not be presented as performance on independently human-annotated data"
+}
