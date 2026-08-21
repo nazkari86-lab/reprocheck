@@ -4,6 +4,11 @@ Status: **protocol and implementation ready; authentic corpus not yet collected;
 performance result exists.** This wording must remain until the registered experiment is
 completed.
 
+The first metadata-only discovery is preserved as an imbalanced pilot and is not the
+confirmatory cohort. See `amendment-001.md`. The replacement v2 discovery is registered
+separately and requires exactly 40 owners in each domain before repository contents are
+opened.
+
 Workflow:
 
 1. Freeze `protocol.json`, `source-frame.json`, `exclusions.json`, schemas, and scripts
