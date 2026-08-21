@@ -162,6 +162,29 @@ def _owner_bootstrap(
     return {"samples": len(deltas), "low": deltas[low_index], "high": deltas[high_index]}
 
 
+def _subgroup_metrics(
+    predictions: list[dict[str, Any]], field: str
+) -> dict[str, dict[str, float | int]]:
+    groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for item in predictions:
+        groups[str(item[field])].append(item)
+    result: dict[str, dict[str, float | int]] = {}
+    for name, rows in sorted(groups.items()):
+        eligible = sum(bool(row["eligible_claim"]) for row in rows)
+        selected = sum(bool(row["selected"]) for row in rows)
+        correct = sum(bool(row["selected"] and row["prediction_correct"]) for row in rows)
+        result[name] = {
+            "records": len(rows),
+            "owners": len({str(row["owner_id"]) for row in rows}),
+            "eligible_claims": eligible,
+            "automatic_decisions": selected,
+            "precision": correct / selected if selected else 0.0,
+            "recall": correct / eligible if eligible else 0.0,
+            "candidate_coverage": selected / len(rows),
+        }
+    return result
+
+
 def evaluate_frozen_selective(
     records: list[dict[str, object]],
     calibration: CalibrationResult,
@@ -275,6 +298,10 @@ def evaluate_frozen_selective(
             ),
         },
         "calibration_metrics": _calibration_metrics(scores, correctness),
+        "subgroups": {
+            "language": _subgroup_metrics(predictions, "language"),
+            "domain": _subgroup_metrics(predictions, "domain"),
+        },
         "risk_coverage": _risk_coverage(records),
         "success_gate": {
             "status": gate_status,

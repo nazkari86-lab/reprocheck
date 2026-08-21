@@ -207,6 +207,141 @@ def test_cli_extension_argument_guards():
         _artifact_spec("role=")
 
 
+def test_cli_ml_sparse_calibration_and_frozen_evaluation(tmp_path):
+    training = tmp_path / "train.json"
+    model = tmp_path / "model.json"
+    training.write_text(
+        json.dumps(
+            [
+                {
+                    "block_id": "b1",
+                    "owner_id": "o1",
+                    "text": "Accuracy reached 90%",
+                    "label": True,
+                    "split": "train",
+                },
+                {
+                    "block_id": "b2",
+                    "owner_id": "o2",
+                    "text": "Introduction only",
+                    "label": False,
+                    "split": "train",
+                },
+            ]
+        ),
+        encoding="utf-8",
+    )
+    assert (
+        main(
+            [
+                "ml-train",
+                "--rows",
+                str(training),
+                "--corpus-sha256",
+                "a" * 64,
+                "--split-sha256",
+                "b" * 64,
+                "--output",
+                str(model),
+            ]
+        )
+        == 0
+    )
+    model_digest = json.loads(model.read_text(encoding="utf-8"))["model_sha256"]
+
+    validation = tmp_path / "validation.json"
+    calibration = tmp_path / "calibration.json"
+    validation.write_text(
+        json.dumps(
+            [
+                {
+                    "claim_id": f"v{index}",
+                    "owner_id": f"owner-{index}",
+                    "split": "validation",
+                    "claim_probability": 0.99,
+                    "tuple_probability": 0.99,
+                    "evidence_probability": 0.99,
+                    "completeness": 0.99,
+                    "rank_margin": 0.99,
+                    "ood_score": 0.01,
+                    "gate_eligible": True,
+                    "correct": True,
+                }
+                for index in range(40)
+            ]
+        ),
+        encoding="utf-8",
+    )
+    assert (
+        main(
+            [
+                "ml-calibrate",
+                "--records",
+                str(validation),
+                "--corpus-sha256",
+                "a" * 64,
+                "--split-sha256",
+                "b" * 64,
+                "--model-sha256",
+                model_digest,
+                "--output",
+                str(calibration),
+            ]
+        )
+        == 0
+    )
+
+    evaluation = tmp_path / "test.json"
+    result = tmp_path / "result.json"
+    evaluation.write_text(
+        json.dumps(
+            [
+                {
+                    "claim_id": f"t{index}",
+                    "owner_id": f"test-owner-{index % 30}",
+                    "split": "test",
+                    "language": ("en", "ru", "kk")[index % 3],
+                    "domain": "science",
+                    "eligible_claim": True,
+                    "claim_probability": 0.99,
+                    "tuple_probability": 0.99,
+                    "evidence_probability": 0.99,
+                    "completeness": 0.99,
+                    "rank_margin": 0.99,
+                    "ood_score": 0.01,
+                    "gate_eligible": True,
+                    "prediction_correct": True,
+                    "baseline_selected": index < 50,
+                    "baseline_correct": index < 50,
+                }
+                for index in range(100)
+            ]
+        ),
+        encoding="utf-8",
+    )
+    assert (
+        main(
+            [
+                "ml-evaluate",
+                "--records",
+                str(evaluation),
+                "--calibration",
+                str(calibration),
+                "--phase",
+                "test",
+                "--bootstrap-samples",
+                "20",
+                "--output",
+                str(result),
+            ]
+        )
+        == 0
+    )
+    payload = json.loads(result.read_text(encoding="utf-8"))
+    assert payload["success_gate"]["status"] == "passed"
+    assert set(payload["subgroups"]["language"]) == {"en", "kk", "ru"}
+
+
 def test_cli_holdout_registration_paths(tmp_path):
     protocol = tmp_path / "protocol.json"
     evaluator = tmp_path / "evaluator.whl"

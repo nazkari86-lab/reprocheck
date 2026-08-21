@@ -33,6 +33,13 @@ from .human_study import (
     verify_human_study_master,
     verify_human_study_public_lock,
 )
+from .ml_baselines import train_sparse_logistic, write_sparse_logistic_model
+from .ml_calibration import CalibrationResult, calibrate_selective_thresholds
+from .ml_contracts import SelectiveThresholds, canonical_contract_json
+from .ml_dataset import load_ml_dataset
+from .ml_evaluation import evaluate_frozen_selective
+from .ml_split import build_owner_disjoint_split, cross_split_leakage
+from .ml_transformer import TransformerConfig, train_transformer
 from .render import render_html
 from .study import run_real_artifact_study, study_passed
 from .version import __version__
@@ -313,11 +320,153 @@ def build_parser() -> argparse.ArgumentParser:
     study.add_argument("--output", type=Path, default=Path("outputs/real-study.json"))
     study.add_argument("--repeats", type=int, default=3)
     study.add_argument("--bootstrap-samples", type=int, default=5_000)
+
+    ml_corpus = subparsers.add_parser(
+        "ml-corpus-validate", help="verify provenance, annotations, and source hashes"
+    )
+    ml_corpus.add_argument("--corpus", type=Path, required=True)
+    ml_corpus.add_argument("--annotations", type=Path, required=True)
+    ml_corpus.add_argument("--sources-root", type=Path, required=True)
+
+    ml_split = subparsers.add_parser(
+        "ml-split", help="create an owner-disjoint train/validation/test split"
+    )
+    ml_split.add_argument("--corpus", type=Path, required=True)
+    ml_split.add_argument("--annotations", type=Path, required=True)
+    ml_split.add_argument("--sources-root", type=Path, required=True)
+    ml_split.add_argument("--seed", type=int, default=1729)
+    ml_split.add_argument("--near-threshold", type=float, default=0.90)
+    ml_split.add_argument("--output", type=Path, required=True)
+
+    ml_train = subparsers.add_parser(
+        "ml-train", help="train a transparent baseline or optional multilingual model"
+    )
+    ml_train.add_argument("--rows", type=Path, required=True)
+    ml_train.add_argument("--corpus-sha256", required=True)
+    ml_train.add_argument("--split-sha256", required=True)
+    ml_train.add_argument("--model", choices=["sparse", "transformer"], default="sparse")
+    ml_train.add_argument("--output", type=Path, required=True)
+    ml_train.add_argument("--seed", type=int, default=1729)
+
+    ml_calibrate = subparsers.add_parser(
+        "ml-calibrate", help="freeze a selective threshold using validation rows only"
+    )
+    ml_calibrate.add_argument("--records", type=Path, required=True)
+    ml_calibrate.add_argument("--corpus-sha256", required=True)
+    ml_calibrate.add_argument("--split-sha256", required=True)
+    ml_calibrate.add_argument("--model-sha256", required=True)
+    ml_calibrate.add_argument("--minimum-decisions", type=int, default=20)
+    ml_calibrate.add_argument("--minimum-owners", type=int, default=10)
+    ml_calibrate.add_argument("--output", type=Path, required=True)
+
+    ml_evaluate = subparsers.add_parser(
+        "ml-evaluate", help="evaluate a frozen calibration on test or prospective rows"
+    )
+    ml_evaluate.add_argument("--records", type=Path, required=True)
+    ml_evaluate.add_argument("--calibration", type=Path, required=True)
+    ml_evaluate.add_argument("--phase", choices=["test", "prospective"], required=True)
+    ml_evaluate.add_argument("--bootstrap-samples", type=int, default=1_000)
+    ml_evaluate.add_argument("--output", type=Path, required=True)
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    if args.command == "ml-corpus-validate":
+        try:
+            dataset = load_ml_dataset(args.corpus, args.annotations, sources_root=args.sources_root)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(
+            f"PASS: repositories={dataset.repository_count} blocks={dataset.block_count} "
+            f"claims={dataset.claim_count} dataset_sha256={dataset.dataset_sha256}"
+        )
+        return 0
+    if args.command == "ml-split":
+        try:
+            dataset = load_ml_dataset(args.corpus, args.annotations, sources_root=args.sources_root)
+            split = build_owner_disjoint_split(
+                list(dataset.repositories), list(dataset.blocks), seed=args.seed
+            )
+            leakage = cross_split_leakage(
+                list(dataset.blocks), split, near_threshold=args.near_threshold
+            )
+            if leakage["status"] != "clear":
+                raise ValueError(
+                    f"cross-split leakage detected: exact={leakage['exact_pair_count']} "
+                    f"near={leakage['near_pair_count']}"
+                )
+            payload = {**split, "dataset_sha256": dataset.dataset_sha256, "leakage": leakage}
+            _write_new_json(args.output, payload)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(f"PASS: split_sha256={split['split_sha256']} output={args.output.resolve()}")
+        return 0
+    if args.command == "ml-train":
+        try:
+            rows = _load_json_list(args.rows, "ML training rows")
+            if args.model == "sparse":
+                model = train_sparse_logistic(
+                    rows,
+                    corpus_sha256=args.corpus_sha256,
+                    split_sha256=args.split_sha256,
+                    seed=args.seed,
+                )
+                write_sparse_logistic_model(model, args.output)
+                digest = model.model_sha256
+            else:
+                manifest = train_transformer(
+                    rows,
+                    args.output,
+                    corpus_sha256=args.corpus_sha256,
+                    split_sha256=args.split_sha256,
+                    config=TransformerConfig(seed=args.seed),
+                )
+                digest = str(manifest["manifest_sha256"])
+        except (OSError, UnicodeDecodeError, ValueError, RuntimeError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(f"PASS: model={args.model} model_sha256={digest} output={args.output.resolve()}")
+        return 0
+    if args.command == "ml-calibrate":
+        try:
+            result = calibrate_selective_thresholds(
+                _load_json_list(args.records, "ML validation records"),
+                corpus_sha256=args.corpus_sha256,
+                split_sha256=args.split_sha256,
+                model_sha256=args.model_sha256,
+                minimum_decisions=args.minimum_decisions,
+                minimum_owners=args.minimum_owners,
+            )
+            _write_new_json(args.output, result.to_dict())
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(
+            f"status={result.status} coverage={result.candidate_coverage:.1%} "
+            f"output={args.output.resolve()}"
+        )
+        return 0 if result.status == "calibrated" else 1
+    if args.command == "ml-evaluate":
+        try:
+            calibration = _load_calibration(args.calibration)
+            result = evaluate_frozen_selective(
+                _load_json_list(args.records, "ML frozen evaluation records"),
+                calibration,
+                phase=args.phase,
+                bootstrap_samples=args.bootstrap_samples,
+            )
+            _write_new_json(args.output, result)
+        except (OSError, UnicodeDecodeError, ValueError) as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        print(
+            f"status={result['success_gate']['status']} precision={result['system']['precision']:.1%} "
+            f"recall={result['system']['recall']:.1%} output={args.output.resolve()}"
+        )
+        return 0 if result["success_gate"]["status"] == "passed" else 1
     if args.command == "trial-register":
         try:
             registration = register_evidence_trial(
@@ -802,6 +951,38 @@ def _write_outputs(report, json_path: Path, html_path: Path | None) -> None:
     if html_path:
         html_path.parent.mkdir(parents=True, exist_ok=True)
         render_html(report, html_path)
+
+
+def _load_json_list(path: Path, label: str) -> list[dict[str, object]]:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as error:
+        raise ValueError(f"cannot load {label}: {path}") from error
+    if not isinstance(payload, list) or any(not isinstance(item, dict) for item in payload):
+        raise ValueError(f"{label} must be a JSON array of objects")
+    return payload
+
+
+def _write_new_json(path: Path, payload: object) -> None:
+    if path.exists():
+        raise ValueError(f"output already exists: {path}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(canonical_contract_json(payload) + "\n", encoding="utf-8")
+
+
+def _load_calibration(path: Path) -> CalibrationResult:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as error:
+        raise ValueError(f"cannot load ML calibration: {path}") from error
+    if not isinstance(payload, dict) or set(payload) != set(CalibrationResult.__dataclass_fields__):
+        raise ValueError("ML calibration has unexpected or missing fields")
+    thresholds = payload.get("thresholds")
+    if not isinstance(thresholds, dict) or set(thresholds) != set(
+        SelectiveThresholds.__dataclass_fields__
+    ):
+        raise ValueError("ML calibration thresholds have unexpected or missing fields")
+    return CalibrationResult(**{**payload, "thresholds": SelectiveThresholds(**thresholds)})
 
 
 def _artifact_spec(value: str) -> tuple[str, Path]:
