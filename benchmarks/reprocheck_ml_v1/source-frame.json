@@ -2,10 +2,19 @@
   "schema_version": "reprocheck.ml-source-frame.v1",
   "freeze_state": "selection_rules_defined_sources_not_yet_acquired",
   "platform": "GitHub public repositories",
+  "snapshot_sort": "stars_descending_then_full_name",
+  "maximum_results_per_frame": 100,
+  "development_owner_target": 120,
+  "recognized_licenses": ["Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "MIT", "MPL-2.0"],
+  "search_frames": [
+    {"frame_id": "cv-topic", "domain": "computer_vision", "query": "topic:computer-vision language:Python stars:>=10 archived:false fork:false"},
+    {"frame_id": "nlp-topic", "domain": "nlp", "query": "topic:natural-language-processing language:Python stars:>=10 archived:false fork:false"},
+    {"frame_id": "ml-topic", "domain": "other_ml", "query": "topic:machine-learning language:Python stars:>=10 archived:false fork:false"}
+  ],
   "one_repository_per_owner": true,
   "forks_allowed": false,
   "required": ["immutable commit", "recognized open-source license", "machine-learning result report", "at least one supported textual artifact"],
-  "sampling_order": ["domain", "primary_language", "stable repository identifier"],
+  "sampling_order": ["search frame order", "stars descending", "stable full_name", "one repository per owner"],
   "selection_must_not_use": ["ReproCheck outcome", "model score", "presence of a mismatch"],
   "prospective_exclusion": "Any owner or lineage observed before model freeze"
 }

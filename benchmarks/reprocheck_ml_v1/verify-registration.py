@@ -8,7 +8,7 @@ from reprocheck.ml_registration import verify_ml_registration
 parser = argparse.ArgumentParser()
 parser.add_argument("registration", type=Path)
 args = parser.parse_args()
-root = Path(__file__).resolve().parent
+root = Path(__file__).resolve().parents[2]
 errors = verify_ml_registration(root, args.registration)
 for error in errors:
     print(f"FAIL: {error}")
