@@ -11,6 +11,7 @@ FILES = [
     "benchmarks/reprocheck_ml_v1/registration-v2.json",
     "benchmarks/reprocheck_ml_v1/data/discovery-development-v2.json",
     "benchmarks/reprocheck_ml_v1/materialization-rules-v1.json",
+    "benchmarks/reprocheck_ml_v1/materialization-amendment-1.md",
     "benchmarks/reprocheck_ml_v1/acquire.py",
     "benchmarks/reprocheck_ml_v1/materialize.py",
     "benchmarks/reprocheck_ml_v1/register-materialization.py",

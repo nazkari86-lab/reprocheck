@@ -48,7 +48,8 @@ class GitHubContents(GitHubREST):
         ):
             raise ValueError(f"GitHub blob lookup returned an invalid payload for {full_name}")
         try:
-            return base64.b64decode(payload["content"], validate=True)
+            compact_content = "".join(payload["content"].split())
+            return base64.b64decode(compact_content, validate=True)
         except ValueError as error:
             raise ValueError(f"GitHub blob contains invalid base64 for {full_name}") from error
 
