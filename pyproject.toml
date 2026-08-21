@@ -35,7 +35,7 @@ dependencies = [
 
 [project.optional-dependencies]
 benchmark = [
-  "pyarrow==25.0.0",
+  "pyarrow==25.0.1",
   "scikit-learn==1.9.0",
 ]
 ml = [
