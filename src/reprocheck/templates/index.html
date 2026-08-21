@@ -28,6 +28,28 @@
         </aside>
       </section>
 
+      <section class="ml-explainer" aria-labelledby="ml-explainer-title">
+        <header>
+          <div>
+            <p class="eyebrow">REPROCHECK-ML / ПОНЯТНО БЕЗ ПРОГРАММИРОВАНИЯ</p>
+            <h2 id="ml-explainer-title">Машина ищет. Доказательства решают.</h2>
+          </div>
+          <span id="ml-runtime-status" class="ml-runtime-status">Проверяем режим…</span>
+        </header>
+        <p class="ml-simple-copy">Представьте внимательного помощника: он читает отчёт на русском, казахском или английском и отмечает фразы с результатами. Затем ReproCheck находит исходный файл, пересчитывает число и показывает всю цепочку на графе.</p>
+        <div class="ml-steps">
+          <article><span>01</span><h3>Найти утверждение</h3><p>ML замечает фразу вроде «точность составила 91%» и выделяет число, метрику и условия.</p></article>
+          <article><span>02</span><h3>Найти источник</h3><p>Все подходящие таблицы и файлы сохраняются. Модель может менять только порядок просмотра.</p></article>
+          <article><span>03</span><h3>Пересчитать</h3><p>Обычный проверяемый алгоритм заново вычисляет метрику и сравнивает её с отчётом.</p></article>
+        </div>
+        <div class="ml-decisions" aria-label="Три возможных действия ReproCheck-ML">
+          <div class="verify"><b>ПРОВЕРИТЬ</b><span>Данных достаточно — запускаем точный пересчёт.</span></div>
+          <div class="review"><b>ПОКАЗАТЬ ЧЕЛОВЕКУ</b><span>Есть неоднозначность — источник выбирает исследователь.</span></div>
+          <div class="abstain"><b>ВОЗДЕРЖАТЬСЯ</b><span>Доказательств мало — система честно не угадывает.</span></div>
+        </div>
+        <p class="ml-boundary"><b>Главное ограничение:</b> ML никогда не объявляет научный результат истинным или ложным. Он только помогает быстрее дойти до проверяемого доказательства.</p>
+      </section>
+
       <section class="workspace">
         <form id="audit-form">
           <div class="form-title"><span>АУДИТ / 001</span><h2>Проверьте проект за один шаг</h2></div>

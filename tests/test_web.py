@@ -38,6 +38,19 @@ def test_health_endpoint():
     assert response.json()["status"] == "ok"
 
 
+def test_ml_status_explains_optional_non_verdict_role():
+    response = client.get("/api/ml/status")
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["languages"] == ["en", "ru", "kk"]
+    assert payload["actions"] == ["verify", "review", "abstain"]
+    assert payload["final_verdict_by_ml"] is False
+
+    page = client.get("/")
+    assert "Машина ищет. Доказательства решают." in page.text
+    assert "Интерактивный граф доказательств" in page.text
+
+
 def test_demo_endpoint_exposes_real_traceable_audit():
     response = client.post("/api/demo")
 

@@ -50,6 +50,24 @@ const RELATION_LABELS = {
 let lastAudit = null;
 let graphState = null;
 
+const mlRuntimeStatus = document.querySelector("#ml-runtime-status");
+if (mlRuntimeStatus) {
+  fetch("/api/ml/status")
+    .then((response) => {
+      if (!response.ok) throw new Error("status unavailable");
+      return response.json();
+    })
+    .then((status) => {
+      mlRuntimeStatus.textContent = status.transformer_ready
+        ? "ML-МОДУЛЬ ГОТОВ · EN / RU / KK"
+        : "ТОЧНЫЙ РЕЖИМ · ML ПОДКЛЮЧАЕТСЯ ОТДЕЛЬНО";
+      mlRuntimeStatus.classList.add(status.transformer_ready ? "ready" : "optional");
+    })
+    .catch(() => {
+      mlRuntimeStatus.textContent = "СТАТУС ML НЕДОСТУПЕН";
+    });
+}
+
 document.querySelectorAll('input[type="file"]').forEach((input) => {
   input.addEventListener("change", () => {
     const drop = input.closest(".drop");

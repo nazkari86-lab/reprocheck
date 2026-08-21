@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import importlib.util
 import io
 import shutil
 import stat
@@ -62,6 +63,24 @@ def index(request: Request):
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok", "version": __version__}
+
+
+@app.get("/api/ml/status")
+def ml_status() -> dict[str, object]:
+    transformer_ready = all(
+        importlib.util.find_spec(package) is not None for package in ("torch", "transformers")
+    )
+    return {
+        "mode": "optional_multilingual" if transformer_ready else "deterministic_only",
+        "transformer_ready": transformer_ready,
+        "languages": ["en", "ru", "kk"],
+        "actions": ["verify", "review", "abstain"],
+        "final_verdict_by_ml": False,
+        "plain_language": (
+            "ML помогает найти важные утверждения; окончательный вывод делает "
+            "проверяемый алгоритм по исходным файлам."
+        ),
+    }
 
 
 @app.post("/api/demo")
