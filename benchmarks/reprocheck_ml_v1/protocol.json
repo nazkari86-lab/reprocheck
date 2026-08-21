@@ -1,0 +1,21 @@
+{
+  "schema_version": "reprocheck.ml-protocol.v1",
+  "title": "Owner-disjoint selective verification of numerical ML claims",
+  "research_question": "Can evidence-constrained ML improve claim recall by at least 0.15 over frozen deterministic ReproCheck while preserving high precision?",
+  "prior_work_version": "0.30.4",
+  "development_targets": {"owners": 100, "blocks": 5000, "eligible_claims": 1000, "complete_evidence_pairs": 300},
+  "prospective_target_owners": 30,
+  "languages": ["en", "ru", "kk"],
+  "domains": ["computer_vision", "nlp", "other_ml"],
+  "split": {"unit": "repository_owner_and_lineage", "train": 0.6, "validation": 0.2, "test": 0.2, "seed": 1729},
+  "primary_endpoint": "end_to_end_eligible_claim_recall",
+  "success_gate": {"minimum_owners": 30, "minimum_eligible_claims": 100, "minimum_recall_delta": 0.15, "minimum_precision": 0.95, "minimum_precision_wilson_lower": 0.9, "minimum_claim_coverage": 0.7},
+  "baselines": ["reprocheck_0.30.4_rules", "tfidf_sparse_logistic", "multilingual_encoder_without_evidence_constraints"],
+  "confirmatory_model": "multilingual_encoder_plus_evidence_constraints_plus_selective_calibration",
+  "model_selection_split": "validation_only",
+  "test_policy": "one execution after model and calibration freeze",
+  "prospective_policy": "acquire new owners only after model freeze",
+  "uncertainty": ["wilson_95", "owner_cluster_bootstrap_95"],
+  "subgroups": ["language", "domain"],
+  "scientific_boundary": "The learned layer prioritizes claims and evidence but never emits a final scientific truth verdict."
+}

@@ -1,7 +1,7 @@
 # ReproCheck-ML ISEF Research Design
 
 Date: 2026-08-21  
-Status: approved concept; implementation not started  
+Status: implementation complete through preregistration scaffold; authentic corpus and external evaluation pending  
 Target category: Regeneron ISEF Software Design — Algorithms  
 Research year: 2026–2027 continuation of ReproCheck
 

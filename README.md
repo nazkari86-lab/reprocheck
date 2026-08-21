@@ -13,6 +13,13 @@ Current status: protocol/scaffold only; no scored external result. The trial is
 designed to test whether raw-artifact recomputation improves contradiction recall
 at a maximum 5% false-accusation rate; it does not yet establish that claim.
 
+ReproCheck-ML is the 2026–2027 research extension. It adds multilingual claim discovery,
+structured extraction, complete evidence ranking, and calibrated `verify / review /
+abstain` routing while reserving every final verdict for the deterministic verifier.
+Current status: implementation and preregistration scaffold are complete; the authentic
+owner-disjoint corpus, hidden test, and prospective cohort are not complete, so there is
+no external ML performance claim yet.
+
 ## What ReproCheck verifies
 
 - Extracts classification, segmentation, and detection metric claims from
@@ -96,6 +103,22 @@ reprocheck serve
 make rknp-demo
 make gate
 ```
+
+Optional multilingual training uses a pinned compact encoder and remains separate from
+the default installation:
+
+```bash
+python3 -m pip install -e '.[ml]'
+reprocheck ml-corpus-validate --corpus corpus.json --annotations annotations.json --sources-root sources
+reprocheck ml-split --corpus corpus.json --annotations annotations.json --sources-root sources --output split.json
+reprocheck ml-train --model sparse --rows train-rows.json --corpus-sha256 CORPUS_SHA --split-sha256 SPLIT_SHA --output sparse-model.json
+reprocheck ml-calibrate --records validation-records.json --corpus-sha256 CORPUS_SHA --split-sha256 SPLIT_SHA --model-sha256 MODEL_SHA --output calibration.json
+reprocheck ml-evaluate --records hidden-test-records.json --calibration calibration.json --phase test --output result.json
+```
+
+The transformer alternative is selected with `--model transformer`. Saved model files,
+the exact base-model revision, environment, corpus, split, and training rows are all
+hash-bound. Test labels cannot be used by training or calibration APIs.
 
 The primary natural-error evidence is `make upstream-corrections`: 17
 independent merged upstream corrections containing 56 selected corrected claims

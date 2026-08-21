@@ -1,0 +1,5 @@
+{
+  "schema_version": "reprocheck.ml-exclusions.v1",
+  "frozen_reasons": ["fork", "duplicate owner", "duplicate lineage", "no recognized license", "no supported report artifact", "unsafe or oversized artifact", "non-ML project"],
+  "records": []
+}

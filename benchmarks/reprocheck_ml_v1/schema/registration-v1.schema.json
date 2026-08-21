@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reprocheck.dev/schemas/ml-registration-v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status", "test_labels_opened", "prospective_sources_acquired", "artifacts", "registration_sha256"],
+  "properties": {
+    "schema_version": {"const": "reprocheck.ml-preregistration.v1"},
+    "status": {"const": "registered_not_executed"},
+    "test_labels_opened": {"const": false},
+    "prospective_sources_acquired": {"const": false},
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "size_bytes", "sha256"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "size_bytes": {"type": "integer", "minimum": 0},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "registration_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

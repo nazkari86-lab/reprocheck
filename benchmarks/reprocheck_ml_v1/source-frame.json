@@ -1,0 +1,11 @@
+{
+  "schema_version": "reprocheck.ml-source-frame.v1",
+  "freeze_state": "selection_rules_defined_sources_not_yet_acquired",
+  "platform": "GitHub public repositories",
+  "one_repository_per_owner": true,
+  "forks_allowed": false,
+  "required": ["immutable commit", "recognized open-source license", "machine-learning result report", "at least one supported textual artifact"],
+  "sampling_order": ["domain", "primary_language", "stable repository identifier"],
+  "selection_must_not_use": ["ReproCheck outcome", "model score", "presence of a mismatch"],
+  "prospective_exclusion": "Any owner or lineage observed before model freeze"
+}
