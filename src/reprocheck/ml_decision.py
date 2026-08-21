@@ -95,9 +95,7 @@ def select_ml_action(
         review_reasons.append("below_automatic_threshold")
     if review_reasons:
         return _decision("review", tuple(review_reasons), compatibility)
-    return _decision(
-        "verify", ("eligible_for_deterministic_verification",), compatibility
-    )
+    return _decision("verify", ("eligible_for_deterministic_verification",), compatibility)
 
 
 def _decision(
@@ -110,4 +108,3 @@ def _decision(
     else:
         resolved = "abstain"
     return SelectiveDecision(action=resolved, reasons=reasons, compatibility=compatibility)
-

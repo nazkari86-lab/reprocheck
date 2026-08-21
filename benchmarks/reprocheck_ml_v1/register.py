@@ -10,10 +10,21 @@ ROOT = Path(__file__).resolve().parent
 FROZEN = [
     ROOT / name
     for name in (
-        "protocol.json", "source-frame.json", "exclusions.json", "protocol.md",
-        "annotation-guide.md", "model-card.md", "split.py", "train.py", "calibrate.py",
-        "evaluate.py", "acquire.py", "annotate.py", "register.py", "verify-registration.py",
-        "schema/registration-v1.schema.json"
+        "protocol.json",
+        "source-frame.json",
+        "exclusions.json",
+        "protocol.md",
+        "annotation-guide.md",
+        "model-card.md",
+        "split.py",
+        "train.py",
+        "calibrate.py",
+        "evaluate.py",
+        "acquire.py",
+        "annotate.py",
+        "register.py",
+        "verify-registration.py",
+        "schema/registration-v1.schema.json",
     )
 ]
 

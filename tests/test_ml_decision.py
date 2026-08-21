@@ -119,9 +119,7 @@ def test_medium_confidence_or_incomplete_evidence_routes_to_review() -> None:
 
 
 def test_low_confidence_text_only_or_ood_candidate_abstains() -> None:
-    low = select_ml_action(
-        _claim(), _candidate(), _scores(claim_probability=0.40), _thresholds()
-    )
+    low = select_ml_action(_claim(), _candidate(), _scores(claim_probability=0.40), _thresholds())
     text_only = select_ml_action(
         _claim(), _candidate(evidence_grade="text_reported"), _scores(), _thresholds()
     )
@@ -137,9 +135,6 @@ def test_low_confidence_text_only_or_ood_candidate_abstains() -> None:
 
 
 def test_rank_ambiguity_routes_to_review_even_with_high_model_scores() -> None:
-    decision = select_ml_action(
-        _claim(), _candidate(rank_margin=0.02), _scores(), _thresholds()
-    )
+    decision = select_ml_action(_claim(), _candidate(rank_margin=0.02), _scores(), _thresholds())
     assert decision.action == "review"
     assert "ambiguous_evidence_ranking" in decision.reasons
-
