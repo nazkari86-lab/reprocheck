@@ -138,3 +138,16 @@ def test_rank_ambiguity_routes_to_review_even_with_high_model_scores() -> None:
     decision = select_ml_action(_claim(), _candidate(rank_margin=0.02), _scores(), _thresholds())
     assert decision.action == "review"
     assert "ambiguous_evidence_ranking" in decision.reasons
+
+
+def test_metric_conflict_and_each_low_component_abstains() -> None:
+    conflict = check_evidence_compatibility(_claim(), _candidate(metric="f1"))
+    assert conflict.conflicts == ("metric",)
+    tuple_low = select_ml_action(
+        _claim(), _candidate(), _scores(tuple_probability=0.1), _thresholds()
+    )
+    evidence_low = select_ml_action(
+        _claim(), _candidate(), _scores(evidence_probability=0.1), _thresholds()
+    )
+    assert "tuple_probability_below_review_threshold" in tuple_low.reasons
+    assert "evidence_probability_below_review_threshold" in evidence_low.reasons

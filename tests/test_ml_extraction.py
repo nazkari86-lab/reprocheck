@@ -105,3 +105,57 @@ def test_tuple_scoring_reports_exact_and_field_level_results() -> None:
     assert result["exact_match"] == 0.5
     assert result["field_accuracy"]["metric"] == 0.5
     assert result["field_accuracy"]["value"] == 1.0
+
+
+def test_numeric_enumerator_skips_nonfinite_and_decoder_validates_inputs() -> None:
+    assert enumerate_numeric_spans("value 1e999 and ordinary text") == ()
+    text = "Accuracy 0.9"
+    number = enumerate_numeric_spans(text)[0]
+    with pytest.raises(ValueError, match="does not bind"):
+        decode_scored_claim(
+            claim_id="c",
+            source_text=text,
+            numeric_span=type(number)(99, 102, number.raw_text, number.value, number.unit),
+            metric_spans=[],
+            context_spans={},
+        )
+    with pytest.raises(ValueError, match="minimum_score"):
+        decode_scored_claim(
+            claim_id="c",
+            source_text=text,
+            numeric_span=number,
+            metric_spans=[],
+            context_spans={},
+            minimum_score=2,
+        )
+    with pytest.raises(ValueError, match="unsupported context"):
+        decode_scored_claim(
+            claim_id="c",
+            source_text=text,
+            numeric_span=number,
+            metric_spans=[ScoredSpan("accuracy", 0, 8, 1)],
+            context_spans={"owner": []},
+        )
+
+
+def test_decoder_tie_breaking_context_threshold_and_tuple_scoring_edges() -> None:
+    text = "Accuracy F1 0.9 test"
+    number = enumerate_numeric_spans(text)[0]
+    claim = decode_scored_claim(
+        claim_id="c",
+        source_text=text,
+        numeric_span=number,
+        metric_spans=[ScoredSpan("f1", 9, 11, 0.9), ScoredSpan("accuracy", 0, 8, 0.9)],
+        context_spans={"split": [ScoredSpan("test", 16, 20, 0.2)]},
+        minimum_score=0.8,
+    )
+    assert claim is not None and claim.metric == "accuracy" and claim.context == {}
+    with pytest.raises(ValueError, match="unique claim_id"):
+        score_tuple_predictions([{"claim_id": "a"}, {"claim_id": "a"}], [{"claim_id": "a"}])
+    empty = score_tuple_predictions([], [])
+    assert empty["exact_match"] == 0
+    result = score_tuple_predictions(
+        [{"claim_id": "a", "metric": "f1", "value": 1, "context": {}}],
+        [{"claim_id": "a", "metric": "f1", "value": "bad", "context": {}}],
+    )
+    assert result["field_accuracy"]["value"] == 0

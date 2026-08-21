@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from reprocheck.ml_split import build_owner_disjoint_split, cross_split_leakage
 
 
@@ -108,3 +110,39 @@ def test_cross_split_leakage_reports_exact_and_near_duplicates() -> None:
     near = cross_split_leakage(blocks, split, near_threshold=0.90)
     assert near["near_pair_count"] >= 1
     assert near["status"] == "leakage_detected"
+
+
+def test_split_rejects_ratios_duplicate_ids_unknown_blocks_and_cross_domain_lineage() -> None:
+    repositories, blocks = _records()
+    with pytest.raises(ValueError, match="ratios"):
+        build_owner_disjoint_split(repositories, blocks, seed=1, ratios=(0.5, 0.5, 0.5))
+    duplicate = [dict(item) for item in repositories]
+    duplicate[1]["repository_id"] = duplicate[0]["repository_id"]
+    with pytest.raises(ValueError, match="repository_id"):
+        build_owner_disjoint_split(duplicate, blocks, seed=1)
+    duplicate = [dict(item) for item in repositories]
+    duplicate[1]["owner_id"] = duplicate[0]["owner_id"]
+    with pytest.raises(ValueError, match="owner groups"):
+        build_owner_disjoint_split(duplicate, blocks, seed=1)
+    bad_blocks = [dict(item) for item in blocks]
+    bad_blocks[0]["repository_id"] = "missing"
+    with pytest.raises(ValueError, match="unknown repository"):
+        build_owner_disjoint_split(repositories, bad_blocks, seed=1)
+    linked = [dict(item) for item in repositories]
+    linked[0]["lineage_id"] = linked[5]["lineage_id"]
+    with pytest.raises(ValueError, match="multiple domains"):
+        build_owner_disjoint_split(linked, blocks, seed=1)
+
+
+def test_leakage_rejects_threshold_and_unassigned_repository() -> None:
+    repositories, blocks = _records()
+    split = build_owner_disjoint_split(repositories, blocks, seed=1)
+    with pytest.raises(ValueError, match="threshold"):
+        cross_split_leakage(blocks, split, near_threshold=2)
+    broken = {**split, "splits": {name: list(values) for name, values in split["splits"].items()}}
+    repository = blocks[0]["repository_id"]
+    for values in broken["splits"].values():
+        if repository in values:
+            values.remove(repository)
+    with pytest.raises(ValueError, match="absent from split"):
+        cross_split_leakage(blocks, broken)

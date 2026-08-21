@@ -6,10 +6,12 @@ import math
 import pytest
 
 from reprocheck.ml_contracts import (
+    CompatibilityResult,
     EvidenceCandidate,
     MLClaimTuple,
     ModelScores,
     SelectiveThresholds,
+    SelectiveDecision,
     canonical_contract_json,
 )
 
@@ -122,3 +124,80 @@ def test_contract_json_is_canonical_and_non_finite_safe() -> None:
     assert json.loads(first)["claim"]["claim_id"] == "claim-001"
     with pytest.raises(ValueError, match="finite"):
         canonical_contract_json({"bad": float("inf")})
+
+
+def test_contracts_reject_every_invalid_enum_boolean_and_final_verdict() -> None:
+    base = dict(
+        candidate_id="e",
+        artifact_id="a",
+        evidence_grade="raw_recomputed",
+        metric="accuracy",
+        value=0.9,
+        context={},
+        rank_score=0.8,
+        rank_margin=0.2,
+        integrity_verified=True,
+    )
+    for changes, message in [
+        ({"evidence_grade": "bad"}, "evidence_grade"),
+        ({"value": math.inf}, "finite"),
+        ({"integrity_verified": 1}, "boolean"),
+    ]:
+        with pytest.raises(ValueError, match=message):
+            EvidenceCandidate(**{**base, **changes})  # type: ignore[arg-type]
+    with pytest.raises(ValueError, match="rule_agreement"):
+        ModelScores(0.5, 0.5, 0.5, 0.5, 1)  # type: ignore[arg-type]
+    with pytest.raises(ValueError, match="compatibility"):
+        CompatibilityResult(True, 1.0, (), (), ("conflict",))
+    compatible = CompatibilityResult(True, 1.0, (), (), ())
+    with pytest.raises(ValueError, match="unsupported selective action"):
+        SelectiveDecision("bad", ("reason",), compatible)  # type: ignore[arg-type]
+    with pytest.raises(ValueError, match="at least one reason"):
+        SelectiveDecision("review", (), compatible)
+    with pytest.raises(ValueError, match="final evidence verdict"):
+        SelectiveDecision("verify", ("reason",), compatible, "confirmed")  # type: ignore[arg-type]
+    with pytest.raises(TypeError, match="unsupported contract value"):
+        canonical_contract_json({1, 2})
+
+
+def test_claim_parses_grouped_decimal_comma_and_percent_numbers() -> None:
+    grouped = _claim(
+        value=1234.5,
+        source_text="Accuracy 1,234.5",
+        metric_span=(0, 8),
+        value_span=(9, 16),
+    )
+    decimal = _claim(
+        value=1.25,
+        source_text="Accuracy 1,25",
+        metric_span=(0, 8),
+        value_span=(9, 13),
+    )
+    percent = _claim(
+        value=0.94,
+        unit="percent",
+        source_text="Accuracy 94",
+        metric_span=(0, 8),
+        value_span=(9, 11),
+    )
+    assert (grouped.value, decimal.value, percent.value) == (1234.5, 1.25, 0.94)
+
+    grouped_integer = _claim(
+        value=1234,
+        source_text="Accuracy 1,234",
+        metric_span=(0, 8),
+        value_span=(9, 14),
+    )
+    assert grouped_integer.value == 1234
+
+
+def test_claim_rejects_invalid_unit_and_whitespace_metric_binding() -> None:
+    with pytest.raises(ValueError, match="unit"):
+        _claim(unit="ratio")
+    with pytest.raises(ValueError, match="non-empty source text"):
+        _claim(
+            source_text="X        0.94",
+            metric_span=(1, 8),
+            value_span=(9, 13),
+            context={},
+        )

@@ -79,7 +79,7 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def _require_ml_dependencies() -> tuple[Any, Any]:
+def _require_ml_dependencies() -> tuple[Any, Any]:  # pragma: no cover - optional runtime
     try:
         import torch
         import transformers
@@ -88,7 +88,7 @@ def _require_ml_dependencies() -> tuple[Any, Any]:
     return torch, transformers
 
 
-def _set_determinism(torch: Any, seed: int) -> None:
+def _set_determinism(torch: Any, seed: int) -> None:  # pragma: no cover - optional runtime
     random.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
     torch.manual_seed(seed)
@@ -97,7 +97,7 @@ def _set_determinism(torch: Any, seed: int) -> None:
 
 
 class HuggingFaceRuntime:
-    def train(
+    def train(  # pragma: no cover - exercised only with the optional pinned runtime
         self, rows: Sequence[dict[str, object]], output_dir: Path, config: TransformerConfig
     ) -> dict[str, str]:
         torch, transformers = _require_ml_dependencies()
@@ -136,7 +136,7 @@ class HuggingFaceRuntime:
             "transformers": str(transformers.__version__),
         }
 
-    def predict(
+    def predict(  # pragma: no cover - exercised only with the optional pinned runtime
         self, model_dir: Path, texts: Sequence[str], config: TransformerConfig
     ) -> list[float]:
         torch, transformers = _require_ml_dependencies()

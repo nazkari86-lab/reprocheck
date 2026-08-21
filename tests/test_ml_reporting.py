@@ -1,10 +1,17 @@
+import hashlib
+import json
 from pathlib import Path
 
 import pytest
 
 from reprocheck.ml_calibration import calibrate_selective_thresholds
 from reprocheck.ml_evaluation import evaluate_frozen_selective
-from reprocheck.ml_reporting import build_frozen_scorecard, render_risk_coverage_svg
+from reprocheck.ml_contracts import canonical_contract_json
+from reprocheck.ml_reporting import (
+    build_frozen_scorecard,
+    load_frozen_evaluation,
+    render_risk_coverage_svg,
+)
 
 
 def _result():  # type: ignore[no-untyped-def]
@@ -68,3 +75,41 @@ def test_scorecard_and_svg_are_bound_to_frozen_result(tmp_path: Path) -> None:
     result["system"]["precision"] = 0.5
     with pytest.raises(ValueError, match="integrity failure"):
         build_frozen_scorecard(result)
+
+
+def test_reporting_rejects_missing_invalid_points_overwrite_and_bad_files(tmp_path: Path) -> None:
+    result = _result()
+    result["risk_coverage"] = []
+    result["result_sha256"] = ""
+    # Recompute only to reach the semantic point validation through a valid envelope.
+    result["result_sha256"] = hashlib.sha256(canonical_contract_json(result).encode()).hexdigest()
+    with pytest.raises(ValueError, match="no risk-coverage"):
+        render_risk_coverage_svg(result, tmp_path / "empty.svg")
+
+    result = _result()
+    result["risk_coverage"][0]["risk"] = 2.0
+    result["result_sha256"] = ""
+    result["result_sha256"] = hashlib.sha256(canonical_contract_json(result).encode()).hexdigest()
+    with pytest.raises(ValueError, match=r"\[0, 1\]"):
+        render_risk_coverage_svg(result, tmp_path / "bad.svg")
+
+    result = _result()
+    output = tmp_path / "figure.svg"
+    output.write_text("existing", encoding="utf-8")
+    with pytest.raises(ValueError, match="already exists"):
+        render_risk_coverage_svg(result, output)
+
+    valid = tmp_path / "result.json"
+    valid.write_text(json.dumps(result), encoding="utf-8")
+    assert load_frozen_evaluation(valid)["phase"] == "test"
+    invalid = tmp_path / "invalid.json"
+    invalid.write_text("[]", encoding="utf-8")
+    with pytest.raises(ValueError, match="JSON object"):
+        load_frozen_evaluation(invalid)
+    with pytest.raises(ValueError, match="cannot load"):
+        load_frozen_evaluation(tmp_path / "missing.json")
+
+    tampered = _result()
+    tampered["system"]["precision"] = 0.2
+    with pytest.raises(ValueError, match="integrity failure"):
+        render_risk_coverage_svg(tampered, tmp_path / "tampered.svg")

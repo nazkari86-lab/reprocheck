@@ -98,3 +98,68 @@ def test_training_rejects_leaky_or_malformed_examples(mutation, message: str) ->
     mutation(examples)
     with pytest.raises(ValueError, match=message):
         train_sparse_logistic(examples, corpus_sha256="a" * 64, split_sha256="b" * 64, seed=1)
+
+
+@pytest.mark.parametrize(
+    ("kwargs", "message"),
+    [
+        ({"corpus_sha256": "bad"}, "SHA-256"),
+        ({"epochs": 0}, "epochs"),
+        ({"learning_rate": float("nan")}, "learning_rate"),
+        ({"l2": -1}, "l2"),
+        ({"maximum_features": 0}, "maximum_features"),
+    ],
+)
+def test_training_rejects_invalid_digest_and_hyperparameters(
+    kwargs: dict[str, object], message: str
+) -> None:
+    options: dict[str, object] = {
+        "corpus_sha256": "a" * 64,
+        "split_sha256": "b" * 64,
+        "seed": 1,
+    }
+    options.update(kwargs)
+    with pytest.raises(ValueError, match=message):
+        train_sparse_logistic(_examples(), **options)  # type: ignore[arg-type]
+
+
+def test_training_rejects_short_wrong_fields_and_empty_owner() -> None:
+    with pytest.raises(ValueError, match="at least two"):
+        train_sparse_logistic(
+            _examples()[:1], corpus_sha256="a" * 64, split_sha256="b" * 64, seed=1
+        )
+    values = _examples()
+    values[0]["extra"] = True
+    with pytest.raises(ValueError, match="exact declared"):
+        train_sparse_logistic(values, corpus_sha256="a" * 64, split_sha256="b" * 64, seed=1)
+    values = _examples()
+    values[0]["owner_id"] = ""
+    with pytest.raises(ValueError, match="non-empty"):
+        train_sparse_logistic(values, corpus_sha256="a" * 64, split_sha256="b" * 64, seed=1)
+
+
+def test_model_loader_rejects_io_schema_digest_arrays_and_nonfinite(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="cannot load"):
+        load_sparse_logistic_model(tmp_path / "missing.json")
+    path = tmp_path / "model.json"
+    path.write_text("[]", encoding="utf-8")
+    with pytest.raises(ValueError, match="unexpected"):
+        load_sparse_logistic_model(path)
+    model = train_sparse_logistic(
+        _examples(), corpus_sha256="a" * 64, split_sha256="b" * 64, seed=1, epochs=1
+    )
+    payload = model.to_dict()
+    payload["schema_version"] = "bad"
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    with pytest.raises(ValueError, match="unsupported"):
+        load_sparse_logistic_model(path)
+    payload = model.to_dict()
+    payload["feature_names"] = []
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    with pytest.raises(ValueError, match="inconsistent"):
+        load_sparse_logistic_model(path)
+    payload = model.to_dict()
+    payload["intercept"] = float("nan")
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    with pytest.raises(ValueError, match="finite"):
+        load_sparse_logistic_model(path)

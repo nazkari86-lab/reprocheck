@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import copy
+
+import pytest
+
 from reprocheck.ml_contracts import MLClaimTuple
 from reprocheck.ml_retrieval import (
     generate_evidence_candidates,
@@ -102,3 +106,75 @@ def test_ranking_metrics_use_claim_level_denominators() -> None:
     assert result["recall_at_1"] == 1 / 3
     assert result["recall_at_3"] == 2 / 3
     assert result["mrr"] == 0.5
+
+
+def test_candidate_and_ranking_contract_guards() -> None:
+    malformed = _artifacts()[0]
+    malformed.pop("metric_names")
+    with pytest.raises(ValueError, match="exact declared"):
+        generate_evidence_candidates(_claim(), [malformed])
+    duplicate = _artifacts()[0]
+    with pytest.raises(ValueError, match="unique"):
+        generate_evidence_candidates(_claim(), [duplicate, copy.deepcopy(duplicate)])
+    with pytest.raises(ValueError, match="unique claim_id"):
+        score_evidence_ranking(
+            [
+                {"claim_id": "a", "expected_artifact_id": "x", "ranked_artifact_ids": []},
+                {"claim_id": "a", "expected_artifact_id": "y", "ranked_artifact_ids": []},
+            ]
+        )
+    assert score_evidence_ranking([]) == {
+        "claims": 0,
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "mrr": 0.0,
+    }
+
+
+@pytest.mark.parametrize(
+    ("mutation", "message"),
+    [
+        (lambda pair: pair.update(extra=True), "exact declared"),
+        (lambda pair: pair.update(split="test"), "training split"),
+        (lambda pair: pair.update(claim="bad"), "MLClaimTuple"),
+        (lambda pair: pair.update(artifact="bad"), "artifact must be an object"),
+        (lambda pair: pair.update(label=1), "labels must be boolean"),
+    ],
+)
+def test_ranker_rejects_malformed_pairs(mutation, message: str) -> None:
+    pair: dict[str, object] = {
+        "claim": _claim(),
+        "artifact": _artifacts()[0],
+        "label": True,
+        "hard_negative": False,
+        "split": "train",
+    }
+    mutation(pair)
+    with pytest.raises(ValueError, match=message):
+        train_evidence_ranker([pair], corpus_sha256="a" * 64, split_sha256="b" * 64)
+
+
+def test_ranker_rejects_digests_parameters_single_class_and_feature_mismatch() -> None:
+    pair = {
+        "claim": _claim(),
+        "artifact": _artifacts()[0],
+        "label": True,
+        "hard_negative": False,
+        "split": "train",
+    }
+    with pytest.raises(ValueError, match="SHA-256"):
+        train_evidence_ranker([pair], corpus_sha256="bad", split_sha256="b" * 64)
+    with pytest.raises(ValueError, match="parameters"):
+        train_evidence_ranker([], corpus_sha256="a" * 64, split_sha256="b" * 64)
+    with pytest.raises(ValueError, match="positive and negative"):
+        train_evidence_ranker([pair], corpus_sha256="a" * 64, split_sha256="b" * 64)
+
+    training = []
+    for artifact, label in zip(_artifacts()[:2], (True, False)):
+        training.append({**pair, "artifact": artifact, "label": label})
+    model = train_evidence_ranker(training, corpus_sha256="a" * 64, split_sha256="b" * 64, epochs=1)
+    object.__setattr__(model, "feature_names", ("bad",))
+    with pytest.raises(ValueError, match="feature contract"):
+        rank_evidence_candidates(
+            model, _claim(), generate_evidence_candidates(_claim(), _artifacts())
+        )

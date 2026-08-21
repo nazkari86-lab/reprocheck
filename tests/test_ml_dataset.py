@@ -186,3 +186,161 @@ def test_dataset_digest_changes_with_annotation_but_not_mapping_order(tmp_path: 
     changed = validate_ml_dataset(corpus, changed_annotations, sources_root=tmp_path)
     assert original.dataset_sha256 == reordered.dataset_sha256
     assert original.dataset_sha256 != changed.dataset_sha256
+
+
+def test_dataset_loader_rejects_unreadable_and_nonobject_json(tmp_path: Path) -> None:
+    bad = tmp_path / "bad.json"
+    bad.write_text("[]", encoding="utf-8")
+    with pytest.raises(ValueError, match="JSON object"):
+        load_ml_dataset(bad, bad, sources_root=tmp_path)
+    with pytest.raises(ValueError, match="cannot load"):
+        load_ml_dataset(tmp_path / "missing", bad, sources_root=tmp_path)
+
+
+@pytest.mark.parametrize(
+    ("mutation", "message"),
+    [
+        (
+            lambda c, a: c["repositories"][1].update(repository_id="repo-alpha"),
+            "repository_id values",
+        ),
+        (
+            lambda c, a: c["repositories"][0]["artifacts"].append(
+                copy.deepcopy(c["repositories"][0]["artifacts"][0])
+            ),
+            "artifact_id values",
+        ),
+        (
+            lambda c, a: c["repositories"][0]["artifacts"][0].update(size_bytes=1),
+            "size does not match",
+        ),
+        (
+            lambda c, a: a["blocks"][1].update(block_id="block-alpha"),
+            "block_id values",
+        ),
+        (
+            lambda c, a: a["blocks"][0].update(artifact_id="missing"),
+            "unknown artifact",
+        ),
+        (
+            lambda c, a: a["blocks"][0].update(source_end=1),
+            "source range",
+        ),
+        (
+            lambda c, a: a["blocks"][0].update(normalized_text="wrong"),
+            "normalized_text",
+        ),
+        (
+            lambda c, a: a["blocks"][0].update(contains_eligible_claim=False),
+            "claim presence",
+        ),
+        (
+            lambda c, a: a["blocks"][0].update(review_status="primary_only"),
+            "positive annotation",
+        ),
+        (
+            lambda c, a: a["blocks"][1].update(
+                contains_eligible_claim=True,
+                review_status="agreed",
+                claims=[copy.deepcopy(a["blocks"][0]["claims"][0])],
+            ),
+            "claim_id values",
+        ),
+    ],
+)
+def test_dataset_custom_integrity_guards(tmp_path: Path, mutation, message: str) -> None:
+    corpus, annotations = _payload(tmp_path)
+    mutation(corpus, annotations)
+    with pytest.raises(ValueError, match=message):
+        validate_ml_dataset(corpus, annotations, sources_root=tmp_path)
+
+
+def test_dataset_rejects_missing_and_non_utf8_annotated_artifacts(tmp_path: Path) -> None:
+    corpus, annotations = _payload(tmp_path)
+    (tmp_path / "alpha.md").unlink()
+    with pytest.raises(ValueError, match="artifact is missing"):
+        validate_ml_dataset(corpus, annotations, sources_root=tmp_path)
+
+    corpus, annotations = _payload(tmp_path)
+    path = tmp_path / "alpha.md"
+    path.write_bytes(b"\xff\xfe")
+    corpus["repositories"][0]["artifacts"][0] = _descriptor(path, "artifact-alpha")
+    with pytest.raises(ValueError, match="UTF-8"):
+        validate_ml_dataset(corpus, annotations, sources_root=tmp_path)
+
+
+@pytest.mark.parametrize(
+    ("pair", "message"),
+    [
+        (
+            {
+                "claim_id": "claim-alpha",
+                "repository_id": "repo-alpha",
+                "artifact_id": "artifact-alpha",
+                "label": "compatible",
+                "review_status": "unresolved",
+            },
+            "unresolved",
+        ),
+        (
+            {
+                "claim_id": "missing",
+                "repository_id": "repo-alpha",
+                "artifact_id": "artifact-alpha",
+                "label": "incompatible",
+                "review_status": "agreed",
+            },
+            "unknown claim",
+        ),
+        (
+            {
+                "claim_id": "claim-alpha",
+                "repository_id": "repo-alpha",
+                "artifact_id": "missing",
+                "label": "incompatible",
+                "review_status": "agreed",
+            },
+            "unknown artifact",
+        ),
+        (
+            {
+                "claim_id": "claim-alpha",
+                "repository_id": "repo-beta",
+                "artifact_id": "artifact-beta",
+                "label": "compatible",
+                "review_status": "agreed",
+            },
+            "claim repository",
+        ),
+    ],
+)
+def test_dataset_evidence_pair_guards(
+    tmp_path: Path, pair: dict[str, object], message: str
+) -> None:
+    corpus, annotations = _payload(tmp_path)
+    annotations["evidence_pairs"] = [pair]
+    with pytest.raises(ValueError, match=message):
+        validate_ml_dataset(corpus, annotations, sources_root=tmp_path)
+
+
+def test_dataset_rejects_mismatched_corpus_id_unresolved_negative_and_symlink_escape(
+    tmp_path: Path,
+) -> None:
+    corpus, annotations = _payload(tmp_path)
+    annotations["corpus_id"] = "other"
+    with pytest.raises(ValueError, match="different corpus_id"):
+        validate_ml_dataset(corpus, annotations, sources_root=tmp_path)
+
+    corpus, annotations = _payload(tmp_path)
+    annotations["blocks"][1]["review_status"] = "unresolved"
+    with pytest.raises(ValueError, match="annotation is unresolved"):
+        validate_ml_dataset(corpus, annotations, sources_root=tmp_path)
+
+    outside = tmp_path.parent / f"outside-{tmp_path.name}.md"
+    outside.write_text("outside", encoding="utf-8")
+    link = tmp_path / "linked.md"
+    link.symlink_to(outside)
+    corpus, annotations = _payload(tmp_path)
+    corpus["repositories"][0]["artifacts"][0] = _descriptor(link, "artifact-alpha")
+    with pytest.raises(ValueError, match="safe relative path"):
+        validate_ml_dataset(corpus, annotations, sources_root=tmp_path)
