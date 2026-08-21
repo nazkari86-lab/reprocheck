@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reprocheck.local/schemas/ml-annotations-v1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "corpus_id", "blocks", "evidence_pairs"],
+  "properties": {
+    "schema_version": {"const": "reprocheck.ml-annotations.v1"},
+    "corpus_id": {"type": "string", "minLength": 1},
+    "blocks": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/block"}},
+    "evidence_pairs": {"type": "array", "items": {"$ref": "#/$defs/evidence_pair"}}
+  },
+  "$defs": {
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "model": {"type": "string", "minLength": 1},
+        "dataset": {"type": "string", "minLength": 1},
+        "split": {"type": "string", "minLength": 1},
+        "task": {"type": "string", "minLength": 1},
+        "experiment": {"type": "string", "minLength": 1},
+        "run": {"type": "string", "minLength": 1},
+        "variant": {"type": "string", "minLength": 1}
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id", "metric", "value", "unit", "metric_span", "value_span", "context"
+      ],
+      "properties": {
+        "claim_id": {"type": "string", "minLength": 1},
+        "metric": {"type": "string", "minLength": 1},
+        "value": {"type": "number"},
+        "unit": {"enum": ["scalar", "percent"]},
+        "metric_span": {"$ref": "#/$defs/span"},
+        "value_span": {"$ref": "#/$defs/span"},
+        "context": {"$ref": "#/$defs/context"}
+      }
+    },
+    "span": {
+      "type": "array",
+      "prefixItems": [
+        {"type": "integer", "minimum": 0},
+        {"type": "integer", "minimum": 1}
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "block_id", "repository_id", "artifact_id", "source_start", "source_end",
+        "raw_text", "normalized_text", "block_type", "language", "lineage_id",
+        "contains_eligible_claim", "review_status", "claims"
+      ],
+      "properties": {
+        "block_id": {"type": "string", "minLength": 1},
+        "repository_id": {"type": "string", "minLength": 1},
+        "artifact_id": {"type": "string", "minLength": 1},
+        "source_start": {"type": "integer", "minimum": 0},
+        "source_end": {"type": "integer", "minimum": 1},
+        "raw_text": {"type": "string", "minLength": 1},
+        "normalized_text": {"type": "string", "minLength": 1},
+        "block_type": {"enum": ["prose", "table_row", "json_path", "notebook_cell", "other"]},
+        "language": {"type": "string", "minLength": 2},
+        "lineage_id": {"type": "string", "minLength": 1},
+        "contains_eligible_claim": {"type": "boolean"},
+        "review_status": {"enum": ["primary_only", "agreed", "adjudicated", "unresolved"]},
+        "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}}
+      }
+    },
+    "evidence_pair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim_id", "repository_id", "artifact_id", "label", "review_status"],
+      "properties": {
+        "claim_id": {"type": "string", "minLength": 1},
+        "repository_id": {"type": "string", "minLength": 1},
+        "artifact_id": {"type": "string", "minLength": 1},
+        "label": {"enum": ["compatible", "incompatible"]},
+        "review_status": {"enum": ["agreed", "adjudicated", "unresolved"]}
+      }
+    }
+  }
+}

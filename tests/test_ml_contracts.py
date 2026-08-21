@@ -43,6 +43,7 @@ def test_claim_tuple_binds_values_and_context_to_source() -> None:
         ({"metric_span": (8, 0)}, "metric_span"),
         ({"value_span": (17, 99)}, "value_span"),
         ({"value_span": (0, 8)}, "numeric source"),
+        ({"value": 0.42}, "does not match"),
         ({"context": {"owner": "secret"}}, "unsupported context"),
         ({"context": {"split": "  "}}, "non-empty"),
     ],
@@ -121,4 +122,3 @@ def test_contract_json_is_canonical_and_non_finite_safe() -> None:
     assert json.loads(first)["claim"]["claim_id"] == "claim-001"
     with pytest.raises(ValueError, match="finite"):
         canonical_contract_json({"bad": float("inf")})
-

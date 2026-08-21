@@ -47,6 +47,18 @@ def _validate_span(span: tuple[int, int], source: str, field_name: str) -> None:
         raise ValueError(f"{field_name} must be a valid non-empty source span")
 
 
+def _source_number(value: str) -> float:
+    token = value.strip().replace("−", "-").removesuffix("%").strip()
+    if "," in token and "." in token:
+        token = token.replace(",", "")
+    elif "," in token:
+        if re.fullmatch(r"[+\-]?\d{1,3}(?:,\d{3})+", token):
+            token = token.replace(",", "")
+        else:
+            token = token.replace(",", ".")
+    return float(token)
+
+
 @dataclass(frozen=True)
 class MLClaimTuple:
     claim_id: str
@@ -66,12 +78,21 @@ class MLClaimTuple:
             raise ValueError("claim value must be finite")
         if self.unit not in {"scalar", "percent"}:
             raise ValueError("claim unit must be scalar or percent")
+        object.__setattr__(self, "metric_span", tuple(self.metric_span))
+        object.__setattr__(self, "value_span", tuple(self.value_span))
         _validate_span(self.metric_span, self.source_text, "metric_span")
         _validate_span(self.value_span, self.source_text, "value_span")
         if not self.metric_text.strip():
             raise ValueError("metric_span must bind non-empty source text")
         if not _SOURCE_NUMBER.fullmatch(self.value_text.strip()):
             raise ValueError("value_span must bind a numeric source token")
+        source_value = _source_number(self.value_text)
+        normalized_percent = source_value / 100
+        if not math.isclose(source_value, self.value, rel_tol=1e-12, abs_tol=1e-12) and not (
+            (self.value_text.strip().endswith("%") or self.unit == "percent")
+            and math.isclose(normalized_percent, self.value, rel_tol=1e-12, abs_tol=1e-12)
+        ):
+            raise ValueError("claim value does not match its numeric source span")
         object.__setattr__(self, "context", _normalize_context(self.context))
 
     @property
@@ -110,6 +131,8 @@ class EvidenceCandidate:
             raise ValueError("evidence value must be finite")
         _require_probability(self.rank_score, "rank_score")
         _require_probability(self.rank_margin, "rank_margin")
+        if not isinstance(self.integrity_verified, bool):
+            raise ValueError("integrity_verified must be boolean")
         object.__setattr__(self, "context", _normalize_context(self.context))
 
 
@@ -129,6 +152,8 @@ class ModelScores:
             "out_of_distribution_score",
         ):
             _require_probability(float(getattr(self, field_name)), field_name)
+        if not isinstance(self.rule_agreement, bool):
+            raise ValueError("rule_agreement must be boolean")
 
 
 @dataclass(frozen=True)
@@ -208,4 +233,3 @@ def canonical_contract_json(value: Any) -> str:
         separators=(",", ":"),
         allow_nan=False,
     )
-
