@@ -48,3 +48,10 @@ baseline reached `1.000` on the constructed task. This is a useful negative resu
 verifies the training pipeline while showing that the current silver task is too easy to
 demonstrate an ML advantage. See `silver-experiment-report-v1.md`. Human-gold performance
 is still unknown.
+
+A second preregistered mechanism experiment tested single-number substitutions while
+holding the surrounding evidence text nearly constant. On 150 balanced test pairs from
+unseen owners, the hybrid numeric-consistency model reached F1 `0.933` and AUROC `0.960`,
+versus F1 `0.631` / AUROC `0.496` for text-only ML. This supports the hybrid architecture
+but remains a constructed mutation result, not human-gold accuracy. See
+`mutation-experiment-report-v2.md`.
