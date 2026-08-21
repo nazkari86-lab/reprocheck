@@ -51,7 +51,9 @@ def test_shared_lineage_is_atomic() -> None:
         for split, repository_ids in result["splits"].items()
         for repository_id in repository_ids
     }
-    assert locations[repositories[0]["repository_id"]] == locations[repositories[1]["repository_id"]]
+    assert (
+        locations[repositories[0]["repository_id"]] == locations[repositories[1]["repository_id"]]
+    )
 
 
 def test_split_rejects_prospective_owner_overlap_and_infeasible_domains() -> None:
@@ -68,7 +70,11 @@ def test_split_rejects_prospective_owner_overlap_and_infeasible_domains() -> Non
     else:
         raise AssertionError("prospective owner overlap must fail")
 
-    reduced = [repo for repo in repositories if repo["domain"] != "nlp" or repo["repository_id"].endswith(("0", "1"))]
+    reduced = [
+        repo
+        for repo in repositories
+        if repo["domain"] != "nlp" or repo["repository_id"].endswith(("0", "1"))
+    ]
     reduced_ids = {repo["repository_id"] for repo in reduced}
     try:
         build_owner_disjoint_split(
@@ -102,4 +108,3 @@ def test_cross_split_leakage_reports_exact_and_near_duplicates() -> None:
     near = cross_split_leakage(blocks, split, near_threshold=0.90)
     assert near["near_pair_count"] >= 1
     assert near["status"] == "leakage_detected"
-

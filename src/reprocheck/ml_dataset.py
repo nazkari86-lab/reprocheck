@@ -72,9 +72,7 @@ def _normalize_text(value: str) -> str:
     return re.sub(r"\s+", " ", unicodedata.normalize("NFKC", value).strip()).casefold()
 
 
-def load_ml_dataset(
-    corpus_path: Path, annotations_path: Path, *, sources_root: Path
-) -> MLDataset:
+def load_ml_dataset(corpus_path: Path, annotations_path: Path, *, sources_root: Path) -> MLDataset:
     return validate_ml_dataset(
         _load_object(corpus_path, "ML corpus"),
         _load_object(annotations_path, "ML annotations"),

@@ -8,9 +8,7 @@ from types import MappingProxyType
 from typing import Any, Literal, Mapping
 
 
-CONTEXT_FIELDS = frozenset(
-    {"model", "dataset", "split", "task", "experiment", "run", "variant"}
-)
+CONTEXT_FIELDS = frozenset({"model", "dataset", "split", "task", "experiment", "run", "variant"})
 EvidenceGrade = Literal["raw_recomputed", "structured_reported", "text_reported"]
 MLAction = Literal["verify", "review", "abstain"]
 _SOURCE_NUMBER = re.compile(

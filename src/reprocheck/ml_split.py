@@ -43,7 +43,9 @@ def _allocation(group_count: int, ratios: tuple[float, float, float]) -> dict[st
     counts = {name: 1 for name in SPLIT_NAMES}
     targets = {name: group_count * ratio for name, ratio in zip(SPLIT_NAMES, ratios)}
     for _ in range(group_count - 3):
-        selected = max(SPLIT_NAMES, key=lambda name: (targets[name] - counts[name], -SPLIT_NAMES.index(name)))
+        selected = max(
+            SPLIT_NAMES, key=lambda name: (targets[name] - counts[name], -SPLIT_NAMES.index(name))
+        )
         counts[selected] += 1
     return counts
 
@@ -72,12 +74,14 @@ def build_owner_disjoint_split(
     union = _UnionFind(repository_ids)
     lineage_members: dict[str, list[str]] = defaultdict(list)
     for repository in repositories:
-        lineage_members[f"repository:{repository['lineage_id']}"] .append(repository["repository_id"])
+        lineage_members[f"repository:{repository['lineage_id']}"].append(
+            repository["repository_id"]
+        )
     for block in blocks:
         repository_id = block["repository_id"]
         if repository_id not in repository_by_id:
             raise ValueError(f"block references unknown repository: {repository_id}")
-        lineage_members[f"block:{block['lineage_id']}"] .append(repository_id)
+        lineage_members[f"block:{block['lineage_id']}"].append(repository_id)
     for members in lineage_members.values():
         for member in members[1:]:
             union.union(members[0], member)
@@ -162,11 +166,20 @@ def cross_split_leakage(
             for right in members[left_index + 1 :]:
                 if left[0] != right[0]:
                     exact_pairs.append(
-                        {"left_split": left[0], "left_block": left[1], "right_split": right[0], "right_block": right[1]}
+                        {
+                            "left_split": left[0],
+                            "left_block": left[1],
+                            "right_split": right[0],
+                            "right_block": right[1],
+                        }
                     )
 
     near_pairs: list[dict[str, Any]] = []
-    for left_name, right_name in (("train", "validation"), ("train", "test"), ("validation", "test")):
+    for left_name, right_name in (
+        ("train", "validation"),
+        ("train", "test"),
+        ("validation", "test"),
+    ):
         left = texts[left_name]
         right = texts[right_name]
         search = find_text_matches(
@@ -199,4 +212,3 @@ def cross_split_leakage(
         "near_threshold": near_threshold,
         "method": "hybrid_lexical_v1",
     }
-
