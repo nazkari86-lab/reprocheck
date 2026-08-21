@@ -1,8 +1,8 @@
 # ReproCheck-ML benchmark
 
-Status: **protocol and implementation ready; authentic corpus not yet collected; no ML
-performance result exists.** This wording must remain until the registered experiment is
-completed.
+Status: **the registered development corpus has been materialized; independent human
+annotation and all ML performance results remain incomplete.** Do not claim model
+performance until the registered experiment is completed.
 
 The first metadata-only discovery is preserved as an imbalanced pilot and is not the
 confirmatory cohort. See `amendment-001.md`. The replacement v2 discovery is registered
@@ -26,3 +26,16 @@ Workflow:
 
 The scripts are thin, auditable entry points to the tested package functions. See the
 project design document for annotation, review, and reporting details.
+
+## Materialized development corpus
+
+The balanced v2 cohort was materialized on 2026-08-21 after its selection rules and
+transport amendment were published. The immutable result contains 120 repositories
+(40 computer vision, 40 NLP, 40 other ML), 1,007 UTF-8 artifacts, and 13,141,967 bytes.
+Its materialization SHA-256 is
+`521b4b7f2f7c6f4e6560cd9a9139e9fd0ccc780ab6055255136e97d8c77a1475`.
+
+This is an authentic unlabeled corpus, not evidence that the classifier works. Of the
+selected artifacts, 997 are report documents and 10 are structured metric artifacts.
+Every local file is bound to its source repository, frozen commit, blob SHA, byte size,
+and content SHA-256 in `data/materialized-development-v1/materialization.json`.
