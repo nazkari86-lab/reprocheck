@@ -149,3 +149,67 @@ def write_annotation_packets(
         "candidates": mapping["candidate_count"],
         "sampled_negatives": mapping["sampled_negative_count"],
     }
+
+
+def compare_annotation_reviews(
+    first: dict[str, Any], second: dict[str, Any], mapping: dict[str, Any]
+) -> dict[str, Any]:
+    if first.get("mapping_sha256") != second.get("mapping_sha256"):
+        raise ValueError("review packets use different mappings")
+    expected_mapping = hashlib.sha256(canonical_contract_json(mapping).encode()).hexdigest()
+    if first.get("mapping_sha256") != expected_mapping:
+        raise ValueError("review packet mapping digest is invalid")
+    if first.get("reviewer") == second.get("reviewer"):
+        raise ValueError("independent reviews require distinct reviewer identities")
+
+    def indexed(packet: dict[str, Any]) -> dict[str, dict[str, Any]]:
+        rows = packet.get("blocks")
+        if not isinstance(rows, list):
+            raise ValueError("review packet blocks must be an array")
+        result = {str(row.get("blind_id")): row for row in rows if isinstance(row, dict)}
+        if len(result) != len(rows):
+            raise ValueError("review packet contains malformed or duplicate blocks")
+        return result
+
+    left, right = indexed(first), indexed(second)
+    expected = {item["blind_id"] for item in mapping["blocks"]}
+    if set(left) != expected or set(right) != expected:
+        raise ValueError("review packets do not cover the complete mapping")
+    agreements: list[dict[str, Any]] = []
+    disagreements: list[dict[str, Any]] = []
+    for blind_id in sorted(expected):
+        a, b = left[blind_id], right[blind_id]
+        for row in (a, b):
+            if not isinstance(row.get("contains_eligible_claim"), bool):
+                raise ValueError(f"review is incomplete: {blind_id}")
+            if not isinstance(row.get("claims"), list):
+                raise ValueError(f"review claims must be an array: {blind_id}")
+            if bool(row["claims"]) != row["contains_eligible_claim"]:
+                raise ValueError(f"review decision disagrees with claims: {blind_id}")
+        a_label = {"contains_eligible_claim": a["contains_eligible_claim"], "claims": a["claims"]}
+        b_label = {"contains_eligible_claim": b["contains_eligible_claim"], "claims": b["claims"]}
+        if canonical_contract_json(a_label) == canonical_contract_json(b_label):
+            agreements.append({"blind_id": blind_id, **a_label, "review_status": "agreed"})
+        else:
+            disagreements.append(
+                {
+                    "blind_id": blind_id,
+                    "reviewer_a": a_label,
+                    "reviewer_b": b_label,
+                    "adjudicated_label": None,
+                    "adjudicator_notes": "",
+                }
+            )
+    total = len(expected)
+    return {
+        "schema_version": "reprocheck.ml-review-comparison.v1",
+        "mapping_sha256": expected_mapping,
+        "reviewer_a": first["reviewer"],
+        "reviewer_b": second["reviewer"],
+        "block_count": total,
+        "agreement_count": len(agreements),
+        "disagreement_count": len(disagreements),
+        "exact_agreement": len(agreements) / total if total else 0.0,
+        "agreements": agreements,
+        "adjudication_queue": disagreements,
+    }

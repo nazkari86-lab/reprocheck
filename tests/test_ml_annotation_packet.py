@@ -6,7 +6,11 @@ from pathlib import Path
 
 import pytest
 
-from reprocheck.ml_annotation_packet import build_annotation_packets, write_annotation_packets
+from reprocheck.ml_annotation_packet import (
+    build_annotation_packets,
+    compare_annotation_reviews,
+    write_annotation_packets,
+)
 
 
 def _fixture(tmp_path: Path):  # type: ignore[no-untyped-def]
@@ -63,3 +67,61 @@ def test_packet_writer_and_guards(tmp_path: Path) -> None:
     corpus["repositories"][0]["artifacts"][0]["path"] = "../escape"
     with pytest.raises(ValueError, match="unsafe artifact path"):
         build_annotation_packets(corpus, sources_root=tmp_path, seed=1)
+
+
+def test_review_comparison_requires_complete_independent_exact_labels(tmp_path: Path) -> None:
+    corpus, _ = _fixture(tmp_path)
+    a, b, mapping = build_annotation_packets(corpus, sources_root=tmp_path, seed=7)
+    for packet in (a, b):
+        for row in packet["blocks"]:
+            row["contains_eligible_claim"] = False
+    result = compare_annotation_reviews(a, b, mapping)
+    assert result["agreement_count"] == 2
+    assert result["exact_agreement"] == 1
+    b["blocks"][0]["contains_eligible_claim"] = True
+    b["blocks"][0]["claims"] = [{"metric": "accuracy"}]
+    result = compare_annotation_reviews(a, b, mapping)
+    assert result["disagreement_count"] == 1
+    assert result["adjudication_queue"][0]["adjudicated_label"] is None
+
+
+def test_review_comparison_rejects_invalid_packets(tmp_path: Path) -> None:
+    corpus, _ = _fixture(tmp_path)
+    a, b, mapping = build_annotation_packets(corpus, sources_root=tmp_path, seed=7)
+    with pytest.raises(ValueError, match="incomplete"):
+        compare_annotation_reviews(a, b, mapping)
+    b["mapping_sha256"] = "bad"
+    with pytest.raises(ValueError, match="different mappings"):
+        compare_annotation_reviews(a, b, mapping)
+    b["mapping_sha256"] = a["mapping_sha256"]
+    b["reviewer"] = a["reviewer"]
+    with pytest.raises(ValueError, match="distinct reviewer"):
+        compare_annotation_reviews(a, b, mapping)
+    b["reviewer"] = "other"
+    mapping["seed"] = 9
+    with pytest.raises(ValueError, match="digest is invalid"):
+        compare_annotation_reviews(a, b, mapping)
+
+
+@pytest.mark.parametrize(
+    ("mutation", "message"),
+    [
+        (lambda packet: packet.update(blocks=None), "blocks must be an array"),
+        (lambda packet: packet["blocks"].append(packet["blocks"][0]), "duplicate blocks"),
+        (lambda packet: packet["blocks"].pop(), "complete mapping"),
+        (lambda packet: packet["blocks"][0].update(claims=None), "claims must be an array"),
+        (
+            lambda packet: packet["blocks"][0].update(contains_eligible_claim=True),
+            "decision disagrees",
+        ),
+    ],
+)
+def test_review_comparison_packet_structure_guards(tmp_path: Path, mutation, message: str) -> None:  # type: ignore[no-untyped-def]
+    corpus, _ = _fixture(tmp_path)
+    a, b, mapping = build_annotation_packets(corpus, sources_root=tmp_path, seed=7)
+    for packet in (a, b):
+        for row in packet["blocks"]:
+            row["contains_eligible_claim"] = False
+    mutation(b)
+    with pytest.raises(ValueError, match=message):
+        compare_annotation_reviews(a, b, mapping)
