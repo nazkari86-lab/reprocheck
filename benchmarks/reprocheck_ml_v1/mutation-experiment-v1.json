@@ -1,0 +1,13 @@
+{
+  "schema_version": "reprocheck.ml-mutation-experiment-protocol.v1",
+  "status": "registered_not_executed",
+  "seed": 20260822,
+  "task": "detect whether one numeric evidence token was substituted while the surrounding evidence text remained unchanged",
+  "labels": "constructed mechanism labels, not human gold labels",
+  "split": "owner-disjoint, domain-stratified 60/20/20",
+  "models": ["lexical_overlap", "text_only_sparse_logistic", "hybrid_numeric_sparse_logistic"],
+  "calibration": "threshold selected on validation by maximum F1, ties resolved toward higher threshold",
+  "test_policy": "test evaluated once after code and protocol registration",
+  "uncertainty": "1000-sample owner-level bootstrap 95% interval for hybrid F1 and AUROC",
+  "prohibited_claim": "results demonstrate numeric-mutation sensitivity only and are not human-gold accuracy"
+}
