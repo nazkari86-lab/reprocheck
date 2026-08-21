@@ -1,0 +1,16 @@
+{
+  "schema_version": "reprocheck.ml-materialization-rules.v1",
+  "discovery_sha256": "a8df022bd104326ed5bba5e3a9ed6eb5c2f5c7aa2cb2d49a4fd828cf22cfc960",
+  "maximum_blob_bytes": 2097152,
+  "maximum_artifacts_per_repository": 12,
+  "maximum_total_bytes": 157286400,
+  "allowed_extensions": [".csv", ".html", ".ipynb", ".json", ".md", ".rst", ".txt"],
+  "report_basenames": ["readme", "model-card", "model_card", "report", "results", "evaluation", "eval", "benchmark"],
+  "evidence_terms": ["metric", "metrics", "result", "results", "evaluation", "eval", "benchmark", "prediction", "predictions", "score", "scores"],
+  "preferred_directories": ["benchmarks", "docs", "documentation", "evaluation", "examples", "results"],
+  "excluded_directories": [".git", ".github", ".venv", "build", "dist", "node_modules", "site-packages", "vendor"],
+  "require_complete_git_tree": true,
+  "require_utf8": true,
+  "require_report_artifact": true,
+  "selection_boundary": "Paths and metadata only; file contents cannot influence selection order."
+}
