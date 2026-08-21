@@ -7,6 +7,7 @@ from typing import Any, Callable
 from .ml_baselines import predict_claim_probability, train_sparse_logistic
 from .ml_contracts import canonical_contract_json
 from .ml_extraction import enumerate_numeric_spans
+from .ml_features import normalize_ml_text
 from .ml_silver_experiment import _best_threshold, _bootstrap, _metrics, lexical_overlap
 from .ml_split import build_owner_disjoint_split
 
@@ -18,6 +19,15 @@ def _numbers(text: str) -> tuple[str, ...]:
 def numeric_consistency(claim: str, evidence: str) -> float:
     claim_numbers, evidence_numbers = set(_numbers(claim)), set(_numbers(evidence))
     return len(claim_numbers & evidence_numbers) / len(claim_numbers) if claim_numbers else 0.0
+
+
+def _consistency_feature(claim: str, evidence: str) -> str:
+    score = numeric_consistency(claim, evidence)
+    if score == 1:
+        return "numeric_consistency_full"
+    if score == 0:
+        return "numeric_consistency_none"
+    return "numeric_consistency_partial"
 
 
 def build_numeric_mutation_pairs(
@@ -94,7 +104,7 @@ def run_numeric_mutation_experiment(
     formats: dict[str, Callable[[dict[str, Any]], str]] = {
         "text_only": lambda row: f"claim: {row['claim_text']} evidence: {row['evidence_text']}",
         "hybrid_numeric": lambda row: (
-            f"numeric-consistency-{round(numeric_consistency(row['claim_text'], row['evidence_text']) * 10)} "
+            f"{_consistency_feature(row['claim_text'], row['evidence_text'])} "
             f"claim: {row['claim_text']} evidence: {row['evidence_text']}"
         ),
     }
@@ -139,10 +149,16 @@ def run_numeric_mutation_experiment(
             )
             hybrid_model = model.to_dict()
     validation = [row for row in rows if row["split"] == "validation"]
-    validation_scores = [lexical_overlap(row["claim_text"], row["evidence_text"]) for row in validation]
+    validation_scores = [
+        lexical_overlap(normalize_ml_text(row["claim_text"]), normalize_ml_text(row["evidence_text"]))
+        for row in validation
+    ]
     threshold = _best_threshold([bool(row["label"]) for row in validation], validation_scores)
     test = [row for row in rows if row["split"] == "test"]
-    test_scores = [lexical_overlap(row["claim_text"], row["evidence_text"]) for row in test]
+    test_scores = [
+        lexical_overlap(normalize_ml_text(row["claim_text"]), normalize_ml_text(row["evidence_text"]))
+        for row in test
+    ]
     results["lexical_overlap"] = {
         "validation": _metrics([bool(row["label"]) for row in validation], validation_scores, threshold),
         "test": _metrics([bool(row["label"]) for row in test], test_scores, threshold),

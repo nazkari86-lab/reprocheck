@@ -39,3 +39,12 @@ This is an authentic unlabeled corpus, not evidence that the classifier works. O
 selected artifacts, 997 are report documents and 10 are structured metric artifacts.
 Every local file is bound to its source repository, frozen commit, blob SHA, byte size,
 and content SHA-256 in `data/materialized-development-v1/materialization.json`.
+
+## Auxiliary ML result
+
+A preregistered owner-disjoint silver experiment has now been completed. The full-pair
+sparse logistic model reached test F1 `0.712` and AUROC `0.845`, but a lexical-overlap
+baseline reached `1.000` on the constructed task. This is a useful negative result: it
+verifies the training pipeline while showing that the current silver task is too easy to
+demonstrate an ML advantage. See `silver-experiment-report-v1.md`. Human-gold performance
+is still unknown.

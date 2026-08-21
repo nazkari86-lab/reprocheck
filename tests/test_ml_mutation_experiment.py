@@ -55,6 +55,7 @@ def test_mutation_experiment_trains_and_reports_hybrid_ablation() -> None:
     assert report["status"] == "auxiliary_constructed_not_human_gold"
     assert set(report["results"]) == {"text_only", "hybrid_numeric", "lexical_overlap"}
     assert report["results"]["hybrid_numeric"]["test_owner_bootstrap_95"]["samples"] == 20
+    assert report["results"]["hybrid_numeric"]["test"]["f1"] > report["results"]["text_only"]["test"]["f1"]
     assert len(model["model_sha256"]) == 64
 
 

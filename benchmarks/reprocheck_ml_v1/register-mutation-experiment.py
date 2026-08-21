@@ -8,7 +8,8 @@ from reprocheck.ml_registration import register_ml_protocol
 
 ROOT = Path(__file__).resolve().parents[2]
 FILES = [
-    "benchmarks/reprocheck_ml_v1/mutation-experiment-v1.json",
+    "benchmarks/reprocheck_ml_v1/mutation-experiment-v2.json",
+    "benchmarks/reprocheck_ml_v1/mutation-amendment-1.md",
     "benchmarks/reprocheck_ml_v1/run-mutation-experiment.py",
     "benchmarks/reprocheck_ml_v1/data/materialized-development-v1/corpus.json",
     "benchmarks/reprocheck_ml_v1/data/annotation-packets-v1/coordinator-mapping.json",

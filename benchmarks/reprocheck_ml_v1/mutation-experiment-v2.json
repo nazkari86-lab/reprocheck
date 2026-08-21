@@ -1,0 +1,13 @@
+{
+  "schema_version": "reprocheck.ml-mutation-experiment-protocol.v2",
+  "status": "registered_not_executed",
+  "seed": 20260823,
+  "supersedes": "reprocheck.ml-mutation-experiment-protocol.v1",
+  "amendment": "mutation-amendment-1.md",
+  "task": "detect whether one numeric evidence token was substituted while surrounding text remained unchanged",
+  "models": ["number-normalized lexical overlap", "text-only sparse logistic", "hybrid sparse logistic with categorical numeric-consistency feature"],
+  "split": "new owner-disjoint domain-stratified 60/20/20 split",
+  "test_policy": "one test execution after v2 registration",
+  "uncertainty": "1000-sample owner-level bootstrap 95% interval",
+  "prohibited_claim": "constructed mechanism sensitivity is not human-gold accuracy"
+}

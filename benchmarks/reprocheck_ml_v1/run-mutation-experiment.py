@@ -16,7 +16,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--corpus", type=Path, required=True)
 parser.add_argument("--mapping", type=Path, required=True)
 parser.add_argument("--output-dir", type=Path, required=True)
-parser.add_argument("--seed", type=int, default=20260822)
+parser.add_argument("--seed", type=int, default=20260823)
 parser.add_argument("--bootstrap-samples", type=int, default=1000)
 args = parser.parse_args()
 if args.output_dir.exists():
