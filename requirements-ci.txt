@@ -6,7 +6,7 @@ httpx==0.28.1
 jinja2==3.1.6
 jsonschema==4.26.0
 pip-audit==2.10.1
-pypdf==6.15.0
+pypdf==6.21.2
 pyright==1.1.411
 pytest==9.1.1
 pytest-cov==7.1.0
