@@ -23,7 +23,7 @@ datasets>=2.14.6
 xgboost
 matplotlib==3.7.4  # TODO: uncap version
 huggingface_hub==0.26.5  # TODO: uncap version
-torch==2.1.2  # TODO: uncap version
+torch==2.13.0  # TODO: uncap version
 torchvision==0.16.2  # TODO: uncap version
 torchaudio==2.1.2  # TODO: uncap version
 timm==0.9.12  # TODO: uncap version
